@@ -2934,7 +2934,6 @@ namespace web_helper
                   "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                   "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                   "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
-                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                   "detail infomation:" + Environment.NewLine +
                    "win".PadRight(10, ' ') + "draw".PadRight(10, ' ') + "lose".PadRight(10, ' ') + Environment.NewLine +
                    doc["win"].ToString().PadRight(10, ' ') + doc["draw"].ToString().PadRight(10, ' ') + doc["lose"].ToString().PadRight(10, ' ') +

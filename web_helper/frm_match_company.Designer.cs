@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_load = new System.Windows.Forms.Button();
             this.btn_compute = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -36,7 +37,6 @@
             this.dgv_company = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.btn_load = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -58,6 +58,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
+            // btn_load
+            // 
+            this.btn_load.Location = new System.Drawing.Point(85, 25);
+            this.btn_load.Name = "btn_load";
+            this.btn_load.Size = new System.Drawing.Size(75, 23);
+            this.btn_load.TabIndex = 2;
+            this.btn_load.Text = "Load";
+            this.btn_load.UseVisualStyleBackColor = true;
+            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
+            // 
             // btn_compute
             // 
             this.btn_compute.Location = new System.Drawing.Point(85, 62);
@@ -66,6 +76,7 @@
             this.btn_compute.TabIndex = 1;
             this.btn_compute.Text = "Compute";
             this.btn_compute.UseVisualStyleBackColor = true;
+            this.btn_compute.Click += new System.EventHandler(this.btn_compute_Click);
             // 
             // checkBox1
             // 
@@ -132,16 +143,6 @@
             this.txt_result.Size = new System.Drawing.Size(880, 578);
             this.txt_result.TabIndex = 0;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
-            // 
-            // btn_load
-            // 
-            this.btn_load.Location = new System.Drawing.Point(85, 25);
-            this.btn_load.Name = "btn_load";
-            this.btn_load.Size = new System.Drawing.Size(75, 23);
-            this.btn_load.TabIndex = 2;
-            this.btn_load.Text = "Load";
-            this.btn_load.UseVisualStyleBackColor = true;
-            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // frm_match_company
             // 
