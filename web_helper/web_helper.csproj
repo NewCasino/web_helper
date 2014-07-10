@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3EA58C41-F095-48B1-A019-60F658EE6F75}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>web_helper</RootNamespace>
+    <AssemblyName>web_helper</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>60B66CB8D72CB7FAEE02F5F35F5329EFD3C97137</ManifestCertificateThumbprint>
+    <ManifestKeyFile>WinCode_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <StartupObject>
+    </StartupObject>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>C:\publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyHook, Version=2.7.4761.0, Culture=neutral, PublicKeyToken=4b580fca19d0b0c5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\system\Desktop\CHM\EasyHook\EasyHook-2.7.4761.0-Binaries\NetFX3.5\EasyHook.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\system\Desktop\HtmlAgilityPack.1.4.6\Net20\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\system\Desktop\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.8.2.34, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\system\Desktop\MongoDB\CSharpDriver-1.8.2\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.8.2.34, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\system\Desktop\MongoDB\CSharpDriver-1.8.2\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frm_match_company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_company.Designer.cs">
+      <DependentUpon>frm_match_company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_url_free_pick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_url_free_pick.Designer.cs">
+      <DependentUpon>frm_url_free_pick.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_code_console.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_code_console.Designer.cs">
+      <DependentUpon>frm_code_console.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_mongo_doc_find.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_mongo_doc_find.Designer.cs">
+      <DependentUpon>frm_mongo_doc_find.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_url_fix_pick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_url_fix_pick.Designer.cs">
+      <DependentUpon>frm_url_fix_pick.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_tool_hex_convert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_tool_hex_convert.designer.cs">
+      <DependentUpon>frm_tool_hex_convert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_html_download_all.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_html_download_all.Designer.cs">
+      <DependentUpon>frm_html_download_all.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_tool_log_monitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_tool_log_monitor.Designer.cs">
+      <DependentUpon>frm_tool_log_monitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_mix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_mix.Designer.cs">
+      <DependentUpon>frm_match_mix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_compute_method.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_compute_method.Designer.cs">
+      <DependentUpon>frm_match_compute_method.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_read_excel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_read_excel.Designer.cs">
+      <DependentUpon>frm_match_read_excel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_request_socket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_request_socket.Designer.cs">
+      <DependentUpon>frm_request_socket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_template_manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_template_manage.Designer.cs">
+      <DependentUpon>frm_template_manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_main_back.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_main_back.Designer.cs">
+      <DependentUpon>frm_main_back.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_url_fix_set.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_url_fix_set.Designer.cs">
+      <DependentUpon>frm_url_fix_set.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_request_web_http_request.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_request_web_http_request.Designer.cs">
+      <DependentUpon>frm_request_web_http_request.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\AutoPickHelper.cs" />
+    <Compile Include="Helper\HtmlHelper.cs" />
+    <Compile Include="Helper\MatchComputeMethod.cs" />
+    <Compile Include="Helper\TemplateHelper_Match.cs" />
+    <Compile Include="Http\HttpSocketHelper.cs" />
+    <Compile Include="Helper\Log.cs" />
+    <Compile Include="Helper\TemplateHelper.cs" />
+    <Compile Include="Helper\JsonBeautify.cs" />
+    <Compile Include="Helper\SQLServerHelper.cs" />
+    <Compile Include="Helper\UrlSelectHelper.cs" />
+    <Compile Include="Http\Proxy.cs" />
+    <Compile Include="Http\Request.cs" />
+    <Compile Include="Http\Response.cs" />
+    <Compile Include="Http\Session.cs" />
+    <Compile Include="Helper\MatchMix.cs" />
+    <Compile Include="Tool\FrmHook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tool\FrmHook.Designer.cs">
+      <DependentUpon>FrmHook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\FrmHtmlAgiligtyPack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tool\FrmHtmlAgiligtyPack.Designer.cs">
+      <DependentUpon>FrmHtmlAgiligtyPack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_html_analyse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_html_analyse.Designer.cs">
+      <DependentUpon>frm_html_analyse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_mongo_operation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_mongo_operation.Designer.cs">
+      <DependentUpon>frm_mongo_operation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_template_operation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_template_operation.Designer.cs">
+      <DependentUpon>frm_template_operation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\FrmMongoDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tool\FrmMongoDB.Designer.cs">
+      <DependentUpon>FrmMongoDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_html_download.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_html_download.Designer.cs">
+      <DependentUpon>frm_html_download.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\FrmThread.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tool\FrmThread.Designer.cs">
+      <DependentUpon>FrmThread.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\MongoHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frm_mongo_doc_find_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_mongo_doc_find_view.Designer.cs">
+      <DependentUpon>frm_mongo_doc_find_view.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frm_match_company.resx">
+      <DependentUpon>frm_match_company.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_url_free_pick.resx">
+      <DependentUpon>frm_url_free_pick.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_code_console.resx">
+      <DependentUpon>frm_code_console.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_mongo_doc_find.resx">
+      <DependentUpon>frm_mongo_doc_find.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_url_fix_pick.resx">
+      <DependentUpon>frm_url_fix_pick.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_tool_hex_convert.resx">
+      <DependentUpon>frm_tool_hex_convert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_html_download_all.resx">
+      <DependentUpon>frm_html_download_all.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_tool_log_monitor.resx">
+      <DependentUpon>frm_tool_log_monitor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_mix.resx">
+      <DependentUpon>frm_match_mix.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_compute_method.resx">
+      <DependentUpon>frm_match_compute_method.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_read_excel.resx">
+      <DependentUpon>frm_match_read_excel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_request_socket.resx">
+      <DependentUpon>frm_request_socket.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_template_manage.resx">
+      <DependentUpon>frm_template_manage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_main_back.resx">
+      <DependentUpon>frm_main_back.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_url_fix_set.resx">
+      <DependentUpon>frm_url_fix_set.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_request_web_http_request.resx">
+      <DependentUpon>frm_request_web_http_request.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tool\FrmHook.resx">
+      <DependentUpon>FrmHook.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tool\FrmHtmlAgiligtyPack.resx">
+      <DependentUpon>FrmHtmlAgiligtyPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_html_analyse.resx">
+      <DependentUpon>frm_html_analyse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_mongo_operation.resx">
+      <DependentUpon>frm_mongo_operation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_template_operation.resx">
+      <DependentUpon>frm_template_operation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tool\FrmMongoDB.resx">
+      <DependentUpon>FrmMongoDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_html_download.resx">
+      <DependentUpon>frm_html_download.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tool\FrmThread.resx">
+      <DependentUpon>FrmThread.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_code_collection.resx">
+      <DependentUpon>frm_code_collection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_main.resx">
+      <DependentUpon>frm_main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="frm_mongo_doc_find_view.resx">
+      <DependentUpon>frm_mongo_doc_find_view.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_url_fix_pick_timing.resx">
+      <DependentUpon>frm_url_fix_pick_timing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Helper\WinAPIHelper.cs" />
+    <Compile Include="frm_code_collection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_code_collection.Designer.cs">
+      <DependentUpon>frm_code_collection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_main.Designer.cs">
+      <DependentUpon>frm_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_url_fix_pick_timing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_url_fix_pick_timing.Designer.cs">
+      <DependentUpon>frm_url_fix_pick_timing.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
