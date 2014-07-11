@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -10,107 +11,156 @@ using MongoDB.Driver;
 class MatchCompany
 {
     static bool is_open_mongo = false;
-    public static string get_min_from(string win, string draw, string lose, int max_count)
+
+
+    public static BsonDocument get_max_from_single_match(string start_time, string host, string client, int max_count)
     {
-        double wdl_w = Convert.ToDouble(win);
-        double wdl_d = Convert.ToDouble(draw);
-        double wdl_l = Convert.ToDouble(lose);
+        string sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        sql = string.Format(sql, start_time, host, client);
+        DataTable dt = SQLServerHelper.get_table(sql);
 
 
-        int[] bids = new int[] { 1, 1, 1 };
-        int[] bids_temp = new int[] { 1, 1, 1 };
+        double[] max = new double[3] { -999999, -999999, -99999 };
+        string[] companys = new string[3] { "", "", "" };
 
-        double[] profits = new double[] { wdl_w, wdl_d, wdl_l };
-        double[] profits_temp = new double[] { wdl_w, wdl_d, wdl_l };
-        for (int step1 = 0; step1 < 3; step1++)
+        for (int i = 0; i < dt.Rows.Count; i++)
         {
-            int step_index = 0;
-            double step_max = -999999999;
-            for (int step2 = 0; step2 < 3; step2++)
-            {
-                if (profits_temp[step2] > step_max)
-                {
-                    step_max = profits_temp[step2];
-                    step_index = step2;
-                }
-            }
-            profits_temp[step_index] = 0;
-            profits[step1] = step_max;
+            double[] input = new double[3]{Convert.ToDouble(dt.Rows[i]["profit_win"].ToString()),
+                                            Convert.ToDouble(dt.Rows[i]["profit_draw"].ToString()),
+                                            Convert.ToDouble(dt.Rows[i]["profit_lose"].ToString())};
+            if (input[0] > max[0]) { max[0] = input[0]; companys[0] = dt.Rows[i]["company"].ToString(); }
+            if (input[1] > max[1]) { max[1] = input[1]; companys[1] = dt.Rows[i]["company"].ToString(); }
+            if (input[2] > max[2]) { max[2] = input[2]; companys[2] = dt.Rows[i]["company"].ToString(); }
         }
 
 
-        DateTime dt_start = DateTime.Now;
-        bids[0] = max_count;
-        bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-        bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
+        BsonDocument doc_max = MatchCompany.get_min(max, 50);
 
 
-        bids_temp[0] = bids[0];
-        bids_temp[1] = bids[1];
-        bids_temp[2] = bids[2];
 
-        //上下调整1
-        double max_persent = -99999;
-        for (int ajust1 = 0; ajust1 < 2; ajust1++)
+        BsonDocument doc = new BsonDocument();
+        doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
+        doc.Add("type", "single-match-max");
+        doc.Add("bid_count", doc_max["bid_count"].ToString());
+        doc.Add("min_value", doc_max["min_value"].ToString());
+        doc.Add("max_value", doc_max["max_value"].ToString());
+
+        BsonArray array_companys = new BsonArray();
+        foreach (string company in companys)
         {
-            for (int ajust2 = 0; ajust2 < 2; ajust2++)
-            {
-
-                int bid0 = bids[0];
-                int bid1 = bids[1] + ajust1;
-                int bid2 = bids[2] + ajust2;
-
-                int total = bid0 + bid1 + bid2;
-                double min_temp = 999999999;
-                if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
-
-
-                if (min_temp / total > max_persent)
-                {
-                    bids_temp[0] = bid0;
-                    bids_temp[1] = bid1;
-                    bids_temp[2] = bid2;
-                }
-            }
+            array_companys.Add(company);
         }
+        doc.Add("companys", array_companys);
 
-        bids[0] = bids_temp[0];
-        bids[1] = bids_temp[1];
-        bids[2] = bids_temp[2];
+        BsonArray array_orign_profits = new BsonArray();
+        foreach (double profit in max)
+        {
+            array_orign_profits.Add(profit.ToString("f2"));
+        }
+        doc.Add("orign_profits", array_orign_profits);
 
+        doc.Add("bids", doc_max["bids"].AsBsonArray);
+        doc.Add("profits", doc_max["profits"].AsBsonArray);
 
-        int bid_total = bids[0] + bids[1] + bids[2];
-        double min = 999999999;
-        double max = -999999999;
-        if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-        if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-        if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-        if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-        if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-        if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
-
-
-        string result = "Min Value:" + min.ToString("f4") + Environment.NewLine +
-                        "Max Value:" + max.ToString("f4") + Environment.NewLine +
-                        "Persent:" + (min / bid_total * 100).ToString("f4") + "%" + Environment.NewLine + Environment.NewLine;
-        return result;
-
+        return doc;
     }
+
+    public static BsonDocument get_max_from_two_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count)
+    {
+        string sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        sql = string.Format(sql, start_time1, host1, client1);
+        DataTable dt1 = SQLServerHelper.get_table(sql);
+
+        sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        sql = string.Format(sql, start_time2, host2, client2);
+        DataTable dt2 = SQLServerHelper.get_table(sql);
+
+
+
+        double[] max = new double[9] { -999999, -999999, -999999, -999999, -999999, -999999, -999999, -999999, -999999 };
+        string[] companys = new string[9] { "", "", "", "", "", "", "", "", "" };
+
+        for (int i = 0; i < dt1.Rows.Count; i++)
+        {
+            int row_no = -1;
+            for (int j = 0; j < dt2.Rows.Count; j++)
+            {
+                if (dt1.Rows[i]["company"].ToString() == dt2.Rows[j]["company"].ToString())
+                {
+                    row_no = j;
+                    break;
+                }
+            }
+
+            if (row_no != -1)
+            {
+                double ww = Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_win"].ToString());
+                double wd = Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_draw"].ToString());
+                double wl = Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_lose"].ToString());
+                double dw = Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_win"].ToString());
+                double dd = Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_draw"].ToString());
+                double dl = Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_lose"].ToString());
+                double lw = Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_win"].ToString());
+                double ld = Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_draw"].ToString());
+                double ll = Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_lose"].ToString());
+
+                if (ww > max[0]) { max[0] = ww; companys[0] = dt1.Rows[i]["company"].ToString(); }
+                if (wd > max[1]) { max[1] = wd; companys[1] = dt1.Rows[i]["company"].ToString(); }
+                if (wl > max[2]) { max[2] = wl; companys[2] = dt1.Rows[i]["company"].ToString(); }
+                if (dw > max[3]) { max[3] = dw; companys[3] = dt1.Rows[i]["company"].ToString(); }
+                if (dd > max[4]) { max[4] = dd; companys[4] = dt1.Rows[i]["company"].ToString(); }
+                if (dl > max[5]) { max[5] = dl; companys[5] = dt1.Rows[i]["company"].ToString(); }
+                if (lw > max[6]) { max[6] = lw; companys[6] = dt1.Rows[i]["company"].ToString(); }
+                if (ld > max[7]) { max[7] = ld; companys[7] = dt1.Rows[i]["company"].ToString(); }
+                if (ll > max[8]) { max[8] = ll; companys[8] = dt1.Rows[i]["company"].ToString(); }
+            }
+        }
+
+
+        BsonDocument doc_max = MatchCompany.get_min(max, 50);
+
+
+
+        BsonDocument doc = new BsonDocument();
+        doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
+        doc.Add("type", "two-match-max");
+        doc.Add("bid_count", doc_max["bid_count"].ToString());
+        doc.Add("min_value", doc_max["min_value"].ToString());
+        doc.Add("max_value", doc_max["max_value"].ToString());
+
+        BsonArray array_companys = new BsonArray();
+        foreach (string company in companys)
+        {
+            array_companys.Add(company);
+        }
+        doc.Add("companys", array_companys);
+
+        BsonArray array_orign_profits = new BsonArray();
+        foreach (double profit in max)
+        {
+            array_orign_profits.Add(profit.ToString("f2"));
+        }
+        doc.Add("orign_profits", array_orign_profits);
+
+        doc.Add("bids", doc_max["bids"].AsBsonArray);
+        doc.Add("profits", doc_max["profits"].AsBsonArray);
+
+        return doc;
+    }
+
     public static BsonDocument get_min(double[] input, int max_count)
     {
         int length = input.Length;
 
 
-        int[] bids = new int[length]; 
-        double[] profits = new double[31];
-        double[] profits_temp = new double[31];
+        int[] bids = new int[length];
+        double[] profits = new double[length];
+        double[] profits_temp = new double[length];
 
 
         for (int i = 0; i < length; i++)
         {
-            bids[i] = 1; 
+            bids[i] = 1;
             profits[i] = input[i];
             profits_temp[i] = input[i];
         }
@@ -138,7 +188,7 @@ class MatchCompany
         for (int i = 1; i < length; i++)
         {
             bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
-        }  
+        }
 
 
         //total
@@ -150,7 +200,7 @@ class MatchCompany
 
         //compute min and max
         double min = 999999999;
-        double max = -999999999; 
+        double max = -999999999;
         for (int i = 0; i < length; i++)
         {
             if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
@@ -159,8 +209,138 @@ class MatchCompany
 
 
         BsonDocument doc = new BsonDocument();
+        doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
+        doc.Add("type", "vary");
+        doc.Add("bid_count", bid_total.ToString());
+        doc.Add("min_value", min.ToString("f4"));
+        doc.Add("max_value", max.ToString("f4"));
+
+        BsonArray array_profits = new BsonArray();
+        foreach (double profit in profits)
+        {
+            array_profits.Add(profit.ToString("f2"));
+        }
+
+        BsonArray array_bids = new BsonArray();
+        foreach (int bid in bids)
+        {
+            array_bids.Add(bid.ToString());
+        }
+
+        doc.Add("bids", array_bids);
+        doc.Add("profits", array_profits);
+
+        if (is_open_mongo) MongoHelper.insert_bson("match", doc);
+
         return doc;
 
+    }
+    public static string get_info_from_doc(BsonDocument doc)
+    {
+
+        string result = "";
+        switch (doc["type"].ToString())
+        {
+            case "vary":
+                result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
+                 "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
+                 "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
+                 "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
+
+                result = result + "profits".PadRight(10, ' ');
+                foreach (string value in doc["profits"].AsBsonArray)
+                {
+                    result = result + value.PadRight(15, ' ');
+                }
+                result = result + Environment.NewLine;
+
+
+                result = result + "bids".PadRight(10, ' ');
+                foreach (string value in doc["bids"].AsBsonArray)
+                {
+                    result = result + value.PadRight(15, ' ');
+                }
+                result = result + Environment.NewLine;
+
+                break;
+
+            case "single-match-max":
+                result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
+                 "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
+                 "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
+                 "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
+
+                result = result + "companys".PadRight(10, ' ');
+                foreach (string value in doc["companys"].AsBsonArray)
+                {
+                    result = result + value.PadRight(15, ' ');
+                }
+                result = result + Environment.NewLine;
+
+
+                result = result + "orign".PadRight(10, ' ');
+                foreach (string value in doc["orign_profits"].AsBsonArray)
+                {
+                    result = result + value.PadRight(15, ' ');
+                }
+                result = result + Environment.NewLine;
+
+                result = result + "profits".PadRight(10, ' ');
+                foreach (string value in doc["profits"].AsBsonArray)
+                {
+                    result = result + value.PadRight(15, ' ');
+                }
+                result = result + Environment.NewLine;
+
+
+                result = result + "bids".PadRight(10, ' ');
+                foreach (string value in doc["bids"].AsBsonArray)
+                {
+                    result = result + value.PadRight(15, ' ');
+                }
+                result = result + Environment.NewLine;
+                break;
+            case "two-match-max":
+                result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
+                 "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
+                 "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
+                 "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
+
+                result = result + "companys".PadRight(10, ' ');
+                foreach (string value in doc["companys"].AsBsonArray)
+                {
+                    result = result + value.PadRight(12, ' ');
+                }
+                result = result + Environment.NewLine;
+
+
+                result = result + "orign".PadRight(10, ' ');
+                foreach (string value in doc["orign_profits"].AsBsonArray)
+                {
+                    result = result + value.PadRight(12, ' ');
+                }
+                result = result + Environment.NewLine;
+
+                result = result + "profits".PadRight(10, ' ');
+                foreach (string value in doc["profits"].AsBsonArray)
+                {
+                    result = result + value.PadRight(12, ' ');
+                }
+                result = result + Environment.NewLine;
+
+
+                result = result + "bids".PadRight(10, ' ');
+                foreach (string value in doc["bids"].AsBsonArray)
+                {
+                    result = result + value.PadRight(12, ' ');
+                }
+                result = result + Environment.NewLine;
+
+                break;
+            default:
+                break;
+        }
+        return result;
     }
 
 }

@@ -26,7 +26,7 @@ namespace web_helper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_match_read_excel()); 
+            Application.Run(new  frm_match_company()); 
         }
     }
 }

@@ -23,43 +23,43 @@ namespace web_helper
         } 
         private void btn_read_Click(object sender, EventArgs e)
         {
-            table = get_table_from_excel(@"C:/result.xls", 1);
+            table = get_table_from_excel(@"C:/data/europe.xls", 2);
             this.dgv_result.DataSource = table;
         } 
         private void btn_read_to_db_Click(object sender, EventArgs e)
         {
             string sql = "";
             DataTable dt_temp = new DataTable();
-
-            foreach (DataRow row in table.Rows)
+            dt_temp = table;
+            for(int i=5;i<dt_temp.Rows.Count;i++)
             {
                 string start_time = "2014-09-02 00:00:00";
-                string host = "B1";
-                string client = "B2";
-                string company = row[0].ToString();
+                string host = "A1";
+                string client = "A2";
+                string company = dt_temp.Rows[i][0].ToString();
                 string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                string profit_win = (string.IsNullOrEmpty(row[1].ToString())) ? "" : Convert.ToDouble(row[1].ToString()).ToString("f2");
-                string profit_draw = (string.IsNullOrEmpty(row[2].ToString())) ? "" : Convert.ToDouble(row[2].ToString()).ToString("f2");
-                string profit_lose = (string.IsNullOrEmpty(row[3].ToString())) ? "" : Convert.ToDouble(row[3].ToString()).ToString("f2");
-                string persent_win = (string.IsNullOrEmpty(row[4].ToString())) ? "" : Convert.ToDouble(row[4].ToString()).ToString("f2");
-                string persent_draw = (string.IsNullOrEmpty(row[5].ToString())) ? "" : Convert.ToDouble(row[5].ToString()).ToString("f2");
-                string persent_lose = (string.IsNullOrEmpty(row[6].ToString())) ? "" : Convert.ToDouble(row[6].ToString()).ToString("f2");
-                string persent_return = (string.IsNullOrEmpty(row[7].ToString())) ? "" : Convert.ToDouble(row[7].ToString()).ToString("f2");
-                string kelly_win = (string.IsNullOrEmpty(row[8].ToString())) ? "" : Convert.ToDouble(row[8].ToString()).ToString("f2");
-                string kelly_draw = (string.IsNullOrEmpty(row[9].ToString())) ? "" : Convert.ToDouble(row[9].ToString()).ToString("f2");
-                string kelly_lose = (string.IsNullOrEmpty(row[10].ToString())) ? "" : Convert.ToDouble(row[10].ToString()).ToString("f2");
+                string profit_win = (string.IsNullOrEmpty(dt_temp.Rows[i][1].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][1].ToString()).ToString("f2");
+                string profit_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][2].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][2].ToString()).ToString("f2");
+                string profit_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][3].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][3].ToString()).ToString("f2");
+                string persent_win = (string.IsNullOrEmpty(dt_temp.Rows[i][4].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][4].ToString()).ToString("f2");
+                string persent_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][5].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][5].ToString()).ToString("f2");
+                string persent_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][6].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][6].ToString()).ToString("f2");
+                string persent_return = (string.IsNullOrEmpty(dt_temp.Rows[i][7].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][7].ToString()).ToString("f2");
+                string kelly_win = (string.IsNullOrEmpty(dt_temp.Rows[i][8].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][8].ToString()).ToString("f2");
+                string kelly_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][9].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][9].ToString()).ToString("f2");
+                string kelly_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][10].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][10].ToString()).ToString("f2");
 
-                string start_profit_win = (string.IsNullOrEmpty(row[11].ToString())) ? "" : Convert.ToDouble(row[11].ToString()).ToString("f2");
-                string start_profit_draw = (string.IsNullOrEmpty(row[12].ToString())) ? "" : Convert.ToDouble(row[12].ToString()).ToString("f2");
-                string start_profit_lose = (string.IsNullOrEmpty(row[13].ToString())) ? "" : Convert.ToDouble(row[13].ToString()).ToString("f2");
-                string start_persent_win = (string.IsNullOrEmpty(row[14].ToString())) ? "" : Convert.ToDouble(row[14].ToString()).ToString("f2");
-                string start_persent_draw = (string.IsNullOrEmpty(row[15].ToString())) ? "" : Convert.ToDouble(row[15].ToString()).ToString("f2");
-                string start_persent_lose = (string.IsNullOrEmpty(row[16].ToString())) ? "" : Convert.ToDouble(row[16].ToString()).ToString("f2");
-                string start_persent_return = (string.IsNullOrEmpty(row[17].ToString())) ? "" : Convert.ToDouble(row[17].ToString()).ToString("f2");
-                string start_kelly_win = (string.IsNullOrEmpty(row[18].ToString())) ? "" : Convert.ToDouble(row[18].ToString()).ToString("f2");
-                string start_kelly_draw = (string.IsNullOrEmpty(row[19].ToString())) ? "" : Convert.ToDouble(row[19].ToString()).ToString("f2");
-                string start_kelly_lose = (string.IsNullOrEmpty(row[20].ToString())) ? "" : Convert.ToDouble(row[20].ToString()).ToString("f2");
+                string start_profit_win = (string.IsNullOrEmpty(dt_temp.Rows[i][11].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][11].ToString()).ToString("f2");
+                string start_profit_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][12].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][12].ToString()).ToString("f2");
+                string start_profit_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][13].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][13].ToString()).ToString("f2");
+                string start_persent_win = (string.IsNullOrEmpty(dt_temp.Rows[i][14].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][14].ToString()).ToString("f2");
+                string start_persent_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][15].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][15].ToString()).ToString("f2");
+                string start_persent_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][16].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][16].ToString()).ToString("f2");
+                string start_persent_return = (string.IsNullOrEmpty(dt_temp.Rows[i][17].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][17].ToString()).ToString("f2");
+                string start_kelly_win = (string.IsNullOrEmpty(dt_temp.Rows[i][18].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][18].ToString()).ToString("f2");
+                string start_kelly_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][19].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][19].ToString()).ToString("f2");
+                string start_kelly_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][20].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][20].ToString()).ToString("f2");
 
 
                 //insert into table europe
