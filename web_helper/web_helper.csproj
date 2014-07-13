@@ -59,6 +59,24 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EasyHook, Version=2.7.4761.0, Culture=neutral, PublicKeyToken=4b580fca19d0b0c5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -104,6 +122,12 @@
     </Compile>
     <Compile Include="frm_match_company.Designer.cs">
       <DependentUpon>frm_match_company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_down_excel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_down_excel.Designer.cs">
+      <DependentUpon>frm_match_down_excel.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_url_free_pick.cs">
       <SubType>Form</SubType>
@@ -271,6 +295,9 @@
     <EmbeddedResource Include="frm_match_company.resx">
       <DependentUpon>frm_match_company.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_down_excel.resx">
+      <DependentUpon>frm_match_down_excel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_url_free_pick.resx">
       <DependentUpon>frm_url_free_pick.cs</DependentUpon>

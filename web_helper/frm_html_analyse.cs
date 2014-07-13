@@ -24,7 +24,7 @@ using System.Net;
 
             if (cb_load_from_html_source.Checked == false)
             {
-                this.txt_html_source.Text = System.Text.Encoding.UTF8.GetString(client.DownloadData(this.txt_url.Text));
+                this.txt_html_source.Text = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(this.txt_url.Text));
             }
            
             doc.LoadHtml(this.txt_html_source.Text);

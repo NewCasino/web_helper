@@ -27,9 +27,10 @@ namespace web_helper
         {
 
             string sql = "";
-            sql = " select company,profit_win,profit_draw,profit_lose," +
+            sql = " select host,client,company,profit_win,profit_draw,profit_lose," +
                   " persent_win,persent_draw,persent_lose,persent_return" +
-                  " from europe_new order by start_time,host,client,id";
+                  " from europe_new  where start_time>'{0}' order by start_time,host,client,id ";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             dt_all = SQLServerHelper.get_table(sql);
             this.dgv_all.DataSource = dt_all;
 
@@ -41,15 +42,18 @@ namespace web_helper
             col.DefaultValue = false;
             dt_match.Columns.Add(col);
             dt_match.Columns.Add("start_time");
+            dt_match.Columns.Add("type");
             dt_match.Columns.Add("host");
             dt_match.Columns.Add("client");
-            sql = " select distinct start_time,host,client" +
-                 " from europe_new order by start_time,host,client";
+            sql = " select distinct start_time,type,host,client" +
+                 " from europe_new where start_time>'{0}'  order by start_time,host,client";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_match.Rows)
             {
                 DataRow row_new = dt_match.NewRow();
                 row_new["start_time"] = row["start_time"].ToString();
+                row_new["type"] = row["type"].ToString();
                 row_new["host"] = row["host"].ToString();
                 row_new["client"] = row["client"].ToString();
                 dt_match.Rows.Add(row_new);
@@ -66,7 +70,8 @@ namespace web_helper
             dt_company.Columns.Add(col1);
             dt_company.Columns.Add("company");
             sql = " select distinct  company" +
-                 " from europe_new";
+                 " from europe_new where start_time>'{0}'";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_company = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_company.Rows)
             {
@@ -156,6 +161,45 @@ namespace web_helper
             sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
+        }
+
+        private void btn_match_all_Click(object sender, EventArgs e)
+        {
+ 
+            for (int i = 0; i < dgv_match.Rows.Count-1; i++)
+            {
+                dgv_match.Rows[i].Cells["selected"].Value = true;
+            }
+        }
+
+        private void btn_match_reverse_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgv_match.Rows.Count-1; i++)
+            {
+                if (Convert.ToBoolean(dgv_match.Rows[i].Cells["selected"].Value) == true)
+                {
+                    dgv_match.Rows[i].Cells["selected"].Value = false;
+                }
+                else
+                {
+                    dgv_match.Rows[i].Cells["selected"].Value = true;
+                }
+            }
+        }
+
+        private void dgv_match_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgv_match.Columns[0].Width = 50;
+            dgv_match.Columns[1].Width = 140;
+            dgv_match.Columns[2].Width = 80;
+            dgv_match.Columns[3].Width = 80;
+            dgv_match.Columns[4].Width = 80;
+        }
+
+        private void dgv_company_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgv_company.Columns[0].Width = 50;
+            dgv_company.Columns[1].Width = 250;
         }
 
 
