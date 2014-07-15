@@ -13,11 +13,11 @@ using MongoDB.Driver;
 
 namespace web_helper
 {
-    public partial class frm_match_compute_method : Form
+    public partial class frm_match_compute_method_analyse : Form
     {
         DataTable dt_condition = new DataTable();
         DataTable dt_group = new DataTable();
-        public frm_match_compute_method()
+        public frm_match_compute_method_analyse()
         {
             InitializeComponent();
         }

@@ -12,10 +12,10 @@ using MongoDB.Driver;
 
 namespace web_helper
 {
-    public partial class frm_match_company : Form
+    public partial class frm_match_compute_by_company : Form
     {
         DataTable dt_all = new DataTable();
-        public frm_match_company()
+        public frm_match_compute_by_company()
         {
             InitializeComponent();
         }

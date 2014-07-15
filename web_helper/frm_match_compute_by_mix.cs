@@ -16,7 +16,7 @@ namespace web_helper
 {
 
 
-    public partial class frm_match_mix : Form
+    public partial class frm_match_compute_by_mix : Form
     {
 
         string sql = "";
@@ -24,7 +24,7 @@ namespace web_helper
         BsonDocument match1;
         BsonDocument match2;
 
-        public frm_match_mix()
+        public frm_match_compute_by_mix()
         {
             InitializeComponent();
         }

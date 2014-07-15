@@ -117,11 +117,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frm_match_company.cs">
+    <Compile Include="frm_match_bar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_match_company.Designer.cs">
-      <DependentUpon>frm_match_company.cs</DependentUpon>
+    <Compile Include="frm_match_bar.Designer.cs">
+      <DependentUpon>frm_match_bar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_company_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_company_info.Designer.cs">
+      <DependentUpon>frm_match_company_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_compute_by_company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_compute_by_company.Designer.cs">
+      <DependentUpon>frm_match_compute_by_company.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_match_down_excel.cs">
       <SubType>Form</SubType>
@@ -171,17 +183,17 @@
     <Compile Include="frm_tool_log_monitor.Designer.cs">
       <DependentUpon>frm_tool_log_monitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_match_mix.cs">
+    <Compile Include="frm_match_compute_by_mix.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_match_mix.Designer.cs">
-      <DependentUpon>frm_match_mix.cs</DependentUpon>
+    <Compile Include="frm_match_compute_by_mix.Designer.cs">
+      <DependentUpon>frm_match_compute_by_mix.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_match_compute_method.cs">
+    <Compile Include="frm_match_compute_method_analyse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_match_compute_method.Designer.cs">
-      <DependentUpon>frm_match_compute_method.cs</DependentUpon>
+    <Compile Include="frm_match_compute_method_analyse.Designer.cs">
+      <DependentUpon>frm_match_compute_method_analyse.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_match_read_excel.cs">
       <SubType>Form</SubType>
@@ -292,8 +304,16 @@
     <Compile Include="frm_mongo_doc_find_view.Designer.cs">
       <DependentUpon>frm_mongo_doc_find_view.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frm_match_company.resx">
-      <DependentUpon>frm_match_company.cs</DependentUpon>
+    <EmbeddedResource Include="frm_match_bar.resx">
+      <DependentUpon>frm_match_bar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_company_info.resx">
+      <DependentUpon>frm_match_company_info.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_compute_by_company.resx">
+      <DependentUpon>frm_match_compute_by_company.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_match_down_excel.resx">
@@ -327,12 +347,12 @@
       <DependentUpon>frm_tool_log_monitor.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_match_mix.resx">
-      <DependentUpon>frm_match_mix.cs</DependentUpon>
+    <EmbeddedResource Include="frm_match_compute_by_mix.resx">
+      <DependentUpon>frm_match_compute_by_mix.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_match_compute_method.resx">
-      <DependentUpon>frm_match_compute_method.cs</DependentUpon>
+    <EmbeddedResource Include="frm_match_compute_method_analyse.resx">
+      <DependentUpon>frm_match_compute_method_analyse.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_match_read_excel.resx">

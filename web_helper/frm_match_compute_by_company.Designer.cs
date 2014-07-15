@@ -1,6 +1,6 @@
 ﻿namespace web_helper
 {
-    partial class frm_match_company
+    partial class frm_match_compute_by_company
     {
         /// <summary>
         /// Required designer variable.

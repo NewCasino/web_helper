@@ -1,6 +1,6 @@
 ﻿namespace web_helper
 {
-    partial class frm_match_mix
+    partial class frm_match_compute_by_mix
     {
         /// <summary>
         /// Required designer variable.

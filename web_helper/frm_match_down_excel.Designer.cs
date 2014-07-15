@@ -29,45 +29,50 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_result = new System.Windows.Forms.TextBox();
             this.btn_down_excel = new System.Windows.Forms.Button();
+            this.txt_result = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btn_down_excel);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(821, 77);
+            this.groupBox1.Size = new System.Drawing.Size(821, 83);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
-            // txt_result
-            // 
-            this.txt_result.Location = new System.Drawing.Point(3, 86);
-            this.txt_result.Multiline = true;
-            this.txt_result.Name = "txt_result";
-            this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(821, 345);
-            this.txt_result.TabIndex = 1;
-            // 
             // btn_down_excel
             // 
-            this.btn_down_excel.Location = new System.Drawing.Point(9, 32);
+            this.btn_down_excel.Location = new System.Drawing.Point(9, 35);
             this.btn_down_excel.Name = "btn_down_excel";
-            this.btn_down_excel.Size = new System.Drawing.Size(91, 23);
+            this.btn_down_excel.Size = new System.Drawing.Size(91, 25);
             this.btn_down_excel.TabIndex = 0;
             this.btn_down_excel.Text = "Down Excel";
             this.btn_down_excel.UseVisualStyleBackColor = true;
             this.btn_down_excel.Click += new System.EventHandler(this.btn_down_excel_Click);
             // 
+            // txt_result
+            // 
+            this.txt_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_result.Location = new System.Drawing.Point(3, 93);
+            this.txt_result.Multiline = true;
+            this.txt_result.Name = "txt_result";
+            this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt_result.Size = new System.Drawing.Size(821, 373);
+            this.txt_result.TabIndex = 1;
+            // 
             // frm_match_down_excel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 443);
+            this.ClientSize = new System.Drawing.Size(827, 480);
             this.Controls.Add(this.txt_result);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_down_excel";
