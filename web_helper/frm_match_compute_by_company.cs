@@ -28,6 +28,15 @@ namespace web_helper
 
         private void btn_single_match_Click(object sender, EventArgs e)
         {
+            ArrayList list_companys = new ArrayList();
+            foreach (DataGridViewRow row in dgv_company.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
+                {
+                    string company = row.Cells["company"].Value.ToString();
+                    list_companys.Add(company);
+                }
+            }
 
             StringBuilder sb = new StringBuilder();
             List<BsonDocument> list = new List<BsonDocument>();
@@ -39,7 +48,7 @@ namespace web_helper
                     string host = row.Cells["host"].Value.ToString();
                     string client = row.Cells["client"].Value.ToString();
 
-                    BsonDocument doc = MatchCompany.get_max_from_single_match(start_time, host, client, 50);
+                    BsonDocument doc = MatchCompany.get_max_from_single_match(start_time, host, client, 50, list_companys);
                     list.Add(doc);
 
 
@@ -62,6 +71,18 @@ namespace web_helper
         }
         private void btn_two_match_Click(object sender, EventArgs e)
         {
+
+            ArrayList list_companys = new ArrayList();
+            foreach (DataGridViewRow row in dgv_company.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
+                {
+                    string company = row.Cells["company"].Value.ToString();
+                    list_companys.Add(company);
+                }
+            }
+
+
             StringBuilder sb = new StringBuilder();
             List<BsonDocument> list = new List<BsonDocument>();
             DataTable dt = new DataTable();
@@ -90,7 +111,7 @@ namespace web_helper
                                                                               dt.Rows[j]["start_time"].ToString(),
                                                                               dt.Rows[j]["host"].ToString(),
                                                                               dt.Rows[j]["client"].ToString(),
-                                                                              50);
+                                                                              50,list_companys);
                     list.Add(doc);
                     sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     sb.Append(MatchCompany.get_info_from_doc(doc));
@@ -109,6 +130,18 @@ namespace web_helper
         }
         private void btn_three_match_Click(object sender, EventArgs e)
         {
+
+            ArrayList list_companys = new ArrayList();
+            foreach (DataGridViewRow row in dgv_company.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
+                {
+                    string company = row.Cells["company"].Value.ToString();
+                    list_companys.Add(company);
+                }
+            }
+
+
             StringBuilder sb = new StringBuilder();
             List<BsonDocument> list = new List<BsonDocument>();
             DataTable dt = new DataTable();
@@ -142,7 +175,7 @@ namespace web_helper
                                                                                   dt.Rows[k]["start_time"].ToString(),
                                                                                   dt.Rows[k]["host"].ToString(),
                                                                                   dt.Rows[k]["client"].ToString(),
-                                                                                  50);
+                                                                                  50,list_companys);
                         list.Add(doc);
                         sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchCompany.get_info_from_doc(doc));
@@ -163,6 +196,17 @@ namespace web_helper
 
         private void btn_single_range_Click(object sender, EventArgs e)
         {
+
+            ArrayList list_companys = new ArrayList();
+            foreach (DataGridViewRow row in dgv_company.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
+                {
+                    string company = row.Cells["company"].Value.ToString();
+                    list_companys.Add(company);
+                }
+            }
+
             StringBuilder sb = new StringBuilder();
             List<BsonDocument> list = new List<BsonDocument>();
             foreach (DataGridViewRow row in dgv_match.Rows)
@@ -176,8 +220,8 @@ namespace web_helper
                     BsonDocument doc = new BsonDocument();
                     for (int i = 1; i < 101; i++)
                     {
-                        doc = MatchCompany.get_max_from_single_match(start_time, host, client, i);
-                        list.Add(doc); 
+                        doc = MatchCompany.get_max_from_single_match(start_time, host, client, i, list_companys);
+                        list.Add(doc);
 
                         sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchCompany.get_info_from_doc(doc));
@@ -193,6 +237,18 @@ namespace web_helper
         }
         private void btn_two_range_Click(object sender, EventArgs e)
         {
+
+            ArrayList list_companys = new ArrayList();
+            foreach (DataGridViewRow row in dgv_company.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
+                {
+                    string company = row.Cells["company"].Value.ToString();
+                    list_companys.Add(company);
+                }
+            }
+
+
             StringBuilder sb = new StringBuilder();
             List<BsonDocument> list = new List<BsonDocument>();
             DataTable dt = new DataTable();
@@ -223,7 +279,7 @@ namespace web_helper
                                                                                   dt.Rows[j]["start_time"].ToString(),
                                                                                   dt.Rows[j]["host"].ToString(),
                                                                                   dt.Rows[j]["client"].ToString(),
-                                                                                  k);
+                                                                                  k,list_companys);
                         list.Add(doc);
                         sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchCompany.get_info_from_doc(doc));
@@ -236,10 +292,20 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
 
-           
+
         }
         private void btn_three_range_Click(object sender, EventArgs e)
         {
+
+            ArrayList list_companys = new ArrayList();
+            foreach (DataGridViewRow row in dgv_company.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
+                {
+                    string company = row.Cells["company"].Value.ToString();
+                    list_companys.Add(company);
+                }
+            } 
             StringBuilder sb = new StringBuilder();
             List<BsonDocument> list = new List<BsonDocument>();
             DataTable dt = new DataTable();
@@ -275,7 +341,7 @@ namespace web_helper
                                                                                       dt.Rows[k]["start_time"].ToString(),
                                                                                       dt.Rows[k]["host"].ToString(),
                                                                                       dt.Rows[k]["client"].ToString(),
-                                                                                      l);
+                                                                                      l,list_companys);
                             list.Add(doc);
                             sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                             sb.Append(MatchCompany.get_info_from_doc(doc));
@@ -288,7 +354,7 @@ namespace web_helper
             sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
- 
+
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -904,17 +970,7 @@ namespace web_helper
             sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
-        }
-
-
-
-
-
-
-
-
-
-
+        } 
 
 
 

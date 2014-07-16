@@ -33,5 +33,11 @@ namespace web_helper
             frm_match_company_info frm = new frm_match_company_info();
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_match_compute_by_mix frm = new frm_match_compute_by_mix();
+            frm.Show();
+        }
     }
 }

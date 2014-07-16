@@ -14,10 +14,10 @@ class MatchCompany
     static bool is_open_mongo = false;
 
 
-    public static BsonDocument get_max_from_single_match(string start_time, string host, string client, int max_count)
+    public static BsonDocument get_max_from_single_match(string start_time, string host, string client, int max_count, ArrayList list_companys)
     {
 
-       
+
         string sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time, host, client);
         DataTable dt = SQLServerHelper.get_table(sql);
@@ -35,6 +35,13 @@ class MatchCompany
             //    if (company == dt.Rows[i]["company"].ToString()) is_fix_company = true;
             //}
             //if (is_fix_company == false) continue;
+
+            bool is_in_companys = false;
+            foreach (string company in list_companys)
+            {
+                if (company == dt.Rows[i]["company"].ToString()) is_in_companys = true;
+            }
+            if (is_in_companys == false) continue;
             double[] input = new double[3]{Convert.ToDouble(dt.Rows[i]["profit_win"].ToString()),
                                             Convert.ToDouble(dt.Rows[i]["profit_draw"].ToString()),
                                             Convert.ToDouble(dt.Rows[i]["profit_lose"].ToString())};
@@ -44,7 +51,7 @@ class MatchCompany
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min(max, max_count);
+        BsonDocument doc_max = MatchCompany.get_min_by_wave(max, max_count);
 
 
 
@@ -72,13 +79,54 @@ class MatchCompany
         }
         doc.Add("orign_profits", array_orign_profits);
 
+
+        BsonArray company_odds = new BsonArray();
+        foreach (string company in companys)
+        {
+            bool is_has = false;
+
+            foreach (BsonDocument doc_item in company_odds)
+            {
+                if (doc_item["company"].ToString() == company)
+                {
+                    is_has = true;
+                }
+            }
+            if (is_has == false)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("company", company);
+                string profit_win = "";
+                string profit_draw = "";
+                string profit_lose = "";
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row["company"].ToString() == company)
+                    {
+                        profit_win = row["profit_win"].ToString();
+                        profit_draw = row["profit_draw"].ToString();
+                        profit_lose = row["profit_draw"].ToString();
+                    }
+                }
+                doc_item.Add("profit_win", profit_win);
+                doc_item.Add("profit_draw", profit_draw);
+                doc_item.Add("profit_lose", profit_lose);
+
+                company_odds.Add(doc_item.AsBsonDocument);
+            }
+
+
+        }
+        doc.Add("company_odds", company_odds);
+
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
         doc.Add("profits", doc_max["profits"].AsBsonArray);
 
+
         return doc;
     }
-    public static BsonDocument get_max_from_two_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count)
+    public static BsonDocument get_max_from_two_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count, ArrayList list_companys)
     {
         string sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time1, host1, client1);
@@ -95,6 +143,15 @@ class MatchCompany
 
         for (int i = 0; i < dt1.Rows.Count; i++)
         {
+            bool is_in_companys = false;
+            foreach (string company in list_companys)
+            {
+                if (company == dt1.Rows[i]["company"].ToString()) is_in_companys = true;
+            }
+            if (is_in_companys == false) continue;
+
+
+
             int row_no = -1;
             for (int j = 0; j < dt2.Rows.Count; j++)
             {
@@ -130,7 +187,7 @@ class MatchCompany
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min(max, max_count);
+        BsonDocument doc_max = MatchCompany.get_min_by_wave(max, max_count);
 
 
 
@@ -161,6 +218,62 @@ class MatchCompany
         }
         doc.Add("orign_profits", array_orign_profits);
 
+        BsonArray company_odds = new BsonArray();
+        foreach (string company in companys)
+        {
+            bool is_has = false;
+
+            foreach (BsonDocument doc_item in company_odds)
+            {
+                if (doc_item["company"].ToString() == company)
+                {
+                    is_has = true;
+                }
+            }
+            if (is_has == false)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("company", company);
+                string profit_win1 = "";
+                string profit_draw1 = "";
+                string profit_lose1 = "";
+                string profit_win2 = "";
+                string profit_draw2 = "";
+                string profit_lose2 = "";
+                foreach (DataRow row in dt1.Rows)
+                {
+                    if (row["company"].ToString() == company)
+                    {
+                        profit_win1 = row["profit_win"].ToString();
+                        profit_draw1 = row["profit_draw"].ToString();
+                        profit_lose1 = row["profit_draw"].ToString();
+                    }
+                }
+                foreach (DataRow row in dt2.Rows)
+                {
+                    if (row["company"].ToString() == company)
+                    {
+                        profit_win2 = row["profit_win"].ToString();
+                        profit_draw2 = row["profit_draw"].ToString();
+                        profit_lose2 = row["profit_draw"].ToString();
+                    }
+                }
+                doc_item.Add("profit_win1", profit_win1);
+                doc_item.Add("profit_draw1", profit_draw1);
+                doc_item.Add("profit_lose1", profit_lose1);
+                doc_item.Add("profit_win2", profit_win2);
+                doc_item.Add("profit_draw2", profit_draw2);
+                doc_item.Add("profit_lose2", profit_lose2);
+
+                company_odds.Add(doc_item.AsBsonDocument);
+            }
+
+
+        }
+        doc.Add("company_odds", company_odds);
+
+
+
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
         doc.Add("profits", doc_max["profits"].AsBsonArray);
@@ -170,7 +283,7 @@ class MatchCompany
     public static BsonDocument get_max_from_three_match(string start_time1, string host1, string client1,
                                                         string start_time2, string host2, string client2,
                                                         string start_time3, string host3, string client3,
-                                                        int max_count)
+                                                        int max_count, ArrayList list_companys)
     {
 
 
@@ -202,6 +315,15 @@ class MatchCompany
 
         for (int i = 0; i < dt1.Rows.Count; i++)
         {
+
+            bool is_in_companys = false;
+            foreach (string company in list_companys)
+            {
+                if (company == dt1.Rows[i]["company"].ToString()) is_in_companys = true;
+            }
+            if (is_in_companys == false) continue;
+
+
             int row_no2 = -1;
             for (int j = 0; j < dt2.Rows.Count; j++)
             {
@@ -394,6 +516,215 @@ class MatchCompany
         return doc;
 
     }
+    public static BsonDocument get_min_by_wave(double[] input, int max_count)
+    {
+        int length = input.Length;
+
+
+        int[] bids = new int[length];
+        int[] order_nos = new int[length];
+        double[] profits = new double[length];
+        double[] profits_temp = new double[length];
+
+
+
+        for (int i = 0; i < length; i++)
+        {
+            bids[i] = 1;
+            order_nos[i] = 0;
+            profits[i] = input[i];
+            profits_temp[i] = input[i];
+        }
+
+
+        //排序
+        for (int step1 = 0; step1 < length; step1++)
+        {
+            int step_index = 0;
+            double step_max = -999999999;
+            for (int step2 = 0; step2 < length; step2++)
+            {
+                if (profits_temp[step2] > step_max)
+                {
+                    step_max = profits_temp[step2];
+                    step_index = step2;
+                }
+            }
+            profits_temp[step_index] = 0;
+            profits[step1] = step_max;
+            order_nos[step1] = step_index;
+        }
+
+
+        bids[0] = max_count;
+        for (int i = 1; i < length; i++)
+        {
+            bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+        }
+
+
+        //wave compute  
+        double global_min = 0;
+        double global_max = 0;
+        int[] global_bids = new int[bids.Length];
+        get_min_by_wave_child(ref global_bids,ref global_min, ref global_max,bids,profits);
+       
+
+        //total
+        int bid_total = 0;
+        for (int i = 0; i < length; i++)
+        {
+            bid_total = bid_total + global_bids[i];
+        } 
+
+        BsonDocument doc = new BsonDocument();
+        doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
+        doc.Add("type", "vary");
+        doc.Add("bid_count", bid_total.ToString());
+        doc.Add("min_value", global_min.ToString("f4"));
+        doc.Add("max_value", global_max.ToString("f4"));
+
+        BsonArray array_profits = new BsonArray();
+        foreach (double profit in profits)
+        {
+            array_profits.Add(profit.ToString("f2"));
+        }
+
+        BsonArray array_bids = new BsonArray();
+        foreach (int bid in global_bids)
+        {
+            array_bids.Add(bid.ToString());
+        }
+
+        BsonArray array_order_nos = new BsonArray();
+        foreach (int order in order_nos)
+        {
+            array_order_nos.Add(order.ToString());
+        }
+
+        doc.Add("order_nos", array_order_nos);
+        doc.Add("bids", array_bids);
+        doc.Add("profits", array_profits);
+
+        if (is_open_mongo) MongoHelper.insert_bson("match", doc);
+
+        return doc;
+
+    }
+    public static void  get_min_by_wave_child(ref int[] global_bids,ref double global_min, ref double global_max, int[] bids, double[] profits)
+    {
+        int[] num = new int[] { -1, 0, 1 }; 
+        global_min = -999999;
+        global_max = 999999;
+
+        if (bids.Length == 3)
+        {
+            for (int step1 = 0; step1 < 3; step1++)
+            {
+                for (int step2 = 0; step2 < 3; step2++)
+                {
+                    int[] bids_temp = new int[bids.Length];
+                    bids_temp[0] = bids[0];
+                    bids_temp[1] = bids[1] + num[step1];
+                    bids_temp[2] = bids[2] + num[step2];
+
+
+                    int bid_total = 0;
+                    for (int i = 0; i < bids.Length; i++)
+                    {
+                        bid_total = bid_total + bids_temp[i];
+                    }
+
+                    double min = 999999999;
+                    double max = -999999999;
+                    for (int i = 0; i < bids.Length; i++)
+                    {
+                        if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
+                        if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                    }
+
+                    if (min > global_min)
+                    {
+                        global_min = min;
+                        global_max = max;
+                        for (int i = 0; i < bids.Length; i++)
+                        {
+                            global_bids[i] = bids_temp[i];
+                        }
+                    }
+                }
+            }
+        }
+
+
+        if (bids.Length == 9)
+        {
+            for (int step1 = 0; step1 < 3; step1++)
+            {
+                for (int step2 = 0; step2 < 3; step2++)
+                {
+                    for (int step3 = 0; step3 < 3; step3++)
+                    {
+                        for (int step4 = 0; step4 < 3; step4++)
+                        {
+                            for (int step5 = 0; step5 < 3; step5++)
+                            {
+                                for (int step6 = 0; step6 < 3; step6++)
+                                {
+                                    for (int step7 = 0; step7 < 3; step7++)
+                                    {
+                                        for (int step8 = 0; step8 < 3; step8++)
+                                        {
+                                            int[] bids_temp = new int[bids.Length];
+                                            bids_temp[0] = bids[0];
+                                            bids_temp[1] = bids[1] + num[step1];
+                                            bids_temp[2] = bids[2] + num[step2];
+                                            bids_temp[3] = bids[3] + num[step3];
+                                            bids_temp[4] = bids[4] + num[step4];
+                                            bids_temp[5] = bids[5] + num[step5];
+                                            bids_temp[6] = bids[6] + num[step6];
+                                            bids_temp[7] = bids[7] + num[step7];
+                                            bids_temp[8] = bids[8] + num[step8];
+
+
+                                            int bid_total = 0;
+                                            for (int i = 0; i < bids.Length; i++)
+                                            {
+                                                bid_total = bid_total + bids_temp[i];
+                                            }
+
+                                            double min = 999999999;
+                                            double max = -999999999;
+                                            for (int i = 0; i < bids.Length; i++)
+                                            {
+                                                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
+                                                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                                            }
+
+                                            if (min > global_min)
+                                            {
+                                                global_min = min;
+                                                global_max = max;
+                                                for (int i = 0; i < bids.Length; i++)
+                                                {
+                                                    global_bids[i] = bids_temp[i];
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+
     public static string get_info_from_doc(BsonDocument doc)
     {
 
@@ -466,6 +797,15 @@ class MatchCompany
                     result = result + value.PadRight(15, ' ');
                 }
                 result = result + Environment.NewLine;
+
+                result = result + "company detail info:" + Environment.NewLine;
+                foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
+                {
+                    result = result + doc_item["company"].ToString().PadRight(20, ' ');
+                    result = result + doc_item["profit_win"].ToString().PadRight(10, ' ');
+                    result = result + doc_item["profit_draw"].ToString().PadRight(10, ' ');
+                    result = result + doc_item["profit_lose"].ToString().PadRight(10, ' ') + Environment.NewLine;
+                }
                 break;
             case "two-match-max":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
@@ -512,12 +852,24 @@ class MatchCompany
                 }
                 result = result + Environment.NewLine;
 
+                result = result + "company detail info:" + Environment.NewLine;
+                foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
+                {
+                    result = result + doc_item["company"].ToString().PadRight(20, ' ');
+                    result = result + doc_item["profit_win1"].ToString().PadRight(10, ' ');
+                    result = result + doc_item["profit_draw1"].ToString().PadRight(10, ' ');
+                    result = result + doc_item["profit_lose1"].ToString().PadRight(10, ' ');
+                    result = result + doc_item["profit_win2"].ToString().PadRight(10, ' ');
+                    result = result + doc_item["profit_draw2"].ToString().PadRight(10, ' ');
+                    result = result + doc_item["profit_lose2"].ToString().PadRight(10, ' ') + Environment.NewLine;
+                }
+
                 break;
             case "three-match-max":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
                  doc["start_time1"].ToString() + "    " + doc["host1"].ToString().PadRight(20, ' ') + doc["client1"].ToString().PadRight(20, ' ') + Environment.NewLine +
                  doc["start_time2"].ToString() + "    " + doc["host2"].ToString().PadRight(20, ' ') + doc["client2"].ToString().PadRight(20, ' ') + Environment.NewLine +
-                 doc["start_time3"].ToString() + "    " + doc["host3"].ToString().PadRight(20, ' ') + doc["client3"].ToString().PadRight(20, ' ') + Environment.NewLine + 
+                 doc["start_time3"].ToString() + "    " + doc["host3"].ToString().PadRight(20, ' ') + doc["client3"].ToString().PadRight(20, ' ') + Environment.NewLine +
                  "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;

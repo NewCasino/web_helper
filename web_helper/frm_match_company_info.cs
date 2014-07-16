@@ -48,7 +48,19 @@ namespace web_helper
         } 
         public void bind_data()
         {
-            string sql = "select id,info from doc_info where type='company'";
+            string info = "";
+            if (string.IsNullOrEmpty(this.txt_condition.Text))
+            {
+                info = "%";
+            }
+            else
+            {
+                info = "%" + txt_condition.Text + "%";
+            }
+
+            string sql = "select id,info from doc_info where type='company'  and info like '{0}'";
+            sql = string.Format(sql, info);
+
             DataTable dt = new DataTable();
             dt = SQLServerHelper.get_table(sql);
             this.dgv_company.DataSource = dt;

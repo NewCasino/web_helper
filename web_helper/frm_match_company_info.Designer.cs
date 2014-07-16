@@ -48,7 +48,7 @@
             this.btn_url_add = new System.Windows.Forms.Button();
             this.txt_url = new System.Windows.Forms.TextBox();
             this.btn_load = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_condition = new System.Windows.Forms.TextBox();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_update_grid = new System.Windows.Forms.Button();
@@ -80,7 +80,7 @@
             this.groupBox1.Controls.Add(this.btn_save);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.btn_load);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_condition);
             this.groupBox1.Controls.Add(this.dgv_company);
             this.groupBox1.Location = new System.Drawing.Point(6, 12);
             this.groupBox1.Name = "groupBox1";
@@ -146,7 +146,9 @@
             this.cb_user_name.Items.AddRange(new object[] {
             "user_no",
             "password",
-            "pay_password"});
+            "pay_password",
+            "hnit_question",
+            "hnit_answer"});
             this.cb_user_name.Location = new System.Drawing.Point(13, 203);
             this.cb_user_name.Name = "cb_user_name";
             this.cb_user_name.Size = new System.Drawing.Size(165, 21);
@@ -265,12 +267,12 @@
             this.btn_load.UseVisualStyleBackColor = true;
             this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
-            // textBox1
+            // txt_condition
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 20);
-            this.textBox1.TabIndex = 3;
+            this.txt_condition.Location = new System.Drawing.Point(29, 20);
+            this.txt_condition.Name = "txt_condition";
+            this.txt_condition.Size = new System.Drawing.Size(309, 20);
+            this.txt_condition.TabIndex = 3;
             // 
             // txt_result
             // 
@@ -358,7 +360,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txt_result;
         private System.Windows.Forms.Button btn_load;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_condition;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.GroupBox groupBox3;

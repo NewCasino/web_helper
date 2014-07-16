@@ -29,13 +29,22 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btn_three_range = new System.Windows.Forms.Button();
+            this.cb_three_persent_desc = new System.Windows.Forms.CheckBox();
+            this.cb_three_persent_asc = new System.Windows.Forms.CheckBox();
+            this.cb_three_company_desc = new System.Windows.Forms.CheckBox();
+            this.cb_three_company_asc = new System.Windows.Forms.CheckBox();
+            this.btn_three_match = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btn_two_range = new System.Windows.Forms.Button();
             this.cb_two_persent_desc = new System.Windows.Forms.CheckBox();
             this.cb_two_persent_asc = new System.Windows.Forms.CheckBox();
             this.cb_two_company_desc = new System.Windows.Forms.CheckBox();
             this.cb_two_company_asc = new System.Windows.Forms.CheckBox();
             this.btn_two_match = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btn_single_range = new System.Windows.Forms.Button();
             this.cb_persent_desc = new System.Windows.Forms.CheckBox();
             this.cb_persent_asc = new System.Windows.Forms.CheckBox();
             this.cb_company_desc = new System.Windows.Forms.CheckBox();
@@ -57,16 +66,8 @@
             this.dgv_all = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cb_three_persent_desc = new System.Windows.Forms.CheckBox();
-            this.cb_three_persent_asc = new System.Windows.Forms.CheckBox();
-            this.cb_three_company_desc = new System.Windows.Forms.CheckBox();
-            this.cb_three_company_asc = new System.Windows.Forms.CheckBox();
-            this.btn_three_match = new System.Windows.Forms.Button();
-            this.btn_single_range = new System.Windows.Forms.Button();
-            this.btn_two_range = new System.Windows.Forms.Button();
-            this.btn_three_range = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -78,7 +79,6 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_all)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -97,6 +97,83 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btn_three_range);
+            this.groupBox6.Controls.Add(this.cb_three_persent_desc);
+            this.groupBox6.Controls.Add(this.cb_three_persent_asc);
+            this.groupBox6.Controls.Add(this.cb_three_company_desc);
+            this.groupBox6.Controls.Add(this.cb_three_company_asc);
+            this.groupBox6.Controls.Add(this.btn_three_match);
+            this.groupBox6.Location = new System.Drawing.Point(6, 293);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(252, 117);
+            this.groupBox6.TabIndex = 8;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Three";
+            // 
+            // btn_three_range
+            // 
+            this.btn_three_range.Location = new System.Drawing.Point(118, 78);
+            this.btn_three_range.Name = "btn_three_range";
+            this.btn_three_range.Size = new System.Drawing.Size(75, 23);
+            this.btn_three_range.TabIndex = 14;
+            this.btn_three_range.Text = "Range";
+            this.btn_three_range.UseVisualStyleBackColor = true;
+            this.btn_three_range.Click += new System.EventHandler(this.btn_three_range_Click);
+            // 
+            // cb_three_persent_desc
+            // 
+            this.cb_three_persent_desc.AutoSize = true;
+            this.cb_three_persent_desc.Location = new System.Drawing.Point(118, 22);
+            this.cb_three_persent_desc.Name = "cb_three_persent_desc";
+            this.cb_three_persent_desc.Size = new System.Drawing.Size(94, 17);
+            this.cb_three_persent_desc.TabIndex = 12;
+            this.cb_three_persent_desc.Text = "Persent DESC";
+            this.cb_three_persent_desc.UseVisualStyleBackColor = true;
+            // 
+            // cb_three_persent_asc
+            // 
+            this.cb_three_persent_asc.AutoSize = true;
+            this.cb_three_persent_asc.Checked = true;
+            this.cb_three_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_three_persent_asc.Location = new System.Drawing.Point(6, 22);
+            this.cb_three_persent_asc.Name = "cb_three_persent_asc";
+            this.cb_three_persent_asc.Size = new System.Drawing.Size(86, 17);
+            this.cb_three_persent_asc.TabIndex = 11;
+            this.cb_three_persent_asc.Text = "Persent ASC";
+            this.cb_three_persent_asc.UseVisualStyleBackColor = true;
+            // 
+            // cb_three_company_desc
+            // 
+            this.cb_three_company_desc.AutoSize = true;
+            this.cb_three_company_desc.Location = new System.Drawing.Point(118, 52);
+            this.cb_three_company_desc.Name = "cb_three_company_desc";
+            this.cb_three_company_desc.Size = new System.Drawing.Size(102, 17);
+            this.cb_three_company_desc.TabIndex = 10;
+            this.cb_three_company_desc.Text = "Company DESC";
+            this.cb_three_company_desc.UseVisualStyleBackColor = true;
+            // 
+            // cb_three_company_asc
+            // 
+            this.cb_three_company_asc.AutoSize = true;
+            this.cb_three_company_asc.Location = new System.Drawing.Point(6, 52);
+            this.cb_three_company_asc.Name = "cb_three_company_asc";
+            this.cb_three_company_asc.Size = new System.Drawing.Size(94, 17);
+            this.cb_three_company_asc.TabIndex = 9;
+            this.cb_three_company_asc.Text = "Company ASC";
+            this.cb_three_company_asc.UseVisualStyleBackColor = true;
+            // 
+            // btn_three_match
+            // 
+            this.btn_three_match.Location = new System.Drawing.Point(25, 78);
+            this.btn_three_match.Name = "btn_three_match";
+            this.btn_three_match.Size = new System.Drawing.Size(75, 23);
+            this.btn_three_match.TabIndex = 5;
+            this.btn_three_match.Text = "Three";
+            this.btn_three_match.UseVisualStyleBackColor = true;
+            this.btn_three_match.Click += new System.EventHandler(this.btn_three_match_Click);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btn_two_range);
@@ -111,6 +188,16 @@
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Two";
+            // 
+            // btn_two_range
+            // 
+            this.btn_two_range.Location = new System.Drawing.Point(118, 75);
+            this.btn_two_range.Name = "btn_two_range";
+            this.btn_two_range.Size = new System.Drawing.Size(75, 23);
+            this.btn_two_range.TabIndex = 13;
+            this.btn_two_range.Text = "Range";
+            this.btn_two_range.UseVisualStyleBackColor = true;
+            this.btn_two_range.Click += new System.EventHandler(this.btn_two_range_Click);
             // 
             // cb_two_persent_desc
             // 
@@ -178,6 +265,16 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Single";
+            // 
+            // btn_single_range
+            // 
+            this.btn_single_range.Location = new System.Drawing.Point(118, 76);
+            this.btn_single_range.Name = "btn_single_range";
+            this.btn_single_range.Size = new System.Drawing.Size(75, 23);
+            this.btn_single_range.TabIndex = 9;
+            this.btn_single_range.Text = "Range";
+            this.btn_single_range.UseVisualStyleBackColor = true;
+            this.btn_single_range.Click += new System.EventHandler(this.btn_single_range_Click);
             // 
             // cb_persent_desc
             // 
@@ -409,112 +506,18 @@
             this.txt_result.TabIndex = 0;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.btn_three_range);
-            this.groupBox6.Controls.Add(this.cb_three_persent_desc);
-            this.groupBox6.Controls.Add(this.cb_three_persent_asc);
-            this.groupBox6.Controls.Add(this.cb_three_company_desc);
-            this.groupBox6.Controls.Add(this.cb_three_company_asc);
-            this.groupBox6.Controls.Add(this.btn_three_match);
-            this.groupBox6.Location = new System.Drawing.Point(6, 293);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(252, 117);
-            this.groupBox6.TabIndex = 8;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Three";
-            // 
-            // cb_three_persent_desc
-            // 
-            this.cb_three_persent_desc.AutoSize = true;
-            this.cb_three_persent_desc.Location = new System.Drawing.Point(118, 22);
-            this.cb_three_persent_desc.Name = "cb_three_persent_desc";
-            this.cb_three_persent_desc.Size = new System.Drawing.Size(94, 17);
-            this.cb_three_persent_desc.TabIndex = 12;
-            this.cb_three_persent_desc.Text = "Persent DESC";
-            this.cb_three_persent_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_three_persent_asc
-            // 
-            this.cb_three_persent_asc.AutoSize = true;
-            this.cb_three_persent_asc.Checked = true;
-            this.cb_three_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_three_persent_asc.Location = new System.Drawing.Point(6, 22);
-            this.cb_three_persent_asc.Name = "cb_three_persent_asc";
-            this.cb_three_persent_asc.Size = new System.Drawing.Size(86, 17);
-            this.cb_three_persent_asc.TabIndex = 11;
-            this.cb_three_persent_asc.Text = "Persent ASC";
-            this.cb_three_persent_asc.UseVisualStyleBackColor = true;
-            // 
-            // cb_three_company_desc
-            // 
-            this.cb_three_company_desc.AutoSize = true;
-            this.cb_three_company_desc.Location = new System.Drawing.Point(118, 52);
-            this.cb_three_company_desc.Name = "cb_three_company_desc";
-            this.cb_three_company_desc.Size = new System.Drawing.Size(102, 17);
-            this.cb_three_company_desc.TabIndex = 10;
-            this.cb_three_company_desc.Text = "Company DESC";
-            this.cb_three_company_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_three_company_asc
-            // 
-            this.cb_three_company_asc.AutoSize = true;
-            this.cb_three_company_asc.Location = new System.Drawing.Point(6, 52);
-            this.cb_three_company_asc.Name = "cb_three_company_asc";
-            this.cb_three_company_asc.Size = new System.Drawing.Size(94, 17);
-            this.cb_three_company_asc.TabIndex = 9;
-            this.cb_three_company_asc.Text = "Company ASC";
-            this.cb_three_company_asc.UseVisualStyleBackColor = true;
-            // 
-            // btn_three_match
-            // 
-            this.btn_three_match.Location = new System.Drawing.Point(25, 78);
-            this.btn_three_match.Name = "btn_three_match";
-            this.btn_three_match.Size = new System.Drawing.Size(75, 23);
-            this.btn_three_match.TabIndex = 5;
-            this.btn_three_match.Text = "Three";
-            this.btn_three_match.UseVisualStyleBackColor = true;
-            // 
-            // btn_single_range
-            // 
-            this.btn_single_range.Location = new System.Drawing.Point(118, 76);
-            this.btn_single_range.Name = "btn_single_range";
-            this.btn_single_range.Size = new System.Drawing.Size(75, 23);
-            this.btn_single_range.TabIndex = 9;
-            this.btn_single_range.Text = "Range";
-            this.btn_single_range.UseVisualStyleBackColor = true;
-            this.btn_single_range.Click += new System.EventHandler(this.btn_single_range_Click);
-            // 
-            // btn_two_range
-            // 
-            this.btn_two_range.Location = new System.Drawing.Point(118, 75);
-            this.btn_two_range.Name = "btn_two_range";
-            this.btn_two_range.Size = new System.Drawing.Size(75, 23);
-            this.btn_two_range.TabIndex = 13;
-            this.btn_two_range.Text = "Range";
-            this.btn_two_range.UseVisualStyleBackColor = true;
-            this.btn_two_range.Click += new System.EventHandler(this.btn_two_range_Click);
-            // 
-            // btn_three_range
-            // 
-            this.btn_three_range.Location = new System.Drawing.Point(118, 78);
-            this.btn_three_range.Name = "btn_three_range";
-            this.btn_three_range.Size = new System.Drawing.Size(75, 23);
-            this.btn_three_range.TabIndex = 14;
-            this.btn_three_range.Text = "Range";
-            this.btn_three_range.UseVisualStyleBackColor = true;
-            this.btn_three_range.Click += new System.EventHandler(this.btn_three_range_Click);
-            // 
-            // frm_match_company
+            // frm_match_compute_by_company
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 618);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frm_match_company";
+            this.Name = "frm_match_compute_by_company";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -529,8 +532,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_all)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
