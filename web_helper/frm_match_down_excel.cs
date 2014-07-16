@@ -119,7 +119,7 @@ namespace web_helper
                       "  values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}'," +
                       "          '{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}')";
                 sql = string.Format(sql, start_time, host, client, company, timespan,
-                                 profit_win, profit_lose, profit_lose, persent_win, persent_draw, persent_lose, persent_return, kelly_win, kelly_draw, kelly_win,
+                                 profit_win, profit_draw, profit_lose, persent_win, persent_draw, persent_lose, persent_return, kelly_win, kelly_draw, kelly_win,
                                  start_profit_win, start_profit_draw, start_profit_lose, start_persent_win, start_persent_draw, start_persent_lose,
                                  start_persent_return, start_kelly_win, start_kelly_draw, start_kelly_lose,lg);
                 SQLServerHelper.exe_sql(sql);
@@ -137,7 +137,7 @@ namespace web_helper
                      "  values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}'," +
                      "          '{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}')";
                 sql = string.Format(sql, start_time, host, client, company, timespan,
-                                 profit_win, profit_lose, profit_lose, persent_win, persent_draw, persent_lose, persent_return, kelly_win, kelly_draw, kelly_win,
+                                 profit_win, profit_draw, profit_lose, persent_win, persent_draw, persent_lose, persent_return, kelly_win, kelly_draw, kelly_win,
                                  start_profit_win, start_profit_draw, start_profit_lose, start_persent_win, start_persent_draw, start_persent_lose,
                                  start_persent_return, start_kelly_win, start_kelly_draw, start_kelly_lose,lg);
                 SQLServerHelper.exe_sql(sql);

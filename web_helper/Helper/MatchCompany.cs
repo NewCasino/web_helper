@@ -105,7 +105,7 @@ class MatchCompany
                     {
                         profit_win = row["profit_win"].ToString();
                         profit_draw = row["profit_draw"].ToString();
-                        profit_lose = row["profit_draw"].ToString();
+                        profit_lose = row["profit_lose"].ToString();
                     }
                 }
                 doc_item.Add("profit_win", profit_win);
@@ -246,7 +246,7 @@ class MatchCompany
                     {
                         profit_win1 = row["profit_win"].ToString();
                         profit_draw1 = row["profit_draw"].ToString();
-                        profit_lose1 = row["profit_draw"].ToString();
+                        profit_lose1 = row["profit_lose"].ToString();
                     }
                 }
                 foreach (DataRow row in dt2.Rows)
@@ -255,7 +255,7 @@ class MatchCompany
                     {
                         profit_win2 = row["profit_win"].ToString();
                         profit_draw2 = row["profit_draw"].ToString();
-                        profit_lose2 = row["profit_draw"].ToString();
+                        profit_lose2 = row["profit_lose"].ToString();
                     }
                 }
                 doc_item.Add("profit_win1", profit_win1);
@@ -350,8 +350,8 @@ class MatchCompany
 
                 double[,] single_profit = new double[3, 3]{
                      { Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()),Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()),Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString())},
-                     {Convert.ToDouble(dt2.Rows[i]["profit_win"].ToString()),Convert.ToDouble(dt2.Rows[i]["profit_draw"].ToString()),Convert.ToDouble(dt2.Rows[i]["profit_lose"].ToString())},
-                     {Convert.ToDouble(dt3.Rows[i]["profit_win"].ToString()),Convert.ToDouble(dt3.Rows[i]["profit_draw"].ToString()),Convert.ToDouble(dt3.Rows[i]["profit_lose"].ToString())}
+                     {Convert.ToDouble(dt2.Rows[row_no2]["profit_win"].ToString()),Convert.ToDouble(dt2.Rows[row_no2]["profit_draw"].ToString()),Convert.ToDouble(dt2.Rows[row_no2]["profit_lose"].ToString())},
+                     {Convert.ToDouble(dt3.Rows[row_no3]["profit_win"].ToString()),Convert.ToDouble(dt3.Rows[row_no3]["profit_draw"].ToString()),Convert.ToDouble(dt3.Rows[row_no3]["profit_lose"].ToString())}
                 };
 
                 double[] profits = new double[27];
@@ -389,9 +389,9 @@ class MatchCompany
         doc.Add("start_time2", start_time2);
         doc.Add("host2", host2);
         doc.Add("client2", client2);
-        doc.Add("start_time2", start_time3);
-        doc.Add("host2", host3);
-        doc.Add("client2", client3);
+        doc.Add("start_time3", start_time3);
+        doc.Add("host3", host3);
+        doc.Add("client3", client3);
         doc.Add("type", "three-match-max");
         doc.Add("bid_count", doc_max["bid_count"].ToString());
         doc.Add("min_value", doc_max["min_value"].ToString());
@@ -567,15 +567,15 @@ class MatchCompany
         double global_min = 0;
         double global_max = 0;
         int[] global_bids = new int[bids.Length];
-        get_min_by_wave_child(ref global_bids,ref global_min, ref global_max,bids,profits);
-       
+        get_min_by_wave_child(ref global_bids, ref global_min, ref global_max, bids, profits);
+
 
         //total
         int bid_total = 0;
         for (int i = 0; i < length; i++)
         {
             bid_total = bid_total + global_bids[i];
-        } 
+        }
 
         BsonDocument doc = new BsonDocument();
         doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
@@ -611,9 +611,9 @@ class MatchCompany
         return doc;
 
     }
-    public static void  get_min_by_wave_child(ref int[] global_bids,ref double global_min, ref double global_max, int[] bids, double[] profits)
+    public static void get_min_by_wave_child(ref int[] global_bids, ref double global_min, ref double global_max, int[] bids, double[] profits)
     {
-        int[] num = new int[] { -1, 0, 1 }; 
+        int[] num = new int[] { -1, 0, 1 };
         global_min = -999999;
         global_max = 999999;
 
@@ -639,8 +639,8 @@ class MatchCompany
                     double max = -999999999;
                     for (int i = 0; i < bids.Length; i++)
                     {
-                        if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                        if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                        if (bids_temp[i] * profits[i] - bid_total < min) min = bids_temp[i] * profits[i] - bid_total;
+                        if (bids_temp[i] * profits[i] - bid_total > max) max = bids_temp[i] * profits[i] - bid_total;
                     }
 
                     if (min > global_min)
@@ -697,8 +697,8 @@ class MatchCompany
                                             double max = -999999999;
                                             for (int i = 0; i < bids.Length; i++)
                                             {
-                                                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                                                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                                                if (bids_temp[i] * profits[i] - bid_total < min) min = bids_temp[i] * profits[i] - bid_total;
+                                                if (bids_temp[i] * profits[i] - bid_total > max) max = bids_temp[i] * profits[i] - bid_total;
                                             }
 
                                             if (min > global_min)
