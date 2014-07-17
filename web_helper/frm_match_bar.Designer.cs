@@ -36,7 +36,7 @@
             // 
             // btn_compute_by_company
             // 
-            this.btn_compute_by_company.Location = new System.Drawing.Point(130, 5);
+            this.btn_compute_by_company.Location = new System.Drawing.Point(12, 6);
             this.btn_compute_by_company.Name = "btn_compute_by_company";
             this.btn_compute_by_company.Size = new System.Drawing.Size(112, 23);
             this.btn_compute_by_company.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // btn_down_excel
             // 
-            this.btn_down_excel.Location = new System.Drawing.Point(250, 5);
+            this.btn_down_excel.Location = new System.Drawing.Point(132, 6);
             this.btn_down_excel.Name = "btn_down_excel";
             this.btn_down_excel.Size = new System.Drawing.Size(112, 23);
             this.btn_down_excel.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // frm_match_company_info
             // 
-            this.frm_match_company_info.Location = new System.Drawing.Point(370, 5);
+            this.frm_match_company_info.Location = new System.Drawing.Point(252, 6);
             this.frm_match_company_info.Name = "frm_match_company_info";
             this.frm_match_company_info.Size = new System.Drawing.Size(112, 23);
             this.frm_match_company_info.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(10, 5);
+            this.button1.Location = new System.Drawing.Point(370, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 23);
             this.button1.TabIndex = 3;
