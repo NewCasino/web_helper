@@ -32,20 +32,20 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_user_define_add = new System.Windows.Forms.Button();
-            this.txt_user_value = new System.Windows.Forms.TextBox();
-            this.cb_user_name = new System.Windows.Forms.ComboBox();
+            this.txt_pay_ways = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_other_urls = new System.Windows.Forms.TextBox();
+            this.txt_other_names = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lb_row_id = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lb_company_id = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_name_add = new System.Windows.Forms.Button();
-            this.btn_url_delete = new System.Windows.Forms.Button();
+            this.btn_update = new System.Windows.Forms.Button();
             this.txt_name = new System.Windows.Forms.TextBox();
-            this.txt_url_remark = new System.Windows.Forms.TextBox();
-            this.btn_url_add = new System.Windows.Forms.Button();
             this.txt_url = new System.Windows.Forms.TextBox();
             this.btn_load = new System.Windows.Forms.Button();
             this.txt_condition = new System.Windows.Forms.TextBox();
@@ -101,20 +101,20 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btn_user_define_add);
-            this.groupBox3.Controls.Add(this.txt_user_value);
-            this.groupBox3.Controls.Add(this.cb_user_name);
+            this.groupBox3.Controls.Add(this.txt_pay_ways);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txt_other_urls);
+            this.groupBox3.Controls.Add(this.txt_other_names);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.lb_row_id);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.lb_company_id);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.btn_name_add);
-            this.groupBox3.Controls.Add(this.btn_url_delete);
+            this.groupBox3.Controls.Add(this.btn_update);
             this.groupBox3.Controls.Add(this.txt_name);
-            this.groupBox3.Controls.Add(this.txt_url_remark);
-            this.groupBox3.Controls.Add(this.btn_url_add);
             this.groupBox3.Controls.Add(this.txt_url);
             this.groupBox3.Location = new System.Drawing.Point(19, 48);
             this.groupBox3.Name = "groupBox3";
@@ -123,36 +123,54 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Infomation";
             // 
-            // btn_user_define_add
+            // txt_pay_ways
             // 
-            this.btn_user_define_add.Location = new System.Drawing.Point(369, 200);
-            this.btn_user_define_add.Name = "btn_user_define_add";
-            this.btn_user_define_add.Size = new System.Drawing.Size(75, 23);
-            this.btn_user_define_add.TabIndex = 15;
-            this.btn_user_define_add.Text = "Add";
-            this.btn_user_define_add.UseVisualStyleBackColor = true;
-            this.btn_user_define_add.Click += new System.EventHandler(this.btn_user_define_add_Click);
+            this.txt_pay_ways.Location = new System.Drawing.Point(101, 196);
+            this.txt_pay_ways.Name = "txt_pay_ways";
+            this.txt_pay_ways.Size = new System.Drawing.Size(379, 20);
+            this.txt_pay_ways.TabIndex = 30;
             // 
-            // txt_user_value
+            // label7
             // 
-            this.txt_user_value.Location = new System.Drawing.Point(196, 203);
-            this.txt_user_value.Name = "txt_user_value";
-            this.txt_user_value.Size = new System.Drawing.Size(166, 20);
-            this.txt_user_value.TabIndex = 26;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 199);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Pay Way:";
             // 
-            // cb_user_name
+            // txt_other_urls
             // 
-            this.cb_user_name.FormattingEnabled = true;
-            this.cb_user_name.Items.AddRange(new object[] {
-            "user_no",
-            "password",
-            "pay_password",
-            "hnit_question",
-            "hnit_answer"});
-            this.cb_user_name.Location = new System.Drawing.Point(13, 203);
-            this.cb_user_name.Name = "cb_user_name";
-            this.cb_user_name.Size = new System.Drawing.Size(165, 21);
-            this.cb_user_name.TabIndex = 25;
+            this.txt_other_urls.Location = new System.Drawing.Point(102, 125);
+            this.txt_other_urls.Multiline = true;
+            this.txt_other_urls.Name = "txt_other_urls";
+            this.txt_other_urls.Size = new System.Drawing.Size(379, 65);
+            this.txt_other_urls.TabIndex = 28;
+            // 
+            // txt_other_names
+            // 
+            this.txt_other_names.Location = new System.Drawing.Point(101, 99);
+            this.txt_other_names.Name = "txt_other_names";
+            this.txt_other_names.Size = new System.Drawing.Size(379, 20);
+            this.txt_other_names.TabIndex = 27;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 128);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Company URL:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Other Names:";
             // 
             // lb_row_id
             // 
@@ -182,7 +200,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 24);
+            this.label3.Location = new System.Drawing.Point(11, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 21;
@@ -191,7 +209,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 94);
+            this.label2.Location = new System.Drawing.Point(11, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 20;
@@ -200,61 +218,34 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 44);
+            this.label1.Location = new System.Drawing.Point(11, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 19;
             this.label1.Text = "Company Name:";
             // 
-            // btn_name_add
+            // btn_update
             // 
-            this.btn_name_add.Location = new System.Drawing.Point(369, 64);
-            this.btn_name_add.Name = "btn_name_add";
-            this.btn_name_add.Size = new System.Drawing.Size(75, 23);
-            this.btn_name_add.TabIndex = 14;
-            this.btn_name_add.Text = "Add";
-            this.btn_name_add.UseVisualStyleBackColor = true;
-            this.btn_name_add.Click += new System.EventHandler(this.btn_name_add_Click);
-            // 
-            // btn_url_delete
-            // 
-            this.btn_url_delete.Location = new System.Drawing.Point(369, 137);
-            this.btn_url_delete.Name = "btn_url_delete";
-            this.btn_url_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_url_delete.TabIndex = 18;
-            this.btn_url_delete.Text = "Delete";
-            this.btn_url_delete.UseVisualStyleBackColor = true;
+            this.btn_update.Location = new System.Drawing.Point(390, 15);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(75, 23);
+            this.btn_update.TabIndex = 14;
+            this.btn_update.Text = "Update";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(10, 64);
+            this.txt_name.Location = new System.Drawing.Point(101, 44);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(353, 20);
+            this.txt_name.Size = new System.Drawing.Size(380, 20);
             this.txt_name.TabIndex = 13;
-            // 
-            // txt_url_remark
-            // 
-            this.txt_url_remark.Location = new System.Drawing.Point(10, 136);
-            this.txt_url_remark.Multiline = true;
-            this.txt_url_remark.Name = "txt_url_remark";
-            this.txt_url_remark.Size = new System.Drawing.Size(353, 50);
-            this.txt_url_remark.TabIndex = 16;
-            // 
-            // btn_url_add
-            // 
-            this.btn_url_add.Location = new System.Drawing.Point(369, 108);
-            this.btn_url_add.Name = "btn_url_add";
-            this.btn_url_add.Size = new System.Drawing.Size(75, 23);
-            this.btn_url_add.TabIndex = 17;
-            this.btn_url_add.Text = "Add";
-            this.btn_url_add.UseVisualStyleBackColor = true;
-            this.btn_url_add.Click += new System.EventHandler(this.btn_url_add_Click);
             // 
             // txt_url
             // 
-            this.txt_url.Location = new System.Drawing.Point(9, 110);
+            this.txt_url.Location = new System.Drawing.Point(102, 71);
             this.txt_url.Name = "txt_url";
-            this.txt_url.Size = new System.Drawing.Size(353, 20);
+            this.txt_url.Size = new System.Drawing.Size(379, 20);
             this.txt_url.TabIndex = 15;
             // 
             // btn_load
@@ -368,19 +359,19 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lb_company_id;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_name_add;
-        private System.Windows.Forms.Button btn_url_delete;
-        private System.Windows.Forms.TextBox txt_name;
-        private System.Windows.Forms.TextBox txt_url_remark;
-        private System.Windows.Forms.Button btn_url_add;
-        private System.Windows.Forms.TextBox txt_url;
         private System.Windows.Forms.Button btn_check_json;
         private System.Windows.Forms.Button btn_json_beautify;
         private System.Windows.Forms.Button btn_update_grid;
-        private System.Windows.Forms.Button btn_user_define_add;
-        private System.Windows.Forms.TextBox txt_user_value;
-        private System.Windows.Forms.ComboBox cb_user_name;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.TextBox txt_url;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_other_names;
+        private System.Windows.Forms.TextBox txt_other_urls;
+        private System.Windows.Forms.TextBox txt_pay_ways;
+        private System.Windows.Forms.Label label7;
     }
 }

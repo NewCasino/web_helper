@@ -17,6 +17,7 @@ using MongoDB.Driver.Builders;
 namespace web_helper
 {
     static class Program
+
     {
         /// <summary>
         /// 应用程序的主入口点。
@@ -26,7 +27,7 @@ namespace web_helper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new  frm_match_bar()); 
+            Application.Run(new  frm_url_free_pick()); 
         }
     }
 }

@@ -20,12 +20,13 @@ namespace web_helper
             InitializeComponent();
         }
 
+        private void frm_match_compute_by_company_Load(object sender, EventArgs e)
+        {  
+        } 
         private void btn_load_Click(object sender, EventArgs e)
         {
             bind_data();
-        }
-
-
+        } 
         private void btn_single_match_Click(object sender, EventArgs e)
         {
             ArrayList list_companys = new ArrayList();
@@ -476,12 +477,7 @@ namespace web_helper
                 row_new["company"] = row["company"].ToString();
                 dt_company.Rows.Add(row_new);
             }
-            this.dgv_company.DataSource = dt_company;
-
-
-
-
-
+            this.dgv_company.DataSource = dt_company; 
 
         }
         public void get_single_by_persent_asc(List<BsonDocument> list)
@@ -972,9 +968,5 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         } 
-
-
-
-
     }
 }

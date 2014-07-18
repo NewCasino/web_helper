@@ -150,6 +150,7 @@
             this.txt_local.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_local.Size = new System.Drawing.Size(1074, 483);
             this.txt_local.TabIndex = 0;
+            this.txt_local.WordWrap = false;
             // 
             // tab_page_1
             // 
@@ -172,6 +173,7 @@
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_result.Size = new System.Drawing.Size(1068, 477);
             this.txt_result.TabIndex = 0;
+            this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
             // tab_page_2

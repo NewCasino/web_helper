@@ -83,8 +83,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
@@ -92,7 +92,7 @@
             this.groupBox1.Controls.Add(this.btn_load);
             this.groupBox1.Location = new System.Drawing.Point(6, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(264, 563);
+            this.groupBox1.Size = new System.Drawing.Size(264, 610);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
@@ -105,18 +105,18 @@
             this.groupBox6.Controls.Add(this.cb_three_company_desc);
             this.groupBox6.Controls.Add(this.cb_three_company_asc);
             this.groupBox6.Controls.Add(this.btn_three_match);
-            this.groupBox6.Location = new System.Drawing.Point(6, 270);
+            this.groupBox6.Location = new System.Drawing.Point(6, 293);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(252, 108);
+            this.groupBox6.Size = new System.Drawing.Size(252, 117);
             this.groupBox6.TabIndex = 8;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Three";
             // 
             // btn_three_range
             // 
-            this.btn_three_range.Location = new System.Drawing.Point(118, 72);
+            this.btn_three_range.Location = new System.Drawing.Point(118, 78);
             this.btn_three_range.Name = "btn_three_range";
-            this.btn_three_range.Size = new System.Drawing.Size(75, 21);
+            this.btn_three_range.Size = new System.Drawing.Size(75, 23);
             this.btn_three_range.TabIndex = 14;
             this.btn_three_range.Text = "Range";
             this.btn_three_range.UseVisualStyleBackColor = true;
@@ -125,9 +125,9 @@
             // cb_three_persent_desc
             // 
             this.cb_three_persent_desc.AutoSize = true;
-            this.cb_three_persent_desc.Location = new System.Drawing.Point(118, 20);
+            this.cb_three_persent_desc.Location = new System.Drawing.Point(118, 22);
             this.cb_three_persent_desc.Name = "cb_three_persent_desc";
-            this.cb_three_persent_desc.Size = new System.Drawing.Size(96, 16);
+            this.cb_three_persent_desc.Size = new System.Drawing.Size(94, 17);
             this.cb_three_persent_desc.TabIndex = 12;
             this.cb_three_persent_desc.Text = "Persent DESC";
             this.cb_three_persent_desc.UseVisualStyleBackColor = true;
@@ -137,9 +137,9 @@
             this.cb_three_persent_asc.AutoSize = true;
             this.cb_three_persent_asc.Checked = true;
             this.cb_three_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_three_persent_asc.Location = new System.Drawing.Point(6, 20);
+            this.cb_three_persent_asc.Location = new System.Drawing.Point(6, 22);
             this.cb_three_persent_asc.Name = "cb_three_persent_asc";
-            this.cb_three_persent_asc.Size = new System.Drawing.Size(90, 16);
+            this.cb_three_persent_asc.Size = new System.Drawing.Size(86, 17);
             this.cb_three_persent_asc.TabIndex = 11;
             this.cb_three_persent_asc.Text = "Persent ASC";
             this.cb_three_persent_asc.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@
             // cb_three_company_desc
             // 
             this.cb_three_company_desc.AutoSize = true;
-            this.cb_three_company_desc.Location = new System.Drawing.Point(118, 48);
+            this.cb_three_company_desc.Location = new System.Drawing.Point(118, 52);
             this.cb_three_company_desc.Name = "cb_three_company_desc";
-            this.cb_three_company_desc.Size = new System.Drawing.Size(96, 16);
+            this.cb_three_company_desc.Size = new System.Drawing.Size(102, 17);
             this.cb_three_company_desc.TabIndex = 10;
             this.cb_three_company_desc.Text = "Company DESC";
             this.cb_three_company_desc.UseVisualStyleBackColor = true;
@@ -157,18 +157,18 @@
             // cb_three_company_asc
             // 
             this.cb_three_company_asc.AutoSize = true;
-            this.cb_three_company_asc.Location = new System.Drawing.Point(6, 48);
+            this.cb_three_company_asc.Location = new System.Drawing.Point(6, 52);
             this.cb_three_company_asc.Name = "cb_three_company_asc";
-            this.cb_three_company_asc.Size = new System.Drawing.Size(90, 16);
+            this.cb_three_company_asc.Size = new System.Drawing.Size(94, 17);
             this.cb_three_company_asc.TabIndex = 9;
             this.cb_three_company_asc.Text = "Company ASC";
             this.cb_three_company_asc.UseVisualStyleBackColor = true;
             // 
             // btn_three_match
             // 
-            this.btn_three_match.Location = new System.Drawing.Point(25, 72);
+            this.btn_three_match.Location = new System.Drawing.Point(25, 78);
             this.btn_three_match.Name = "btn_three_match";
-            this.btn_three_match.Size = new System.Drawing.Size(75, 21);
+            this.btn_three_match.Size = new System.Drawing.Size(75, 23);
             this.btn_three_match.TabIndex = 5;
             this.btn_three_match.Text = "Three";
             this.btn_three_match.UseVisualStyleBackColor = true;
@@ -182,18 +182,18 @@
             this.groupBox5.Controls.Add(this.cb_two_company_desc);
             this.groupBox5.Controls.Add(this.cb_two_company_asc);
             this.groupBox5.Controls.Add(this.btn_two_match);
-            this.groupBox5.Location = new System.Drawing.Point(6, 156);
+            this.groupBox5.Location = new System.Drawing.Point(6, 169);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(252, 108);
+            this.groupBox5.Size = new System.Drawing.Size(252, 117);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Two";
             // 
             // btn_two_range
             // 
-            this.btn_two_range.Location = new System.Drawing.Point(118, 69);
+            this.btn_two_range.Location = new System.Drawing.Point(118, 75);
             this.btn_two_range.Name = "btn_two_range";
-            this.btn_two_range.Size = new System.Drawing.Size(75, 21);
+            this.btn_two_range.Size = new System.Drawing.Size(75, 23);
             this.btn_two_range.TabIndex = 13;
             this.btn_two_range.Text = "Range";
             this.btn_two_range.UseVisualStyleBackColor = true;
@@ -202,9 +202,9 @@
             // cb_two_persent_desc
             // 
             this.cb_two_persent_desc.AutoSize = true;
-            this.cb_two_persent_desc.Location = new System.Drawing.Point(118, 20);
+            this.cb_two_persent_desc.Location = new System.Drawing.Point(118, 22);
             this.cb_two_persent_desc.Name = "cb_two_persent_desc";
-            this.cb_two_persent_desc.Size = new System.Drawing.Size(96, 16);
+            this.cb_two_persent_desc.Size = new System.Drawing.Size(94, 17);
             this.cb_two_persent_desc.TabIndex = 12;
             this.cb_two_persent_desc.Text = "Persent DESC";
             this.cb_two_persent_desc.UseVisualStyleBackColor = true;
@@ -214,9 +214,9 @@
             this.cb_two_persent_asc.AutoSize = true;
             this.cb_two_persent_asc.Checked = true;
             this.cb_two_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_two_persent_asc.Location = new System.Drawing.Point(6, 20);
+            this.cb_two_persent_asc.Location = new System.Drawing.Point(6, 22);
             this.cb_two_persent_asc.Name = "cb_two_persent_asc";
-            this.cb_two_persent_asc.Size = new System.Drawing.Size(90, 16);
+            this.cb_two_persent_asc.Size = new System.Drawing.Size(86, 17);
             this.cb_two_persent_asc.TabIndex = 11;
             this.cb_two_persent_asc.Text = "Persent ASC";
             this.cb_two_persent_asc.UseVisualStyleBackColor = true;
@@ -224,9 +224,9 @@
             // cb_two_company_desc
             // 
             this.cb_two_company_desc.AutoSize = true;
-            this.cb_two_company_desc.Location = new System.Drawing.Point(118, 48);
+            this.cb_two_company_desc.Location = new System.Drawing.Point(118, 52);
             this.cb_two_company_desc.Name = "cb_two_company_desc";
-            this.cb_two_company_desc.Size = new System.Drawing.Size(96, 16);
+            this.cb_two_company_desc.Size = new System.Drawing.Size(102, 17);
             this.cb_two_company_desc.TabIndex = 10;
             this.cb_two_company_desc.Text = "Company DESC";
             this.cb_two_company_desc.UseVisualStyleBackColor = true;
@@ -234,18 +234,18 @@
             // cb_two_company_asc
             // 
             this.cb_two_company_asc.AutoSize = true;
-            this.cb_two_company_asc.Location = new System.Drawing.Point(6, 48);
+            this.cb_two_company_asc.Location = new System.Drawing.Point(6, 52);
             this.cb_two_company_asc.Name = "cb_two_company_asc";
-            this.cb_two_company_asc.Size = new System.Drawing.Size(90, 16);
+            this.cb_two_company_asc.Size = new System.Drawing.Size(94, 17);
             this.cb_two_company_asc.TabIndex = 9;
             this.cb_two_company_asc.Text = "Company ASC";
             this.cb_two_company_asc.UseVisualStyleBackColor = true;
             // 
             // btn_two_match
             // 
-            this.btn_two_match.Location = new System.Drawing.Point(25, 69);
+            this.btn_two_match.Location = new System.Drawing.Point(25, 75);
             this.btn_two_match.Name = "btn_two_match";
-            this.btn_two_match.Size = new System.Drawing.Size(75, 21);
+            this.btn_two_match.Size = new System.Drawing.Size(75, 23);
             this.btn_two_match.TabIndex = 5;
             this.btn_two_match.Text = "Two";
             this.btn_two_match.UseVisualStyleBackColor = true;
@@ -259,18 +259,18 @@
             this.groupBox4.Controls.Add(this.cb_company_desc);
             this.groupBox4.Controls.Add(this.cb_company_asc);
             this.groupBox4.Controls.Add(this.btn_single_match);
-            this.groupBox4.Location = new System.Drawing.Point(6, 47);
+            this.groupBox4.Location = new System.Drawing.Point(6, 51);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(252, 103);
+            this.groupBox4.Size = new System.Drawing.Size(252, 112);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Single";
             // 
             // btn_single_range
             // 
-            this.btn_single_range.Location = new System.Drawing.Point(118, 70);
+            this.btn_single_range.Location = new System.Drawing.Point(118, 76);
             this.btn_single_range.Name = "btn_single_range";
-            this.btn_single_range.Size = new System.Drawing.Size(75, 21);
+            this.btn_single_range.Size = new System.Drawing.Size(75, 23);
             this.btn_single_range.TabIndex = 9;
             this.btn_single_range.Text = "Range";
             this.btn_single_range.UseVisualStyleBackColor = true;
@@ -279,9 +279,9 @@
             // cb_persent_desc
             // 
             this.cb_persent_desc.AutoSize = true;
-            this.cb_persent_desc.Location = new System.Drawing.Point(118, 21);
+            this.cb_persent_desc.Location = new System.Drawing.Point(118, 23);
             this.cb_persent_desc.Name = "cb_persent_desc";
-            this.cb_persent_desc.Size = new System.Drawing.Size(96, 16);
+            this.cb_persent_desc.Size = new System.Drawing.Size(94, 17);
             this.cb_persent_desc.TabIndex = 8;
             this.cb_persent_desc.Text = "Persent DESC";
             this.cb_persent_desc.UseVisualStyleBackColor = true;
@@ -291,9 +291,9 @@
             this.cb_persent_asc.AutoSize = true;
             this.cb_persent_asc.Checked = true;
             this.cb_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_persent_asc.Location = new System.Drawing.Point(6, 21);
+            this.cb_persent_asc.Location = new System.Drawing.Point(6, 23);
             this.cb_persent_asc.Name = "cb_persent_asc";
-            this.cb_persent_asc.Size = new System.Drawing.Size(90, 16);
+            this.cb_persent_asc.Size = new System.Drawing.Size(86, 17);
             this.cb_persent_asc.TabIndex = 7;
             this.cb_persent_asc.Text = "Persent ASC";
             this.cb_persent_asc.UseVisualStyleBackColor = true;
@@ -301,9 +301,9 @@
             // cb_company_desc
             // 
             this.cb_company_desc.AutoSize = true;
-            this.cb_company_desc.Location = new System.Drawing.Point(118, 49);
+            this.cb_company_desc.Location = new System.Drawing.Point(118, 53);
             this.cb_company_desc.Name = "cb_company_desc";
-            this.cb_company_desc.Size = new System.Drawing.Size(96, 16);
+            this.cb_company_desc.Size = new System.Drawing.Size(102, 17);
             this.cb_company_desc.TabIndex = 6;
             this.cb_company_desc.Text = "Company DESC";
             this.cb_company_desc.UseVisualStyleBackColor = true;
@@ -311,18 +311,18 @@
             // cb_company_asc
             // 
             this.cb_company_asc.AutoSize = true;
-            this.cb_company_asc.Location = new System.Drawing.Point(6, 49);
+            this.cb_company_asc.Location = new System.Drawing.Point(6, 53);
             this.cb_company_asc.Name = "cb_company_asc";
-            this.cb_company_asc.Size = new System.Drawing.Size(90, 16);
+            this.cb_company_asc.Size = new System.Drawing.Size(94, 17);
             this.cb_company_asc.TabIndex = 5;
             this.cb_company_asc.Text = "Company ASC";
             this.cb_company_asc.UseVisualStyleBackColor = true;
             // 
             // btn_single_match
             // 
-            this.btn_single_match.Location = new System.Drawing.Point(25, 70);
+            this.btn_single_match.Location = new System.Drawing.Point(25, 76);
             this.btn_single_match.Name = "btn_single_match";
-            this.btn_single_match.Size = new System.Drawing.Size(75, 21);
+            this.btn_single_match.Size = new System.Drawing.Size(75, 23);
             this.btn_single_match.TabIndex = 4;
             this.btn_single_match.Text = "Single";
             this.btn_single_match.UseVisualStyleBackColor = true;
@@ -330,16 +330,16 @@
             // 
             // txt_condition
             // 
-            this.txt_condition.Location = new System.Drawing.Point(6, 20);
+            this.txt_condition.Location = new System.Drawing.Point(6, 22);
             this.txt_condition.Name = "txt_condition";
-            this.txt_condition.Size = new System.Drawing.Size(171, 21);
+            this.txt_condition.Size = new System.Drawing.Size(171, 20);
             this.txt_condition.TabIndex = 3;
             // 
             // btn_load
             // 
-            this.btn_load.Location = new System.Drawing.Point(183, 19);
+            this.btn_load.Location = new System.Drawing.Point(183, 21);
             this.btn_load.Name = "btn_load";
-            this.btn_load.Size = new System.Drawing.Size(75, 21);
+            this.btn_load.Size = new System.Drawing.Size(75, 23);
             this.btn_load.TabIndex = 2;
             this.btn_load.Text = "Load";
             this.btn_load.UseVisualStyleBackColor = true;
@@ -347,16 +347,16 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Condition);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(276, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(909, 563);
+            this.tabControl1.Size = new System.Drawing.Size(909, 610);
             this.tabControl1.TabIndex = 1;
             // 
             // Condition
@@ -365,31 +365,31 @@
             this.Condition.Controls.Add(this.groupBox2);
             this.Condition.Location = new System.Drawing.Point(4, 22);
             this.Condition.Name = "Condition";
-            this.Condition.Size = new System.Drawing.Size(901, 537);
+            this.Condition.Size = new System.Drawing.Size(901, 584);
             this.Condition.TabIndex = 2;
             this.Condition.Text = "Condition";
             this.Condition.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btn_company_reverse);
             this.groupBox3.Controls.Add(this.btn_company_all);
             this.groupBox3.Controls.Add(this.dgv_company);
             this.groupBox3.Location = new System.Drawing.Point(502, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(391, 526);
+            this.groupBox3.Size = new System.Drawing.Size(391, 570);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Company";
             // 
             // btn_company_reverse
             // 
-            this.btn_company_reverse.Location = new System.Drawing.Point(87, 20);
+            this.btn_company_reverse.Location = new System.Drawing.Point(87, 22);
             this.btn_company_reverse.Name = "btn_company_reverse";
-            this.btn_company_reverse.Size = new System.Drawing.Size(75, 23);
+            this.btn_company_reverse.Size = new System.Drawing.Size(75, 25);
             this.btn_company_reverse.TabIndex = 3;
             this.btn_company_reverse.Text = "REVERSE";
             this.btn_company_reverse.UseVisualStyleBackColor = true;
@@ -397,9 +397,9 @@
             // 
             // btn_company_all
             // 
-            this.btn_company_all.Location = new System.Drawing.Point(6, 20);
+            this.btn_company_all.Location = new System.Drawing.Point(6, 22);
             this.btn_company_all.Name = "btn_company_all";
-            this.btn_company_all.Size = new System.Drawing.Size(75, 23);
+            this.btn_company_all.Size = new System.Drawing.Size(75, 25);
             this.btn_company_all.TabIndex = 2;
             this.btn_company_all.Text = "ALL";
             this.btn_company_all.UseVisualStyleBackColor = true;
@@ -407,35 +407,35 @@
             // 
             // dgv_company
             // 
-            this.dgv_company.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_company.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_company.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_company.Location = new System.Drawing.Point(6, 54);
+            this.dgv_company.Location = new System.Drawing.Point(6, 59);
             this.dgv_company.Name = "dgv_company";
-            this.dgv_company.Size = new System.Drawing.Size(379, 465);
+            this.dgv_company.Size = new System.Drawing.Size(379, 504);
             this.dgv_company.TabIndex = 1;
             this.dgv_company.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_company_DataBindingComplete);
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.btn_match_reverse);
             this.groupBox2.Controls.Add(this.btn_match_all);
             this.groupBox2.Controls.Add(this.dgv_match);
             this.groupBox2.Location = new System.Drawing.Point(3, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(493, 526);
+            this.groupBox2.Size = new System.Drawing.Size(493, 570);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Condition";
             // 
             // btn_match_reverse
             // 
-            this.btn_match_reverse.Location = new System.Drawing.Point(87, 20);
+            this.btn_match_reverse.Location = new System.Drawing.Point(87, 22);
             this.btn_match_reverse.Name = "btn_match_reverse";
-            this.btn_match_reverse.Size = new System.Drawing.Size(75, 23);
+            this.btn_match_reverse.Size = new System.Drawing.Size(75, 25);
             this.btn_match_reverse.TabIndex = 2;
             this.btn_match_reverse.Text = "REVERSE";
             this.btn_match_reverse.UseVisualStyleBackColor = true;
@@ -443,9 +443,9 @@
             // 
             // btn_match_all
             // 
-            this.btn_match_all.Location = new System.Drawing.Point(6, 20);
+            this.btn_match_all.Location = new System.Drawing.Point(6, 22);
             this.btn_match_all.Name = "btn_match_all";
-            this.btn_match_all.Size = new System.Drawing.Size(75, 23);
+            this.btn_match_all.Size = new System.Drawing.Size(75, 25);
             this.btn_match_all.TabIndex = 1;
             this.btn_match_all.Text = "ALL";
             this.btn_match_all.UseVisualStyleBackColor = true;
@@ -453,13 +453,13 @@
             // 
             // dgv_match
             // 
-            this.dgv_match.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_match.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_match.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_match.Location = new System.Drawing.Point(6, 54);
+            this.dgv_match.Location = new System.Drawing.Point(6, 59);
             this.dgv_match.Name = "dgv_match";
-            this.dgv_match.Size = new System.Drawing.Size(481, 465);
+            this.dgv_match.Size = new System.Drawing.Size(481, 504);
             this.dgv_match.TabIndex = 0;
             this.dgv_match.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_match_DataBindingComplete);
             // 
@@ -469,7 +469,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(901, 537);
+            this.tabPage1.Size = new System.Drawing.Size(901, 584);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "All Data";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -480,7 +480,7 @@
             this.dgv_all.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_all.Location = new System.Drawing.Point(3, 3);
             this.dgv_all.Name = "dgv_all";
-            this.dgv_all.Size = new System.Drawing.Size(895, 531);
+            this.dgv_all.Size = new System.Drawing.Size(895, 578);
             this.dgv_all.TabIndex = 0;
             // 
             // tabPage2
@@ -489,7 +489,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(901, 537);
+            this.tabPage2.Size = new System.Drawing.Size(901, 584);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Result Text";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -502,19 +502,20 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(895, 531);
+            this.txt_result.Size = new System.Drawing.Size(895, 578);
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
             // frm_match_compute_by_company
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1185, 570);
+            this.ClientSize = new System.Drawing.Size(1185, 618);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_compute_by_company";
+            this.Load += new System.EventHandler(this.frm_match_compute_by_company_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);

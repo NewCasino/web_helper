@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,19 +51,29 @@ namespace web_helper
 
         private void btn_pick_to_table_Click(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
+            TreeTableAndList result = new TreeTableAndList();
             if (cb_local.Checked)
             {
-                table = AutoPickHelper.get_tree_table_from_local(this.txt_local.Text);
+                result = AutoPickHelper.get_tree_table_from_local(this.txt_local.Text);
             }
             else
             {
-                table = AutoPickHelper.get_tree_table_from_url(this.txt_url.Text);
+                result = AutoPickHelper.get_tree_table_from_url(this.txt_url.Text);
             }
 
-            this.dgv_tree.DataSource = table;
-        }
+            this.dgv_tree.DataSource = result.table;
 
-
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < result.list.Count; i++)
+            {
+                sb.Append(i.ToString() + "["+((ArrayList)result.list[i]).Count +"]:  ");
+                foreach (int item in (ArrayList)result.list[i])
+                {
+                    sb.Append(item.ToString() + "  ");
+                }
+                sb.Append(Environment.NewLine);
+            }
+            this.txt_result.Text = sb.ToString();
+        } 
     }
 }

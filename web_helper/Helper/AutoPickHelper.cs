@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -334,8 +335,9 @@ class AutoPickHelper
         }
     }
 
-    public static DataTable  get_tree_table_from_local(string html)
-    { 
+    public static TreeTableAndList get_tree_table_from_local(string html)
+    {
+        TreeTableAndList result = new TreeTableAndList();
         HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
         doc.LoadHtml(html);
 
@@ -345,12 +347,22 @@ class AutoPickHelper
         {
             table.Columns.Add("C" + i.ToString());
         }
-        add_row_to_tree_table(-1, ref table, doc.DocumentNode);
 
-        return table;
+        ArrayList list = new ArrayList();
+        for (int i = 0; i < 500; i++)
+        {
+            list.Add(new ArrayList());
+        }
+
+        add_row_to_tree_table(-1, ref table,ref list, doc.DocumentNode);
+
+        result.table = table;
+        result.list = list;
+        return result;
     }
-    public static DataTable get_tree_table_from_url(string url)
+    public static TreeTableAndList get_tree_table_from_url(string url)
     {
+        TreeTableAndList result = new TreeTableAndList();
 
         WebClient client = new WebClient();
         HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -362,12 +374,24 @@ class AutoPickHelper
         {
             table.Columns.Add("C" + i.ToString());
         }
-        add_row_to_tree_table(-1, ref table, doc.DocumentNode);
 
-        return table;
+        ArrayList list = new ArrayList();
+        for (int i = 0; i < 500; i++)
+        {
+            list.Add(new ArrayList());
+        }
+
+        add_row_to_tree_table(-1, ref table,ref list,  doc.DocumentNode);
+
+        result.table = table;
+        result.list = list;
+        return result;
     } 
-    public static void add_row_to_tree_table(int layer,ref DataTable table,HtmlNode father_node)
+    public static void add_row_to_tree_table(int layer,ref DataTable table,ref ArrayList list,  HtmlNode father_node )
     {
+
+
+        
         layer = layer + 1;
         foreach (HtmlNode node in father_node.ChildNodes)
         {
@@ -376,10 +400,12 @@ class AutoPickHelper
             {
                 if (!string.IsNullOrEmpty(node.InnerText.Trim()))
                 {
-                    value = node.Name + "$" + node.InnerText;
+                    //value = node.Name + "$" + node.InnerText;
+                    value = "$$$$" + node.InnerText;
                     DataRow row1 = table.NewRow();
-                    table.Rows.Add(row1);
                     row1[layer] = value;
+                    table.Rows.Add(row1);
+                    ((ArrayList)list[layer]).Add(table.Rows.Count);
                 }
             }
             else
@@ -388,7 +414,8 @@ class AutoPickHelper
                 DataRow row2 = table.NewRow();
                 row2[layer] = value;
                 table.Rows.Add(row2);  
-                add_row_to_tree_table(layer, ref table, node); 
+                add_row_to_tree_table(layer, ref table,ref list, node); 
+                
             } 
         }
     }
@@ -471,3 +498,9 @@ class AutoPickHelper
     }
 }
 
+class TreeTableAndList
+{
+    public TreeTableAndList() { }
+    public DataTable table;
+    public ArrayList list;
+}

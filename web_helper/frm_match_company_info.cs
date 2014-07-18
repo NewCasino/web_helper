@@ -18,7 +18,7 @@ namespace web_helper
         }
 
         private void btn_load_Click(object sender, EventArgs e)
-        { 
+        {
             bind_data();
         }
         private void btn_save_Click(object sender, EventArgs e)
@@ -27,25 +27,30 @@ namespace web_helper
             for (int i = 0; i < dgv_company.Rows.Count; i++)
             {
                 string id = dgv_company.Rows[i].Cells[0].Value == null ? "" : dgv_company.Rows[i].Cells[0].Value.ToString();
-                string info = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[1].Value.ToString();
+                string name = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[1].Value.ToString();
+                string url = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[2].Value.ToString();
+                string other_names = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[3].Value.ToString();
+                string other_urls = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[4].Value.ToString();
+                string pay_ways = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[5].Value.ToString();
+                string info = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[6].Value.ToString();
 
 
                 if (string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(info))
                 {
-                    sql = " insert into doc_info (type,info) values ('company','{0}')";
-                    sql = string.Format(sql, dgv_company.Rows[i].Cells[1].Value.ToString());
+                    sql = " insert into company (name,url,other_names,other_urls,pay_ways,info) values ('{0}','{1}','{2}','{3}','{4}','{5}')";
+                    sql = string.Format(sql, name, url, other_names, other_urls, pay_ways, info);
                     SQLServerHelper.exe_sql(sql);
                     continue;
                 }
                 if (!string.IsNullOrEmpty(id))
                 {
-                    sql = " update doc_info set info='{0}' where id={1}";
-                    sql = string.Format(sql, info, id);
+                    sql = " update company set name='{0}',url='{1}',other_names='{2}',other_urls='{3}',pay_ways='{4}',info='{5}'  where id={6}";
+                    sql = string.Format(sql, name, url, other_names, other_urls, pay_ways, info, id);
                     SQLServerHelper.exe_sql(sql);
                     continue;
                 }
             }
-        } 
+        }
         public void bind_data()
         {
             string info = "";
@@ -58,7 +63,7 @@ namespace web_helper
                 info = "%" + txt_condition.Text + "%";
             }
 
-            string sql = "select id,info from doc_info where type='company'  and info like '{0}'";
+            string sql = "select *  from company where  info like '{0}'";
             sql = string.Format(sql, info);
 
             DataTable dt = new DataTable();
@@ -68,20 +73,26 @@ namespace web_helper
 
         private void dgv_company_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            this.dgv_company.Columns[1].Width = 200;
+            //this.dgv_company.Columns[1].Width = 200;
             this.dgv_company.Columns[0].ReadOnly = true;
         }
         private void dgv_company_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.lb_company_id.Text = dgv_company.Rows[e.RowIndex].Cells[0].Value == null ? "" : dgv_company.Rows[e.RowIndex].Cells[0].Value.ToString();
-            this.txt_result.Text = dgv_company.Rows[e.RowIndex].Cells[1].Value == null ? "" : dgv_company.Rows[e.RowIndex].Cells[1].Value.ToString();
+            this.lb_company_id.Text = dgv_company.Rows[e.RowIndex].Cells["id"].Value == null ? "" : dgv_company.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            this.txt_result.Text = dgv_company.Rows[e.RowIndex].Cells["info"].Value == null ? "" : dgv_company.Rows[e.RowIndex].Cells["info"].Value.ToString();
             this.lb_row_id.Text = e.RowIndex.ToString();
-        } 
- 
+
+            this.txt_name.Text = dgv_company.Rows[e.RowIndex].Cells["name"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["name"].Value.ToString();
+            this.txt_url.Text = dgv_company.Rows[e.RowIndex].Cells["url"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["url"].Value.ToString();
+            this.txt_other_names.Text = dgv_company.Rows[e.RowIndex].Cells["other_names"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_names"].Value.ToString();
+            this.txt_other_urls.Text = dgv_company.Rows[e.RowIndex].Cells["other_urls"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_urls"].Value.ToString();
+            this.txt_pay_ways.Text = dgv_company.Rows[e.RowIndex].Cells["pay_ways"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["pay_ways"].Value.ToString();
+
+        }
         private void btn_json_beautify_Click(object sender, EventArgs e)
         {
             this.txt_result.Text = JsonBeautify.beautify(this.txt_result.Text);
-        } 
+        }
         private void btn_check_json_Click(object sender, EventArgs e)
         {
             string msg = MongoHelper.check_is_update_string(this.txt_result.Text);
@@ -95,119 +106,67 @@ namespace web_helper
             }
         }
 
-        private void btn_name_add_Click(object sender, EventArgs e)
-        { 
 
-            if (string.IsNullOrEmpty(this.txt_name.Text)) return;
-            if (string.IsNullOrEmpty(lb_row_id.Text)) { MessageBox.Show("Select no row!!"); return; }
-
-            string id = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[0].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[0].Value.ToString();
-            string info = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value.ToString();
-
-          
-
-            BsonDocument doc;
-            if (!string.IsNullOrEmpty(info))
-            {
-                doc = MongoHelper.get_doc_from_str(info);
-            }
-            else
-            {
-                doc = new BsonDocument();
-                doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
-                doc.Add("names", new BsonArray());
-                doc.Add("urls", new BsonArray());
-            }
-
-            bool is_has = false;
-            foreach (string value in doc["names"].AsBsonArray)
-            {
-                if (value == txt_name.Text) is_has = true;
-            }
-            if (is_has == false) doc["names"].AsBsonArray.Add(txt_name.Text);
-            this.txt_result.Text = doc.ToString();
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value = doc.ToString();
-
-        } 
-        private void btn_url_add_Click(object sender, EventArgs e)
-        { 
-            if (string.IsNullOrEmpty(this.txt_name.Text)) return;
-            if (string.IsNullOrEmpty(lb_row_id.Text)) { MessageBox.Show("Select no row!!"); return; }
-
-            string id = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[0].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[0].Value.ToString();
-            string info = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value.ToString();
-
-            BsonDocument doc;
-            if (!string.IsNullOrEmpty(info))
-            {
-                doc = MongoHelper.get_doc_from_str(dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value.ToString());
-            }
-            else
-            {
-                doc = new BsonDocument();
-                doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
-                doc.Add("names", new BsonArray());
-                doc.Add("urls", new BsonArray());
-            }
-            BsonDocument doc_url = new BsonDocument();
-            doc_url.Add("url", txt_url.Text);
-            doc_url.Add("remark",txt_url_remark.Text);
-            doc_url.Add("use", "1");
-            doc_url.Add("create_time", DateTime.Now.ToString());
-            doc["urls"].AsBsonArray.Add(doc_url.AsBsonValue);
-            this.txt_result.Text = doc.ToString();
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value = doc.ToString(); 
-        } 
         private void btn_update_grid_Click(object sender, EventArgs e)
         {
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value = this.txt_result.Text;
-        } 
-        private void btn_user_define_add_Click(object sender, EventArgs e)
+            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value = this.txt_result.Text;
+        }
+
+
+        private void btn_update_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.cb_user_name.Text) || string.IsNullOrEmpty(this.txt_user_value.Text)) return;
-            if (string.IsNullOrEmpty(lb_row_id.Text)) { MessageBox.Show("Select no row!!"); return; }
+            if (string.IsNullOrEmpty(this.txt_name.Text) || string.IsNullOrEmpty(this.txt_url.Text)) return;
 
-            string id = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[0].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[0].Value.ToString();
-            string info = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value.ToString();
-
-            string user_define_name = this.cb_user_name.Text;
-            string user_define_value = this.txt_user_value.Text;
+            string id = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["id"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["id"].Value.ToString();
+            string info = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value.ToString();
 
             BsonDocument doc;
             if (!string.IsNullOrEmpty(info))
             {
                 doc = MongoHelper.get_doc_from_str(info);
+                doc["name"] = this.txt_name.Text;
+                doc["url"] = this.txt_url.Text;
+                doc["other_names"] = get_array_from_str(this.txt_other_names.Text);
+                doc["other_urls"] = get_array_from_str(this.txt_other_urls.Text);
+                doc["pay_ways"] = get_array_from_str(this.txt_pay_ways.Text); ;
+
             }
             else
             {
                 doc = new BsonDocument();
                 doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
-                doc.Add("names", new BsonArray());
-                doc.Add("urls", new BsonArray());
+                doc.Add("name", this.txt_name.Text);
+                doc.Add("url", this.txt_url.Text);
+                doc.Add("other_names", get_array_from_str(this.txt_other_names.Text));
+                doc.Add("other_urls", get_array_from_str(this.txt_other_urls.Text));
+                doc.Add("pay_ways", get_array_from_str(this.txt_pay_ways.Text));
             }
 
-            bool is_has = false;
-            foreach (string item in doc.Names)
-            {
-                if (item == user_define_name) is_has = true;
-            }
 
-            if (is_has == false)
-            {
-                doc.Add(user_define_name, user_define_value);
-            }
-            else
-            {
-                doc[user_define_name] = user_define_value;
-            }
 
-            this.txt_result.Text = doc.ToString();
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells[1].Value = doc.ToString();
+            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["name"].Value = this.txt_name.Text;
+            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["url"].Value = this.txt_url.Text;
+            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_names"].Value = this.txt_other_names.Text;
+            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_urls"].Value = this.txt_other_urls.Text;
+            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["pay_ways"].Value = this.txt_pay_ways.Text;
+            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value = doc.ToString();
+
+
+
         }
-
- 
-
- 
-   
+        public BsonArray get_array_from_str(string str)
+        {
+            str = str.Replace("\r\n", "");
+            BsonArray array = new BsonArray();
+            if (!string.IsNullOrEmpty(str))
+            {
+                string[] list = str.Split('$');
+                foreach (string item in list)
+                {
+                    array.Add(item);
+                }
+            }
+            return array;
+        }
     }
 }
