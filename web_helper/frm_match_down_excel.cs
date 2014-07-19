@@ -43,8 +43,15 @@ namespace web_helper
                     string lg = node.Attributes["lg"].Value.ToString();
                     string host = node.Attributes["homesxname"].Value.ToString();
                     string client = node.Attributes["awaysxname"].Value.ToString();
-                    down_excel(lg,fid, start_time,host, client);
-                    table=get_table_from_excel(@"c:\data\" + fid + ".xls", 2);
+                    try
+                    {
+                        down_excel(lg, fid, start_time, host, client);
+                        table = get_table_from_excel(@"c:\data\" + fid + ".xls", 2);
+                    }
+                    catch (Exception error)
+                    {
+                        Log.error("down 500 excel",error);
+                    }
                     read_to_db(lg,start_time, host, client);
                     this.txt_result.Text += lg+"  "+fid + "  " + start_time + "  " + host + "  " + client+Environment.NewLine;
                     Application.DoEvents();

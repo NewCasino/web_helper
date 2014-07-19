@@ -74,6 +74,37 @@ namespace web_helper
                 sb.Append(Environment.NewLine);
             }
             this.txt_result.Text = sb.ToString();
-        } 
+
+
+            DataTable dt_filter = new DataTable();
+            for (int i = 0; i < 500; i++)
+            {
+                dt_filter.Columns.Add("C" + i.ToString());
+            }
+
+            StringBuilder filter_sb = new StringBuilder();
+            DataTable dt_table = result.table;
+            for (int i = 0; i < dt_table.Rows.Count; i++)
+            {
+                for(int j=0;j<dt_table.Columns.Count;j++)
+                {
+                    string value = dt_table.Rows[i][j].ToString();
+                    if (value.Length > 4 && value.Substring(0, 4) == "$$$$")
+                    {
+                        if (!value.Contains("<!--") && !value.Contains("{") && !value.Contains("|"))
+                        {
+                            DataRow row_new = dt_filter.NewRow();
+                            row_new[j] = dt_table.Rows[i][j].ToString().Replace("$$$$", "");
+                            filter_sb.Append(dt_table.Rows[i][j].ToString().Replace("$$$$", "") + Environment.NewLine);
+                            dt_filter.Rows.Add(row_new); 
+                        }
+                        
+                    } 
+                }
+            } 
+            this.dgv_filter.DataSource = dt_filter;
+            this.txt_filter.Text = filter_sb.ToString();
+
+        }
     }
 }
