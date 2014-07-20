@@ -9,26 +9,16 @@ using System.Windows.Forms;
 using HtmlAgilityPack;
 using System.Net;
  
-    public partial class FrmHtmlAnalyse : Form
+    public partial class frm_html_analyse : Form
     {
-        public FrmHtmlAnalyse()
+        public frm_html_analyse()
         {
             InitializeComponent();
         }
 
         private void btn_load_Click(object sender, EventArgs e)
         {
-            WebClient client = new WebClient(); 
-            string url = this.txt_url.Text;    
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-
-            if (cb_load_from_html_source.Checked == false)
-            {
-                this.txt_html_source.Text = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(this.txt_url.Text));
-            }
-           
-            doc.LoadHtml(this.txt_html_source.Text);
-            this.txt_html_source.Text = doc.DocumentNode.InnerHtml; 
+            browser.Navigate(this.txt_url.Text);
         }
 
         private void btn_select_Click(object sender, EventArgs e)
@@ -120,6 +110,11 @@ using System.Net;
                 dt.Rows.Add(row_new);
             } 
             return dt;
+        }
+
+        private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            this.txt_html_source.Text = "<body>" + Environment.NewLine + browser.Document.Body.InnerHtml + Environment.NewLine + "</body>";
         }
 
     } 

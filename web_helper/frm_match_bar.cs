@@ -39,5 +39,17 @@ namespace web_helper
             frm_match_compute_by_mix frm = new frm_match_compute_by_mix();
             frm.Show();
         }
+
+        private void btn_html_analyse_Click(object sender, EventArgs e)
+        {
+            frm_html_analyse frm = new frm_html_analyse();
+            frm.Show();
+        }
+
+        private void btn_match_100_Click(object sender, EventArgs e)
+        {
+            frm_match_100 frm = new frm_match_100();
+            frm.Show();
+        }
     }
 }

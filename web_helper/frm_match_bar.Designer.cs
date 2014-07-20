@@ -32,13 +32,15 @@
             this.btn_down_excel = new System.Windows.Forms.Button();
             this.frm_match_company_info = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_match_100 = new System.Windows.Forms.Button();
+            this.btn_html_analyse = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_compute_by_company
             // 
-            this.btn_compute_by_company.Location = new System.Drawing.Point(12, 6);
+            this.btn_compute_by_company.Location = new System.Drawing.Point(10, 12);
             this.btn_compute_by_company.Name = "btn_compute_by_company";
-            this.btn_compute_by_company.Size = new System.Drawing.Size(112, 23);
+            this.btn_compute_by_company.Size = new System.Drawing.Size(112, 21);
             this.btn_compute_by_company.TabIndex = 0;
             this.btn_compute_by_company.Text = "Company Compute";
             this.btn_compute_by_company.UseVisualStyleBackColor = true;
@@ -46,9 +48,9 @@
             // 
             // btn_down_excel
             // 
-            this.btn_down_excel.Location = new System.Drawing.Point(132, 6);
+            this.btn_down_excel.Location = new System.Drawing.Point(130, 12);
             this.btn_down_excel.Name = "btn_down_excel";
-            this.btn_down_excel.Size = new System.Drawing.Size(112, 23);
+            this.btn_down_excel.Size = new System.Drawing.Size(112, 21);
             this.btn_down_excel.TabIndex = 1;
             this.btn_down_excel.Text = "Down Excel";
             this.btn_down_excel.UseVisualStyleBackColor = true;
@@ -56,9 +58,9 @@
             // 
             // frm_match_company_info
             // 
-            this.frm_match_company_info.Location = new System.Drawing.Point(252, 6);
+            this.frm_match_company_info.Location = new System.Drawing.Point(250, 12);
             this.frm_match_company_info.Name = "frm_match_company_info";
-            this.frm_match_company_info.Size = new System.Drawing.Size(112, 23);
+            this.frm_match_company_info.Size = new System.Drawing.Size(112, 21);
             this.frm_match_company_info.TabIndex = 2;
             this.frm_match_company_info.Text = "Company Info";
             this.frm_match_company_info.UseVisualStyleBackColor = true;
@@ -66,19 +68,41 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(370, 6);
+            this.button1.Location = new System.Drawing.Point(368, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.Size = new System.Drawing.Size(112, 21);
             this.button1.TabIndex = 3;
             this.button1.Text = "Mix Compute";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btn_match_100
+            // 
+            this.btn_match_100.Location = new System.Drawing.Point(130, 39);
+            this.btn_match_100.Name = "btn_match_100";
+            this.btn_match_100.Size = new System.Drawing.Size(112, 21);
+            this.btn_match_100.TabIndex = 5;
+            this.btn_match_100.Text = "100 Analyse";
+            this.btn_match_100.UseVisualStyleBackColor = true;
+            this.btn_match_100.Click += new System.EventHandler(this.btn_match_100_Click);
+            // 
+            // btn_html_analyse
+            // 
+            this.btn_html_analyse.Location = new System.Drawing.Point(10, 39);
+            this.btn_html_analyse.Name = "btn_html_analyse";
+            this.btn_html_analyse.Size = new System.Drawing.Size(112, 21);
+            this.btn_html_analyse.TabIndex = 4;
+            this.btn_html_analyse.Text = "HTML Analyse";
+            this.btn_html_analyse.UseVisualStyleBackColor = true;
+            this.btn_html_analyse.Click += new System.EventHandler(this.btn_html_analyse_Click);
+            // 
             // frm_match_bar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 35);
+            this.ClientSize = new System.Drawing.Size(800, 75);
+            this.Controls.Add(this.btn_match_100);
+            this.Controls.Add(this.btn_html_analyse);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.frm_match_company_info);
             this.Controls.Add(this.btn_down_excel);
@@ -97,5 +121,7 @@
         private System.Windows.Forms.Button btn_down_excel;
         private System.Windows.Forms.Button frm_match_company_info;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_match_100;
+        private System.Windows.Forms.Button btn_html_analyse;
     }
 }

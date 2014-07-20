@@ -117,6 +117,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_match_100.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_100.Designer.cs">
+      <DependentUpon>frm_match_100.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_match_bar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,7 @@
     <Compile Include="Helper\MatchComputeMethod.cs" />
     <Compile Include="Helper\MatchCompany.cs" />
     <Compile Include="Helper\TemplateHelper_Match.cs" />
+    <Compile Include="Helper\Tool.cs" />
     <Compile Include="Http\HttpSocketHelper.cs" />
     <Compile Include="Helper\Log.cs" />
     <Compile Include="Helper\TemplateHelper.cs" />
@@ -305,6 +312,9 @@
     <Compile Include="frm_mongo_doc_find_view.Designer.cs">
       <DependentUpon>frm_mongo_doc_find_view.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frm_match_100.resx">
+      <DependentUpon>frm_match_100.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_match_bar.resx">
       <DependentUpon>frm_match_bar.cs</DependentUpon>
       <SubType>Designer</SubType>

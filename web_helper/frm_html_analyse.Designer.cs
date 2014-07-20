@@ -1,4 +1,4 @@
-﻿  partial class FrmHtmlAnalyse
+﻿partial class frm_html_analyse
     {
         /// <summary>
         /// Required designer variable.
@@ -44,18 +44,21 @@
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
+            this.Brower = new System.Windows.Forms.TabPage();
+            this.browser = new System.Windows.Forms.WebBrowser();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_result)).BeginInit();
+            this.Brower.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btn_fuzzy_find);
             this.groupBox1.Controls.Add(this.txt_condition);
             this.groupBox1.Controls.Add(this.label3);
@@ -164,9 +167,10 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.Brower);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
@@ -196,13 +200,14 @@
             this.txt_html_source.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_html_source.Size = new System.Drawing.Size(970, 357);
             this.txt_html_source.TabIndex = 0;
+            this.txt_html_source.WordWrap = false;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.txt_result);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(967, 363);
+            this.tabPage3.Size = new System.Drawing.Size(976, 363);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Elements Text";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -214,15 +219,16 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(967, 365);
+            this.txt_result.Size = new System.Drawing.Size(976, 363);
             this.txt_result.TabIndex = 1;
+            this.txt_result.WordWrap = false;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dgv_result);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(967, 363);
+            this.tabPage4.Size = new System.Drawing.Size(976, 363);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Element DataTable";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -234,17 +240,37 @@
             this.dgv_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_result.Location = new System.Drawing.Point(0, 0);
             this.dgv_result.Name = "dgv_result";
-            this.dgv_result.Size = new System.Drawing.Size(967, 365);
+            this.dgv_result.Size = new System.Drawing.Size(976, 363);
             this.dgv_result.TabIndex = 0;
             // 
-            // FrmHtmlAnalyse
+            // Brower
+            // 
+            this.Brower.Controls.Add(this.browser);
+            this.Brower.Location = new System.Drawing.Point(4, 22);
+            this.Brower.Name = "Brower";
+            this.Brower.Size = new System.Drawing.Size(976, 363);
+            this.Brower.TabIndex = 4;
+            this.Brower.Text = "Browser";
+            this.Brower.UseVisualStyleBackColor = true;
+            // 
+            // browser
+            // 
+            this.browser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.browser.Location = new System.Drawing.Point(0, 0);
+            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.browser.Name = "browser";
+            this.browser.Size = new System.Drawing.Size(976, 363);
+            this.browser.TabIndex = 2;
+            this.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.browser_DocumentCompleted);
+            // 
+            // frm_html_analyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 522);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmHtmlAnalyse";
+            this.Name = "frm_html_analyse";
             this.Text = "Html Analyse";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -255,6 +281,7 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_result)).EndInit();
+            this.Brower.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -279,4 +306,6 @@
         private System.Windows.Forms.TextBox txt_condition;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_fuzzy_find;
+        private System.Windows.Forms.TabPage Brower;
+        private System.Windows.Forms.WebBrowser browser;
     } 

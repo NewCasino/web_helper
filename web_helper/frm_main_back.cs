@@ -48,7 +48,7 @@ namespace web_helper
 
         private void htmlAnalyseToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmHtmlAnalyse frm = new FrmHtmlAnalyse();
+            frm_html_analyse frm = new frm_html_analyse();
             frm.Show();
         }
 
