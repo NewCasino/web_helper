@@ -2874,174 +2874,174 @@ namespace web_helper
             switch (doc["type"].ToString())
             {
                 case "mix-doc":
-                    result = doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') +
+                    result = doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) +
                       Environment.NewLine + Environment.NewLine +
-                   "WDL:".PadRight(15, ' ') + "0".PadRight(10, ' ') +
-                   doc["wdl_w"].ToString().PadRight(10, ' ') +
-                   doc["wdl_d"].ToString().PadRight(10, ' ') +
-                   doc["wdl_l"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                   " ".PadRight(15, ' ') + doc["spread_count"].ToString().PadRight(10, ' ') +
-                   doc["spread_w"].ToString().PadRight(10, ' ') +
-                   doc["spread_d"].ToString().PadRight(10, ' ') +
-                   doc["spread_l"].ToString().PadRight(10, ' ') + Environment.NewLine + Environment.NewLine +
-                    " ".PadRight(15, ' ') +
-                   "WW".PadRight(8, ' ') + "WD".PadRight(8, ' ') + "WL".PadRight(8, ' ') +
-                   "DW".PadRight(8, ' ') + "DD".PadRight(8, ' ') + "DL".PadRight(8, ' ') +
-                   "LW".PadRight(8, ' ') + "LD".PadRight(8, ' ') + "LL".PadRight(8, ' ') + Environment.NewLine +
-                   " ".PadRight(15, ' ') +
-                   doc["half_w_w"].ToString().PadRight(8, ' ') + doc["half_w_d"].ToString().PadRight(8, ' ') + doc["half_w_l"].ToString().PadRight(8, ' ') +
-                   doc["half_d_w"].ToString().PadRight(8, ' ') + doc["half_d_d"].ToString().PadRight(8, ' ') + doc["half_d_l"].ToString().PadRight(8, ' ') +
-                   doc["half_l_w"].ToString().PadRight(8, ' ') + doc["half_l_d"].ToString().PadRight(8, ' ') + doc["half_l_l"].ToString().PadRight(8, ' ') + Environment.NewLine + Environment.NewLine +
-                   "Points:".PadRight(15, ' ') +
-                   "1-0".PadRight(8, ' ') + "2-0".PadRight(8, ' ') + "2-1".PadRight(8, ' ') + "3-0".PadRight(8, ' ') +
-                   "3-1".PadRight(8, ' ') + "3-2".PadRight(8, ' ') + "4-0".PadRight(8, ' ') + "4-1".PadRight(8, ' ') +
-                   "4-2".PadRight(8, ' ') + "5-0".PadRight(8, ' ') + "5-1".PadRight(8, ' ') + "5-2".PadRight(8, ' ') +
-                   "other".PadRight(10, ' ') + Environment.NewLine +
-                   " ".PadRight(15, ' ') +
-                   doc["point_w_1_0"].ToString().PadRight(8, ' ') + doc["point_w_2_0"].ToString().PadRight(8, ' ') + doc["point_w_2_1"].ToString().PadRight(8, ' ') +
-                   doc["point_w_3_0"].ToString().PadRight(8, ' ') + doc["point_w_3_1"].ToString().PadRight(8, ' ') + doc["point_w_3_2"].ToString().PadRight(8, ' ') +
-                   doc["point_w_4_0"].ToString().PadRight(8, ' ') + doc["point_w_4_1"].ToString().PadRight(8, ' ') + doc["point_w_4_2"].ToString().PadRight(8, ' ') +
-                   doc["point_w_5_0"].ToString().PadRight(8, ' ') + doc["point_w_5_1"].ToString().PadRight(8, ' ') + doc["point_w_5_2"].ToString().PadRight(8, ' ') +
-                    doc["point_w_other"].ToString().PadRight(8, ' ') + Environment.NewLine + Environment.NewLine +
-                    " ".PadRight(15, ' ') +
-                   "0-0".PadRight(8, ' ') + "1-1".PadRight(8, ' ') + "2-2".PadRight(8, ' ') + "3-3".PadRight(8, ' ') +
-                   "other".PadRight(10, ' ') + Environment.NewLine +
-                   " ".PadRight(15, ' ') +
-                   doc["point_d_0_0"].ToString().PadRight(8, ' ') + doc["point_d_1_1"].ToString().PadRight(8, ' ') + doc["point_d_2_2"].ToString().PadRight(8, ' ') +
-                   doc["point_d_3_3"].ToString().PadRight(8, ' ') + doc["point_d_other"].ToString().PadRight(8, ' ') + Environment.NewLine + Environment.NewLine +
-                     " ".PadRight(15, ' ') +
-                   "0-1".PadRight(8, ' ') + "0-2".PadRight(8, ' ') + "1-2".PadRight(8, ' ') + "0-3".PadRight(8, ' ') +
-                   "1-3".PadRight(8, ' ') + "2-3".PadRight(8, ' ') + "0-4".PadRight(8, ' ') + "1-4".PadRight(8, ' ') +
-                   "2-4".PadRight(8, ' ') + "0-5".PadRight(8, ' ') + "1-5".PadRight(8, ' ') + "2-5".PadRight(8, ' ') +
-                   "other".PadRight(10, ' ') + Environment.NewLine +
-                   " ".PadRight(15, ' ') +
-                   doc["point_l_0_1"].ToString().PadRight(8, ' ') + doc["point_l_0_2"].ToString().PadRight(8, ' ') + doc["point_l_1_2"].ToString().PadRight(8, ' ') +
-                   doc["point_l_0_3"].ToString().PadRight(8, ' ') + doc["point_l_1_3"].ToString().PadRight(8, ' ') + doc["point_l_2_3"].ToString().PadRight(8, ' ') +
-                   doc["point_l_0_4"].ToString().PadRight(8, ' ') + doc["point_l_1_4"].ToString().PadRight(8, ' ') + doc["point_l_2_4"].ToString().PadRight(8, ' ') +
-                   doc["point_l_0_5"].ToString().PadRight(8, ' ') + doc["point_l_1_5"].ToString().PadRight(8, ' ') + doc["point_l_2_5"].ToString().PadRight(8, ' ') +
-                   doc["point_l_other"].ToString().PadRight(8, ' ') + Environment.NewLine + Environment.NewLine +
-                    "Total :".PadRight(15, ' ') +
-                   "0".PadRight(8, ' ') + "1".PadRight(8, ' ') + "2".PadRight(8, ' ') + "3".PadRight(8, ' ') +
-                   "4".PadRight(8, ' ') + "5".PadRight(8, ' ') + "6".PadRight(8, ' ') + "more".PadRight(8, ' ') + Environment.NewLine +
-                   " ".PadRight(15, ' ') +
-                   doc["total_0"].ToString().PadRight(8, ' ') + doc["total_1"].ToString().PadRight(8, ' ') + doc["total_2"].ToString().PadRight(8, ' ') +
-                   doc["total_3"].ToString().PadRight(8, ' ') + doc["total_4"].ToString().PadRight(8, ' ') + doc["total_5"].ToString().PadRight(8, ' ') +
-                   doc["total_6"].ToString().PadRight(8, ' ') + doc["total_more"].ToString().PadRight(8, ' ') + Environment.NewLine;
+                   "WDL:".PR(15) + "0".PR(10) +
+                   doc["wdl_w"].ToString().PR(10) +
+                   doc["wdl_d"].ToString().PR(10) +
+                   doc["wdl_l"].ToString().PR(10) + Environment.NewLine +
+                   " ".PR(15) + doc["spread_count"].ToString().PR(10) +
+                   doc["spread_w"].ToString().PR(10) +
+                   doc["spread_d"].ToString().PR(10) +
+                   doc["spread_l"].ToString().PR(10) + Environment.NewLine + Environment.NewLine +
+                    " ".PR(15) +
+                   "WW".PR(8) + "WD".PR(8) + "WL".PR(8) +
+                   "DW".PR(8) + "DD".PR(8) + "DL".PR(8) +
+                   "LW".PR(8) + "LD".PR(8) + "LL".PR(8) + Environment.NewLine +
+                   " ".PR(15) +
+                   doc["half_w_w"].ToString().PR(8) + doc["half_w_d"].ToString().PR(8) + doc["half_w_l"].ToString().PR(8) +
+                   doc["half_d_w"].ToString().PR(8) + doc["half_d_d"].ToString().PR(8) + doc["half_d_l"].ToString().PR(8) +
+                   doc["half_l_w"].ToString().PR(8) + doc["half_l_d"].ToString().PR(8) + doc["half_l_l"].ToString().PR(8) + Environment.NewLine + Environment.NewLine +
+                   "Points:".PR(15) +
+                   "1-0".PR(8) + "2-0".PR(8) + "2-1".PR(8) + "3-0".PR(8) +
+                   "3-1".PR(8) + "3-2".PR(8) + "4-0".PR(8) + "4-1".PR(8) +
+                   "4-2".PR(8) + "5-0".PR(8) + "5-1".PR(8) + "5-2".PR(8) +
+                   "other".PR(10) + Environment.NewLine +
+                   " ".PR(15) +
+                   doc["point_w_1_0"].ToString().PR(8) + doc["point_w_2_0"].ToString().PR(8) + doc["point_w_2_1"].ToString().PR(8) +
+                   doc["point_w_3_0"].ToString().PR(8) + doc["point_w_3_1"].ToString().PR(8) + doc["point_w_3_2"].ToString().PR(8) +
+                   doc["point_w_4_0"].ToString().PR(8) + doc["point_w_4_1"].ToString().PR(8) + doc["point_w_4_2"].ToString().PR(8) +
+                   doc["point_w_5_0"].ToString().PR(8) + doc["point_w_5_1"].ToString().PR(8) + doc["point_w_5_2"].ToString().PR(8) +
+                    doc["point_w_other"].ToString().PR(8) + Environment.NewLine + Environment.NewLine +
+                    " ".PR(15) +
+                   "0-0".PR(8) + "1-1".PR(8) + "2-2".PR(8) + "3-3".PR(8) +
+                   "other".PR(10) + Environment.NewLine +
+                   " ".PR(15) +
+                   doc["point_d_0_0"].ToString().PR(8) + doc["point_d_1_1"].ToString().PR(8) + doc["point_d_2_2"].ToString().PR(8) +
+                   doc["point_d_3_3"].ToString().PR(8) + doc["point_d_other"].ToString().PR(8) + Environment.NewLine + Environment.NewLine +
+                     " ".PR(15) +
+                   "0-1".PR(8) + "0-2".PR(8) + "1-2".PR(8) + "0-3".PR(8) +
+                   "1-3".PR(8) + "2-3".PR(8) + "0-4".PR(8) + "1-4".PR(8) +
+                   "2-4".PR(8) + "0-5".PR(8) + "1-5".PR(8) + "2-5".PR(8) +
+                   "other".PR(10) + Environment.NewLine +
+                   " ".PR(15) +
+                   doc["point_l_0_1"].ToString().PR(8) + doc["point_l_0_2"].ToString().PR(8) + doc["point_l_1_2"].ToString().PR(8) +
+                   doc["point_l_0_3"].ToString().PR(8) + doc["point_l_1_3"].ToString().PR(8) + doc["point_l_2_3"].ToString().PR(8) +
+                   doc["point_l_0_4"].ToString().PR(8) + doc["point_l_1_4"].ToString().PR(8) + doc["point_l_2_4"].ToString().PR(8) +
+                   doc["point_l_0_5"].ToString().PR(8) + doc["point_l_1_5"].ToString().PR(8) + doc["point_l_2_5"].ToString().PR(8) +
+                   doc["point_l_other"].ToString().PR(8) + Environment.NewLine + Environment.NewLine +
+                    "Total :".PR(15) +
+                   "0".PR(8) + "1".PR(8) + "2".PR(8) + "3".PR(8) +
+                   "4".PR(8) + "5".PR(8) + "6".PR(8) + "more".PR(8) + Environment.NewLine +
+                   " ".PR(15) +
+                   doc["total_0"].ToString().PR(8) + doc["total_1"].ToString().PR(8) + doc["total_2"].ToString().PR(8) +
+                   doc["total_3"].ToString().PR(8) + doc["total_4"].ToString().PR(8) + doc["total_5"].ToString().PR(8) +
+                   doc["total_6"].ToString().PR(8) + doc["total_more"].ToString().PR(8) + Environment.NewLine;
                     break;
                 case "1-min-1-wld-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) + Environment.NewLine +
                   "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                   "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                   "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                   "detail infomation:" + Environment.NewLine +
-                   "win".PadRight(10, ' ') + "draw".PadRight(10, ' ') + "lose".PadRight(10, ' ') + Environment.NewLine +
-                   doc["win"].ToString().PadRight(10, ' ') + doc["draw"].ToString().PadRight(10, ' ') + doc["lose"].ToString().PadRight(10, ' ') +
+                   "win".PR(10) + "draw".PR(10) + "lose".PR(10) + Environment.NewLine +
+                   doc["win"].ToString().PR(10) + doc["draw"].ToString().PR(10) + doc["lose"].ToString().PR(10) +
                    Environment.NewLine + Environment.NewLine +
-                   doc["p1"].ToString().PadRight(10, ' ') + doc["p2"].ToString().PadRight(10, ' ') + doc["p3"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                   doc["b1"].ToString().PadRight(10, ' ') + doc["b2"].ToString().PadRight(10, ' ') + doc["b3"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                   doc["r1"].ToString().PadRight(10, ' ') + doc["r2"].ToString().PadRight(10, ' ') + doc["r3"].ToString().PadRight(10, ' ') + Environment.NewLine;
+                   doc["p1"].ToString().PR(10) + doc["p2"].ToString().PR(10) + doc["p3"].ToString().PR(10) + Environment.NewLine +
+                   doc["b1"].ToString().PR(10) + doc["b2"].ToString().PR(10) + doc["b3"].ToString().PR(10) + Environment.NewLine +
+                   doc["r1"].ToString().PR(10) + doc["r2"].ToString().PR(10) + doc["r3"].ToString().PR(10) + Environment.NewLine;
                     break;
                 case "1-min-1-spread-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') +
-                   doc["win"].ToString().PadRight(10, ' ') +
-                   doc["draw"].ToString().PadRight(10, ' ') +
-                   doc["lose"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) +
+                   doc["win"].ToString().PR(10) +
+                   doc["draw"].ToString().PR(10) +
+                   doc["lose"].ToString().PR(10) + Environment.NewLine +
                   "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                   "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                   "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                   "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                   "detail infomation:" + Environment.NewLine +
-                  "win".PadRight(10, ' ') + "draw".PadRight(10, ' ') + "lose".PadRight(10, ' ') + Environment.NewLine +
-                   doc["win"].ToString().PadRight(10, ' ') + doc["draw"].ToString().PadRight(10, ' ') + doc["lose"].ToString().PadRight(10, ' ') +
-                   doc["p1"].ToString().PadRight(10, ' ') + doc["p2"].ToString().PadRight(10, ' ') + doc["p3"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                   doc["b1"].ToString().PadRight(10, ' ') + doc["b2"].ToString().PadRight(10, ' ') + doc["b3"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                   doc["r1"].ToString().PadRight(10, ' ') + doc["r2"].ToString().PadRight(10, ' ') + doc["r3"].ToString().PadRight(10, ' ') + Environment.NewLine;
+                  "win".PR(10) + "draw".PR(10) + "lose".PR(10) + Environment.NewLine +
+                   doc["win"].ToString().PR(10) + doc["draw"].ToString().PR(10) + doc["lose"].ToString().PR(10) +
+                   doc["p1"].ToString().PR(10) + doc["p2"].ToString().PR(10) + doc["p3"].ToString().PR(10) + Environment.NewLine +
+                   doc["b1"].ToString().PR(10) + doc["b2"].ToString().PR(10) + doc["b3"].ToString().PR(10) + Environment.NewLine +
+                   doc["r1"].ToString().PR(10) + doc["r2"].ToString().PR(10) + doc["r3"].ToString().PR(10) + Environment.NewLine;
                     break;
                 case "1-min-1-half-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) + Environment.NewLine +
                   "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                   "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                   "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                   "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                   "detail infomation:" + Environment.NewLine +
-                   "WW".PadRight(10, ' ') + "WD".PadRight(10, ' ') + "WL".PadRight(10, ' ') +
-                   "DW".PadRight(10, ' ') + "DD".PadRight(10, ' ') + "DL".PadRight(10, ' ') +
-                   "LW".PadRight(10, ' ') + "LD".PadRight(10, ' ') + "LL".PadRight(10, ' ') + Environment.NewLine +
-                   doc["half_w_w"].ToString().PadRight(10, ' ') + doc["half_w_d"].ToString().PadRight(10, ' ') + doc["half_w_l"].ToString().PadRight(10, ' ') +
-                   doc["half_d_w"].ToString().PadRight(10, ' ') + doc["half_d_d"].ToString().PadRight(10, ' ') + doc["half_d_l"].ToString().PadRight(10, ' ') +
-                   doc["half_l_w"].ToString().PadRight(10, ' ') + doc["half_l_d"].ToString().PadRight(10, ' ') + doc["half_l_l"].ToString().PadRight(10, ' ') +
+                   "WW".PR(10) + "WD".PR(10) + "WL".PR(10) +
+                   "DW".PR(10) + "DD".PR(10) + "DL".PR(10) +
+                   "LW".PR(10) + "LD".PR(10) + "LL".PR(10) + Environment.NewLine +
+                   doc["half_w_w"].ToString().PR(10) + doc["half_w_d"].ToString().PR(10) + doc["half_w_l"].ToString().PR(10) +
+                   doc["half_d_w"].ToString().PR(10) + doc["half_d_d"].ToString().PR(10) + doc["half_d_l"].ToString().PR(10) +
+                   doc["half_l_w"].ToString().PR(10) + doc["half_l_d"].ToString().PR(10) + doc["half_l_l"].ToString().PR(10) +
                    Environment.NewLine + Environment.NewLine +
-                  doc["p1"].ToString().PadRight(10, ' ') + doc["p2"].ToString().PadRight(10, ' ') + doc["p3"].ToString().PadRight(10, ' ') +
-                  doc["p4"].ToString().PadRight(10, ' ') + doc["p5"].ToString().PadRight(10, ' ') + doc["p6"].ToString().PadRight(10, ' ') +
-                  doc["p7"].ToString().PadRight(10, ' ') + doc["p8"].ToString().PadRight(10, ' ') + doc["p9"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                  doc["b1"].ToString().PadRight(10, ' ') + doc["b2"].ToString().PadRight(10, ' ') + doc["b3"].ToString().PadRight(10, ' ') +
-                  doc["b4"].ToString().PadRight(10, ' ') + doc["b5"].ToString().PadRight(10, ' ') + doc["b6"].ToString().PadRight(10, ' ') +
-                  doc["b7"].ToString().PadRight(10, ' ') + doc["b8"].ToString().PadRight(10, ' ') + doc["b9"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                  doc["r1"].ToString().PadRight(10, ' ') + doc["r2"].ToString().PadRight(10, ' ') + doc["r3"].ToString().PadRight(10, ' ') +
-                  doc["r4"].ToString().PadRight(10, ' ') + doc["r5"].ToString().PadRight(10, ' ') + doc["r6"].ToString().PadRight(10, ' ') +
-                  doc["r7"].ToString().PadRight(10, ' ') + doc["r8"].ToString().PadRight(10, ' ') + doc["r9"].ToString().PadRight(10, ' ') + Environment.NewLine;
+                  doc["p1"].ToString().PR(10) + doc["p2"].ToString().PR(10) + doc["p3"].ToString().PR(10) +
+                  doc["p4"].ToString().PR(10) + doc["p5"].ToString().PR(10) + doc["p6"].ToString().PR(10) +
+                  doc["p7"].ToString().PR(10) + doc["p8"].ToString().PR(10) + doc["p9"].ToString().PR(10) + Environment.NewLine +
+                  doc["b1"].ToString().PR(10) + doc["b2"].ToString().PR(10) + doc["b3"].ToString().PR(10) +
+                  doc["b4"].ToString().PR(10) + doc["b5"].ToString().PR(10) + doc["b6"].ToString().PR(10) +
+                  doc["b7"].ToString().PR(10) + doc["b8"].ToString().PR(10) + doc["b9"].ToString().PR(10) + Environment.NewLine +
+                  doc["r1"].ToString().PR(10) + doc["r2"].ToString().PR(10) + doc["r3"].ToString().PR(10) +
+                  doc["r4"].ToString().PR(10) + doc["r5"].ToString().PR(10) + doc["r6"].ToString().PR(10) +
+                  doc["r7"].ToString().PR(10) + doc["r8"].ToString().PR(10) + doc["r9"].ToString().PR(10) + Environment.NewLine;
                     break;
                 case "1-min-1-total-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) + Environment.NewLine +
                   "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                   "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                   "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                   "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                   "detail infomation:" + Environment.NewLine +
-                   "0".PadRight(10, ' ') + "1".PadRight(10, ' ') + "2".PadRight(10, ' ') +
-                   "3".PadRight(10, ' ') + "4".PadRight(10, ' ') + "5".PadRight(10, ' ') +
-                   "6".PadRight(10, ' ') + "more".PadRight(10, ' ') + Environment.NewLine +
-                   doc["total_0"].ToString().PadRight(10, ' ') + doc["total_1"].ToString().PadRight(10, ' ') + doc["total_2"].ToString().PadRight(10, ' ') +
-                   doc["total_3"].ToString().PadRight(10, ' ') + doc["total_4"].ToString().PadRight(10, ' ') + doc["total_5"].ToString().PadRight(10, ' ') +
-                   doc["total_6"].ToString().PadRight(10, ' ') + doc["total_more"].ToString().PadRight(10, ' ') +
+                   "0".PR(10) + "1".PR(10) + "2".PR(10) +
+                   "3".PR(10) + "4".PR(10) + "5".PR(10) +
+                   "6".PR(10) + "more".PR(10) + Environment.NewLine +
+                   doc["total_0"].ToString().PR(10) + doc["total_1"].ToString().PR(10) + doc["total_2"].ToString().PR(10) +
+                   doc["total_3"].ToString().PR(10) + doc["total_4"].ToString().PR(10) + doc["total_5"].ToString().PR(10) +
+                   doc["total_6"].ToString().PR(10) + doc["total_more"].ToString().PR(10) +
                    Environment.NewLine + Environment.NewLine +
-                  doc["p1"].ToString().PadRight(10, ' ') + doc["p2"].ToString().PadRight(10, ' ') + doc["p3"].ToString().PadRight(10, ' ') +
-                  doc["p4"].ToString().PadRight(10, ' ') + doc["p5"].ToString().PadRight(10, ' ') + doc["p6"].ToString().PadRight(10, ' ') +
-                  doc["p7"].ToString().PadRight(10, ' ') + doc["p8"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                  doc["b1"].ToString().PadRight(10, ' ') + doc["b2"].ToString().PadRight(10, ' ') + doc["b3"].ToString().PadRight(10, ' ') +
-                  doc["b4"].ToString().PadRight(10, ' ') + doc["b5"].ToString().PadRight(10, ' ') + doc["b6"].ToString().PadRight(10, ' ') +
-                  doc["b7"].ToString().PadRight(10, ' ') + doc["b8"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                  doc["r1"].ToString().PadRight(10, ' ') + doc["r2"].ToString().PadRight(10, ' ') + doc["r3"].ToString().PadRight(10, ' ') +
-                  doc["r4"].ToString().PadRight(10, ' ') + doc["r5"].ToString().PadRight(10, ' ') + doc["r6"].ToString().PadRight(10, ' ') +
-                  doc["r7"].ToString().PadRight(10, ' ') + doc["r8"].ToString().PadRight(10, ' ') + Environment.NewLine;
+                  doc["p1"].ToString().PR(10) + doc["p2"].ToString().PR(10) + doc["p3"].ToString().PR(10) +
+                  doc["p4"].ToString().PR(10) + doc["p5"].ToString().PR(10) + doc["p6"].ToString().PR(10) +
+                  doc["p7"].ToString().PR(10) + doc["p8"].ToString().PR(10) + Environment.NewLine +
+                  doc["b1"].ToString().PR(10) + doc["b2"].ToString().PR(10) + doc["b3"].ToString().PR(10) +
+                  doc["b4"].ToString().PR(10) + doc["b5"].ToString().PR(10) + doc["b6"].ToString().PR(10) +
+                  doc["b7"].ToString().PR(10) + doc["b8"].ToString().PR(10) + Environment.NewLine +
+                  doc["r1"].ToString().PR(10) + doc["r2"].ToString().PR(10) + doc["r3"].ToString().PR(10) +
+                  doc["r4"].ToString().PR(10) + doc["r5"].ToString().PR(10) + doc["r6"].ToString().PR(10) +
+                  doc["r7"].ToString().PR(10) + doc["r8"].ToString().PR(10) + Environment.NewLine;
                     break;
                 case "1-min-1-point-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) + Environment.NewLine +
                   "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                   "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                   "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                   "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                    "detail infomation:" + Environment.NewLine +
-                   "1-0".PadRight(8, ' ') + "2-0".PadRight(8, ' ') + "2-1".PadRight(8, ' ') + "3-0".PadRight(8, ' ') +
-                   "3-1".PadRight(8, ' ') + "3-2".PadRight(8, ' ') + "4-0".PadRight(8, ' ') + "4-1".PadRight(8, ' ') +
-                   "4-2".PadRight(8, ' ') + "5-0".PadRight(8, ' ') + "5-1".PadRight(8, ' ') + "5-2".PadRight(8, ' ') + Environment.NewLine +
-                   doc["point_w_1_0"].ToString().PadRight(8, ' ') + doc["point_w_2_0"].ToString().PadRight(8, ' ') + doc["point_w_2_1"].ToString().PadRight(8, ' ') +
-                   doc["point_w_3_0"].ToString().PadRight(8, ' ') + doc["point_w_3_1"].ToString().PadRight(8, ' ') + doc["point_w_3_2"].ToString().PadRight(8, ' ') +
-                   doc["point_w_4_0"].ToString().PadRight(8, ' ') + doc["point_w_4_1"].ToString().PadRight(8, ' ') + doc["point_w_4_2"].ToString().PadRight(8, ' ') +
-                   doc["point_w_5_0"].ToString().PadRight(8, ' ') + doc["point_w_5_1"].ToString().PadRight(8, ' ') + doc["point_w_5_2"].ToString().PadRight(8, ' ') +
-                    doc["point_w_other"].ToString().PadRight(8, ' ') + Environment.NewLine +
-                   "0-0".PadRight(8, ' ') + "1-1".PadRight(8, ' ') + "2-2".PadRight(8, ' ') + "3-3".PadRight(8, ' ') +
-                   "other".PadRight(10, ' ') + Environment.NewLine +
-                   doc["point_d_0_0"].ToString().PadRight(8, ' ') + doc["point_d_1_1"].ToString().PadRight(8, ' ') + doc["point_d_2_2"].ToString().PadRight(8, ' ') +
-                   doc["point_d_3_3"].ToString().PadRight(8, ' ') + doc["point_d_other"].ToString().PadRight(8, ' ') + Environment.NewLine +
-                   "0-1".PadRight(8, ' ') + "0-2".PadRight(8, ' ') + "1-2".PadRight(8, ' ') + "0-3".PadRight(8, ' ') +
-                   "1-3".PadRight(8, ' ') + "2-3".PadRight(8, ' ') + "0-4".PadRight(8, ' ') + "1-4".PadRight(8, ' ') +
-                   "2-4".PadRight(8, ' ') + "0-5".PadRight(8, ' ') + "1-5".PadRight(8, ' ') + "2-5".PadRight(8, ' ') +
-                   "other".PadRight(10, ' ') + Environment.NewLine +
-                   doc["point_l_0_1"].ToString().PadRight(8, ' ') + doc["point_l_0_2"].ToString().PadRight(8, ' ') + doc["point_l_1_2"].ToString().PadRight(8, ' ') +
-                   doc["point_l_0_3"].ToString().PadRight(8, ' ') + doc["point_l_1_3"].ToString().PadRight(8, ' ') + doc["point_l_2_3"].ToString().PadRight(8, ' ') +
-                   doc["point_l_0_4"].ToString().PadRight(8, ' ') + doc["point_l_1_4"].ToString().PadRight(8, ' ') + doc["point_l_2_4"].ToString().PadRight(8, ' ') +
-                   doc["point_l_0_5"].ToString().PadRight(8, ' ') + doc["point_l_1_5"].ToString().PadRight(8, ' ') + doc["point_l_2_5"].ToString().PadRight(8, ' ') +
-                   doc["point_l_other"].ToString().PadRight(8, ' ') + Environment.NewLine;
+                   "1-0".PR(8) + "2-0".PR(8) + "2-1".PR(8) + "3-0".PR(8) +
+                   "3-1".PR(8) + "3-2".PR(8) + "4-0".PR(8) + "4-1".PR(8) +
+                   "4-2".PR(8) + "5-0".PR(8) + "5-1".PR(8) + "5-2".PR(8) + Environment.NewLine +
+                   doc["point_w_1_0"].ToString().PR(8) + doc["point_w_2_0"].ToString().PR(8) + doc["point_w_2_1"].ToString().PR(8) +
+                   doc["point_w_3_0"].ToString().PR(8) + doc["point_w_3_1"].ToString().PR(8) + doc["point_w_3_2"].ToString().PR(8) +
+                   doc["point_w_4_0"].ToString().PR(8) + doc["point_w_4_1"].ToString().PR(8) + doc["point_w_4_2"].ToString().PR(8) +
+                   doc["point_w_5_0"].ToString().PR(8) + doc["point_w_5_1"].ToString().PR(8) + doc["point_w_5_2"].ToString().PR(8) +
+                    doc["point_w_other"].ToString().PR(8) + Environment.NewLine +
+                   "0-0".PR(8) + "1-1".PR(8) + "2-2".PR(8) + "3-3".PR(8) +
+                   "other".PR(10) + Environment.NewLine +
+                   doc["point_d_0_0"].ToString().PR(8) + doc["point_d_1_1"].ToString().PR(8) + doc["point_d_2_2"].ToString().PR(8) +
+                   doc["point_d_3_3"].ToString().PR(8) + doc["point_d_other"].ToString().PR(8) + Environment.NewLine +
+                   "0-1".PR(8) + "0-2".PR(8) + "1-2".PR(8) + "0-3".PR(8) +
+                   "1-3".PR(8) + "2-3".PR(8) + "0-4".PR(8) + "1-4".PR(8) +
+                   "2-4".PR(8) + "0-5".PR(8) + "1-5".PR(8) + "2-5".PR(8) +
+                   "other".PR(10) + Environment.NewLine +
+                   doc["point_l_0_1"].ToString().PR(8) + doc["point_l_0_2"].ToString().PR(8) + doc["point_l_1_2"].ToString().PR(8) +
+                   doc["point_l_0_3"].ToString().PR(8) + doc["point_l_1_3"].ToString().PR(8) + doc["point_l_2_3"].ToString().PR(8) +
+                   doc["point_l_0_4"].ToString().PR(8) + doc["point_l_1_4"].ToString().PR(8) + doc["point_l_2_4"].ToString().PR(8) +
+                   doc["point_l_0_5"].ToString().PR(8) + doc["point_l_1_5"].ToString().PR(8) + doc["point_l_2_5"].ToString().PR(8) +
+                   doc["point_l_other"].ToString().PR(8) + Environment.NewLine;
                     break;
                 case "1-min-1-free-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                    doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                    doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) + Environment.NewLine +
                    "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                    "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                    "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
@@ -3050,30 +3050,30 @@ namespace web_helper
 
                 case "select-one":
                     result = "THE FIRST MATCH     " +
-                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') + Environment.NewLine + Environment.NewLine;
+                   doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) + Environment.NewLine + Environment.NewLine;
                     foreach (BsonElement element in doc.Elements)
                     {
                         if (element.Name != "type" && element.Name != "doc_id" && element.Name != "start_time" && element.Name != "host" && element.Name != "" && element.Name != "client")
                         {
-                            result = result + (get_beautiful_name(element.Name) + ":").PadRight(20, ' ') + element.Value.ToString() + Environment.NewLine;
+                            result = result + (get_beautiful_name(element.Name) + ":").PR(20) + element.Value.ToString() + Environment.NewLine;
                         }
                     }
                     break;
                 case "select-two":
                     result = "THE SECOND MATCH     " +
-                    doc["start_time"].ToString() + "      " + doc["host"].ToString().PadRight(10, ' ') + doc["client"].ToString().PadRight(10, ' ') + Environment.NewLine + Environment.NewLine;
+                    doc["start_time"].ToString() + "      " + doc["host"].ToString().PR(10) + doc["client"].ToString().PR(10) + Environment.NewLine + Environment.NewLine;
                     foreach (BsonElement element in doc.Elements)
                     {
                         if (element.Name != "type" && element.Name != "doc_id" && element.Name != "start_time" && element.Name != "host" && element.Name != "" && element.Name != "client")
                         {
-                            result = result + (get_beautiful_name(element.Name) + ":").PadRight(20, ' ') + element.Value.ToString() + Environment.NewLine;
+                            result = result + (get_beautiful_name(element.Name) + ":").PR(20) + element.Value.ToString() + Environment.NewLine;
                         }
                     }
                     break;
                 case "2-min-2-wdl-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PadRight(10, ' ') + doc["client1"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PadRight(10, ' ') + doc["client2"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) + Environment.NewLine +
+                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) + Environment.NewLine +
                     "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                     "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                     "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
@@ -3081,8 +3081,8 @@ namespace web_helper
                     break;
                 case "2-min-2-spread-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PadRight(10, ' ') + doc["client1"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PadRight(10, ' ') + doc["client2"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) + Environment.NewLine +
+                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) + Environment.NewLine +
                     "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                     "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                     "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
@@ -3090,8 +3090,8 @@ namespace web_helper
                     break;
                 case "2-min-2-half-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PadRight(10, ' ') + doc["client1"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PadRight(10, ' ') + doc["client2"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) + Environment.NewLine +
+                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) + Environment.NewLine +
                     "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                     "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                     "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
@@ -3099,8 +3099,8 @@ namespace web_helper
                     break;
                 case "2-min-2-total-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PadRight(10, ' ') + doc["client1"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PadRight(10, ' ') + doc["client2"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) + Environment.NewLine +
+                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) + Environment.NewLine +
                     "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                     "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                     "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
@@ -3108,8 +3108,8 @@ namespace web_helper
                     break;
                 case "2-min-2-point-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PadRight(10, ' ') + doc["client1"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PadRight(10, ' ') + doc["client2"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) + Environment.NewLine +
+                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) + Environment.NewLine +
                     "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                     "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                     "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
@@ -3117,8 +3117,8 @@ namespace web_helper
                     break;
                 case "2-min-2-free-circle":
                     result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PadRight(10, ' ') + doc["client1"].ToString().PadRight(10, ' ') + Environment.NewLine +
-                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PadRight(10, ' ') + doc["client2"].ToString().PadRight(10, ' ') + Environment.NewLine +
+                    doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) + Environment.NewLine +
+                    doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) + Environment.NewLine +
                     "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                     "use seconds: " + doc["use_second"].ToString() + Environment.NewLine +
                     "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +

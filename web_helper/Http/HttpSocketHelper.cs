@@ -308,13 +308,14 @@ class HttpSocketHelper
         return table;
     }
 
+
     public static void save_file_from_response(Response response, string file_name)
     {
         if (File.Exists(file_name)) File.Delete(file_name);
         FileStream stream = File.Open(file_name, FileMode.OpenOrCreate);
         stream.Write(response.data_body, 0, response.data_body.Length);
         stream.Close();
-    }
+    } 
     public static Request get_request_500_excel(string id)
     {
         Request request = new Request();
@@ -340,108 +341,7 @@ fixtureid=######&excelst=1&style=0&ctype=1&dcid=&scid=&r=1&mawinc2=3.35&madrawc2
         request.url = "http://www.500.com";
 
         return request;
-    }
-    //public static Response get_response_from_webclient(string url)
-    //{
-    //    Response response = new Response();
-
-    //    WebClient web_client = new WebClient();
-    //    HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument(); 
-    //    Stream stream=web_client.OpenRead(url);
-    //    BinaryReader read = new BinaryReader(stream);
-      
-         
-    //    byte[] data_body;
-
-
-    //    int start = find_new_2line_pos(data_response);
-    //    string str_response = Encoding.UTF8.GetString(data_response, 0, data_response.Length);
-    //    string str_header = str_response.Substring(0, str_response.IndexOf("\r\n\r\n"));
-    //    string str_body = "";
-
-
-    //    //页面跳转
-    //    if (str_header.StartsWith("HTTP/1.1 302") || str_header.StartsWith("HTTP/1.1 301"))
-    //    {
-    //        string redirect_url = str_header.Substring(str_header.IndexOf("\r\nLocation: ") + "\r\nLocation: ".Length);
-    //        redirect_url = redirect_url.Substring(0, redirect_url.IndexOf("\r\n"));
-    //        Hashtable table = new Hashtable();
-    //        Request request_redirect = get_reqeust(redirect_url, "GET", table, table);
-    //        return get_response(request_redirect);
-    //    }
-
-
-    //    data_body = new byte[data_response.Length - start];
-
-
-    //    Array.Copy(data_response, start, data_body, 0, data_response.Length - start);
-
-
-
-    //    //当返回头中有Content-Length时,表示一次传输,能够确定长度,
-    //    //当返回头中有Transfer-Encoding: chunked 时,表示,分段传输
-    //    //Content-Length ,Transfer-Encoding: chunked 二者只能由其一
-    //    if (str_header.IndexOf("Content-Length") < 0)
-    //    {
-    //        data_body = get_chuncked_data(data_body);
-    //    }
-
-    //    //GZip解压
-    //    if (str_header.IndexOf("gzip") > -1)
-    //    {
-    //        data_body = decompress_zip(data_body);
-    //    }
-
-
-    //    //根据HTTP Header 解码
-    //    if (str_header.ToLower().Contains("charset=gbk") || str_header.ToLower().Contains("charset=gb2312"))
-    //    {
-    //        str_body = Encoding.GetEncoding("GBK").GetString(data_body, 0, data_body.Length);
-    //    }
-    //    else
-    //    {
-    //        str_body = Encoding.UTF8.GetString(data_body, 0, data_body.Length);
-    //    }
-
-
-    //    //根据HTML Header解码 
-    //    Regex reg_GB2312 = new Regex(@"<meta[^>]+Content-Type[^>]+gb2312[^>]*>", RegexOptions.IgnoreCase);
-    //    Regex reg_GBK = new Regex(@"<meta[^>]+Content-Type[^>]+gbk[^>]*>", RegexOptions.IgnoreCase);
-    //    Regex reg_Big5 = new Regex(@"<meta[^>]+Content-Type[^>]+Big5[^>]*>", RegexOptions.IgnoreCase);
-    //    Regex reg_UTF8 = new Regex(@"<meta[^>]+Content-Type[^>]+utf-8[^>]*>", RegexOptions.IgnoreCase);
-
-    //    if (reg_GB2312.IsMatch(str_body) || reg_GBK.IsMatch(str_body))
-    //    {
-    //        str_body = Encoding.GetEncoding("GBK").GetString(data_body, 0, data_body.Length);
-    //    }
-    //    if (reg_Big5.IsMatch(str_body))
-    //    {
-    //        str_body = Encoding.GetEncoding("Big5").GetString(data_body, 0, data_body.Length);
-    //    }
-    //    if (reg_UTF8.IsMatch(str_body))
-    //    {
-    //        str_body = Encoding.UTF8.GetString(data_body, 0, data_body.Length);
-    //    }
-
-
-    //    response.data = data_response;
-    //    response.data_body = data_body;
-    //    response.str_header = str_header;
-    //    response.str_body = str_body;
-
-
-    //    //添加Cookie
-    //    foreach (string item in str_header.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
-    //    {
-    //        if (item.IndexOf("Set-Cookie:") > -1)
-    //        {
-    //            response.set_cookie.Add(item.Replace("Set-Cookie:", ""));
-    //        }
-    //    }
-    //    return response;
-
-
-    //}
+    } 
     public static string get_html_content(string url)
     {
         WebClient client = new WebClient();
@@ -478,7 +378,5 @@ fixtureid=######&excelst=1&style=0&ctype=1&dcid=&scid=&r=1&mawinc2=3.35&madrawc2
 
         return response.str_body;
     }
- 
-
-
+  
 }

@@ -429,10 +429,10 @@ class AutoPickHelper
         {
             case "table":
                 result = result +
-                    "DOC ID:".PadRight(15, ' ') + doc["doc_id"].ToString() + Environment.NewLine +
-                    "URL:".PadRight(15, ' ') + doc["from_url"].ToString() + Environment.NewLine +
-                    "HTML TYPE:".PadRight(15, ' ') + doc["from_html_type"].ToString() + Environment.NewLine +
-                    "HTML PATH:".PadRight(15, ' ') + doc["html_path"].ToString() + Environment.NewLine + Environment.NewLine;
+                    "DOC ID:".PR(15) + doc["doc_id"].ToString() + Environment.NewLine +
+                    "URL:".PR(15) + doc["from_url"].ToString() + Environment.NewLine +
+                    "HTML TYPE:".PR(15) + doc["from_html_type"].ToString() + Environment.NewLine +
+                    "HTML PATH:".PR(15) + doc["html_path"].ToString() + Environment.NewLine + Environment.NewLine;
                 //"Original HTML:" + Environment.NewLine +
                 //"------------------------------------------------------------------------------------------" + Environment.NewLine +
                 //doc["original_html"].ToString() + Environment.NewLine +
@@ -445,19 +445,19 @@ class AutoPickHelper
                         BsonArray array = element.Value.AsBsonArray;
                         if (element.Name == "header")
                         {
-                            result = result + "Header".PadRight(15, ' ');
+                            result = result + "Header".PR(15);
                             foreach (BsonValue value in array)
                             {
-                                result = result + value.ToString().Replace("&lt;", "<").Replace("&gt;", ">").Trim().PadRight(20, ' ');
+                                result = result + value.ToString().Replace("&lt;", "<").Replace("&gt;", ">").Trim().PR(20);
                             }
                             result = result + Environment.NewLine;
                         }
                         else
                         {
-                            result = result + ("Row " + element.Name).PadRight(15, ' ');
+                            result = result + ("Row " + element.Name).PR(15);
                             foreach (BsonValue value in array)
                             {
-                                result = result + value.ToString().Replace("&lt;", "<").Replace("&gt;", ">").Trim().PadRight(20, ' ');
+                                result = result + value.ToString().Replace("&lt;", "<").Replace("&gt;", ">").Trim().PR(20);
                             }
                             result = result + Environment.NewLine;
                         }
@@ -467,10 +467,10 @@ class AutoPickHelper
                 break;
             case "ul":
                 result = result +
-                "DOC ID:".PadRight(15, ' ') + doc["doc_id"].ToString() + Environment.NewLine +
-                "URL:".PadRight(15, ' ') + doc["from_url"].ToString() + Environment.NewLine +
-                "HTML TYPE:".PadRight(15, ' ') + doc["from_html_type"].ToString() + Environment.NewLine +
-                "HTML PATH:".PadRight(15, ' ') + doc["html_path"].ToString() + Environment.NewLine + Environment.NewLine;
+                "DOC ID:".PR(15) + doc["doc_id"].ToString() + Environment.NewLine +
+                "URL:".PR(15) + doc["from_url"].ToString() + Environment.NewLine +
+                "HTML TYPE:".PR(15) + doc["from_html_type"].ToString() + Environment.NewLine +
+                "HTML PATH:".PR(15) + doc["html_path"].ToString() + Environment.NewLine + Environment.NewLine;
 
                 BsonArray ul_array = doc["ul"].AsBsonArray;
                 for (int i = 0; i < ul_array.Count; i++)
@@ -480,10 +480,10 @@ class AutoPickHelper
                 break;
             case "ol":
                 result = result +
-                "DOC ID:".PadRight(15, ' ') + doc["doc_id"].ToString() + Environment.NewLine +
-                "URL:".PadRight(15, ' ') + doc["from_url"].ToString() + Environment.NewLine +
-                "HTML TYPE:".PadRight(15, ' ') + doc["from_html_type"].ToString() + Environment.NewLine +
-                "HTML PATH:".PadRight(15, ' ') + doc["html_path"].ToString() + Environment.NewLine + Environment.NewLine;
+                "DOC ID:".PR(15) + doc["doc_id"].ToString() + Environment.NewLine +
+                "URL:".PR(15) + doc["from_url"].ToString() + Environment.NewLine +
+                "HTML TYPE:".PR(15) + doc["from_html_type"].ToString() + Environment.NewLine +
+                "HTML PATH:".PR(15) + doc["html_path"].ToString() + Environment.NewLine + Environment.NewLine;
 
                 BsonArray ol_array = doc["ol"].AsBsonArray;
                 for (int i = 0; i < ol_array.Count; i++)

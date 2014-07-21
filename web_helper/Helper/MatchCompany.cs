@@ -806,18 +806,18 @@ class MatchCompany
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "profits".PL(10);
+                result = result + "profits".PR(10);
                 foreach (string value in doc["profits"].AsBsonArray)
                 {
-                    result = result + value.PL(15);
+                    result = result + value.PR(15);
                 }
                 result = result + Environment.NewLine;
 
 
-                result = result + "bids".PL(10);
+                result = result + "bids".PR(10);
                 foreach (string value in doc["bids"].AsBsonArray)
                 {
-                    result = result + value.PL(15);
+                    result = result + value.PR(15);
                 }
                 result = result + Environment.NewLine;
 
@@ -825,55 +825,55 @@ class MatchCompany
 
             case "single-match-max":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                 doc["start_time"].ToString() + "    " + doc["host"].ToString().PL(20) + doc["client"].ToString().PL(20) + Environment.NewLine +
+                 doc["start_time"].ToString() + "    " + doc["host"].ToString().PR(20) + doc["client"].ToString().PR(20) + Environment.NewLine +
                  "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "companys".PL(10);
+                result = result + "companys".PR(10);
                 foreach (string value in doc["companys"].AsBsonArray)
                 {
-                    result = result + value.PL(15);
+                    result = result + value.PR(15);
                 }
                 result = result + Environment.NewLine;
 
 
-                result = result + "orign".PL(10);
+                result = result + "orign".PR(10);
                 foreach (string value in doc["orign_profits"].AsBsonArray)
                 {
-                    result = result + value.PL(15);
+                    result = result + value.PR(15);
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "order no".PL(10);
+                result = result + "order no".PR(10);
                 foreach (string value in doc["order_nos"].AsBsonArray)
                 {
-                    result = result + value.PL(15);
+                    result = result + value.PR(15);
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "profits".PL(10);
+                result = result + "profits".PR(10);
                 foreach (string value in doc["profits"].AsBsonArray)
                 {
-                    result = result + value.PL(15);
+                    result = result + value.PR(15);
                 }
                 result = result + Environment.NewLine;
 
 
-                result = result + "bids".PL(10);
+                result = result + "bids".PR(10);
                 foreach (string value in doc["bids"].AsBsonArray)
                 {
-                    result = result + value.PL(15);
+                    result = result + value.PR(15);
                 }
                 result = result + Environment.NewLine;
 
                 result = result + "company detail info:" + Environment.NewLine;
                 foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
                 {
-                    result = result + doc_item["company"].ToString().PL(20);
-                    result = result + doc_item["profit_win"].ToString().PL(10);
-                    result = result + doc_item["profit_draw"].ToString().PL(10);
-                    result = result + doc_item["profit_lose"].ToString().PL(10) + Environment.NewLine;
+                    result = result + doc_item["company"].ToString().PR(20);
+                    result = result + doc_item["profit_win"].ToString().PR(10);
+                    result = result + doc_item["profit_draw"].ToString().PR(10);
+                    result = result + doc_item["profit_lose"].ToString().PR(10) + Environment.NewLine;
                 }
 
 
@@ -884,7 +884,7 @@ class MatchCompany
                     string company = doc["companys"].AsBsonArray[Convert.ToInt16(order_no)].ToString();
                     string profit = doc["profits"].AsBsonArray[i].ToString();
                     string bid = doc["bids"].AsBsonArray[i].ToString();
-                    result = result + company.PL(20) + profit.PL(10)+bid.PL(10);
+                    result = result + company.PR(20) + profit.PR(10)+bid.PR(10);
                     foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
                     {
                         if (doc_item["company"].ToString() == company)
@@ -892,13 +892,13 @@ class MatchCompany
                             switch (order_no)
                             {
                                 case "0":
-                                    result = result + "Win".PL(10) + doc_item["profit_win"].ToString().PL(10);
+                                    result = result + "Win".PR(10) + doc_item["profit_win"].ToString().PR(10);
                                     break;
                                 case "1":
-                                    result = result + "Draw".PL(10) + doc_item["profit_draw"].ToString().PL(10);
+                                    result = result + "Draw".PR(10) + doc_item["profit_draw"].ToString().PR(10);
                                     break;
                                 case "2":
-                                    result = result + "Lose".PL(10) + doc_item["profit_lose"].ToString().PL(10);
+                                    result = result + "Lose".PR(10) + doc_item["profit_lose"].ToString().PR(10);
                                     break; 
                                 default:
                                     break;
@@ -910,60 +910,60 @@ class MatchCompany
                 break;
             case "two-match-max":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                 doc["start_time1"].ToString() + "    " + doc["host1"].ToString().PL(20) + doc["client1"].ToString().PL(20) + Environment.NewLine +
-                 doc["start_time2"].ToString() + "    " + doc["host2"].ToString().PL(20) + doc["client2"].ToString().PL(20) + Environment.NewLine +
+                 doc["start_time1"].ToString() + "    " + doc["host1"].ToString().PR(20) + doc["client1"].ToString().PR(20) + Environment.NewLine +
+                 doc["start_time2"].ToString() + "    " + doc["host2"].ToString().PR(20) + doc["client2"].ToString().PR(20) + Environment.NewLine +
                  "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "companys".PL(10);
+                result = result + "companys".PR(10);
                 foreach (string value in doc["companys"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
 
-                result = result + "orign".PL(10);
+                result = result + "orign".PR(10);
                 foreach (string value in doc["orign_profits"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "order no".PL(10);
+                result = result + "order no".PR(10);
                 foreach (string value in doc["order_nos"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "profits".PL(10);
+                result = result + "profits".PR(10);
                 foreach (string value in doc["profits"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
 
-                result = result + "bids".PL(10);
+                result = result + "bids".PR(10);
                 foreach (string value in doc["bids"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
                 result = result + "company detail info:" + Environment.NewLine;
                 foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
                 {
-                    result = result + doc_item["company"].ToString().PL(20);
-                    result = result + doc_item["profit_win1"].ToString().PL(10);
-                    result = result + doc_item["profit_draw1"].ToString().PL(10);
-                    result = result + doc_item["profit_lose1"].ToString().PL(10) + Environment.NewLine;
-                    result = result + "".PL(20);
-                    result = result + doc_item["profit_win2"].ToString().PL(10);
-                    result = result + doc_item["profit_draw2"].ToString().PL(10);
-                    result = result + doc_item["profit_lose2"].ToString().PL(10) + Environment.NewLine;
+                    result = result + doc_item["company"].ToString().PR(20);
+                    result = result + doc_item["profit_win1"].ToString().PR(10);
+                    result = result + doc_item["profit_draw1"].ToString().PR(10);
+                    result = result + doc_item["profit_lose1"].ToString().PR(10) + Environment.NewLine;
+                    result = result + "".PR(20);
+                    result = result + doc_item["profit_win2"].ToString().PR(10);
+                    result = result + doc_item["profit_draw2"].ToString().PR(10);
+                    result = result + doc_item["profit_lose2"].ToString().PR(10) + Environment.NewLine;
                 }
 
                 result = result + "profit detail info:" + Environment.NewLine;
@@ -973,7 +973,7 @@ class MatchCompany
                     string company = doc["companys"].AsBsonArray[Convert.ToInt16(order_no)].ToString();
                     string profit = doc["profits"].AsBsonArray[i].ToString();
                     string bid = doc["bids"].AsBsonArray[i].ToString();
-                    result = result + company.PL(20) + profit.PL(10) + bid.PL(10);
+                    result = result + company.PR(20) + profit.PR(10) + bid.PR(10);
                     foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
                     {
                         if (doc_item["company"].ToString() == company)
@@ -981,31 +981,31 @@ class MatchCompany
                             switch (order_no)
                             {
                                 case "0":
-                                    result = result + "W X W".PL(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_win2"].ToString().PL(10);
+                                    result = result + "W X W".PR(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_win2"].ToString().PR(10);
                                     break;
                                 case "1":
-                                    result = result + "W X D".PL(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_draw2"].ToString().PL(10);
+                                    result = result + "W X D".PR(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_draw2"].ToString().PR(10);
                                     break;
                                 case "2":
-                                    result = result + "W X L".PL(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_lose2"].ToString().PL(10);
+                                    result = result + "W X L".PR(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_lose2"].ToString().PR(10);
                                     break;
                                 case "3":
-                                    result = result + "D X W".PL(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_win2"].ToString().PL(10);
+                                    result = result + "D X W".PR(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_win2"].ToString().PR(10);
                                     break;
                                 case "4":
-                                    result = result + "D X D".PL(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_draw2"].ToString().PL(10);
+                                    result = result + "D X D".PR(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_draw2"].ToString().PR(10);
                                     break;
                                 case "5":
-                                    result = result + "D X L".PL(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_lose2"].ToString().PL(10);
+                                    result = result + "D X L".PR(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_lose2"].ToString().PR(10);
                                     break;
                                 case "6":
-                                    result = result + "L X W".PL(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_win2"].ToString().PL(10);
+                                    result = result + "L X W".PR(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_win2"].ToString().PR(10);
                                     break;
                                 case "7":
-                                    result = result + "L X D".PL(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_draw2"].ToString().PL(10);
+                                    result = result + "L X D".PR(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_draw2"].ToString().PR(10);
                                     break;
                                 case "8":
-                                    result = result + "L X L".PL(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_lose2"].ToString().PL(10);
+                                    result = result + "L X L".PR(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_lose2"].ToString().PR(10);
                                     break;
                                 default:
                                     break;
@@ -1017,65 +1017,65 @@ class MatchCompany
                 break;
             case "three-match-max":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
-                 doc["start_time1"].ToString() + "    " + doc["host1"].ToString().PL(20) + doc["client1"].ToString().PL(20) + Environment.NewLine +
-                 doc["start_time2"].ToString() + "    " + doc["host2"].ToString().PL(20) + doc["client2"].ToString().PL(20)+ Environment.NewLine +
-                 doc["start_time3"].ToString() + "    " + doc["host3"].ToString().PL(20) + doc["client3"].ToString().PL(20) + Environment.NewLine +
+                 doc["start_time1"].ToString() + "    " + doc["host1"].ToString().PR(20) + doc["client1"].ToString().PR(20) + Environment.NewLine +
+                 doc["start_time2"].ToString() + "    " + doc["host2"].ToString().PR(20) + doc["client2"].ToString().PR(20)+ Environment.NewLine +
+                 doc["start_time3"].ToString() + "    " + doc["host3"].ToString().PR(20) + doc["client3"].ToString().PR(20) + Environment.NewLine +
                  "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "companys".PL(10);
+                result = result + "companys".PR(10);
                 foreach (string value in doc["companys"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
 
-                result = result + "orign".PL(10);
+                result = result + "orign".PR(10);
                 foreach (string value in doc["orign_profits"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "order no".PL(10);
+                result = result + "order no".PR(10);
                 foreach (string value in doc["order_nos"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "profits".PL(10);
+                result = result + "profits".PR(10);
                 foreach (string value in doc["profits"].AsBsonArray)
                 {
-                    result = result + value.PL(12);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
 
-                result = result + "bids".PL(10);
+                result = result + "bids".PR(10);
                 foreach (string value in doc["bids"].AsBsonArray)
                 {
-                    result = result + value.PL(20);
+                    result = result + value.PR(20);
                 }
                 result = result + Environment.NewLine;
 
                 result = result + "company detail info:" + Environment.NewLine;
                 foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
                 {
-                    result = result + doc_item["company"].ToString().PL(20);
-                    result = result + doc_item["profit_win1"].ToString().PL(10);
-                    result = result + doc_item["profit_draw1"].ToString().PL(10);
-                    result = result + doc_item["profit_lose1"].ToString().PL(10) + Environment.NewLine;
-                    result = result + "".PL(20);
-                    result = result + doc_item["profit_win2"].ToString().PL(10);
-                    result = result + doc_item["profit_draw2"].ToString().PL(10);
-                    result = result + doc_item["profit_lose2"].ToString().PL(10) + Environment.NewLine;
-                    result = result + "".PL(20);
-                    result = result + doc_item["profit_win3"].ToString().PL(10);
-                    result = result + doc_item["profit_draw3"].ToString().PL(10);
-                    result = result + doc_item["profit_lose3"].ToString().PL(10) + Environment.NewLine;
+                    result = result + doc_item["company"].ToString().PR(20);
+                    result = result + doc_item["profit_win1"].ToString().PR(10);
+                    result = result + doc_item["profit_draw1"].ToString().PR(10);
+                    result = result + doc_item["profit_lose1"].ToString().PR(10) + Environment.NewLine;
+                    result = result + "".PR(20);
+                    result = result + doc_item["profit_win2"].ToString().PR(10);
+                    result = result + doc_item["profit_draw2"].ToString().PR(10);
+                    result = result + doc_item["profit_lose2"].ToString().PR(10) + Environment.NewLine;
+                    result = result + "".PR(20);
+                    result = result + doc_item["profit_win3"].ToString().PR(10);
+                    result = result + doc_item["profit_draw3"].ToString().PR(10);
+                    result = result + doc_item["profit_lose3"].ToString().PR(10) + Environment.NewLine;
                 }
 
                 break;

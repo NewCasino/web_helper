@@ -28,7 +28,7 @@ public class JsonBeautify
                         if (!quote.HasValue)
                         {
                             output.AppendLine();
-                            output.Append(Indent.Repeat(++depth));
+                            output.Append(Repeat(Indent,++depth));
                         }
                         break;
                     case '}':
@@ -38,7 +38,7 @@ public class JsonBeautify
                         else
                         {
                             output.AppendLine();
-                            output.Append(Indent.Repeat(--depth));
+                            output.Append(Repeat(Indent,--depth));
                             output.Append(ch);
                         }
                         break;
@@ -47,7 +47,7 @@ public class JsonBeautify
                         output.Append(ch);
                         if (quote.HasValue)
                         {
-                            if (!output.IsEscaped(i))
+                            if (!IsEscaped(output,i))
                                 quote = null;
                         }
                         else quote = ch;
@@ -57,7 +57,7 @@ public class JsonBeautify
                         if (!quote.HasValue)
                         {
                             output.AppendLine();
-                            output.Append(Indent.Repeat(depth));
+                            output.Append(Repeat(Indent,depth));
                         }
                         break;
                     case ':':
@@ -78,37 +78,21 @@ public class JsonBeautify
             return error.Message;
         }
     }
-}
-
-static class Extensions
-{
-    public static string Repeat(this string str, int count)
+    public static string Repeat( string str, int count)
     {
         return new StringBuilder().Insert(0, str, count).ToString();
     }
 
-    public static bool IsEscaped(this string str, int index)
+    public static bool IsEscaped( string str, int index)
     {
         bool escaped = false;
         while (index > 0 && str[--index] == '\\') escaped = !escaped;
         return escaped;
     }
 
-    public static bool IsEscaped(this StringBuilder str, int index)
+    public static bool IsEscaped( StringBuilder str, int index)
     {
-        return str.ToString().IsEscaped(index);
-    }
-    public static string PL(this string input, int len)
-    {
-        input = input.PadRight(len, ' ');
-        int count = 0;
-        for (int i = 0; i < input.Length; i++)
-        {
-            if (input[i] >= 0x4e00 && input[i] <= 0x9fbb)
-            {
-                count = count + 1;
-            }
-        }
-        return input.Substring(0, len - count);
+        return  IsEscaped(str.ToString(),index);
     }
 }
+
