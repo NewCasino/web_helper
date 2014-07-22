@@ -151,6 +151,7 @@ namespace web_helper
         {
             WebBrowser browser = (WebBrowser)sender;
             if (e.Url != browser.Document.Url) return;
+			if(browser.ReadyState!=WebBrowerReadyState.Complete)  return; 
 
 
             string html = "<body>" + Environment.NewLine + browser.Document.Body.InnerHtml + Environment.NewLine + "</body>";
