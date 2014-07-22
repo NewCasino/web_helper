@@ -51,5 +51,11 @@ namespace web_helper
             frm_match_100 frm = new frm_match_100();
             frm.Show();
         }
+
+        private void btn_compute_method_Click(object sender, EventArgs e)
+        {
+            frm_match_compute_method_analyse frm = new frm_match_compute_method_analyse();
+            frm.Show();
+        }
     }
 }

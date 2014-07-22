@@ -118,7 +118,7 @@ namespace web_helper
 
 
                 //insert into table europe
-                sql = " insert into europe " +
+                sql = " insert into europe_500_log " +
                       " (start_time,host,client,company,timespan," +
                       "  profit_win,profit_draw,profit_lose,persent_win,persent_draw,persent_lose,persent_return,kelly_win,kelly_draw,kelly_lose," +
                       "  start_profit_win,start_profit_draw,start_profit_lose,start_persent_win,start_persent_draw,start_persent_lose," +
@@ -133,10 +133,10 @@ namespace web_helper
 
 
                 //insert into table europe_new
-                sql = "delete  from europe_new where start_time='{0}' and host='{1}' and client='{2}' and company='{3}'";
+                sql = "delete  from europe_500 where start_time='{0}' and host='{1}' and client='{2}' and company='{3}'";
                 sql = string.Format(sql, start_time, host, client, company);
                 SQLServerHelper.exe_sql(sql);
-                sql = " insert into europe_new " +
+                sql = " insert into europe_500 " +
                      " (start_time,host,client,company,timespan," +
                      "  profit_win,profit_draw,profit_lose,persent_win,persent_draw,persent_lose,persent_return,kelly_win,kelly_draw,kelly_lose," +
                      "  start_profit_win,start_profit_draw,start_profit_lose,start_persent_win,start_persent_draw,start_persent_lose," +

@@ -42,6 +42,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
             this.time = new System.Windows.Forms.Timer(this.components);
+            this.btn_load = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_load);
             this.groupBox1.Controls.Add(this.btn_stop);
             this.groupBox1.Controls.Add(this.bn_start);
             this.groupBox1.Controls.Add(this.txt_url);
@@ -67,7 +69,7 @@
             // 
             // btn_stop
             // 
-            this.btn_stop.Location = new System.Drawing.Point(712, 19);
+            this.btn_stop.Location = new System.Drawing.Point(789, 19);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(75, 23);
             this.btn_stop.TabIndex = 4;
@@ -77,7 +79,7 @@
             // 
             // bn_start
             // 
-            this.bn_start.Location = new System.Drawing.Point(631, 19);
+            this.bn_start.Location = new System.Drawing.Point(708, 19);
             this.bn_start.Name = "bn_start";
             this.bn_start.Size = new System.Drawing.Size(75, 23);
             this.bn_start.TabIndex = 3;
@@ -94,7 +96,7 @@
             // 
             // btn_analyse
             // 
-            this.btn_analyse.Location = new System.Drawing.Point(551, 19);
+            this.btn_analyse.Location = new System.Drawing.Point(628, 19);
             this.btn_analyse.Name = "btn_analyse";
             this.btn_analyse.Size = new System.Drawing.Size(75, 25);
             this.btn_analyse.TabIndex = 2;
@@ -184,6 +186,16 @@
             this.time.Interval = 1000;
             this.time.Tick += new System.EventHandler(this.time_Tick);
             // 
+            // btn_load
+            // 
+            this.btn_load.Location = new System.Drawing.Point(547, 19);
+            this.btn_load.Name = "btn_load";
+            this.btn_load.Size = new System.Drawing.Size(75, 25);
+            this.btn_load.TabIndex = 3;
+            this.btn_load.Text = "Load";
+            this.btn_load.UseVisualStyleBackColor = true;
+            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
+            // 
             // frm_match_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,5 +232,6 @@
         private System.Windows.Forms.DataGridView dgv_result;
         private System.Windows.Forms.Button btn_stop;
         private System.Windows.Forms.Button bn_start;
+        private System.Windows.Forms.Button btn_load;
     }
 }

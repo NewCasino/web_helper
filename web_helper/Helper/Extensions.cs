@@ -16,6 +16,6 @@ static class Extensions
                 count = count + 1;
             }
         }
-        return input.Substring(0, len - count);
+        return input.Substring(0, len - count); 
     }
 }

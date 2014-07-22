@@ -18,7 +18,7 @@ class MatchCompany
     {
 
 
-        string sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        string sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time, host, client);
         DataTable dt = SQLServerHelper.get_table(sql);
 
@@ -128,11 +128,11 @@ class MatchCompany
     }
     public static BsonDocument get_max_from_two_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count, ArrayList list_companys)
     {
-        string sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        string sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time1, host1, client1);
         DataTable dt1 = SQLServerHelper.get_table(sql);
 
-        sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time2, host2, client2);
         DataTable dt2 = SQLServerHelper.get_table(sql);
 
@@ -283,16 +283,16 @@ class MatchCompany
     {
 
 
-        string sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        string sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time1, host1, client1);
         DataTable dt1 = SQLServerHelper.get_table(sql);
 
-        sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time2, host2, client2);
         DataTable dt2 = SQLServerHelper.get_table(sql);
 
 
-        sql = "select * from europe_new where start_time='{0}' and host='{1}' and client='{2}'";
+        sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time3, host3, client3);
         DataTable dt3 = SQLServerHelper.get_table(sql);
 
@@ -476,10 +476,7 @@ class MatchCompany
                 company_odds.Add(doc_item.AsBsonDocument);
             }
         }
-        doc.Add("company_odds", company_odds);
-
-
-
+        doc.Add("company_odds", company_odds); 
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
         doc.Add("profits", doc_max["profits"].AsBsonArray);
@@ -1057,7 +1054,7 @@ class MatchCompany
                 result = result + "bids".PR(10);
                 foreach (string value in doc["bids"].AsBsonArray)
                 {
-                    result = result + value.PR(20);
+                    result = result + value.PR(12);
                 }
                 result = result + Environment.NewLine;
 
