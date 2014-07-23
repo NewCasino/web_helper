@@ -12,13 +12,14 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Data.OleDb;
 using System.Threading;
+using mshtml;
 
 namespace web_helper
-{
+{ 
     public partial class frm_match_100 : Form
     {
         StringBuilder sb = new StringBuilder();
-        List<WebBrowser> browsers = new List<WebBrowser>();
+        List<IE> ies = new List<IE>();
         DataTable dt = new DataTable();
 
         public frm_match_100()
@@ -29,12 +30,16 @@ namespace web_helper
         {
             for (int i = 0; i < 10; i++)
             {
-                WebBrowser browser = new WebBrowser();
-                browser.ScriptErrorsSuppressed = true;
-                browser.Top = i;
-                browser.Width = 0;
-                browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.browser_DocumentCompleted);
-                browsers.Add(browser);
+                IE ie = new IE();
+                ie.browser = new WebBrowser();
+                ie.browser.Name = i.ToString();
+                ie.browser.Width = 1200;
+                ie.browser.Height = 600;
+                ie.is_use = false;
+                ie.index = i; 
+                ie.browser.ScriptErrorsSuppressed = true;  
+                ie.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.browser_DocumentCompleted);
+                ies.Add(ie);
             }
             bind_data();
         }
@@ -103,7 +108,7 @@ namespace web_helper
                     if (span.TotalSeconds > 120)
                     {
                         row["state"] = "abort";
-                        browsers[Convert.ToInt16(row["browser"].ToString())].Width = 0;
+                        ies[Convert.ToInt16(row["browser"].ToString())].is_use = false;
                     }
                 }
             }
@@ -114,14 +119,14 @@ namespace web_helper
                 {
                     for (int j = 0; j < 10; j++)
                     {
-                        if (browsers[j].Width == 0)
+                        if (ies[j].is_use == false)
                         {
                             dt.Rows[i]["state"] = "doing";
                             dt.Rows[i]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             dt.Rows[i]["browser"] = j.ToString();
-                            browsers[j].Width = 1;
-                            browsers[j].Height = i; 
-                            browsers[j].Navigate(dt.Rows[i]["url"].ToString()); 
+                            ies[j].is_use = true;
+                            ies[j].row_id = i; 
+                            ies[j].browser.Navigate(dt.Rows[i]["url"].ToString()); 
                             break;
                         }
                     }
@@ -151,31 +156,41 @@ namespace web_helper
         {
             WebBrowser browser = (WebBrowser)sender;
             if (e.Url != browser.Document.Url) return;
-			if(browser.ReadyState!=WebBrowerReadyState.Complete)  return; 
+            if (browser.ReadyState != WebBrowserReadyState.Complete) return;
 
+            int index = Convert.ToInt16(browser.Name);
+            int row_id=ies[index].row_id;
 
-            string html = "<body>" + Environment.NewLine + browser.Document.Body.InnerHtml + Environment.NewLine + "</body>";
-            string site_name = dt.Rows[browser.Height]["site_name"].ToString(); 
-            select_method_from_site(site_name, html);
+            
+            string site_name = dt.Rows[row_id]["site_name"].ToString(); 
+            select_method_from_site(site_name, browser); 
 
+            dt.Rows[row_id]["state"] = "ok";
+            dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            sb.AppendLine(e.Url.PR(30) + dt.Rows[row_id]["start_time"].PR(30) + dt.Rows[row_id]["end_time"].PR(30) + browser.Document.Body.InnerHtml.Length.ToString());
+            this.txt_result.Text = sb.ToString(); 
 
-            dt.Rows[browser.Height]["state"] = "ok";
-            dt.Rows[browser.Height]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            sb.Append(e.Url.ToString().PR(30) +
-                      dt.Rows[browser.Height]["start_time"].ToString().PR(30) +
-                      dt.Rows[browser.Height]["end_time"].ToString().PR(30) +
-                      html.Length.ToString() +
-                      Environment.NewLine);
-            this.txt_result.Text = sb.ToString();
-
-            browsers[browser.Top].Width = 0;
+            ies[index].is_use = false;
             Application.DoEvents();
         }
 
 
 
-        public void select_method_from_site(string site_name, string html)
+
+        public void get_absolute(ref IHTMLElement element, ref int left, ref int top)
         {
+            if (element.parentElement != null)
+            {
+                left = left + element.parentElement.offsetLeft;
+                top = top + element.parentElement.offsetTop;
+                IHTMLElement father_element = element.parentElement;
+                get_absolute(ref father_element, ref left, ref top);
+            }
+        }
+        public void select_method_from_site(string site_name, WebBrowser browser)
+        {
+            string html = "<body>" + Environment.NewLine + browser.Document.Body.InnerHtml + Environment.NewLine + "</body>";
+
             switch (site_name)
             {
                 case "163":
@@ -183,6 +198,9 @@ namespace web_helper
                     break;
                 case "bwin":
                     from_bwin(html);
+                    break;
+                case "baidu":
+                    from_baidu(browser);
                     break;
                 default:
                     break;
@@ -270,11 +288,62 @@ namespace web_helper
                 catch ( Exception error) {  Log.error("from bwin", error); }
 
             }
+        } 
+        public void from_baidu(WebBrowser  browser)
+        {
+            //sb.Remove(0, sb.ToString().Length);
+
+            if (browser.Document == null) return;
+            HtmlElementCollection elements = browser.Document.All;
+            foreach (HtmlElement element in elements)
+            {
+                string row = "";
+                IHTMLElement el = (IHTMLElement)element.DomElement;
+                IHTMLDOMNode nd = (IHTMLDOMNode)el;
+                IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)nd.attributes;
+
+                //if (attrs != null)
+                //{
+
+                //    foreach (IHTMLDOMAttribute attr in attrs)
+                //    {
+                //        row += attr.nodeName + ":" + attr.nodeValue;
+                //    } 
+                //} 
+
+                row += el.tagName.PR(10);
+                row += el.className.PR(10);
+                row += el.id.PR(10);
+                row += ((IHTMLElementCollection)el.children).length.PR(10);
+
+                int left = el.offsetLeft;
+                int top = el.offsetTop;
+                get_absolute(ref el, ref left, ref top); 
+
+                row += left.PR(10);
+                row += top.PR(10);
+                row += el.offsetLeft.PR(10);
+                row += el.offsetTop.PR(10);
+                row += el.offsetWidth.PR(10);
+                row += el.offsetHeight.PR(10);
+                row += el.innerText.PR(100);  
+
+                if (((IHTMLElementCollection)el.children).length != 0) continue;
+                if (string.IsNullOrEmpty(el.innerText)) continue;
+                if (!string.IsNullOrEmpty(row)) sb.AppendLine(row); 
+            }
+
+            this.txt_result.Text = sb.ToString();
         }
+       
+    }
 
-
-
-
+    public class IE
+    {
+        public WebBrowser browser;
+        public int row_id;
+        public int index;
+        public bool is_use = false;
 
     }
 }

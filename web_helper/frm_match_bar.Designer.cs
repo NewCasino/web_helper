@@ -35,6 +35,7 @@
             this.btn_match_100 = new System.Windows.Forms.Button();
             this.btn_html_analyse = new System.Windows.Forms.Button();
             this.btn_compute_method = new System.Windows.Forms.Button();
+            this.btn_browser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_compute_by_company
@@ -79,7 +80,7 @@
             // 
             // btn_match_100
             // 
-            this.btn_match_100.Location = new System.Drawing.Point(130, 42);
+            this.btn_match_100.Location = new System.Drawing.Point(250, 42);
             this.btn_match_100.Name = "btn_match_100";
             this.btn_match_100.Size = new System.Drawing.Size(112, 23);
             this.btn_match_100.TabIndex = 5;
@@ -89,7 +90,7 @@
             // 
             // btn_html_analyse
             // 
-            this.btn_html_analyse.Location = new System.Drawing.Point(10, 42);
+            this.btn_html_analyse.Location = new System.Drawing.Point(130, 42);
             this.btn_html_analyse.Name = "btn_html_analyse";
             this.btn_html_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_html_analyse.TabIndex = 4;
@@ -107,11 +108,22 @@
             this.btn_compute_method.UseVisualStyleBackColor = true;
             this.btn_compute_method.Click += new System.EventHandler(this.btn_compute_method_Click);
             // 
+            // btn_browser
+            // 
+            this.btn_browser.Location = new System.Drawing.Point(10, 42);
+            this.btn_browser.Name = "btn_browser";
+            this.btn_browser.Size = new System.Drawing.Size(112, 23);
+            this.btn_browser.TabIndex = 7;
+            this.btn_browser.Text = "Web Browser";
+            this.btn_browser.UseVisualStyleBackColor = true;
+            this.btn_browser.Click += new System.EventHandler(this.btn_browser_Click);
+            // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 81);
+            this.Controls.Add(this.btn_browser);
             this.Controls.Add(this.btn_compute_method);
             this.Controls.Add(this.btn_match_100);
             this.Controls.Add(this.btn_html_analyse);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Button btn_match_100;
         private System.Windows.Forms.Button btn_html_analyse;
         private System.Windows.Forms.Button btn_compute_method;
+        private System.Windows.Forms.Button btn_browser;
     }
 }

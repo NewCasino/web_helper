@@ -467,10 +467,10 @@ namespace web_helper
                     step_next:
                         DateTime dt_end = DateTime.Now;
                         sb.Append("------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                        sb.Append(dt.Rows[i]["start_time"].ToString() + "      " + dt.Rows[i]["host"].ToString().PR(10) + dt.Rows[i]["client"].ToString().PR(10));
-                        sb.Append(three1.ToString().PR(10) + one1.ToString().PR(10) + zero1.ToString().PR(10) + Environment.NewLine);
-                        sb.Append(dt.Rows[j]["start_time"].ToString() + "      " + dt.Rows[j]["host"].ToString().PR(10) + dt.Rows[j]["client"].ToString().PR(10));
-                        sb.Append(three2.ToString().PR(10) + one2.ToString().PR(10) + zero2.ToString().PR(10) + Environment.NewLine);
+                        sb.Append(dt.Rows[i]["start_time"].ToString() + "      " + dt.Rows[i]["host"].PR(10) + dt.Rows[i]["client"].PR(10));
+                        sb.Append(three1.PR(10) + one1.PR(10) + zero1.PR(10) + Environment.NewLine);
+                        sb.Append(dt.Rows[j]["start_time"].ToString() + "      " + dt.Rows[j]["host"].PR(10) + dt.Rows[j]["client"].PR(10));
+                        sb.Append(three2.PR(10) + one2.PR(10) + zero2.PR(10) + Environment.NewLine);
                         sb.Append("use seconds:" + (dt_end - dt_start).TotalSeconds.ToString() + Environment.NewLine);
                         sb.Append("total bids:" + bid_total.ToString() + Environment.NewLine);
                         sb.Append("profit range:" + all_profit_min.ToString("f2") + "  ~  " + all_profit_max.ToString("f2") + Environment.NewLine);
@@ -479,12 +479,12 @@ namespace web_helper
                         sb.Append(profits[0].ToString("f2").PR(10) + profits[1].ToString("f2").PR(10) + profits[2].ToString("f2").PR(10) +
                                profits[3].ToString("f2").PR(10) + profits[4].ToString("f2").PR(10) + profits[5].ToString("f2").PR(10) +
                                profits[6].ToString("f2").PR(10) + profits[7].ToString("f2").PR(10) + profits[8].ToString("f2").PR(10) + Environment.NewLine);
-                        sb.Append(steps[0].ToString().PR(10) + steps[1].ToString().PR(10) + steps[2].ToString().PR(10) +
-                                steps[3].ToString().PR(10) + steps[4].ToString().PR(10) + steps[5].ToString().PR(10) +
-                                steps[6].ToString().PR(10) + steps[7].ToString().PR(10) + steps[8].ToString().PR(10) + Environment.NewLine);
-                        sb.Append(bids[0].ToString().PR(10) + bids[1].ToString().PR(10) + bids[2].ToString().PR(10) +
-                           bids[3].ToString().PR(10) + bids[4].ToString().PR(10) + bids[5].ToString().PR(10) +
-                           bids[6].ToString().PR(10) + bids[7].ToString().PR(10) + bids[8].ToString().PR(10) + Environment.NewLine);
+                        sb.Append(steps[0].PR(10) + steps[1].PR(10) + steps[2].PR(10) +
+                                steps[3].PR(10) + steps[4].PR(10) + steps[5].PR(10) +
+                                steps[6].PR(10) + steps[7].PR(10) + steps[8].PR(10) + Environment.NewLine);
+                        sb.Append(bids[0].PR(10) + bids[1].PR(10) + bids[2].PR(10) +
+                           bids[3].PR(10) + bids[4].PR(10) + bids[5].PR(10) +
+                           bids[6].PR(10) + bids[7].PR(10) + bids[8].PR(10) + Environment.NewLine);
                         sb.Append((bids[0] * profits[0] - bid_total).ToString("f2").PR(10) +
                                   (bids[1] * profits[1] - bid_total).ToString("f2").PR(10) +
                                   (bids[2] * profits[2] - bid_total).ToString("f2").PR(10) +

@@ -1286,14 +1286,14 @@ public class MatchComputeMethod
         {
             case "2-fix-bid":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine + "loop_count:" + doc["loop_count"].ToInt32() + Environment.NewLine +
-                 doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) +
-                 doc["three1"].ToString().PR(10) +
-                 doc["one1"].ToString().PR(10) +
-                 doc["zero1"].ToString().PR(10) + Environment.NewLine +
-                 doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) +
-                 doc["three2"].ToString().PR(10) +
-                 doc["one2"].ToString().PR(10) +
-                 doc["zero2"].ToString().PR(10) + Environment.NewLine +
+                 doc["start_time1"].ToString() + "      " + doc["host1"].PR(10) + doc["client1"].PR(10) +
+                 doc["three1"].PR(10) +
+                 doc["one1"].PR(10) +
+                 doc["zero1"].PR(10) + Environment.NewLine +
+                 doc["start_time2"].ToString() + "      " + doc["host2"].PR(10) + doc["client2"].PR(10) +
+                 doc["three2"].PR(10) +
+                 doc["one2"].PR(10) +
+                 doc["zero2"].PR(10) + Environment.NewLine +
                 "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                 "total bid count:" + doc["total_bid_count"].ToString() + Environment.NewLine +
                 "compute count: " + doc["compute_count"].ToString() + Environment.NewLine +
@@ -1301,35 +1301,35 @@ public class MatchComputeMethod
                 "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                 "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["total_bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                 "detail infomation:" + Environment.NewLine +
-                "B33: " + doc["b33"].ToString().PR(15) +
-                "B31: " + doc["b31"].ToString().PR(15) +
-                "B30: " + doc["b30"].ToString().PR(15) + Environment.NewLine +
-                "B13: " + doc["b13"].ToString().PR(15) +
-                "B11: " + doc["b11"].ToString().PR(15) +
-                "B10: " + doc["b10"].ToString().PR(15) + Environment.NewLine +
-                "B03: " + doc["b03"].ToString().PR(15) +
-                "B01: " + doc["b01"].ToString().PR(15) +
-                "B00: " + doc["b00"].ToString().PR(15) + Environment.NewLine +
-                "R33: " + doc["r33"].ToString().PR(15) +
-                "R31: " + doc["r31"].ToString().PR(15) +
-                "R30: " + doc["r30"].ToString().PR(15) + Environment.NewLine +
-                "R13: " + doc["r13"].ToString().PR(15) +
-                "R11: " + doc["r11"].ToString().PR(15) +
-                "R10: " + doc["r10"].ToString().PR(15) + Environment.NewLine +
-                "R03: " + doc["r03"].ToString().PR(15) +
-                "R01: " + doc["r01"].ToString().PR(15) +
-                "R00: " + doc["r00"].ToString().PR(15) + Environment.NewLine + Environment.NewLine;
+                "B33: " + doc["b33"].PR(15) +
+                "B31: " + doc["b31"].PR(15) +
+                "B30: " + doc["b30"].PR(15) + Environment.NewLine +
+                "B13: " + doc["b13"].PR(15) +
+                "B11: " + doc["b11"].PR(15) +
+                "B10: " + doc["b10"].PR(15) + Environment.NewLine +
+                "B03: " + doc["b03"].PR(15) +
+                "B01: " + doc["b01"].PR(15) +
+                "B00: " + doc["b00"].PR(15) + Environment.NewLine +
+                "R33: " + doc["r33"].PR(15) +
+                "R31: " + doc["r31"].PR(15) +
+                "R30: " + doc["r30"].PR(15) + Environment.NewLine +
+                "R13: " + doc["r13"].PR(15) +
+                "R11: " + doc["r11"].PR(15) +
+                "R10: " + doc["r10"].PR(15) + Environment.NewLine +
+                "R03: " + doc["r03"].PR(15) +
+                "R01: " + doc["r01"].PR(15) +
+                "R00: " + doc["r00"].PR(15) + Environment.NewLine + Environment.NewLine;
                 break;
             case "2-into-group":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine + "loop_count:" + doc["loop_count"].ToInt32() + Environment.NewLine +
-            doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) +
-            doc["three1"].ToString().PR(10) +
-            doc["one1"].ToString().PR(10) +
-            doc["zero1"].ToString().PR(10) + Environment.NewLine +
-            doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) +
-            doc["three2"].ToString().PR(10) +
-            doc["one2"].ToString().PR(10) +
-            doc["zero2"].ToString().PR(10) + Environment.NewLine +
+            doc["start_time1"].ToString() + "      " + doc["host1"].PR(10) + doc["client1"].PR(10) +
+            doc["three1"].PR(10) +
+            doc["one1"].PR(10) +
+            doc["zero1"].PR(10) + Environment.NewLine +
+            doc["start_time2"].ToString() + "      " + doc["host2"].PR(10) + doc["client2"].PR(10) +
+            doc["three2"].PR(10) +
+            doc["one2"].PR(10) +
+            doc["zero2"].PR(10) + Environment.NewLine +
            "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
            "total bid count:" + doc["total_bid_count"].ToString() + Environment.NewLine +
            "compute count: " + doc["compute_count"].ToString() + Environment.NewLine +
@@ -1338,35 +1338,35 @@ public class MatchComputeMethod
            "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["total_bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
            "group information: " + doc["group_info"].ToString() + Environment.NewLine +
            "detail infomation:" + Environment.NewLine +
-           "B33: " + doc["b33"].ToString().PR(15) +
-           "B31: " + doc["b31"].ToString().PR(15) +
-           "B30: " + doc["b30"].ToString().PR(15) + Environment.NewLine +
-           "B13: " + doc["b13"].ToString().PR(15) +
-           "B11: " + doc["b11"].ToString().PR(15) +
-           "B10: " + doc["b10"].ToString().PR(15) + Environment.NewLine +
-           "B03: " + doc["b03"].ToString().PR(15) +
-           "B01: " + doc["b01"].ToString().PR(15) +
-           "B00: " + doc["b00"].ToString().PR(15) + Environment.NewLine +
-           "R33: " + doc["r33"].ToString().PR(15) +
-           "R31: " + doc["r31"].ToString().PR(15) +
-           "R30: " + doc["r30"].ToString().PR(15) + Environment.NewLine +
-           "R13: " + doc["r13"].ToString().PR(15) +
-           "R11: " + doc["r11"].ToString().PR(15) +
-           "R10: " + doc["r10"].ToString().PR(15) + Environment.NewLine +
-           "R03: " + doc["r03"].ToString().PR(15) +
-           "R01: " + doc["r01"].ToString().PR(15) +
-           "R00: " + doc["r00"].ToString().PR(15) + Environment.NewLine + Environment.NewLine;
+           "B33: " + doc["b33"].PR(15) +
+           "B31: " + doc["b31"].PR(15) +
+           "B30: " + doc["b30"].PR(15) + Environment.NewLine +
+           "B13: " + doc["b13"].PR(15) +
+           "B11: " + doc["b11"].PR(15) +
+           "B10: " + doc["b10"].PR(15) + Environment.NewLine +
+           "B03: " + doc["b03"].PR(15) +
+           "B01: " + doc["b01"].PR(15) +
+           "B00: " + doc["b00"].PR(15) + Environment.NewLine +
+           "R33: " + doc["r33"].PR(15) +
+           "R31: " + doc["r31"].PR(15) +
+           "R30: " + doc["r30"].PR(15) + Environment.NewLine +
+           "R13: " + doc["r13"].PR(15) +
+           "R11: " + doc["r11"].PR(15) +
+           "R10: " + doc["r10"].PR(15) + Environment.NewLine +
+           "R03: " + doc["r03"].PR(15) +
+           "R01: " + doc["r01"].PR(15) +
+           "R00: " + doc["r00"].PR(15) + Environment.NewLine + Environment.NewLine;
                 break;
             case "2-fix-bid-next":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine + "loop_count:" + doc["loop_count"].ToInt32() + Environment.NewLine +
-               doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) +
-               doc["three1"].ToString().PR(10) +
-               doc["one1"].ToString().PR(10) +
-               doc["zero1"].ToString().PR(10) + Environment.NewLine +
-               doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) +
-               doc["three2"].ToString().PR(10) +
-               doc["one2"].ToString().PR(10) +
-               doc["zero2"].ToString().PR(10) + Environment.NewLine +
+               doc["start_time1"].ToString() + "      " + doc["host1"].PR(10) + doc["client1"].PR(10) +
+               doc["three1"].PR(10) +
+               doc["one1"].PR(10) +
+               doc["zero1"].PR(10) + Environment.NewLine +
+               doc["start_time2"].ToString() + "      " + doc["host2"].PR(10) + doc["client2"].PR(10) +
+               doc["three2"].PR(10) +
+               doc["one2"].PR(10) +
+               doc["zero2"].PR(10) + Environment.NewLine +
               "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
               "total bid count:" + doc["total_bid_count"].ToString() + Environment.NewLine +
               "compute count: " + doc["compute_count"].ToString() + Environment.NewLine +
@@ -1374,35 +1374,35 @@ public class MatchComputeMethod
               "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
               "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["total_bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                 "detail infomation:" + Environment.NewLine +
-                 "B33: " + doc["b33"].ToString().PR(15) +
-                 "B31: " + doc["b31"].ToString().PR(15) +
-                 "B30: " + doc["b30"].ToString().PR(15) + Environment.NewLine +
-                 "B13: " + doc["b13"].ToString().PR(15) +
-                 "B11: " + doc["b11"].ToString().PR(15) +
-                 "B10: " + doc["b10"].ToString().PR(15) + Environment.NewLine +
-                 "B03: " + doc["b03"].ToString().PR(15) +
-                 "B01: " + doc["b01"].ToString().PR(15) +
-                 "B00: " + doc["b00"].ToString().PR(15) + Environment.NewLine +
-                 "R33: " + doc["r33"].ToString().PR(15) +
-                 "R31: " + doc["r31"].ToString().PR(15) +
-                 "R30: " + doc["r30"].ToString().PR(15) + Environment.NewLine +
-                 "R13: " + doc["r13"].ToString().PR(15) +
-                 "R11: " + doc["r11"].ToString().PR(15) +
-                 "R10: " + doc["r10"].ToString().PR(15) + Environment.NewLine +
-                 "R03: " + doc["r03"].ToString().PR(15) +
-                 "R01: " + doc["r01"].ToString().PR(15) +
-                 "R00: " + doc["r00"].ToString().PR(15) + Environment.NewLine + Environment.NewLine;
+                 "B33: " + doc["b33"].PR(15) +
+                 "B31: " + doc["b31"].PR(15) +
+                 "B30: " + doc["b30"].PR(15) + Environment.NewLine +
+                 "B13: " + doc["b13"].PR(15) +
+                 "B11: " + doc["b11"].PR(15) +
+                 "B10: " + doc["b10"].PR(15) + Environment.NewLine +
+                 "B03: " + doc["b03"].PR(15) +
+                 "B01: " + doc["b01"].PR(15) +
+                 "B00: " + doc["b00"].PR(15) + Environment.NewLine +
+                 "R33: " + doc["r33"].PR(15) +
+                 "R31: " + doc["r31"].PR(15) +
+                 "R30: " + doc["r30"].PR(15) + Environment.NewLine +
+                 "R13: " + doc["r13"].PR(15) +
+                 "R11: " + doc["r11"].PR(15) +
+                 "R10: " + doc["r10"].PR(15) + Environment.NewLine +
+                 "R03: " + doc["r03"].PR(15) +
+                 "R01: " + doc["r01"].PR(15) +
+                 "R00: " + doc["r00"].PR(15) + Environment.NewLine + Environment.NewLine;
                 break;
             case "2-add-range":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine + "loop_count:" + doc["loop_count"].ToInt32() + Environment.NewLine +
-                 doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) +
-                 doc["three1"].ToString().PR(10) +
-                 doc["one1"].ToString().PR(10) +
-                 doc["zero1"].ToString().PR(10) + Environment.NewLine +
-                 doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) +
-                 doc["three2"].ToString().PR(10) +
-                 doc["one2"].ToString().PR(10) +
-                 doc["zero2"].ToString().PR(10) + Environment.NewLine +
+                 doc["start_time1"].ToString() + "      " + doc["host1"].PR(10) + doc["client1"].PR(10) +
+                 doc["three1"].PR(10) +
+                 doc["one1"].PR(10) +
+                 doc["zero1"].PR(10) + Environment.NewLine +
+                 doc["start_time2"].ToString() + "      " + doc["host2"].PR(10) + doc["client2"].PR(10) +
+                 doc["three2"].PR(10) +
+                 doc["one2"].PR(10) +
+                 doc["zero2"].PR(10) + Environment.NewLine +
                 "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                 "total bid count:" + doc["total_bid_count"].ToString() + Environment.NewLine +
                 "compute count: " + doc["compute_count"].ToString() + Environment.NewLine +
@@ -1410,31 +1410,31 @@ public class MatchComputeMethod
                 "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                 "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["total_bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
                 "detail infomation:" + Environment.NewLine +
-                "B33: " + doc["b33"].ToString().PR(15) +
-                "B31: " + doc["b31"].ToString().PR(15) +
-                "B30: " + doc["b30"].ToString().PR(15) + Environment.NewLine +
-                "B13: " + doc["b13"].ToString().PR(15) +
-                "B11: " + doc["b11"].ToString().PR(15) +
-                "B10: " + doc["b10"].ToString().PR(15) + Environment.NewLine +
-                "B03: " + doc["b03"].ToString().PR(15) +
-                "B01: " + doc["b01"].ToString().PR(15) +
-                "B00: " + doc["b00"].ToString().PR(15) + Environment.NewLine +
-                "R33: " + doc["r33"].ToString().PR(15) +
-                "R31: " + doc["r31"].ToString().PR(15) +
-                "R30: " + doc["r30"].ToString().PR(15) + Environment.NewLine +
-                "R13: " + doc["r13"].ToString().PR(15) +
-                "R11: " + doc["r11"].ToString().PR(15) +
-                "R10: " + doc["r10"].ToString().PR(15) + Environment.NewLine +
-                "R03: " + doc["r03"].ToString().PR(15) +
-                "R01: " + doc["r01"].ToString().PR(15) +
-                "R00: " + doc["r00"].ToString().PR(15) + Environment.NewLine + Environment.NewLine;
+                "B33: " + doc["b33"].PR(15) +
+                "B31: " + doc["b31"].PR(15) +
+                "B30: " + doc["b30"].PR(15) + Environment.NewLine +
+                "B13: " + doc["b13"].PR(15) +
+                "B11: " + doc["b11"].PR(15) +
+                "B10: " + doc["b10"].PR(15) + Environment.NewLine +
+                "B03: " + doc["b03"].PR(15) +
+                "B01: " + doc["b01"].PR(15) +
+                "B00: " + doc["b00"].PR(15) + Environment.NewLine +
+                "R33: " + doc["r33"].PR(15) +
+                "R31: " + doc["r31"].PR(15) +
+                "R30: " + doc["r30"].PR(15) + Environment.NewLine +
+                "R13: " + doc["r13"].PR(15) +
+                "R11: " + doc["r11"].PR(15) +
+                "R10: " + doc["r10"].PR(15) + Environment.NewLine +
+                "R03: " + doc["r03"].PR(15) +
+                "R01: " + doc["r01"].PR(15) +
+                "R00: " + doc["r00"].PR(15) + Environment.NewLine + Environment.NewLine;
                 break;
             case "1-like-circle":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine + "loop_count:" + doc["loop_count"].ToInt32() + Environment.NewLine +
-               doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) +
-               doc["three1"].ToString().PR(10) +
-               doc["one1"].ToString().PR(10) +
-               doc["zero1"].ToString().PR(10) + Environment.NewLine +
+               doc["start_time1"].ToString() + "      " + doc["host1"].PR(10) + doc["client1"].PR(10) +
+               doc["three1"].PR(10) +
+               doc["one1"].PR(10) +
+               doc["zero1"].PR(10) + Environment.NewLine +
               "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
               "total bid count:" + doc["total_bid_count"].ToString() + Environment.NewLine +
               "compute count: " + doc["compute_count"].ToString() + Environment.NewLine +
@@ -1442,20 +1442,20 @@ public class MatchComputeMethod
               "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
               "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["total_bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
               "detail infomation:" + Environment.NewLine +
-               doc["p1"].ToString().PR(10) + doc["p2"].ToString().PR(10) + doc["p3"].ToString().PR(10) + Environment.NewLine +
-               doc["b1"].ToString().PR(10) + doc["b2"].ToString().PR(10) + doc["b3"].ToString().PR(10) + Environment.NewLine +
-               doc["r1"].ToString().PR(10) + doc["r2"].ToString().PR(10) + doc["r3"].ToString().PR(10) + Environment.NewLine + Environment.NewLine;
+               doc["p1"].PR(10) + doc["p2"].PR(10) + doc["p3"].PR(10) + Environment.NewLine +
+               doc["b1"].PR(10) + doc["b2"].PR(10) + doc["b3"].PR(10) + Environment.NewLine +
+               doc["r1"].PR(10) + doc["r2"].PR(10) + doc["r3"].PR(10) + Environment.NewLine + Environment.NewLine;
                 break;
             case "2-like-circle":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine + "loop_count:" + doc["loop_count"].ToInt32() + Environment.NewLine +
-               doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) +
-               doc["three1"].ToString().PR(10) +
-               doc["one1"].ToString().PR(10) +
-               doc["zero1"].ToString().PR(10) + Environment.NewLine +
-               doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) +
-               doc["three2"].ToString().PR(10) +
-               doc["one2"].ToString().PR(10) +
-               doc["zero2"].ToString().PR(10) + Environment.NewLine +
+               doc["start_time1"].ToString() + "      " + doc["host1"].PR(10) + doc["client1"].PR(10) +
+               doc["three1"].PR(10) +
+               doc["one1"].PR(10) +
+               doc["zero1"].PR(10) + Environment.NewLine +
+               doc["start_time2"].ToString() + "      " + doc["host2"].PR(10) + doc["client2"].PR(10) +
+               doc["three2"].PR(10) +
+               doc["one2"].PR(10) +
+               doc["zero2"].PR(10) + Environment.NewLine +
               "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
               "total bid count:" + doc["total_bid_count"].ToString() + Environment.NewLine +
               "compute count: " + doc["compute_count"].ToString() + Environment.NewLine +
@@ -1463,30 +1463,30 @@ public class MatchComputeMethod
               "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
               "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["total_bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine +
               "detail infomation:" + Environment.NewLine +
-               doc["p1"].ToString().PR(10) + doc["p2"].ToString().PR(10) + doc["p3"].ToString().PR(10) +
-               doc["p4"].ToString().PR(10) + doc["p5"].ToString().PR(10) + doc["p6"].ToString().PR(10) +
-               doc["p7"].ToString().PR(10) + doc["p8"].ToString().PR(10) + doc["p9"].ToString().PR(10) + Environment.NewLine +
-               doc["b1"].ToString().PR(10) + doc["b2"].ToString().PR(10) + doc["b3"].ToString().PR(10) +
-               doc["b4"].ToString().PR(10) + doc["b5"].ToString().PR(10) + doc["b6"].ToString().PR(10) +
-               doc["b7"].ToString().PR(10) + doc["b8"].ToString().PR(10) + doc["b9"].ToString().PR(10) + Environment.NewLine +
-               doc["r1"].ToString().PR(10) + doc["r2"].ToString().PR(10) + doc["r3"].ToString().PR(10) +
-               doc["r4"].ToString().PR(10) + doc["r5"].ToString().PR(10) + doc["r6"].ToString().PR(10) +
-               doc["r7"].ToString().PR(10) + doc["r8"].ToString().PR(10) + doc["r9"].ToString().PR(10) + Environment.NewLine + Environment.NewLine;
+               doc["p1"].PR(10) + doc["p2"].PR(10) + doc["p3"].PR(10) +
+               doc["p4"].PR(10) + doc["p5"].PR(10) + doc["p6"].PR(10) +
+               doc["p7"].PR(10) + doc["p8"].PR(10) + doc["p9"].PR(10) + Environment.NewLine +
+               doc["b1"].PR(10) + doc["b2"].PR(10) + doc["b3"].PR(10) +
+               doc["b4"].PR(10) + doc["b5"].PR(10) + doc["b6"].PR(10) +
+               doc["b7"].PR(10) + doc["b8"].PR(10) + doc["b9"].PR(10) + Environment.NewLine +
+               doc["r1"].PR(10) + doc["r2"].PR(10) + doc["r3"].PR(10) +
+               doc["r4"].PR(10) + doc["r5"].PR(10) + doc["r6"].PR(10) +
+               doc["r7"].PR(10) + doc["r8"].PR(10) + doc["r9"].PR(10) + Environment.NewLine + Environment.NewLine;
                 break;
             case "3-like-circle":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine + "loop_count:" + doc["loop_count"].ToInt32() + Environment.NewLine +
-               doc["start_time1"].ToString() + "      " + doc["host1"].ToString().PR(10) + doc["client1"].ToString().PR(10) +
-               doc["three1"].ToString().PR(10) +
-               doc["one1"].ToString().PR(10) +
-               doc["zero1"].ToString().PR(10) + Environment.NewLine +
-               doc["start_time2"].ToString() + "      " + doc["host2"].ToString().PR(10) + doc["client2"].ToString().PR(10) +
-               doc["three2"].ToString().PR(10) +
-               doc["one2"].ToString().PR(10) +
-               doc["zero2"].ToString().PR(10) + Environment.NewLine +
-               doc["start_time3"].ToString() + "      " + doc["host3"].ToString().PR(10) + doc["client3"].ToString().PR(10) +
-               doc["three3"].ToString().PR(10) +
-               doc["one3"].ToString().PR(10) +
-               doc["zero3"].ToString().PR(10) + Environment.NewLine +
+               doc["start_time1"].ToString() + "      " + doc["host1"].PR(10) + doc["client1"].PR(10) +
+               doc["three1"].PR(10) +
+               doc["one1"].PR(10) +
+               doc["zero1"].PR(10) + Environment.NewLine +
+               doc["start_time2"].ToString() + "      " + doc["host2"].PR(10) + doc["client2"].PR(10) +
+               doc["three2"].PR(10) +
+               doc["one2"].PR(10) +
+               doc["zero2"].PR(10) + Environment.NewLine +
+               doc["start_time3"].ToString() + "      " + doc["host3"].PR(10) + doc["client3"].PR(10) +
+               doc["three3"].PR(10) +
+               doc["one3"].PR(10) +
+               doc["zero3"].PR(10) + Environment.NewLine +
               "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
               "total bid count:" + doc["total_bid_count"].ToString() + Environment.NewLine +
               "compute count: " + doc["compute_count"].ToString() + Environment.NewLine +
