@@ -82,11 +82,11 @@ namespace web_helper
             this.txt_result.Text = dgv_company.Rows[e.RowIndex].Cells["info"].Value == null ? "" : dgv_company.Rows[e.RowIndex].Cells["info"].Value.ToString();
             this.lb_row_id.Text = e.RowIndex.ToString();
 
-            this.txt_name.Text = dgv_company.Rows[e.RowIndex].Cells["name"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["name"].Value.ToString();
-            this.txt_url.Text = dgv_company.Rows[e.RowIndex].Cells["url"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["url"].Value.ToString();
-            this.txt_other_names.Text = dgv_company.Rows[e.RowIndex].Cells["other_names"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_names"].Value.ToString();
-            this.txt_other_urls.Text = dgv_company.Rows[e.RowIndex].Cells["other_urls"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_urls"].Value.ToString();
-            this.txt_pay_ways.Text = dgv_company.Rows[e.RowIndex].Cells["pay_ways"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["pay_ways"].Value.ToString();
+            this.txt_name.Text = dgv_company.Rows[e.RowIndex].Cells["name"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["name"].Value.ToString();
+            this.txt_url.Text = dgv_company.Rows[e.RowIndex].Cells["url"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["url"].Value.ToString();
+            this.txt_other_names.Text = dgv_company.Rows[e.RowIndex].Cells["other_names"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_names"].Value.ToString();
+            this.txt_other_urls.Text = dgv_company.Rows[e.RowIndex].Cells["other_urls"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_urls"].Value.ToString();
+            this.txt_pay_ways.Text = dgv_company.Rows[e.RowIndex].Cells["pay_ways"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["pay_ways"].Value.ToString();
 
         }
         private void btn_json_beautify_Click(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace web_helper
 
         private void btn_update_grid_Click(object sender, EventArgs e)
         {
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value = this.txt_result.Text;
+            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value = this.txt_result.Text;
         }
 
 
@@ -117,8 +117,8 @@ namespace web_helper
         {
             if (string.IsNullOrEmpty(this.txt_name.Text) || string.IsNullOrEmpty(this.txt_url.Text)) return;
 
-            string id = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["id"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["id"].Value.ToString();
-            string info = dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value == null ? "" : dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value.ToString();
+            string id = dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["id"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["id"].Value.ToString();
+            string info = dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value.ToString();
 
             BsonDocument doc;
             if (!string.IsNullOrEmpty(info))
@@ -144,12 +144,12 @@ namespace web_helper
 
 
 
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["name"].Value = this.txt_name.Text;
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["url"].Value = this.txt_url.Text;
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_names"].Value = this.txt_other_names.Text;
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["other_urls"].Value = this.txt_other_urls.Text;
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["pay_ways"].Value = this.txt_pay_ways.Text;
-            dgv_company.Rows[Convert.ToInt16(lb_row_id.Text)].Cells["info"].Value = doc.ToString();
+            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["name"].Value = this.txt_name.Text;
+            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["url"].Value = this.txt_url.Text;
+            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_names"].Value = this.txt_other_names.Text;
+            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_urls"].Value = this.txt_other_urls.Text;
+            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["pay_ways"].Value = this.txt_pay_ways.Text;
+            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value = doc.ToString();
 
 
 

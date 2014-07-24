@@ -166,7 +166,7 @@ public partial class FrmTemplateOperate: Form
     private void txt_cell_TextChanged(object sender, EventArgs e)
     {
         if (string.IsNullOrEmpty(this.lb_column.Text) || string.IsNullOrEmpty(this.lb_row.Text) || this.dgv_html_element.Rows.Count == 0) return;
-        this.dgv_html_element.Rows[Int16.Parse(this.lb_row.Text)].Cells[Int16.Parse(this.lb_column.Text)].Value = this.txt_cell.Text;
+        this.dgv_html_element.Rows[Int32.Parse(this.lb_row.Text)].Cells[Int32.Parse(this.lb_column.Text)].Value = this.txt_cell.Text;
     }
  
 }

@@ -207,7 +207,7 @@ public class MatchComputeMethod
         DateTime dt_start = DateTime.Now;
         Int64 step = 0;
 
-        int last_result_count = Convert.ToInt16(doc_last["bid_count"].ToString());
+        int last_result_count = Convert.ToInt32(doc_last["bid_count"].ToString());
         double last_result_r33 = Convert.ToDouble(doc_last["r33"].ToString());
         double last_result_r31 = Convert.ToDouble(doc_last["r31"].ToString());
         double last_result_r30 = Convert.ToDouble(doc_last["r30"].ToString());
@@ -397,7 +397,7 @@ public class MatchComputeMethod
         DataTable dt_group = SQLServerHelper.get_table(sql);
 
 
-        int count = Convert.ToInt16(doc_input["bid_count"].ToString());
+        int count = Convert.ToInt32(doc_input["bid_count"].ToString());
         string start_time1 = doc_input["start_time1"].ToString();
         string host1 = doc_input["host1"].ToString();
         string client1 = doc_input["client1"].ToString();
@@ -410,15 +410,15 @@ public class MatchComputeMethod
         double three2 = Convert.ToDouble(doc_input["three2"].ToString());
         double one2 = Convert.ToDouble(doc_input["one2"].ToString());
         double zero2 = Convert.ToDouble(doc_input["zero2"].ToString());
-        int b33 = Convert.ToInt16(doc_input["b33"].ToString());
-        int b31 = Convert.ToInt16(doc_input["b31"].ToString());
-        int b30 = Convert.ToInt16(doc_input["b30"].ToString());
-        int b13 = Convert.ToInt16(doc_input["b13"].ToString());
-        int b11 = Convert.ToInt16(doc_input["b11"].ToString());
-        int b10 = Convert.ToInt16(doc_input["b10"].ToString());
-        int b03 = Convert.ToInt16(doc_input["b03"].ToString());
-        int b01 = Convert.ToInt16(doc_input["b01"].ToString());
-        int b00 = Convert.ToInt16(doc_input["b00"].ToString());
+        int b33 = Convert.ToInt32(doc_input["b33"].ToString());
+        int b31 = Convert.ToInt32(doc_input["b31"].ToString());
+        int b30 = Convert.ToInt32(doc_input["b30"].ToString());
+        int b13 = Convert.ToInt32(doc_input["b13"].ToString());
+        int b11 = Convert.ToInt32(doc_input["b11"].ToString());
+        int b10 = Convert.ToInt32(doc_input["b10"].ToString());
+        int b03 = Convert.ToInt32(doc_input["b03"].ToString());
+        int b01 = Convert.ToInt32(doc_input["b01"].ToString());
+        int b00 = Convert.ToInt32(doc_input["b00"].ToString());
 
 
         StringBuilder builder = new StringBuilder();

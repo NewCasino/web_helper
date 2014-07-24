@@ -878,7 +878,7 @@ class MatchCompany
                 for (int i = 0; i < doc["order_nos"].AsBsonArray.Count; i++)
                 {
                     string order_no = doc["order_nos"].AsBsonArray[i].ToString();
-                    string company = doc["companys"].AsBsonArray[Convert.ToInt16(order_no)].ToString();
+                    string company = doc["companys"].AsBsonArray[Convert.ToInt32(order_no)].ToString();
                     string profit = doc["profits"].AsBsonArray[i].ToString();
                     string bid = doc["bids"].AsBsonArray[i].ToString();
                     result = result + company.PR(20) + profit.PR(10)+bid.PR(10);
@@ -967,7 +967,7 @@ class MatchCompany
                 for (int i = 0; i < doc["order_nos"].AsBsonArray.Count; i++)
                 {
                     string order_no = doc["order_nos"].AsBsonArray[i].ToString();
-                    string company = doc["companys"].AsBsonArray[Convert.ToInt16(order_no)].ToString();
+                    string company = doc["companys"].AsBsonArray[Convert.ToInt32(order_no)].ToString();
                     string profit = doc["profits"].AsBsonArray[i].ToString();
                     string bid = doc["bids"].AsBsonArray[i].ToString();
                     result = result + company.PR(20) + profit.PR(10) + bid.PR(10);

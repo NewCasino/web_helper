@@ -33,9 +33,9 @@ namespace web_helper
         private void btn_compute_Click(object sender, EventArgs e)
         {
             this.txt_compute.Text = "";
-            int start_count = Convert.ToInt16(txt_count_start.Text);
-            int end_count = Convert.ToInt16(txt_count_start.Text);
-            if (!string.IsNullOrEmpty(txt_count_end.Text)) end_count = Convert.ToInt16(txt_count_end.Text);
+            int start_count = Convert.ToInt32(txt_count_start.Text);
+            int end_count = Convert.ToInt32(txt_count_start.Text);
+            if (!string.IsNullOrEmpty(txt_count_end.Text)) end_count = Convert.ToInt32(txt_count_end.Text);
 
             DataTable dt = new DataTable();
             dt.Columns.Add("start_time");
@@ -102,9 +102,9 @@ namespace web_helper
         private void btn_compute_next_Click(object sender, EventArgs e)
         {
             this.txt_compute.Text = "";
-            int start_count = Convert.ToInt16(txt_count_start.Text);
-            int end_count = Convert.ToInt16(txt_count_start.Text);
-            if (!string.IsNullOrEmpty(txt_count_end.Text)) end_count = Convert.ToInt16(txt_count_end.Text);
+            int start_count = Convert.ToInt32(txt_count_start.Text);
+            int end_count = Convert.ToInt32(txt_count_start.Text);
+            if (!string.IsNullOrEmpty(txt_count_end.Text)) end_count = Convert.ToInt32(txt_count_end.Text);
 
             DataTable dt = new DataTable();
             dt.Columns.Add("start_time");

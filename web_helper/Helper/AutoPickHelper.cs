@@ -161,7 +161,7 @@ class AutoPickHelper
                             {
                                 if (attr.Name.ToLower() == "rowspan")
                                 {
-                                    int span_count = Convert.ToInt16(attr.Value);
+                                    int span_count = Convert.ToInt32(attr.Value);
                                     for (int j = 1; j < span_count; j++)
                                     {
                                         table.Rows[i + j][start] = td_nodes[k].InnerText;
@@ -169,7 +169,7 @@ class AutoPickHelper
                                 }
                                 if (attr.Name.ToLower() == "colspan")
                                 {
-                                    int span_count = Convert.ToInt16(attr.Value);
+                                    int span_count = Convert.ToInt32(attr.Value);
                                     for (int j = 1; j < span_count; j++)
                                     {
                                         table.Rows[i][start + j] = td_nodes[k].InnerText;

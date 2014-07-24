@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_script = new System.Windows.Forms.Button();
             this.btn_analyse = new System.Windows.Forms.Button();
             this.btn_navigate = new System.Windows.Forms.Button();
             this.txt_url = new System.Windows.Forms.TextBox();
@@ -51,6 +52,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_script);
             this.groupBox1.Controls.Add(this.btn_analyse);
             this.groupBox1.Controls.Add(this.btn_navigate);
             this.groupBox1.Controls.Add(this.txt_url);
@@ -60,6 +62,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_script
+            // 
+            this.btn_script.Location = new System.Drawing.Point(716, 18);
+            this.btn_script.Name = "btn_script";
+            this.btn_script.Size = new System.Drawing.Size(75, 23);
+            this.btn_script.TabIndex = 3;
+            this.btn_script.Text = "Triggle Script";
+            this.btn_script.UseVisualStyleBackColor = true;
+            this.btn_script.Click += new System.EventHandler(this.btn_script_Click);
             // 
             // btn_analyse
             // 
@@ -87,6 +99,7 @@
             this.txt_url.Name = "txt_url";
             this.txt_url.Size = new System.Drawing.Size(534, 20);
             this.txt_url.TabIndex = 0;
+            this.txt_url.Text = "D:\\DOC\\Visual Studio 2008\\MyProjects\\WebSite2\\test.htm";
             // 
             // tabControl1
             // 
@@ -198,5 +211,6 @@
         private System.Windows.Forms.Button btn_analyse;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgv_result;
+        private System.Windows.Forms.Button btn_script;
     }
 }

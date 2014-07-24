@@ -507,7 +507,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -543,7 +543,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -589,7 +589,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -635,7 +635,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -670,7 +670,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -706,7 +706,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -751,7 +751,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -797,7 +797,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -832,7 +832,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -868,7 +868,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -913,7 +913,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
@@ -959,7 +959,7 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-                BsonDocument doc = list[Convert.ToInt16(row["order"].ToString())];
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(MatchCompany.get_info_from_doc(doc));
 
