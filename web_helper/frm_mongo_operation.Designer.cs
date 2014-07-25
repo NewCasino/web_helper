@@ -211,6 +211,7 @@ partial class FrmMongoDBOperate
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_result.Size = new System.Drawing.Size(968, 280);
             this.txt_result.TabIndex = 0;
+            this.txt_result.WordWrap = false;
             // 
             // tabPage2
             // 

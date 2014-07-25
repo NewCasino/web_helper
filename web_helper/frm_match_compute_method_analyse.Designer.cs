@@ -35,6 +35,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_create_group = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_compute_circle_three = new System.Windows.Forms.Button();
             this.btn_compute_circle_one = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_compute_circle = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.txt_compute = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
-            this.btn_compute_circle_three = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -82,7 +82,7 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(8, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 586);
+            this.groupBox1.Size = new System.Drawing.Size(296, 572);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
@@ -161,6 +161,16 @@
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Compute Tool";
+            // 
+            // btn_compute_circle_three
+            // 
+            this.btn_compute_circle_three.Location = new System.Drawing.Point(109, 170);
+            this.btn_compute_circle_three.Name = "btn_compute_circle_three";
+            this.btn_compute_circle_three.Size = new System.Drawing.Size(107, 23);
+            this.btn_compute_circle_three.TabIndex = 19;
+            this.btn_compute_circle_three.Text = "Circle Three";
+            this.btn_compute_circle_three.UseVisualStyleBackColor = true;
+            this.btn_compute_circle_three.Click += new System.EventHandler(this.btn_compute_circle_three_Click);
             // 
             // btn_compute_circle_one
             // 
@@ -320,7 +330,7 @@
             this.tab.Location = new System.Drawing.Point(310, 4);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(824, 587);
+            this.tab.Size = new System.Drawing.Size(880, 573);
             this.tab.TabIndex = 1;
             // 
             // tabPage1
@@ -350,7 +360,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(816, 561);
+            this.tabPage2.Size = new System.Drawing.Size(872, 547);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Compute Result";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -363,8 +373,9 @@
             this.txt_compute.Multiline = true;
             this.txt_compute.Name = "txt_compute";
             this.txt_compute.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_compute.Size = new System.Drawing.Size(810, 555);
+            this.txt_compute.Size = new System.Drawing.Size(866, 541);
             this.txt_compute.TabIndex = 0;
+            this.txt_compute.WordWrap = false;
             this.txt_compute.TextChanged += new System.EventHandler(this.txt_compute_TextChanged);
             // 
             // tabPage3
@@ -386,24 +397,14 @@
             this.dgv_result.Size = new System.Drawing.Size(816, 561);
             this.dgv_result.TabIndex = 0;
             // 
-            // btn_compute_circle_three
-            // 
-            this.btn_compute_circle_three.Location = new System.Drawing.Point(109, 170);
-            this.btn_compute_circle_three.Name = "btn_compute_circle_three";
-            this.btn_compute_circle_three.Size = new System.Drawing.Size(107, 23);
-            this.btn_compute_circle_three.TabIndex = 19;
-            this.btn_compute_circle_three.Text = "Circle Three";
-            this.btn_compute_circle_three.UseVisualStyleBackColor = true;
-            this.btn_compute_circle_three.Click += new System.EventHandler(this.btn_compute_circle_three_Click);
-            // 
-            // FrmPersent
+            // frm_match_compute_method_analyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 603);
+            this.ClientSize = new System.Drawing.Size(1192, 589);
             this.Controls.Add(this.tab);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmPersent";
+            this.Name = "frm_match_compute_method_analyse";
             this.Text = "FrmPersent";
             this.Load += new System.EventHandler(this.FrmPersent_Load);
             this.groupBox1.ResumeLayout(false);

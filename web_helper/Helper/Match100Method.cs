@@ -27,7 +27,7 @@ using System.Reflection;
         {
             StringBuilder sb = new StringBuilder();
             if (browser.Document == null) return "";
-            string html = "<body>" + Environment.NewLine + browser.Document.Body.InnerHtml + Environment.NewLine + "</body>";
+            string html = browser.Document.Body.OuterHtml;
 
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
@@ -68,7 +68,7 @@ using System.Reflection;
             StringBuilder sb = new StringBuilder();
 
             if (browser.Document == null) return "";
-            string html = "<body>" + Environment.NewLine + browser.Document.Body.InnerHtml + Environment.NewLine + "</body>";
+            string html =  browser.Document.Body.OuterHtml;
 
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
@@ -95,8 +95,7 @@ using System.Reflection;
 
                     }
                     if (node.Attributes.Contains("class") && node.Attributes["class"].Value.ToString() == "listing")
-                    {
-
+                    { 
                         string root = node.XPath;
                         string league = "NO DAT";
                         string start_time = node.SelectSingleNode(root + "/div[1]/h6[1]").InnerText;
@@ -122,7 +121,7 @@ using System.Reflection;
             StringBuilder sb = new StringBuilder();
 
             if (browser.Document == null) return "";
-            HtmlElementCollection elements = browser.Document.All;
+            HtmlElementCollection elements = browser.Document.Body.All;
             foreach (HtmlElement element in elements)
             {
                 string row = "";
@@ -164,16 +163,21 @@ using System.Reflection;
             return sb.ToString();
         }
 
-        public string from_local1(WebBrowser browser) 
+        public string from_local_0(WebBrowser browser) 
         {
-            return "locak html has load!";
+            return "local html has load!";
         }
-        public string from_local2(WebBrowser browser)
-        {
-            HtmlElement element = browser.Document.GetElementById("btn_ok");
-            element.InvokeMember("click");
+        public string from_local_1(WebBrowser browser)
+        { 
+            string result="";
+            HtmlElementCollection list = browser.Document.Body.All;
+            foreach (HtmlElement element in list)
+            {
+                if (element.Id == "btn_ok") element.InvokeMember("click");
+                if (element.Id == "txt") result = element.GetAttribute("value");
+              
 
-            HtmlElement element_txt = browser.Document.GetElementById("txt");
-            return element_txt.GetAttribute("value").ToString(); 
+            }
+            return result;
         } 
     }

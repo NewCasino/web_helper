@@ -92,7 +92,7 @@
             this.groupBox1.Controls.Add(this.btn_load);
             this.groupBox1.Location = new System.Drawing.Point(6, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(264, 610);
+            this.groupBox1.Size = new System.Drawing.Size(264, 558);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
@@ -356,7 +356,7 @@
             this.tabControl1.Location = new System.Drawing.Point(276, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(909, 610);
+            this.tabControl1.Size = new System.Drawing.Size(916, 558);
             this.tabControl1.TabIndex = 1;
             // 
             // Condition
@@ -365,7 +365,7 @@
             this.Condition.Controls.Add(this.groupBox2);
             this.Condition.Location = new System.Drawing.Point(4, 22);
             this.Condition.Name = "Condition";
-            this.Condition.Size = new System.Drawing.Size(901, 584);
+            this.Condition.Size = new System.Drawing.Size(908, 532);
             this.Condition.TabIndex = 2;
             this.Condition.Text = "Condition";
             this.Condition.UseVisualStyleBackColor = true;
@@ -380,7 +380,7 @@
             this.groupBox3.Controls.Add(this.dgv_company);
             this.groupBox3.Location = new System.Drawing.Point(502, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(391, 570);
+            this.groupBox3.Size = new System.Drawing.Size(398, 518);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Company";
@@ -413,7 +413,7 @@
             this.dgv_company.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_company.Location = new System.Drawing.Point(6, 59);
             this.dgv_company.Name = "dgv_company";
-            this.dgv_company.Size = new System.Drawing.Size(379, 504);
+            this.dgv_company.Size = new System.Drawing.Size(386, 452);
             this.dgv_company.TabIndex = 1;
             this.dgv_company.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_company_DataBindingComplete);
             // 
@@ -426,7 +426,7 @@
             this.groupBox2.Controls.Add(this.dgv_match);
             this.groupBox2.Location = new System.Drawing.Point(3, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(493, 570);
+            this.groupBox2.Size = new System.Drawing.Size(493, 518);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Condition";
@@ -459,7 +459,7 @@
             this.dgv_match.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_match.Location = new System.Drawing.Point(6, 59);
             this.dgv_match.Name = "dgv_match";
-            this.dgv_match.Size = new System.Drawing.Size(481, 504);
+            this.dgv_match.Size = new System.Drawing.Size(481, 452);
             this.dgv_match.TabIndex = 0;
             this.dgv_match.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_match_DataBindingComplete);
             // 
@@ -489,7 +489,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(901, 584);
+            this.tabPage2.Size = new System.Drawing.Size(908, 532);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Result Text";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -502,7 +502,7 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(895, 578);
+            this.txt_result.Size = new System.Drawing.Size(902, 526);
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
@@ -511,7 +511,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1185, 618);
+            this.ClientSize = new System.Drawing.Size(1192, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_compute_by_company";

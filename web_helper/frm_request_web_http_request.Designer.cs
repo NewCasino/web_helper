@@ -259,6 +259,7 @@
             this.txt_response.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_response.Size = new System.Drawing.Size(1116, 286);
             this.txt_response.TabIndex = 1;
+            this.txt_response.WordWrap = false;
             // 
             // groupBox5
             // 
@@ -282,7 +283,7 @@
             this.txt_request.Size = new System.Drawing.Size(654, 235);
             this.txt_request.TabIndex = 0;
             // 
-            // FrmWebHttpRequest
+            // FrmRequest_WebHttpRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -295,7 +296,7 @@
             this.Controls.Add(this.btn_request);
             this.Controls.Add(this.txt_url);
             this.MaximizeBox = false;
-            this.Name = "FrmWebHttpRequest";
+            this.Name = "FrmRequest_WebHttpRequest";
             this.Text = "WebHttpRequest Request";
             this.Load += new System.EventHandler(this.FrmSocketRequest_Load);
             this.groupBox1.ResumeLayout(false);

@@ -110,6 +110,7 @@
             this.txt_cell.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_cell.Size = new System.Drawing.Size(854, 153);
             this.txt_cell.TabIndex = 2;
+            this.txt_cell.WordWrap = false;
             this.txt_cell.TextChanged += new System.EventHandler(this.txt_cell_TextChanged);
             // 
             // btn_beautify

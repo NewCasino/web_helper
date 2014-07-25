@@ -68,7 +68,7 @@
             this.dgv_company.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_company.Location = new System.Drawing.Point(516, 18);
             this.dgv_company.Name = "dgv_company";
-            this.dgv_company.Size = new System.Drawing.Size(467, 273);
+            this.dgv_company.Size = new System.Drawing.Size(655, 273);
             this.dgv_company.TabIndex = 0;
             this.dgv_company.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_company_CellClick);
             this.dgv_company.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_company_DataBindingComplete);
@@ -84,7 +84,7 @@
             this.groupBox1.Controls.Add(this.dgv_company);
             this.groupBox1.Location = new System.Drawing.Point(6, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(989, 297);
+            this.groupBox1.Size = new System.Drawing.Size(1177, 297);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
@@ -274,7 +274,7 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(846, 271);
+            this.txt_result.Size = new System.Drawing.Size(1034, 214);
             this.txt_result.TabIndex = 2;
             // 
             // groupBox2
@@ -288,7 +288,7 @@
             this.groupBox2.Controls.Add(this.txt_result);
             this.groupBox2.Location = new System.Drawing.Point(6, 315);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(989, 296);
+            this.groupBox2.Size = new System.Drawing.Size(1177, 239);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Result";
@@ -296,7 +296,7 @@
             // btn_update_grid
             // 
             this.btn_update_grid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_update_grid.Location = new System.Drawing.Point(872, 87);
+            this.btn_update_grid.Location = new System.Drawing.Point(1060, 87);
             this.btn_update_grid.Name = "btn_update_grid";
             this.btn_update_grid.Size = new System.Drawing.Size(102, 23);
             this.btn_update_grid.TabIndex = 5;
@@ -307,7 +307,7 @@
             // btn_check_json
             // 
             this.btn_check_json.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_check_json.Location = new System.Drawing.Point(871, 57);
+            this.btn_check_json.Location = new System.Drawing.Point(1059, 57);
             this.btn_check_json.Name = "btn_check_json";
             this.btn_check_json.Size = new System.Drawing.Size(103, 23);
             this.btn_check_json.TabIndex = 4;
@@ -318,7 +318,7 @@
             // btn_json_beautify
             // 
             this.btn_json_beautify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_json_beautify.Location = new System.Drawing.Point(871, 28);
+            this.btn_json_beautify.Location = new System.Drawing.Point(1059, 28);
             this.btn_json_beautify.Name = "btn_json_beautify";
             this.btn_json_beautify.Size = new System.Drawing.Size(103, 23);
             this.btn_json_beautify.TabIndex = 3;
@@ -330,10 +330,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 623);
+            this.ClientSize = new System.Drawing.Size(1192, 566);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frm_match_company_info";
+            this.Name = "frm_match_company_info"; 
             ((System.ComponentModel.ISupportInitialize)(this.dgv_company)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

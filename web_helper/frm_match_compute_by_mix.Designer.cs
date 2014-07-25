@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_2_min_2_free = new System.Windows.Forms.Button();
             this.btn_2_min_2_point = new System.Windows.Forms.Button();
             this.btn_min_2_total = new System.Windows.Forms.Button();
             this.btn_2_min_2_half = new System.Windows.Forms.Button();
@@ -200,7 +201,6 @@
             this.checkBox64 = new System.Windows.Forms.CheckBox();
             this.checkBox65 = new System.Windows.Forms.CheckBox();
             this.checkBox66 = new System.Windows.Forms.CheckBox();
-            this.btn_2_min_2_free = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -221,7 +221,7 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(317, 622);
+            this.groupBox1.Size = new System.Drawing.Size(317, 559);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
@@ -246,6 +246,16 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Compute Tool";
+            // 
+            // btn_2_min_2_free
+            // 
+            this.btn_2_min_2_free.Location = new System.Drawing.Point(108, 173);
+            this.btn_2_min_2_free.Name = "btn_2_min_2_free";
+            this.btn_2_min_2_free.Size = new System.Drawing.Size(93, 23);
+            this.btn_2_min_2_free.TabIndex = 11;
+            this.btn_2_min_2_free.Text = "2-min-2-free";
+            this.btn_2_min_2_free.UseVisualStyleBackColor = true;
+            this.btn_2_min_2_free.Click += new System.EventHandler(this.btn_2_min_2_free_Click);
             // 
             // btn_2_min_2_point
             // 
@@ -406,7 +416,7 @@
             this.tab.Location = new System.Drawing.Point(327, 2);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(890, 622);
+            this.tab.Size = new System.Drawing.Size(862, 559);
             this.tab.TabIndex = 1;
             // 
             // tabPage1
@@ -416,7 +426,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(882, 596);
+            this.tabPage1.Size = new System.Drawing.Size(854, 533);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Conditon";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -431,7 +441,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 199);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(878, 394);
+            this.tabControl1.Size = new System.Drawing.Size(850, 331);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage3
@@ -440,7 +450,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(870, 368);
+            this.tabPage3.Size = new System.Drawing.Size(842, 305);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Text";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -453,8 +463,9 @@
             this.txt_match.Multiline = true;
             this.txt_match.Name = "txt_match";
             this.txt_match.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_match.Size = new System.Drawing.Size(864, 362);
+            this.txt_match.Size = new System.Drawing.Size(836, 299);
             this.txt_match.TabIndex = 1;
+            this.txt_match.WordWrap = false;
             // 
             // tabPage4
             // 
@@ -1666,7 +1677,7 @@
             this.dgv_match.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_match.Location = new System.Drawing.Point(3, 3);
             this.dgv_match.Name = "dgv_match";
-            this.dgv_match.Size = new System.Drawing.Size(874, 190);
+            this.dgv_match.Size = new System.Drawing.Size(846, 190);
             this.dgv_match.TabIndex = 0;
             this.dgv_match.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_match_RowEnter);
             this.dgv_match.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_match_CellMouseDown);
@@ -2025,24 +2036,14 @@
             this.checkBox66.Text = "200.00";
             this.checkBox66.UseVisualStyleBackColor = true;
             // 
-            // btn_2_min_2_free
-            // 
-            this.btn_2_min_2_free.Location = new System.Drawing.Point(108, 173);
-            this.btn_2_min_2_free.Name = "btn_2_min_2_free";
-            this.btn_2_min_2_free.Size = new System.Drawing.Size(93, 23);
-            this.btn_2_min_2_free.TabIndex = 11;
-            this.btn_2_min_2_free.Text = "2-min-2-free";
-            this.btn_2_min_2_free.UseVisualStyleBackColor = true;
-            this.btn_2_min_2_free.Click += new System.EventHandler(this.btn_2_min_2_free_Click);
-            // 
-            // FrmMixMatch
+            // frm_match_compute_by_mix
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 629);
+            this.ClientSize = new System.Drawing.Size(1192, 566);
             this.Controls.Add(this.tab);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmMixMatch";
+            this.Name = "frm_match_compute_by_mix";
             this.Text = "Persent Compute";
             this.Load += new System.EventHandler(this.FrmMatch_Load);
             this.groupBox1.ResumeLayout(false);

@@ -53,9 +53,10 @@ namespace web_helper
             dt = new DataTable();
             dt.Columns.Add("id");
             dt.Columns.Add("site_name");
-            dt.Columns.Add("url");
             dt.Columns.Add("step");
             dt.Columns.Add("method");
+            dt.Columns.Add("select_type");
+            dt.Columns.Add("url");
             dt.Columns.Add("seconds");
             dt.Columns.Add("state");
             dt.Columns.Add("start_time");
@@ -72,6 +73,7 @@ namespace web_helper
                 row_new["url"] = dt_temp.Rows[i]["url"].ToString();
                 row_new["step"] = dt_temp.Rows[i]["step"].ToString();
                 row_new["method"] = dt_temp.Rows[i]["method"].ToString();
+                row_new["select_type"] = dt_temp.Rows[i]["select_type"].ToString();
                 row_new["seconds"] = dt_temp.Rows[i]["seconds"].ToString();
                 row_new["state"] = "wait";
                 dt.Rows.Add(row_new);
@@ -86,11 +88,17 @@ namespace web_helper
         }
         private void dgv_result_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            this.dgv_result.Columns["url"].Width = 150;
-            this.dgv_result.Columns["state"].Width = 100;
+            this.dgv_result.Columns["url"].Width = 150; 
             this.dgv_result.Columns["start_time"].Width = 150;
             this.dgv_result.Columns["end_time"].Width = 150;
-
+            this.dgv_result.Columns["id"].Width = 50;
+            this.dgv_result.Columns["site_name"].Width = 80;
+            this.dgv_result.Columns["step"].Width = 50;
+            this.dgv_result.Columns["method"].Width = 80;
+            this.dgv_result.Columns["select_type"].Width = 80;
+            this.dgv_result.Columns["seconds"].Width = 50;
+            this.dgv_result.Columns["state"].Width = 80;
+            this.dgv_result.Columns["browser"].Width = 80;
         }
 
         private void btn_analyse_Click(object sender, EventArgs e)
@@ -128,7 +136,7 @@ namespace web_helper
             //browser top:browser index   height:0-can use 1-in use   width:row id
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["step"].ToString() == "0")
+                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load")
                 {
                     for (int j = 0; j < 10; j++)
                     {
@@ -144,7 +152,7 @@ namespace web_helper
                         }
                     }
                 }
-                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["step"].ToString() != "0")
+                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "time")
                 {
                     if (dt.Rows[i - 1]["state"].ToString() == "ok")
                     {
@@ -152,7 +160,7 @@ namespace web_helper
                         TimeSpan span = DateTime.Now - start_time;
                         if (span.TotalSeconds >= Convert.ToInt32(dt.Rows[i]["seconds"].ToString()))
                         {
-                            int index=Convert.ToInt32(dt.Rows[i-1]["browser"].ToString());
+                            int index = Convert.ToInt32(dt.Rows[i - 1]["browser"].ToString());
                             dt.Rows[i]["state"] = "doing";
                             dt.Rows[i]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             dt.Rows[i]["browser"] = index.ToString();
@@ -187,8 +195,8 @@ namespace web_helper
         {
             WebBrowser browser = (WebBrowser)sender;
             if (e.Url != browser.Document.Url) return;
-            if (browser.ReadyState != WebBrowserReadyState.Complete) return; 
-           
+            if (browser.ReadyState != WebBrowserReadyState.Complete) return;
+
             int index = Convert.ToInt32(browser.Name);
             int row_id = ies[index].row_id;
 
@@ -211,14 +219,14 @@ namespace web_helper
 
             dt.Rows[row_id]["state"] = "ok";
             dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            sb.AppendLine("--------------------------------------------------------------------------------------------------------------------------------------");
+            sb.AppendLine("----------------------------------------------------------------------------------------------------------------------------------------------------------");
             sb.AppendLine(browser.Url.ToString());
             sb.AppendLine("start_time:" + dt.Rows[row_id]["start_time"].PR(20));
             sb.AppendLine("end_time:" + dt.Rows[row_id]["end_time"].PR(20));
             sb.AppendLine("doc length:" + browser.Document.Body.InnerHtml.Length.ToString());
             sb.AppendLine("result:");
             sb.AppendLine(result);
-            sb.AppendLine("--------------------------------------------------------------------------------------------------------------------------------------");
+            sb.AppendLine("----------------------------------------------------------------------------------------------------------------------------------------------------------");
             this.txt_result.Text = sb.ToString();
 
             //检查是否还有后续动作
@@ -246,7 +254,7 @@ namespace web_helper
             }
         }
 
-        
+
     }
 
     public class IE

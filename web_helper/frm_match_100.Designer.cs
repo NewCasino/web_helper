@@ -61,7 +61,7 @@
             this.groupBox1.Controls.Add(this.btn_analyse);
             this.groupBox1.Location = new System.Drawing.Point(6, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1070, 60);
+            this.groupBox1.Size = new System.Drawing.Size(1179, 60);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
@@ -71,7 +71,7 @@
             this.lb_time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_time.AutoSize = true;
             this.lb_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_time.Location = new System.Drawing.Point(978, 20);
+            this.lb_time.Location = new System.Drawing.Point(1087, 20);
             this.lb_time.Name = "lb_time";
             this.lb_time.Size = new System.Drawing.Size(73, 20);
             this.lb_time.TabIndex = 5;
@@ -134,7 +134,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 76);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1073, 421);
+            this.tabControl1.Size = new System.Drawing.Size(1182, 477);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -143,7 +143,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1065, 395);
+            this.tabPage1.Size = new System.Drawing.Size(1174, 451);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Result Text";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(1059, 389);
+            this.txt_result.Size = new System.Drawing.Size(1168, 445);
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
@@ -190,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 510);
+            this.ClientSize = new System.Drawing.Size(1192, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_100";

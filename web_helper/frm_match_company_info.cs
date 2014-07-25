@@ -167,6 +167,6 @@ namespace web_helper
                 }
             }
             return array;
-        }
+        } 
     }
 }

@@ -185,6 +185,7 @@
             this.txt_pick_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_pick_result.Size = new System.Drawing.Size(972, 464);
             this.txt_pick_result.TabIndex = 0;
+            this.txt_pick_result.WordWrap = false;
             this.txt_pick_result.TextChanged += new System.EventHandler(this.txt_pick_result_TextChanged);
             // 
             // timer

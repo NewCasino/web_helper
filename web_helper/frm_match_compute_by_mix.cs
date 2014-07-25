@@ -51,13 +51,13 @@ namespace web_helper
                     {
                         BsonDocument doc = MatchMix.get_1_min_from_1_wdl_with_circle(match, i);
 
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -81,13 +81,13 @@ namespace web_helper
                     {
                         BsonDocument doc = MatchMix.get_1_min_from_1_spread_with_circle(match, i);
 
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -111,13 +111,13 @@ namespace web_helper
                     {
                         BsonDocument doc = MatchMix.get_1_min_from_1_half_with_circle(match, i);
 
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -141,13 +141,13 @@ namespace web_helper
                     {
                         BsonDocument doc = MatchMix.get_1_min_from_1_total_with_circle(match, i);
 
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -171,13 +171,13 @@ namespace web_helper
                     {
                         BsonDocument doc = MatchMix.get_1_min_from_1_point_with_circle(match, i);
 
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -202,13 +202,13 @@ namespace web_helper
                         if (profits.Length == 0) return;
                         BsonDocument doc = MatchMix.get_1_min_from_1_free_with_circle(match, profits, i);
 
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
                 }
@@ -240,13 +240,13 @@ namespace web_helper
                     for (int k = 1; k <= 50; k++)
                     {
                         BsonDocument doc = MatchMix.get_2_min_from_2_wld_with_circle(match1, match2, k);
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -277,13 +277,13 @@ namespace web_helper
                     for (int k = 1; k <= 50; k++)
                     {
                         BsonDocument doc = MatchMix.get_2_min_from_2_spread_with_circle(match1, match2, k);
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -314,13 +314,13 @@ namespace web_helper
                     for (int k = 1; k <= 50; k++)
                     {
                         BsonDocument doc = MatchMix.get_2_min_from_2_half_with_circle(match1, match2, k);
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -351,13 +351,13 @@ namespace web_helper
                     for (int k = 1; k <= 50; k++)
                     {
                         BsonDocument doc = MatchMix.get_2_min_from_2_total_with_circle(match1, match2, k);
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -388,13 +388,13 @@ namespace web_helper
                     for (int k = 1; k <= 50; k++)
                     {
                         BsonDocument doc = MatchMix.get_2_min_from_2_point_with_circle(match1, match2, k);
-                        sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                        sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
                         this.txt_compute_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
 
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
 
@@ -410,13 +410,13 @@ namespace web_helper
                 for (int k = 1; k <= 50; k++)
                 {
                     BsonDocument doc = MatchMix.get_2_min_from_2_free_with_circle(match1, match2, k);
-                    sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                    sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     sb.Append(MatchMix.get_info_from_doc(doc));
                     this.txt_compute_result.Text = sb.ToString();
                     Application.DoEvents();
                 }
 
-                sb.Append("--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 this.txt_compute_result.Text = sb.ToString();
                 Application.DoEvents();
             }
@@ -668,20 +668,20 @@ namespace web_helper
         {
             BsonDocument doc = MatchMix.get_mix_doc_from_db(id);
             string result = "";
-            result = "--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine +
+            result = "----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine +
                       MatchMix.get_info_from_doc(doc) +
-                      "--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+                      "----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
             if (match1 != null)
             {
                 result = result +
                     MatchMix.get_info_from_doc(match1) + Environment.NewLine +
-                    "--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+                    "----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
             }
             if (match2 != null)
             {
                 result = result +
                     MatchMix.get_info_from_doc(match2) + Environment.NewLine +
-                    "--------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+                    "----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
             }
             this.txt_match.Text = result;
             set_select(doc);

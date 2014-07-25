@@ -41,14 +41,14 @@
             this.groupBox1.Controls.Add(this.btn_down_excel);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(821, 83);
+            this.groupBox1.Size = new System.Drawing.Size(1186, 71);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
             // btn_down_excel
             // 
-            this.btn_down_excel.Location = new System.Drawing.Point(9, 35);
+            this.btn_down_excel.Location = new System.Drawing.Point(9, 28);
             this.btn_down_excel.Name = "btn_down_excel";
             this.btn_down_excel.Size = new System.Drawing.Size(91, 25);
             this.btn_down_excel.TabIndex = 0;
@@ -61,18 +61,19 @@
             this.txt_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_result.Location = new System.Drawing.Point(3, 93);
+            this.txt_result.Location = new System.Drawing.Point(3, 80);
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(821, 373);
+            this.txt_result.Size = new System.Drawing.Size(1186, 472);
             this.txt_result.TabIndex = 1;
+            this.txt_result.WordWrap = false;
             // 
             // frm_match_down_excel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 480);
+            this.ClientSize = new System.Drawing.Size(1192, 566);
             this.Controls.Add(this.txt_result);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_down_excel";

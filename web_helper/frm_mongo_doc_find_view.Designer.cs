@@ -28,6 +28,7 @@ partial class FrmDocFindView
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_beautify = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -36,7 +37,6 @@ partial class FrmDocFindView
             this.tv_result = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
-            this.btn_refresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -54,17 +54,27 @@ partial class FrmDocFindView
             this.groupBox1.Controls.Add(this.btn_beautify);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(982, 66);
+            this.groupBox1.Size = new System.Drawing.Size(982, 72);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(109, 25);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(75, 25);
+            this.btn_refresh.TabIndex = 14;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
             // btn_beautify
             // 
             this.btn_beautify.AutoSize = true;
-            this.btn_beautify.Location = new System.Drawing.Point(24, 24);
+            this.btn_beautify.Location = new System.Drawing.Point(24, 26);
             this.btn_beautify.Name = "btn_beautify";
-            this.btn_beautify.Size = new System.Drawing.Size(75, 22);
+            this.btn_beautify.Size = new System.Drawing.Size(75, 25);
             this.btn_beautify.TabIndex = 13;
             this.btn_beautify.Text = "Beautify";
             this.btn_beautify.UseVisualStyleBackColor = true;
@@ -78,10 +88,10 @@ partial class FrmDocFindView
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(3, 71);
+            this.tabControl1.Location = new System.Drawing.Point(3, 77);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(982, 441);
+            this.tabControl1.Size = new System.Drawing.Size(982, 478);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -90,7 +100,7 @@ partial class FrmDocFindView
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(974, 415);
+            this.tabPage1.Size = new System.Drawing.Size(974, 452);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "JSON View";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -102,8 +112,9 @@ partial class FrmDocFindView
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(968, 409);
+            this.txt_result.Size = new System.Drawing.Size(968, 446);
             this.txt_result.TabIndex = 0;
+            this.txt_result.WordWrap = false;
             // 
             // tabPage2
             // 
@@ -111,7 +122,7 @@ partial class FrmDocFindView
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(974, 262);
+            this.tabPage2.Size = new System.Drawing.Size(974, 452);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tree View";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -121,7 +132,7 @@ partial class FrmDocFindView
             this.tv_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_result.Location = new System.Drawing.Point(3, 3);
             this.tv_result.Name = "tv_result";
-            this.tv_result.Size = new System.Drawing.Size(968, 265);
+            this.tv_result.Size = new System.Drawing.Size(968, 446);
             this.tv_result.TabIndex = 0;
             // 
             // tabPage3
@@ -129,7 +140,7 @@ partial class FrmDocFindView
             this.tabPage3.Controls.Add(this.dgv_result);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(974, 262);
+            this.tabPage3.Size = new System.Drawing.Size(974, 452);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Table View";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -142,24 +153,14 @@ partial class FrmDocFindView
             this.dgv_result.Location = new System.Drawing.Point(0, 0);
             this.dgv_result.Name = "dgv_result";
             this.dgv_result.RowTemplate.Height = 23;
-            this.dgv_result.Size = new System.Drawing.Size(974, 270);
+            this.dgv_result.Size = new System.Drawing.Size(974, 452);
             this.dgv_result.TabIndex = 0;
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.Location = new System.Drawing.Point(109, 23);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(75, 23);
-            this.btn_refresh.TabIndex = 14;
-            this.btn_refresh.Text = "Refresh";
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // FrmDocFindView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 522);
+            this.ClientSize = new System.Drawing.Size(992, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmDocFindView";
