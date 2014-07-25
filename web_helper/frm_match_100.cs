@@ -223,7 +223,7 @@ namespace web_helper
             sb.AppendLine(browser.Url.ToString());
             sb.AppendLine("start_time:" + dt.Rows[row_id]["start_time"].PR(20));
             sb.AppendLine("end_time:" + dt.Rows[row_id]["end_time"].PR(20));
-            sb.AppendLine("doc length:" + browser.Document.Body.InnerHtml.Length.ToString());
+            //sb.AppendLine("doc length:" + browser.Document.Body.InnerHtml.Length.ToString());
             sb.AppendLine("result:");
             sb.AppendLine(result);
             sb.AppendLine("----------------------------------------------------------------------------------------------------------------------------------------------------------");

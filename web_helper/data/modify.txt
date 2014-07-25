@@ -1,2 +1,3 @@
-中英文字符等宽显示
-新建抓取关系表 url template ......
+WebBrowser 获得JS对象
+WebBrowser 操作Frame
+analyse table 有空格，去除
