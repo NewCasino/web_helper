@@ -14,232 +14,7 @@ using System.Data;
 
 class Match100Method
 {
-    public void get_absolute(ref IHTMLElement element, ref int left, ref int top)
-    {
-        if (element.parentElement != null)
-        {
-            left = left + element.parentElement.offsetLeft;
-            top = top + element.parentElement.offsetTop;
-            IHTMLElement father_element = element.parentElement;
-            get_absolute(ref father_element, ref left, ref top);
-        }
-    }
-    public DataTable get_analyse_table(ref WebBrowser browser)
-    {
-        DataTable dt = new DataTable();
-        if (browser.Document == null) return dt;
-
-        //get dt_position
-        DataTable dt_position = new DataTable();
-        DataColumn col1 = new DataColumn();
-        col1.DataType = Type.GetType("System.Int32");
-        col1.ColumnName = "left";
-        DataColumn col2 = new DataColumn();
-        col2.DataType = Type.GetType("System.Int32");
-        col2.ColumnName = "top";
-        DataColumn col3 = new DataColumn();
-        col3.DataType = Type.GetType("System.Int32");
-        col3.ColumnName = "width";
-        DataColumn col4 = new DataColumn();
-        col4.DataType = Type.GetType("System.Int32");
-        col4.ColumnName = "height";
-
-        dt_position.Columns.Add(col1);
-        dt_position.Columns.Add(col2);
-        dt_position.Columns.Add(col3);
-        dt_position.Columns.Add(col4);
-        dt_position.Columns.Add("text");
-
-        HtmlElementCollection elements = browser.Document.Body.All;
-
-        foreach (HtmlElement element in elements)
-        {
-
-            IHTMLElement ielement = (IHTMLElement)element.DomElement;
-            IHTMLDOMNode node = (IHTMLDOMNode)ielement;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
-
-
-
-            string row = "";
-            row += ielement.tagName.PR(10);
-            row += ielement.className.PR(10);
-            row += ielement.id.PR(10);
-            row += ((IHTMLElementCollection)ielement.children).length.PR(10);
-
-            int left = ielement.offsetLeft;
-            int top = ielement.offsetTop;
-            get_absolute(ref ielement, ref left, ref top);
-
-
-            row += left.PR(10);
-            row += top.PR(10);
-            row += ielement.offsetLeft.PR(10);
-            row += ielement.offsetTop.PR(10);
-            row += ielement.offsetWidth.PR(10);
-            row += ielement.offsetHeight.PR(10);
-            row += ielement.innerText.PR(100);
-
-            DataRow row_new = dt_position.NewRow();
-            row_new["left"] = left;
-            row_new["top"] = top.ToString();
-            row_new["width"] = ielement.offsetWidth.ToString();
-            row_new["height"] = ielement.offsetHeight.ToString();
-            row_new["text"] = ielement.innerText;
-
-
-
-            if (((IHTMLElementCollection)ielement.children).length != 0) continue;
-            if (string.IsNullOrEmpty(ielement.innerText)) continue;
-            if (string.IsNullOrEmpty(row)) continue;
-            if (left == 0 && top == 0 && ielement.offsetWidth == 0 && ielement.offsetHeight == 0) continue;
-
-            dt_position.Rows.Add(row_new);
-        }
-
-
-
-        //get dt from dt_postion 
-
-        dt.Columns.Add("NO");
-        dt.Columns.Add("COUNT");
-        dt.Columns.Add("TEXT");
-
-        //add column to dt
-        dt_position.DefaultView.Sort = "left asc";
-        dt_position = dt_position.DefaultView.ToTable();
-        foreach (DataRow row in dt_position.Rows)
-        {
-            bool is_has = false;
-            foreach (DataColumn col in dt.Columns)
-            {
-                if (col.ColumnName.Trim() == row["left"].ToString().Trim())
-                {
-                    is_has = true;
-                }
-            }
-            if (is_has == false)
-            {
-                DataColumn column = new DataColumn();
-                column.ColumnName = row["left"].ToString();
-                dt.Columns.Add(column);
-            }
-        }
-
-
-        //add row to dt
-        dt_position.DefaultView.Sort = "top asc";
-        dt_position = dt_position.DefaultView.ToTable();
-        for (int i = 0; i < dt_position.Rows.Count; i++)
-        {
-            string text = dt_position.Rows[i]["text"].ToString().TrimStart().TrimEnd();
-            if (string.IsNullOrEmpty(text)) continue;
-
-
-            bool is_has = false;
-            int row_id = 0;
-            for (int j = 0; j < dt.Rows.Count; j++)
-            {
-                if (dt.Rows[j]["NO"].ToString() == dt_position.Rows[i]["top"].ToString())
-                {
-                    is_has = true;
-                    row_id = j;
-                }
-            }
-
-            if (is_has == false)
-            {
-                DataRow row_new = dt.NewRow();
-                row_new["NO"] = dt_position.Rows[i]["top"].ToString();
-                row_new["COUNT"] = "1";
-                row_new["TEXT"] = text;
-                row_new[dt_position.Rows[i]["left"].ToString()] = text;
-                dt.Rows.Add(row_new);
-            }
-            else
-            {
-                dt.Rows[row_id][dt_position.Rows[i]["left"].ToString()] = dt.Rows[row_id][dt_position.Rows[i]["left"].ToString()].ToString() + "●" + text;
-                dt.Rows[row_id]["COUNT"] = (Convert.ToInt32(dt.Rows[row_id]["COUNT"].ToString()) + 1).ToString();
-                dt.Rows[row_id]["TEXT"] = dt.Rows[row_id]["TEXT"].ToString() + "●" + dt_position.Rows[i]["text"].ToString().TrimStart().TrimEnd();
-            }
-        }
-
-        DataRow row_count = dt.NewRow();
-        DataRow row_text = dt.NewRow();
-        row_count["NO"] = "COUNT";
-        row_text["NO"] = "TEXT";
-        for (int i = 0; i < dt.Columns.Count; i++)
-        {
-            if (i == 1)
-            {
-                int total = 0;
-                for (int j = 0; j < dt.Rows.Count; j++)
-                {
-                    total = total + Convert.ToInt32(dt.Rows[j][i].ToString());
-                }
-                row_count[1] = total.ToString();
-
-            }
-            if (i != 0 && i != 1 && i != 2)
-            {
-                int column_total = 0;
-                for (int j = 0; j < dt.Rows.Count; j++)
-                {
-                    if (dt.Rows[j][i] != null && !string.IsNullOrEmpty(dt.Rows[j][i].ToString()))
-                    {
-                        column_total = column_total + 1;
-                    }
-                }
-                row_count[i] = column_total.ToString();
-            }
-            if (i != 0 && i != 1 && i != 2)
-            {
-
-                string text = "";
-                for (int j = 0; j < dt.Rows.Count; j++)
-                {
-                    if (dt.Rows[j][i] != null && !string.IsNullOrEmpty(dt.Rows[j][i].ToString()))
-                    {
-                        if (string.IsNullOrEmpty(text.Trim()))
-                        {
-                            text = dt.Rows[j][i].ToString();
-                        }
-                        else
-                        {
-                            text = text + "●" + dt.Rows[j][i].ToString();
-                        }
-                    }
-                }
-                row_text[i] = text.ToString();
-            }
-        }
-        dt.Rows.Add(row_count);
-        dt.Rows.Add(row_text);
-
-        for (int i = 0; i < dt.Rows.Count - 2; i++)
-        {
-            if (dt.Rows[i]["COUNT"].ToString() == "1")
-            {
-                dt.Rows[i]["TEXT"] = "";
-            }
-        }
-
-        for (int i = 3; i < dt.Columns.Count; i++)
-        {
-            int count = dt.Rows.Count;
-            if (dt.Rows[count - 2][i].ToString() == "1")
-            {
-                dt.Rows[count - 1][i] = "";
-            }
-        }
-
-        return dt;
-
-
-    }
-
-
-
+ 
     public string from_163(ref WebBrowser browser)
     {
         StringBuilder sb = new StringBuilder();
@@ -362,7 +137,7 @@ class Match100Method
 
             int left = el.offsetLeft;
             int top = el.offsetTop;
-            get_absolute(ref el, ref left, ref top);
+            BrowserHelper.get_absolute(ref el, ref left, ref top);
 
             row += left.PR(10);
             row += top.PR(10);
@@ -414,8 +189,7 @@ class Match100Method
     public string from_10bet_1(WebBrowser browser)
     {
         return "OK";
-    }
-
+    } 
     public string from_10bet_2(WebBrowser browser)
     {
         HtmlElement element = browser.Document.GetElementById("tp_chk_br_999_l_1_1");
@@ -427,7 +201,7 @@ class Match100Method
         string result = "";
         try
         {
-            DataTable dt = get_analyse_table(ref browser);
+            DataTable dt = BrowserHelper.get_analyse_table(ref browser);
             foreach (DataRow row in dt.Rows)
             {
 

@@ -256,6 +256,7 @@
     <Compile Include="Helper\MatchCompany.cs" />
     <Compile Include="Helper\TemplateHelper_Match.cs" />
     <Compile Include="Helper\Tool.cs" />
+    <Compile Include="Helper\BrowserHelper.cs" />
     <Compile Include="Http\HttpSocketHelper.cs" />
     <Compile Include="Helper\Log.cs" />
     <Compile Include="Helper\TemplateHelper.cs" />

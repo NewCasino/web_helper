@@ -99,7 +99,7 @@
             this.txt_url.Name = "txt_url";
             this.txt_url.Size = new System.Drawing.Size(534, 20);
             this.txt_url.TabIndex = 0;
-            this.txt_url.Text = "D:\\DOC\\Visual Studio 2008\\MyProjects\\WebSite2\\test.htm";
+            this.txt_url.Text = "D:\\DOC\\Visual Studio 2008\\MyProjects\\WebSite2\\all.htm";
             // 
             // tabControl1
             // 
