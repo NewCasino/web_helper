@@ -46,7 +46,8 @@ namespace web_helper
 
             DataTable dt_postion = BrowserHelper.get_postion_table(ref browser);
             DataTable dt_analyse = BrowserHelper.get_analyse_table(ref browser);
-            this.dgv_result.DataSource = dt_analyse;
+            this.dgv_position.DataSource = dt_postion;
+            this.dgv_analyse.DataSource = dt_analyse;
 
 
             List<BsonDocument> docs = BrowserHelper.get_all_elments(ref browser);
@@ -71,15 +72,23 @@ namespace web_helper
 
             HtmlDocument doc_main = browser.Document;
             sb.Append(BrowserHelper.get_text_by_id(ref browser, "txt_origin"));
-            BrowserHelper.invoke_member_by_id(ref browser, "btn_ok", "click");
+            BrowserHelper.invoke_click_by_id(ref browser, "btn_ok");
 
             this.txt_result.Text = sb.ToString();
+        }
+        private void btn_method_Click(object sender, EventArgs e)
+        {
+            Match100Method method = new Match100Method();
+            string result = method.from_188bet_2(ref browser);
+            this.txt_result.Text = result;
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
         }
+
+      
 
     }
 }

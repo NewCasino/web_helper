@@ -242,19 +242,7 @@ namespace web_helper
             ies[index].is_use = false;
             Application.DoEvents();
 
-        }
-        public void get_absolute(ref IHTMLElement element, ref int left, ref int top)
-        {
-            if (element.parentElement != null)
-            {
-                left = left + element.parentElement.offsetLeft;
-                top = top + element.parentElement.offsetTop;
-                IHTMLElement father_element = element.parentElement;
-                get_absolute(ref father_element, ref left, ref top);
-            }
-        }
-
-
+        } 
     }
 
     public class IE

@@ -1,3 +1,2 @@
-WebBrowser 获得JS对象
-WebBrowser 操作Frame
-analyse table 有空格，去除
+增加下一页循环程式
+修改Extention

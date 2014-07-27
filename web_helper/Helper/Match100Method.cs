@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ using System.Data;
 
 class Match100Method
 {
- 
+
     public string from_163(ref WebBrowser browser)
     {
         StringBuilder sb = new StringBuilder();
@@ -55,7 +56,12 @@ class Match100Method
         }
         return sb.ToString();
     }
-    public string from_bwin(ref WebBrowser browser)
+
+    public string from_bwin_1(ref WebBrowser browser)
+    {
+        return "ok";
+    }
+    public string from_bwin_2(ref WebBrowser browser)
     {
         StringBuilder sb = new StringBuilder();
 
@@ -98,7 +104,7 @@ class Match100Method
                     string lose = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[1]").InnerText;
                     //sb.Append(root + Environment.NewLine);
                     //sb.Append(node.InnerHtml + Environment.NewLine);
-                    sb.Append(league.PR(20) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(20) + draw.PR(20) + lose.PR(20) + Environment.NewLine);
+                    sb.Append(league.PR(20) + start_time.PR(20) + host.PR(20) + client.PR(20) + win.PR(20) + draw.PR(20) + lose.PR(20) + Environment.NewLine);
 
 
                 }
@@ -108,6 +114,7 @@ class Match100Method
         }
         return sb.ToString();
     }
+
     public string from_baidu(ref WebBrowser browser)
     {
         StringBuilder sb = new StringBuilder();
@@ -155,11 +162,11 @@ class Match100Method
         return sb.ToString();
     }
 
-    public string from_local_0(WebBrowser browser)
+    public string from_local_0(ref WebBrowser browser)
     {
         return "local html has load!";
     }
-    public string from_local_1(WebBrowser browser)
+    public string from_local_1(ref WebBrowser browser)
     {
         string result = "";
         HtmlElementCollection list = browser.Document.Body.All;
@@ -173,7 +180,7 @@ class Match100Method
         return result;
     }
 
-    public string from_bet16(WebBrowser browser)
+    public string from_bet16(ref WebBrowser browser)
     {
         string result = "";
         result = browser.Document.All.Count.ToString();
@@ -186,49 +193,168 @@ class Match100Method
 
     }
 
-    public string from_10bet_1(WebBrowser browser)
+    public string from_10bet_1(ref WebBrowser browser)
     {
-        return "OK";
-    } 
-    public string from_10bet_2(WebBrowser browser)
-    {
-        HtmlElement element = browser.Document.GetElementById("tp_chk_br_999_l_1_1");
-        element.InvokeMember("click");
         return "OK";
     }
-    public string from_10bet_3(WebBrowser browser)
+    public string from_10bet_2(ref WebBrowser browser)
+    {
+
+        BrowserHelper.invoke_click_by_id(ref browser, "tp_chk_br_999_l_1_1");
+        return "OK";
+    }
+    public string from_10bet_3(ref WebBrowser browser)
     {
         string result = "";
-        try
+        //try
+        //{
+        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        foreach (DataRow row in dt.Rows)
         {
-            DataTable dt = BrowserHelper.get_analyse_table(ref browser);
-            foreach (DataRow row in dt.Rows)
+            int count = 0;
+            int.TryParse(row["COUNT"].ToString(), out count);
+            if (count < 5 && count > 10) continue;
+
+
+            ArrayList odds = new ArrayList();
+            ArrayList teams = new ArrayList();
+            string[] list = row["TEXT"].ToString().Split('●');
+            for (int i = list.Length - 1; i >= 0; i--)
             {
+                string str = list[i];
+                if (Match100Helper.is_odd_str(str)) odds.Add(str);
+                if (str.Contains("+") == false && str.Length >= 3 && Match100Helper.is_odd_str(str) == false && str != "博彩责任") teams.Add(str);
+            }
+            if (odds.Count >= 3 && teams.Count >= 2)
+            {
+                result = result + teams[1].PR(20) + teams[0].PR(20) + odds[2].PR(20) + odds[1].PR(20) + odds[0].PR(20) + Environment.NewLine;
+            }
 
+        }
+        //}
+        //catch (Exception error)
+        //{
+        //    result = error.Message + Environment.NewLine + error.StackTrace;
+        //}
+        return result;
+    }
 
-                int count = 0;
-                int.TryParse(row["COUNT"].ToString(), out count);
-                if (count < 5 && count > 10) continue;
+    public string from_macauslot_1(ref WebBrowser browser)
+    {
+        return "ok";
+    }
+    public string from_macauslot_2(ref WebBrowser browser)
+    {
+        string result = "";
 
-                int double_count = 0;
-                double output = 0;
-                string[] list = row["TEXT"].ToString().Split('●');
-                foreach (string str in list)
+        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        ArrayList teams = new ArrayList();
+        ArrayList odds = new ArrayList();
+        for (int i = 0; i < dt.Rows.Count - 2; i++)
+        {
+            string txt = "";
+
+            txt = dt.Rows[i]["293"].ToString().Replace("●", "").Replace("(中)", "");
+            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
+
+            for (int j = 3; j < dt.Columns.Count; j++)
+            {
+                int num = Convert.ToInt32(dt.Columns[j].ToString());
+                if (num >= 1060 && num < 1080)
                 {
-                    if (double.TryParse(str, out output) == true)
-                    {
-                        double_count = double_count + 1;
-                    }
+                    txt = dt.Rows[i][j].ToString().Replace("●", "").Trim();
+                    if (Match100Helper.is_double_str(txt) &&!string.IsNullOrEmpty(txt)) odds.Add(txt);
                 }
-                if (double_count < 3) continue;
+            }
 
-                result = result + row["TEXT"].ToString() + Environment.NewLine;
+        }
+        int count = teams.Count / 2;
+        for (int i = 0; i < count; i++)
+        {
+            if (i * 2 + 1 < teams.Count)
+            {
+                result = result + teams[i * 2].PR(20) + teams[i * 2 + 1].PR(20);
+            }
+            if (i * 3 + 2 < odds.Count)
+            {
+                result = result + odds[i * 3].PR(20) + odds[i * 3 + 1].PR(20) + odds[i * 3 + 2].PR(20);
+            }
+            result = result + Environment.NewLine;
+        } 
+        return result;
+    }
 
+    public string from_pinnaclesports_1(ref WebBrowser browser)
+    {
+        return "ok";
+    }
+    public string from_pinnaclesports_2(ref WebBrowser browser)
+    {
+        string result = "";
+
+        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        ArrayList teams = new ArrayList();
+        ArrayList odds = new ArrayList();
+        for (int i = 0; i < dt.Rows.Count - 2; i++)
+        {
+            string txt1 = dt.Rows[i]["557"].ToString().Replace("●", "");
+            string txt2 = dt.Rows[i]["984"].ToString().Replace("●", "").Trim();
+            if (!string.IsNullOrEmpty(txt2) && Match100Helper.is_odd_str(txt2))
+            {
+                teams.Add(txt1);
+                odds.Add(txt2);
+            } 
+        }
+        for (int i = 0; i < teams.Count; i++)
+        {
+            if (i + 2 < teams.Count)
+            {
+                result = result + teams[i].PR(20) + teams[i + 1].PR(20) + odds[i].PR(20) + odds[i + 1].PR(20) + odds[i + 2].PR(20) + Environment.NewLine;
+                i = i + 2;
             }
         }
-        catch (Exception error)
+        return result;
+    }
+
+    public string from_188bet_1(ref WebBrowser browser)
+    {
+        return "ok";
+    }
+    public string from_188bet_2(ref WebBrowser browser)
+    {
+        string result = "";
+
+        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        ArrayList teams = new ArrayList();
+        ArrayList odds = new ArrayList();
+        for (int i = 0; i < dt.Rows.Count - 2; i++)
         {
-            result = error.Message + Environment.NewLine + error.StackTrace;
+            string txt = "";
+
+            txt = dt.Rows[i]["359"].ToString().Replace("●", "");
+            if (!string.IsNullOrEmpty(txt)) teams.Add(txt); 
+            txt = dt.Rows[i]["379"].ToString().Replace("●", "");
+            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
+
+            txt = dt.Rows[i]["600"].ToString().Replace("●", "");
+            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
+            txt = dt.Rows[i]["678"].ToString().Replace("●", "");
+            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
+            txt = dt.Rows[i]["756"].ToString().Replace("●", "");
+            if (!string.IsNullOrEmpty(txt)) odds.Add(txt); 
+        }
+        int count = teams.Count / 2;
+        for (int i = 0; i < count; i++)
+        {
+            if (i * 2 + 1 < teams.Count)
+            {
+                result = result + teams[i * 2].PR(20) + teams[i * 2 + 1].PR(20);
+            }
+            if (i * 3 + 2 < odds.Count)
+            {
+                result = result + odds[i * 3].PR(20) + odds[i * 3 + 1].PR(20) + odds[i * 3 + 2].PR(20);
+            }
+            result = result + Environment.NewLine;
         }
         return result;
     }
