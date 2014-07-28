@@ -209,27 +209,57 @@ namespace web_helper
         {
             int index = Convert.ToInt32(browser.Name);
             string method = dt.Rows[row_id]["method"].ToString();
+            string site_name=dt.Rows[row_id]["site_name"].ToString();
 
+            //invoke method
             Type reflect_type = Type.GetType("Match100Method");
-            object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
-
+            object reflect_acvtive = Activator.CreateInstance(reflect_type, null); 
             MethodInfo method_info = reflect_type.GetMethod(method);
-            string result = (string)method_info.Invoke(reflect_acvtive, new object[] { browser });
+            BsonDocument  doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });
 
 
+            //update grid
             dt.Rows[row_id]["state"] = "ok";
-            dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); 
+
+            //show result
             sb.AppendLine("----------------------------------------------------------------------------------------------------------------------------------------------------------");
             sb.AppendLine(browser.Url.ToString());
             sb.AppendLine("start_time:" + dt.Rows[row_id]["start_time"].PR(20));
             sb.AppendLine("end_time:" + dt.Rows[row_id]["end_time"].PR(20));
             //sb.AppendLine("doc length:" + browser.Document.Body.InnerHtml.Length.ToString());
             sb.AppendLine("result:");
-            sb.AppendLine(result);
+            sb.AppendLine(doc_result["data"].ToString());
             sb.AppendLine("----------------------------------------------------------------------------------------------------------------------------------------------------------");
             this.txt_result.Text = sb.ToString();
 
-            //检查是否还有后续动作
+            //检查是否还有后续动作 
+            if (doc_result["loop"].AsBsonArray.Count > 0)
+            {
+                BsonArray loops = doc_result["loop"].AsBsonArray;
+                for (int i = 0; i < loops.Count; i++)
+                {
+                    for (int j = 0; j < dt.Rows.Count; j++)
+                    {
+                        if (dt.Rows[j]["site_name"].ToString() == site_name && Convert.ToInt32(dt.Rows[j]["step"].ToString()) == Convert.ToInt32(loops[i].ToString()))
+                        {
+                            dt.Rows[i]["state"] = "wait";
+                            dt.Rows[i]["start_time"] = "";
+                            dt.Rows[i]["end_time"] = "";
+                        } 
+                    } 
+                }
+                int index_last = Convert.ToInt32(loops[0].ToString()) - 1;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                { 
+                    if (dt.Rows[i]["site_name"].ToString() == site_name && Convert.ToInt32(dt.Rows[i]["step"].ToString()) ==index_last)
+                    {
+                        dt.Rows[i]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    } 
+                }
+            }
+
+
             if (row_id < dt.Rows.Count - 1)
             {
                 if (dt.Rows[row_id]["site_name"].ToString() == dt.Rows[row_id + 1]["site_name"].ToString() && dt.Rows[row_id + 1]["state"].ToString() == "wait")
@@ -238,6 +268,8 @@ namespace web_helper
                     return;
                 }
             }
+            
+
 
             ies[index].is_use = false;
             Application.DoEvents();

@@ -26,6 +26,8 @@ namespace web_helper
         private void frm_web_browser_Load(object sender, EventArgs e)
         {
             this.browser.ScriptErrorsSuppressed = true;
+            this.txt_result.Text = "测试测试测试".PR(4) + "TEST" + Environment.NewLine +
+                                 "TESTTEST".PR(4) + "TEST";
         }
         private void btn_navigate_Click(object sender, EventArgs e)
         {
@@ -60,6 +62,7 @@ namespace web_helper
                 sb.Append(doc["name"].PR(15));
                 sb.Append(doc["class"].PR(15));
                 sb.Append(doc["text"].PR(100));
+                sb.Append(doc["attrs"].ToString());
                 sb.Append(Environment.NewLine);
             }
             this.txt_result.Text = sb.ToString();
@@ -79,8 +82,8 @@ namespace web_helper
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            string result = method.from_188bet_2(ref browser);
-            this.txt_result.Text = result;
+            BsonDocument doc = method.from_188bet_2(ref browser);
+            this.txt_result.Text = doc["data"].ToString();
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {

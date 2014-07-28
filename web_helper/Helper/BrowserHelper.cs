@@ -229,11 +229,11 @@ class BrowserHelper
 
         //try
         //{
-            for (int i = 0; i < doc_input.Window.Frames.Count; i++)
-            {
-                HtmlDocument doc_child = doc_input.Window.Frames[i].Document;
-                get_position_from_doc2(ref dt_position, ref doc_child, start_x, start_y);
-            }
+        for (int i = 0; i < doc_input.Window.Frames.Count; i++)
+        {
+            HtmlDocument doc_child = doc_input.Window.Frames[i].Document;
+            get_position_from_doc2(ref dt_position, ref doc_child, start_x, start_y);
+        }
         //}
         //catch (Exception error) { }
 
@@ -599,9 +599,9 @@ class BrowserHelper
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
         {
             j = i;
-            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2; 
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
             IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
-            mshtml.HTMLDocument doc_child =(mshtml.HTMLDocument) doc_child3;
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
             get_position_from_doc(ref dt_position, ref doc_child, start_x, start_y);
         }
 
@@ -642,7 +642,7 @@ class BrowserHelper
 
     public static string get_text_by_id(ref WebBrowser browser, string id)
     {
-        string result = ""; 
+        string result = "";
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
         get_text_by_id_loop(ref doc_child, ref result, id);
         return result;
@@ -653,17 +653,17 @@ class BrowserHelper
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
         {
             j = i;
-            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2; 
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
             IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
             mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-            get_text_by_id_loop(ref doc_child,ref result,id);
+            get_text_by_id_loop(ref doc_child, ref result, id);
         }
 
 
         mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
 
         foreach (mshtml.IHTMLElement ielement in ielements)
-        { 
+        {
             mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
             IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
 
@@ -671,7 +671,7 @@ class BrowserHelper
             {
                 result = (ielement == null) ? "" : ielement.innerText;
             }
-             
+
         }
     }
 
@@ -682,15 +682,16 @@ class BrowserHelper
         invoke_click_by_id_loop(ref doc_child, id);
         return result;
     }
-    public static void invoke_click_by_id_loop(ref mshtml.HTMLDocument doc_input,string id )
+    public static void invoke_click_by_id_loop(ref mshtml.HTMLDocument doc_input, string id)
     {
         object j;
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
         {
             j = i;
-            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2; 
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
             IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
             mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+
             invoke_click_by_id_loop(ref doc_child, id);
         }
 
@@ -714,7 +715,7 @@ class BrowserHelper
     {
         List<BsonDocument> docs = new List<BsonDocument>();
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        get_all_elements_loop(ref docs,ref doc_child);
+        get_all_elements_loop(ref docs, ref doc_child);
         return docs;
     }
     public static void get_all_elements_loop(ref List<BsonDocument> docs, ref mshtml.HTMLDocument doc_input)
@@ -723,7 +724,7 @@ class BrowserHelper
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
         {
             j = i;
-            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2; 
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
             IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
             mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
             get_all_elements_loop(ref docs, ref doc_child);
@@ -734,8 +735,8 @@ class BrowserHelper
 
         foreach (mshtml.IHTMLElement ielement in ielements)
         {
-            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+            mshtml.IHTMLDOMNode inode = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection iattrs = (IHTMLAttributeCollection)inode.attributes;
 
             string text = "";
             if (ielement.innerText != null) text = ielement.innerText;
@@ -746,9 +747,22 @@ class BrowserHelper
 
             string type = (ielement.tagName == null) ? "" : ielement.tagName;
             string id = (ielement.id == null) ? "" : ielement.id;
-            string name = (ielement.getAttribute("name") == null) ? "" : ielement.getAttribute("name").ToString();
-            string html = (ielement.outerHTML == null) ? "" :ielement.outerHTML;
+            //string name = (ielement.getAttribute("name") == null) ? "" : ielement.getAttribute("name").ToString();
+            string name = (ielement.getAttribute("name", 0) == null) ? "" : ielement.getAttribute("name", 0).ToString();
+            string html = (ielement.outerHTML == null) ? "" : ielement.outerHTML;
             string class_name = (ielement.className == null) ? "" : ielement.className;
+
+            string str_attrs = "";
+            if (iattrs != null)
+            {
+                foreach (IHTMLDOMAttribute attr in iattrs)
+                { 
+                    if (attr.nodeValue!=null && !string.IsNullOrEmpty(attr.nodeValue.ToString().Trim()))
+                    {
+                        str_attrs += attr.nodeName + ":" + attr.nodeValue.ToString()+",";
+                    }
+                }
+            }
 
 
             BsonDocument doc = new BsonDocument();
@@ -758,6 +772,7 @@ class BrowserHelper
             doc.Add("html", html);
             doc.Add("text", text);
             doc.Add("class", class_name);
+            doc.Add("attrs", str_attrs);
             docs.Add(doc);
         }
     }
