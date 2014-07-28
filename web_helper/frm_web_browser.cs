@@ -82,7 +82,7 @@ namespace web_helper
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            BsonDocument doc = method.from_188bet_2(ref browser);
+            BsonDocument doc = method.from_fubo_2(ref browser);
             this.txt_result.Text = doc["data"].ToString();
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
