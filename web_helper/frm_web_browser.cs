@@ -25,9 +25,7 @@ namespace web_helper
         StringBuilder sb = new StringBuilder();
         private void frm_web_browser_Load(object sender, EventArgs e)
         {
-            this.browser.ScriptErrorsSuppressed = true;
-            this.txt_result.Text = "测试测试测试".PR(4) + "TEST" + Environment.NewLine +
-                                 "TESTTEST".PR(4) + "TEST";
+            this.browser.ScriptErrorsSuppressed = true; 
         }
         private void btn_navigate_Click(object sender, EventArgs e)
         {
@@ -38,19 +36,22 @@ namespace web_helper
             else
             {
                 browser.Navigate(this.txt_url.Text);
-            }
-            this.txt_result.Text = sb.ToString();
+
+            } 
         }
         private void btn_analyse_Click(object sender, EventArgs e)
         {
             sb.Remove(0, sb.ToString().Length);
             if (browser.Document == null) return;
 
-            DataTable dt_postion = BrowserHelper.get_postion_table(ref browser);
+            DataTable dt_position = BrowserHelper.get_postion_table(ref browser);
             DataTable dt_analyse = BrowserHelper.get_analyse_table(ref browser);
-            this.dgv_position.DataSource = dt_postion;
+            DataTable dt_position_deep = BrowserHelper.get_position_deep_table(ref browser);
+            DataTable dt_analyse_deep = BrowserHelper.get_analyse_deep_table(ref browser);
+            this.dgv_position.DataSource = dt_position;
             this.dgv_analyse.DataSource = dt_analyse;
-
+            this.dgv_position_deep.DataSource = dt_position_deep;
+            this.dgv_analyse_deep.DataSource = dt_analyse_deep; 
 
             List<BsonDocument> docs = BrowserHelper.get_all_elments(ref browser);
             sb.AppendLine("TYPE".PR(15) + "ID".PR(15) + "NAME".PR(15) + "CLASS".PR(15) + "TEXT");
@@ -74,16 +75,16 @@ namespace web_helper
             if (browser.Document == null) return;
 
             HtmlDocument doc_main = browser.Document;
-            sb.Append(BrowserHelper.get_text_by_id(ref browser, "txt_origin"));
+            string result=BrowserHelper.get_text_by_id(ref browser, "txt_origin");
             BrowserHelper.invoke_click_by_id(ref browser, "btn_ok");
-
-            this.txt_result.Text = sb.ToString();
+            this.txt_result_triggle.Text = result;
+            
         }
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
             BsonDocument doc = method.from_fubo_2(ref browser);
-            this.txt_result.Text = doc["data"].ToString();
+            this.txt_result_method.Text = doc["data"].ToString();
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {

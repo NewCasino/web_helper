@@ -593,6 +593,248 @@ class BrowserHelper
 
 
     }
+    public static DataTable get_position_deep_table(ref WebBrowser browser)
+    { 
+        if (browser.Document == null) return new DataTable();
+
+        //create dt from dt_postion  
+        DataTable dt_position = new DataTable();
+        DataColumn col1 = new DataColumn();
+        col1.DataType = Type.GetType("System.Int32");
+        col1.ColumnName = "left";
+        DataColumn col2 = new DataColumn();
+        col2.DataType = Type.GetType("System.Int32");
+        col2.ColumnName = "top";
+        DataColumn col3 = new DataColumn();
+        col3.DataType = Type.GetType("System.Int32");
+        col3.ColumnName = "width";
+        DataColumn col4 = new DataColumn();
+        col4.DataType = Type.GetType("System.Int32");
+        col4.ColumnName = "height";
+        dt_position.Columns.Add(col1);
+        dt_position.Columns.Add(col2);
+        dt_position.Columns.Add(col3);
+        dt_position.Columns.Add(col4);
+        dt_position.Columns.Add("text");
+
+        if (browser.Document == null) return dt_position;
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_position_from_doc(ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
+
+        dt_position.DefaultView.Sort = "left asc";
+        dt_position = dt_position.DefaultView.ToTable();
+
+        for (int i = 0; i < dt_position.Rows.Count; i++)
+        {
+            for (int j = 0; j < dt_position.Rows.Count; j++)
+            {
+                if (is_overlap((int)dt_position.Rows[i]["left"], (int)dt_position.Rows[i]["width"], (int)dt_position.Rows[j]["left"], (int)dt_position.Rows[j]["width"]) == true)
+                {
+                    dt_position.Rows[j]["left"] = dt_position.Rows[i]["Left"];
+                    dt_position.Rows[j]["width"] = dt_position.Rows[i]["width"];
+                }
+            }
+        }
+
+
+        dt_position.DefaultView.Sort = "top asc";
+        dt_position = dt_position.DefaultView.ToTable();
+
+        for (int i = 0; i < dt_position.Rows.Count; i++)
+        {
+            for (int j = 0; j < dt_position.Rows.Count; j++)
+            {
+                if (is_overlap((int)dt_position.Rows[i]["top"], (int)dt_position.Rows[i]["height"], (int)dt_position.Rows[j]["top"], (int)dt_position.Rows[j]["height"]) == true)
+                {
+                    dt_position.Rows[j]["top"] = dt_position.Rows[i]["top"];
+                    dt_position.Rows[j]["height"] = dt_position.Rows[i]["height"];
+                }
+            }
+        }
+
+        return dt_position; 
+    }
+    public static DataTable get_analyse_deep_table(ref WebBrowser browser)
+    {
+
+        if (browser.Document == null) return new DataTable();
+
+        //create dt from dt_postion  
+        DataTable dt_position = new DataTable();
+        DataColumn col1 = new DataColumn();
+        col1.DataType = Type.GetType("System.Int32");
+        col1.ColumnName = "left";
+        DataColumn col2 = new DataColumn();
+        col2.DataType = Type.GetType("System.Int32");
+        col2.ColumnName = "top";
+        DataColumn col3 = new DataColumn();
+        col3.DataType = Type.GetType("System.Int32");
+        col3.ColumnName = "width";
+        DataColumn col4 = new DataColumn();
+        col4.DataType = Type.GetType("System.Int32");
+        col4.ColumnName = "height";
+        dt_position.Columns.Add(col1);
+        dt_position.Columns.Add(col2);
+        dt_position.Columns.Add(col3);
+        dt_position.Columns.Add(col4);
+        dt_position.Columns.Add("text");
+
+        if (browser.Document == null) return dt_position;
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_position_from_doc(ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
+
+        dt_position.DefaultView.Sort = "left asc";
+        dt_position = dt_position.DefaultView.ToTable();
+
+        for (int i = 0; i < dt_position.Rows.Count; i++)
+        {
+            for (int j = 0; j < dt_position.Rows.Count; j++)
+            {
+                if (is_overlap((int)dt_position.Rows[i]["left"], (int)dt_position.Rows[i]["width"], (int)dt_position.Rows[j]["left"], (int)dt_position.Rows[j]["width"]) == true)
+                {
+                    dt_position.Rows[j]["left"] = dt_position.Rows[i]["Left"];
+                    dt_position.Rows[j]["width"] = dt_position.Rows[i]["width"];
+                }
+            }
+        }
+
+
+        dt_position.DefaultView.Sort = "top asc";
+        dt_position = dt_position.DefaultView.ToTable();
+
+        for (int i = 0; i < dt_position.Rows.Count; i++)
+        {
+            for (int j = 0; j < dt_position.Rows.Count; j++)
+            {
+                if (is_overlap((int)dt_position.Rows[i]["top"], (int)dt_position.Rows[i]["height"], (int)dt_position.Rows[j]["top"], (int)dt_position.Rows[j]["height"]) == true)
+                {
+                    dt_position.Rows[j]["top"] = dt_position.Rows[i]["top"];
+                    dt_position.Rows[j]["height"] = dt_position.Rows[i]["height"];
+                }
+            }
+        }
+
+       
+        //add column to dt 
+        DataTable dt = new DataTable();
+        dt.Columns.Add("NO");
+        dt.Columns.Add("COUNT");
+        dt.Columns.Add("TEXT"); 
+        dt_position.DefaultView.Sort = "left asc";
+        dt_position = dt_position.DefaultView.ToTable();
+        foreach (DataRow row in dt_position.Rows)
+        {
+            bool is_has = false;
+            foreach (DataColumn col in dt.Columns)
+            {
+                if (col.ColumnName.Trim() == row["left"].ToString().Trim())
+                {
+                    is_has = true;
+                }
+            }
+            if (is_has == false)
+            {
+                DataColumn column = new DataColumn();
+                column.ColumnName = row["left"].ToString();
+                dt.Columns.Add(column);
+            }
+        }
+
+
+        //add row to dt
+        dt_position.DefaultView.Sort = "top asc";
+        dt_position = dt_position.DefaultView.ToTable();
+        for (int i = 0; i < dt_position.Rows.Count; i++)
+        {
+            string text = dt_position.Rows[i]["text"].ToString().TrimStart().TrimEnd();
+            if (string.IsNullOrEmpty(text)) continue;
+
+
+            bool is_has = false;
+            int row_id = 0;
+            for (int j = 0; j < dt.Rows.Count; j++)
+            {
+                if (dt.Rows[j]["NO"].ToString() == dt_position.Rows[i]["top"].ToString())
+                {
+                    is_has = true;
+                    row_id = j;
+                }
+            }
+
+            if (is_has == false)
+            {
+                DataRow row_new = dt.NewRow();
+                row_new["NO"] = dt_position.Rows[i]["top"].ToString();
+                row_new["COUNT"] = "1";
+                row_new["TEXT"] = text;
+                row_new[dt_position.Rows[i]["left"].ToString()] = text;
+                dt.Rows.Add(row_new);
+            }
+            else
+            {
+                dt.Rows[row_id][dt_position.Rows[i]["left"].ToString()] = dt.Rows[row_id][dt_position.Rows[i]["left"].ToString()].ToString() + "●" + text;
+                dt.Rows[row_id]["COUNT"] = (Convert.ToInt32(dt.Rows[row_id]["COUNT"].ToString()) + 1).ToString();
+                dt.Rows[row_id]["TEXT"] = dt.Rows[row_id]["TEXT"].ToString() + "●" + dt_position.Rows[i]["text"].ToString().TrimStart().TrimEnd();
+            }
+        }
+
+        DataRow row_count = dt.NewRow();
+        DataRow row_text = dt.NewRow();
+        row_count["NO"] = "COUNT";
+        row_text["NO"] = "TEXT";
+        for (int i = 0; i < dt.Columns.Count; i++)
+        {
+            if (i == 1)
+            {
+                int total = 0;
+                for (int j = 0; j < dt.Rows.Count; j++)
+                {
+                    total = total + Convert.ToInt32(dt.Rows[j][i].ToString());
+                }
+                row_count[1] = total.ToString();
+
+            }
+            if (i != 0 && i != 1 && i != 2)
+            {
+                int column_total = 0;
+                for (int j = 0; j < dt.Rows.Count; j++)
+                {
+                    if (dt.Rows[j][i] != null && !string.IsNullOrEmpty(dt.Rows[j][i].ToString()))
+                    {
+                        column_total = column_total + 1;
+                    }
+                }
+                row_count[i] = column_total.ToString();
+            }
+            if (i != 0 && i != 1 && i != 2)
+            {
+
+                string text = "";
+                for (int j = 0; j < dt.Rows.Count; j++)
+                {
+                    if (dt.Rows[j][i] != null && !string.IsNullOrEmpty(dt.Rows[j][i].ToString()))
+                    {
+                        if (string.IsNullOrEmpty(text.Trim()))
+                        {
+                            text = dt.Rows[j][i].ToString();
+                        }
+                        else
+                        {
+                            text = text + "●" + dt.Rows[j][i].ToString();
+                        }
+                    }
+                }
+                row_text[i] = text.ToString();
+            }
+        }
+        dt.Rows.Add(row_count);
+        dt.Rows.Add(row_text); 
+
+
+        return dt;
+
+
+    }
     public static void get_position_from_doc(ref DataTable dt_position, ref mshtml.HTMLDocument doc_input, int start_x, int start_y)
     {
         object j;
@@ -628,9 +870,17 @@ class BrowserHelper
             row_new["height"] = ielement.offsetHeight.ToString();
             row_new["text"] = text;
 
-            if (((IHTMLElementCollection)ielement.children).length != 0) continue;
-            if (string.IsNullOrEmpty(text)) continue;
-            if (left == 0 && top == 0 && ielement.offsetWidth == 0 && ielement.offsetHeight == 0) continue;
+
+            bool is_contine = true;
+
+            if (((IHTMLElementCollection)ielement.children).length == 1 && ielement.innerHTML != null && ielement.innerHTML.ToLower().Trim().Contains("<br") == true)
+            {
+                text = ielement.innerHTML;
+                is_contine = false;
+            }
+            if (((IHTMLElementCollection)ielement.children).length == 0 && !string.IsNullOrEmpty(text)) is_contine = false;
+            if (left == 0 && top == 0 && ielement.offsetWidth == 0 && ielement.offsetHeight == 0) is_contine = true; 
+            if (is_contine) continue; 
 
             dt_position.Rows.Add(row_new);
         }
@@ -638,6 +888,27 @@ class BrowserHelper
 
 
 
+    }
+    public static bool is_overlap(int input_left1, int input_width1, int input_left2, int input_width2)
+    {
+      
+
+        double width1=input_width1;
+        double width2=input_width2;
+        double  start1 = input_left1;
+        double end1 = input_left1 + width1;
+        double start2 = input_left2;
+        double end2 = input_left2 + width2;
+
+        if (input_width1 == 0 || input_width2 == 0) return false;
+        if (width1 / width2 > 2 || width1 / width2 < 0.5) return false;
+
+        if (start2 <= start1 && end2 >= start1 && end2 <= end1 && (end2 - start1) / width1 > 0.5) return true;
+        if (start2 < start1 && end2 > end1) return true;
+        if (start2 >= start1 && start2 <= end1 && end2 >= start1 && end2 <= end1) return true;
+        if (start2>=start1 && start2<=end1 && end2>end1 && (end1-start2)/width1>0.5) return true;
+
+        return false; 
     }
 
     public static string get_text_by_id(ref WebBrowser browser, string id)
@@ -735,15 +1006,22 @@ class BrowserHelper
 
         foreach (mshtml.IHTMLElement ielement in ielements)
         {
+             
             mshtml.IHTMLDOMNode inode = (mshtml.IHTMLDOMNode)ielement;
             IHTMLAttributeCollection iattrs = (IHTMLAttributeCollection)inode.attributes;
 
             string text = "";
             if (ielement.innerText != null) text = ielement.innerText;
 
-
-            if (((IHTMLElementCollection)ielement.children).length != 0) continue;
-            if (string.IsNullOrEmpty(text)) continue;
+            bool is_contine = true;
+          
+            if (((IHTMLElementCollection)ielement.children).length == 1 && ielement.innerHTML!=null && ielement.innerHTML.ToLower().Trim().Contains("<br") == true)
+            {
+                text = ielement.innerHTML;
+                is_contine = false;
+            } 
+            if (((IHTMLElementCollection)ielement.children).length == 0 && !string.IsNullOrEmpty(text)) is_contine = false;
+            if (is_contine) continue;
 
             string type = (ielement.tagName == null) ? "" : ielement.tagName;
             string id = (ielement.id == null) ? "" : ielement.id;
