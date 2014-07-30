@@ -461,9 +461,7 @@ class Match100Method
             string txt = "";
 
             txt = dt.Rows[i]["516"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
-           
-
+            if (!string.IsNullOrEmpty(txt)) teams.Add(txt); 
             txt = dt.Rows[i]["692"].ToString().Replace("●", "");
             if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
             txt = dt.Rows[i]["776"].ToString().Replace("●", "");

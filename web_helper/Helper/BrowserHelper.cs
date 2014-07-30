@@ -688,7 +688,7 @@ class BrowserHelper
 
         for (int i = 0; i < dt_position.Rows.Count; i++)
         {
-            for (int j = 0; j < dt_position.Rows.Count; j++)
+            for (int j = i+1; j < dt_position.Rows.Count; j++)
             {
                 if (is_overlap((int)dt_position.Rows[i]["left"], (int)dt_position.Rows[i]["width"], (int)dt_position.Rows[j]["left"], (int)dt_position.Rows[j]["width"]) == true)
                 {
@@ -704,7 +704,7 @@ class BrowserHelper
 
         for (int i = 0; i < dt_position.Rows.Count; i++)
         {
-            for (int j = 0; j < dt_position.Rows.Count; j++)
+            for (int j = i+1; j < dt_position.Rows.Count; j++)
             {
                 if (is_overlap((int)dt_position.Rows[i]["top"], (int)dt_position.Rows[i]["height"], (int)dt_position.Rows[j]["top"], (int)dt_position.Rows[j]["height"]) == true)
                 {
@@ -902,7 +902,7 @@ class BrowserHelper
 
         if (input_width1 == 0 || input_width2 == 0) return false;
         if (width1 / width2 > 2 || width1 / width2 < 0.5) return false;
-
+        if (start1 == start2 && end1 == end2) return true;
         if (start2 <= start1 && end2 >= start1 && end2 <= end1 && (end2 - start1) / width1 > 0.5) return true;
         if (start2 < start1 && end2 > end1) return true;
         if (start2 >= start1 && start2 <= end1 && end2 >= start1 && end2 <= end1) return true;
