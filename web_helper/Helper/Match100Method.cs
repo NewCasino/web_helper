@@ -17,7 +17,7 @@ class Match100Method
 {
 
 
-    public BsonDocument from_baidu(ref WebBrowser browser)
+    public BsonDocument from_baidu_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
         StringBuilder sb = new StringBuilder();
@@ -55,14 +55,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         return doc_result;
-    }
-
-    public BsonDocument from_local_0(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
+    } 
     public BsonDocument from_local_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -71,16 +64,15 @@ class Match100Method
         foreach (HtmlElement element in list)
         {
             if (element.Id == "btn_ok") element.InvokeMember("click");
-            if (element.Id == "txt") result = element.GetAttribute("value");
-
-
+            if (element.Id == "txt") result = element.GetAttribute("value"); 
         }
         doc_result["data"] = result;
         return doc_result;
     }
 
     //-----------------------------------------------------------
-    public BsonDocument from_163(ref WebBrowser browser)
+
+    public BsonDocument from_163_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
 
@@ -121,14 +113,8 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
     }
-
+ 
     public BsonDocument from_bwin_1(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
-    public BsonDocument from_bwin_2(ref WebBrowser browser)
     {
 
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -186,7 +172,7 @@ class Match100Method
         return doc_result;
     }
 
-    public BsonDocument from_bet16(ref WebBrowser browser)
+    public BsonDocument from_bet16_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
         string result = "";
@@ -202,21 +188,12 @@ class Match100Method
 
     public BsonDocument from_10bet_1(ref WebBrowser browser)
     {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
+        BsonDocument doc_result = Match100Helper.get_doc_result(); 
+        BrowserHelper.invoke_click_by_id(ref browser, "tp_chk_br_999_l_1_1"); 
+        doc_result["data"] = "Invoke Click!";
         return doc_result;
     }
     public BsonDocument from_10bet_2(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-
-
-        BrowserHelper.invoke_click_by_id(ref browser, "tp_chk_br_999_l_1_1");
-
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
-    public BsonDocument from_10bet_3(ref WebBrowser browser)
     {
 
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -256,12 +233,6 @@ class Match100Method
     }
 
     public BsonDocument from_macauslot_1(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
-    public BsonDocument from_macauslot_2(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
 
@@ -309,12 +280,6 @@ class Match100Method
     public BsonDocument from_pinnaclesports_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
-    public BsonDocument from_pinnaclesports_2(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
         string result = "";
 
         DataTable dt = BrowserHelper.get_analyse_table(ref browser);
@@ -342,15 +307,9 @@ class Match100Method
 
         doc_result["data"] = result;
         return doc_result;
-    }
+    } 
 
     public BsonDocument from_188bet_1(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
-    public BsonDocument from_188bet_2(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
 
@@ -397,12 +356,6 @@ class Match100Method
     public BsonDocument from_fun88_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
-    public BsonDocument from_fun88_2(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
 
         string result = "";
 
@@ -439,15 +392,9 @@ class Match100Method
 
         doc_result["data"] = result;
         return doc_result;
-    }
-
+    } 
+    
     public BsonDocument from_fubo_1(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        doc_result["data"] = "ok";
-        return doc_result;
-    }
-    public BsonDocument from_fubo_2(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
 

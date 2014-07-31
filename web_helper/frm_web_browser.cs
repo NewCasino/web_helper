@@ -66,9 +66,7 @@ namespace web_helper
                 sb.Append(doc["attrs"].ToString());
                 sb.Append(Environment.NewLine);
             }
-            this.txt_result.Text = sb.ToString();
-
-
+            this.txt_result.Text = sb.ToString(); 
         }
         private void btn_script_Click(object sender, EventArgs e)
         {
@@ -77,22 +75,18 @@ namespace web_helper
             HtmlDocument doc_main = browser.Document;
             string result=BrowserHelper.get_text_by_id(ref browser, "txt_origin");
             BrowserHelper.invoke_click_by_id(ref browser, "btn_ok");
-            this.txt_result_triggle.Text = result;
-            
+            this.txt_result_triggle.Text = result; 
         }
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            BsonDocument doc = method.from_fubo_2(ref browser);
+            BsonDocument doc = method.from_fubo_1(ref browser);
             this.txt_result_method.Text = doc["data"].ToString();
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
-        }
-
-      
-
+        } 
     }
 }

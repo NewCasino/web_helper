@@ -638,8 +638,7 @@ class BrowserHelper
 
 
         dt_position.DefaultView.Sort = "top asc";
-        dt_position = dt_position.DefaultView.ToTable();
-
+        dt_position = dt_position.DefaultView.ToTable(); 
         for (int i = 0; i < dt_position.Rows.Count; i++)
         {
             for (int j = 0; j < dt_position.Rows.Count; j++)

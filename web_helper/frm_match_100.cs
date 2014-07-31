@@ -54,13 +54,14 @@ namespace web_helper
             dt.Columns.Add("id");
             dt.Columns.Add("site_name");
             dt.Columns.Add("step");
-            dt.Columns.Add("method");
             dt.Columns.Add("select_type");
-            dt.Columns.Add("url");
+            dt.Columns.Add("url"); 
+            dt.Columns.Add("method");
             dt.Columns.Add("seconds");
             dt.Columns.Add("state");
             dt.Columns.Add("start_time");
             dt.Columns.Add("end_time");
+            dt.Columns.Add("final_time");
             dt.Columns.Add("browser");
 
             string sql = "select * from company_url where is_use='y' order by site_name,step";
@@ -91,6 +92,7 @@ namespace web_helper
             this.dgv_result.Columns["url"].Width = 150; 
             this.dgv_result.Columns["start_time"].Width = 150;
             this.dgv_result.Columns["end_time"].Width = 150;
+            this.dgv_result.Columns["final_time"].Width = 150;
             this.dgv_result.Columns["id"].Width = 50;
             this.dgv_result.Columns["site_name"].Width = 80;
             this.dgv_result.Columns["step"].Width = 50;
@@ -119,21 +121,71 @@ namespace web_helper
             analyse();
         }
         public void analyse()
-        {
+        { 
             foreach (DataRow row in dt.Rows)
             {
+                //检查正在使用的IE是否执行完毕
                 if (row["state"].ToString() == "doing")
                 {
                     DateTime start = Convert.ToDateTime(row["start_time"].ToString());
                     TimeSpan span = DateTime.Now - start;
-                    if (span.TotalSeconds > 120)
+                    int seconds = Convert.ToInt32(row["seconds"].ToString());
+                    string site_name = row["site_name"].ToString();
+
+                    if (span.TotalSeconds > seconds )
                     {
-                        row["state"] = "abort";
-                        ies[Convert.ToInt32(row["browser"].ToString())].is_use = false;
+                        row["state"] = "ok";
+                        row["final_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        BsonDocument doc_result = ies[Convert.ToInt32(row["browser"].ToString())].doc_result;
+
+                        sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
+                        sb.AppendLine("web site:".PR(15) + row["site_name"].PR(10) + row["method"].ToString());
+                        sb.AppendLine("url:".PR(15) + ies[Convert.ToInt32(row["browser"].ToString())].browser.Document.Url.ToString());
+                        sb.AppendLine("time:".PR(15)+row["start_time"].ToString().Substring(11,8).PR(10)+row["end_time"].ToString().Substring(11,8).PR(10)+row["final_time"].ToString().Substring(11,8).PR(10));   
+                        sb.AppendLine("result data:".PR(15));
+                        sb.AppendLine(doc_result["data"].ToString());
+                        sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
+                        this.txt_result.Text = sb.ToString();
+
+
+                        //判断是否要循环使用此IE 
+                        if (doc_result["loop"].AsBsonArray.Count > 0)
+                        {
+                            BsonArray loop = doc_result["loop"].AsBsonArray;
+                            for (int i = 0; i < loop.Count; i++)
+                            {
+                                for(int j=0;j<dt.Rows.Count;j++)
+                                {
+                                    if (dt.Rows[j]["site_name"].ToString() == row["site_name"].ToString() && dt.Rows[j]["step"].ToString() == loop[i].ToString())
+                                    {
+                                        dt.Rows[j]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                        dt.Rows[j]["state"] = "wait";
+                                        dt.Rows[j]["end_time"] = "";
+                                        dt.Rows[j]["final_time"] = "";
+                                        dt.Rows[j]["browser"] = row["browser"].ToString();
+                                    } 
+                                }
+                            }
+                        } 
+
+                        //判断是否还有使用此IE
+                        bool is_use = false;
+                        for (int i = 0; i < dt.Rows.Count;i++ )
+                        {
+                            if (dt.Rows[i]["site_name"].ToString() == site_name && dt.Rows[i]["state"].ToString() == "wait")
+                            {
+                                is_use = true;
+                            }
+                        }
+                        if (is_use == false)
+                        {
+                            ies[Convert.ToInt32(row["browser"].ToString())].is_use = false;
+                        }
                     }
                 }
-            }
-            //browser top:browser index   height:0-can use 1-in use   width:row id
+            } 
+
+            //为等待的任务分配IE
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load")
@@ -152,22 +204,17 @@ namespace web_helper
                         }
                     }
                 }
-                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "time")
+                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "method")
                 {
                     if (dt.Rows[i - 1]["state"].ToString() == "ok")
-                    {
-                        DateTime start_time = Convert.ToDateTime(dt.Rows[i - 1]["end_time"].ToString());
-                        TimeSpan span = DateTime.Now - start_time;
-                        if (span.TotalSeconds >= Convert.ToInt32(dt.Rows[i]["seconds"].ToString()))
-                        {
+                    { 
                             int index = Convert.ToInt32(dt.Rows[i - 1]["browser"].ToString());
                             dt.Rows[i]["state"] = "doing";
                             dt.Rows[i]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             dt.Rows[i]["browser"] = index.ToString();
                             ies[index].is_use = true;
                             ies[index].row_id = i;
-                            select_method_from_site(ies[index].browser, i);
-                        }
+                            select_method_from_site(ies[index].browser, i); 
                     }
                 }
             }
@@ -182,9 +229,14 @@ namespace web_helper
             int index = Convert.ToInt32(browser.Name);
             int row_id = ies[index].row_id;
 
-            string site_name = dt.Rows[row_id]["site_name"].ToString();
-            string method = dt.Rows[row_id]["method"].ToString();
-            select_method_from_site(browser, row_id);
+            if (dt.Rows[row_id]["select_type"].ToString() == "load")
+            {
+                dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                BsonDocument doc_result = Match100Helper.get_doc_result();
+                doc_result["data"] = "Load Complete!";
+                ies[index].doc_result = doc_result;
+            }
+            Application.DoEvents();
         }
 
         public void select_method_from_site(WebBrowser browser, int row_id)
@@ -197,65 +249,13 @@ namespace web_helper
             Type reflect_type = Type.GetType("Match100Method");
             object reflect_acvtive = Activator.CreateInstance(reflect_type, null); 
             MethodInfo method_info = reflect_type.GetMethod(method);
-            BsonDocument  doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });
+            BsonDocument  doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });   
 
+            //update grid 
+            dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            ies[index].doc_result = doc_result;
 
-            //update grid
-            dt.Rows[row_id]["state"] = "ok";
-            dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); 
-
-            //show result
-            sb.AppendLine("----------------------------------------------------------------------------------------------------------------------------------------------------------");
-            sb.AppendLine(browser.Url.ToString());
-            sb.AppendLine("start_time:" + dt.Rows[row_id]["start_time"].PR(20));
-            sb.AppendLine("end_time:" + dt.Rows[row_id]["end_time"].PR(20));
-            //sb.AppendLine("doc length:" + browser.Document.Body.InnerHtml.Length.ToString());
-            sb.AppendLine("result:");
-            sb.AppendLine(doc_result["data"].ToString());
-            sb.AppendLine("----------------------------------------------------------------------------------------------------------------------------------------------------------");
-            this.txt_result.Text = sb.ToString();
-
-            //检查是否还有后续动作 
-            if (doc_result["loop"].AsBsonArray.Count > 0)
-            {
-                BsonArray loops = doc_result["loop"].AsBsonArray;
-                for (int i = 0; i < loops.Count; i++)
-                {
-                    for (int j = 0; j < dt.Rows.Count; j++)
-                    {
-                        if (dt.Rows[j]["site_name"].ToString() == site_name && Convert.ToInt32(dt.Rows[j]["step"].ToString()) == Convert.ToInt32(loops[i].ToString()))
-                        {
-                            dt.Rows[i]["state"] = "wait";
-                            dt.Rows[i]["start_time"] = "";
-                            dt.Rows[i]["end_time"] = "";
-                        } 
-                    } 
-                }
-                int index_last = Convert.ToInt32(loops[0].ToString()) - 1;
-                for (int i = 0; i < dt.Rows.Count; i++)
-                { 
-                    if (dt.Rows[i]["site_name"].ToString() == site_name && Convert.ToInt32(dt.Rows[i]["step"].ToString()) ==index_last)
-                    {
-                        dt.Rows[i]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    } 
-                }
-            }
-
-
-            if (row_id < dt.Rows.Count - 1)
-            {
-                if (dt.Rows[row_id]["site_name"].ToString() == dt.Rows[row_id + 1]["site_name"].ToString() && dt.Rows[row_id + 1]["state"].ToString() == "wait")
-                {
-                    Application.DoEvents();
-                    return;
-                }
-            }
-            
-
-
-            ies[index].is_use = false;
             Application.DoEvents();
-
         } 
     }
 
@@ -265,6 +265,6 @@ namespace web_helper
         public int row_id;
         public int index;
         public bool is_use = false;
-
+        public BsonDocument doc_result = new BsonDocument(); 
     }
 }
