@@ -126,60 +126,71 @@ namespace web_helper
             {
                 //检查正在使用的IE是否执行完毕
                 if (row["state"].ToString() == "doing")
-                {
-                    DateTime start = Convert.ToDateTime(row["start_time"].ToString());
-                    TimeSpan span = DateTime.Now - start;
+                { 
+                    DateTime start_time = Convert.ToDateTime(row["start_time"].ToString()); 
+                    TimeSpan span = DateTime.Now - start_time;
                     int seconds = Convert.ToInt32(row["seconds"].ToString());
                     string site_name = row["site_name"].ToString();
 
-                    if (span.TotalSeconds > seconds )
+                    if (span.TotalSeconds > seconds)
                     {
-                        row["state"] = "ok";
-                        row["final_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        BsonDocument doc_result = ies[Convert.ToInt32(row["browser"].ToString())].doc_result;
-
-                        sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
-                        sb.AppendLine("web site:".PR(15) + row["site_name"].PR(10) + row["method"].ToString());
-                        sb.AppendLine("url:".PR(15) + ies[Convert.ToInt32(row["browser"].ToString())].browser.Document.Url.ToString());
-                        sb.AppendLine("time:".PR(15)+row["start_time"].ToString().Substring(11,8).PR(10)+row["end_time"].ToString().Substring(11,8).PR(10)+row["final_time"].ToString().Substring(11,8).PR(10));   
-                        sb.AppendLine("result data:".PR(15));
-                        sb.AppendLine(doc_result["data"].ToString());
-                        sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
-                        this.txt_result.Text = sb.ToString();
-
-
-                        //判断是否要循环使用此IE 
-                        if (doc_result["loop"].AsBsonArray.Count > 0)
+                        if (string.IsNullOrEmpty(row["end_time"].ToString()))
                         {
-                            BsonArray loop = doc_result["loop"].AsBsonArray;
-                            for (int i = 0; i < loop.Count; i++)
+                            //等待2分钟
+                            if (span.TotalSeconds > 600)
                             {
-                                for(int j=0;j<dt.Rows.Count;j++)
-                                {
-                                    if (dt.Rows[j]["site_name"].ToString() == row["site_name"].ToString() && dt.Rows[j]["step"].ToString() == loop[i].ToString())
-                                    {
-                                        dt.Rows[j]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                                        dt.Rows[j]["state"] = "wait";
-                                        dt.Rows[j]["end_time"] = "";
-                                        dt.Rows[j]["final_time"] = "";
-                                        dt.Rows[j]["browser"] = row["browser"].ToString();
-                                    } 
-                                }
-                            }
-                        } 
-
-                        //判断是否还有使用此IE
-                        bool is_use = false;
-                        for (int i = 0; i < dt.Rows.Count;i++ )
-                        {
-                            if (dt.Rows[i]["site_name"].ToString() == site_name && dt.Rows[i]["state"].ToString() == "wait")
-                            {
-                                is_use = true;
+                                row["state"] = "abort";
                             }
                         }
-                        if (is_use == false)
-                        {
-                            ies[Convert.ToInt32(row["browser"].ToString())].is_use = false;
+                        else
+                        { 
+                            row["state"] = "ok";
+                            row["final_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            BsonDocument doc_result = ies[Convert.ToInt32(row["browser"].ToString())].doc_result;
+
+                            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
+                            sb.AppendLine("web site:".PR(15) + row["site_name"].PR(10) + row["method"].ToString());
+                            sb.AppendLine("url:".PR(15) + ies[Convert.ToInt32(row["browser"].ToString())].browser.Document.Url.ToString());
+                            sb.AppendLine("time:".PR(15) + row["start_time"].ToString().Substring(11, 8).PR(10) + row["end_time"].ToString().Substring(11, 8).PR(10) + row["final_time"].ToString().Substring(11, 8).PR(10));
+                            sb.AppendLine("result data:".PR(15));
+                            sb.AppendLine(doc_result["data"].ToString());
+                            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
+                            this.txt_result.Text = sb.ToString();
+
+
+                            //判断是否要循环使用此IE 
+                            if (doc_result["loop"].AsBsonArray.Count > 0)
+                            {
+                                BsonArray loop = doc_result["loop"].AsBsonArray;
+                                for (int i = 0; i < loop.Count; i++)
+                                {
+                                    for (int j = 0; j < dt.Rows.Count; j++)
+                                    {
+                                        if (dt.Rows[j]["site_name"].ToString() == row["site_name"].ToString() && dt.Rows[j]["step"].ToString() == loop[i].ToString())
+                                        {
+                                            dt.Rows[j]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                            dt.Rows[j]["state"] = "wait";
+                                            dt.Rows[j]["end_time"] = "";
+                                            dt.Rows[j]["final_time"] = "";
+                                            dt.Rows[j]["browser"] = row["browser"].ToString();
+                                        }
+                                    }
+                                }
+                            }
+
+                            //判断是否还有使用此IE
+                            bool is_use = false;
+                            for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                if (dt.Rows[i]["site_name"].ToString() == site_name && dt.Rows[i]["state"].ToString() == "wait")
+                                {
+                                    is_use = true;
+                                }
+                            }
+                            if (is_use == false)
+                            {
+                                ies[Convert.ToInt32(row["browser"].ToString())].is_use = false;
+                            }
                         }
                     }
                 }

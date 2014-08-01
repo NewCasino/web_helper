@@ -66,7 +66,8 @@ namespace web_helper
                 sb.Append(doc["attrs"].ToString());
                 sb.Append(Environment.NewLine);
             }
-            this.txt_result.Text = sb.ToString(); 
+            this.txt_result.Text = sb.ToString();
+            MessageBox.Show("analyse ok!");
         }
         private void btn_script_Click(object sender, EventArgs e)
         {

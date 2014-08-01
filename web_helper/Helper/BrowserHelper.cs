@@ -18,17 +18,8 @@ using System.Runtime.InteropServices;
 class BrowserHelper
 {
 
-    public static void get_absolute(ref IHTMLElement element, ref int left, ref int top)
-    {
-        if (element == null) return;
-        if (element.parentElement != null)
-        {
-            left = left + element.parentElement.offsetLeft;
-            top = top + element.parentElement.offsetTop;
-            IHTMLElement father_element = element.parentElement;
-            get_absolute(ref father_element, ref left, ref top);
-        }
-    }
+
+    #region
     public static DataTable get_postion_table2(ref WebBrowser browser)
     {
         //create positon table
@@ -324,9 +315,6 @@ class BrowserHelper
         }
     }
 
-
-
-
     public static string get_text_by_id2(ref WebBrowser browser, string id)
     {
         string result = "";
@@ -396,7 +384,40 @@ class BrowserHelper
         }
     }
 
-
+    #endregion
+    public static void get_absolute(ref IHTMLElement element, ref int left, ref int top)
+    {
+        if (element == null) return;
+        if (element.parentElement != null)
+        {
+            left = left + element.parentElement.offsetLeft;
+            top = top + element.parentElement.offsetTop;
+            IHTMLElement father_element = element.parentElement;
+            get_absolute(ref father_element, ref left, ref top);
+        }
+    }
+    public static void get_absolute_2(ref IHTMLElement element, int start_x, int start_y, ref int left, ref int top,ref int father_width, ref int father_height, ref bool is_find)
+    {
+        if (element == null) return;
+        if (is_find == false)
+        {
+            if (element.tagName.ToLower() == "div" || element.tagName.ToLower() == "li" || element.tagName.ToLower() == "td")
+            {
+                is_find = true;
+                left = start_x + element.offsetLeft;
+                top = start_y + element.offsetTop;
+                father_width = element.offsetWidth;
+                father_height = element.offsetHeight;
+            }
+        }
+        if (element.parentElement != null)
+        {
+            left = left + element.parentElement.offsetLeft;
+            top = top + element.parentElement.offsetTop;
+            IHTMLElement father_element = element.parentElement;
+            get_absolute(ref father_element, ref left, ref top);
+        }
+    }
 
     public static DataTable get_postion_table(ref WebBrowser browser)
     {
@@ -594,7 +615,7 @@ class BrowserHelper
 
     }
     public static DataTable get_position_deep_table(ref WebBrowser browser)
-    { 
+    {
         if (browser.Document == null) return new DataTable();
 
         //create dt from dt_postion  
@@ -611,22 +632,39 @@ class BrowserHelper
         DataColumn col4 = new DataColumn();
         col4.DataType = Type.GetType("System.Int32");
         col4.ColumnName = "height";
+
+        DataColumn col5 = new DataColumn();
+        col5.DataType = Type.GetType("System.Int32");
+        col5.ColumnName = "left1";
+        DataColumn col6 = new DataColumn();
+        col6.DataType = Type.GetType("System.Int32");
+        col6.ColumnName = "top1";
+        DataColumn col7 = new DataColumn();
+        col7.DataType = Type.GetType("System.Int32");
+        col7.ColumnName = "width1";
+        DataColumn col8 = new DataColumn();
+        col8.DataType = Type.GetType("System.Int32");
+        col8.ColumnName = "height1";
         dt_position.Columns.Add(col1);
         dt_position.Columns.Add(col2);
         dt_position.Columns.Add(col3);
         dt_position.Columns.Add(col4);
+        dt_position.Columns.Add(col5);
+        dt_position.Columns.Add(col6);
+        dt_position.Columns.Add(col7);
+        dt_position.Columns.Add(col8);
         dt_position.Columns.Add("text");
 
         if (browser.Document == null) return dt_position;
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        get_position_from_doc(ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
+        get_position_from_doc_2(ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
 
         dt_position.DefaultView.Sort = "left asc";
         dt_position = dt_position.DefaultView.ToTable();
 
         for (int i = 0; i < dt_position.Rows.Count; i++)
         {
-            for (int j = 0; j < dt_position.Rows.Count; j++)
+            for (int j = i + 1; j < dt_position.Rows.Count; j++)
             {
                 if (is_overlap((int)dt_position.Rows[i]["left"], (int)dt_position.Rows[i]["width"], (int)dt_position.Rows[j]["left"], (int)dt_position.Rows[j]["width"]) == true)
                 {
@@ -638,10 +676,10 @@ class BrowserHelper
 
 
         dt_position.DefaultView.Sort = "top asc";
-        dt_position = dt_position.DefaultView.ToTable(); 
+        dt_position = dt_position.DefaultView.ToTable();
         for (int i = 0; i < dt_position.Rows.Count; i++)
         {
-            for (int j = 0; j < dt_position.Rows.Count; j++)
+            for (int j = i + 1; j < dt_position.Rows.Count; j++)
             {
                 if (is_overlap((int)dt_position.Rows[i]["top"], (int)dt_position.Rows[i]["height"], (int)dt_position.Rows[j]["top"], (int)dt_position.Rows[j]["height"]) == true)
                 {
@@ -651,7 +689,7 @@ class BrowserHelper
             }
         }
 
-        return dt_position; 
+        return dt_position;
     }
     public static DataTable get_analyse_deep_table(ref WebBrowser browser)
     {
@@ -672,22 +710,39 @@ class BrowserHelper
         DataColumn col4 = new DataColumn();
         col4.DataType = Type.GetType("System.Int32");
         col4.ColumnName = "height";
+
+        DataColumn col5 = new DataColumn();
+        col5.DataType = Type.GetType("System.Int32");
+        col5.ColumnName = "left1";
+        DataColumn col6 = new DataColumn();
+        col6.DataType = Type.GetType("System.Int32");
+        col6.ColumnName = "top1";
+        DataColumn col7 = new DataColumn();
+        col7.DataType = Type.GetType("System.Int32");
+        col7.ColumnName = "width1";
+        DataColumn col8 = new DataColumn();
+        col8.DataType = Type.GetType("System.Int32");
+        col8.ColumnName = "height1";
         dt_position.Columns.Add(col1);
         dt_position.Columns.Add(col2);
         dt_position.Columns.Add(col3);
         dt_position.Columns.Add(col4);
+        dt_position.Columns.Add(col5);
+        dt_position.Columns.Add(col6);
+        dt_position.Columns.Add(col7);
+        dt_position.Columns.Add(col8);
         dt_position.Columns.Add("text");
 
         if (browser.Document == null) return dt_position;
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        get_position_from_doc(ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
+        get_position_from_doc_2(ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
 
         dt_position.DefaultView.Sort = "left asc";
         dt_position = dt_position.DefaultView.ToTable();
 
         for (int i = 0; i < dt_position.Rows.Count; i++)
         {
-            for (int j = i+1; j < dt_position.Rows.Count; j++)
+            for (int j = i + 1; j < dt_position.Rows.Count; j++)
             {
                 if (is_overlap((int)dt_position.Rows[i]["left"], (int)dt_position.Rows[i]["width"], (int)dt_position.Rows[j]["left"], (int)dt_position.Rows[j]["width"]) == true)
                 {
@@ -703,7 +758,7 @@ class BrowserHelper
 
         for (int i = 0; i < dt_position.Rows.Count; i++)
         {
-            for (int j = i+1; j < dt_position.Rows.Count; j++)
+            for (int j = i + 1; j < dt_position.Rows.Count; j++)
             {
                 if (is_overlap((int)dt_position.Rows[i]["top"], (int)dt_position.Rows[i]["height"], (int)dt_position.Rows[j]["top"], (int)dt_position.Rows[j]["height"]) == true)
                 {
@@ -713,12 +768,12 @@ class BrowserHelper
             }
         }
 
-       
+
         //add column to dt 
         DataTable dt = new DataTable();
         dt.Columns.Add("NO");
         dt.Columns.Add("COUNT");
-        dt.Columns.Add("TEXT"); 
+        dt.Columns.Add("TEXT");
         dt_position.DefaultView.Sort = "left asc";
         dt_position = dt_position.DefaultView.ToTable();
         foreach (DataRow row in dt_position.Rows)
@@ -827,7 +882,7 @@ class BrowserHelper
             }
         }
         dt.Rows.Add(row_count);
-        dt.Rows.Add(row_text); 
+        dt.Rows.Add(row_text);
 
 
         return dt;
@@ -860,26 +915,26 @@ class BrowserHelper
             int top = ielement.offsetTop + ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y;
 
             if (ielement.innerText == null) continue; string text = ielement.innerText.Trim();
+            if (string.IsNullOrEmpty(text)) continue;
             IHTMLElement ielement_child = ielement;
             get_absolute(ref ielement_child, ref left, ref top);
 
             row_new["left"] = left;
             row_new["top"] = top;
-            row_new["width"] = ielement.offsetWidth.ToString();
-            row_new["height"] = ielement.offsetHeight.ToString();
+            row_new["width"] = ielement.offsetWidth;
+            row_new["height"] = ielement.offsetHeight;
             row_new["text"] = text;
 
 
             bool is_contine = true;
-
             if (((IHTMLElementCollection)ielement.children).length == 1 && ielement.innerHTML != null && ielement.innerHTML.ToLower().Trim().Contains("<br") == true)
             {
                 text = ielement.innerHTML;
                 is_contine = false;
             }
             if (((IHTMLElementCollection)ielement.children).length == 0 && !string.IsNullOrEmpty(text)) is_contine = false;
-            if (left == 0 && top == 0 && ielement.offsetWidth == 0 && ielement.offsetHeight == 0) is_contine = true; 
-            if (is_contine) continue; 
+            if (left == 0 && top == 0 && ielement.offsetWidth == 0 && ielement.offsetHeight == 0) is_contine = true;
+            if (is_contine) continue;
 
             dt_position.Rows.Add(row_new);
         }
@@ -888,13 +943,80 @@ class BrowserHelper
 
 
     }
+    public static void get_position_from_doc_2(ref DataTable dt_position, ref mshtml.HTMLDocument doc_input, int start_x, int start_y)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+            get_position_from_doc(ref dt_position, ref doc_child, start_x, start_y);
+        }
+
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+            DataRow row_new = dt_position.NewRow();
+
+            int left = ielement.offsetLeft + ((IHTMLWindow3)doc_input.parentWindow).screenLeft - start_x;
+            int top = ielement.offsetTop + ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y;
+
+            int father_left = 0;
+            int father_top = 0;
+            int father_width = 0;
+            int father_height = 0;
+            bool is_find = false;
+
+            if (ielement.innerText == null) continue; string text = ielement.innerText.Trim();
+            if (string.IsNullOrEmpty(text)) continue;
+            IHTMLElement ielement_child = ielement;
+
+            get_absolute(ref ielement_child, ref left, ref top);
+            get_absolute_2(ref ielement_child,
+                           ((IHTMLWindow3)doc_input.parentWindow).screenLeft - start_x, ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y,
+                            ref father_left, ref father_top, ref father_width, ref father_height, ref is_find);
+
+
+            row_new["left"] = left;
+            row_new["top"] = top;
+            row_new["width"] = ielement.offsetWidth;
+            row_new["height"] = ielement.offsetHeight;
+
+            row_new["left1"] = father_left;
+            row_new["top1"] = father_top;
+            row_new["width1"] = father_width;
+            row_new["height1"] = father_height;
+            row_new["text"] = text;
+
+
+            bool is_contine = true;
+            if (((IHTMLElementCollection)ielement.children).length == 1 && ielement.innerHTML != null && ielement.innerHTML.ToLower().Trim().Contains("<br") == true)
+            {
+                text = ielement.innerText;
+                is_contine = false;
+            }
+            if (((IHTMLElementCollection)ielement.children).length == 0 && !string.IsNullOrEmpty(text)) is_contine = false;
+            if (father_left == 0 && father_top == 0 && father_width == 0 && father_height == 0) is_contine = true;
+            if (is_contine) continue;
+
+            dt_position.Rows.Add(row_new);
+        }
+    }
     public static bool is_overlap(int input_left1, int input_width1, int input_left2, int input_width2)
     {
-      
 
-        double width1=input_width1;
-        double width2=input_width2;
-        double  start1 = input_left1;
+
+        double width1 = input_width1;
+        double width2 = input_width2;
+        double start1 = input_left1;
         double end1 = input_left1 + width1;
         double start2 = input_left2;
         double end2 = input_left2 + width2;
@@ -905,9 +1027,9 @@ class BrowserHelper
         if (start2 <= start1 && end2 >= start1 && end2 <= end1 && (end2 - start1) / width1 > 0.5) return true;
         if (start2 < start1 && end2 > end1) return true;
         if (start2 >= start1 && start2 <= end1 && end2 >= start1 && end2 <= end1) return true;
-        if (start2>=start1 && start2<=end1 && end2>end1 && (end1-start2)/width1>0.5) return true;
+        if (start2 >= start1 && start2 <= end1 && end2 > end1 && (end1 - start2) / width1 > 0.5) return true;
 
-        return false; 
+        return false;
     }
 
     public static string get_text_by_id(ref WebBrowser browser, string id)
@@ -1005,7 +1127,7 @@ class BrowserHelper
 
         foreach (mshtml.IHTMLElement ielement in ielements)
         {
-             
+
             mshtml.IHTMLDOMNode inode = (mshtml.IHTMLDOMNode)ielement;
             IHTMLAttributeCollection iattrs = (IHTMLAttributeCollection)inode.attributes;
 
@@ -1013,12 +1135,12 @@ class BrowserHelper
             if (ielement.innerText != null) text = ielement.innerText;
 
             bool is_contine = true;
-          
-            if (((IHTMLElementCollection)ielement.children).length == 1 && ielement.innerHTML!=null && ielement.innerHTML.ToLower().Trim().Contains("<br") == true)
+
+            if (((IHTMLElementCollection)ielement.children).length == 1 && ielement.innerHTML != null && ielement.innerHTML.ToLower().Trim().Contains("<br") == true)
             {
                 text = ielement.innerHTML;
                 is_contine = false;
-            } 
+            }
             if (((IHTMLElementCollection)ielement.children).length == 0 && !string.IsNullOrEmpty(text)) is_contine = false;
             if (is_contine) continue;
 
@@ -1033,10 +1155,10 @@ class BrowserHelper
             if (iattrs != null)
             {
                 foreach (IHTMLDOMAttribute attr in iattrs)
-                { 
-                    if (attr.nodeValue!=null && !string.IsNullOrEmpty(attr.nodeValue.ToString().Trim()))
+                {
+                    if (attr.nodeValue != null && !string.IsNullOrEmpty(attr.nodeValue.ToString().Trim()))
                     {
-                        str_attrs += attr.nodeName + ":" + attr.nodeValue.ToString()+",";
+                        str_attrs += attr.nodeName + ":" + attr.nodeValue.ToString() + ",";
                     }
                 }
             }
@@ -1053,5 +1175,7 @@ class BrowserHelper
             docs.Add(doc);
         }
     }
+
+
 }
 
