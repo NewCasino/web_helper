@@ -55,7 +55,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         return doc_result;
-    } 
+    }
     public BsonDocument from_local_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -64,7 +64,7 @@ class Match100Method
         foreach (HtmlElement element in list)
         {
             if (element.Id == "btn_ok") element.InvokeMember("click");
-            if (element.Id == "txt") result = element.GetAttribute("value"); 
+            if (element.Id == "txt") result = element.GetAttribute("value");
         }
         doc_result["data"] = result;
         return doc_result;
@@ -113,7 +113,7 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
     }
- 
+
     public BsonDocument from_bwin_1(ref WebBrowser browser)
     {
 
@@ -172,56 +172,52 @@ class Match100Method
         return doc_result;
     }
 
-    public BsonDocument from_bet16_1(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        string result = "";
-        result = browser.Document.All.Count.ToString();
-        foreach (HtmlElement element in browser.Document.All)
-        {
-            result += element.OuterHtml + Environment.NewLine;
-        }
-
-        doc_result["data"] = result;
-        return doc_result;
-    }
-
     public BsonDocument from_10bet_1(ref WebBrowser browser)
     {
-        BsonDocument doc_result = Match100Helper.get_doc_result(); 
-        BrowserHelper.invoke_click_by_id(ref browser, "tp_chk_br_999_l_1_1"); 
+        BsonDocument doc_result = Match100Helper.get_doc_result();
+        BrowserHelper.invoke_click_by_id(ref browser, "tp_chk_br_999_l_1_1");
         doc_result["data"] = "Invoke Click!";
         return doc_result;
     }
     public BsonDocument from_10bet_2(ref WebBrowser browser)
-    {
-
+    { 
         BsonDocument doc_result = Match100Helper.get_doc_result();
         string result = "";
         //try
         //{
-        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
-        foreach (DataRow row in dt.Rows)
+        DataTable dt_analyse = BrowserHelper.get_analyse_deep_table4(ref browser);
+        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        ArrayList times = new ArrayList();
+        ArrayList teams = new ArrayList();
+        ArrayList wins = new ArrayList();
+        ArrayList draws = new ArrayList();
+        ArrayList loses = new ArrayList();
+
+        for (int i = 0; i < dt.Rows.Count; i++)
         {
-            int count = 0;
-            int.TryParse(row["COUNT"].ToString(), out count);
-            if (count < 5 && count > 10) continue;
-
-
-            ArrayList odds = new ArrayList();
-            ArrayList teams = new ArrayList();
-            string[] list = row["TEXT"].ToString().Split('●');
-            for (int i = list.Length - 1; i >= 0; i--)
+            for (int j = 0; j < dt.Columns.Count; j++)
             {
-                string str = list[i];
-                if (Match100Helper.is_odd_str(str)) odds.Add(str);
-                if (str.Contains("+") == false && str.Length >= 3 && Match100Helper.is_odd_str(str) == false && str != "博彩责任") teams.Add(str);
+                string text = dt.Rows[i][j].ToString().Trim();
+                if (string.IsNullOrEmpty(text)) continue;
+                if (j == 1) times.Add(text);
+                if (j == 2) teams.Add(text);
+                if (j == 3) wins.Add(text);
+                if (j == 4) draws.Add(text);
+                if (j == 6) loses.Add(text);
             }
-            if (odds.Count >= 3 && teams.Count >= 2)
-            {
-                result = result + teams[1].PR(20) + teams[0].PR(20) + odds[2].PR(20) + odds[1].PR(20) + odds[0].PR(20) + Environment.NewLine;
-            }
+        }
 
+        int min_count = 999999;
+        if (times.Count < min_count) min_count = times.Count;
+        if (teams.Count < min_count) min_count = teams.Count;
+        if (wins.Count < min_count) min_count = wins.Count;
+        if (draws.Count < min_count) min_count = draws.Count;
+        if (loses.Count < min_count) min_count = loses.Count; 
+
+        for (int i = 0; i < min_count; i++)
+        {
+            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            result = result + times[i].PR(20) + single_teams[0].PR(50) + single_teams[2].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
         }
         //}
         //catch (Exception error)
@@ -307,7 +303,7 @@ class Match100Method
 
         doc_result["data"] = result;
         return doc_result;
-    } 
+    }
 
     public BsonDocument from_188bet_1(ref WebBrowser browser)
     {
@@ -385,15 +381,15 @@ class Match100Method
         }
         int count = teams.Count / 3;
         for (int i = 0; i < count; i++)
-        { 
-            result = result + teams[i*3].PR(20) + teams[i*3 + 1].PR(20) + odds[i*3].PR(20) + odds[i*3 + 2].PR(20) + odds[i*3 + 1].PR(20) + Environment.NewLine;
+        {
+            result = result + teams[i * 3].PR(20) + teams[i * 3 + 1].PR(20) + odds[i * 3].PR(20) + odds[i * 3 + 2].PR(20) + odds[i * 3 + 1].PR(20) + Environment.NewLine;
         }
 
 
         doc_result["data"] = result;
         return doc_result;
-    } 
-    
+    }
+
     public BsonDocument from_fubo_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -408,7 +404,7 @@ class Match100Method
             string txt = "";
 
             txt = dt.Rows[i]["516"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) teams.Add(txt); 
+            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
             txt = dt.Rows[i]["692"].ToString().Replace("●", "");
             if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
             txt = dt.Rows[i]["776"].ToString().Replace("●", "");

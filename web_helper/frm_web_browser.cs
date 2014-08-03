@@ -44,29 +44,35 @@ namespace web_helper
             sb.Remove(0, sb.ToString().Length);
             if (browser.Document == null) return;
 
-            DataTable dt_position = BrowserHelper.get_postion_table(ref browser);
-            DataTable dt_analyse = BrowserHelper.get_analyse_table(ref browser);
-            DataTable dt_position_deep = BrowserHelper.get_position_deep_table(ref browser);
-            DataTable dt_analyse_deep = BrowserHelper.get_analyse_deep_table(ref browser);
-            this.dgv_position.DataSource = dt_position;
-            this.dgv_analyse.DataSource = dt_analyse;
+            //DataTable dt_position = BrowserHelper.get_postion_table(ref browser);
+            //DataTable dt_analyse = BrowserHelper.get_analyse_table(ref browser);
+            DataTable dt_position_deep = BrowserHelper.get_position_table4(ref browser);
+            DataTable dt_analyse_deep = BrowserHelper.get_analyse_deep_table4(ref browser);
+            //this.dgv_position.DataSource = dt_position;
+           // this.dgv_analyse.DataSource = dt_analyse;
+            DataTable dt_match = Match100Helper.get_match_table(dt_analyse_deep);
             this.dgv_position_deep.DataSource = dt_position_deep;
-            this.dgv_analyse_deep.DataSource = dt_analyse_deep; 
+            this.dgv_analyse_deep.DataSource = dt_analyse_deep;
+            this.dgv_position.DataSource = dt_match;
 
-            List<BsonDocument> docs = BrowserHelper.get_all_elments(ref browser);
-            sb.AppendLine("TYPE".PR(15) + "ID".PR(15) + "NAME".PR(15) + "CLASS".PR(15) + "TEXT");
-            sb.AppendLine("----------------------------------------------------------------------------------------------------");
-            foreach (BsonDocument doc in docs)
-            {
-                sb.Append(doc["type"].PR(15));
-                sb.Append(doc["id"].PR(15));
-                sb.Append(doc["name"].PR(15));
-                sb.Append(doc["class"].PR(15));
-                sb.Append(doc["text"].PR(100));
-                sb.Append(doc["attrs"].ToString());
-                sb.Append(Environment.NewLine);
-            }
-            this.txt_result.Text = sb.ToString();
+            //List<BsonDocument> docs = BrowserHelper.get_all_elments(ref browser);
+            //sb.AppendLine("TYPE".PR(15) + "ID".PR(15) + "NAME".PR(15) + "CLASS".PR(15) + "LEFT".PR(15) + "TOP".PR(15) + "WIDTH".PR(15) + "HEIGHT".PR(15) + "TEXT");
+            //sb.AppendLine("----------------------------------------------------------------------------------------------------");
+            //foreach (BsonDocument doc in docs)
+            //{
+            //    sb.Append(doc["type"].PR(15));
+            //    sb.Append(doc["id"].PR(15));
+            //    sb.Append(doc["name"].PR(15));
+            //    sb.Append(doc["class"].PR(15));
+            //    sb.Append(doc["left"].PR(15));
+            //    sb.Append(doc["top"].PR(15));
+            //    sb.Append(doc["width"].PR(15));
+            //    sb.Append(doc["height"].PR(15));
+            //    sb.Append(doc["text"].PR(100));
+            //    sb.Append(doc["attrs"].ToString());
+            //    sb.Append(Environment.NewLine);
+            //}
+            //this.txt_result.Text = sb.ToString();
             MessageBox.Show("analyse ok!");
         }
         private void btn_script_Click(object sender, EventArgs e)
@@ -81,7 +87,7 @@ namespace web_helper
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            BsonDocument doc = method.from_fubo_1(ref browser);
+            BsonDocument doc = method.from_10bet_2(ref browser);
             this.txt_result_method.Text = doc["data"].ToString();
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
