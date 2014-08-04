@@ -185,7 +185,7 @@ class Match100Method
         string result = "";
         //try
         //{
-        DataTable dt_analyse = BrowserHelper.get_analyse_deep_table4(ref browser);
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser);
         DataTable dt = Match100Helper.get_match_table(dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();

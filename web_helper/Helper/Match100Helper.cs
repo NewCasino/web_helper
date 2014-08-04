@@ -86,8 +86,12 @@ class Match100Helper
             bool is_use = false;
             for (int j = 0; j < dt.Columns.Count; j++)
             {
+                
+                
+                string column_name = dt.Columns[j].ColumnName;
+                if (string.IsNullOrEmpty(dt_analyse.Rows[i][column_name].ToString().Replace(" ", "").Trim())) continue;
+
                 is_use = true;
-                string column_name = dt.Columns[j].ColumnName; 
                 string text = "";
                 string value = dt_analyse.Rows[i][column_name].ToString();
                 string[] list = value.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);

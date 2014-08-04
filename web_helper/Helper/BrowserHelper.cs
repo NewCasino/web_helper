@@ -18,8 +18,8 @@ using System.Runtime.InteropServices;
 class BrowserHelper
 {
 
-    #region
-    public static DataTable get_postion_table2(ref WebBrowser browser)
+    #region 报非安全引用错误 
+    public static DataTable get_postion_table_back(ref WebBrowser browser)
     {
         //create positon table
         DataTable dt_position = new DataTable();
@@ -43,12 +43,12 @@ class BrowserHelper
 
         if (browser.Document == null) return dt_position;
         HtmlDocument doc_child = browser.Document;
-        get_position_from_doc2(ref dt_position, ref doc_child, browser.Document.Window.Position.X, browser.Document.Window.Position.Y);
+        get_position_from_doc_back(ref dt_position, ref doc_child, browser.Document.Window.Position.X, browser.Document.Window.Position.Y);
 
         return dt_position;
 
     }
-    public static DataTable get_analyse_table2(ref WebBrowser browser)
+    public static DataTable get_analyse_table_back(ref WebBrowser browser)
     {
         DataTable dt = new DataTable();
         dt.Columns.Add("NO");
@@ -78,7 +78,7 @@ class BrowserHelper
 
         if (browser.Document == null) return dt_position;
         HtmlDocument doc_child = browser.Document;
-        get_position_from_doc2(ref dt_position, ref doc_child, browser.Document.Window.Position.X, browser.Document.Window.Position.Y);
+        get_position_from_doc_back(ref dt_position, ref doc_child, browser.Document.Window.Position.X, browser.Document.Window.Position.Y);
 
 
 
@@ -214,7 +214,7 @@ class BrowserHelper
 
 
     }
-    public static void get_position_from_doc2(ref DataTable dt_position, ref System.Windows.Forms.HtmlDocument doc_input, int start_x, int start_y)
+    public static void get_position_from_doc_back(ref DataTable dt_position, ref System.Windows.Forms.HtmlDocument doc_input, int start_x, int start_y)
     {
 
         //try
@@ -222,7 +222,7 @@ class BrowserHelper
         for (int i = 0; i < doc_input.Window.Frames.Count; i++)
         {
             HtmlDocument doc_child = doc_input.Window.Frames[i].Document;
-            get_position_from_doc2(ref dt_position, ref doc_child, start_x, start_y);
+            get_position_from_doc_back(ref dt_position, ref doc_child, start_x, start_y);
         }
         //}
         //catch (Exception error) { }
@@ -261,21 +261,21 @@ class BrowserHelper
 
     }
 
-    public static List<BsonDocument> get_all_elments2(ref WebBrowser browser)
+    public static List<BsonDocument> get_all_elment_back(ref WebBrowser browser)
     {
         List<BsonDocument> docs = new List<BsonDocument>();
         HtmlDocument doc_child = browser.Document;
-        get_all_elements_loop2(ref docs, ref doc_child);
+        get_all_elements_loop_back(ref docs, ref doc_child);
         return docs;
     }
-    public static void get_all_elements_loop2(ref List<BsonDocument> docs, ref System.Windows.Forms.HtmlDocument doc_input)
+    public static void get_all_elements_loop_back(ref List<BsonDocument> docs, ref System.Windows.Forms.HtmlDocument doc_input)
     {
         try
         {
             for (int i = 0; i < doc_input.Window.Frames.Count; i++)
             {
                 HtmlDocument doc_child = doc_input.Window.Frames[i].Document;
-                get_all_elements_loop2(ref docs, ref doc_child);
+                get_all_elements_loop_back(ref docs, ref doc_child);
             }
         }
         catch (Exception error) { }
@@ -314,21 +314,21 @@ class BrowserHelper
         }
     }
 
-    public static string get_text_by_id2(ref WebBrowser browser, string id)
+    public static string get_text_by_id_back(ref WebBrowser browser, string id)
     {
         string result = "";
         HtmlDocument doc_child = browser.Document;
-        get_text_by_id_loop2(ref doc_child, ref result, id);
+        get_text_by_id_loop_back(ref doc_child, ref result, id);
         return result;
     }
-    public static void get_text_by_id_loop2(ref System.Windows.Forms.HtmlDocument doc_input, ref string result, string id)
+    public static void get_text_by_id_loop_back(ref System.Windows.Forms.HtmlDocument doc_input, ref string result, string id)
     {
         try
         {
             for (int i = 0; i < doc_input.Window.Frames.Count; i++)
             {
                 HtmlDocument doc_child = doc_input.Window.Frames[i].Document;
-                get_text_by_id_loop2(ref doc_child, ref result, id);
+                get_text_by_id_loop_back(ref doc_child, ref result, id);
             }
         }
         catch (Exception error) { result = error.Message; }
@@ -349,20 +349,20 @@ class BrowserHelper
             }
         }
     }
-    public static void invoke_member_by_id2(ref WebBrowser browser, string id, string member)
+    public static void invoke_member_by_id_back(ref WebBrowser browser, string id, string member)
     {
 
         HtmlDocument doc_child = browser.Document;
-        invoke_member_by_id_loop2(ref doc_child, id, member);
+        invoke_member_by_id_loop_back(ref doc_child, id, member);
     }
-    public static void invoke_member_by_id_loop2(ref System.Windows.Forms.HtmlDocument doc_input, string id, string member)
+    public static void invoke_member_by_id_loop_back(ref System.Windows.Forms.HtmlDocument doc_input, string id, string member)
     {
         try
         {
             for (int i = 0; i < doc_input.Window.Frames.Count; i++)
             {
                 HtmlDocument doc_child = doc_input.Window.Frames[i].Document;
-                invoke_member_by_id_loop2(ref doc_child, id, member);
+                invoke_member_by_id_loop_back(ref doc_child, id, member);
             }
         }
         catch (Exception error) { }
@@ -383,9 +383,7 @@ class BrowserHelper
         }
     }
 
-    #endregion
-
-
+    #endregion 
 
     public static DataTable get_postion_table(ref WebBrowser browser)
     {
@@ -726,7 +724,7 @@ class BrowserHelper
 
         return dt_position;
     }
-    public static DataTable get_analyse_deep_table2(ref WebBrowser browser)
+    public static DataTable get_analyse_table2(ref WebBrowser browser)
     {
 
         if (browser.Document == null) return new DataTable();
@@ -1024,7 +1022,7 @@ class BrowserHelper
 
         return dt_position;
     }
-    public static DataTable get_analyse_deep_table3(ref WebBrowser browser)
+    public static DataTable get_analyse_table3(ref WebBrowser browser)
     {
 
         DataTable dt_position = new DataTable();
@@ -1387,9 +1385,11 @@ class BrowserHelper
 
         return dt_position;
     }
-    public static DataTable get_analyse_deep_table4(ref WebBrowser browser)
-    { 
-         DataTable dt_position = get_position_table4(ref browser);
+    public static DataTable get_analyse_table4(ref WebBrowser browser)
+    {
+        if (browser.Document == null) return new DataTable();
+
+        DataTable dt_position = get_position_table4(ref browser);
         //add column to dt 
         DataTable dt = new DataTable();
         dt.Columns.Add("NO");
@@ -1533,16 +1533,30 @@ class BrowserHelper
                 mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
                 IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
 
+                IHTMLElement2 ielement2 = (IHTMLElement2)ielement;
                 DataRow row_new = dt_position.NewRow();
                 int child_count = ((IHTMLElementCollection)ielement.children).length;
-                int left = ielement.offsetLeft + ((IHTMLWindow3)doc_input.parentWindow).screenLeft - start_x;
-                int top = ielement.offsetTop + ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y;
-                int width = ielement.offsetWidth;
-                int height = ielement.offsetHeight;
+
+                int left = 0;
+                int top = 0;
+                int width = 0;
+                int height = 0; 
+                //td,tr,offsetTop计算重复
+                if (ielement.tagName.ToLower().Contains("td"))
+                { 
+                    top = ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y;
+                }
+                else
+                { 
+                    top = ielement.offsetTop + ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y;
+                }
+                left = ielement.offsetLeft + ((IHTMLWindow3)doc_input.parentWindow).screenLeft - start_x;
+                width = ielement.offsetWidth;
+                height = ielement.offsetHeight; 
                 string text = "●";
 
                 IHTMLElement ielement_input = ielement;
-                get_absolute(ref ielement_input, ref left, ref top);
+                get_absolute4(ref ielement_input, ref left, ref top);
                 get_child_text(ref ielement_input, ref text);
 
                 row_new["left"] = left;
@@ -1554,17 +1568,25 @@ class BrowserHelper
                 if (!string.IsNullOrEmpty(text)) dt_position.Rows.Add(row_new);
             }
         }
-
-
-
-
+    }
+    public static void get_absolute4(ref IHTMLElement element, ref int left, ref int top)
+    {
+        if (element == null) return;
+        if (element.parentElement != null)
+        {
+            IHTMLElement2 ielement2 = (IHTMLElement2)element.parentElement;
+            left = left + element.parentElement.offsetLeft;
+            top = top + element.parentElement.offsetTop;
+            IHTMLElement father_element = element.parentElement;
+            get_absolute(ref father_element, ref left, ref top);
+        }
     }
     public static bool is_final_element(mshtml.IHTMLElement ielement)
     {
         string tag_name = ielement.tagName.ToLower().Trim();
         string html = ielement.innerHTML == null ? "" : ielement.innerHTML.ToLower().Trim();
-        if (tag_name.Contains("div") || 
-            tag_name.Contains("li") || 
+        if (tag_name.Contains("div") ||
+            tag_name.Contains("li") ||
             tag_name.Contains("ol") ||
             tag_name.Contains("td") ||
             tag_name.Contains("th") ||
@@ -1574,7 +1596,7 @@ class BrowserHelper
             )
         {
             if (html.Contains("<div") ||
-               
+
                 html.Contains("<li") ||
                 html.Contains("<ol") ||
                 html.Contains("<td") ||
@@ -1584,7 +1606,7 @@ class BrowserHelper
                 html.Contains("<dl")
                 ) return false;
             return true;
-        } 
+        }
         return false;
     }
     public static void get_child_text(ref IHTMLElement element, ref string txt)
@@ -1607,6 +1629,8 @@ class BrowserHelper
             get_child_text(ref input_child, ref txt);
         }
     }
+
+
 
 
     public static string get_text_by_id(ref WebBrowser browser, string id)
@@ -1643,6 +1667,77 @@ class BrowserHelper
 
         }
     }
+
+    public static string get_attr_by_id(ref WebBrowser browser, string id,string attr_name)
+    {
+        string result = "";
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_attr_by_id_loop(ref doc_child, ref result, id,attr_name);
+        return result;
+    }
+    public static void get_attr_by_id_loop(ref mshtml.HTMLDocument doc_input, ref string result, string id,string attr_name)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+            get_attr_by_id_loop(ref doc_child, ref result, id,attr_name);
+        } 
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+            if (ielement.id == id)
+            {
+                result = (ielement == null) ? "" : ielement.getAttribute(attr_name,0).ToString();
+            } 
+        }
+    } 
+
+    //public static IHTMLElement get_element_by_id(ref WebBrowser browser, string id)
+    //{
+         
+       
+      
+    //    mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument; 
+    //    get_element_by_id_loop(ref doc_child, ref element, id);
+    //    return element;
+    //}
+    //public static void get_element_by_id_loop(ref mshtml.HTMLDocument doc_input, ref IHTMLElement element, string id)
+    //{
+    //    object j;
+    //    for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+    //    {
+    //        j = i;
+    //        mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+    //        IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+    //        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+    //        get_element_by_id_loop(ref doc_child, ref element, id);
+    //    }
+
+
+    //    mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+    //    foreach (mshtml.IHTMLElement ielement in ielements)
+    //    {
+    //        mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+    //        IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+    //        if (ielement.id == id)
+    //        {
+    //             element =ielement;
+    //             return;
+    //        }
+
+    //    }
+    //}
 
     public static string invoke_click_by_id(ref WebBrowser browser, string id)
     {
@@ -1707,28 +1802,21 @@ class BrowserHelper
 
             mshtml.IHTMLDOMNode inode = (mshtml.IHTMLDOMNode)ielement;
             IHTMLAttributeCollection iattrs = (IHTMLAttributeCollection)inode.attributes;
+            IHTMLElement2 ielement2 = (IHTMLElement2)ielement;
 
             string text = (ielement.innerText == null) ? "" : ielement.innerText;
-
-            //bool is_contine = true; 
-            //if (((IHTMLElementCollection)ielement.children).length == 1 && ielement.innerHTML != null && ielement.innerHTML.ToLower().Trim().Contains("<br") == true)
-            //{
-            //    text = ielement.innerHTML;
-            //    is_contine = false;
-            //}
-            //if (((IHTMLElementCollection)ielement.children).length == 0 && !string.IsNullOrEmpty(text)) is_contine = false;
-            //if (is_contine) continue;
-
             string type = (ielement.tagName == null) ? "" : ielement.tagName;
             string id = (ielement.id == null) ? "" : ielement.id;
-            //string name = (ielement.getAttribute("name") == null) ? "" : ielement.getAttribute("name").ToString();
             string name = (ielement.getAttribute("name", 0) == null) ? "" : ielement.getAttribute("name", 0).ToString();
             string html = (ielement.outerHTML == null) ? "" : ielement.outerHTML;
             string class_name = (ielement.className == null) ? "" : ielement.className;
-            string left = ielement.offsetLeft.ToString();
-            string top = ielement.offsetTop.ToString();
-            string width = ielement.offsetWidth.ToString();
-            string height = ielement.offsetHeight.ToString();
+            string offsetLeft = ielement.offsetLeft.ToString();
+            string offsetTop = ielement.offsetTop.ToString();
+            string offsetWidth = ielement.offsetWidth.ToString();
+            string offsetHeight = ielement.offsetHeight.ToString();
+            string clientTop = ielement2.clientTop.ToString();
+            string scrollTop = ielement2.scrollTop.ToString();
+
 
             string str_attrs = "";
             if (iattrs != null)
@@ -1751,10 +1839,12 @@ class BrowserHelper
             doc.Add("text", text);
             doc.Add("class", class_name);
             doc.Add("attrs", str_attrs);
-            doc.Add("left", left);
-            doc.Add("top", top);
-            doc.Add("width", width);
-            doc.Add("height", height);
+            doc.Add("offsetLeft", offsetLeft);
+            doc.Add("offsetTop", offsetTop);
+            doc.Add("offsetWidth", offsetWidth);
+            doc.Add("offsetHeight", offsetHeight);
+            doc.Add("clientTop", clientTop);
+            doc.Add("scrollTop", scrollTop);
             docs.Add(doc);
         }
     }

@@ -38,33 +38,33 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgv_position = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dgv_analyse = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.txt_result_script = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.dgv_analyse_deep = new System.Windows.Forms.DataGridView();
-            this.txt_result_triggle = new System.Windows.Forms.TextBox();
             this.txt_result_method = new System.Windows.Forms.TextBox();
-            this.browser = new System.Windows.Forms.WebBrowser();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgv_1 = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dgv_2 = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.dgv_position_deep = new System.Windows.Forms.DataGridView();
+            this.dgv_3 = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgv_4 = new System.Windows.Forms.DataGridView();
+            this.browser = new System.Windows.Forms.WebBrowser();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_position)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_analyse)).BeginInit();
-            this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_analyse_deep)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_1)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_2)).BeginInit();
             this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_position_deep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_3)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,7 +99,7 @@
             this.btn_script.Name = "btn_script";
             this.btn_script.Size = new System.Drawing.Size(75, 23);
             this.btn_script.TabIndex = 3;
-            this.btn_script.Text = "Triggle Script";
+            this.btn_script.Text = "Script";
             this.btn_script.UseVisualStyleBackColor = true;
             this.btn_script.Click += new System.EventHandler(this.btn_script_Click);
             // 
@@ -138,13 +138,13 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Location = new System.Drawing.Point(1, 63);
+            this.tabControl1.Location = new System.Drawing.Point(4, 63);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1215, 637);
@@ -185,63 +185,27 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgv_position);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1207, 611);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "[Analyse] Table-Position";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgv_position
-            // 
-            this.dgv_position.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_position.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_position.Location = new System.Drawing.Point(0, 0);
-            this.dgv_position.Name = "dgv_position";
-            this.dgv_position.Size = new System.Drawing.Size(1207, 611);
-            this.dgv_position.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.dgv_analyse);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1207, 611);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "[Analyse] Table-Analyse";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dgv_analyse
-            // 
-            this.dgv_analyse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_analyse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_analyse.Location = new System.Drawing.Point(0, 0);
-            this.dgv_analyse.Name = "dgv_analyse";
-            this.dgv_analyse.Size = new System.Drawing.Size(1207, 611);
-            this.dgv_analyse.TabIndex = 1;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.dgv_analyse_deep);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1207, 611);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "[Analyse] Table-Analyse-Deep";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.txt_result_triggle);
+            this.tabPage6.Controls.Add(this.txt_result_script);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(1207, 611);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "[Triggle] Text";
+            this.tabPage6.Text = "[Script] Text";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // txt_result_script
+            // 
+            this.txt_result_script.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt_result_script.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_result_script.Location = new System.Drawing.Point(0, 0);
+            this.txt_result_script.Multiline = true;
+            this.txt_result_script.Name = "txt_result_script";
+            this.txt_result_script.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt_result_script.Size = new System.Drawing.Size(1207, 611);
+            this.txt_result_script.TabIndex = 1;
+            this.txt_result_script.WordWrap = false;
             // 
             // tabPage7
             // 
@@ -252,27 +216,6 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "[Method] Method";
             this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // dgv_analyse_deep
-            // 
-            this.dgv_analyse_deep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_analyse_deep.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_analyse_deep.Location = new System.Drawing.Point(0, 0);
-            this.dgv_analyse_deep.Name = "dgv_analyse_deep";
-            this.dgv_analyse_deep.Size = new System.Drawing.Size(1207, 611);
-            this.dgv_analyse_deep.TabIndex = 2;
-            // 
-            // txt_result_triggle
-            // 
-            this.txt_result_triggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_result_triggle.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_result_triggle.Location = new System.Drawing.Point(0, 0);
-            this.txt_result_triggle.Multiline = true;
-            this.txt_result_triggle.Name = "txt_result_triggle";
-            this.txt_result_triggle.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result_triggle.Size = new System.Drawing.Size(1207, 611);
-            this.txt_result_triggle.TabIndex = 1;
-            this.txt_result_triggle.WordWrap = false;
             // 
             // txt_result_method
             // 
@@ -286,6 +229,82 @@
             this.txt_result_method.TabIndex = 1;
             this.txt_result_method.WordWrap = false;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgv_1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1207, 611);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Table-1";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgv_1
+            // 
+            this.dgv_1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_1.Location = new System.Drawing.Point(0, 0);
+            this.dgv_1.Name = "dgv_1";
+            this.dgv_1.Size = new System.Drawing.Size(1207, 611);
+            this.dgv_1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dgv_2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1207, 611);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Table-2";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dgv_2
+            // 
+            this.dgv_2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_2.Location = new System.Drawing.Point(0, 0);
+            this.dgv_2.Name = "dgv_2";
+            this.dgv_2.Size = new System.Drawing.Size(1207, 611);
+            this.dgv_2.TabIndex = 1;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.dgv_3);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(1207, 611);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Table-3";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // dgv_3
+            // 
+            this.dgv_3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_3.Location = new System.Drawing.Point(0, 0);
+            this.dgv_3.Name = "dgv_3";
+            this.dgv_3.Size = new System.Drawing.Size(1207, 611);
+            this.dgv_3.TabIndex = 3;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.dgv_4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1207, 611);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Table-4";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dgv_4
+            // 
+            this.dgv_4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_4.Location = new System.Drawing.Point(0, 0);
+            this.dgv_4.Name = "dgv_4";
+            this.dgv_4.Size = new System.Drawing.Size(1207, 611);
+            this.dgv_4.TabIndex = 2;
+            // 
             // browser
             // 
             this.browser.Location = new System.Drawing.Point(3, 4);
@@ -293,25 +312,6 @@
             this.browser.Name = "browser";
             this.browser.Size = new System.Drawing.Size(1200, 600);
             this.browser.TabIndex = 0;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.dgv_position_deep);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1207, 611);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "[Analyse] Table-Position-Deep";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // dgv_position_deep
-            // 
-            this.dgv_position_deep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_position_deep.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_position_deep.Location = new System.Drawing.Point(0, 0);
-            this.dgv_position_deep.Name = "dgv_position_deep";
-            this.dgv_position_deep.Size = new System.Drawing.Size(1207, 611);
-            this.dgv_position_deep.TabIndex = 3;
             // 
             // frm_web_browser
             // 
@@ -328,18 +328,18 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_position)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_analyse)).EndInit();
-            this.tabPage5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_analyse_deep)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_1)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_2)).EndInit();
             this.tabPage8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_position_deep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_3)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,18 +356,18 @@
         private System.Windows.Forms.TextBox txt_result;
         private System.Windows.Forms.Button btn_analyse;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dgv_position;
+        private System.Windows.Forms.DataGridView dgv_1;
         private System.Windows.Forms.Button btn_script;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dgv_analyse;
+        private System.Windows.Forms.DataGridView dgv_2;
         private System.Windows.Forms.Button btn_method;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.DataGridView dgv_analyse_deep;
+        private System.Windows.Forms.DataGridView dgv_4;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TextBox txt_result_triggle;
+        private System.Windows.Forms.TextBox txt_result_script;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TextBox txt_result_method;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.DataGridView dgv_position_deep;
+        private System.Windows.Forms.DataGridView dgv_3;
     }
 }
