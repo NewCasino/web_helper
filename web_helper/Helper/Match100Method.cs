@@ -277,30 +277,38 @@ class Match100Method
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
         string result = "";
-
-        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        //try
+        //{
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser);
+        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
-        ArrayList odds = new ArrayList();
-        for (int i = 0; i < dt.Rows.Count - 2; i++)
+        ArrayList odds = new ArrayList(); 
+
+        for (int i = 0; i < dt.Rows.Count; i++)
         {
-            string txt1 = dt.Rows[i]["557"].ToString().Replace("●", "");
-            string txt2 = dt.Rows[i]["984"].ToString().Replace("●", "").Trim();
-            if (!string.IsNullOrEmpty(txt2) && Match100Helper.is_odd_str(txt2))
+            if (!string.IsNullOrEmpty(dt.Rows[i][4].ToString()) && dt.Rows[i][4].ToString().Contains("1X2") == false)
             {
-                teams.Add(txt1);
-                odds.Add(txt2);
-            }
-        }
-        for (int i = 0; i < teams.Count; i++)
-        {
-            if (i + 2 < teams.Count)
-            {
-                result = result + teams[i].PR(20) + teams[i + 1].PR(20) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
-                i = i + 2;
+                times.Add(dt.Rows[i][0].ToString());
+                teams.Add(dt.Rows[i][2].ToString());
+                odds.Add(dt.Rows[i][4].ToString());
             }
         }
 
-
+        
+        for (int i = 0; i < times.Count; i++)
+        {
+            if ((i + 2) < times.Count)
+            {
+                result = result + (times[i].ToString() +" "+ times[i + 1].ToString()).PR(20) + teams[i].PR(50) + teams[i + 1].PR(50) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
+            }
+            i = i + 2; 
+        }
+        //}
+        //catch (Exception error)
+        //{
+        //    result = error.Message + Environment.NewLine + error.StackTrace;
+        //}
         doc_result["data"] = result;
         return doc_result;
     }

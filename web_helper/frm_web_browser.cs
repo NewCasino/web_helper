@@ -56,22 +56,22 @@ namespace web_helper
             this.dgv_3.DataSource = dt_analyse;
             
 
-            List<BsonDocument> docs = BrowserHelper.get_all_elments(ref browser);
-            sb.AppendLine("TYPE".PR(15) +"ID".PR(15)+"offsetHeight".PR(15)+"offfsetTop".PR(15)+"clientTop".PR(15)+"scrollTop".PR(15)+ "TEXT".PR(30));
-            sb.AppendLine("----------------------------------------------------------------------------------------------------");
-            foreach (BsonDocument doc in docs)
-            {
-                sb.Append(doc["type"].PR(15));
-                sb.Append(doc["id"].PR(15));
-                sb.Append(doc["offsetHeight"].PR(15));
-                sb.Append(doc["offsetTop"].PR(15));
-                sb.Append(doc["clientTop"].PR(15));
-                sb.Append(doc["scrollTop"].PR(15));
-                sb.Append(doc["text"].ToString().PR(30));
-                sb.Append(doc["attrs"].ToString());
-                sb.Append(Environment.NewLine);
-            }
-            this.txt_result.Text = sb.ToString();
+            //List<BsonDocument> docs = BrowserHelper.get_all_elments(ref browser);
+            //sb.AppendLine("TYPE".PR(15) +"ID".PR(15)+"offsetHeight".PR(15)+"offfsetTop".PR(15)+"clientTop".PR(15)+"scrollTop".PR(15)+ "TEXT".PR(30));
+            //sb.AppendLine("----------------------------------------------------------------------------------------------------");
+            //foreach (BsonDocument doc in docs)
+            //{
+            //    sb.Append(doc["type"].PR(15));
+            //    sb.Append(doc["id"].PR(15));
+            //    sb.Append(doc["offsetHeight"].PR(15));
+            //    sb.Append(doc["offsetTop"].PR(15));
+            //    sb.Append(doc["clientTop"].PR(15));
+            //    sb.Append(doc["scrollTop"].PR(15));
+            //    sb.Append(doc["text"].ToString().PR(30));
+            //    sb.Append(doc["attrs"].ToString());
+            //    sb.Append(Environment.NewLine);
+            //}
+            //this.txt_result.Text = sb.ToString();
             MessageBox.Show("analyse ok!");
         }
         private void btn_script_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace web_helper
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            BsonDocument doc = method.from_10bet_2(ref browser);
+            BsonDocument doc = method.from_pinnaclesports_1(ref browser);
             this.txt_result_method.Text = doc["data"].ToString();
         }
         private void txt_result_TextChanged(object sender, EventArgs e)

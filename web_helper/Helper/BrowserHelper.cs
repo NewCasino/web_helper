@@ -1559,6 +1559,10 @@ class BrowserHelper
                 get_absolute4(ref ielement_input, ref left, ref top);
                 get_child_text(ref ielement_input, ref text);
 
+                if (string.IsNullOrEmpty(text.Replace("●", "").Replace(" ", "").Trim()))
+                {
+                    text = ielement.innerText;
+                }
                 row_new["left"] = left;
                 row_new["top"] = top;
                 row_new["width"] = ielement.offsetWidth;
@@ -1585,7 +1589,7 @@ class BrowserHelper
     {
         string tag_name = ielement.tagName.ToLower().Trim();
         string html = ielement.innerHTML == null ? "" : ielement.innerHTML.ToLower().Trim();
-        if (tag_name.Contains("div") ||
+        if (//tag_name.Contains("div") ||
             tag_name.Contains("li") ||
             tag_name.Contains("ol") ||
             tag_name.Contains("td") ||
@@ -1595,8 +1599,7 @@ class BrowserHelper
             tag_name.Contains("dl")
             )
         {
-            if (html.Contains("<div") ||
-
+            if (//html.Contains("<div") ||
                 html.Contains("<li") ||
                 html.Contains("<ol") ||
                 html.Contains("<td") ||
@@ -1612,11 +1615,11 @@ class BrowserHelper
     public static void get_child_text(ref IHTMLElement element, ref string txt)
     {
         if (element == null) return;
-        if (((IHTMLElementCollection)element.children).length == 1 && element.innerHTML != null && element.innerHTML.ToLower().Trim().Contains("<br") == true)
-        {
-            txt = txt + element.innerHTML + "●";
-            return;
-        }
+        //if (((IHTMLElementCollection)element.children).length == 1 && element.innerHTML != null && element.innerHTML.ToLower().Trim().Contains("<br") == true)
+        //{
+        //    txt = txt + element.innerHTML + "●";
+        //    return;
+        //}
         if (((IHTMLElementCollection)element.children).length == 0)
         {
             txt = txt + element.innerText + "●";
