@@ -82,14 +82,12 @@ public class JsonBeautify
     {
         return new StringBuilder().Insert(0, str, count).ToString();
     }
-
     public static bool IsEscaped( string str, int index)
     {
         bool escaped = false;
         while (index > 0 && str[--index] == '\\') escaped = !escaped;
         return escaped;
     }
-
     public static bool IsEscaped( StringBuilder str, int index)
     {
         return  IsEscaped(str.ToString(),index);

@@ -38,7 +38,7 @@ class Match100Helper
         doc_result.Add("data", "");
         doc_result.Add("loop", new BsonArray());
         return doc_result;
-    }
+    } 
     public void insert_data(string company, string type, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose)
     {
         string sql = "";
@@ -89,15 +89,17 @@ class Match100Helper
                 
                 
                 string column_name = dt.Columns[j].ColumnName;
-                if (string.IsNullOrEmpty(dt_analyse.Rows[i][column_name].ToString().Replace(" ", "").Trim())) continue;
-
+                if (string.IsNullOrEmpty(dt_analyse.Rows[i][column_name].ToString().Replace(Environment.NewLine,"").Replace(" ", "").Trim())) continue; 
                 is_use = true;
                 string text = "";
                 string value = dt_analyse.Rows[i][column_name].ToString();
                 string[] list = value.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string item in list)
                 {
-                    text = text + item + "●";
+                    if (!string.IsNullOrEmpty(item.Replace(Environment.NewLine,"").Replace(" ","").Trim()))
+                    {
+                        text = text + item + "●";
+                    }
                 }
                 if (text.Length > 1) text = text.Substring(0, text.Length - 1);
                 row_new[column_name] = text;

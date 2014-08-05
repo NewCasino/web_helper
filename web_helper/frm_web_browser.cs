@@ -27,7 +27,7 @@ namespace web_helper
         private void frm_web_browser_Load(object sender, EventArgs e)
         {
 
-            this.txt_url.Text = Environment.CurrentDirectory.Replace(@"bin\Debug", "").Replace(@"bin\x86\Debug", "") + @"data\test_web\all.htm";
+            this.txt_url.Text = Environment.CurrentDirectory.Replace(@"bin\Debug", "").Replace(@"bin\x86\Debug", "") + @"data\test_web\test.htm";
             this.browser.ScriptErrorsSuppressed = true; 
         }
         private void btn_navigate_Click(object sender, EventArgs e)
@@ -46,18 +46,19 @@ namespace web_helper
         {
             sb.Remove(0, sb.ToString().Length);
             if (browser.Document == null) return;
- 
-            DataTable dt_position = BrowserHelper.get_position_table4(ref browser);
-            DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser);
+
+            BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+            DataTable dt_position = BrowserHelper.get_position_table4(ref browser,ref doc_condition);
+            DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser,ref doc_condition);
         
             DataTable dt_match = Match100Helper.get_match_table(dt_analyse);
             this.dgv_1.DataSource = dt_match;
             this.dgv_2.DataSource = dt_position;
             this.dgv_3.DataSource = dt_analyse;
-            
+
 
             //List<BsonDocument> docs = BrowserHelper.get_all_elments(ref browser);
-            //sb.AppendLine("TYPE".PR(15) +"ID".PR(15)+"offsetHeight".PR(15)+"offfsetTop".PR(15)+"clientTop".PR(15)+"scrollTop".PR(15)+ "TEXT".PR(30));
+            //sb.AppendLine("TYPE".PR(15) + "ID".PR(15) + "offsetHeight".PR(15) + "offfsetTop".PR(15) + "clientTop".PR(15) + "scrollTop".PR(15) + "TEXT".PR(30));
             //sb.AppendLine("----------------------------------------------------------------------------------------------------");
             //foreach (BsonDocument doc in docs)
             //{
@@ -68,7 +69,7 @@ namespace web_helper
             //    sb.Append(doc["clientTop"].PR(15));
             //    sb.Append(doc["scrollTop"].PR(15));
             //    sb.Append(doc["text"].ToString().PR(30));
-            //    sb.Append(doc["attrs"].ToString());
+            //    sb.Append(doc["html"].ToString());
             //    sb.Append(Environment.NewLine);
             //}
             //this.txt_result.Text = sb.ToString();

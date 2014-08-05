@@ -1,0 +1,624 @@
+英超联赛对照表
+ 序   联赛  联赛全称 球队全称 球队简称 繁体粤语译音 英文队名
+1 英超 英格兰足球超级联赛 阿森纳 阿森纳 阿仙奴 Arsenal
+2 英超 英格兰足球超级联赛 阿斯顿维拉 维 拉 阿士東維拉 Aston Villa
+3 英超 英格兰足球超级联赛 布莱克本 布莱克 布力般流浪 Blackburn Rovers
+4 英超 英格兰足球超级联赛 博尔顿 博尔顿 保頓 Bolton Wanderers
+5 英超 英格兰足球超级联赛 查尔顿竞技 查尔顿 查爾頓 Charlton Athletic
+6 英超 英格兰足球超级联赛 切尔西 切尔西 車路士 Tottenham
+7 英超 英格兰足球超级联赛 埃弗顿 埃弗顿 愛華頓 Everton
+8 英超 英格兰足球超级联赛 富勒姆 富勒姆 富咸 Fulham
+9 英超 英格兰足球超级联赛 利物浦 利物浦 利物浦 Liverpool
+10 英超 英格兰足球超级联赛 曼彻斯特联队 曼 联 曼聯 Man. Utd
+11 英超 英格兰足球超级联赛 曼彻斯特城队 曼 城 曼城 Manchester City
+12 英超 英格兰足球超级联赛 米德尔斯堡 米德尔 米杜士堡 Middlesbrough
+13 英超 英格兰足球超级联赛 纽卡斯尔联队 纽卡斯 紐卡素 Newcastle Utd
+14 英超 英格兰足球超级联赛 朴茨茅斯 朴茨茅 樸茨茅夫 Portsmouth
+15 英超 英格兰足球超级联赛 雷丁 雷 丁 雷丁 Reading
+16 英超 英格兰足球超级联赛 谢菲尔德联队 谢菲联 錫菲聯 Sheffield Utd
+17 英超 英格兰足球超级联赛 托特纳姆热刺 热 刺 熱刺 Tottenham
+18 英超 英格兰足球超级联赛 沃特福德 沃特福 屈福特 Watford
+19 英超 英格兰足球超级联赛 西汉姆联队 西汉姆 韋斯咸 West Ham
+20 英超 英格兰足球超级联赛 维冈竞技 维 冈 韋根 Wigan Athletic
+ 英冠联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 英冠 英格兰足球冠军联赛 巴恩斯利 班士利 Barnsley
+2 英冠 英格兰足球冠军联赛 伯明翰城 伯明翰 Birmingham
+3 英冠 英格兰足球冠军联赛 伯恩利 般尼 Birmingham
+4 英冠 英格兰足球冠军联赛 卡迪夫城 卡迪夫城 Cardiff City
+5 英冠 英格兰足球冠军联赛 科切斯特联 高車士打 Colchester
+6 英冠 英格兰足球冠军联赛 考文垂 高雲地利 Coventry City
+7 英冠 英格兰足球冠军联赛 水晶宫 水晶宮 Crystal Palace
+8 英冠 英格兰足球冠军联赛 德比郡 打比郡 Derby County
+9 英冠 英格兰足球冠军联赛 赫尔城 侯城 Hull City
+10 英冠 英格兰足球冠军联赛 伊普斯维奇 葉士域治 Ipswich Town
+11 英冠 英格兰足球冠军联赛 利兹联 列斯聯 Leeds Utd
+12 英冠 英格兰足球冠军联赛 莱切斯特城 李斯特城 Leicester City
+13 英冠 英格兰足球冠军联赛 卢顿 盧頓 Luton Town
+14 英冠 英格兰足球冠军联赛 诺维奇城 諾域治 Norwich City
+15 英冠 英格兰足球冠军联赛 普利茅斯 普利茅夫 Plymouth Argyle
+16 英冠 英格兰足球冠军联赛 普雷斯顿 普雷斯頓 Preston North End
+17 英冠 英格兰足球冠军联赛 女王公园巡游者 昆士柏流浪 QPR
+18 英冠 英格兰足球冠军联赛 谢周三 錫周三 Sheffield Wed
+19 英冠 英格兰足球冠军联赛 南安普顿 修咸頓 Southampton
+20 英冠 英格兰足球冠军联赛 修安联 修安聯 Southend Utd
+21 英冠 英格兰足球冠军联赛 斯托克城 史篤城 Stoke City
+22 英冠 英格兰足球冠军联赛 桑德兰 新特蘭 Sunderland
+23 英冠 英格兰足球冠军联赛 西布朗维奇 西布朗 West Brom
+24 英冠 英格兰足球冠军联赛 狼队 狼隊 Wolves
+ 
+英甲联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 英甲 英格兰足球甲级联赛 布莱克普 黑池 Blackpool
+2 英甲 英格兰足球甲级联赛 伯恩茅斯 般尼茅夫 Bournemouth
+3 英甲 英格兰足球甲级联赛 布拉德福德 巴拉福特 Bradford City
+4 英甲 英格兰足球甲级联赛 布伦特福德 賓福特 Brentford
+5 英甲 英格兰足球甲级联赛 布莱顿 白禮頓 Brighton
+6 英甲 英格兰足球甲级联赛 布里斯托城 布里斯托城 Bristol City
+7 英甲 英格兰足球甲级联赛 卡利斯尔联 卡利斯勒 Carlisle
+8 英甲 英格兰足球甲级联赛 切尔滕汉姆 車頓咸 Cheltenham
+9 英甲 英格兰足球甲级联赛 切斯特菲尔德 車士打菲特 Chesterfield
+10 英甲 英格兰足球甲级联赛 克鲁 克魯 Crewe
+11 英甲 英格兰足球甲级联赛 唐卡斯特 唐卡士打 Doncaster
+12 英甲 英格兰足球甲级联赛 吉林汉姆 基寧咸 Gillingham
+13 英甲 英格兰足球甲级联赛 哈德斯菲尔德 哈德斯菲爾德 Huddersfield Town
+14 英甲 英格兰足球甲级联赛 莱顿东方 萊頓東方 Leyton Orient
+15 英甲 英格兰足球甲级联赛 米尔沃尔 米禾爾 Millwall
+16 英甲 英格兰足球甲级联赛 北安普顿 諾咸頓 Northampton
+17 英甲 英格兰足球甲级联赛 诺丁汉森林 諾定咸森林 Nottm Forest
+18 英甲 英格兰足球甲级联赛 奥德汉姆 奥咸 Oldham Athletic
+19 英甲 英格兰足球甲级联赛 维尔港 維爾港 Port Vale
+20 英甲 英格兰足球甲级联赛 罗瑟汉姆 洛達咸 Rotherham
+21 英甲 英格兰足球甲级联赛 斯坎索普 斯肯索普 Scunthorpe Utd
+22 英甲 英格兰足球甲级联赛 斯旺西 史雲斯 Swansea City
+23 英甲 英格兰足球甲级联赛 特兰米尔 燦美爾 Tranmere Rovers
+24 英甲 英格兰足球甲级联赛 耶奥维尔 伊奧華 Yeovil Town
+ 
+意甲联赛对照表
+ 序   联赛  联赛全称 球队全称 球队简称 繁体粤语译音 英文队名
+1 意甲 意大利足球甲级联赛 阿斯科利 阿斯科 阿斯科利 Ascoli
+2 意甲 意大利足球甲级联赛 亚特兰大 亚特兰 阿特蘭大 Atalanta
+3 意甲 意大利足球甲级联赛 卡利亚里 卡利亚 卡利亞里 Cagliari
+4 意甲 意大利足球甲级联赛 卡坦尼亚 卡塔尼 卡坦尼亞 Catania
+5 意甲 意大利足球甲级联赛 切沃 切 沃 切禾 Chievo
+6 意甲 意大利足球甲级联赛 恩波利 恩波利 恩波里 Empoli
+7 意甲 意大利足球甲级联赛 佛罗伦萨 佛罗伦 費倫天拿 Fiorentina
+8 意甲 意大利足球甲级联赛 国际米兰 国 米 國際米蘭 Inter
+9 意甲 意大利足球甲级联赛 拉齐奥 拉齐奥 拉素 Lazio
+10 意甲 意大利足球甲级联赛 利沃尔诺 利沃诺 利禾奴 Livorno
+11 意甲 意大利足球甲级联赛 梅西纳 梅西纳 麥斯納 Messina
+12 意甲 意大利足球甲级联赛 AC米兰 AC米兰 AC米蘭 Milan
+13 意甲 意大利足球甲级联赛 巴勒莫 巴勒莫 巴勒莫 Palermo
+14 意甲 意大利足球甲级联赛 帕尔玛 帕尔玛 帕爾馬 Parma
+15 意甲 意大利足球甲级联赛 雷吉纳 雷吉纳 里賈納 Reggina
+16 意甲 意大利足球甲级联赛 罗马 罗 马 羅馬 Roma
+17 意甲 意大利足球甲级联赛 桑普多利亚 桑普多 森多利亞 Sampdoria
+18 意甲 意大利足球甲级联赛 锡耶纳 锡耶纳 錫耶納 Siena
+19 意甲 意大利足球甲级联赛 都灵 都 灵 拖連奴 Torino
+20 意甲 意大利足球甲级联赛 乌迪内斯 乌迪内 烏甸尼斯 Udinese
+ 
+意乙联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 意乙 意大利足球乙级联赛 阿尔比诺勒菲 艾賓奴列夫 Albinoleffe
+2 意乙 意大利足球乙级联赛 阿雷佐 阿雷素 Arezzo
+3 意乙 意大利足球乙级联赛 巴里 巴里 Bari
+4 意乙 意大利足球乙级联赛 博洛尼亚 博洛尼亞 Bologna
+5 意乙 意大利足球乙级联赛 布雷西亚 布雷西亞 Brescia
+6 意乙 意大利足球乙级联赛 切塞纳 切辛納 Cesena
+7 意乙 意大利足球乙级联赛 克罗托内 克羅托內 Crotone
+8 意乙 意大利足球乙级联赛 弗洛西诺尼 弗洛辛諾內 Frosinone
+9 意乙 意大利足球乙级联赛 热那亚 熱拿亞 Genoa
+10 意乙 意大利足球乙级联赛 尤文图斯 祖雲達斯 Juventus
+11 意乙 意大利足球乙级联赛 莱切 萊切 Lecce
+12 意乙 意大利足球乙级联赛 曼托瓦 曼托瓦 Mantova
+13 意乙 意大利足球乙级联赛 摩德纳 摩德納 Modena
+14 意乙 意大利足球乙级联赛 那不勒斯 拿玻里 Napoli
+15 意乙 意大利足球乙级联赛 比斯卡拉 比斯卡拉 Pescara
+16 意乙 意大利足球乙级联赛 皮亚琴察 皮亞琴察 Piacenza
+17 意乙 意大利足球乙级联赛 里米尼 里米尼 Rimini
+18 意乙 意大利足球乙级联赛 斯佩齐亚 士比西亞 Spezia
+19 意乙 意大利足球乙级联赛 泰列维素 泰列維素 Treviso
+20 意乙 意大利足球乙级联赛 特里埃斯蒂纳 泰利斯天拿 Triestina
+21 意乙 意大利足球乙级联赛 维罗纳 維羅納 Verona
+22 意乙 意大利足球乙级联赛 维琴察 維琴察 Vicenza
+ 
+西甲联赛对照表
+ 序   联赛  联赛全称 球队全称 球队简称 繁体粤语译音 英文队名
+1 西甲 西班牙足球甲级联赛 毕尔巴鄂竞技 毕尔巴 畢爾包 Athletic Bilbao
+2 西甲 西班牙足球甲级联赛 马德里竞技 马竞技 馬德里體育會 Atletico Madrid
+3 西甲 西班牙足球甲级联赛 巴塞罗那 巴 萨 巴塞隆拿 Barcelona
+4 西甲 西班牙足球甲级联赛 塞尔塔维戈 塞尔塔 切爾達 Celta de Vigo
+5 西甲 西班牙足球甲级联赛 拉科鲁尼亚 拉科鲁 拉科魯尼亞 Deportivo La corua
+6 西甲 西班牙足球甲级联赛 西班牙人 西班牙 愛斯賓奴 Espanyol
+7 西甲 西班牙足球甲级联赛 赫塔菲 赫塔菲 加泰 Getafe
+8 西甲 西班牙足球甲级联赛 塔拉戈纳体育 塔拉戈 塔拉哥納 Gimnastic Tarragona
+9 西甲 西班牙足球甲级联赛 莱万特 莱万特 利雲特 Levante
+10 西甲 西班牙足球甲级联赛 皇家马洛卡 马洛卡 馬略卡 Mallorca
+11 西甲 西班牙足球甲级联赛 奥萨苏纳 奥萨苏 奧沙辛拿 Osasuna
+12 西甲 西班牙足球甲级联赛 皇家贝蒂斯 贝蒂斯 貝迪斯 Real Betis Sevilla
+13 西甲 西班牙足球甲级联赛 皇家马德里 皇 马 皇家馬德里 Real Madrid
+14 西甲 西班牙足球甲级联赛 皇家社会 社 会 皇家蘇斯達 Real Sociedad
+15 西甲 西班牙足球甲级联赛 维尔瓦 维尔瓦 維爾瓦 Recre Huelva
+16 西甲 西班牙足球甲级联赛 桑坦德竞技 桑坦德 桑坦德 Santander
+17 西甲 西班牙足球甲级联赛 塞维利亚 塞维利 西維爾 Sevilla
+18 西甲 西班牙足球甲级联赛 瓦伦西亚 瓦伦西 華倫西亞 Valencia
+19 西甲 西班牙足球甲级联赛 维拉利尔 维拉利 維拉利爾 Villarreal
+20 西甲 西班牙足球甲级联赛 萨拉戈萨 萨拉戈 薩拉戈薩 Zaragoza
+ 
+西乙联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 西乙 西班牙足球乙级联赛 阿拉维斯 艾拉維斯 Alaves
+2 西乙 西班牙足球乙级联赛 阿尔巴切特 阿爾巴塞特 Albacete
+3 西乙 西班牙足球乙级联赛 阿尔梅里亚 艾美利亞 Almeria
+4 西乙 西班牙足球乙级联赛 卡迪兹 卡迪斯 Cadiz
+5 西乙 西班牙足球乙级联赛 卡斯特隆 卡斯迪隆 Castellon
+6 西乙 西班牙足球乙级联赛 梅西亚城 梅西亞城 Ciudad de Murcia
+7 西乙 西班牙足球乙级联赛 艾尔切 艾爾切 Elche
+8 西乙 西班牙足球乙级联赛 赫库斯 靴格拉斯 Hercules
+9 西乙 西班牙足球乙级联赛 拉斯帕尔马斯 拉斯彭馬斯 Las Palmas
+10 西乙 西班牙足球乙级联赛 罗卡竞技 洛卡 Lorca
+11 西乙 西班牙足球乙级联赛 马拉加 馬拉加 Malaga
+12 西乙 西班牙足球乙级联赛 穆西亚 梅西亞 Murcia
+13 西乙 西班牙足球乙级联赛 努曼西亚 紐文西亞 Numancia
+14 西乙 西班牙足球乙级联赛 艾积多 艾積多 Pol. Ejido
+15 西乙 西班牙足球乙级联赛 邦费雷迪纳 邦弗拉甸拿 Ponferradina
+16 西乙 西班牙足球乙级联赛 皇家马德里B队 皇家馬德里B隊 R.Madrid B
+17 西乙 西班牙足球乙级联赛 希洪竞技 希杭 Real Sporting Gijon
+18 西乙 西班牙足球乙级联赛 沙拉曼卡 沙拉曼卡 Salamanca
+19 西乙 西班牙足球乙级联赛 特内里费 特內里費 Tenerife
+20 西乙 西班牙足球乙级联赛 巴拉多利德 華拉度列 Valladolid
+21 西乙 西班牙足球乙级联赛 贝辛德里奥 維辛達利奧 Vecindario
+22 西乙 西班牙足球乙级联赛 萨雷斯 薩雷斯 Xerez
+ 
+德甲联赛对照表
+ 序   联赛  联赛全称 球队全称 球队简称 繁体粤语译音 英文队名
+1 德甲 德国足球甲级联赛 亚琛 亚 琛 亞琛 Alemannia Aachen
+2 德甲 德国足球甲级联赛 比勒菲尔德 比勒菲 比勒費爾德 Arminia Bielefeld
+3 德甲 德国足球甲级联赛 多特蒙德 多 特 多蒙特 B.Dortmund
+4 德甲 德国足球甲级联赛 拜仁慕尼黑 拜 仁 拜仁慕尼黑 Bayern Munchen
+5 德甲 德国足球甲级联赛 法兰克福 法兰克 法蘭克福 Eintracht Frankfurt
+6 德甲 德国足球甲级联赛 科特布斯 科特布 科特布斯 Energie Cottbus
+7 德甲 德国足球甲级联赛 美因茨05 美因茨 緬恩斯 FSV Mainz 05
+8 德甲 德国足球甲级联赛 门兴格拉德巴赫 门 兴 慕遜加柏 Gladbach
+9 德甲 德国足球甲级联赛 汉堡 汉 堡 漢堡 Hamburger SV
+10 德甲 德国足球甲级联赛 汉诺威96 汉诺威 漢諾威 Hannover 96
+11 德甲 德国足球甲级联赛 柏林赫塔 赫 塔 哈化柏林 Hertha Berlin
+12 德甲 德国足球甲级联赛 勒沃库森 勒 沃 利華古遜 Leverkusen
+13 德甲 德国足球甲级联赛 纽伦堡 纽伦堡 紐倫堡 Nürnberg
+14 德甲 德国足球甲级联赛 沙尔克04 沙尔克 史浩克零四 Schalke 04
+15 德甲 德国足球甲级联赛 斯图加特 斯图加 史特加 VfB Stuttgart
+16 德甲 德国足球甲级联赛 波鸿 波 鸿 波琴 VfL Bochum
+17 德甲 德国足球甲级联赛 云达不莱梅 不莱梅 雲達不萊梅 Werder Bremen
+18 德甲 德国足球甲级联赛 沃尔夫斯堡 沃尔夫 沃爾夫斯堡 Wolfsburg
+ 
+德乙联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 德乙 德国足球乙级联赛 科隆 科隆 1.FC K?ln
+2 德乙 德国足球乙级联赛 慕尼黑1860 慕尼黑1860 1860 münchen
+3 德乙 德国足球乙级联赛 卡尔蔡斯耶拿 卡爾蔡斯耶拿 Carl Zeiss Jena
+4 德乙 德国足球乙级联赛 布伦瑞克 布倫斯維克 E.Braunschweig
+5 德乙 德国足球乙级联赛 艾尔格博格 奧厄 Erzgebirge Aue
+6 德乙 德国足球乙级联赛 奥斯堡 奥斯堡 FC Augsburg
+7 德乙 德国足球乙级联赛 菲尔特 格雷特霍夫 Greuther Fürth
+8 德乙 德国足球乙级联赛 罗斯托克 羅斯托克 Hansa Rostock
+9 德乙 德国足球乙级联赛 凯泽斯劳滕 凱沙羅頓 Kaiserslautern
+10 德乙 德国足球乙级联赛 卡尔斯鲁厄 卡斯魯厄 Karlsruher SC
+11 德乙 德国足球乙级联赛 奥芬巴赫 奥芬巴赫 Kickers Offenbach
+12 德乙 德国足球乙级联赛 杜伊斯堡 杜伊斯堡 MSV Duisburg
+13 德乙 德国足球乙级联赛 埃森 艾遜 Rot-Weiss Essen
+14 德乙 德国足球乙级联赛 弗赖堡 費雷堡 SC Freiburg
+15 德乙 德国足球乙级联赛 佩德伯恩 柏德博恩 SC Paderborn 07
+16 德乙 德国足球乙级联赛 科布伦茨 高賓斯 TuS Koblenz
+17 德乙 德国足球乙级联赛 翁特哈兴 安達赫治 Unterhaching
+18 德乙 德国足球乙级联赛 布格豪森 貝豪森 Wacker Burghausen
+ 
+法甲联赛对照表
+ 序   联赛  联赛全称 球队全称 球队简称 繁体粤语译音 英文队名
+1 法甲 法国足球甲级联赛 欧塞尔 欧塞尔 歐塞爾 AJ Auxerre
+2 法甲 法国足球甲级联赛 摩纳哥 摩纳哥 摩納哥 AS Monaco
+3 法甲 法国足球甲级联赛 圣埃蒂安 埃蒂安 聖伊天 AS Saint Etienne
+4 法甲 法国足球甲级联赛 南锡 南 锡 南錫 ASNL Nancy
+5 法甲 法国足球甲级联赛 色当 色 当 色當 CS Sedan
+6 法甲 法国足球甲级联赛 特鲁瓦 特鲁瓦 特魯瓦 ES Troyes
+7 法甲 法国足球甲级联赛 洛里昂 洛里昂 羅連安特 FC Lorient
+8 法甲 法国足球甲级联赛 南特 南 特 南特 FC Nantes
+9 法甲 法国足球甲级联赛 索肖 索 肖 索察 FC Sochaux
+10 法甲 法国足球甲级联赛 波尔多 波尔多 波爾多 Girondins Bordeaux
+11 法甲 法国足球甲级联赛 里尔 里 尔 利爾 LOSC Lille
+12 法甲 法国足球甲级联赛 勒芒 勒 芒 利文斯 Le Mans UC
+13 法甲 法国足球甲级联赛 尼斯 尼 斯 奈斯 OGC Nice
+14 法甲 法国足球甲级联赛 里昂 里 昂 里昂 Olympique Lyonnais
+15 法甲 法国足球甲级联赛 马赛 马 赛 馬賽 Olympique Marseille
+16 法甲 法国足球甲级联赛 巴黎圣日尔曼 日尔曼 巴黎聖日門 Paris Saint Germain
+17 法甲 法国足球甲级联赛 朗斯 朗 斯 朗斯 RC Lens
+18 法甲 法国足球甲级联赛 图卢兹 图卢兹 圖魯玆 Toulouse FC
+19 法甲 法国足球甲级联赛 瓦朗谢纳 瓦朗谢 華倫辛尼斯 Valenciennes
+20 法甲 法国足球甲级联赛 雷恩 雷 恩 雷恩 stade rennais
+ 
+法乙联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 法乙 法国足球乙级联赛 阿雅克修 阿些斯奧 AC Ajaccio
+2 法乙 法国足球乙级联赛 亚眠 阿美恩斯 Amiens SC
+3 法乙 法国足球乙级联赛 尼奥尔 尼奥特 Chamois Niortais
+4 法乙 法国足球乙级联赛 迪卓恩 迪卓恩 Dijon FCO
+5 法乙 法国足球乙级联赛 甘冈 吉英坎 EA Guingamp
+6 法乙 法国足球乙级联赛 格尼翁 古格奴 FC Gueugnon
+7 法乙 法国足球乙级联赛 伊斯特 伊斯特 FC Istres
+8 法乙 法国足球乙级联赛 梅兹 梅斯 FC Metz
+9 法乙 法国足球乙级联赛 格勒诺布尔 格蘭奴堡 Grenoble Foot
+10 法乙 法国足球乙级联赛 勒阿弗尔 勒哈費爾 HAC Le Havre
+11 法乙 法国足球乙级联赛 萨托鲁 沙特魯 LB Chateauroux
+12 法乙 法国足球乙级联赛 莱堡瑞尼 利堡尼 Libourne
+13 法乙 法国足球乙级联赛 蒙彼利埃 蒙彼利埃 Montpellier HSC
+14 法乙 法国足球乙级联赛 斯特拉斯堡 史特拉斯堡 RC Strasbourg
+15 法乙 法国足球乙级联赛 巴斯蒂亚 巴斯蒂亞 SC Bastia
+16 法乙 法国足球乙级联赛 卡昂 卡昂 SM Caen
+17 法乙 法国足球乙级联赛 布雷斯特 比斯特 Stade Brestois 29
+18 法乙 法国足球乙级联赛 兰斯 蘭斯 Stade de Reims
+19 法乙 法国足球乙级联赛 图尔斯 圖爾斯 Tours
+20 法乙 法国足球乙级联赛 克雷泰伊 克雷特力 US Créteil
+ 
+荷甲联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 荷甲 荷兰足球甲级联赛 艾克马亚 艾克馬亞 AZ Alkmaar
+2 荷甲 荷兰足球甲级联赛 阿贾克斯 阿積士 Ajax
+3 荷甲 荷兰足球甲级联赛 海牙 海牙 Den haag
+4 荷甲 荷兰足球甲级联赛 SBV精英 SBV精英隊 Excelsior
+5 荷甲 荷兰足球甲级联赛 费耶诺德 飛燕諾 Feyenoord
+6 荷甲 荷兰足球甲级联赛 高宁根 高寧根 Groningen
+7 荷甲 荷兰足球甲级联赛 海伦维恩 海倫維恩 Heerenveen
+8 荷甲 荷兰足球甲级联赛 赫拉克莱斯 荷華高斯 Heracles Almelo
+9 荷甲 荷兰足球甲级联赛 布雷达 比達 NAC Breda
+10 荷甲 荷兰足球甲级联赛 NEC尼美根 NEC尼美根 NEC Nijmegen
+11 荷甲 荷兰足球甲级联赛 PSV埃因霍温 PSV燕豪芬 PSV Eindhoven
+12 荷甲 荷兰足球甲级联赛 RKC瓦尔韦克 RKC華域克 RKC Waalwijk
+13 荷甲 荷兰足球甲级联赛 洛达 洛達 Roda JC
+14 荷甲 荷兰足球甲级联赛 鹿特丹斯巴达 鹿特丹斯巴達 Sparta Rotterdam
+15 荷甲 荷兰足球甲级联赛 川迪 川迪 Twente
+16 荷甲 荷兰足球甲级联赛 乌德勒支 烏德勒支 Utrecht
+17 荷甲 荷兰足球甲级联赛 维迪斯 維迪斯 Vitesse Arnhem
+18 荷甲 荷兰足球甲级联赛 威廉二世 威廉二世 Willem II
+ 
+葡超联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 葡超 葡萄牙足球超级联赛 科英布拉大学 科英布拉大學 Académica
+2 葡超 葡萄牙足球超级联赛 阿维斯 艾维斯 Aves
+3 葡超 葡萄牙足球超级联赛 贝拉马尔 比拉馬 Beira Mar
+4 葡超 葡萄牙足球超级联赛 比兰尼塞斯 比蘭倫斯 Belenenses
+5 葡超 葡萄牙足球超级联赛 本菲卡 賓菲加 Benfica
+6 葡超 葡萄牙足球超级联赛 博阿维斯塔 博維斯塔 Boavista
+7 葡超 葡萄牙足球超级联赛 布拉加 布拉加 Braga
+8 葡超 葡萄牙足球超级联赛 阿马多拉 阿馬多拉 Estrela Amadora
+9 葡超 葡萄牙足球超级联赛 雷利亚 利亞拿 Leiria
+10 葡超 葡萄牙足球超级联赛 马里迪莫 馬里迪莫 Marítimo
+11 葡超 葡萄牙足球超级联赛 国民队 國民隊 Nacional
+12 葡超 葡萄牙足球超级联赛 纳瓦尔 拿華爾 Naval
+13 葡超 葡萄牙足球超级联赛 帕科斯费雷拉 費利拿 Pa?os de ferreira
+14 葡超 葡萄牙足球超级联赛 波尔图 波圖 Porto
+15 葡超 葡萄牙足球超级联赛 塞图巴尔 塞圖巴爾 Setúbal
+16 葡超 葡萄牙足球超级联赛 里斯本竞技 士砵亭 Sporting Lisbon
+ 
+比甲联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 比甲 比利时足球甲级联赛 根特 真特 AA Gent
+2 比甲 比利时足球甲级联赛 安德莱赫特 安德列治 Anderlecht
+3 比甲 比利时足球甲级联赛 贝弗伦 比華倫 Beveren
+4 比甲 比利时足球甲级联赛 色格拉布鲁日 色格拉布魯日 Cercle Brugge
+5 比甲 比利时足球甲级联赛 沙勒罗瓦 查內爾 Charleroi
+6 比甲 比利时足球甲级联赛 布鲁日 布魯日 Club Brugge
+7 比甲 比利时足球甲级联赛 布鲁塞尔 布魯塞爾 FC Brussels
+8 比甲 比利时足球甲级联赛 比尔肖特 比斯查 Germinal BA.
+9 比甲 比利时足球甲级联赛 亨克 亨克 KRC Genk
+10 比甲 比利时足球甲级联赛 利尔斯 利亞斯 Lierse SK
+11 比甲 比利时足球甲级联赛 洛克伦 洛格倫 Lokeren
+12 比甲 比利时足球甲级联赛 摩斯高伦 苗斯干 Moeskroen
+
+ 
+13 比甲 比利时足球甲级联赛 蒙斯 蒙斯 RAEC Mons
+14 比甲 比利时足球甲级联赛 罗斯勒 羅斯勒 Roeselare
+15 比甲 比利时足球甲级联赛 圣图尔登 聖圖爾登 Sint Truiden
+16 比甲 比利时足球甲级联赛 标准列日 標準列治 Standard Liege
+17 比甲 比利时足球甲级联赛 韦斯特鲁 韋斯達路 Westerlo
+18 比甲 比利时足球甲级联赛 祖尔特瓦雷根 威爾郡 Zulte-waregem
+ 
+丹超联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 丹超 丹麦足球超级联赛 霍森斯 賀森斯 AC Horsens
+2 丹超 丹麦足球超级联赛 奥尔堡 阿爾堡 AaB Aalborg
+3 丹超 丹麦足球超级联赛 布隆德比 邦比 Br?ndby
+4 丹超 丹麦足球超级联赛 艾斯堡 艾斯堡 Esbjerg
+5 丹超 丹麦足球超级联赛 哥本哈根 哥本哈根 FC Copenhagen
+6 丹超 丹麦足球超级联赛 中日德兰 米迪蘭特 FC Midtjylland
+7 丹超 丹麦足球超级联赛 北西兰 洛斯查蘭特 FC Nordsj?lland
+8 丹超 丹麦足球超级联赛 奥丹斯 奧丹斯 OB Odense
+9 丹超 丹麦足球超级联赛 兰德斯 蘭德斯 Randers Freja
+10 丹超 丹麦足球超级联赛 施克堡 施克堡 Silkeborg IF
+11 丹超 丹麦足球超级联赛 维积利 維積利 Vejle
+12 丹超 丹麦足球超级联赛 维堡 域堡 Viborg
+ 
+挪超联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 挪超 挪威足球超级联赛 布兰 白蘭恩 Brann
+2 挪超 挪威足球超级联赛 费德列斯达 費德列斯達 Fredrikstad
+3 挪超 挪威足球超级联赛 汉坎 咸卡姆 Ham-kam
+4 挪超 挪威足球超级联赛 利勒斯特罗姆 利尼史特朗 Lillestrom
+5 挪超 挪威足球超级联赛 利恩 利恩 Lyn Oslo
+6 挪超 挪威足球超级联赛 莫尔德 莫迪 Molde
+7 挪超 挪威足球超级联赛 奥德格陵兰 奧特格寧蘭 Odd Grenland
+8 挪超 挪威足球超级联赛 罗森博格 洛辛堡 Rosenborg
+9 挪超 挪威足球超级联赛 桑德菲奥德 山積霍特 Sandefjord
+10 挪超 挪威足球超级联赛 斯塔贝克 史達比克 Stabaek
+11 挪超 挪威足球超级联赛 斯达 史達 Start
+12 挪超 挪威足球超级联赛 特罗姆瑟 特羅素 Tromso
+13 挪超 挪威足球超级联赛 瓦勒伦加 華拿倫加 Valerenga
+14 挪超 挪威足球超级联赛 维京 維京 Viking
+ 
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 瑞典超 瑞典足球超级联赛 奥尔格里特 奧基迪 rgryte is
+2 瑞典超 瑞典足球超级联赛 奥斯达 奧斯達 sters if
+3 瑞典超 瑞典足球超级联赛 AIK索尔纳 AIK蘇納 AIK Solna
+4 瑞典超 瑞典足球超级联赛 海肯BK 赫根 Bk h?cken
+5 瑞典超 瑞典足球超级联赛 佐加顿斯 佐加頓斯 Djurg?rdens if
+6 瑞典超 瑞典足球超级联赛 埃尔夫斯堡 艾夫斯堡 Elfsborg IF
+7 瑞典超 瑞典足球超级联赛 哥德堡盖斯 加尔斯 GAIS
+8 瑞典超 瑞典足球超级联赛 加弗莱 加費萊 Gefle if
+9 瑞典超 瑞典足球超级联赛 哈姆斯塔德 咸史泰斯 Halmstads BK
+10 瑞典超 瑞典足球超级联赛 哈马比 哈馬比 Hammarby FF
+11 瑞典超 瑞典足球超级联赛 赫尔辛堡 希爾星堡 Helsingborgs IF
+12 瑞典超 瑞典足球超级联赛 IFK哥德堡 哥登堡 Ifk g?teborg
+13 瑞典超 瑞典足球超级联赛 卡尔马 卡馬亞 Kalmar FF
+14 瑞典超 瑞典足球超级联赛 马尔默 馬模 Malm ff
+
+瑞士超联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 瑞士超 瑞士足球超级联赛 年青人 年青人 BSC Young Boys
+2 瑞士超 瑞士足球超级联赛 巴塞尔 巴素利 Basel
+3 瑞士超 瑞士足球超级联赛 阿劳 阿勞 FC Aarau
+4 瑞士超 瑞士足球超级联赛 琉森 盧森 FC Luzern
+5 瑞士超 瑞士足球超级联赛 沙夫豪森 沙夫豪森 FC Schaffhausen
+6 瑞士超 瑞士足球超级联赛 锡昂 錫永 FC Sion
+7 瑞士超 瑞士足球超级联赛 图恩 杜安 FC Thun
+8 瑞士超 瑞士足球超级联赛 苏黎世 蘇黎世 FC Zürich
+9 瑞士超 瑞士足球超级联赛 草蜢 草蜢 Grasshoppers
+10 瑞士超 瑞士足球超级联赛 圣加仑 聖加倫 Sent gallen
+
+奥甲联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 奥甲 奥地利足球甲级联赛 奥地利维也纳 奧地利維也納 Austria Wien
+2 奥甲 奥地利足球甲级联赛 阿尔塔奇 亞塔奇 Enjo SCR Altach
+3 奥甲 奥地利足球甲级联赛 瓦克蒂罗尔 華卡迪路 FC Wacker Tirol
+4 奥甲 奥地利足球甲级联赛 乔科里德 列特 Josko Ried
+5 奥甲 奥地利足球甲级联赛 格拉茨AK 格拉茨AK Liebherr GAK
+6 奥甲 奥地利足球甲级联赛 马特斯堡 馬特斯堡 Mattersburg
+7 奥甲 奥地利足球甲级联赛 维也纳快速 維也納迅速 Rapid wien
+8 奥甲 奥地利足球甲级联赛 帕兴 蘇柏芬特 SV Pasching
+9 奥甲 奥地利足球甲级联赛 萨尔斯堡 薩爾斯堡 Salzburg
+10 奥甲 奥地利足球甲级联赛 格拉兹风暴 格拉茨 Sturm Graz
+ 
+J联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 J联赛 日本足球J联赛 新泻天鹅 新潟天鵝 Albirex Niigata
+2 J联赛 日本足球J联赛 福冈黄蜂 福岡黃蜂 Avispa Fukuoka
+3 J联赛 日本足球J联赛 大阪樱花 大阪櫻花 C-osaka
+4 J联赛 日本足球J联赛 大阪飞脚 大阪飛腳 G-osaka
+5 J联赛 日本足球J联赛 千叶市原 千葉市原 Ichihara
+6 J联赛 日本足球J联赛 磐田山叶 磐田山葉 Iwata
+7 J联赛 日本足球J联赛 鹿岛鹿角 鹿島鹿角 Kashima
+8 J联赛 日本足球J联赛 川崎前锋 川崎前鋒 Kawasaki Frontale
+9 J联赛 日本足球J联赛 京都不死鸟 京都不死鳥 Kyoto
+10 J联赛 日本足球J联赛 名古屋八鲸 名古屋八鯨 Nagoya
+11 J联赛 日本足球J联赛 大分三神 大分三神 Oita
+12 J联赛 日本足球J联赛 大宫松鼠 大宮松鼠 Omiya Ardija
+13 J联赛 日本足球J联赛 广岛三箭 廣島三箭 Sanfrecce Hiroshima
+14 J联赛 日本足球J联赛 清水心跳 清水心跳 Shimizu
+15 J联赛 日本足球J联赛 FC东京 FC東京 Tokyo
+16 J联赛 日本足球J联赛 浦和红钻 浦和紅鑽 Urawa
+17 J联赛 日本足球J联赛 甲府疾风 甲府風林 Ventforet
+ 
+苏超联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 苏超 苏格兰足球超级联赛 阿伯丁 鴨巴甸 Aberdeen
+2 苏超 苏格兰足球超级联赛 凯尔特人 些路迪 Celtic
+3 苏超 苏格兰足球超级联赛 邓迪联队 登地聯 Dundee Utd
+4 苏超 苏格兰足球超级联赛 邓弗姆林 鄧弗姆林 Dunfermline
+5 苏超 苏格兰足球超级联赛 法尔科克 福克爾克 Falkirk
+6 苏超 苏格兰足球超级联赛 哈茨 赫斯 Hearts
+7 苏超 苏格兰足球超级联赛 希伯尼安 喜百年 Hibernian
+8 苏超 苏格兰足球超级联赛 因弗内斯 恩華利斯 Inverness CT
+9 苏超 苏格兰足球超级联赛 基马诺克 基馬諾克 Kilmarnock
+10 苏超 苏格兰足球超级联赛 马瑟韦尔 馬瑟韋爾 Motherwell
+11 苏超 苏格兰足球超级联赛 格拉斯哥流浪 格拉斯哥流浪 Rangers
+12 苏超 苏格兰足球超级联赛 圣米伦 聖米倫 St. mirren
+ 
+阿甲联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 阿甲 阿根廷足球甲级联赛 阿根廷青年人 小阿根廷 Argentinos juniors
+2 阿甲 阿根廷足球甲级联赛 S.阿森纳 沙蘭迪兵工厰 Arsenal Sarandi
+3 阿甲 阿根廷足球甲级联赛 班菲尔德 班菲特 Banfield
+4 阿甲 阿根廷足球甲级联赛 贝尔格拉诺 貝爾格拉諾 Belgrano cba.
+5 阿甲 阿根廷足球甲级联赛 博卡青年 小保加 Boca Juniors
+6 阿甲 阿根廷足球甲级联赛 科隆竞技 高隆隊 Colon de Santa Fe
+7 阿甲 阿根廷足球甲级联赛 拉普拉塔大学生 學生隊 Estudiantes lp
+8 阿甲 阿根廷足球甲级联赛 朱约伊体操 祖祖爾甘拿斯亞 Gimnasia Jujuy
+9 阿甲 阿根廷足球甲级联赛 拉普拉塔体操 甘拿斯亞 Gimnasia la plata
+10 阿甲 阿根廷足球甲级联赛 戈登克鲁兹 戈登克鲁兹 Godoy Cruz
+11 阿甲 阿根廷足球甲级联赛 阿根廷独立 獨立隊 Independiente
+12 阿甲 阿根廷足球甲级联赛 拉努斯 拉鲁斯 Lanus
+13 阿甲 阿根廷足球甲级联赛 纽维尔老男孩 紐維爾舊生 Newells old boys
+14 阿甲 阿根廷足球甲级联赛 新芝加哥 新芝加哥 Nueva chicago
+15 阿甲 阿根廷足球甲级联赛 基尔梅斯 基爾梅斯 Quilmes
+16 阿甲 阿根廷足球甲级联赛 竞技俱乐部 競赛會 Racing club
+17 阿甲 阿根廷足球甲级联赛 河床 河床 River Plate
+18 阿甲 阿根廷足球甲级联赛 罗萨里奥中央 羅薩里奧中央 Rosario central
+19 阿甲 阿根廷足球甲级联赛 圣洛伦索 聖羅倫佐 San lorenzo
+20 阿甲 阿根廷足球甲级联赛 萨斯菲尔德 沙士菲 Velez sarsfield
+ 
+美职联赛对照表
+ 序  联赛 联赛全称 球队全称 繁体粤语译音 英文队名
+1 美职 美国足球职业大联盟 芝加哥火焰 芝加哥火燄 Chicago
+2 美职 美国足球职业大联盟 美国芝华士 美國芝華士 Chivas USA
+3 美职 美国足球职业大联盟 科罗拉多急流 科羅拉多急流 Colorado
+4 美职 美国足球职业大联盟 哥伦布机员 哥倫布機員 Columbus
+5 美职 美国足球职业大联盟 华盛顿联队 華盛頓聯隊 DC United
+6 美职 美国足球职业大联盟 达拉斯燃烧 達拉斯燃燒 Dallas
+7 美职 美国足球职业大联盟 休斯顿1836 侯斯頓1836 Houston 1936
+8 美职 美国足球职业大联盟 堪萨斯巫师 肯薩斯巫師 Kansas City
+9 美职 美国足球职业大联盟 洛杉矶银河 洛杉磯銀河 Los Angeles
+10 美职 美国足球职业大联盟 新英格兰革命 新英倫革命 New England
+11 美职 美国足球职业大联盟 纽约红牛 紐約紅牛 NewYork Red Bulls
+12 美职 美国足球职业大联盟 皇家盐湖城 皇家鹽湖城 Real Salt Lake
+ 
+巴甲联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 巴甲 巴西足球甲级联赛 巴拉纳竞技 巴拉納體育會 Atlético-PR
+2 巴甲 巴西足球甲级联赛 博塔弗戈 保地花高 Botafogo
+3 巴甲 巴西足球甲级联赛 科林蒂安 哥連泰斯 Corinthians
+4 巴甲 巴西足球甲级联赛 克鲁塞罗 高士路 Cruzeiro
+5 巴甲 巴西足球甲级联赛 费古埃伦斯 費古倫斯 Figueirense
+6 巴甲 巴西足球甲级联赛 弗拉门戈 法林明高 Flamengo
+7 巴甲 巴西足球甲级联赛 弗鲁米嫩塞 富明尼斯 Fluminense
+8 巴甲 巴西足球甲级联赛 弗塔莱萨 科泰尼萨 Fortaleza
+9 巴甲 巴西足球甲级联赛 戈伊亚斯 戈亞斯 Goiás
+10 巴甲 巴西足球甲级联赛 格雷米奥 甘美奧 Grêmio
+11 巴甲 巴西足球甲级联赛 巴西国际 國際體育會 Internacional
+12 巴甲 巴西足球甲级联赛 尤文图德 青年隊 Juventude
+13 巴甲 巴西足球甲级联赛 帕尔梅拉斯 彭美拉斯 Palmeiras
+14 巴甲 巴西足球甲级联赛 巴拉纳 巴拉納 Paraná
+15 巴甲 巴西足球甲级联赛 庞特普雷塔 邦迪比達 Ponte Preta
+16 巴甲 巴西足球甲级联赛 圣克鲁兹 聖十字 Santa Cruz
+17 巴甲 巴西足球甲级联赛 桑托斯 山度士 Santos
+18 巴甲 巴西足球甲级联赛 圣卡埃塔诺 聖卡坦奴 Sao Caetano
+19 巴甲 巴西足球甲级联赛 圣保罗 聖保羅 Sao Paulo
+20 巴甲 巴西足球甲级联赛 瓦斯科达伽马 華斯高 Vasco da gama
+ 
+芬超联赛对照表
+ 序   联赛  联赛全称 球队全称 繁体粤语译音 英文队名
+1 芬超 芬兰足球超级联赛 哈卡 夏卡 FC Haka V.
+2 芬超 芬兰足球超级联赛 英特土尔库 英特杜古 FC Inter Turku
+3 芬超 芬兰足球超级联赛 库迪皮 古迪比 FC KooTeePee
+4 芬超 芬兰足球超级联赛 拉赫蒂 拉迪 FC Lahti
+5 芬超 芬兰足球超级联赛 查路 查路 FF Jaro
+6 芬超 芬兰足球超级联赛 赫尔辛基 赫爾辛基 HJK Helsinki
+7 芬超 芬兰足球超级联赛 洪卡 汉卡 Honka espoo
+8 芬超 芬兰足球超级联赛 马里汉姆 馬利漢姆 IFK Mariehamn
+9 芬超 芬兰足球超级联赛 古比斯 古比斯 Kuopio PS
+10 芬超 芬兰足球超级联赛 迈帕 邁柏 MyPa Anjalakoski
+11 芬超 芬兰足球超级联赛 TPS土尔库 TPS杜古 TPS Turku
+12 芬超 芬兰足球超级联赛 坦佩尔联 譚柏利 Tampere Utd
+13 芬超 芬兰足球超级联赛 VPS瓦萨 VPS華沙 Vaasa PS
+ 
+芬兰甲级联赛对照表
+ 序   联赛  联赛全称 简体普通话译音 单场简体应用 繁体粤语译音 英文队名
+1 芬甲 芬兰足球甲级联赛 亚特兰提斯 亚特兰 亞特蘭提斯 Atlantis FC
+2 芬甲 芬兰足球甲级联赛 哈美林纳 哈美林 咸美恩連拿 FC H?meenlinna
+3 芬甲 芬兰足球甲级联赛 GBK科科拉 科科拉 GBK科科拉 GBK Kokkola
+4 芬甲 芬兰足球甲级联赛 拉库纳特 拉库纳 JP華古拿特 JP Rakuunat
+5 芬甲 芬兰足球甲级联赛 吉普 吉普 吉普 Jippo
+6 芬甲 芬兰足球甲级联赛 韦斯屈莱 韦斯屈 JJK韋斯基拉 Jjk jyv?skyl?
+7 芬甲 芬兰足球甲级联赛 KPV科科拉 科科拉 KPV科高拉 KPV Kokkola
+8 芬甲 芬兰足球甲级联赛 克鲁比04 克鲁比 古路比04 Klubi 04
+9 芬甲 芬兰足球甲级联赛 古比斯 古比斯 古比斯 Kuopio PS
+10 芬甲 芬兰足球甲级联赛 MP米凯利 米凯利 MP米古利 Mikkelin Pall.
+11 芬甲 芬兰足球甲级联赛 PK-35海辛基 PK-35 PK-35海辛基 PK-35 Helsinki
+12 芬甲 芬兰足球甲级联赛 PP-70 PP-70 PP-70 Pp-70 tampere
+13 芬甲 芬兰足球甲级联赛 洛瓦涅米 洛瓦涅 路雲尼米 Rovaniemi PS
+14 芬甲 芬兰足球甲级联赛 Tpv Tpv Tpv Tpv
+15 芬甲 芬兰足球甲级联赛 VIFK VIFK VIFK VIFK
+16 芬甲 芬兰足球甲级联赛 TP47 TP47 TP47 tp-47
+ 
+瑞典甲级联赛对照表
+ 序   联赛  联赛全称 简体普通话译音 单场简体应用 繁体粤语译音 英文队名
+1 瑞甲 瑞典足球甲级联赛 阿特维达堡 阿特维 艾維達堡 Atvidabergs FF
+2 瑞甲 瑞典足球甲级联赛 赫根 赫根 赫根 BK Hacken
+3 瑞甲 瑞典足球甲级联赛 邦克福洛 邦克福 本克弗洛 Bunkeflo IF
+4 瑞甲 瑞典足球甲级联赛 迪格弗斯 迪格弗 戴戈福斯 Degerfors IF
+5 瑞甲 瑞典足球甲级联赛 恩科平 恩科平 安高平 Enkoping
+6 瑞甲 瑞典足球甲级联赛 法尔肯堡 法尔肯 法肯柏爾 Falkenbergs FF
+7 瑞甲 瑞典足球甲级联赛 桑斯瓦尔 桑斯瓦 辛斯華爾 GIF Sundsvall
+8 瑞甲 瑞典足球甲级联赛 希尔维亚 希尔维 希爾維亞 IF Sylvia Norrkoping
+9 瑞甲 瑞典足球甲级联赛 诺科平 诺科平 諾高平 IFK Norrkoping
+10 瑞甲 瑞典足球甲级联赛 斯瑞斯 斯瑞斯 天狼星 IK Sirius FK
+11 瑞甲 瑞典足球甲级联赛 佐高平斯 佐高平 佐高平斯 Jonkopings Sodra
+12 瑞甲 瑞典足球甲级联赛 兰斯科罗纳 兰斯科 蘭斯干拿 Landskrona BoIS
+13 瑞甲 瑞典足球甲级联赛 永斯基 永斯基 隆斯基爾 Ljungskile SK
+14 瑞甲 瑞典足球甲级联赛 米亚尔比 米亚尔 米亞爾比 Mjallby AIF
+15 瑞甲 瑞典足球甲级联赛 奥尔格里特 奥尔格 奧基迪 Orgryte IS
+16 瑞甲 瑞典足球甲级联赛 奥斯达 奥斯达 奧斯達 Osters IF
+ 
+挪威甲级联赛对照表
+ 序   联赛  联赛全称 简体普通话译音 单场简体应用 繁体粤语译音 英文队名
+1 挪甲 挪威足球甲级联赛 博多格林特 博多格 波杜基林特 Bodo Glimt
+2 挪甲 挪威足球甲级联赛 布莱尼 布莱尼 拜尼 Bryne
+3 挪甲 挪威足球甲级联赛 弗洛 弗洛 弗洛 Follo
+4 挪甲 挪威足球甲级联赛 汉坎 汉坎 咸卡姆 Ham-kam
+5 挪甲 挪威足球甲级联赛 豪根桑德 豪根 豪格森德 Haugesund
+6 挪甲 挪威足球甲级联赛 霍德 霍德 禾特 Hodd
+7 挪甲 挪威足球甲级联赛 侯尼霍斯 侯尼霍 侯尼霍斯 Honefoss
+8 挪甲 挪威足球甲级联赛 康斯文格 康斯文 廣士雲格 Kongsvinger
+9 挪甲 挪威足球甲级联赛 洛夫汉姆 洛夫 洛夫咸 Lov-Ham
+10 挪甲 挪威足球甲级联赛 孟达斯金 孟达斯 孟達斯金 Mandalskameratene
+11 挪甲 挪威足球甲级联赛 曼格朗史达 曼格朗 曼格朗史達 Manglerud Star
+12 挪甲 挪威足球甲级联赛 莫尔德 莫尔德 莫迪 Molde
+13 挪甲 挪威足球甲级联赛 莫斯 莫斯 莫斯 Moss
+14 挪甲 挪威足球甲级联赛 诺托登 诺托登 諾托登 Notodden
+15 挪甲 挪威足球甲级联赛 格陵兰波斯 格陵兰 京蘭堡斯 Pors Grenland
+16 挪甲 挪威足球甲级联赛 诺霍斯 诺霍斯 諾霍斯 Raufoss
+17 挪甲 挪威足球甲级联赛 斯吉德 斯吉德 斯吉德 Skeid
+18 挪甲 挪威足球甲级联赛 桑恩达 桑恩达 桑恩達 Sogndal
+19 挪甲 挪威足球甲级联赛 萨普斯堡斯巴达 萨普斯 薩普斯堡斯巴達 Sparta Sarpsborg
+20 挪甲 挪威足球甲级联赛 特罗姆斯达伦 斯达伦 特羅姆斯達倫 Tromsdalen
+ 
+俄罗斯超级联赛对照表
+ 序   联赛  联赛全称 简体普通话译音 单场简体应用 繁体粤语译音 英文队名 俄文队名
+1 俄甲 俄罗斯足球超级联赛 阿姆卡尔 阿姆卡 阿馬卡 Amkar Perm Амкар
+2 俄甲 俄罗斯足球超级联赛 莫斯科中央陆军 莫陆军 莫斯科中央陸軍 CSKA Moscow ЦСКА
+3 俄甲 俄罗斯足球超级联赛 莫斯科迪纳摩 莫迪纳 莫斯科戴拿模 Dynamo Moscow Динамо(М)
+4 俄甲 俄罗斯足球超级联赛 罗斯托夫 斯托夫 羅斯托夫 FK Rostov Ростов
+5 俄甲 俄罗斯足球超级联赛 苏维埃之翼 苏维埃 苏维杜夫 Kryliya Sovetov Кр.Советов
+6 俄甲 俄罗斯足球超级联赛 莫斯科火车头 莫火车 莫斯科火車頭 Lokomotiv Moscow Локомотив(М)
+7 俄甲 俄罗斯足球超级联赛 卢恩吉亚 卢恩吉 勒茲恩拿基亞 Luch-Energiya Луч-Энергия
+8 俄甲 俄罗斯足球超级联赛 喀山鲁宾 鲁宾 魯賓卡讚 Rubin Kazan Рубин
+9 俄甲 俄罗斯足球超级联赛 拉明斯克土星 土星 土星 Saturn-RenTV Сатурн
+10 俄甲 俄罗斯足球超级联赛 莫斯科斯巴达 莫斯巴 莫斯科斯巴達 Spartak Moscow Спартак(М)
+11 俄甲 俄罗斯足球超级联赛 奈兹克斯巴达 奈兹克 奈茲尅斯巴達 Spartak Nalchik Спартак (Нч)
+12 俄甲 俄罗斯足球超级联赛 托姆斯克 托姆斯 湯斯尅 Tom Tomsk Томь
+13 俄甲 俄罗斯足球超级联赛 FK莫斯科 FK莫斯 魚雷-冶金 FC Moscow Москва
+14 俄甲 俄罗斯足球超级联赛 圣彼得堡 圣彼得 聖彼德斯堡 Zenit St.Petersburg Зенит
+15 俄甲 俄罗斯足球超级联赛 卡希梅基 卡希梅 卡希梅基 FK Khimki Химки
+16 俄甲 俄罗斯足球超级联赛 库班 库班 庫班 Kuban Krasnodar Кубань
+ 
+捷克甲级联赛对照表
+ 序   联赛  联赛全称 简体普通话译音 单场简体应用 繁体粤语译音 英文队名
+1 捷克甲 捷克足球甲级联赛 布德约维茨迪纳摩 布德约 西艾斯克 ?eské Budějovice
+2 捷克甲 捷克足球甲级联赛 布尔诺 布尔诺 般奴 1.FC Brno
+3 捷克甲 捷克足球甲级联赛 奥斯特拉瓦 奥斯特 奧斯泰華 Banik Ostrava
+4 捷克甲 捷克足球甲级联赛 雅布罗尼克 雅布罗 賈布朗尼 FK Jablonec
+5 捷克甲 捷克足球甲级联赛 泰普利斯 泰普利 塔比曆斯 FK Teplice
+6 捷克甲 捷克足球甲级联赛 马里拉 马里拉 馬里拉 Marila P?íbram
+7 捷克甲 捷克足球甲级联赛 博雷斯拉夫 博雷斯 博雷斯拉夫 Mladá Boleslav
+8 捷克甲 捷克足球甲级联赛 慕斯特 慕斯特 莫斯特 SIAD Most
+9 捷克甲 捷克足球甲级联赛 奥洛莫茨 奥洛莫 奥林莫斯 Sigma Olomouc
+10 捷克甲 捷克足球甲级联赛 布拉格斯拉维亚 布拉格 布拉格斯拉維亞 Slavia Praha
+11 捷克甲 捷克足球甲级联赛 斯洛瓦克 斯洛瓦 史洛特 Slovácko St.Město
+12 捷克甲 捷克足球甲级联赛 利贝雷茨 利贝雷 利巴域 Slovan Liberec
+13 捷克甲 捷克足球甲级联赛 布拉格斯巴达 布斯巴 布拉格斯巴達 Sparta Praha
+14 捷克甲 捷克足球甲级联赛 兹林 兹林 辛寧 Tescoma Zlín
+15 捷克甲 捷克足球甲级联赛 皮尔森 皮尔森 皮爾森 Viktoria Plzeň
+16 捷克甲 捷克足球甲级联赛 克拉德诺 克拉德 克拉诺  
+17 捷克甲 捷克足球甲级联赛 怀索西纳 怀索西 基拉華 Vyso?ina Jihlava
+18 捷克甲 捷克足球甲级联赛 布尔萨尼 布尔萨 布拉森尼 Chmel Bl?any
+ 
+爱尔兰超级联赛对照表
+ 序   联赛  联赛全称 简体普通话译音 单场简体应用 繁体粤语译音 英文队名
+1 爱超 爱尔兰足球超级联赛 波希米亚人 波希米 布咸美恩斯 Bohemians Dublin
+2 爱超 爱尔兰足球超级联赛 布雷 布雷 布雷 Bray Wanderers
+3 爱超 爱尔兰足球超级联赛 科克城 科克城 曲克城 Cork city
+4 爱超 爱尔兰足球超级联赛 德利城 德利城 德利城 Derry City FC
+5 爱超 爱尔兰足球超级联赛 德罗赫达联队 德罗赫 杜希達聯 Drogheda Utd
+6 爱超 爱尔兰足球超级联赛 戈尔韦联队 戈尔韦 戈爾韋 Galway United
+7 爱超 爱尔兰足球超级联赛 朗福德城 朗福德 朗福鎮 Longford Town
+8 爱超 爱尔兰足球超级联赛 沙姆洛克流浪 沙姆洛 沙姆洛克流浪 Shamrock Rovers
+9 爱超 爱尔兰足球超级联赛 斯莱戈流浪 斯莱戈 斯萊戈 Sligo Rovers
+10 爱超 爱尔兰足球超级联赛 圣帕特里克 圣帕特 聖巴特里 St Patricks Ath
+11 爱超 爱尔兰足球超级联赛 都柏林大学 都柏林 都柏林大學 UCD Dublin
+12 爱超 爱尔兰足球超级联赛 沃特福德联队 沃特联 屈福特聯 Waterford Utd

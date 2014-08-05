@@ -182,10 +182,11 @@ class Match100Method
     public BsonDocument from_10bet_2(ref WebBrowser browser)
     { 
         BsonDocument doc_result = Match100Helper.get_doc_result();
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
         string result = "";
         //try
         //{
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser);
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser,ref doc_condition);
         DataTable dt = Match100Helper.get_match_table(dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
@@ -279,7 +280,8 @@ class Match100Method
         string result = "";
         //try
         //{
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser);
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser,ref doc_condition);
         DataTable dt = Match100Helper.get_match_table(dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();

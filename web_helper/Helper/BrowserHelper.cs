@@ -1308,7 +1308,7 @@ class BrowserHelper
     }
 
     //查找td,div,li......,并取子内容
-    public static DataTable get_position_table4(ref WebBrowser browser)
+    public static DataTable get_position_table4(ref WebBrowser browser,ref BsonDocument doc_condition)
     {
         if (browser.Document == null) return new DataTable();
 
@@ -1351,7 +1351,7 @@ class BrowserHelper
 
         if (browser.Document == null) return dt_position;
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        get_position_from_doc_4(ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
+        get_position_from_doc_4(ref doc_condition,ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
 
         dt_position.DefaultView.Sort = "left asc";
         dt_position = dt_position.DefaultView.ToTable();
@@ -1385,11 +1385,11 @@ class BrowserHelper
 
         return dt_position;
     }
-    public static DataTable get_analyse_table4(ref WebBrowser browser)
+    public static DataTable get_analyse_table4(ref WebBrowser browser, ref BsonDocument doc_condition)
     {
         if (browser.Document == null) return new DataTable();
 
-        DataTable dt_position = get_position_table4(ref browser);
+        DataTable dt_position = get_position_table4(ref browser,ref doc_condition);
         //add column to dt 
         DataTable dt = new DataTable();
         dt.Columns.Add("NO");
@@ -1510,7 +1510,7 @@ class BrowserHelper
 
 
     }
-    public static void get_position_from_doc_4(ref DataTable dt_position, ref mshtml.HTMLDocument doc_input, int start_x, int start_y)
+    public static void get_position_from_doc_4(ref BsonDocument doc_condition,ref DataTable dt_position, ref mshtml.HTMLDocument doc_input, int start_x, int start_y)
     {
         object j;
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
@@ -1519,7 +1519,7 @@ class BrowserHelper
             mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
             IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
             mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-            get_position_from_doc_4(ref dt_position, ref doc_child, start_x, start_y);
+            get_position_from_doc_4(ref doc_condition,ref dt_position, ref doc_child, start_x, start_y);
         }
 
 
@@ -1528,7 +1528,7 @@ class BrowserHelper
         foreach (mshtml.IHTMLElement ielement in ielements)
         {
 
-            if (is_final_element(ielement))
+            if (is_final_element(ref doc_condition,ielement))
             {
                 mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
                 IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
@@ -1552,17 +1552,15 @@ class BrowserHelper
                 }
                 left = ielement.offsetLeft + ((IHTMLWindow3)doc_input.parentWindow).screenLeft - start_x;
                 width = ielement.offsetWidth;
-                height = ielement.offsetHeight; 
-                string text = "●";
+                height = ielement.offsetHeight;
+                string text =  (ielement.innerText==null)? "" :ielement.innerText;
 
                 IHTMLElement ielement_input = ielement;
-                get_absolute4(ref ielement_input, ref left, ref top);
-                get_child_text(ref ielement_input, ref text);
+                get_absolute4(ref doc_condition,ref ielement_input, ref left, ref top);
+                get_child_text(ref doc_condition,ref ielement_input, ref text);
+                text=text.Replace(Environment.NewLine, "●");
 
-                if (string.IsNullOrEmpty(text.Replace("●", "").Replace(" ", "").Trim()))
-                {
-                    text = ielement.innerText;
-                }
+               
                 row_new["left"] = left;
                 row_new["top"] = top;
                 row_new["width"] = ielement.offsetWidth;
@@ -1573,7 +1571,7 @@ class BrowserHelper
             }
         }
     }
-    public static void get_absolute4(ref IHTMLElement element, ref int left, ref int top)
+    public static void get_absolute4(ref BsonDocument doc_condition, ref IHTMLElement element, ref int left, ref int top)
     {
         if (element == null) return;
         if (element.parentElement != null)
@@ -1585,56 +1583,49 @@ class BrowserHelper
             get_absolute(ref father_element, ref left, ref top);
         }
     }
-    public static bool is_final_element(mshtml.IHTMLElement ielement)
+    public static bool is_final_element(ref BsonDocument doc_condition, mshtml.IHTMLElement ielement)
     {
         string tag_name = ielement.tagName.ToLower().Trim();
         string html = ielement.innerHTML == null ? "" : ielement.innerHTML.ToLower().Trim();
-        if (//tag_name.Contains("div") ||
-            tag_name.Contains("li") ||
-            tag_name.Contains("ol") ||
-            tag_name.Contains("td") ||
-            tag_name.Contains("th") ||
-            tag_name.Contains("dd") ||
-            tag_name.Contains("dt") ||
-            tag_name.Contains("dl")
-            )
+        bool is_tag=false;
+        bool is_html=false;
+        foreach (string item in doc_condition["element_type"].AsBsonArray)
         {
-            if (//html.Contains("<div") ||
-                html.Contains("<li") ||
-                html.Contains("<ol") ||
-                html.Contains("<td") ||
-                html.Contains("<th") ||
-                html.Contains("<dd") ||
-                html.Contains("<dt") ||
-                html.Contains("<dl")
-                ) return false;
-            return true;
+            if (tag_name.Contains(item)) is_tag = true;
+            if (html.Contains("<" + item)) is_html = true;
         }
+        if (is_tag == true && is_html == false) return true;
         return false;
+       
     }
-    public static void get_child_text(ref IHTMLElement element, ref string txt)
+    public static void get_child_text(ref BsonDocument doc_condition, ref IHTMLElement element, ref string txt)
     {
-        if (element == null) return;
-        //if (((IHTMLElementCollection)element.children).length == 1 && element.innerHTML != null && element.innerHTML.ToLower().Trim().Contains("<br") == true)
-        //{
-        //    txt = txt + element.innerHTML + "●";
-        //    return;
-        //}
-        if (((IHTMLElementCollection)element.children).length == 0)
+        if (element == null) return; 
+        if (!string.IsNullOrEmpty(element.innerText))
         {
-            txt = txt + element.innerText + "●";
-            return;
+            txt = txt.Replace(element.innerText, "●" + element.innerText + "●");
         }
-
+         
         foreach (IHTMLElement child in (IHTMLElementCollection)element.children)
         {
             IHTMLElement input_child = child;
-            get_child_text(ref input_child, ref txt);
+            get_child_text(ref doc_condition,ref input_child, ref txt);
         }
     }
-
-
-
+    public static BsonDocument get_doc_condition()
+    {
+        BsonDocument doc_condition = new BsonDocument();
+        BsonArray element_type = new BsonArray();
+        element_type.Add("li");
+        element_type.Add("ol");
+        element_type.Add("td");
+        element_type.Add("th");
+        element_type.Add("dd");
+        element_type.Add("dt");
+        element_type.Add("dl");
+        doc_condition.Add("element_type", element_type);
+        return doc_condition;
+    }
 
     public static string get_text_by_id(ref WebBrowser browser, string id)
     {
@@ -1831,7 +1822,7 @@ class BrowserHelper
                         str_attrs += attr.nodeName + ":" + attr.nodeValue.ToString() + ",";
                     }
                 }
-            }
+            } 
 
 
             BsonDocument doc = new BsonDocument();
