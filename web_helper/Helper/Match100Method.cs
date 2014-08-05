@@ -15,8 +15,6 @@ using System.Data;
 
 class Match100Method
 {
-
-
     public BsonDocument from_baidu_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -180,13 +178,14 @@ class Match100Method
         return doc_result;
     }
     public BsonDocument from_10bet_2(ref WebBrowser browser)
-    { 
+    {
         BsonDocument doc_result = Match100Helper.get_doc_result();
         BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+        doc_condition["element_type"].AsBsonArray.Add("div");
         string result = "";
         //try
         //{
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser,ref doc_condition);
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
         DataTable dt = Match100Helper.get_match_table(dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
@@ -196,16 +195,12 @@ class Match100Method
 
         for (int i = 0; i < dt.Rows.Count; i++)
         {
-            for (int j = 0; j < dt.Columns.Count; j++)
-            {
-                string text = dt.Rows[i][j].ToString().Trim();
-                if (string.IsNullOrEmpty(text)) continue;
-                if (j == 1) times.Add(text);
-                if (j == 2) teams.Add(text);
-                if (j == 3) wins.Add(text);
-                if (j == 4) draws.Add(text);
-                if (j == 6) loses.Add(text);
-            }
+            if (string.IsNullOrEmpty(dt.Rows[i][3].ToString())) continue;
+            times.Add(dt.Rows[i][1].ToString());
+            teams.Add(dt.Rows[i][2].ToString());
+            wins.Add(dt.Rows[i][3].ToString());
+            draws.Add(dt.Rows[i][4].ToString());
+            loses.Add(dt.Rows[i][6].ToString());
         }
 
         int min_count = 999999;
@@ -213,7 +208,7 @@ class Match100Method
         if (teams.Count < min_count) min_count = teams.Count;
         if (wins.Count < min_count) min_count = wins.Count;
         if (draws.Count < min_count) min_count = draws.Count;
-        if (loses.Count < min_count) min_count = loses.Count; 
+        if (loses.Count < min_count) min_count = loses.Count;
 
         for (int i = 0; i < min_count; i++)
         {
@@ -232,44 +227,44 @@ class Match100Method
     public BsonDocument from_macauslot_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
-
         string result = "";
-
-        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        //try
+        //{
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList odds = new ArrayList();
-        for (int i = 0; i < dt.Rows.Count - 2; i++)
+
+        for (int i = 0; i < dt.Rows.Count; i++)
         {
-            string txt = "";
-
-            txt = dt.Rows[i]["293"].ToString().Replace("●", "").Replace("(中)", "");
-            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
-
-            for (int j = 3; j < dt.Columns.Count; j++)
+            if (!string.IsNullOrEmpty(dt.Rows[i][7].ToString()) && dt.Rows[i][7].ToString().ToLower().Contains("win") == false)
             {
-                int num = Convert.ToInt32(dt.Columns[j].ToString());
-                if (num >= 1060 && num < 1080)
-                {
-                    txt = dt.Rows[i][j].ToString().Replace("●", "").Trim();
-                    if (Match100Helper.is_double_str(txt) && !string.IsNullOrEmpty(txt)) odds.Add(txt);
-                }
+                times.Add(dt.Rows[i][0].ToString());
+                teams.Add(dt.Rows[i][2].ToString());
+                odds.Add(dt.Rows[i][7].ToString());
             }
-
-        }
-        int count = teams.Count / 2;
-        for (int i = 0; i < count; i++)
-        {
-            if (i * 2 + 1 < teams.Count)
-            {
-                result = result + teams[i * 2].PR(20) + teams[i * 2 + 1].PR(20);
-            }
-            if (i * 3 + 2 < odds.Count)
-            {
-                result = result + odds[i * 3].PR(20) + odds[i * 3 + 1].PR(20) + odds[i * 3 + 2].PR(20);
-            }
-            result = result + Environment.NewLine;
         }
 
+
+        for (int i = 0; i < times.Count; i++)
+        {
+
+            if ((i + 2) < times.Count)
+            {
+                string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] single_host = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] single_client = teams[i + 1].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                result = result + (single_times[0].ToString() + " " + single_times[1].ToString()).PR(20) + single_host[0].PR(50) + single_client[0].PR(50) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
+            }
+            i = i + 2;
+        }
+        //}
+        //catch (Exception error)
+        //{
+        //    result = error.Message + Environment.NewLine + error.StackTrace;
+        //}
         doc_result["data"] = result;
         return doc_result;
     }
@@ -281,11 +276,11 @@ class Match100Method
         //try
         //{
         BsonDocument doc_condition = BrowserHelper.get_doc_condition();
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser,ref doc_condition);
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
         DataTable dt = Match100Helper.get_match_table(dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
-        ArrayList odds = new ArrayList(); 
+        ArrayList odds = new ArrayList();
 
         for (int i = 0; i < dt.Rows.Count; i++)
         {
@@ -297,14 +292,14 @@ class Match100Method
             }
         }
 
-        
+
         for (int i = 0; i < times.Count; i++)
         {
             if ((i + 2) < times.Count)
             {
-                result = result + (times[i].ToString() +" "+ times[i + 1].ToString()).PR(20) + teams[i].PR(50) + teams[i + 1].PR(50) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
+                result = result + (times[i].ToString() + " " + times[i + 1].ToString()).PR(20) + teams[i].PR(50) + teams[i + 1].PR(50) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
             }
-            i = i + 2; 
+            i = i + 2;
         }
         //}
         //catch (Exception error)
@@ -318,43 +313,48 @@ class Match100Method
     public BsonDocument from_188bet_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
 
         string result = "";
-
-        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        //try
+        //{
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
-        ArrayList odds = new ArrayList();
-        for (int i = 0; i < dt.Rows.Count - 2; i++)
-        {
-            string txt = "";
+        ArrayList wins = new ArrayList();
+        ArrayList draws = new ArrayList();
+        ArrayList loses = new ArrayList();
 
-            txt = dt.Rows[i]["359"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
-            txt = dt.Rows[i]["379"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
-
-            txt = dt.Rows[i]["600"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
-            txt = dt.Rows[i]["678"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
-            txt = dt.Rows[i]["756"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
-        }
-        int count = teams.Count / 2;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < dt.Rows.Count; i++)
         {
-            if (i * 2 + 1 < teams.Count)
-            {
-                result = result + teams[i * 2].PR(20) + teams[i * 2 + 1].PR(20);
-            }
-            if (i * 3 + 2 < odds.Count)
-            {
-                result = result + odds[i * 3].PR(20) + odds[i * 3 + 1].PR(20) + odds[i * 3 + 2].PR(20);
-            }
-            result = result + Environment.NewLine;
+
+            if (string.IsNullOrEmpty(dt.Rows[i][4].ToString())) continue;
+            times.Add(dt.Rows[i][0].ToString());
+            teams.Add(dt.Rows[i][3].ToString());
+            wins.Add(dt.Rows[i][4].ToString());
+            draws.Add(dt.Rows[i][6].ToString());
+            loses.Add(dt.Rows[i][8].ToString());
         }
 
+        int min_count = 999999;
+        if (times.Count < min_count) min_count = times.Count;
+        if (teams.Count < min_count) min_count = teams.Count;
+        if (wins.Count < min_count) min_count = wins.Count;
+        if (draws.Count < min_count) min_count = draws.Count;
+        if (loses.Count < min_count) min_count = loses.Count;
 
+        for (int i = 0; i < min_count; i++)
+        {
+            string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            result = result + (single_times[0].ToString().Trim()+ " " + single_times[1].ToString()).PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+        }
+        //}
+        //catch (Exception error)
+        //{
+        //    result = error.Message + Environment.NewLine + error.StackTrace;
+        //}
         doc_result["data"] = result;
         return doc_result;
     }
@@ -362,40 +362,40 @@ class Match100Method
     public BsonDocument from_fun88_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
-
         string result = "";
-
-        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        //try
+        //{
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList odds = new ArrayList();
 
-        for (int i = 0; i < dt.Rows.Count - 2; i++)
+        for (int i = 0; i < dt.Rows.Count; i++)
         {
-            string txt = "";
-
-            txt = dt.Rows[i]["789"].ToString().Replace("●", "");//7.82 
-            if (!string.IsNullOrEmpty(txt))
+            if (!string.IsNullOrEmpty(dt.Rows[i][5].ToString()) && dt.Rows[i][5].ToString().Contains("1X2") == false)
             {
-                odds.Add(txt);
-                txt = dt.Rows[i - 1]["361"].ToString().Replace("●", "");
-                teams.Add(txt);
-            }
-
-            txt = dt.Rows[i]["782"].ToString().Replace("●", "");//17.22 
-            if (!string.IsNullOrEmpty(txt))
-            {
-                odds.Add(txt);
-                txt = dt.Rows[i - 1]["361"].ToString().Replace("●", "");
-                teams.Add(txt);
+                times.Add(dt.Rows[i][1].ToString());
+                teams.Add(dt.Rows[i][2].ToString());
+                odds.Add(dt.Rows[i][5].ToString());
             }
         }
-        int count = teams.Count / 3;
-        for (int i = 0; i < count; i++)
+
+
+        for (int i = 0; i < times.Count; i++)
         {
-            result = result + teams[i * 3].PR(20) + teams[i * 3 + 1].PR(20) + odds[i * 3].PR(20) + odds[i * 3 + 2].PR(20) + odds[i * 3 + 1].PR(20) + Environment.NewLine;
+             
+                string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] single_odds = odds[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                result = result + single_times[1].PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + single_odds[0].PR(20) + single_odds[2].PR(20) + single_odds[1].PR(20) + Environment.NewLine;
         }
-
-
+        //}
+        //catch (Exception error)
+        //{
+        //    result = error.Message + Environment.NewLine + error.StackTrace;
+        //}
         doc_result["data"] = result;
         return doc_result;
     }
@@ -403,40 +403,49 @@ class Match100Method
     public BsonDocument from_fubo_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
 
         string result = "";
-
-        DataTable dt = BrowserHelper.get_analyse_table(ref browser);
+        //try
+        //{
+        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
-        ArrayList odds = new ArrayList();
-        for (int i = 0; i < dt.Rows.Count - 2; i++)
-        {
-            string txt = "";
+        ArrayList wins = new ArrayList();
+        ArrayList draws = new ArrayList();
+        ArrayList loses = new ArrayList();
 
-            txt = dt.Rows[i]["516"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) teams.Add(txt);
-            txt = dt.Rows[i]["692"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
-            txt = dt.Rows[i]["776"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
-            txt = dt.Rows[i]["860"].ToString().Replace("●", "");
-            if (!string.IsNullOrEmpty(txt)) odds.Add(txt);
-        }
-        int count = teams.Count / 2;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < dt.Rows.Count; i++)
         {
-            if (i * 2 + 1 < teams.Count)
-            {
-                result = result + teams[i * 2].PR(20) + teams[i * 2 + 1].PR(20);
-            }
-            if (i * 3 + 2 < odds.Count)
-            {
-                result = result + odds[i * 3].PR(20) + odds[i * 3 + 1].PR(20) + odds[i * 3 + 2].PR(20);
-            }
-            result = result + Environment.NewLine;
+
+            if (string.IsNullOrEmpty(dt.Rows[i][3].ToString())) continue;
+            times.Add(dt.Rows[i][1].ToString());
+            teams.Add(dt.Rows[i][2].ToString());
+            wins.Add(dt.Rows[i][3].ToString());
+            draws.Add(dt.Rows[i][4].ToString());
+            loses.Add(dt.Rows[i][5].ToString());
         }
 
+        int min_count = 999999;
+        if (times.Count < min_count) min_count = times.Count;
+        if (teams.Count < min_count) min_count = teams.Count;
+        if (wins.Count < min_count) min_count = wins.Count;
+        if (draws.Count < min_count) min_count = draws.Count;
+        if (loses.Count < min_count) min_count = loses.Count;
 
+        for (int i = 0; i < min_count; i++)
+        {
+            //string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            string str_time = times[i].ToString().Replace("滚球", "").Replace("●", "").Trim();
+            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            result = result +  str_time.PR(20)+ single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+        }
+        //}
+        //catch (Exception error)
+        //{
+        //    result = error.Message + Environment.NewLine + error.StackTrace;
+        //}
         doc_result["data"] = result;
         return doc_result;
     }

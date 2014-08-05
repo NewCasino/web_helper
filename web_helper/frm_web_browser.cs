@@ -88,8 +88,9 @@ namespace web_helper
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            BsonDocument doc = method.from_pinnaclesports_1(ref browser);
+            BsonDocument doc = method.from_fubo_1(ref browser);
             this.txt_result_method.Text = doc["data"].ToString();
+            MessageBox.Show("method ok!");
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {

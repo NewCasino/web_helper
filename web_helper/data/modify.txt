@@ -1,3 +1,2 @@
-有换行符<br><font>和文本内容混编时的取值
-
-可以设定传输td,li,div的值
+1,summary Match100Method 
+2,get teams info from 500

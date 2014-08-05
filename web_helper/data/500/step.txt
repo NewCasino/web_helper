@@ -1,0 +1,5 @@
+step 1 : http://liansai.500.com/  All Leagge Page
+step 2 :http://liansai.500.com/seasonindex-seasonid-2994  Single League Page
+step 3 :http://liansai.500.com/team_data-teamid-1075 Single Team Page 
+	1,left all teams china/english name
+	2,center  all teams match info 
