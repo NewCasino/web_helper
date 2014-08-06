@@ -1,6 +1,6 @@
 ﻿namespace web_helper
 {
-    partial class frm_match_down_excel
+    partial class frm_match_500_down_excel
     {
         /// <summary>
         /// Required designer variable.

@@ -16,11 +16,11 @@ using System.Data.OleDb;
 namespace web_helper
 {
 
-    public partial class frm_match_down_excel : Form
+    public partial class frm_match_500_down_excel : Form
     {
         public DataTable table = new DataTable();
 
-        public frm_match_down_excel()
+        public frm_match_500_down_excel()
         {
             InitializeComponent();
         }

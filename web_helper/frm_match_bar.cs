@@ -24,7 +24,7 @@ namespace web_helper
 
         private void btn_down_excel_Click(object sender, EventArgs e)
         {
-            frm_match_down_excel frm = new frm_match_down_excel();
+            frm_match_500_down_excel frm = new frm_match_500_down_excel();
             frm.Show();
         }
 
@@ -61,6 +61,12 @@ namespace web_helper
         private void btn_browser_Click(object sender, EventArgs e)
         {
             frm_web_browser frm = new frm_web_browser();
+            frm.Show();
+        }
+
+        private void btn_500_read_info_Click(object sender, EventArgs e)
+        {
+            frm_match_500_team frm = new frm_match_500_team();
             frm.Show();
         }
     }

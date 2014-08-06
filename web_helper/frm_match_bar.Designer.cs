@@ -36,6 +36,7 @@
             this.btn_html_analyse = new System.Windows.Forms.Button();
             this.btn_compute_method = new System.Windows.Forms.Button();
             this.btn_browser = new System.Windows.Forms.Button();
+            this.btn_500_read_info = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_compute_by_company
@@ -50,17 +51,17 @@
             // 
             // btn_down_excel
             // 
-            this.btn_down_excel.Location = new System.Drawing.Point(130, 13);
+            this.btn_down_excel.Location = new System.Drawing.Point(250, 13);
             this.btn_down_excel.Name = "btn_down_excel";
             this.btn_down_excel.Size = new System.Drawing.Size(112, 23);
             this.btn_down_excel.TabIndex = 1;
-            this.btn_down_excel.Text = "Down Excel";
+            this.btn_down_excel.Text = "[500]Down Excel";
             this.btn_down_excel.UseVisualStyleBackColor = true;
             this.btn_down_excel.Click += new System.EventHandler(this.btn_down_excel_Click);
             // 
             // frm_match_company_info
             // 
-            this.frm_match_company_info.Location = new System.Drawing.Point(250, 13);
+            this.frm_match_company_info.Location = new System.Drawing.Point(130, 13);
             this.frm_match_company_info.Name = "frm_match_company_info";
             this.frm_match_company_info.Size = new System.Drawing.Size(112, 23);
             this.frm_match_company_info.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(436, 13);
+            this.button1.Location = new System.Drawing.Point(544, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 23);
             this.button1.TabIndex = 3;
@@ -100,7 +101,7 @@
             // 
             // btn_compute_method
             // 
-            this.btn_compute_method.Location = new System.Drawing.Point(554, 13);
+            this.btn_compute_method.Location = new System.Drawing.Point(662, 13);
             this.btn_compute_method.Name = "btn_compute_method";
             this.btn_compute_method.Size = new System.Drawing.Size(112, 23);
             this.btn_compute_method.TabIndex = 6;
@@ -118,11 +119,22 @@
             this.btn_browser.UseVisualStyleBackColor = true;
             this.btn_browser.Click += new System.EventHandler(this.btn_browser_Click);
             // 
+            // btn_500_read_info
+            // 
+            this.btn_500_read_info.Location = new System.Drawing.Point(368, 13);
+            this.btn_500_read_info.Name = "btn_500_read_info";
+            this.btn_500_read_info.Size = new System.Drawing.Size(112, 23);
+            this.btn_500_read_info.TabIndex = 8;
+            this.btn_500_read_info.Text = "[500]Read Info";
+            this.btn_500_read_info.UseVisualStyleBackColor = true;
+            this.btn_500_read_info.Click += new System.EventHandler(this.btn_500_read_info_Click);
+            // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 81);
+            this.ClientSize = new System.Drawing.Size(786, 81);
+            this.Controls.Add(this.btn_500_read_info);
             this.Controls.Add(this.btn_browser);
             this.Controls.Add(this.btn_compute_method);
             this.Controls.Add(this.btn_match_100);
@@ -149,5 +161,6 @@
         private System.Windows.Forms.Button btn_html_analyse;
         private System.Windows.Forms.Button btn_compute_method;
         private System.Windows.Forms.Button btn_browser;
+        private System.Windows.Forms.Button btn_500_read_info;
     }
 }

@@ -127,6 +127,12 @@
     <Compile Include="frm_match_100.Designer.cs">
       <DependentUpon>frm_match_100.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_match_500_team.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_500_team.Designer.cs">
+      <DependentUpon>frm_match_500_team.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_match_bar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +151,11 @@
     <Compile Include="frm_match_compute_by_company.Designer.cs">
       <DependentUpon>frm_match_compute_by_company.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_match_down_excel.cs">
+    <Compile Include="frm_match_500_down_excel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_match_down_excel.Designer.cs">
-      <DependentUpon>frm_match_down_excel.cs</DependentUpon>
+    <Compile Include="frm_match_500_down_excel.Designer.cs">
+      <DependentUpon>frm_match_500_down_excel.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_url_free_pick.cs">
       <SubType>Form</SubType>
@@ -330,6 +336,10 @@
     <EmbeddedResource Include="frm_match_100.resx">
       <DependentUpon>frm_match_100.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_500_team.resx">
+      <DependentUpon>frm_match_500_team.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_match_bar.resx">
       <DependentUpon>frm_match_bar.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -342,8 +352,8 @@
       <DependentUpon>frm_match_compute_by_company.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_match_down_excel.resx">
-      <DependentUpon>frm_match_down_excel.cs</DependentUpon>
+    <EmbeddedResource Include="frm_match_500_down_excel.resx">
+      <DependentUpon>frm_match_500_down_excel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_url_free_pick.resx">
       <DependentUpon>frm_url_free_pick.cs</DependentUpon>
