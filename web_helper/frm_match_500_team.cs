@@ -202,13 +202,14 @@ namespace web_helper
                 line = reader.ReadLine();
                 if (!string.IsNullOrEmpty(line) && line.Substring(0, 2) != "--")
                 {
-                    line = line.TrimStart().TrimEnd();
-                    int index = line.IndexOf(' ');
-                    string cn_name = line.Substring(0, index + 1).TrimStart().TrimEnd();
-                    string eng_name = line.Substring(index + 1, line.Length - (index + 1)).TrimStart().TrimEnd();
+                     
 
-
-                    insert_db(eng_name, cn_name);
+                        line = line.TrimStart().TrimEnd();
+                        string[] items = line.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                        string cn_name = items[0].TrimStart().TrimEnd();
+                        string eng_name = items[1].TrimStart().TrimEnd();
+                        insert_db(eng_name, cn_name);
+                   
                      
                 }
                
