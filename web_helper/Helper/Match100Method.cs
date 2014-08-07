@@ -186,7 +186,7 @@ class Match100Method
         //try
         //{
         DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList wins = new ArrayList();
@@ -232,7 +232,7 @@ class Match100Method
         //{
         BsonDocument doc_condition = BrowserHelper.get_doc_condition();
         DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList odds = new ArrayList();
@@ -277,7 +277,7 @@ class Match100Method
         //{
         BsonDocument doc_condition = BrowserHelper.get_doc_condition();
         DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList odds = new ArrayList();
@@ -319,7 +319,7 @@ class Match100Method
         //try
         //{
         DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList wins = new ArrayList();
@@ -367,7 +367,7 @@ class Match100Method
         //{
         BsonDocument doc_condition = BrowserHelper.get_doc_condition();
         DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList odds = new ArrayList();
@@ -409,7 +409,7 @@ class Match100Method
         //try
         //{
         DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = Match100Helper.get_match_table(dt_analyse);
+        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
         ArrayList times = new ArrayList();
         ArrayList teams = new ArrayList();
         ArrayList wins = new ArrayList();

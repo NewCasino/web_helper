@@ -32,6 +32,50 @@ class Match100Helper
         if (double.TryParse(str, out output) == false) return false;
         return true;
     }
+    public static string get_24h(string str)
+    {
+        try
+        {
+            int h = Convert.ToInt32(str.Substring(0, 2));
+            h = h + 12;
+            return h.ToString("00" + str.Substring(2, 3));
+        }
+        catch (Exception error)
+        {
+            return "error";
+        }
+
+    }
+    public static string get_12m(string str)
+    {
+        //一月：January 
+        //二月：February
+        //三月：March
+        //四月：April
+        //五月：May 
+        //六月：June 
+        //七月：July
+        //八月：August 
+        //九月：September 
+        //十月：October 
+        //十一月：November
+        //十二月：December
+        str = str.ToLower();
+        if (str.Contains("jan")) return "01";
+        if (str.Contains("feb")) return "02";
+        if (str.Contains("mar")) return "03";
+        if (str.Contains("apr")) return "04";
+        if (str.Contains("may")) return "05";
+        if (str.Contains("jun")) return "06";
+        if (str.Contains("jul")) return "07";
+        if (str.Contains("aug")) return "08";
+        if (str.Contains("sep")) return "09";
+        if (str.Contains("oct")) return "10";
+        if (str.Contains("nov")) return "11";
+        if (str.Contains("dec")) return "12";
+        return "00"; 
+    }
+
     public static BsonDocument get_doc_result()
     {
         BsonDocument doc_result = new BsonDocument();
@@ -57,57 +101,6 @@ class Match100Helper
                          "", "", "", "", type);
         SQLServerHelper.exe_sql(sql);
     }
-    public static DataTable get_match_table(DataTable dt_analyse)
-    {
-        DataTable dt = new DataTable();
-        ArrayList cols = new ArrayList();
-
-        if (dt_analyse.Rows.Count < 2) return dt;
-        int count_row = dt_analyse.Rows.Count - 2;
-        int text_row = dt_analyse.Rows.Count - 1;
-
-        for (int i = 3; i < dt_analyse.Columns.Count; i++)
-        {
-            string[] text_list = dt_analyse.Rows[text_row][i].ToString().Replace(" ","").Trim().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            if (Convert.ToInt32(dt_analyse.Rows[count_row][i].ToString()) > 5 && text_list.Length > 5)
-            {
-                cols.Add(dt_analyse.Columns[i].ColumnName);
-            }
-        }
-
-        foreach (string str in cols)
-        {
-            dt.Columns.Add(str);
-        }
-
-        for (int i = 0; i < dt_analyse.Rows.Count - 2; i++)
-        {
-            DataRow row_new = dt.NewRow();
-            bool is_use = false;
-            for (int j = 0; j < dt.Columns.Count; j++)
-            {
-                
-                
-                string column_name = dt.Columns[j].ColumnName;
-                if (string.IsNullOrEmpty(dt_analyse.Rows[i][column_name].ToString().Replace(Environment.NewLine,"").Replace(" ", "").Trim())) continue; 
-                is_use = true;
-                string text = "";
-                string value = dt_analyse.Rows[i][column_name].ToString();
-                string[] list = value.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string item in list)
-                {
-                    if (!string.IsNullOrEmpty(item.Replace(Environment.NewLine,"").Replace(" ","").Trim()))
-                    {
-                        text = text + item + "●";
-                    }
-                }
-                if (text.Length > 1) text = text.Substring(0, text.Length - 1);
-                row_new[column_name] = text;
-
-            }
-            if (is_use == true) dt.Rows.Add(row_new);
-        }
-        return dt;
-    }
+   
 }
 

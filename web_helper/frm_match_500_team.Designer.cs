@@ -35,6 +35,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Text = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
+            this.btn_read_to_db = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Text.SuspendLayout();
@@ -42,23 +43,24 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_read_to_db);
             this.groupBox1.Controls.Add(this.btn_step_3);
             this.groupBox1.Controls.Add(this.btn_step_2);
             this.groupBox1.Controls.Add(this.btn_step_1);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(981, 64);
+            this.groupBox1.Size = new System.Drawing.Size(981, 69);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
             // btn_step_3
             // 
-            this.btn_step_3.Location = new System.Drawing.Point(182, 26);
+            this.btn_step_3.Location = new System.Drawing.Point(182, 28);
             this.btn_step_3.Name = "btn_step_3";
-            this.btn_step_3.Size = new System.Drawing.Size(75, 21);
+            this.btn_step_3.Size = new System.Drawing.Size(75, 23);
             this.btn_step_3.TabIndex = 2;
             this.btn_step_3.Text = "Step 3";
             this.btn_step_3.UseVisualStyleBackColor = true;
@@ -66,9 +68,9 @@
             // 
             // btn_step_2
             // 
-            this.btn_step_2.Location = new System.Drawing.Point(101, 26);
+            this.btn_step_2.Location = new System.Drawing.Point(101, 28);
             this.btn_step_2.Name = "btn_step_2";
-            this.btn_step_2.Size = new System.Drawing.Size(75, 21);
+            this.btn_step_2.Size = new System.Drawing.Size(75, 23);
             this.btn_step_2.TabIndex = 1;
             this.btn_step_2.Text = "Step 2";
             this.btn_step_2.UseVisualStyleBackColor = true;
@@ -76,9 +78,9 @@
             // 
             // btn_step_1
             // 
-            this.btn_step_1.Location = new System.Drawing.Point(20, 26);
+            this.btn_step_1.Location = new System.Drawing.Point(20, 28);
             this.btn_step_1.Name = "btn_step_1";
-            this.btn_step_1.Size = new System.Drawing.Size(75, 21);
+            this.btn_step_1.Size = new System.Drawing.Size(75, 23);
             this.btn_step_1.TabIndex = 0;
             this.btn_step_1.Text = "Step 1";
             this.btn_step_1.UseVisualStyleBackColor = true;
@@ -86,14 +88,14 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Text);
-            this.tabControl1.Location = new System.Drawing.Point(4, 71);
+            this.tabControl1.Location = new System.Drawing.Point(4, 77);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(985, 450);
+            this.tabControl1.Size = new System.Drawing.Size(985, 488);
             this.tabControl1.TabIndex = 1;
             // 
             // Text
@@ -102,7 +104,7 @@
             this.Text.Location = new System.Drawing.Point(4, 22);
             this.Text.Name = "Text";
             this.Text.Padding = new System.Windows.Forms.Padding(3);
-            this.Text.Size = new System.Drawing.Size(977, 424);
+            this.Text.Size = new System.Drawing.Size(977, 462);
             this.Text.TabIndex = 0;
             this.Text.Text = "Text";
             this.Text.UseVisualStyleBackColor = true;
@@ -116,16 +118,26 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(971, 418);
+            this.txt_result.Size = new System.Drawing.Size(971, 456);
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
+            // btn_read_to_db
+            // 
+            this.btn_read_to_db.Location = new System.Drawing.Point(284, 28);
+            this.btn_read_to_db.Name = "btn_read_to_db";
+            this.btn_read_to_db.Size = new System.Drawing.Size(85, 23);
+            this.btn_read_to_db.TabIndex = 3;
+            this.btn_read_to_db.Text = "Read To DB";
+            this.btn_read_to_db.UseVisualStyleBackColor = true;
+            this.btn_read_to_db.Click += new System.EventHandler(this.btn_read_to_db_Click);
+            // 
             // frm_match_500_team
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 522);
+            this.ClientSize = new System.Drawing.Size(992, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_500_team";
@@ -146,5 +158,6 @@
         private System.Windows.Forms.Button btn_step_1;
         private System.Windows.Forms.Button btn_step_3;
         private System.Windows.Forms.Button btn_step_2;
+        private System.Windows.Forms.Button btn_read_to_db;
     }
 }

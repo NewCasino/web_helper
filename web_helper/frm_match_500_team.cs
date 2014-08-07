@@ -14,6 +14,7 @@ namespace web_helper
 {
     public partial class frm_match_500_team : Form
     {
+        StringBuilder sb = new StringBuilder();
         public frm_match_500_team()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace web_helper
         string root_url = @"file:///" + root_path.Replace(@"\", @"/");
         private void btn_step_1_Click(object sender, EventArgs e)
         {
-            StringBuilder sb = new StringBuilder();
+            sb.Remove(0, sb.Length);
             WebClient client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url + "step1.htm"));
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -61,7 +62,7 @@ namespace web_helper
         private void btn_step_2_Click(object sender, EventArgs e)
         {
             string path = root_path + "lg_url.txt";
-            StringBuilder sb = new StringBuilder();
+            sb.Remove(0, sb.Length);
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
             StreamReader reader = new StreamReader(stream);
             string line = "";
@@ -117,8 +118,8 @@ namespace web_helper
 
         private void btn_step_3_Click(object sender, EventArgs e)
         {
-            string path = root_path + "teams.txt";
-            StringBuilder sb = new StringBuilder();
+            sb.Remove(0, sb.Length);
+            string path = root_path + "teams.txt"; 
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
             StreamReader reader = new StreamReader(stream);
             string line = "";
@@ -126,11 +127,11 @@ namespace web_helper
             while (line != null)
             {
                 line = reader.ReadLine();
-                if (!string.IsNullOrEmpty(line) && line.Substring(0,2)!="--" && last==true)
+                if (!string.IsNullOrEmpty(line) && line.Substring(0, 2) != "--" && last == true)
                 {
 
                     try
-                    { 
+                    {
                         WebClient client = new WebClient();
                         string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(line));
                         HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -141,7 +142,7 @@ namespace web_helper
                         HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(root);
 
                         sb.AppendLine("----");
-                        write_line("teams_detail.txt", "----"+line);
+                        write_line("teams_detail.txt", "----" + line);
                         foreach (HtmlNode node in nodes_all)
                         {
                             string xpath = node.XPath + "/a[1]";
@@ -152,20 +153,20 @@ namespace web_helper
                             string[] items = text.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
                             if (items.Length > 1)
                             {
-                                sb.AppendLine(items[0].PR(20) + items[1].PR(20));
-                                write_line("teams_detail.txt", items[0].PR(20) + items[1].PR(20));
+                                sb.AppendLine(items[0].PR(100) + items[1].PR(100));
+                                write_line("teams_detail.txt", text);
                             }
                         }
                         this.txt_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
-                    catch(Exception error)
+                    catch (Exception error)
                     {
                         sb.AppendLine(error.Message);
                         Application.DoEvents();
                     }
 
-                   
+
                 }
                 if (!string.IsNullOrEmpty(line) && line.Substring(0, 2) == "--")
                 {
@@ -177,7 +178,7 @@ namespace web_helper
                 }
             }
             //StringBuilder sb = new StringBuilder();
-           
+
         }
         public void write_line(string file_name, string txt)
         {
@@ -187,6 +188,49 @@ namespace web_helper
             writer.WriteLine(txt);
             writer.Close();
             stream.Close();
+        }
+
+        private void btn_read_to_db_Click(object sender, EventArgs e)
+        {
+            string path = root_path + "teams_detail.txt";
+           
+            FileStream stream = (FileStream)File.Open(path, FileMode.Open);
+            StreamReader reader = new StreamReader(stream);
+            string line = ""; 
+            while (line != null)
+            {
+                line = reader.ReadLine();
+                if (!string.IsNullOrEmpty(line) && line.Substring(0, 2) != "--")
+                {
+                    line = line.TrimStart().TrimEnd();
+                    int index = line.IndexOf(' ');
+                    string cn_name = line.Substring(0, index + 1).TrimStart().TrimEnd();
+                    string eng_name = line.Substring(index + 1, line.Length - (index + 1)).TrimStart().TrimEnd();
+
+
+                    insert_db(eng_name, cn_name);
+                     
+                }
+               
+            }
+        }
+        public void insert_db(string eng_name, string cn_name)
+        {
+            string sql = "";
+            sql = " select * from teams where name1='{0}' ";
+            sql=string.Format(sql,eng_name);
+            if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+            {
+                sql = "  insert into teams (name1,name2,all_name) values ('{0}','{1}','{2}')";
+                sql = string.Format(sql, eng_name, cn_name, eng_name + "●" + cn_name);
+                SQLServerHelper.exe_sql(sql);
+
+                sb.AppendLine(eng_name.PR(20) + cn_name.PR(20));
+                this.txt_result.Text = sb.ToString();
+                Application.DoEvents();
+            }
+
+
         }
     }
 }

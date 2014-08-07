@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -1509,6 +1510,58 @@ class BrowserHelper
         return dt;
 
 
+    }
+    public static DataTable get_filter_table(ref BsonDocument doc_condition,DataTable dt_analyse)
+    {
+        DataTable dt = new DataTable();
+        ArrayList cols = new ArrayList();
+
+        if (dt_analyse.Rows.Count < 2) return dt;
+        int count_row = dt_analyse.Rows.Count - 2;
+        int text_row = dt_analyse.Rows.Count - 1;
+
+        for (int i = 3; i < dt_analyse.Columns.Count; i++)
+        {
+            string[] text_list = dt_analyse.Rows[text_row][i].ToString().Replace(" ", "").Trim().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            if (Convert.ToInt32(dt_analyse.Rows[count_row][i].ToString()) > 5 && text_list.Length > 5)
+            {
+                cols.Add(dt_analyse.Columns[i].ColumnName);
+            }
+        }
+
+        foreach (string str in cols)
+        {
+            dt.Columns.Add(str);
+        }
+
+        for (int i = 0; i < dt_analyse.Rows.Count - 2; i++)
+        {
+            DataRow row_new = dt.NewRow();
+            bool is_use = false;
+            for (int j = 0; j < dt.Columns.Count; j++)
+            {
+
+
+                string column_name = dt.Columns[j].ColumnName;
+                if (string.IsNullOrEmpty(dt_analyse.Rows[i][column_name].ToString().Replace(Environment.NewLine, "").Replace(" ", "").Trim())) continue;
+                is_use = true;
+                string text = "";
+                string value = dt_analyse.Rows[i][column_name].ToString();
+                string[] list = value.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string item in list)
+                {
+                    if (!string.IsNullOrEmpty(item.Replace(Environment.NewLine, "").Replace(" ", "").Trim()))
+                    {
+                        text = text + item + "●";
+                    }
+                }
+                if (text.Length > 1) text = text.Substring(0, text.Length - 1);
+                row_new[column_name] = text;
+
+            }
+            if (is_use == true) dt.Rows.Add(row_new);
+        }
+        return dt;
     }
     public static void get_position_from_doc_4(ref BsonDocument doc_condition,ref DataTable dt_position, ref mshtml.HTMLDocument doc_input, int start_x, int start_y)
     {

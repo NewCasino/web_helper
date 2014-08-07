@@ -51,7 +51,7 @@ namespace web_helper
             DataTable dt_position = BrowserHelper.get_position_table4(ref browser,ref doc_condition);
             DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser,ref doc_condition);
         
-            DataTable dt_match = Match100Helper.get_match_table(dt_analyse);
+            DataTable dt_match = BrowserHelper.get_filter_table(ref doc_condition,dt_analyse);
             this.dgv_1.DataSource = dt_match;
             this.dgv_2.DataSource = dt_position;
             this.dgv_3.DataSource = dt_analyse;
