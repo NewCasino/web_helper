@@ -203,7 +203,6 @@ class HtmlHelper
         {
             Log.error_with_msg("down file from url ", url, error);
             return "error [down_file_url]" + Environment.NewLine + url + Environment.NewLine + error.Message;
-        }
-
+        } 
     }
 }

@@ -790,7 +790,6 @@ class MatchCompany
 
     }
 
-
     public static string get_info_from_doc(BsonDocument doc)
     {
 

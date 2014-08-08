@@ -285,7 +285,6 @@ class TemplateHelper
                     if (value_orig == "#ALL#")
                     {
                         value_new = node.WriteTo();
-
                     }
                     else if (value_orig == "#INNER#")
                     {

@@ -32,49 +32,7 @@ class Match100Helper
         if (double.TryParse(str, out output) == false) return false;
         return true;
     }
-    public static string get_24h(string str)
-    {
-        try
-        {
-            int h = Convert.ToInt32(str.Substring(0, 2));
-            h = h + 12;
-            return h.ToString("00" + str.Substring(2, 3));
-        }
-        catch (Exception error)
-        {
-            return "error";
-        }
 
-    }
-    public static string get_12m(string str)
-    {
-        //一月：January 
-        //二月：February
-        //三月：March
-        //四月：April
-        //五月：May 
-        //六月：June 
-        //七月：July
-        //八月：August 
-        //九月：September 
-        //十月：October 
-        //十一月：November
-        //十二月：December
-        str = str.ToLower();
-        if (str.Contains("jan")) return "01";
-        if (str.Contains("feb")) return "02";
-        if (str.Contains("mar")) return "03";
-        if (str.Contains("apr")) return "04";
-        if (str.Contains("may")) return "05";
-        if (str.Contains("jun")) return "06";
-        if (str.Contains("jul")) return "07";
-        if (str.Contains("aug")) return "08";
-        if (str.Contains("sep")) return "09";
-        if (str.Contains("oct")) return "10";
-        if (str.Contains("nov")) return "11";
-        if (str.Contains("dec")) return "12";
-        return "00"; 
-    }
 
     public static BsonDocument get_doc_result()
     {
