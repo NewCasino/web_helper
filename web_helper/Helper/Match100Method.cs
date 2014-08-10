@@ -102,6 +102,7 @@ class Match100Method
                     string win = node.SelectSingleNode(root + "/span[6]/div[1]/em[1]").InnerText;
                     string draw = node.SelectSingleNode(root + "/span[6]/div[1]/em[2]").InnerText;
                     string lose = node.SelectSingleNode(root + "/span[6]/div[1]/em[3]").InnerText;
+                    Match100Helper.insert_data("163", league, start_time, host, client, win, draw, lose);
                     sb.Append(league.PR(20) + start_time.PR(20) + host.PR(20) + client.PR(20) + win.PR(20) + draw.PR(20) + lose.PR(20) + Environment.NewLine);
                 }
                 catch (Exception error) { Log.error("from 163", error); }
@@ -284,11 +285,11 @@ class Match100Method
 
         for (int i = 0; i < dt.Rows.Count; i++)
         {
-            if (!string.IsNullOrEmpty(dt.Rows[i][4].ToString()) && dt.Rows[i][4].ToString().Contains("1X2") == false)
+            if (!string.IsNullOrEmpty(dt.Rows[i][5].ToString()) && dt.Rows[i][5].ToString().Contains("1X2") == false)
             {
                 times.Add(dt.Rows[i][0].ToString());
                 teams.Add(dt.Rows[i][2].ToString());
-                odds.Add(dt.Rows[i][4].ToString());
+                odds.Add(dt.Rows[i][5].ToString());
             }
         }
 
@@ -297,7 +298,14 @@ class Match100Method
         {
             if ((i + 2) < times.Count)
             {
-                result = result + (times[i].ToString() + " " + times[i + 1].ToString()).PR(20) + teams[i].PR(50) + teams[i + 1].PR(50) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
+                string f_time = times[i].ToString() + " " + times[i + 1].ToString();
+                string f_host = teams[i].ToString();
+                string f_client = teams[i + 1].ToString();
+                string f_win = odds[i].ToString();
+                string f_draw = odds[i + 2].ToString();
+                string f_lose = odds[i + 1].ToString();
+                Match100Helper.insert_data("pinnaclesports", "", f_time, f_host, f_client, f_win, f_draw, f_lose);
+                result = result +f_time.PR(20)+f_host.PR(50)+f_client.PR(50)+f_win.PR(20)+f_draw.PR(20)+f_lose.PR(20)+ Environment.NewLine;
             }
             i = i + 2;
         }
@@ -348,7 +356,7 @@ class Match100Method
         {
             string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
             string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            result = result + (single_times[0].ToString().Trim()+ " " + single_times[1].ToString()).PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+            result = result + (single_times[0].ToString().Trim() + " " + single_times[1].ToString()).PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
         }
         //}
         //catch (Exception error)
@@ -385,11 +393,11 @@ class Match100Method
 
         for (int i = 0; i < times.Count; i++)
         {
-             
-                string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                string[] single_odds = odds[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                result = result + single_times[1].PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + single_odds[0].PR(20) + single_odds[2].PR(20) + single_odds[1].PR(20) + Environment.NewLine;
+
+            string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] single_odds = odds[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+            result = result + single_times[1].PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + single_odds[0].PR(20) + single_odds[2].PR(20) + single_odds[1].PR(20) + Environment.NewLine;
         }
         //}
         //catch (Exception error)
@@ -439,7 +447,7 @@ class Match100Method
             //string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
             string str_time = times[i].ToString().Replace("滚球", "").Replace("●", "").Trim();
             string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            result = result +  str_time.PR(20)+ single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+            result = result + str_time.PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
         }
         //}
         //catch (Exception error)

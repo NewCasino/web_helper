@@ -69,5 +69,11 @@ namespace web_helper
             frm_match_500_team frm = new frm_match_500_team();
             frm.Show();
         }
+
+        private void btn_log_analyse_Click(object sender, EventArgs e)
+        {
+            frm_match_log_analyse frm = new frm_match_log_analyse();
+            frm.Show();
+        }
     }
 }

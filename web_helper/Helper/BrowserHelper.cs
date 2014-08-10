@@ -1354,8 +1354,8 @@ class BrowserHelper
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
         get_position_from_doc_4(ref doc_condition,ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
 
-        dt_position.DefaultView.Sort = "left asc";
-        dt_position = dt_position.DefaultView.ToTable();
+        //dt_position.DefaultView.Sort = "left asc";
+        //dt_position = dt_position.DefaultView.ToTable();
 
         //for (int i = 0; i < dt_position.Rows.Count; i++)
         //{

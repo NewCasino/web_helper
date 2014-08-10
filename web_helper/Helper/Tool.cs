@@ -13,8 +13,12 @@ class Tool
         try
         {
             int h = Convert.ToInt32(str.Substring(0, 2));
-            h = h + 12;
-            return h.ToString("00" + str.Substring(2, 3));
+            if (h < 12)
+            {
+                h = h + 12;
+                return h.ToString("00") + str.Substring(2, 3);
+            }
+            return str;
         }
         catch (Exception error)
         {

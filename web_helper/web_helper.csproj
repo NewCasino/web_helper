@@ -157,6 +157,12 @@
     <Compile Include="frm_match_500_down_excel.Designer.cs">
       <DependentUpon>frm_match_500_down_excel.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_match_log_analyse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_log_analyse.Designer.cs">
+      <DependentUpon>frm_match_log_analyse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_url_free_pick.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_match_500_down_excel.resx">
       <DependentUpon>frm_match_500_down_excel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_log_analyse.resx">
+      <DependentUpon>frm_match_log_analyse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_url_free_pick.resx">
       <DependentUpon>frm_url_free_pick.cs</DependentUpon>
