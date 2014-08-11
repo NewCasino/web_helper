@@ -96,12 +96,13 @@ class Match100Method
                 {
                     string root = node.XPath;
                     string league = node.Attributes["leaguename"].Value.ToString();
-                    string start_time = node.Attributes["starttime"].Value.ToString();
+                    string match_code = node.Attributes["matchcode"].Value.ToString().Insert(6, "-");
+                    string start_time =match_code +"●"+ node.Attributes["starttime"].Value.ToString();
                     string host = node.Attributes["hostname"].Value.ToString();
                     string client = node.Attributes["guestname"].Value.ToString();
-                    string win = node.SelectSingleNode(root + "/span[6]/div[1]/em[1]").InnerText;
-                    string draw = node.SelectSingleNode(root + "/span[6]/div[1]/em[2]").InnerText;
-                    string lose = node.SelectSingleNode(root + "/span[6]/div[1]/em[3]").InnerText;
+                    string win = node.SelectSingleNode(root + "/span[6]/div[1]/em[1]").InnerText.Replace("↓", "").Replace("↑", "");
+                    string draw = node.SelectSingleNode(root + "/span[6]/div[1]/em[2]").InnerText.Replace("↓", "").Replace("↑", "");
+                    string lose = node.SelectSingleNode(root + "/span[6]/div[1]/em[3]").InnerText.Replace("↓", "").Replace("↑", "");
                     Match100Helper.insert_data("163", league, start_time, host, client, win, draw, lose,"8");
                     sb.Append(league.PR(20) + start_time.PR(20) + host.PR(20) + client.PR(20) + win.PR(20) + draw.PR(20) + lose.PR(20) + Environment.NewLine);
                 }
@@ -301,11 +302,11 @@ class Match100Method
 
         for (int i = 0; i < dt.Rows.Count; i++)
         {
-            if (!string.IsNullOrEmpty(dt.Rows[i][5].ToString()) && dt.Rows[i][5].ToString().Contains("1X2") == false)
+            if (!string.IsNullOrEmpty(dt.Rows[i][4].ToString()) && dt.Rows[i][4].ToString().Contains("1X2") == false)
             {
                 times.Add(dt.Rows[i][0].ToString());
                 teams.Add(dt.Rows[i][2].ToString());
-                odds.Add(dt.Rows[i][5].ToString());
+                odds.Add(dt.Rows[i][4].ToString());
             }
         }
 
@@ -320,7 +321,7 @@ class Match100Method
                 string f_win = odds[i].ToString();
                 string f_draw = odds[i + 2].ToString();
                 string f_lose = odds[i + 1].ToString();
-                Match100Helper.insert_data("pinnaclesports", "", f_time, f_host, f_client, f_win, f_draw, f_lose,"8");
+                Match100Helper.insert_data("pinnaclesports", "", f_time, f_host, f_client, f_win, f_draw, f_lose,"-7");
                 result = result +f_time.PR(20)+f_host.PR(50)+f_client.PR(50)+f_win.PR(20)+f_draw.PR(20)+f_lose.PR(20)+ Environment.NewLine;
             }
             i = i + 2;
