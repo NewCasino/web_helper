@@ -29,7 +29,7 @@ static class Extensions
             }
             if (count == len) return input.Substring(0, i+1) + "  ";
         }
-        return "EXTENTION FR WRONG".PR(len);
+        return "PR WRONG".PR(len);
     }
  
 }

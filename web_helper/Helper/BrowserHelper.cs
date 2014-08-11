@@ -1539,9 +1539,7 @@ class BrowserHelper
             DataRow row_new = dt.NewRow();
             bool is_use = false;
             for (int j = 0; j < dt.Columns.Count; j++)
-            {
-
-
+            { 
                 string column_name = dt.Columns[j].ColumnName;
                 if (string.IsNullOrEmpty(dt_analyse.Rows[i][column_name].ToString().Replace(Environment.NewLine, "").Replace(" ", "").Trim())) continue;
                 is_use = true;
@@ -1749,10 +1747,7 @@ class BrowserHelper
     } 
 
     //public static IHTMLElement get_element_by_id(ref WebBrowser browser, string id)
-    //{
-         
-       
-      
+    //{ 
     //    mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument; 
     //    get_element_by_id_loop(ref doc_child, ref element, id);
     //    return element;
@@ -1894,8 +1889,6 @@ class BrowserHelper
             doc.Add("scrollTop", scrollTop);
             docs.Add(doc);
         }
-    }
-
-
+    } 
 }
 
