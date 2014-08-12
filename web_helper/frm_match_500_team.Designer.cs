@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_read_to_db = new System.Windows.Forms.Button();
             this.btn_step_3 = new System.Windows.Forms.Button();
             this.btn_step_2 = new System.Windows.Forms.Button();
             this.btn_step_1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Text = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.btn_read_to_db = new System.Windows.Forms.Button();
+            this.btn_read_detail = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Text.SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_read_detail);
             this.groupBox1.Controls.Add(this.btn_read_to_db);
             this.groupBox1.Controls.Add(this.btn_step_3);
             this.groupBox1.Controls.Add(this.btn_step_2);
@@ -55,6 +57,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_read_to_db
+            // 
+            this.btn_read_to_db.Location = new System.Drawing.Point(284, 28);
+            this.btn_read_to_db.Name = "btn_read_to_db";
+            this.btn_read_to_db.Size = new System.Drawing.Size(85, 23);
+            this.btn_read_to_db.TabIndex = 3;
+            this.btn_read_to_db.Text = "Read To DB";
+            this.btn_read_to_db.UseVisualStyleBackColor = true;
+            this.btn_read_to_db.Click += new System.EventHandler(this.btn_read_to_db_Click);
             // 
             // btn_step_3
             // 
@@ -123,15 +135,15 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // btn_read_to_db
+            // btn_read_detail
             // 
-            this.btn_read_to_db.Location = new System.Drawing.Point(284, 28);
-            this.btn_read_to_db.Name = "btn_read_to_db";
-            this.btn_read_to_db.Size = new System.Drawing.Size(85, 23);
-            this.btn_read_to_db.TabIndex = 3;
-            this.btn_read_to_db.Text = "Read To DB";
-            this.btn_read_to_db.UseVisualStyleBackColor = true;
-            this.btn_read_to_db.Click += new System.EventHandler(this.btn_read_to_db_Click);
+            this.btn_read_detail.Location = new System.Drawing.Point(389, 28);
+            this.btn_read_detail.Name = "btn_read_detail";
+            this.btn_read_detail.Size = new System.Drawing.Size(75, 23);
+            this.btn_read_detail.TabIndex = 4;
+            this.btn_read_detail.Text = "Read Detail";
+            this.btn_read_detail.UseVisualStyleBackColor = true;
+            this.btn_read_detail.Click += new System.EventHandler(this.btn_read_detail_Click);
             // 
             // frm_match_500_team
             // 
@@ -159,5 +171,6 @@
         private System.Windows.Forms.Button btn_step_3;
         private System.Windows.Forms.Button btn_step_2;
         private System.Windows.Forms.Button btn_read_to_db;
+        private System.Windows.Forms.Button btn_read_detail;
     }
 }

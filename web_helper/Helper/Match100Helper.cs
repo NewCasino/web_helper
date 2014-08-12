@@ -41,7 +41,6 @@ class Match100Helper
         doc_result.Add("loop", new BsonArray());
         return doc_result;
     }
-
     public static void insert_data(string company,string type,string start_time,string host,string client,string odd_win,string odd_draw,string odd_lose,string time_zone)
     {
         string sql = "";
@@ -51,6 +50,15 @@ class Match100Helper
               " ( timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose,time_zone) values" +
               " ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')";
         sql = string.Format(sql,timespan,company,type,start_time,host,client,odd_win,odd_draw,odd_lose,time_zone);
+        SQLServerHelper.exe_sql(sql);
+    }
+    public static void insert_future_match(string type, string time, string host, string client)
+    {
+        string sql = " delete  from future_match where type='{0}' and start_time='{1}' and host='{2}' and client='{3}'";
+        sql = string.Format(sql, type, time, host, client);
+        SQLServerHelper.exe_sql(sql);
+        sql = "insert into future_match (type,start_time,host,client) values ('{0}','{1}','{2}','{3}')";
+        sql = string.Format(sql, type, time, host, client);
         SQLServerHelper.exe_sql(sql);
     }
     public static string convert_team_name(string name)
@@ -135,6 +143,33 @@ class Match100Helper
         } 
         return new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, min, 0);
     }
-
+    public static string  get_date_from_week_no(string week_no)
+    {
+        if (week_no.Length >= 3) week_no = week_no.Substring(0, 3).ToLower();
+        DateTime now = DateTime.Now;
+        for (int i = 0;  i < 10; i++)
+        {
+            DateTime dt = now.AddDays(i);
+            if (dt.DayOfWeek.ToString().Substring(0, 3).ToLower() == week_no)
+            {
+                return dt.ToString("MM-dd");
+            }
+        }
+        return now.ToString("MM-dd");
+    }
+    public static DateTime  get_datetime_from_week_no(string week_no)
+    {
+        if (week_no.Length >= 3) week_no = week_no.Substring(0, 3).ToLower();
+        DateTime now = DateTime.Now;
+        for (int i = 0; i < 10; i++)
+        {
+            DateTime dt = now.AddDays(i);
+            if (dt.DayOfWeek.ToString().Substring(0, 3).ToLower() == week_no)
+            {
+                return dt;
+            }
+        }
+        return now;
+    } 
 }
 

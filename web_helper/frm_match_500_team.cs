@@ -233,5 +233,49 @@ namespace web_helper
 
 
         }
+
+        private void btn_read_detail_Click(object sender, EventArgs e)
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            WebClient client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url+"step3.htm"));
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            string root = @"/html[1]/body[1]/div[3]/div[5]/div[1]/div[3]/ul[1]/li";
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(root);
+            sb.AppendLine("----"); 
+            foreach (HtmlNode node in nodes_all)
+            {
+                string xpath = node.XPath + "/a[1]";
+                HtmlNode final = doc.DocumentNode.SelectNodes(xpath)[0];
+                string text = final.InnerText;
+                text = text.Replace('(', '●').Replace(')', ' ');
+
+                string[] items = text.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                if (items.Length > 1)
+                {
+                    sb.AppendLine(items[0].PR(100) + items[1].PR(100));
+                     
+                }
+            }
+
+            string root_matchs = @"/html[1]/body[1]/div[3]/div[6]/table[1]/tr[position()>1]";
+            HtmlNodeCollection nodes_match = doc.DocumentNode.SelectNodes(root_matchs);
+            foreach (HtmlNode node in nodes_match)
+            {
+                HtmlNode node_leage = doc.DocumentNode.SelectNodes(node.XPath + "/td[1]/a[1]")[0];
+                HtmlNode node_time = doc.DocumentNode.SelectNodes(node.XPath + "/td[2]")[0];
+                HtmlNode node_host = doc.DocumentNode.SelectNodes(node.XPath + "/td[3]/a[1]")[0];
+                HtmlNode node_client = doc.DocumentNode.SelectNodes(node.XPath + "/td[5]/a[1]")[0];
+                Match100Helper.insert_future_match(node_leage.InnerText, node_time.InnerText, node_host.InnerText, node_client.InnerText);
+                sb.AppendLine(node_leage.InnerText.PR(20) + node_time.InnerText.PR(30) + node_host.InnerText.PR(20) + node_client.InnerText.PR(20));
+            }
+
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+        }
     }
 }
