@@ -41,15 +41,15 @@ class Match100Helper
         doc_result.Add("loop", new BsonArray());
         return doc_result;
     }
-    public static void insert_data(string company,string type,string start_time,string host,string client,string odd_win,string odd_draw,string odd_lose,string time_zone)
+    public static void insert_data(string company,string type,string start_time,string host,string client,string odd_win,string odd_draw,string odd_lose,string time_zone,string time_add)
     {
         string sql = "";
         string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
         sql = " insert into europe_100_log " +
-              " ( timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose,time_zone) values" +
-              " ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')";
-        sql = string.Format(sql,timespan,company,type,start_time,host,client,odd_win,odd_draw,odd_lose,time_zone);
+              " ( timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose,time_zone,time_add,state) values" +
+              " ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','0')";
+        sql = string.Format(sql,timespan,company,type,start_time,host,client,odd_win,odd_draw,odd_lose,time_zone,time_add);
         SQLServerHelper.exe_sql(sql);
     }
     public static void insert_future_match(string type, string time, string host, string client)
@@ -74,7 +74,7 @@ class Match100Helper
         }
         return result;
     }
-    public static string convert_start_time(string start_time)
+    public static DateTime convert_start_time(string start_time)
     {
         start_time = start_time.Trim().ToLower();
         start_time = start_time.Replace('/', '-');
@@ -126,8 +126,7 @@ class Match100Helper
         str_date = Convert.ToInt16(str_month).ToString("00") + "-" + Convert.ToInt16(str_day).ToString("00");
         str_time = Convert.ToInt16(str_hour).ToString("00") + ":" + Convert.ToInt16(str_min).ToString("00");
         if (start_time.Contains("pm")) str_time = Tool.get_24h_from_12h(str_time);
-        result = Tool.get_time(str_date, str_time).ToString("yyyy-MM-dd HH:mm");
-        return result;
+        return Tool.get_time(str_date, str_time);
     } 
     public static DateTime round_time(DateTime dt)
     {

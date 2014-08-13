@@ -51,6 +51,13 @@ namespace web_helper
         public void bind_data()
         {
             dt = new DataTable();
+
+            DataColumn col = new DataColumn();
+            col.DataType = Type.GetType("System.Boolean");
+            col.ColumnName = "selected";
+            col.DefaultValue = true;
+            dt.Columns.Add(col);
+
             dt.Columns.Add("id");
             dt.Columns.Add("site_name");
             dt.Columns.Add("step");
@@ -90,9 +97,9 @@ namespace web_helper
         private void dgv_result_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.dgv_result.Columns["url"].Width = 150; 
-            this.dgv_result.Columns["start_time"].Width = 150;
-            this.dgv_result.Columns["end_time"].Width = 150;
-            this.dgv_result.Columns["final_time"].Width = 150;
+            this.dgv_result.Columns["start_time"].Width = 120;
+            this.dgv_result.Columns["end_time"].Width = 120;
+            this.dgv_result.Columns["final_time"].Width = 120;
             this.dgv_result.Columns["id"].Width = 50;
             this.dgv_result.Columns["site_name"].Width = 80;
             this.dgv_result.Columns["step"].Width = 50;
@@ -100,7 +107,8 @@ namespace web_helper
             this.dgv_result.Columns["select_type"].Width = 80;
             this.dgv_result.Columns["seconds"].Width = 50;
             this.dgv_result.Columns["state"].Width = 80;
-            this.dgv_result.Columns["browser"].Width = 80;
+            this.dgv_result.Columns["browser"].Width = 50;
+            this.dgv_result.Columns["selected"].Width = 50;
         }
 
         private void btn_analyse_Click(object sender, EventArgs e)
@@ -121,10 +129,11 @@ namespace web_helper
             analyse();
         }
         public void analyse()
-        { 
+        {
+            //检查正在使用的IE是否执行完毕
             foreach (DataRow row in dt.Rows)
             {
-                //检查正在使用的IE是否执行完毕
+                if (Convert.ToBoolean(row["selected"].ToString()) == false) continue; 
                 if (row["state"].ToString() == "doing")
                 { 
                     DateTime start_time = Convert.ToDateTime(row["start_time"].ToString()); 
@@ -136,7 +145,7 @@ namespace web_helper
                     {
                         if (string.IsNullOrEmpty(row["end_time"].ToString()))
                         {
-                            //等待2分钟
+                            //等待10分钟
                             if (span.TotalSeconds > 600)
                             {
                                 row["state"] = "abort";
@@ -199,6 +208,7 @@ namespace web_helper
             //为等待的任务分配IE
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                if (Convert.ToBoolean(dt.Rows[i]["selected"].ToString()) == false) continue;
                 if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load")
                 {
                     for (int j = 0; j < 10; j++)
@@ -267,6 +277,29 @@ namespace web_helper
             ies[index].doc_result = doc_result;
 
             Application.DoEvents();
+        }
+
+        private void btn_all_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            {
+                dgv_result.Rows[i].Cells["selected"].Value = true;
+            }
+        }
+
+        private void btn_reverse_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            {
+                if (Convert.ToBoolean(dgv_result.Rows[i].Cells["selected"].Value) == true)
+                {
+                    dgv_result.Rows[i].Cells["selected"].Value = false;
+                }
+                else
+                {
+                    dgv_result.Rows[i].Cells["selected"].Value = true;
+                }
+            }
         } 
     }
 

@@ -40,6 +40,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_reverse = new System.Windows.Forms.Button();
+            this.btn_all = new System.Windows.Forms.Button();
             this.dgv_result = new System.Windows.Forms.DataGridView();
             this.time = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
@@ -129,8 +131,8 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(12, 76);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -163,21 +165,45 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_reverse);
+            this.tabPage3.Controls.Add(this.btn_all);
             this.tabPage3.Controls.Add(this.dgv_result);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1065, 395);
+            this.tabPage3.Size = new System.Drawing.Size(1174, 451);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Result Table";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btn_reverse
+            // 
+            this.btn_reverse.Location = new System.Drawing.Point(88, 15);
+            this.btn_reverse.Name = "btn_reverse";
+            this.btn_reverse.Size = new System.Drawing.Size(75, 23);
+            this.btn_reverse.TabIndex = 2;
+            this.btn_reverse.Text = "REVERSE";
+            this.btn_reverse.UseVisualStyleBackColor = true;
+            this.btn_reverse.Click += new System.EventHandler(this.btn_reverse_Click);
+            // 
+            // btn_all
+            // 
+            this.btn_all.Location = new System.Drawing.Point(7, 15);
+            this.btn_all.Name = "btn_all";
+            this.btn_all.Size = new System.Drawing.Size(75, 23);
+            this.btn_all.TabIndex = 1;
+            this.btn_all.Text = "ALL";
+            this.btn_all.UseVisualStyleBackColor = true;
+            this.btn_all.Click += new System.EventHandler(this.btn_all_Click);
+            // 
             // dgv_result
             // 
+            this.dgv_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_result.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_result.Location = new System.Drawing.Point(0, 0);
+            this.dgv_result.Location = new System.Drawing.Point(3, 44);
             this.dgv_result.Name = "dgv_result";
-            this.dgv_result.Size = new System.Drawing.Size(1065, 395);
+            this.dgv_result.Size = new System.Drawing.Size(1166, 404);
             this.dgv_result.TabIndex = 0;
             this.dgv_result.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_result_DataBindingComplete);
             // 
@@ -221,5 +247,7 @@
         private System.Windows.Forms.Button bn_start;
         private System.Windows.Forms.Button btn_load;
         private System.Windows.Forms.Label lb_time;
+        private System.Windows.Forms.Button btn_all;
+        private System.Windows.Forms.Button btn_reverse;
     }
 }

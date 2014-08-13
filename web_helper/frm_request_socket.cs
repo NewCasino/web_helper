@@ -22,7 +22,7 @@ using System.Collections;
 
         private void FrmSocketRequest_Load(object sender, EventArgs e)
         {
-
+             
         }
         private void txt_url_KeyPress(object sender, KeyPressEventArgs e)
         {
