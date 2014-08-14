@@ -25,15 +25,15 @@ namespace web_helper
 
 
         private void btn_analyse_Click(object sender, EventArgs e)
-        {
-
+        { 
             update_standard_data();
+            analyse();
         }
 
-        //state: 0-未处理   1-已处理，值更新了时间   2-已处理，一个匹配   3-已处理，2个匹配
+        //f_state: 0-未处理   1-已处理，值更新了时间   2-已处理，一个匹配   3-已处理，2个匹配
         public void update_standard_data()
         {
-            string sql = "select * from europe_100_log where state='0' ";
+            string sql = "select * from europe_100_log where f_state='0' ";
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
             {
@@ -50,7 +50,7 @@ namespace web_helper
                 string convert_host = "";
                 string convert_client = "";
                 string convert_time = "";
-                string state = "1";
+                string f_state = "1";
 
                 convert_host = Match100Helper.convert_team_name(host);
                 convert_client = Match100Helper.convert_team_name(client);
@@ -61,14 +61,15 @@ namespace web_helper
 
                 if (!string.IsNullOrEmpty(convert_host) || !string.IsNullOrEmpty(convert_client))
                 {
-                    state = "2";
+                    f_state = "2";
                 }
                 if (!string.IsNullOrEmpty(convert_host) && !string.IsNullOrEmpty(convert_client))
                 {
-                    state = "3";
+                    f_state = "3";
                 }
-                sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_start_time='{2}' state='{3}' where id='{4}'";
-                sql = string.Format(sql, convert_time, convert_host, convert_client, state, id);
+                sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_start_time='{2}' ,f_state='{3}' where id='{4}'";
+                sql = string.Format(sql,  convert_host, convert_client,convert_time, f_state, id);
+                SQLServerHelper.exe_sql(sql);
 
                 sb.AppendLine(convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
                 this.txt_result.Text = sb.ToString();
@@ -76,7 +77,7 @@ namespace web_helper
 
             }
 
-            sql = "select * from europe_100_log where state='1' ";
+            sql = "select * from europe_100_log where f_state='1' ";
             dt = SQLServerHelper.get_table(sql);
             //循环根据一个补全另一个
             foreach (DataRow row in dt.Rows)
@@ -99,7 +100,7 @@ namespace web_helper
                         if (!string.IsNullOrEmpty(row_temp["f_host"].ToString()))
                         {
 
-                            sql = " update europe_100_log set f_host='{0}',state='3' where id='{1}'";
+                            sql = " update europe_100_log set f_host='{0}',f_state='3' where id='{1}'";
                             sql = string.Format(sql, row_temp["f_host"].ToString(), id);
                             SQLServerHelper.exe_sql(sql);
                             Match100Helper.insert_team(row_temp["f_host"].ToString(), host);
@@ -122,7 +123,7 @@ namespace web_helper
                     {
                         if (!string.IsNullOrEmpty(row_temp["f_client"].ToString()))
                         {
-                            sql = " update europe_100_log set f_client='{0}',state='3' where id='{1}'";
+                            sql = " update europe_100_log set f_client='{0}',f_state='3' where id='{1}'";
                             sql = string.Format(sql, row_temp["f_client"].ToString(), id);
                             SQLServerHelper.exe_sql(sql);
                             Match100Helper.insert_team(row_temp["f_client"].ToString(), client);
@@ -154,7 +155,7 @@ namespace web_helper
 
 
 
-            string sql = " select * from europe_100_log where state ='1' or state='2' ";
+            string sql = " select * from europe_100_log where f_state ='1' or f_state='2' ";
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
             {
@@ -170,7 +171,7 @@ namespace web_helper
                 string lose = row["profit_lose"].ToString();
                 string time_zone = row["time_zone"].ToString();
                 string time_add = row["time_add"].ToString();
-                string state = row["state"].ToString();
+                string f_state = row["f_state"].ToString();
 
                 DataRow row_new = dt_result.NewRow();
                 row_new["type"] = "M";
@@ -189,10 +190,10 @@ namespace web_helper
 
                 sb.AppendLine("---------------------------------------------------------------------------------------------------------");
                 sb.AppendLine(id.PR(5) + start_time.PR(20) + host.PR(30) + client.PR(30) + f_start_time.PR(20) + f_host.PR(30) + f_client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                sql = " select * from europe_100_log where (state='2' or state='3') and f_start_time='{1}' and id<>'{2}'";
-                sql = string.Format(sql, f_start_time, id);
+                sql = " select * from europe_100_log where (f_state='2' or f_state='3') and f_start_time='{0}' and id<>'{1}' and f_start_time='{2}'";
+                sql = string.Format(sql, f_start_time, id,f_start_time);
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
-                foreach (DataRow row_temp in dt.Rows)
+                foreach (DataRow row_temp in dt_temp.Rows)
                 {
                     DataRow row_new_temp = dt_result.NewRow();
                     row_new_temp["type"] = "";
@@ -237,10 +238,10 @@ namespace web_helper
                         string f_host = dgv_result.Rows[j].Cells["f_host"].ToString();
                         string f_client = dgv_result.Rows[j].Cells["f_client"].ToString();
 
-                        sql = " update europe_100_log set f_host='{0}',f_client='{1}',state='3'  where id='{2}' ";
+                        sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_state='3'  where id='{2}' ";
                         sql = string.Format(sql, f_host, f_client, id);
                         SQLServerHelper.exe_sql(sql);
-                        sql = " update europe_100_log set f_host='{0}',f_client='{1},state='3'  where id='{2}' ";
+                        sql = " update europe_100_log set f_host='{0}',f_client='{1},f_state='3'  where id='{2}' ";
                         sql = string.Format(sql, f_host, f_client, target_id);
                         SQLServerHelper.exe_sql(sql);
 
@@ -255,7 +256,7 @@ namespace web_helper
 
         private void btn_into_offical_Click(object sender, EventArgs e)
         {
-            string sql = "select * from europe_100_log where state='3'";
+            string sql = "select * from europe_100_log where f_state='3'";
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
             {
