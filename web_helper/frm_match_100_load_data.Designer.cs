@@ -1,6 +1,6 @@
 ﻿namespace web_helper
 {
-    partial class frm_match_100
+    partial class frm_match_100_load_data
     {
         /// <summary>
         /// Required designer variable.

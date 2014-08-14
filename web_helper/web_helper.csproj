@@ -121,11 +121,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frm_match_100.cs">
+    <Compile Include="frm_match_100_load_data.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_match_100.Designer.cs">
-      <DependentUpon>frm_match_100.cs</DependentUpon>
+    <Compile Include="frm_match_100_load_data.Designer.cs">
+      <DependentUpon>frm_match_100_load_data.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_match_500_team.cs">
       <SubType>Form</SubType>
@@ -145,11 +145,11 @@
     <Compile Include="frm_match_company_info.Designer.cs">
       <DependentUpon>frm_match_company_info.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_match_compute_by_company.cs">
+    <Compile Include="frm_match_500_analyse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_match_compute_by_company.Designer.cs">
-      <DependentUpon>frm_match_compute_by_company.cs</DependentUpon>
+    <Compile Include="frm_match_500_analyse.Designer.cs">
+      <DependentUpon>frm_match_500_analyse.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_match_500_down_excel.cs">
       <SubType>Form</SubType>
@@ -157,11 +157,11 @@
     <Compile Include="frm_match_500_down_excel.Designer.cs">
       <DependentUpon>frm_match_500_down_excel.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_match_log_analyse.cs">
+    <Compile Include="frm_match_100_log_analyse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_match_log_analyse.Designer.cs">
-      <DependentUpon>frm_match_log_analyse.cs</DependentUpon>
+    <Compile Include="frm_match_100_log_analyse.Designer.cs">
+      <DependentUpon>frm_match_100_log_analyse.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_url_free_pick.cs">
       <SubType>Form</SubType>
@@ -339,8 +339,8 @@
     <Compile Include="frm_mongo_doc_find_view.Designer.cs">
       <DependentUpon>frm_mongo_doc_find_view.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frm_match_100.resx">
-      <DependentUpon>frm_match_100.cs</DependentUpon>
+    <EmbeddedResource Include="frm_match_100_load_data.resx">
+      <DependentUpon>frm_match_100_load_data.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_match_500_team.resx">
       <DependentUpon>frm_match_500_team.cs</DependentUpon>
@@ -354,15 +354,15 @@
       <DependentUpon>frm_match_company_info.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_match_compute_by_company.resx">
-      <DependentUpon>frm_match_compute_by_company.cs</DependentUpon>
+    <EmbeddedResource Include="frm_match_500_analyse.resx">
+      <DependentUpon>frm_match_500_analyse.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_match_500_down_excel.resx">
       <DependentUpon>frm_match_500_down_excel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_match_log_analyse.resx">
-      <DependentUpon>frm_match_log_analyse.cs</DependentUpon>
+    <EmbeddedResource Include="frm_match_100_log_analyse.resx">
+      <DependentUpon>frm_match_100_log_analyse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_url_free_pick.resx">
       <DependentUpon>frm_url_free_pick.cs</DependentUpon>
@@ -486,6 +486,10 @@
       <DependentUpon>frm_url_fix_pick_timing.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_100_analyse.resx">
+      <DependentUpon>frm_match_100_analyse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -513,6 +517,12 @@
     </Compile>
     <Compile Include="frm_url_fix_pick_timing.Designer.cs">
       <DependentUpon>frm_url_fix_pick_timing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_100_analyse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_100_analyse.Designer.cs">
+      <DependentUpon>frm_match_100_analyse.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

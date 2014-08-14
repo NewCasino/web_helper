@@ -18,7 +18,7 @@ namespace web_helper
 
         private void btn_compute_by_company_Click(object sender, EventArgs e)
         {
-            frm_match_compute_by_company frm = new frm_match_compute_by_company();
+            frm_match_500_analyse frm = new frm_match_500_analyse();
             frm.Show();
         }
 
@@ -48,7 +48,7 @@ namespace web_helper
 
         private void btn_match_100_Click(object sender, EventArgs e)
         {
-            frm_match_100 frm = new frm_match_100();
+            frm_match_100_load_data frm = new frm_match_100_load_data();
             frm.Show();
         }
 
@@ -72,7 +72,13 @@ namespace web_helper
 
         private void btn_log_analyse_Click(object sender, EventArgs e)
         {
-            frm_match_log_analyse frm = new frm_match_log_analyse();
+            frm_match_100_log_analyse frm = new frm_match_100_log_analyse();
+            frm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frm_match_100_analyse frm = new frm_match_100_analyse();
             frm.Show();
         }
     }

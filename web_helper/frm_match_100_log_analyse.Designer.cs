@@ -1,6 +1,6 @@
 ﻿namespace web_helper
 {
-    partial class frm_match_log_analyse
+    partial class frm_match_100_log_analyse
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_into_offical = new System.Windows.Forms.Button();
+            this.btn_update = new System.Windows.Forms.Button();
             this.btn_analyse = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
-            this.btn_update = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -47,6 +48,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_into_offical);
             this.groupBox1.Controls.Add(this.btn_update);
             this.groupBox1.Controls.Add(this.btn_analyse);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
@@ -56,11 +58,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
+            // btn_into_offical
+            // 
+            this.btn_into_offical.Location = new System.Drawing.Point(238, 30);
+            this.btn_into_offical.Name = "btn_into_offical";
+            this.btn_into_offical.Size = new System.Drawing.Size(100, 23);
+            this.btn_into_offical.TabIndex = 2;
+            this.btn_into_offical.Text = "Into Offical";
+            this.btn_into_offical.UseVisualStyleBackColor = true;
+            this.btn_into_offical.Click += new System.EventHandler(this.btn_into_offical_Click);
+            // 
+            // btn_update
+            // 
+            this.btn_update.Location = new System.Drawing.Point(122, 30);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(95, 23);
+            this.btn_update.TabIndex = 1;
+            this.btn_update.Text = "Update Grid";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            // 
             // btn_analyse
             // 
             this.btn_analyse.Location = new System.Drawing.Point(18, 29);
             this.btn_analyse.Name = "btn_analyse";
-            this.btn_analyse.Size = new System.Drawing.Size(75, 25);
+            this.btn_analyse.Size = new System.Drawing.Size(98, 25);
             this.btn_analyse.TabIndex = 0;
             this.btn_analyse.Text = "Analyse";
             this.btn_analyse.UseVisualStyleBackColor = true;
@@ -122,24 +144,14 @@
             this.dgv_result.Size = new System.Drawing.Size(916, 439);
             this.dgv_result.TabIndex = 0;
             // 
-            // btn_update
-            // 
-            this.btn_update.Location = new System.Drawing.Point(113, 29);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(75, 23);
-            this.btn_update.TabIndex = 1;
-            this.btn_update.Text = "Update";
-            this.btn_update.UseVisualStyleBackColor = true;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
-            // 
-            // frm_match_log_analyse
+            // frm_match_100_log_analyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 545);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frm_match_log_analyse";
+            this.Name = "frm_match_100_log_analyse";
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgv_result;
         private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.Button btn_into_offical;
     }
 }

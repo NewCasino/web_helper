@@ -12,10 +12,10 @@ using MongoDB.Driver;
 
 namespace web_helper
 {
-    public partial class frm_match_compute_by_company : Form
+    public partial class frm_match_100_analyse : Form
     {
         DataTable dt_all = new DataTable();
-        public frm_match_compute_by_company()
+        public frm_match_100_analyse()
         {
             InitializeComponent();
         }
@@ -410,15 +410,15 @@ namespace web_helper
         private void dgv_match_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_match.Columns[0].Width = 50;
-            dgv_match.Columns[1].Width = 140;
-            dgv_match.Columns[2].Width = 80;
-            dgv_match.Columns[3].Width = 80;
-            dgv_match.Columns[4].Width = 80;
+            dgv_match.Columns[1].Width = 120;
+            dgv_match.Columns[2].Width = 50;
+            dgv_match.Columns[3].Width = 130;
+            dgv_match.Columns[4].Width = 130;
         }
         private void dgv_company_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_company.Columns[0].Width = 50;
-            dgv_company.Columns[1].Width = 250;
+            dgv_company.Columns[1].Width = 200;
         }
 
         public void bind_data()

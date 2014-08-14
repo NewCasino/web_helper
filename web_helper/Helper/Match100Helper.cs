@@ -61,6 +61,27 @@ class Match100Helper
         sql = string.Format(sql, type, time, host, client);
         SQLServerHelper.exe_sql(sql);
     }
+    public static void insert_team(string name, string name_other)
+    {
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name_other)) return;
+        
+        string sql = "select * from teams where replace(lower(all_name),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
+        sql = string.Format(sql, name);
+        DataTable dt = SQLServerHelper.get_table(sql);
+        if (dt.Rows.Count > 0)
+        {
+            sql = " update teams set all_name=all_name+'{0}' where replace(lower(all_name),' ','') like '%'+replace(lower('{1}'),' ','')+'%'";
+            sql = string.Format(sql, name_other,name );
+            SQLServerHelper.exe_sql(sql);
+        } 
+        else
+        {
+            sql = "insert into teams (name1,all_name) values ('{0}','{1}')";
+            sql = string.Format(sql, name, name + "" + name_other);
+            SQLServerHelper.exe_sql(sql);
+        }
+
+    }
     public static string convert_team_name(string name)
     {
         string result = "";
@@ -170,5 +191,6 @@ class Match100Helper
         }
         return now;
     } 
+  
 }
 

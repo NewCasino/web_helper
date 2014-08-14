@@ -17,13 +17,13 @@ using System.Reflection;
 
 namespace web_helper
 {
-    public partial class frm_match_100 : Form
+    public partial class frm_match_100_load_data : Form
     {
         StringBuilder sb = new StringBuilder();
         List<IE> ies = new List<IE>();
         DataTable dt = new DataTable();
 
-        public frm_match_100()
+        public frm_match_100_load_data()
         {
             InitializeComponent();
         }
