@@ -1354,35 +1354,38 @@ class BrowserHelper
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
         get_position_from_doc_4(ref doc_condition,ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
 
-        //dt_position.DefaultView.Sort = "left asc";
-        //dt_position = dt_position.DefaultView.ToTable();
+        if (doc_condition["ajust"].ToString() == "y")
+        {
+            dt_position.DefaultView.Sort = "left asc";
+            dt_position = dt_position.DefaultView.ToTable();
 
-        //for (int i = 0; i < dt_position.Rows.Count; i++)
-        //{
-        //    for (int j = i + 1; j < dt_position.Rows.Count; j++)
-        //    {
-        //        if (is_overlap((int)dt_position.Rows[i]["left"], (int)dt_position.Rows[i]["width"], (int)dt_position.Rows[j]["left"], (int)dt_position.Rows[j]["width"]) == true)
-        //        {
-        //            dt_position.Rows[j]["left"] = dt_position.Rows[i]["Left"];
-        //            dt_position.Rows[j]["width"] = dt_position.Rows[i]["width"];
-        //        }
-        //    }
-        //}
+            for (int i = 0; i < dt_position.Rows.Count; i++)
+            {
+                for (int j = i + 1; j < dt_position.Rows.Count; j++)
+                {
+                    if (is_overlap((int)dt_position.Rows[i]["left"], (int)dt_position.Rows[i]["width"], (int)dt_position.Rows[j]["left"], (int)dt_position.Rows[j]["width"]) == true)
+                    {
+                        dt_position.Rows[j]["left"] = dt_position.Rows[i]["Left"];
+                        dt_position.Rows[j]["width"] = dt_position.Rows[i]["width"];
+                    }
+                }
+            }
 
 
-        //dt_position.DefaultView.Sort = "top asc";
-        //dt_position = dt_position.DefaultView.ToTable();
-        //for (int i = 0; i < dt_position.Rows.Count; i++)
-        //{
-        //    for (int j = i + 1; j < dt_position.Rows.Count; j++)
-        //    {
-        //        if (is_overlap((int)dt_position.Rows[i]["top"], (int)dt_position.Rows[i]["height"], (int)dt_position.Rows[j]["top"], (int)dt_position.Rows[j]["height"]) == true)
-        //        {
-        //            dt_position.Rows[j]["top"] = dt_position.Rows[i]["top"];
-        //            dt_position.Rows[j]["height"] = dt_position.Rows[i]["height"];
-        //        }
-        //    }
-        //}
+            dt_position.DefaultView.Sort = "top asc";
+            dt_position = dt_position.DefaultView.ToTable();
+            for (int i = 0; i < dt_position.Rows.Count; i++)
+            {
+                for (int j = i + 1; j < dt_position.Rows.Count; j++)
+                {
+                    if (is_overlap((int)dt_position.Rows[i]["top"], (int)dt_position.Rows[i]["height"], (int)dt_position.Rows[j]["top"], (int)dt_position.Rows[j]["height"]) == true)
+                    {
+                        dt_position.Rows[j]["top"] = dt_position.Rows[i]["top"];
+                        dt_position.Rows[j]["height"] = dt_position.Rows[i]["height"];
+                    }
+                }
+            }
+        }
 
         return dt_position;
     }
@@ -1675,6 +1678,7 @@ class BrowserHelper
         element_type.Add("dt");
         element_type.Add("dl");
         doc_condition.Add("element_type", element_type);
+        doc_condition.Add("ajust", "n");
         return doc_condition;
     }
 
@@ -1891,4 +1895,5 @@ class BrowserHelper
         }
     } 
 }
+
 

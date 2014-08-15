@@ -36,6 +36,7 @@
             this.txt_url = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.browser = new System.Windows.Forms.WebBrowser();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -50,7 +51,7 @@
             this.dgv_3 = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dgv_4 = new System.Windows.Forms.DataGridView();
-            this.browser = new System.Windows.Forms.WebBrowser();
+            this.cb_ajust = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cb_ajust);
             this.groupBox1.Controls.Add(this.btn_method);
             this.groupBox1.Controls.Add(this.btn_script);
             this.groupBox1.Controls.Add(this.btn_analyse);
@@ -85,7 +87,7 @@
             // 
             // btn_method
             // 
-            this.btn_method.Location = new System.Drawing.Point(800, 18);
+            this.btn_method.Location = new System.Drawing.Point(855, 18);
             this.btn_method.Name = "btn_method";
             this.btn_method.Size = new System.Drawing.Size(75, 23);
             this.btn_method.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             // btn_script
             // 
-            this.btn_script.Location = new System.Drawing.Point(719, 18);
+            this.btn_script.Location = new System.Drawing.Point(774, 18);
             this.btn_script.Name = "btn_script";
             this.btn_script.Size = new System.Drawing.Size(75, 23);
             this.btn_script.TabIndex = 3;
@@ -105,7 +107,7 @@
             // 
             // btn_analyse
             // 
-            this.btn_analyse.Location = new System.Drawing.Point(637, 18);
+            this.btn_analyse.Location = new System.Drawing.Point(692, 18);
             this.btn_analyse.Name = "btn_analyse";
             this.btn_analyse.Size = new System.Drawing.Size(75, 23);
             this.btn_analyse.TabIndex = 2;
@@ -160,6 +162,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Browser";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // browser
+            // 
+            this.browser.Location = new System.Drawing.Point(3, 4);
+            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.browser.Name = "browser";
+            this.browser.Size = new System.Drawing.Size(1200, 600);
+            this.browser.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -305,13 +315,15 @@
             this.dgv_4.Size = new System.Drawing.Size(1207, 611);
             this.dgv_4.TabIndex = 2;
             // 
-            // browser
+            // cb_ajust
             // 
-            this.browser.Location = new System.Drawing.Point(3, 4);
-            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(1200, 600);
-            this.browser.TabIndex = 0;
+            this.cb_ajust.AutoSize = true;
+            this.cb_ajust.Location = new System.Drawing.Point(634, 22);
+            this.cb_ajust.Name = "cb_ajust";
+            this.cb_ajust.Size = new System.Drawing.Size(49, 17);
+            this.cb_ajust.TabIndex = 5;
+            this.cb_ajust.Text = "Ajust";
+            this.cb_ajust.UseVisualStyleBackColor = true;
             // 
             // frm_web_browser
             // 
@@ -369,5 +381,6 @@
         private System.Windows.Forms.TextBox txt_result_method;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.DataGridView dgv_3;
+        private System.Windows.Forms.CheckBox cb_ajust;
     }
 }

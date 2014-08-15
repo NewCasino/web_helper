@@ -177,7 +177,7 @@ namespace web_helper
                                     {
                                         if (dt.Rows[j]["site_name"].ToString() == row["site_name"].ToString() && dt.Rows[j]["step"].ToString() == loop[i].ToString())
                                         {
-                                            dt.Rows[j]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                            dt.Rows[j]["start_time"] ="";
                                             dt.Rows[j]["state"] = "wait";
                                             dt.Rows[j]["end_time"] = "";
                                             dt.Rows[j]["final_time"] = "";
