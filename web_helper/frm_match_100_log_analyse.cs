@@ -38,6 +38,7 @@ namespace web_helper
             foreach (DataRow row in dt.Rows)
             {
                 string id = row["id"].ToString();
+                string company = row["company"].ToString();
                 string start_time = row["start_time"].ToString();
                 string host = row["host"].ToString();
                 string client = row["client"].ToString();
@@ -55,7 +56,13 @@ namespace web_helper
                 convert_host = Match100Helper.convert_team_name(host);
                 convert_client = Match100Helper.convert_team_name(client);
                 DateTime time = Match100Helper.convert_start_time(start_time);
-                time = time.AddMinutes(Convert.ToInt16(time_add));
+
+                if (company == "pinnaclesports" && time.Minute % 5 == 0)
+                { }
+                else
+                {
+                    time = time.AddMinutes(Convert.ToInt16(time_add));
+                }
                 time = Tool.get_time_by_kind(time, Convert.ToInt16(time_zone));
                 convert_time = time.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -261,7 +268,7 @@ namespace web_helper
             foreach (DataRow row in dt.Rows)
             {
                 string company = row["company"].ToString();
-                string time_span = row["time_span"].ToString();
+                string time_span = row["timespan"].ToString();
                 string start_time = row["f_start_time"].ToString();
                 string type = row["type"].ToString();
                 string host = row["f_host"].ToString();
@@ -270,7 +277,7 @@ namespace web_helper
                 string profit_draw = row["profit_draw"].ToString();
                 string profit_lose = row["profit_lose"].ToString();
 
-                sql = "select * from europe_100 where company='{0}'  and time_span='{1}' and start_time='{2}' and host='{3}' and client='{4}'";
+                sql = "select * from europe_100 where company='{0}'  and timespan='{1}' and start_time='{2}' and host='{3}' and client='{4}'";
                 sql = string.Format(sql, company, time_span, start_time, host, client);
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
                 if (dt_temp.Rows.Count == 0)

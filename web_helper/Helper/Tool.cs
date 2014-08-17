@@ -70,7 +70,7 @@ class Tool
     public static DateTime get_time_by_kind(DateTime dt, int kind)
     {
         //convert to  east +8
-        return dt.AddHours(kind - 8);
+        return dt.AddHours(8-kind);
     }
 
 }

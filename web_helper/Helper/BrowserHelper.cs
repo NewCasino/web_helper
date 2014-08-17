@@ -1613,15 +1613,15 @@ class BrowserHelper
                 get_absolute4(ref doc_condition,ref ielement_input, ref left, ref top);
                 get_child_text(ref doc_condition,ref ielement_input, ref text);
                 text=text.Replace(Environment.NewLine, "●");
-
-               
+                 
                 row_new["left"] = left;
                 row_new["top"] = top;
                 row_new["width"] = ielement.offsetWidth;
                 row_new["height"] = ielement.offsetHeight;
                 row_new["text"] = text;
 
-                if (!string.IsNullOrEmpty(text)) dt_position.Rows.Add(row_new);
+                //if (!string.IsNullOrEmpty(text)) dt_position.Rows.Add(row_new);
+                dt_position.Rows.Add(row_new);
             }
         }
     }

@@ -127,6 +127,12 @@
     <Compile Include="frm_match_100_load_data.Designer.cs">
       <DependentUpon>frm_match_100_load_data.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_match_100_pinnaclesports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_100_pinnaclesports.Designer.cs">
+      <DependentUpon>frm_match_100_pinnaclesports.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_match_500_team.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +277,7 @@
     <Compile Include="Helper\TemplateHelper_Match.cs" />
     <Compile Include="Helper\Tool.cs" />
     <Compile Include="Helper\BrowserHelper.cs" />
+    <Compile Include="Helper\Match500Analyse.cs" />
     <Compile Include="Http\HttpSocketHelper.cs" />
     <Compile Include="Helper\Log.cs" />
     <Compile Include="Helper\TemplateHelper.cs" />
@@ -341,6 +348,9 @@
     </Compile>
     <EmbeddedResource Include="frm_match_100_load_data.resx">
       <DependentUpon>frm_match_100_load_data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_100_pinnaclesports.resx">
+      <DependentUpon>frm_match_100_pinnaclesports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_match_500_team.resx">
       <DependentUpon>frm_match_500_team.cs</DependentUpon>

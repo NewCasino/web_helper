@@ -47,7 +47,7 @@ class Match100Helper
         string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
         sql = " insert into europe_100_log " +
-              " ( timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose,time_zone,time_add,state) values" +
+              " ( timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose,time_zone,time_add,f_state) values" +
               " ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','0')";
         sql = string.Format(sql,timespan,company,type,start_time,host,client,odd_win,odd_draw,odd_lose,time_zone,time_add);
         SQLServerHelper.exe_sql(sql);

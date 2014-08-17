@@ -427,7 +427,7 @@ namespace web_helper
             string sql = "";
             sql = " select host,client,company,profit_win,profit_draw,profit_lose," +
                   " persent_win,persent_draw,persent_lose,persent_return" +
-                  " from europe_500  where start_time>'{0}' order by start_time,host,client,id ";
+                  " from europe_100  where start_time>'{0}' order by start_time,host,client,id ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             dt_all = SQLServerHelper.get_table(sql);
             this.dgv_all.DataSource = dt_all;
@@ -444,7 +444,7 @@ namespace web_helper
             dt_match.Columns.Add("host");
             dt_match.Columns.Add("client");
             sql = " select distinct start_time,type,host,client" +
-                 " from europe_500 where start_time>'{0}'  order by start_time,host,client";
+                 " from europe_100 where start_time>'{0}'  order by start_time,host,client";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_match.Rows)
@@ -468,7 +468,7 @@ namespace web_helper
             dt_company.Columns.Add(col1);
             dt_company.Columns.Add("company");
             sql = " select distinct  company" +
-                 " from europe_500 where start_time>'{0}'";
+                 " from europe_100 where start_time>'{0}'";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_company = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_company.Rows)

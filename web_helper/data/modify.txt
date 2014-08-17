@@ -1,2 +1,2 @@
-1，根据Mon，Sun，获得日期
-2，500 获得所有比赛日期
+1,pinbo  single ie
+2, add check data window

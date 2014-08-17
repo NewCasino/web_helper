@@ -29,7 +29,7 @@ namespace web_helper
         }
         private void frm_match_100_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 1; i++)
             {
                 IE ie = new IE();
                 ie.browser = new WebBrowser();
@@ -191,7 +191,10 @@ namespace web_helper
                             bool is_use = false;
                             for (int i = 0; i < dt.Rows.Count; i++)
                             {
-                                if (dt.Rows[i]["site_name"].ToString() == site_name && dt.Rows[i]["state"].ToString() == "wait")
+                                if (dt.Rows[i]["site_name"].ToString() == site_name && 
+                                    Convert.ToInt16(dt.Rows[i]["step"].ToString())==Convert.ToInt16(row["step"].ToString()) && 
+                                    dt.Rows[i]["state"].ToString() == "wait" && 
+                                    dt.Rows[i]["select_type"].ToString().Trim() == "method")
                                 {
                                     is_use = true;
                                 }
@@ -211,7 +214,7 @@ namespace web_helper
                 if (Convert.ToBoolean(dt.Rows[i]["selected"].ToString()) == false) continue;
                 if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load")
                 {
-                    for (int j = 0; j < 10; j++)
+                    for (int j = 0; j < ies.Count; j++)
                     {
                         if (ies[j].is_use == false)
                         {
