@@ -51,7 +51,7 @@ class Match500Analyse
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min_by_wave(max, max_count);
+        BsonDocument doc_max = Match500Analyse.get_min_by_wave(max, max_count);
 
 
 
@@ -187,7 +187,7 @@ class Match500Analyse
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min_by_wave(max, max_count);
+        BsonDocument doc_max = Match500Analyse.get_min_by_wave(max, max_count);
 
 
 
@@ -377,7 +377,7 @@ class Match500Analyse
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min(max, max_count);
+        BsonDocument doc_max = Match500Analyse.get_min(max, max_count);
 
 
 

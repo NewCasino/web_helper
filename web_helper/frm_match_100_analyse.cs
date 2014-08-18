@@ -49,12 +49,12 @@ namespace web_helper
                     string host = row.Cells["host"].Value.ToString();
                     string client = row.Cells["client"].Value.ToString();
 
-                    BsonDocument doc = MatchCompany.get_max_from_single_match(start_time, host, client, 50, list_companys);
+                    BsonDocument doc = Match100Analyse.get_max_from_single_match(start_time, host, client, 50, list_companys);
                     list.Add(doc);
 
 
                     sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                    sb.Append(MatchCompany.get_info_from_doc(doc));
+                    sb.Append(Match100Analyse.get_info_from_doc(doc));
                     this.txt_result.Text = sb.ToString();
                     Application.DoEvents();
                 }
@@ -106,7 +106,7 @@ namespace web_helper
             {
                 for (int j = i + 1; j < dt.Rows.Count; j++)
                 {
-                    BsonDocument doc = MatchCompany.get_max_from_two_match(dt.Rows[i]["start_time"].ToString(),
+                    BsonDocument doc = Match100Analyse.get_max_from_two_match(dt.Rows[i]["start_time"].ToString(),
                                                                               dt.Rows[i]["host"].ToString(),
                                                                               dt.Rows[i]["client"].ToString(),
                                                                               dt.Rows[j]["start_time"].ToString(),
@@ -115,7 +115,7 @@ namespace web_helper
                                                                               50,list_companys);
                     list.Add(doc);
                     sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                    sb.Append(MatchCompany.get_info_from_doc(doc));
+                    sb.Append(Match100Analyse.get_info_from_doc(doc));
                     this.txt_result.Text = sb.ToString();
                     Application.DoEvents();
                 }
@@ -167,7 +167,7 @@ namespace web_helper
                 {
                     for (int k = j + 1; k < dt.Rows.Count; k++)
                     {
-                        BsonDocument doc = MatchCompany.get_max_from_three_match(dt.Rows[i]["start_time"].ToString(),
+                        BsonDocument doc = Match100Analyse.get_max_from_three_match(dt.Rows[i]["start_time"].ToString(),
                                                                                   dt.Rows[i]["host"].ToString(),
                                                                                   dt.Rows[i]["client"].ToString(),
                                                                                   dt.Rows[j]["start_time"].ToString(),
@@ -179,7 +179,7 @@ namespace web_helper
                                                                                   50,list_companys);
                         list.Add(doc);
                         sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                        sb.Append(MatchCompany.get_info_from_doc(doc));
+                        sb.Append(Match100Analyse.get_info_from_doc(doc));
                         this.txt_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
@@ -221,11 +221,11 @@ namespace web_helper
                     BsonDocument doc = new BsonDocument();
                     for (int i = 1; i < 101; i++)
                     {
-                        doc = MatchCompany.get_max_from_single_match(start_time, host, client, i, list_companys);
+                        doc = Match100Analyse.get_max_from_single_match(start_time, host, client, i, list_companys);
                         list.Add(doc);
 
                         sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                        sb.Append(MatchCompany.get_info_from_doc(doc));
+                        sb.Append(Match100Analyse.get_info_from_doc(doc));
                         this.txt_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
@@ -275,7 +275,7 @@ namespace web_helper
                 {
                     for (int k = 1; k < 101; k++)
                     {
-                        BsonDocument doc = MatchCompany.get_max_from_two_match(dt.Rows[i]["start_time"].ToString(),
+                        BsonDocument doc = Match100Analyse.get_max_from_two_match(dt.Rows[i]["start_time"].ToString(),
                                                                                   dt.Rows[i]["host"].ToString(),
                                                                                   dt.Rows[i]["client"].ToString(),
                                                                                   dt.Rows[j]["start_time"].ToString(),
@@ -284,7 +284,7 @@ namespace web_helper
                                                                                   k,list_companys);
                         list.Add(doc);
                         sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                        sb.Append(MatchCompany.get_info_from_doc(doc));
+                        sb.Append(Match100Analyse.get_info_from_doc(doc));
                         this.txt_result.Text = sb.ToString();
                         Application.DoEvents();
                     }
@@ -334,7 +334,7 @@ namespace web_helper
                     {
                         for (int l = 1; l < 101; l++)
                         {
-                            BsonDocument doc = MatchCompany.get_max_from_three_match(dt.Rows[i]["start_time"].ToString(),
+                            BsonDocument doc = Match100Analyse.get_max_from_three_match(dt.Rows[i]["start_time"].ToString(),
                                                                                       dt.Rows[i]["host"].ToString(),
                                                                                       dt.Rows[i]["client"].ToString(),
                                                                                       dt.Rows[j]["start_time"].ToString(),
@@ -346,7 +346,7 @@ namespace web_helper
                                                                                       l,list_companys);
                             list.Add(doc);
                             sb.Append("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                            sb.Append(MatchCompany.get_info_from_doc(doc));
+                            sb.Append(Match100Analyse.get_info_from_doc(doc));
                             this.txt_result.Text = sb.ToString();
                             Application.DoEvents();
                         }
@@ -410,24 +410,24 @@ namespace web_helper
         private void dgv_match_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_match.Columns[0].Width = 50;
-            dgv_match.Columns[1].Width = 120;
-            dgv_match.Columns[2].Width = 50;
+            dgv_match.Columns[1].Width = 120; 
+            dgv_match.Columns[2].Width = 130;
             dgv_match.Columns[3].Width = 130;
-            dgv_match.Columns[4].Width = 130;
         }
         private void dgv_company_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_company.Columns[0].Width = 50;
             dgv_company.Columns[1].Width = 200;
-        }
+        } 
 
         public void bind_data()
         {
 
             string sql = "";
-            sql = " select host,client,company,profit_win,profit_draw,profit_lose," +
-                  " persent_win,persent_draw,persent_lose,persent_return" +
-                  " from europe_100  where start_time>'{0}' order by start_time,host,client,id ";
+            sql = " select host,client,company,profit_win,profit_draw,profit_lose " +
+                 " from europe_100" +
+                 " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
+                 " order by start_time,host,client,id";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             dt_all = SQLServerHelper.get_table(sql);
             this.dgv_all.DataSource = dt_all;
@@ -439,19 +439,19 @@ namespace web_helper
             col.ColumnName = "selected";
             col.DefaultValue = false;
             dt_match.Columns.Add(col);
-            dt_match.Columns.Add("start_time");
-            dt_match.Columns.Add("type");
+            dt_match.Columns.Add("start_time"); 
             dt_match.Columns.Add("host");
             dt_match.Columns.Add("client");
-            sql = " select distinct start_time,type,host,client" +
-                 " from europe_100 where start_time>'{0}'  order by start_time,host,client";
+            sql = "  select distinct start_time,host,client" +
+                 "  from europe_100" +
+                 "  where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
+                 "  order by start_time,host,client";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_match.Rows)
             {
                 DataRow row_new = dt_match.NewRow();
-                row_new["start_time"] = row["start_time"].ToString();
-                row_new["type"] = row["type"].ToString();
+                row_new["start_time"] = row["start_time"].ToString(); 
                 row_new["host"] = row["host"].ToString();
                 row_new["client"] = row["client"].ToString();
                 dt_match.Rows.Add(row_new);
@@ -468,7 +468,8 @@ namespace web_helper
             dt_company.Columns.Add(col1);
             dt_company.Columns.Add("company");
             sql = " select distinct  company" +
-                 " from europe_100 where start_time>'{0}'";
+                  " from europe_100" +
+                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client) ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_company = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_company.Rows)
@@ -509,7 +510,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -545,7 +546,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -591,7 +592,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -637,7 +638,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -672,7 +673,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -708,7 +709,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -753,7 +754,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -799,7 +800,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -834,7 +835,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -870,7 +871,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -915,7 +916,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -961,7 +962,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(MatchCompany.get_info_from_doc(doc));
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
 
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);

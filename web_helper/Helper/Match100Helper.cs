@@ -41,7 +41,7 @@ class Match100Helper
         doc_result.Add("loop", new BsonArray());
         return doc_result;
     }
-    public static void insert_data(string company,string type,string start_time,string host,string client,string odd_win,string odd_draw,string odd_lose,string time_zone,string time_add)
+    public static void insert_data(string company, string type, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose, string time_zone, string time_add)
     {
         string sql = "";
         string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -49,7 +49,7 @@ class Match100Helper
         sql = " insert into europe_100_log " +
               " ( timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose,time_zone,time_add,f_state) values" +
               " ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','0')";
-        sql = string.Format(sql,timespan,company,type,start_time,host,client,odd_win,odd_draw,odd_lose,time_zone,time_add);
+        sql = string.Format(sql, timespan, company, type, start_time, host, client, odd_win, odd_draw, odd_lose, time_zone, time_add);
         SQLServerHelper.exe_sql(sql);
     }
     public static void insert_future_match(string type, string time, string host, string client)
@@ -64,16 +64,16 @@ class Match100Helper
     public static void insert_team(string name, string name_other)
     {
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name_other)) return;
-        
+
         string sql = "select * from teams where replace(lower(all_name),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
         sql = string.Format(sql, name);
         DataTable dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
         {
             sql = " update teams set all_name=all_name+'{0}' where replace(lower(all_name),' ','') like '%'+replace(lower('{1}'),' ','')+'%'";
-            sql = string.Format(sql, name_other,name );
+            sql = string.Format(sql, name_other, name);
             SQLServerHelper.exe_sql(sql);
-        } 
+        }
         else
         {
             sql = "insert into teams (name1,all_name) values ('{0}','{1}')";
@@ -95,6 +95,7 @@ class Match100Helper
         }
         return result;
     }
+
     public static DateTime convert_start_time(string start_time)
     {
         start_time = start_time.Trim().ToLower();
@@ -106,7 +107,7 @@ class Match100Helper
         string str_day = "";
         string str_hour = "";
         string str_min = "";
-        int len = start_time.Length; 
+        int len = start_time.Length;
 
         int pos1 = start_time.IndexOf('-');
         if (string.IsNullOrEmpty(str_month) && pos1 > -1 && pos1 - 2 > 0)
@@ -148,7 +149,7 @@ class Match100Helper
         str_time = Convert.ToInt16(str_hour).ToString("00") + ":" + Convert.ToInt16(str_min).ToString("00");
         if (start_time.Contains("pm")) str_time = Tool.get_24h_from_12h(str_time);
         return Tool.get_time(str_date, str_time);
-    } 
+    }
     public static DateTime round_time(DateTime dt)
     {
         int min = dt.Minute;
@@ -160,14 +161,14 @@ class Match100Helper
         if (min > 50 && min < 60)
         {
             return new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour + 1, 0, 0);
-        } 
+        }
         return new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, min, 0);
     }
-    public static string  get_date_from_week_no(string week_no)
+    public static string get_date_from_week_no(string week_no)
     {
         if (week_no.Length >= 3) week_no = week_no.Substring(0, 3).ToLower();
         DateTime now = DateTime.Now;
-        for (int i = 0;  i < 10; i++)
+        for (int i = 0; i < 10; i++)
         {
             DateTime dt = now.AddDays(i);
             if (dt.DayOfWeek.ToString().Substring(0, 3).ToLower() == week_no)
@@ -177,7 +178,7 @@ class Match100Helper
         }
         return now.ToString("MM-dd");
     }
-    public static DateTime  get_datetime_from_week_no(string week_no)
+    public static DateTime get_datetime_from_week_no(string week_no)
     {
         if (week_no.Length >= 3) week_no = week_no.Substring(0, 3).ToLower();
         DateTime now = DateTime.Now;
@@ -190,7 +191,106 @@ class Match100Helper
             }
         }
         return now;
-    } 
-  
+    }
+
+    public static BsonDocument get_odd_doc_from_europe(string win, string draw, string lose)
+    {
+        BsonDocument doc = new BsonDocument();
+
+        double d_win = Convert.ToDouble(win);
+        double d_draw = Convert.ToDouble(draw);
+        double d_lose = Convert.ToDouble(lose);
+
+        double d_return_persent = (1 / (1 / d_win + 1 / d_draw + 1 / d_lose)) * 100;
+        double d_win_persent = d_return_persent / d_win;
+        double d_draw_persent = d_return_persent / d_draw;
+        double d_lose_persent = d_return_persent / d_lose;
+
+
+        doc.Add("win", d_win.ToString("###.000"));
+        doc.Add("darw", d_draw.ToString("###.000"));
+        doc.Add("lose", d_lose.ToString("###.000"));
+        doc.Add("return_persent", Math.Round(d_return_persent, 3).ToString());
+        doc.Add("win_persent", Math.Round(d_win_persent, 3).ToString());
+        doc.Add("draw_persent", Math.Round(d_draw_persent, 3).ToString());
+        doc.Add("lose_persent", Math.Round(d_lose_persent, 3).ToString());
+
+        return doc;
+    }
+    public static BsonDocument get_odd_doc_from_english(string win, string draw, string lose)
+    {
+        BsonDocument doc = new BsonDocument();
+
+        double d_win = Convert.ToDouble(convert_english_odd(win));
+        double d_draw = Convert.ToDouble(convert_english_odd(draw));
+        double d_lose = Convert.ToDouble(convert_english_odd(lose));
+
+        double d_return_persent = (1 / (1 / d_win + 1 / d_draw + 1 / d_lose)) * 100;
+        double d_win_persent = d_return_persent / d_win;
+        double d_draw_persent = d_return_persent / d_draw;
+        double d_lose_persent = d_return_persent / d_lose;
+
+
+        doc.Add("win", d_win.ToString("###.000"));
+        doc.Add("darw", d_draw.ToString("###.000"));
+        doc.Add("lose", d_lose.ToString("###.000"));
+        doc.Add("return_persent", Math.Round(d_return_persent, 3).ToString());
+        doc.Add("win_persent", Math.Round(d_win_persent, 3).ToString());
+        doc.Add("draw_persent", Math.Round(d_draw_persent, 3).ToString());
+        doc.Add("lose_persent", Math.Round(d_lose_persent, 3).ToString());
+
+        return doc;
+    }
+    public static BsonDocument get_odd_doc_from_ameriaca(string win, string draw, string lose)
+    {
+        BsonDocument doc = new BsonDocument();
+
+        double d_win = Convert.ToDouble(convert_ameriaca_odd(win));
+        double d_draw = Convert.ToDouble(convert_ameriaca_odd(draw));
+        double d_lose = Convert.ToDouble(convert_ameriaca_odd(lose));
+
+        double d_return_persent = (1 / (1 / d_win + 1 / d_draw + 1 / d_lose)) * 100;
+        double d_win_persent = d_return_persent / d_win;
+        double d_draw_persent = d_return_persent / d_draw;
+        double d_lose_persent = d_return_persent / d_lose;
+
+
+        doc.Add("win", d_win.ToString("###.000"));
+        doc.Add("darw", d_draw.ToString("###.000"));
+        doc.Add("lose", d_lose.ToString("###.000"));
+        doc.Add("return_persent", Math.Round(d_return_persent, 3).ToString());
+        doc.Add("win_persent", Math.Round(d_win_persent, 3).ToString());
+        doc.Add("draw_persent", Math.Round(d_draw_persent, 3).ToString());
+        doc.Add("lose_persent", Math.Round(d_lose_persent, 3).ToString());
+
+        return doc;
+    }
+    public static string convert_english_odd(string str)
+    {
+        string result = "";
+        string[] list = str.Split('/');
+        if (list.Length == 2)
+        {
+            double d1 = Convert.ToDouble(list[0].ToString().Trim());
+            double d2 = Convert.ToDouble(list[1].ToString().Trim());
+            result = Math.Round(d1 / d2 + 1, 3).ToString("###.000");
+
+        }
+        return result;
+    }
+    public static string convert_ameriaca_odd(string str)
+    {
+        string result = "";
+        double d1 = Convert.ToDouble(str.Replace("-", "").Replace("+", "").Trim());
+        if (str.Contains("-"))
+        {
+            result = Math.Round(100 / d1 + 1, 3).ToString("###.000");
+        }
+        else
+        {
+            result = Math.Round(d1 / 100 + 1, 3).ToString("###.000");
+        }
+        return result;
+    }
 }
 

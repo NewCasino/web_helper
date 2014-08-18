@@ -273,12 +273,12 @@ namespace web_helper
                 string type = row["type"].ToString();
                 string host = row["f_host"].ToString();
                 string client = row["f_client"].ToString();
-                string profit_win = row["profit_win"].ToString();
-                string profit_draw = row["profit_draw"].ToString();
-                string profit_lose = row["profit_lose"].ToString();
+                string profit_win = row["profit_win"].ToString().Trim();
+                string profit_draw = row["profit_draw"].ToString().Trim();
+                string profit_lose = row["profit_lose"].ToString().Trim();
 
-                sql = "select * from europe_100 where company='{0}'  and timespan='{1}' and start_time='{2}' and host='{3}' and client='{4}'";
-                sql = string.Format(sql, company, time_span, start_time, host, client);
+                sql = "select * from europe_100 where company='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and profit_win='{4}' and profit_draw='{5}' and profit_lose='{6}'";
+                sql = string.Format(sql, company,start_time, host, client,profit_win,profit_lose,profit_lose);
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
                 if (dt_temp.Rows.Count == 0)
                 {

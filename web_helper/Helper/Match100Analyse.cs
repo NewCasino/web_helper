@@ -9,7 +9,7 @@ using MongoDB.Driver;
 
 
 
-class MatchCompany
+class Match100Analyse
 {
     static bool is_open_mongo = false;
 
@@ -51,7 +51,7 @@ class MatchCompany
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min_by_wave(max, max_count);
+        BsonDocument doc_max = Match100Analyse.get_min_by_wave(max, max_count);
 
 
 
@@ -187,7 +187,7 @@ class MatchCompany
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min_by_wave(max, max_count);
+        BsonDocument doc_max = Match100Analyse.get_min_by_wave(max, max_count);
 
 
 
@@ -377,7 +377,7 @@ class MatchCompany
         }
 
 
-        BsonDocument doc_max = MatchCompany.get_min(max, max_count);
+        BsonDocument doc_max = Match100Analyse.get_min(max, max_count);
 
 
 

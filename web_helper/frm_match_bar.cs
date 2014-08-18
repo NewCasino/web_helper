@@ -81,5 +81,11 @@ namespace web_helper
             frm_match_100_analyse frm = new frm_match_100_analyse();
             frm.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frm_match_100_check frm = new frm_match_100_check();
+            frm.Show();
+        }
     }
 }

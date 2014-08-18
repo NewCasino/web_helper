@@ -29,7 +29,7 @@ namespace web_helper
         }
         private void frm_match_100_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 10; i++)
             {
                 IE ie = new IE();
                 ie.browser = new WebBrowser();
@@ -62,7 +62,7 @@ namespace web_helper
             dt.Columns.Add("site_name");
             dt.Columns.Add("step");
             dt.Columns.Add("select_type");
-            dt.Columns.Add("url"); 
+            dt.Columns.Add("url");
             dt.Columns.Add("method");
             dt.Columns.Add("seconds");
             dt.Columns.Add("state");
@@ -96,7 +96,7 @@ namespace web_helper
         }
         private void dgv_result_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            this.dgv_result.Columns["url"].Width = 150; 
+            this.dgv_result.Columns["url"].Width = 150;
             this.dgv_result.Columns["start_time"].Width = 120;
             this.dgv_result.Columns["end_time"].Width = 120;
             this.dgv_result.Columns["final_time"].Width = 120;
@@ -133,10 +133,10 @@ namespace web_helper
             //检查正在使用的IE是否执行完毕
             foreach (DataRow row in dt.Rows)
             {
-                if (Convert.ToBoolean(row["selected"].ToString()) == false) continue; 
+                if (Convert.ToBoolean(row["selected"].ToString()) == false) continue;
                 if (row["state"].ToString() == "doing")
-                { 
-                    DateTime start_time = Convert.ToDateTime(row["start_time"].ToString()); 
+                {
+                    DateTime start_time = Convert.ToDateTime(row["start_time"].ToString());
                     TimeSpan span = DateTime.Now - start_time;
                     int seconds = Convert.ToInt32(row["seconds"].ToString());
                     string site_name = row["site_name"].ToString();
@@ -152,7 +152,7 @@ namespace web_helper
                             }
                         }
                         else
-                        { 
+                        {
                             row["state"] = "ok";
                             row["final_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             BsonDocument doc_result = ies[Convert.ToInt32(row["browser"].ToString())].doc_result;
@@ -177,7 +177,7 @@ namespace web_helper
                                     {
                                         if (dt.Rows[j]["site_name"].ToString() == row["site_name"].ToString() && dt.Rows[j]["step"].ToString() == loop[i].ToString())
                                         {
-                                            dt.Rows[j]["start_time"] ="";
+                                            dt.Rows[j]["start_time"] = "";
                                             dt.Rows[j]["state"] = "wait";
                                             dt.Rows[j]["end_time"] = "";
                                             dt.Rows[j]["final_time"] = "";
@@ -191,9 +191,9 @@ namespace web_helper
                             bool is_use = false;
                             for (int i = 0; i < dt.Rows.Count; i++)
                             {
-                                if (dt.Rows[i]["site_name"].ToString() == site_name && 
-                                    Convert.ToInt16(dt.Rows[i]["step"].ToString())==Convert.ToInt16(row["step"].ToString()) && 
-                                    dt.Rows[i]["state"].ToString() == "wait" && 
+                                if (dt.Rows[i]["site_name"].ToString() == site_name &&
+                                    Convert.ToInt16(dt.Rows[i]["step"].ToString()) == Convert.ToInt16(row["step"].ToString()) &&
+                                    dt.Rows[i]["state"].ToString() == "wait" &&
                                     dt.Rows[i]["select_type"].ToString().Trim() == "method")
                                 {
                                     is_use = true;
@@ -206,13 +206,20 @@ namespace web_helper
                         }
                     }
                 }
-            } 
+            }
 
             //为等待的任务分配IE
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if (Convert.ToBoolean(dt.Rows[i]["selected"].ToString()) == false) continue;
-                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load")
+                bool is_can_start = true; 
+                
+                //同一个site_name只可以使用一个IE
+                if (i != 0 && dt.Rows[i - 1]["site_name"].ToString() == dt.Rows[i]["site_name"].ToString() && dt.Rows[i - 1]["state"].ToString()!="ok")
+                {
+                    is_can_start = false;
+                }
+                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load" && is_can_start==true)
                 {
                     for (int j = 0; j < ies.Count; j++)
                     {
@@ -231,19 +238,19 @@ namespace web_helper
                 if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "method")
                 {
                     if (dt.Rows[i - 1]["state"].ToString() == "ok")
-                    { 
-                            int index = Convert.ToInt32(dt.Rows[i - 1]["browser"].ToString());
-                            dt.Rows[i]["state"] = "doing";
-                            dt.Rows[i]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                            dt.Rows[i]["browser"] = index.ToString();
-                            ies[index].is_use = true;
-                            ies[index].row_id = i;
-                            select_method_from_site(ies[index].browser, i); 
+                    {
+                        int index = Convert.ToInt32(dt.Rows[i - 1]["browser"].ToString());
+                        dt.Rows[i]["state"] = "doing";
+                        dt.Rows[i]["start_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        dt.Rows[i]["browser"] = index.ToString();
+                        ies[index].is_use = true;
+                        ies[index].row_id = i;
+                        select_method_from_site(ies[index].browser, i);
                     }
                 }
             }
             Application.DoEvents();
-        } 
+        }
         private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             WebBrowser browser = (WebBrowser)sender;
@@ -267,13 +274,13 @@ namespace web_helper
         {
             int index = Convert.ToInt32(browser.Name);
             string method = dt.Rows[row_id]["method"].ToString();
-            string site_name=dt.Rows[row_id]["site_name"].ToString();
+            string site_name = dt.Rows[row_id]["site_name"].ToString();
 
             //invoke method
             Type reflect_type = Type.GetType("Match100Method");
-            object reflect_acvtive = Activator.CreateInstance(reflect_type, null); 
+            object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
             MethodInfo method_info = reflect_type.GetMethod(method);
-            BsonDocument  doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });   
+            BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });
 
             //update grid 
             dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -303,7 +310,7 @@ namespace web_helper
                     dgv_result.Rows[i].Cells["selected"].Value = true;
                 }
             }
-        } 
+        }
     }
 
     public class IE
@@ -312,6 +319,6 @@ namespace web_helper
         public int row_id;
         public int index;
         public bool is_use = false;
-        public BsonDocument doc_result = new BsonDocument(); 
+        public BsonDocument doc_result = new BsonDocument();
     }
 }

@@ -26,13 +26,62 @@ namespace web_helper
 
         private void btn_get_Click(object sender, EventArgs e)
         {
-            var request = (HttpWebRequest)WebRequest.Create("https://api.pinnaclesports.com/v1/leagues?sportid=3");
+            var request = (HttpWebRequest)WebRequest.Create("https://api.pinnaclesports.com/v1/sports");
             string credentials = String.Format("{0}:{1}", "LY713941", "pp568986");
             byte[] bytes = Encoding.UTF8.GetBytes(credentials);
             string base64 = Convert.ToBase64String(bytes);
             string authorization = String.Concat("Basic ", base64);
             request.Headers.Add("Authorization", authorization);
             request.Method = "GET";
+            request.Accept = "application/xml";
+            request.ContentType = "application/xml; charset=utf-8";
+            //string postJson =
+            //"{\"uniqueRequestId\":\"a1eccb11-7f9b-4bff-94c9-66745050f5dc\"," +
+            //"\"acceptBetterLine\":\"TRUE\"," +
+            //"\"stake\":150," +
+            //"\"winRiskStake\":\"WIN\"," +
+            //"\"lineId\":104520034," +
+            //"\"sportId\":29," +
+            //"\"eventId\":311458946," +
+            //"\"periodNumber\":0," +
+            //"\"betType\":\"SPREAD\"," +
+            //"\"team\":\"TEAM1\"," +
+            //"\"oddsFormat\":\"AMERICAN\"" +
+            //"}";
+
+            //byte[] byteArray = Encoding.UTF8.GetBytes(postJson);
+            //Stream dataStream = request.GetRequestStream();
+            //dataStream.Write(byteArray, 0, byteArray.Length);
+            //dataStream.Close();
+
+            HttpWebResponse response;
+            //try
+            //{
+                response = (HttpWebResponse)request.GetResponse();
+            //}
+            //catch (WebException ex)
+            //{
+            //    response = (HttpWebResponse)ex.Response;
+            //}
+
+            var stream = response.GetResponseStream();
+            string responseBody;
+            using (var reader = new StreamReader(stream))
+            {
+                responseBody = reader.ReadToEnd();
+            }
+            this.txt_result.Text = responseBody;
+        }
+
+        private void btn_post_Click(object sender, EventArgs e)
+        {
+            var request = (HttpWebRequest)WebRequest.Create("https://api.pinnaclesports.com/v1/bets/place");
+            string credentials = String.Format("{0}:{1}", "LY713941", "pp568986");
+            byte[] bytes = Encoding.UTF8.GetBytes(credentials);
+            string base64 = Convert.ToBase64String(bytes);
+            string authorization = String.Concat("Basic ", base64);
+            request.Headers.Add("Authorization", authorization);
+            request.Method = "POST";
             request.Accept = "application/json";
             request.ContentType = "application/json; charset=utf-8";
             string postJson =
@@ -55,14 +104,15 @@ namespace web_helper
             dataStream.Close();
 
             HttpWebResponse response;
-            try
-            {
-                response = (HttpWebResponse)request.GetResponse();
-            }
-            catch (WebException ex)
-            {
-                response = (HttpWebResponse)ex.Response;
-            }
+            //try
+            //{
+                
+            response = (HttpWebResponse)request.GetResponse();
+            //}
+            //catch (WebException ex)
+            //{
+            //    response = (HttpWebResponse)ex.Response;
+            //}
 
             var stream = response.GetResponseStream();
             string responseBody;
