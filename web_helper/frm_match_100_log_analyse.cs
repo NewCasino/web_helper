@@ -57,12 +57,8 @@ namespace web_helper
                 convert_client = Match100Helper.convert_team_name(client);
                 DateTime time = Match100Helper.convert_start_time(start_time);
 
-                if (company == "pinnaclesports" && time.Minute % 5 == 0)
-                { }
-                else
-                {
-                    time = time.AddMinutes(Convert.ToInt16(time_add));
-                }
+                if (company == "pinnaclesports" && time.Minute % 5 != 0)   time = time.AddMinutes(Convert.ToInt16(time_add));
+               
                 time = Tool.get_time_by_kind(time, Convert.ToInt16(time_zone));
                 convert_time = time.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -195,8 +191,9 @@ namespace web_helper
                 row_new["target_id"] = "";
                 dt_result.Rows.Add(row_new);
 
-                sb.AppendLine("---------------------------------------------------------------------------------------------------------");
+             
                 sb.AppendLine(id.PR(5) + start_time.PR(20) + host.PR(30) + client.PR(30) + f_start_time.PR(20) + f_host.PR(30) + f_client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+          
                 sql = " select * from europe_100_log where (f_state='2' or f_state='3') and f_start_time='{0}' and id<>'{1}' and f_start_time='{2}'";
                 sql = string.Format(sql, f_start_time, id,f_start_time);
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
@@ -218,9 +215,13 @@ namespace web_helper
                     dt_result.Rows.Add(row_new_temp);
 
                     sb.AppendLine("".PR(5) + row_temp["start_time"].PR(20) + row_temp["host"].PR(30) + row_temp["client"].PR(30) + row_temp["f_start_time"].PR(20) + row_temp["f_host"].PR(30) + row_temp["f_client"].PR(30) + row_temp["profit_win"].PR(10) + row_temp["profit_draw"].PR(10) + row_temp["profit_lose"].PR(10));
+                  
                 }
-                sb.AppendLine("---------------------------------------------------------------------------------------------------------");
+                sb.AppendLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                
             }
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
             this.dgv_result.DataSource = dt_result;
         }
 

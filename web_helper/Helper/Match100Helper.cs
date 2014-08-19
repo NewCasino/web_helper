@@ -118,11 +118,11 @@ class Match100Helper
         {
             str_month = is_double_str(start_time.Substring(pos1 - 1, 1)) ? start_time.Substring(pos1 - 1, 1) : "";
         }
-        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 2 < len - 1)
+        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 2 < len )
         {
             str_day = is_double_str(start_time.Substring(pos1 + 1, 2)) ? start_time.Substring(pos1 + 1, 2) : "";
         }
-        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 1 < len - 1)
+        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 1 < len )
         {
             str_day = is_double_str(start_time.Substring(pos1 + 1, 1)) ? start_time.Substring(pos1 + 1, 1) : "";
         }
@@ -136,11 +136,11 @@ class Match100Helper
         {
             str_hour = is_double_str(start_time.Substring(pos2 - 1, 1)) ? start_time.Substring(pos2 - 1, 1) : "";
         }
-        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 2 < len - 1)
+        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 2 < len )
         {
             str_min = is_double_str(start_time.Substring(pos2 + 1, 2)) ? start_time.Substring(pos2 + 1, 2) : "";
         }
-        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 1 < len - 1)
+        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 1 < len )
         {
             str_min = is_double_str(start_time.Substring(pos2 + 1, 1)) ? start_time.Substring(pos2 + 1, 1) : "";
         }

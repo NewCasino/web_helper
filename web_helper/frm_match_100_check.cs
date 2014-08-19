@@ -25,7 +25,8 @@ namespace web_helper
 
         private void btn_check_Click(object sender, EventArgs e)
         {
-
+            check_team_recongition_persent();
+            check_match_odd_count();
         }
         public void check_team_recongition_persent()
         { 
@@ -35,11 +36,11 @@ namespace web_helper
 
             sql = "select distinct company  from europe_100_log where id> {0} ";
             sql = string.Format(sql, start_id);
-            DataTable dt_company = SQLServerHelper.get_table(sql);
+            DataTable dt_company = SQLServerHelper.get_table(sql); 
             foreach (DataRow row in dt_company.Rows)
             {
                 string company=row["company"].ToString();
-                sql = "select distinct company  from europe_100_log where id>'{0}' and company='{1}' and f_state='{2}'";
+                sql = "select  *  from europe_100_log where id>'{0}' and company='{1}' and f_state='{2}'";
                 string sql_temp = "";
 
                 sql_temp = string.Format(sql, start_id, company, "1");
@@ -52,19 +53,23 @@ namespace web_helper
                 int team_all = SQLServerHelper.get_table(sql_temp).Rows.Count;
 
                 int total = team_zero + team_single + team_all;
-                sb.AppendLine(company.PR(20) + "Team All:" + team_all.PR(5) + (Math.Round(Convert.ToDouble(team_all) / total * 100, 2).ToString() + "%").PR(10) +
-                                               "Team Single:" + team_single.PR(5) + (Math.Round(Convert.ToDouble(team_single) / total * 100, 2).ToString() + "%").PR(10) +
-                                               "Team Zero:" + team_zero.PR(5) + (Math.Round(Convert.ToDouble(team_zero) / total * 100, 2).ToString() + "%").PR(10));
+                sb.AppendLine(company.PR(20) + "Team All:   " + team_all.PR(5) + (Math.Round(Convert.ToDouble(team_all) / total * 100, 2).ToString() + "%").PR(10) +
+                                               "Team Single:   " + team_single.PR(5) + (Math.Round(Convert.ToDouble(team_single) / total * 100, 2).ToString() + "%").PR(10) +
+                                               "Team Zero:   " + team_zero.PR(5) + (Math.Round(Convert.ToDouble(team_zero) / total * 100, 2).ToString() + "%").PR(10));
+                this.txt_result.Text = sb.ToString();
+                Application.DoEvents();
             }
-
+            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------");
         }
         public void check_match_odd_count()
         {
+        
             string sql = " select start_time,host,client  "+
                          " from (select distinct company,start_time,host,client from europe_100 where  start_time>'{0}') a"+
                          " group by start_time,host,client"+
                          " having count(*)>1";
-            DataTable dt_match = SQLServerHelper.get_table(sql);
+            sql=string.Format(sql,DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd HH:mm:ss"));
+            DataTable dt_match = SQLServerHelper.get_table(sql); 
             foreach (DataRow row_match in dt_match.Rows)
             {
                 string start_time = row_match["start_time"].ToString();
@@ -76,7 +81,7 @@ namespace web_helper
                 DataTable dt_company=SQLServerHelper.get_table(sql);
                 for(int i=0;i<dt_company.Rows.Count;i++)
                 {
-                    string company = dt_company.Rows[i].ToString();
+                    string company = dt_company.Rows[i]["company"].ToString();
 
                     sql = " select * from   europe_100 " +
                           " where id=(select max(id) from europe_100 where company='{0}' and start_time='{1}' and host='{2}' and client='{3}')";
@@ -89,16 +94,21 @@ namespace web_helper
 
                     if (i == 0)
                     {
-                        sb.Append(start_time.PR(20) + host.PR(30) + client.PR(30) + company.PR(20) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        sb.AppendLine(start_time.PR(20) + host.PR(30) + client.PR(30) + company.PR(20) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        this.txt_result.Text = sb.ToString();
+                        Application.DoEvents();
                     }
                     else
                     {
-                        sb.Append("".PR(20) + "".PR(30) + "".PR(30) + company.PR(20) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        sb.AppendLine("".PR(20) + "".PR(30) + "".PR(30) + company.PR(20) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        this.txt_result.Text = sb.ToString();
+                        Application.DoEvents();
                     }
-                }
-
-
+                } 
             }
+            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------");
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
         }
     }
 }
