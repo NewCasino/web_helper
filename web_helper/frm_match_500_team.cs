@@ -119,7 +119,7 @@ namespace web_helper
         private void btn_step_3_Click(object sender, EventArgs e)
         {
             sb.Remove(0, sb.Length);
-            string path = root_path + "teams.txt"; 
+            string path = root_path + "teams.txt";
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
             StreamReader reader = new StreamReader(stream);
             string line = "";
@@ -193,33 +193,33 @@ namespace web_helper
         private void btn_read_to_db_Click(object sender, EventArgs e)
         {
             string path = root_path + "teams_detail.txt";
-           
+
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
             StreamReader reader = new StreamReader(stream);
-            string line = ""; 
+            string line = "";
             while (line != null)
             {
                 line = reader.ReadLine();
                 if (!string.IsNullOrEmpty(line) && line.Substring(0, 2) != "--")
                 {
-                     
 
-                        line = line.TrimStart().TrimEnd();
-                        string[] items = line.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                        string cn_name = items[0].TrimStart().TrimEnd();
-                        string eng_name = items[1].TrimStart().TrimEnd();
-                        insert_db(eng_name, cn_name);
-                   
-                     
+
+                    line = line.TrimStart().TrimEnd();
+                    string[] items = line.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                    string cn_name = items[0].TrimStart().TrimEnd();
+                    string eng_name = items[1].TrimStart().TrimEnd();
+                    insert_db(eng_name, cn_name);
+
+
                 }
-               
+
             }
         }
         public void insert_db(string eng_name, string cn_name)
         {
             string sql = "";
             sql = " select * from teams where name1='{0}' ";
-            sql=string.Format(sql,eng_name);
+            sql = string.Format(sql, eng_name);
             if (SQLServerHelper.get_table(sql).Rows.Count == 0)
             {
                 sql = "  insert into teams (name1,name2,all_name) values ('{0}','{1}','{2}')";
@@ -234,19 +234,20 @@ namespace web_helper
 
         }
 
-        private void btn_read_detail_Click(object sender, EventArgs e)
-        {
 
+        //all info，include match info
+        public void read_500_team_detail()
+        {
             StringBuilder sb = new StringBuilder();
 
             WebClient client = new WebClient();
-            string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url+"step3.htm"));
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url + "step3.htm"));
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
 
             string root = @"/html[1]/body[1]/div[3]/div[5]/div[1]/div[3]/ul[1]/li";
             HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(root);
-            sb.AppendLine("----"); 
+            sb.AppendLine("----");
             foreach (HtmlNode node in nodes_all)
             {
                 string xpath = node.XPath + "/a[1]";
@@ -258,7 +259,6 @@ namespace web_helper
                 if (items.Length > 1)
                 {
                     sb.AppendLine(items[0].PR(100) + items[1].PR(100));
-                     
                 }
             }
 
@@ -276,6 +276,11 @@ namespace web_helper
 
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
+        }
+
+        private void btn_test_Click(object sender, EventArgs e)
+        {
+            read_500_team_detail();
         }
     }
 }

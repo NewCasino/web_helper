@@ -67,6 +67,8 @@ namespace web_helper
             if (cb_persent_desc.Checked) get_single_by_persent_desc(list);
             if (cb_company_asc.Checked) get_single_by_company_asc(list);
             if (cb_company_desc.Checked) get_single_by_company_desc(list);
+            if (cb_start_time_asc.Checked) get_single_by_start_time_asc(list);
+            if (cb_start_time_desc.Checked) get_single_by_start_time_desc(list);
 
 
         }
@@ -128,6 +130,8 @@ namespace web_helper
             if (cb_two_persent_desc.Checked) get_two_by_persent_desc(list);
             if (cb_two_company_asc.Checked) get_two_by_company_asc(list);
             if (cb_two_company_desc.Checked) get_two_by_company_desc(list);
+            if (cb_two_start_time_asc.Checked) get_two_by_start_time_asc(list);
+            if (cb_two_start_time_desc.Checked) get_two_by_start_time_desc(list);
         }
         private void btn_three_match_Click(object sender, EventArgs e)
         {
@@ -425,7 +429,7 @@ namespace web_helper
 
             string sql = "";
             sql = " select host,client,company,profit_win,profit_draw,profit_lose " +
-                 " from europe_100" +
+                 " from europe_500" +
                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
                  " order by start_time,host,client,id";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -443,7 +447,7 @@ namespace web_helper
             dt_match.Columns.Add("host");
             dt_match.Columns.Add("client");
             sql = "  select distinct start_time,host,client" +
-                 "  from europe_100" +
+                 "  from europe_500" +
                  "  where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
                  "  order by start_time,host,client";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -468,8 +472,8 @@ namespace web_helper
             dt_company.Columns.Add(col1);
             dt_company.Columns.Add("company");
             sql = " select distinct  company" +
-                  " from europe_100" +
-                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client) ";
+                  " from europe_500" +
+                  " where id in (select max(id) from europe_500 where start_time>'{0}' group by company,start_time,host,client) ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_company = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_company.Rows)
@@ -645,9 +649,80 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
-        public void get_two_by_persent_asc(List<BsonDocument> list)
+        public void get_single_by_start_time_asc(List<BsonDocument> list)
         {
 
+            StringBuilder sb = new StringBuilder();
+            sb.Append("BY START TIME ASC:" + Environment.NewLine);
+
+            DataTable dt = new DataTable();
+            DataColumn order = new DataColumn("order");
+            order.DataType = Type.GetType("System.Int32");
+            dt.Columns.Add(order);
+            DataColumn persent = new DataColumn("start_time");
+            persent.DataType = Type.GetType("System.String");
+            dt.Columns.Add(persent);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                DataRow row_new = dt.NewRow();
+                row_new["order"] = i;
+                row_new["start_time"] = list[i]["start_time"].ToString();
+                dt.Rows.Add(row_new);
+            }
+
+            dt.DefaultView.Sort = "start_time asc";
+            dt = dt.DefaultView.ToTable();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
+                sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
+
+            }
+            sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+        }
+        public void get_single_by_start_time_desc(List<BsonDocument> list)
+        {
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("BY START TIME ASC:" + Environment.NewLine);
+
+            DataTable dt = new DataTable();
+            DataColumn order = new DataColumn("order");
+            order.DataType = Type.GetType("System.Int32");
+            dt.Columns.Add(order);
+            DataColumn persent = new DataColumn("start_time");
+            persent.DataType = Type.GetType("System.String");
+            dt.Columns.Add(persent);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                DataRow row_new = dt.NewRow();
+                row_new["order"] = i;
+                row_new["start_time"] = list[i]["start_time"].ToString();
+                dt.Rows.Add(row_new);
+            }
+
+            dt.DefaultView.Sort = "start_time desc";
+            dt = dt.DefaultView.ToTable();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
+                sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
+
+            }
+            sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+        } 
+        public void get_two_by_persent_asc(List<BsonDocument> list)
+        { 
             StringBuilder sb = new StringBuilder();
             sb.Append("BY PERSENT ASC:" + Environment.NewLine);
             DataTable dt = new DataTable();
@@ -673,8 +748,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(Match100Analyse.get_info_from_doc(doc));
-
+                sb.Append(Match100Analyse.get_info_from_doc(doc)); 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
@@ -802,6 +876,78 @@ namespace web_helper
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                 sb.Append(Match100Analyse.get_info_from_doc(doc));
 
+            }
+            sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+        }
+        public void get_two_by_start_time_asc(List<BsonDocument> list)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("BY START TIME ASC:" + Environment.NewLine);
+            DataTable dt = new DataTable();
+            DataColumn order = new DataColumn("order");
+            order.DataType = Type.GetType("System.Int32");
+            dt.Columns.Add(order);
+            DataColumn persent = new DataColumn("start_time");
+            persent.DataType = Type.GetType("System.String");
+            dt.Columns.Add(persent);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                DataRow row_new = dt.NewRow();
+                row_new["order"] = i;
+                DateTime time1 = Convert.ToDateTime(list[i]["start_time1"].ToString());
+                DateTime time2 = Convert.ToDateTime(list[i]["start_time2"].ToString());
+                TimeSpan  span= time1 - time2;
+                row_new["start_time"] = span.Seconds > 0 ? list[i]["start_time1"].ToString() : list[i]["start_time2"].ToString(); 
+                dt.Rows.Add(row_new);
+            }
+
+            dt.DefaultView.Sort = "start_time asc";
+            dt = dt.DefaultView.ToTable();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
+                sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
+            }
+            sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+        }
+        public void get_two_by_start_time_desc(List<BsonDocument> list)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("BY START TIME ASC:" + Environment.NewLine);
+            DataTable dt = new DataTable();
+            DataColumn order = new DataColumn("order");
+            order.DataType = Type.GetType("System.Int32");
+            dt.Columns.Add(order);
+            DataColumn persent = new DataColumn("start_time");
+            persent.DataType = Type.GetType("System.String");
+            dt.Columns.Add(persent);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                DataRow row_new = dt.NewRow();
+                row_new["order"] = i;
+                DateTime time1 = Convert.ToDateTime(list[i]["start_time1"].ToString());
+                DateTime time2 = Convert.ToDateTime(list[i]["start_time2"].ToString());
+                TimeSpan span = time1 - time2;
+                row_new["start_time"] = span.Seconds > 0 ? list[i]["start_time1"].ToString() : list[i]["start_time2"].ToString();
+                dt.Rows.Add(row_new);
+            }
+
+            dt.DefaultView.Sort = "start_time desc";
+            dt = dt.DefaultView.ToTable();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
+                sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+                sb.Append(Match100Analyse.get_info_from_doc(doc));
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();

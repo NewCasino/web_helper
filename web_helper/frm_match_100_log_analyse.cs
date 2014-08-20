@@ -289,7 +289,6 @@ namespace web_helper
                     SQLServerHelper.exe_sql(sql);
                 }
             }
-        }
-
+        } 
     }
 }

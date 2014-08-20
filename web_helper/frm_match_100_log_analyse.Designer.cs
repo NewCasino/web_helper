@@ -62,7 +62,7 @@
             // 
             this.btn_into_offical.Location = new System.Drawing.Point(238, 30);
             this.btn_into_offical.Name = "btn_into_offical";
-            this.btn_into_offical.Size = new System.Drawing.Size(100, 23);
+            this.btn_into_offical.Size = new System.Drawing.Size(98, 25);
             this.btn_into_offical.TabIndex = 2;
             this.btn_into_offical.Text = "Into Offical";
             this.btn_into_offical.UseVisualStyleBackColor = true;
@@ -70,9 +70,9 @@
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(122, 30);
+            this.btn_update.Location = new System.Drawing.Point(128, 30);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(95, 23);
+            this.btn_update.Size = new System.Drawing.Size(98, 25);
             this.btn_update.TabIndex = 1;
             this.btn_update.Text = "Update Grid";
             this.btn_update.UseVisualStyleBackColor = true;

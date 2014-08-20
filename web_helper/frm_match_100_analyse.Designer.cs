@@ -66,6 +66,10 @@
             this.dgv_all = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
+            this.cb_start_time_desc = new System.Windows.Forms.CheckBox();
+            this.cb_start_time_asc = new System.Windows.Forms.CheckBox();
+            this.cb_two_start_time_desc = new System.Windows.Forms.CheckBox();
+            this.cb_two_start_time_asc = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -105,7 +109,7 @@
             this.groupBox6.Controls.Add(this.cb_three_company_desc);
             this.groupBox6.Controls.Add(this.cb_three_company_asc);
             this.groupBox6.Controls.Add(this.btn_three_match);
-            this.groupBox6.Location = new System.Drawing.Point(6, 293);
+            this.groupBox6.Location = new System.Drawing.Point(6, 335);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(252, 117);
             this.groupBox6.TabIndex = 8;
@@ -176,22 +180,24 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.cb_two_start_time_desc);
+            this.groupBox5.Controls.Add(this.cb_two_start_time_asc);
             this.groupBox5.Controls.Add(this.btn_two_range);
             this.groupBox5.Controls.Add(this.cb_two_persent_desc);
             this.groupBox5.Controls.Add(this.cb_two_persent_asc);
             this.groupBox5.Controls.Add(this.cb_two_company_desc);
             this.groupBox5.Controls.Add(this.cb_two_company_asc);
             this.groupBox5.Controls.Add(this.btn_two_match);
-            this.groupBox5.Location = new System.Drawing.Point(6, 169);
+            this.groupBox5.Location = new System.Drawing.Point(6, 190);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(252, 117);
+            this.groupBox5.Size = new System.Drawing.Size(252, 139);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Two";
             // 
             // btn_two_range
             // 
-            this.btn_two_range.Location = new System.Drawing.Point(118, 75);
+            this.btn_two_range.Location = new System.Drawing.Point(118, 102);
             this.btn_two_range.Name = "btn_two_range";
             this.btn_two_range.Size = new System.Drawing.Size(75, 23);
             this.btn_two_range.TabIndex = 13;
@@ -224,7 +230,7 @@
             // cb_two_company_desc
             // 
             this.cb_two_company_desc.AutoSize = true;
-            this.cb_two_company_desc.Location = new System.Drawing.Point(118, 52);
+            this.cb_two_company_desc.Location = new System.Drawing.Point(118, 49);
             this.cb_two_company_desc.Name = "cb_two_company_desc";
             this.cb_two_company_desc.Size = new System.Drawing.Size(102, 17);
             this.cb_two_company_desc.TabIndex = 10;
@@ -234,7 +240,7 @@
             // cb_two_company_asc
             // 
             this.cb_two_company_asc.AutoSize = true;
-            this.cb_two_company_asc.Location = new System.Drawing.Point(6, 52);
+            this.cb_two_company_asc.Location = new System.Drawing.Point(6, 49);
             this.cb_two_company_asc.Name = "cb_two_company_asc";
             this.cb_two_company_asc.Size = new System.Drawing.Size(94, 17);
             this.cb_two_company_asc.TabIndex = 9;
@@ -243,7 +249,7 @@
             // 
             // btn_two_match
             // 
-            this.btn_two_match.Location = new System.Drawing.Point(25, 75);
+            this.btn_two_match.Location = new System.Drawing.Point(25, 102);
             this.btn_two_match.Name = "btn_two_match";
             this.btn_two_match.Size = new System.Drawing.Size(75, 23);
             this.btn_two_match.TabIndex = 5;
@@ -253,6 +259,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cb_start_time_desc);
+            this.groupBox4.Controls.Add(this.cb_start_time_asc);
             this.groupBox4.Controls.Add(this.btn_single_range);
             this.groupBox4.Controls.Add(this.cb_persent_desc);
             this.groupBox4.Controls.Add(this.cb_persent_asc);
@@ -261,14 +269,14 @@
             this.groupBox4.Controls.Add(this.btn_single_match);
             this.groupBox4.Location = new System.Drawing.Point(6, 51);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(252, 112);
+            this.groupBox4.Size = new System.Drawing.Size(252, 132);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Single";
             // 
             // btn_single_range
             // 
-            this.btn_single_range.Location = new System.Drawing.Point(118, 76);
+            this.btn_single_range.Location = new System.Drawing.Point(118, 101);
             this.btn_single_range.Name = "btn_single_range";
             this.btn_single_range.Size = new System.Drawing.Size(75, 23);
             this.btn_single_range.TabIndex = 9;
@@ -301,7 +309,7 @@
             // cb_company_desc
             // 
             this.cb_company_desc.AutoSize = true;
-            this.cb_company_desc.Location = new System.Drawing.Point(118, 53);
+            this.cb_company_desc.Location = new System.Drawing.Point(118, 48);
             this.cb_company_desc.Name = "cb_company_desc";
             this.cb_company_desc.Size = new System.Drawing.Size(102, 17);
             this.cb_company_desc.TabIndex = 6;
@@ -311,7 +319,7 @@
             // cb_company_asc
             // 
             this.cb_company_asc.AutoSize = true;
-            this.cb_company_asc.Location = new System.Drawing.Point(6, 53);
+            this.cb_company_asc.Location = new System.Drawing.Point(6, 48);
             this.cb_company_asc.Name = "cb_company_asc";
             this.cb_company_asc.Size = new System.Drawing.Size(94, 17);
             this.cb_company_asc.TabIndex = 5;
@@ -320,7 +328,7 @@
             // 
             // btn_single_match
             // 
-            this.btn_single_match.Location = new System.Drawing.Point(25, 76);
+            this.btn_single_match.Location = new System.Drawing.Point(25, 101);
             this.btn_single_match.Name = "btn_single_match";
             this.btn_single_match.Size = new System.Drawing.Size(75, 23);
             this.btn_single_match.TabIndex = 4;
@@ -507,6 +515,46 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
+            // cb_start_time_desc
+            // 
+            this.cb_start_time_desc.AutoSize = true;
+            this.cb_start_time_desc.Location = new System.Drawing.Point(118, 75);
+            this.cb_start_time_desc.Name = "cb_start_time_desc";
+            this.cb_start_time_desc.Size = new System.Drawing.Size(87, 17);
+            this.cb_start_time_desc.TabIndex = 11;
+            this.cb_start_time_desc.Text = "S-time DESC";
+            this.cb_start_time_desc.UseVisualStyleBackColor = true;
+            // 
+            // cb_start_time_asc
+            // 
+            this.cb_start_time_asc.AutoSize = true;
+            this.cb_start_time_asc.Location = new System.Drawing.Point(6, 75);
+            this.cb_start_time_asc.Name = "cb_start_time_asc";
+            this.cb_start_time_asc.Size = new System.Drawing.Size(83, 17);
+            this.cb_start_time_asc.TabIndex = 10;
+            this.cb_start_time_asc.Text = "S-Time ASC";
+            this.cb_start_time_asc.UseVisualStyleBackColor = true;
+            // 
+            // cb_two_start_time_desc
+            // 
+            this.cb_two_start_time_desc.AutoSize = true;
+            this.cb_two_start_time_desc.Location = new System.Drawing.Point(118, 77);
+            this.cb_two_start_time_desc.Name = "cb_two_start_time_desc";
+            this.cb_two_start_time_desc.Size = new System.Drawing.Size(87, 17);
+            this.cb_two_start_time_desc.TabIndex = 15;
+            this.cb_two_start_time_desc.Text = "S-time DESC";
+            this.cb_two_start_time_desc.UseVisualStyleBackColor = true;
+            // 
+            // cb_two_start_time_asc
+            // 
+            this.cb_two_start_time_asc.AutoSize = true;
+            this.cb_two_start_time_asc.Location = new System.Drawing.Point(6, 77);
+            this.cb_two_start_time_asc.Name = "cb_two_start_time_asc";
+            this.cb_two_start_time_asc.Size = new System.Drawing.Size(83, 17);
+            this.cb_two_start_time_asc.TabIndex = 14;
+            this.cb_two_start_time_asc.Text = "S-Time ASC";
+            this.cb_two_start_time_asc.UseVisualStyleBackColor = true;
+            // 
             // frm_match_100_analyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,5 +626,9 @@
         private System.Windows.Forms.Button btn_single_range;
         private System.Windows.Forms.Button btn_three_range;
         private System.Windows.Forms.Button btn_two_range;
+        private System.Windows.Forms.CheckBox cb_start_time_desc;
+        private System.Windows.Forms.CheckBox cb_start_time_asc;
+        private System.Windows.Forms.CheckBox cb_two_start_time_desc;
+        private System.Windows.Forms.CheckBox cb_two_start_time_asc;
     }
 }

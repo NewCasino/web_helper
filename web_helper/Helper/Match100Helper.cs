@@ -31,9 +31,7 @@ class Match100Helper
         double output = 0;
         if (double.TryParse(str, out output) == false) return false;
         return true;
-    }
-
-
+    } 
     public static BsonDocument get_doc_result()
     {
         BsonDocument doc_result = new BsonDocument();
@@ -79,8 +77,7 @@ class Match100Helper
             sql = "insert into teams (name1,all_name) values ('{0}','{1}')";
             sql = string.Format(sql, name, name + "" + name_other);
             SQLServerHelper.exe_sql(sql);
-        }
-
+        } 
     }
     public static string convert_team_name(string name)
     {
