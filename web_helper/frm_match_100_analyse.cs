@@ -429,7 +429,7 @@ namespace web_helper
 
             string sql = "";
             sql = " select host,client,company,profit_win,profit_draw,profit_lose " +
-                 " from europe_500" +
+                 " from europe_100" +
                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
                  " order by start_time,host,client,id";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -447,7 +447,7 @@ namespace web_helper
             dt_match.Columns.Add("host");
             dt_match.Columns.Add("client");
             sql = "  select distinct start_time,host,client" +
-                 "  from europe_500" +
+                 "  from europe_100" +
                  "  where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
                  "  order by start_time,host,client";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -472,8 +472,8 @@ namespace web_helper
             dt_company.Columns.Add(col1);
             dt_company.Columns.Add("company");
             sql = " select distinct  company" +
-                  " from europe_500" +
-                  " where id in (select max(id) from europe_500 where start_time>'{0}' group by company,start_time,host,client) ";
+                  " from europe_100" +
+                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client) ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_company = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_company.Rows)
@@ -900,7 +900,7 @@ namespace web_helper
                 DateTime time1 = Convert.ToDateTime(list[i]["start_time1"].ToString());
                 DateTime time2 = Convert.ToDateTime(list[i]["start_time2"].ToString());
                 TimeSpan  span= time1 - time2;
-                row_new["start_time"] = span.Seconds > 0 ? list[i]["start_time1"].ToString() : list[i]["start_time2"].ToString(); 
+                row_new["start_time"] = span.Seconds > 0 ? list[i]["start_time2"].ToString() : list[i]["start_time1"].ToString(); 
                 dt.Rows.Add(row_new);
             }
 
@@ -936,7 +936,7 @@ namespace web_helper
                 DateTime time1 = Convert.ToDateTime(list[i]["start_time1"].ToString());
                 DateTime time2 = Convert.ToDateTime(list[i]["start_time2"].ToString());
                 TimeSpan span = time1 - time2;
-                row_new["start_time"] = span.Seconds > 0 ? list[i]["start_time1"].ToString() : list[i]["start_time2"].ToString();
+                row_new["start_time"] = span.Seconds > 0 ? list[i]["start_time2"].ToString() : list[i]["start_time1"].ToString();
                 dt.Rows.Add(row_new);
             }
 
