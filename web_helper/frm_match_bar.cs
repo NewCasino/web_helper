@@ -66,7 +66,7 @@ namespace web_helper
 
         private void btn_500_read_info_Click(object sender, EventArgs e)
         {
-            frm_match_500_team frm = new frm_match_500_team();
+            frm_match_100_team_analyse frm = new frm_match_100_team_analyse();
             frm.Show();
         }
 

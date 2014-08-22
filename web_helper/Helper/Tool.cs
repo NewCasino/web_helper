@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
+using Microsoft.VisualBasic;
 
 
 class Tool
@@ -71,6 +72,15 @@ class Tool
     {
         //convert to  east +8
         return dt.AddHours(8-kind);
+    }
+    
+    public static string to_simple_chinese(string str)
+    { 
+        return Strings.StrConv(str, VbStrConv.SimplifiedChinese, 0);
+    }
+    public static string to_complex_chinese(string str)
+    {
+        return Strings.StrConv(str, VbStrConv.TraditionalChinese, 0);
     }
 
 }

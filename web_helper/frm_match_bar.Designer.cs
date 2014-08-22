@@ -124,11 +124,11 @@
             // 
             // btn_500_read_info
             // 
-            this.btn_500_read_info.Location = new System.Drawing.Point(248, 41);
+            this.btn_500_read_info.Location = new System.Drawing.Point(130, 128);
             this.btn_500_read_info.Name = "btn_500_read_info";
             this.btn_500_read_info.Size = new System.Drawing.Size(112, 23);
             this.btn_500_read_info.TabIndex = 8;
-            this.btn_500_read_info.Text = "[500]Read T Info";
+            this.btn_500_read_info.Text = "[100] T Info Analyse";
             this.btn_500_read_info.UseVisualStyleBackColor = true;
             this.btn_500_read_info.Click += new System.EventHandler(this.btn_500_read_info_Click);
             // 
@@ -138,7 +138,7 @@
             this.btn_log_analyse.Name = "btn_log_analyse";
             this.btn_log_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_log_analyse.TabIndex = 9;
-            this.btn_log_analyse.Text = "[100]Log Analyse";
+            this.btn_log_analyse.Text = "[100] Log Analyse";
             this.btn_log_analyse.UseVisualStyleBackColor = true;
             this.btn_log_analyse.Click += new System.EventHandler(this.btn_log_analyse_Click);
             // 
@@ -154,7 +154,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(366, 99);
+            this.button3.Location = new System.Drawing.Point(12, 128);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 23);
             this.button3.TabIndex = 11;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 136);
+            this.ClientSize = new System.Drawing.Size(374, 160);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_log_analyse);

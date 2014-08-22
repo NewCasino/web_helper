@@ -28,10 +28,12 @@ class Match100Helper
     }
     public static bool is_double_str(string str)
     {
+        str=str.Replace(",", "#");
         double output = 0;
         if (double.TryParse(str, out output) == false) return false;
         return true;
     } 
+    
     public static BsonDocument get_doc_result()
     {
         BsonDocument doc_result = new BsonDocument();
