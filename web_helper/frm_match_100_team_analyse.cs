@@ -260,9 +260,21 @@ namespace web_helper
             writer.Close();
             stream.Close();
         }
+        public void write_line_90vs(string file_name, string txt)
+        {
+            FileStream stream = (FileStream)File.Open(root_path_90vs + file_name, FileMode.Append);
+            StreamWriter writer = new StreamWriter(stream);
+
+            writer.WriteLine(txt);
+            writer.Close();
+            stream.Close();
+        }
+
 
         private void btn_90vs_read_leage_Click(object sender, EventArgs e)
         {
+
+
             string path = root_path_90vs + "leage.js";
 
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
@@ -310,9 +322,9 @@ namespace web_helper
                             string season_name = doc_season_x[season_id].AsBsonArray[0].ToString();
                             count = count + 1;
 
-                            string url = "http://bf.90vs.com/db/cup.html?season_id={0}&ty_id={1}";
+                            string url = "http://bf.90vs.com/db/all_season/{1}/{0}.js";
                             url = string.Format(url, season_id, lg_id);
-                            sb.AppendLine(count.PR(5) + lg_id.PR(5) + season_id.PR(5) + lg_name.PR(20) + season_name.PR(20)+url.PR(100)); 
+                            sb.AppendLine(url);
                         }
                     }
                 }
@@ -322,51 +334,67 @@ namespace web_helper
         }
         private void btn_90vs_read_all_team_Click(object sender, EventArgs e)
         {
-            string path = root_path_90vs + "teams.js";
 
+            string path = root_path_90vs + "leages_url.txt";
+            sb.Remove(0, sb.Length);
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
-            StreamReader reader = new StreamReader(stream, Encoding.Default);
-            string line = "";
-            BsonDocument doc_teams = new BsonDocument();
-            BsonDocument doc_lg = new BsonDocument(); 
-            while (line != null)
+            StreamReader reader = new StreamReader(stream);
+            string url = "";
+            while (url != null)
             {
-                line = reader.ReadLine();
-                if (line != null)
+                url = reader.ReadLine();
+                try
                 {
-                    string[] items = line.Split(new string[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
-                    string name = items[0].Replace("var", "").Trim();
-                    string value = items[1].Replace(";", ""); 
+                    WebClient client = new WebClient();
+                    string html = System.Text.Encoding.UTF8.GetString(client.DownloadData(url));
+                    string[] list_line = html.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+                    BsonDocument doc_teams = new BsonDocument();
+                    BsonDocument doc_lg = new BsonDocument();
+                    foreach (string line in list_line)
+                    {
+                        if (line != null)
+                        {
+                            string[] items = line.Split(new string[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
+                            if (items.Length == 2)
+                            {
+                                string name = items[0].Replace("var", "").Trim();
+                                string value = items[1].Replace(";", "");
 
-                    if (name == "all_player_str") doc_teams = MongoHelper.get_doc_from_str(get_js_json(value));
-                    if (name == "this_match") doc_lg = MongoHelper.get_doc_from_str(get_js_json(value)); 
+                                if (name == "all_player_str") doc_teams = MongoHelper.get_doc_from_str(get_js_json(value));
+                                if (name == "this_match") doc_lg = MongoHelper.get_doc_from_str(get_js_json(value));
+                            }
+                        }
+                    }
+                    string lg_id = doc_lg["1"].AsBsonArray[0].ToString();
+                    string lg_name_full = doc_lg["1"].AsBsonArray[1].ToString();
+                    string lg_name = doc_lg["1"].AsBsonArray[2].ToString();
+                    string lg_season_name = doc_lg["1"].AsBsonArray[5].ToString();
+                    foreach (BsonElement element in doc_teams.Elements)
+                    {
+                        if (element.Name == "1") continue;
+                        string team_name_eng = "";
+                        string team_name_chi = "";
+                        string team_name_gd = "";
+                        team_name_eng = element.Value.AsBsonArray[2].ToString();
+                        team_name_chi = element.Value.AsBsonArray[1].ToString();
+                        team_name_gd = element.Value.AsBsonArray[0].ToString();
+                        insert_db_90vs(lg_season_name, "", lg_name, lg_name_full, team_name_eng, team_name_chi, team_name_gd);
+                    }
+                    sb.AppendLine(url);
+                    this.txt_result.Text = sb.ToString();
+                    Application.DoEvents();
+
                 }
+                catch (Exception error)
+                {
+
+                    sb.AppendLine("----------------" + url);
+                }
+
+
             }
             reader.Close();
             stream.Close();
-            int count = 0;
-            string lg_id = doc_lg["1"].AsBsonArray[0].ToString() ;
-            string lg_name_full = doc_lg["1"].AsBsonArray[1].ToString();
-            string lg_name = doc_lg["1"].AsBsonArray[2].ToString();
-            string lg_season_name = doc_lg["1"].AsBsonArray[5].ToString();
-
-            sb.AppendLine(lg_id.PR(5) + lg_name.PR(10) + lg_name_full.PR(20) + lg_season_name.PR(20));
-            sb.AppendLine("-----------------------------------------------------------------------------------------------------------");
-            foreach (BsonElement element in doc_teams.Elements)
-            {
-                if (element.Name == "1") continue;
-                count=count+1;
-                string team_name_eng="";
-                string team_name_chi="";
-                string team_name_gd="";
-                team_name_eng=element.Value.AsBsonArray[2].ToString();
-                team_name_chi=element.Value.AsBsonArray[1].ToString();
-                team_name_gd=element.Value.AsBsonArray[0].ToString();
-                sb.AppendLine(count.PR(5) +team_name_eng.PR(20) + team_name_chi.PR(20) + team_name_gd.PR(20));
-                insert_db_90vs(lg_season_name, "", lg_name, lg_name_full, team_name_eng, team_name_chi, team_name_gd);
-            }
-            this.txt_result.Text = sb.ToString();
-            Application.DoEvents();
         }
 
 
@@ -384,66 +412,72 @@ namespace web_helper
                 sb.AppendLine(eng_name.PR(20) + cn_name.PR(20));
                 this.txt_result.Text = sb.ToString();
                 Application.DoEvents();
-            } 
+            }
         }
-        public void insert_db_90vs( string season_name,string lg_name1,string lg_name2, string lg_name3,  string name1, string name2, string name3)
+        public void insert_db_90vs(string season_name, string lg_name1, string lg_name2, string lg_name3, string name1, string name2, string name3)
         {
             string sql = "";
-            sql = " select * from teams_log where web_site='90vs' and name1='{0}'";
-            sql = string.Format(sql, name1);
-            if (SQLServerHelper.get_table(sql).Rows.Count == 0)
-            {
-                sql = "   insert into teams_log (web_site,season_name,lg_name1,lg_name2,lg_name3,lg_name_all,name1,name2,name3,name_all) values" +
-                      "    ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')";
-                sql = string.Format(sql, "90vs", season_name, lg_name1, lg_name2, lg_name3, lg_name1 + "●" + lg_name2 + "●" + lg_name3,
-                                                         name1, name2, name3, name1 + "●" + name2 +"●"+ name3);
-                SQLServerHelper.exe_sql(sql);
+            //sql = " select * from teams_log where web_site='90vs' and name1='{0}'";
+            //sql = string.Format(sql, name1);
+            //if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+            //{
+            sql = "   insert into teams_log (web_site,season_name,lg_name1,lg_name2,lg_name3,lg_name_all,name1,name2,name3,name_all) values" +
+                  "    ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')";
+            sql = string.Format(sql, "90vs", season_name, lg_name1, lg_name2, lg_name3, lg_name1 + "●" + lg_name2 + "●" + lg_name3,
+                                                     name1, name2, name3, name1 + "●" + name2 + "●" + name3);
+            SQLServerHelper.exe_sql(sql);
 
-            }
+            //}
 
         }
         private void btn_test_Click(object sender, EventArgs e)
         {
-            string sql = "select * from teams ";
-            DataTable dt=SQLServerHelper.get_table(sql);
-            foreach(DataRow  row in   dt.Rows)
-            {
-                string name1 = row["name1"].ToString();
-                string name2 = row["name2"].ToString();
-                string name_all = row["all_name"].ToString();
+            WebClient client = new WebClient();
+            string html = System.Text.Encoding.UTF8.GetString(client.DownloadData(@"http://bf.90vs.com/db/all_season/1910/76.js"));
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+            this.txt_result.Text = html;
 
-                sql = "insert into teams_log (web_site,name1,name2,name_all) values ('{0}','{1}','{2}','{3}')";
-                sql = string.Format(sql, "500",name1, name2, name_all);
-                SQLServerHelper.exe_sql(sql);
-            }
-            MessageBox.Show("OK!");
-            
+            //string sql = "select * from teams ";
+            //DataTable dt=SQLServerHelper.get_table(sql);
+            //foreach(DataRow  row in   dt.Rows)
+            //{
+            //    string name1 = row["name1"].ToString();
+            //    string name2 = row["name2"].ToString();
+            //    string name_all = row["all_name"].ToString();
+
+            //    sql = "insert into teams_log (web_site,name1,name2,name_all) values ('{0}','{1}','{2}','{3}')";
+            //    sql = string.Format(sql, "500",name1, name2, name_all);
+            //    SQLServerHelper.exe_sql(sql);
+            //}
+            //MessageBox.Show("OK!");
+
         }
         private void btn_add_simple_complex_Click(object sender, EventArgs e)
         {
-            string sql = "select * from teams_log ";
-            DataTable dt=SQLServerHelper.get_table(sql);
-            
+            string sql = "select * from teams_log where id='3975' ";
+            DataTable dt = SQLServerHelper.get_table(sql);
+
             foreach (DataRow row in dt.Rows)
             {
 
                 string id = row["id"].ToString();
-                string  name_all = row["name_all"].ToString();
+                string name_all = row["name_all"].ToString();
                 string temp = name_all;
-                string[] name_list=name_all.ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] name_list = name_all.ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string name in name_list)
                 {
-                    string name_s=Tool.to_simple_chinese(name);
-                    string name_c=Tool.to_complex_chinese(name);
-                    if(name_all.Contains(name_s)) temp=name_all+""+name_s;
-                    if (name_all.Contains(name_c)) temp = name_all + "" + name_c; 
+                    string name_s = Tool.to_simple_chinese(name);
+                    string name_c = Tool.to_complex_chinese(name);
+                    if (!name_all.Contains(name_s)) temp = temp + "●" + name_s;
+                    if (!name_all.Contains(name_c)) temp = temp + "●" + name_c;
                 }
                 if (temp != name_all)
                 {
                     sql = "update teams_log set name_all='{0}' where id={1}";
-                    sql = string.Format(temp, id);
+                    sql = string.Format(sql,temp, id);
                     SQLServerHelper.exe_sql(sql);
-                } 
+                }
             }
         }
         public string get_js_json(string str)
@@ -507,6 +541,6 @@ namespace web_helper
             return result;
         }
 
-  
+
     }
 }

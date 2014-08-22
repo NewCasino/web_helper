@@ -1,1 +1,2 @@
-modify teams to names [name,name_all,reamark]
+1,select teams_log data to teams
+2,add new table[name,names_all,remark]
