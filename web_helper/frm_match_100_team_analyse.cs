@@ -199,7 +199,7 @@ namespace web_helper
                     string[] items = line.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
                     string cn_name = items[0].TrimStart().TrimEnd();
                     string eng_name = items[1].TrimStart().TrimEnd();
-                    insert_db(eng_name, cn_name);
+                    insert_db_500(eng_name, cn_name);
 
 
                 }
@@ -251,24 +251,7 @@ namespace web_helper
 
 
 
-        public void write_line(string file_name, string txt)
-        {
-            FileStream stream = (FileStream)File.Open(root_path + file_name, FileMode.Append);
-            StreamWriter writer = new StreamWriter(stream);
-
-            writer.WriteLine(txt);
-            writer.Close();
-            stream.Close();
-        }
-        public void write_line_90vs(string file_name, string txt)
-        {
-            FileStream stream = (FileStream)File.Open(root_path_90vs + file_name, FileMode.Append);
-            StreamWriter writer = new StreamWriter(stream);
-
-            writer.WriteLine(txt);
-            writer.Close();
-            stream.Close();
-        }
+    
 
 
         private void btn_90vs_read_leage_Click(object sender, EventArgs e)
@@ -378,7 +361,7 @@ namespace web_helper
                         team_name_eng = element.Value.AsBsonArray[2].ToString();
                         team_name_chi = element.Value.AsBsonArray[1].ToString();
                         team_name_gd = element.Value.AsBsonArray[0].ToString();
-                        insert_db_90vs(lg_season_name, "", lg_name, lg_name_full, team_name_eng, team_name_chi, team_name_gd);
+                        Match100Helper.insert_teams_log("90vs",lg_season_name, "", lg_name, lg_name_full, team_name_eng, team_name_chi, team_name_gd);
                     }
                     sb.AppendLine(url);
                     this.txt_result.Text = sb.ToString();
@@ -389,6 +372,8 @@ namespace web_helper
                 {
 
                     sb.AppendLine("----------------" + url);
+                    this.txt_result.Text = sb.ToString();
+                    Application.DoEvents();
                 }
 
 
@@ -398,14 +383,14 @@ namespace web_helper
         }
 
 
-        public void insert_db(string eng_name, string cn_name)
+        public void insert_db_500(string eng_name, string cn_name)
         {
             string sql = "";
-            sql = " select * from teams where name1='{0}' ";
+            sql = " select * from teams_log where name1='{0}' ";
             sql = string.Format(sql, eng_name);
             if (SQLServerHelper.get_table(sql).Rows.Count == 0)
             {
-                sql = "  insert into teams (name1,name2,all_name) values ('{0}','{1}','{2}')";
+                sql = "  insert into teams_log (website,name1,name2,name_all) values ('500','{0}','{1}','{2}')";
                 sql = string.Format(sql, eng_name, cn_name, eng_name + "●" + cn_name);
                 SQLServerHelper.exe_sql(sql);
 
@@ -414,48 +399,51 @@ namespace web_helper
                 Application.DoEvents();
             }
         }
-        public void insert_db_90vs(string season_name, string lg_name1, string lg_name2, string lg_name3, string name1, string name2, string name3)
-        {
-            string sql = "";
-            //sql = " select * from teams_log where web_site='90vs' and name1='{0}'";
-            //sql = string.Format(sql, name1);
-            //if (SQLServerHelper.get_table(sql).Rows.Count == 0)
-            //{
-            sql = "   insert into teams_log (web_site,season_name,lg_name1,lg_name2,lg_name3,lg_name_all,name1,name2,name3,name_all) values" +
-                  "    ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')";
-            sql = string.Format(sql, "90vs", season_name, lg_name1, lg_name2, lg_name3, lg_name1 + "●" + lg_name2 + "●" + lg_name3,
-                                                     name1, name2, name3, name1 + "●" + name2 + "●" + name3);
-            SQLServerHelper.exe_sql(sql);
-
-            //}
-
-        }
+ 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            WebClient client = new WebClient();
-            string html = System.Text.Encoding.UTF8.GetString(client.DownloadData(@"http://bf.90vs.com/db/all_season/1910/76.js"));
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(html);
-            this.txt_result.Text = html;
-
-            //string sql = "select * from teams ";
-            //DataTable dt=SQLServerHelper.get_table(sql);
-            //foreach(DataRow  row in   dt.Rows)
-            //{
-            //    string name1 = row["name1"].ToString();
-            //    string name2 = row["name2"].ToString();
-            //    string name_all = row["all_name"].ToString();
-
-            //    sql = "insert into teams_log (web_site,name1,name2,name_all) values ('{0}','{1}','{2}','{3}')";
-            //    sql = string.Format(sql, "500",name1, name2, name_all);
-            //    SQLServerHelper.exe_sql(sql);
-            //}
+            string sql = "select * from teams ";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                string name1 = row["name1"].ToString();
+                string name2 = row["name2"].ToString(); 
+                Match100Helper.insert_teams_log("500", "", "", "", "", name1, name2, "");
+            }
             //MessageBox.Show("OK!");
 
         }
+        private void btn_read_to_names_Click(object sender, EventArgs e)
+        {
+            string sql = "";
+            sql = "select * from teams_log where website='90vs'";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                sql = "select * from names where name='{0}'";
+                sql = string.Format(sql, row["name1"].ToString());
+                if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+                {
+                    sql = "insert into names   (name,name_all) values ( '{0}','{1}')";
+                    sql = string.Format(sql, row["name1"].ToString(), row["name_all"].ToString());
+                    SQLServerHelper.exe_sql(sql);
+                }
+
+            }
+
+            sql = " select * from teams_log where website='500'";
+            DataTable dt_500 = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt_500.Rows)
+            {
+                string name1 = row["name1"].ToString();
+                string name2 = row["name2"].ToString();
+                Match100Helper.insert_name(name1, name2);
+            }
+
+        } 
         private void btn_add_simple_complex_Click(object sender, EventArgs e)
         {
-            string sql = "select * from teams_log where id='3975' ";
+            string sql = "select * from names";
             DataTable dt = SQLServerHelper.get_table(sql);
 
             foreach (DataRow row in dt.Rows)
@@ -474,11 +462,29 @@ namespace web_helper
                 }
                 if (temp != name_all)
                 {
-                    sql = "update teams_log set name_all='{0}' where id={1}";
+                    sql = "update names set name_all='{0}' where id={1}";
                     sql = string.Format(sql,temp, id);
                     SQLServerHelper.exe_sql(sql);
                 }
             }
+        } 
+        public void write_line(string file_name, string txt)
+        {
+            FileStream stream = (FileStream)File.Open(root_path + file_name, FileMode.Append);
+            StreamWriter writer = new StreamWriter(stream);
+
+            writer.WriteLine(txt);
+            writer.Close();
+            stream.Close();
+        }
+        public void write_line_90vs(string file_name, string txt)
+        {
+            FileStream stream = (FileStream)File.Open(root_path_90vs + file_name, FileMode.Append);
+            StreamWriter writer = new StreamWriter(stream);
+
+            writer.WriteLine(txt);
+            writer.Close();
+            stream.Close();
         }
         public string get_js_json(string str)
         {
@@ -540,6 +546,7 @@ namespace web_helper
 
             return result;
         }
+
 
 
     }

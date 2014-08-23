@@ -42,6 +42,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Text = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
+            this.btn_read_to_names = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Text.SuspendLayout();
@@ -49,8 +50,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.btn_read_to_names);
             this.groupBox1.Controls.Add(this.btn_add_simple_complex);
             this.groupBox1.Controls.Add(this.btn_90vs_read_all_team);
             this.groupBox1.Controls.Add(this.btn_90vs_read_leage);
@@ -63,16 +65,16 @@
             this.groupBox1.Controls.Add(this.btn_step_1);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 510);
+            this.groupBox1.Size = new System.Drawing.Size(265, 553);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
             // btn_add_simple_complex
             // 
-            this.btn_add_simple_complex.Location = new System.Drawing.Point(11, 215);
+            this.btn_add_simple_complex.Location = new System.Drawing.Point(123, 233);
             this.btn_add_simple_complex.Name = "btn_add_simple_complex";
-            this.btn_add_simple_complex.Size = new System.Drawing.Size(112, 21);
+            this.btn_add_simple_complex.Size = new System.Drawing.Size(112, 23);
             this.btn_add_simple_complex.TabIndex = 10;
             this.btn_add_simple_complex.Text = "Add S+T";
             this.btn_add_simple_complex.UseVisualStyleBackColor = true;
@@ -81,9 +83,9 @@
             // btn_90vs_read_all_team
             // 
             this.btn_90vs_read_all_team.Enabled = false;
-            this.btn_90vs_read_all_team.Location = new System.Drawing.Point(122, 120);
+            this.btn_90vs_read_all_team.Location = new System.Drawing.Point(122, 130);
             this.btn_90vs_read_all_team.Name = "btn_90vs_read_all_team";
-            this.btn_90vs_read_all_team.Size = new System.Drawing.Size(111, 21);
+            this.btn_90vs_read_all_team.Size = new System.Drawing.Size(111, 23);
             this.btn_90vs_read_all_team.TabIndex = 9;
             this.btn_90vs_read_all_team.Text = "Read All T";
             this.btn_90vs_read_all_team.UseVisualStyleBackColor = true;
@@ -91,9 +93,9 @@
             // 
             // btn_90vs_read_leage
             // 
-            this.btn_90vs_read_leage.Location = new System.Drawing.Point(7, 120);
+            this.btn_90vs_read_leage.Location = new System.Drawing.Point(7, 130);
             this.btn_90vs_read_leage.Name = "btn_90vs_read_leage";
-            this.btn_90vs_read_leage.Size = new System.Drawing.Size(111, 21);
+            this.btn_90vs_read_leage.Size = new System.Drawing.Size(111, 23);
             this.btn_90vs_read_leage.TabIndex = 8;
             this.btn_90vs_read_leage.Text = "Read Leage";
             this.btn_90vs_read_leage.UseVisualStyleBackColor = true;
@@ -102,26 +104,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 100);
+            this.label1.Location = new System.Drawing.Point(8, 108);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "------90vs";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 20);
+            this.label2.Location = new System.Drawing.Point(6, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "------500";
             // 
             // btn_test
             // 
-            this.btn_test.Location = new System.Drawing.Point(11, 242);
+            this.btn_test.Location = new System.Drawing.Point(6, 262);
             this.btn_test.Name = "btn_test";
-            this.btn_test.Size = new System.Drawing.Size(112, 21);
+            this.btn_test.Size = new System.Drawing.Size(112, 23);
             this.btn_test.TabIndex = 4;
             this.btn_test.Text = "Test";
             this.btn_test.UseVisualStyleBackColor = true;
@@ -129,9 +131,9 @@
             // 
             // btn_read_to_db
             // 
-            this.btn_read_to_db.Location = new System.Drawing.Point(122, 66);
+            this.btn_read_to_db.Location = new System.Drawing.Point(123, 72);
             this.btn_read_to_db.Name = "btn_read_to_db";
-            this.btn_read_to_db.Size = new System.Drawing.Size(111, 21);
+            this.btn_read_to_db.Size = new System.Drawing.Size(111, 23);
             this.btn_read_to_db.TabIndex = 3;
             this.btn_read_to_db.Text = "Read To DB";
             this.btn_read_to_db.UseVisualStyleBackColor = true;
@@ -139,9 +141,9 @@
             // 
             // btn_step_3
             // 
-            this.btn_step_3.Location = new System.Drawing.Point(6, 66);
+            this.btn_step_3.Location = new System.Drawing.Point(6, 72);
             this.btn_step_3.Name = "btn_step_3";
-            this.btn_step_3.Size = new System.Drawing.Size(111, 21);
+            this.btn_step_3.Size = new System.Drawing.Size(111, 23);
             this.btn_step_3.TabIndex = 2;
             this.btn_step_3.Text = "Read T Detail";
             this.btn_step_3.UseVisualStyleBackColor = true;
@@ -149,9 +151,9 @@
             // 
             // btn_step_2
             // 
-            this.btn_step_2.Location = new System.Drawing.Point(122, 39);
+            this.btn_step_2.Location = new System.Drawing.Point(122, 42);
             this.btn_step_2.Name = "btn_step_2";
-            this.btn_step_2.Size = new System.Drawing.Size(111, 21);
+            this.btn_step_2.Size = new System.Drawing.Size(111, 23);
             this.btn_step_2.TabIndex = 1;
             this.btn_step_2.Text = "Read All T";
             this.btn_step_2.UseVisualStyleBackColor = true;
@@ -159,9 +161,9 @@
             // 
             // btn_step_1
             // 
-            this.btn_step_1.Location = new System.Drawing.Point(7, 39);
+            this.btn_step_1.Location = new System.Drawing.Point(7, 42);
             this.btn_step_1.Name = "btn_step_1";
-            this.btn_step_1.Size = new System.Drawing.Size(111, 21);
+            this.btn_step_1.Size = new System.Drawing.Size(111, 23);
             this.btn_step_1.TabIndex = 0;
             this.btn_step_1.Text = "Read Leage";
             this.btn_step_1.UseVisualStyleBackColor = true;
@@ -169,14 +171,14 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Text);
             this.tabControl1.Location = new System.Drawing.Point(275, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(712, 519);
+            this.tabControl1.Size = new System.Drawing.Size(712, 562);
             this.tabControl1.TabIndex = 1;
             // 
             // Text
@@ -185,7 +187,7 @@
             this.Text.Location = new System.Drawing.Point(4, 22);
             this.Text.Name = "Text";
             this.Text.Padding = new System.Windows.Forms.Padding(3);
-            this.Text.Size = new System.Drawing.Size(704, 493);
+            this.Text.Size = new System.Drawing.Size(704, 536);
             this.Text.TabIndex = 0;
             this.Text.Text = "Text";
             this.Text.UseVisualStyleBackColor = true;
@@ -199,16 +201,26 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(698, 487);
+            this.txt_result.Size = new System.Drawing.Size(698, 530);
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
+            // btn_read_to_names
+            // 
+            this.btn_read_to_names.Location = new System.Drawing.Point(6, 233);
+            this.btn_read_to_names.Name = "btn_read_to_names";
+            this.btn_read_to_names.Size = new System.Drawing.Size(111, 23);
+            this.btn_read_to_names.TabIndex = 11;
+            this.btn_read_to_names.Text = "Read To Names";
+            this.btn_read_to_names.UseVisualStyleBackColor = true;
+            this.btn_read_to_names.Click += new System.EventHandler(this.btn_read_to_names_Click);
+            // 
             // frm_match_100_team_analyse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 522);
+            this.ClientSize = new System.Drawing.Size(992, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_100_team_analyse";
@@ -237,5 +249,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_add_simple_complex;
+        private System.Windows.Forms.Button btn_read_to_names;
     }
 }

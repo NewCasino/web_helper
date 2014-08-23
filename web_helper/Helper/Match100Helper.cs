@@ -61,36 +61,72 @@ class Match100Helper
         sql = string.Format(sql, type, time, host, client);
         SQLServerHelper.exe_sql(sql);
     }
-    public static void insert_team(string name, string name_other)
+    public static void insert_name(string name, string name_other)
     {
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name_other)) return;
 
-        string sql = "select * from teams where replace(lower(all_name),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
-        sql = string.Format(sql, name);
+        string name_like = name.Replace("FC", "");
+        name_like = name_like.Replace("(", "");
+        name_like = name_like.Replace(")", "");
+      
+        //string sql = "select * from names where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
+        string sql = "select * from names where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
+        sql = string.Format(sql, name_like);
         DataTable dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
         {
-            sql = " update teams set all_name=all_name+'{0}' where replace(lower(all_name),' ','') like '%'+replace(lower('{1}'),' ','')+'%'";
-            sql = string.Format(sql, name_other, name);
-            SQLServerHelper.exe_sql(sql);
+            string id = dt.Rows[0]["id"].ToString();
+            string name_all=dt.Rows[0]["name_all"].ToString();
+            string name_update = name_all;
+            if(!name_all.Contains(name_other)) name_update=name_update+"●" + name_other; 
+            if ( !name_all.Contains(name)) name_update = name_update + "●" + name;
+            if (name_all != name_update)
+            {
+                sql = " update names set name_all='{0}' where id={1}";
+                sql = string.Format(sql, name_update, id);
+                SQLServerHelper.exe_sql(sql);
+            }
         }
         else
         {
-            sql = "insert into teams (name1,all_name) values ('{0}','{1}')";
-            sql = string.Format(sql, name, name + "" + name_other);
+            sql = "insert into names (name,name_all) values ('{0}','{1}')";
+            sql = string.Format(sql, name, name + "●" + name_other);
             SQLServerHelper.exe_sql(sql);
         } 
     }
+    public static void insert_teams_log(string website, string season_name, string lg_name1, string lg_name2, string lg_name3, string name1, string name2, string name3)
+    {
+        string sql = "";
+        string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        sql = " select * from teams_log where website='{0}'and season_name='{1}' and lg_name1='{2}'and lg_name2='{3}'and lg_name3='{4}'and name1='{5}'and name2='{6}' and name3='{7}'";
+        sql = string.Format(sql,website,season_name,lg_name1,lg_name2,lg_name3,name1,name2,name3);
+        if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+        {
+            sql = "   insert into teams_log (timespan,website,season_name,lg_name1,lg_name2,lg_name3,lg_name_all,name1,name2,name3,name_all) values" +
+                  "   ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')";
+            sql = string.Format(sql, timespan, website, season_name,
+                                 lg_name1, lg_name2, lg_name3, lg_name1 + "●" + lg_name2 + "●" + lg_name3,
+                                 name1, name2, name3, name1 + "●" + name2 + "●" + name3);
+            SQLServerHelper.exe_sql(sql);
+
+        }
+    }
     public static string convert_team_name(string name)
     {
+        string name_like = name.Replace("FC", "");
+        name_like = name_like.Replace("(", "");
+        name_like = name_like.Replace(")", "");
+
         string result = "";
-        string sql = " select name1,name2,all_name from teams  " +
-                     " where replace(lower(all_name),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
-        sql = string.Format(sql, name);
+        //string sql = " select * from names  " +
+        //             " where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
+        string sql = " select * from names  " +
+                     " where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
+        sql = string.Format(sql, name_like);
         DataTable dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
         {
-            result = dt.Rows[0]["name1"].ToString();
+            result = dt.Rows[0]["name"].ToString();
         }
         return result;
     }

@@ -106,7 +106,7 @@ namespace web_helper
                             sql = " update europe_100_log set f_host='{0}',f_state='3' where id='{1}'";
                             sql = string.Format(sql, row_temp["f_host"].ToString(), id);
                             SQLServerHelper.exe_sql(sql);
-                            Match100Helper.insert_team(row_temp["f_host"].ToString(), host);
+                            Match100Helper.insert_name(row_temp["f_host"].ToString(), host);
 
 
                             sb.AppendLine(start_time.PR(30) + f_client.PR(50) + row_temp["f_host"].ToString());
@@ -129,7 +129,7 @@ namespace web_helper
                             sql = " update europe_100_log set f_client='{0}',f_state='3' where id='{1}'";
                             sql = string.Format(sql, row_temp["f_client"].ToString(), id);
                             SQLServerHelper.exe_sql(sql);
-                            Match100Helper.insert_team(row_temp["f_client"].ToString(), client);
+                            Match100Helper.insert_name(row_temp["f_client"].ToString(), client);
 
                             sb.AppendLine(start_time.PR(30) + f_host.PR(50) + row_temp["f_client"].ToString());
                             this.txt_result.Text = sb.ToString();
@@ -253,8 +253,8 @@ namespace web_helper
                         sql = string.Format(sql, f_host, f_client, target_id);
                         SQLServerHelper.exe_sql(sql);
 
-                        Match100Helper.insert_team(f_host, dgv_result.Rows[i].Cells["host"].ToString());
-                        Match100Helper.insert_team(f_client, dgv_result.Rows[i].Cells["client"].ToString());
+                        Match100Helper.insert_name(f_host, dgv_result.Rows[i].Cells["host"].ToString());
+                        Match100Helper.insert_name(f_client, dgv_result.Rows[i].Cells["client"].ToString());
 
 
                     }
