@@ -410,26 +410,26 @@ namespace web_helper
                 string name2 = row["name2"].ToString(); 
                 Match100Helper.insert_teams_log("500", "", "", "", "", name1, name2, "");
             }
-            //MessageBox.Show("OK!");
+            MessageBox.Show("OK!");
 
         }
         private void btn_read_to_names_Click(object sender, EventArgs e)
         {
             string sql = "";
-            sql = "select * from teams_log where website='90vs'";
-            DataTable dt = SQLServerHelper.get_table(sql);
-            foreach (DataRow row in dt.Rows)
-            {
-                sql = "select * from names where name='{0}'";
-                sql = string.Format(sql, row["name1"].ToString());
-                if (SQLServerHelper.get_table(sql).Rows.Count == 0)
-                {
-                    sql = "insert into names   (name,name_all) values ( '{0}','{1}')";
-                    sql = string.Format(sql, row["name1"].ToString(), row["name_all"].ToString());
-                    SQLServerHelper.exe_sql(sql);
-                }
+            //sql = "select * from teams_log where website='90vs'";
+            //DataTable dt = SQLServerHelper.get_table(sql);
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    sql = "select * from names where name='{0}'";
+            //    sql = string.Format(sql, row["name1"].ToString());
+            //    if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+            //    {
+            //        sql = "insert into names   (name,name_all) values ( '{0}','{1}')";
+            //        sql = string.Format(sql, row["name1"].ToString(), row["name_all"].ToString());
+            //        SQLServerHelper.exe_sql(sql);
+            //    }
 
-            }
+            //}
 
             sql = " select * from teams_log where website='500'";
             DataTable dt_500 = SQLServerHelper.get_table(sql);
@@ -439,6 +439,7 @@ namespace web_helper
                 string name2 = row["name2"].ToString();
                 Match100Helper.insert_name(name1, name2);
             }
+            MessageBox.Show("OK");
 
         } 
         private void btn_add_simple_complex_Click(object sender, EventArgs e)
@@ -467,6 +468,7 @@ namespace web_helper
                     SQLServerHelper.exe_sql(sql);
                 }
             }
+            MessageBox.Show("OK");
         } 
         public void write_line(string file_name, string txt)
         {
