@@ -65,12 +65,13 @@ class Match100Helper
     {
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name_other)) return;
 
-        string name_like = name.Replace("FC", "");
-        name_like = name_like.Replace("(", "");
-        name_like = name_like.Replace(")", "");
+        string name_like = name;
+        //string name_like = name.Replace("FC", "");
+        //name_like = name_like.Replace("(", "");
+        //name_like = name_like.Replace(")", "");
       
-        //string sql = "select * from names where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
-        string sql = "select * from names where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
+        string sql = "select * from names where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
+        //string sql = "select * from names where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
         sql = string.Format(sql, name_like);
         DataTable dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
@@ -83,14 +84,14 @@ class Match100Helper
             if (name_all != name_update)
             {
                 sql = " update names set name_all='{0}' where id={1}";
-                sql = string.Format(sql, name_update, id);
+                sql = string.Format(sql, Tool.drop_repeat(name_update), id);
                 SQLServerHelper.exe_sql(sql);
             }
         }
         else
         {
             sql = "insert into names (name,name_all) values ('{0}','{1}')";
-            sql = string.Format(sql, name, name + "●" + name_other);
+            sql = string.Format(sql, name,Tool.drop_repeat( name + "●" + name_other));
             SQLServerHelper.exe_sql(sql);
         } 
     }
@@ -113,15 +114,16 @@ class Match100Helper
     }
     public static string convert_team_name(string name)
     {
-        string name_like = name.Replace("FC", "");
-        name_like = name_like.Replace("(", "");
-        name_like = name_like.Replace(")", "");
+        string name_like = name;
+       //string name_like = name.Replace("FC", "");
+       //name_like = name_like.Replace("(", "");
+       //name_like = name_like.Replace(")", "");
 
         string result = "";
-        //string sql = " select * from names  " +
-        //             " where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
         string sql = " select * from names  " +
-                     " where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
+                     " where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
+        //string sql = " select * from names  " +
+           //          " where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
         sql = string.Format(sql, name_like);
         DataTable dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)

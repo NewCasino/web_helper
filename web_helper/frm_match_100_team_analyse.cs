@@ -11,6 +11,8 @@ using System.Net;
 using System.IO;
 using MongoDB.Bson;
 using System.Collections;
+using System.Xml;
+using System.Xml.XPath;
 namespace web_helper
 {
     public partial class frm_match_100_team_analyse : Form
@@ -30,6 +32,8 @@ namespace web_helper
         string root_url = @"file:///" + root_path.Replace(@"\", @"/");
         public static string root_path_90vs = Environment.CurrentDirectory.Replace(@"bin\Debug", "").Replace(@"bin\x86\Debug", "") + @"data\90vs\";
         string root_url_90vs = @"file:///" + root_path_90vs.Replace(@"\", @"/");
+        public static string root_path_teams = Environment.CurrentDirectory.Replace(@"bin\Debug", "").Replace(@"bin\x86\Debug", "") + @"data\teams\";
+        string root_url_teams = @"file:///" + root_path_90vs.Replace(@"\", @"/");
 
         private void btn_step_1_Click(object sender, EventArgs e)
         {
@@ -247,12 +251,7 @@ namespace web_helper
 
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
-        }
-
-
-
-    
-
+        } 
 
         private void btn_90vs_read_leage_Click(object sender, EventArgs e)
         {
@@ -402,34 +401,72 @@ namespace web_helper
  
         private void btn_test_Click(object sender, EventArgs e)
         {
-            string sql = "select * from teams ";
-            DataTable dt = SQLServerHelper.get_table(sql);
-            foreach (DataRow row in dt.Rows)
-            {
-                string name1 = row["name1"].ToString();
-                string name2 = row["name2"].ToString(); 
-                Match100Helper.insert_teams_log("500", "", "", "", "", name1, name2, "");
-            }
-            MessageBox.Show("OK!");
+            StringBuilder sb=new StringBuilder();
 
+            //intsert 500 teams data to [teams_log] from [teams]
+            //--------------------------------------------------------------------------------------------------------------
+            //string sql = "select * from teams ";
+            //DataTable dt = SQLServerHelper.get_table(sql);
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    string name1 = row["name1"].ToString();
+            //    string name2 = row["name2"].ToString(); 
+            //    Match100Helper.insert_teams_log("500", "", "", "", "", name1, name2, "");
+            //}
+          
+            //--------------------------------------------------------------------------------------------------------------
+
+
+            //get leage english name from pinnaclesports 
+            //--------------------------------------------------------------------------------------------------------------
+            XmlDocument doc=new XmlDocument();
+            FileStream stream = File.Open(root_path_teams + "leagues.xml",FileMode.Open);
+            StreamReader reader=new StreamReader(stream);
+            string xml=reader.ReadToEnd();
+            reader.Close();
+            stream.Close();
+
+            doc.LoadXml(xml);
+            XmlNodeList node_list=doc.SelectNodes("rsp/leagues/league"); 
+
+            int count = 0;
+            foreach(XmlNode node in node_list)
+            {
+                count = count + 1;
+                string[] items = node.InnerText.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
+                if (items.Length > 1)
+                {
+                    sb.AppendLine(count.PR(5) +items[0].PR(50)+items[1].ToString().TrimStart().TrimEnd());
+                }
+                else
+                {
+                    sb.AppendLine(count.PR(5) +"".PR(50)+node.InnerText.TrimStart().TrimEnd());
+                } 
+            }
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+            //--------------------------------------------------------------------------------------------------------------
+
+
+
+            MessageBox.Show("OK!");
         }
         private void btn_read_to_names_Click(object sender, EventArgs e)
         {
             string sql = "";
-            //sql = "select * from teams_log where website='90vs'";
-            //DataTable dt = SQLServerHelper.get_table(sql);
-            //foreach (DataRow row in dt.Rows)
-            //{
-            //    sql = "select * from names where name='{0}'";
-            //    sql = string.Format(sql, row["name1"].ToString());
-            //    if (SQLServerHelper.get_table(sql).Rows.Count == 0)
-            //    {
-            //        sql = "insert into names   (name,name_all) values ( '{0}','{1}')";
-            //        sql = string.Format(sql, row["name1"].ToString(), row["name_all"].ToString());
-            //        SQLServerHelper.exe_sql(sql);
-            //    }
-
-            //}
+            sql = "select * from teams_log where website='90vs'";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                sql = "select * from names where name='{0}'";
+                sql = string.Format(sql, row["name1"].ToString());
+                if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+                {
+                    sql = "insert into names   (name,name_all) values ( '{0}','{1}')";
+                    sql = string.Format(sql, row["name1"].ToString(), Tool.drop_repeat(row["name_all"].ToString()));
+                    SQLServerHelper.exe_sql(sql);
+                } 
+            }
 
             sql = " select * from teams_log where website='500'";
             DataTable dt_500 = SQLServerHelper.get_table(sql);
@@ -464,7 +501,7 @@ namespace web_helper
                 if (temp != name_all)
                 {
                     sql = "update names set name_all='{0}' where id={1}";
-                    sql = string.Format(sql,temp, id);
+                    sql = string.Format(sql,Tool.drop_repeat(temp), id);
                     SQLServerHelper.exe_sql(sql);
                 }
             }

@@ -73,6 +73,16 @@ class Tool
         //convert to  east +8
         return dt.AddHours(8-kind);
     }
+    private static bool is_english(string str)
+    {
+        for (int i = 0; i < str.Length - 1; i++)
+        {
+            string item = str.Substring(i, 1);
+            byte[] byte_len = System.Text.Encoding.Default.GetBytes(item);
+            if (byte_len.Length == 2) { return false; }
+        }
+        return true;
+    }
     
     public static string to_simple_chinese(string str)
     { 
@@ -82,5 +92,26 @@ class Tool
     {
         return Strings.StrConv(str, VbStrConv.TraditionalChinese, 0);
     }
+    public static string drop_repeat(string str)
+    {
+        string result = "";
+        string[] items = str.Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+        if (items.Length == 0)
+        { 
+            return str;
+        }
 
+        foreach (string item in items)
+        {
+            if (!result.Contains(item))
+            {
+                result = result + "●" + item;
+            }
+        }
+        if (items.Length > 0)
+        {
+            result = result.Substring(1, result.Length - 1);
+        }
+        return result; 
+    } 
 }

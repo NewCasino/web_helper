@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsp status="ok">
+  <sportId>29</sportId>
+  <leagues>
+    <league id="1700" feedContents="0"> Alanya Cup</league>
+    <league id="8562" feedContents="0">AFC - Asian Cup Women</league>
+    <league id="1707" feedContents="0">AFC - Asian Cup Qualifiers</league>
+    <league id="8657" feedContents="0">AFC - Challenge Cup</league>
+    <league id="1708" feedContents="0">AFC - Champions League</league>
+    <league id="7795" feedContents="0">AFC - Champions League Qualifiers</league>
+    <league id="1709" feedContents="0">AFC - Cup</league>
+    <league id="1713" feedContents="0">CAF - Africa Cup of Nations Qualifiers</league>
+    <league id="1715" feedContents="0">CAF - Champions League</league>
+    <league id="1717" feedContents="0">CAF - African Nations Championship</league>
+    <league id="1718" feedContents="0">CAF - Africa Cup of Nations</league>
+    <league id="1722" feedContents="0">Albania - Superliga</league>
+    <league id="7953" feedContents="0">International - Algarve Cup Women</league>
+    <league id="8667" feedContents="0">Algeria - Professional Ligue 1</league>
+    <league id="6269" feedContents="0">Sweden - Allsvenskan Corners</league>
+    <league id="1728" feedContents="1">Sweden - Allsvenskan</league>
+    <league id="6820" feedContents="0">Argentina - Primera B Nacional Corners</league>
+    <league id="6327" feedContents="0">Argentina - Primera Division Corners</league>
+    <league id="1739" feedContents="1">Argentina - Primera B Nacional</league>
+    <league id="1740" feedContents="0">Argentina - Primera Division</league>
+    <league id="1741" feedContents="0">Argentina - Cup</league>
+    <league id="1744" feedContents="0">ASEAN Football Championship</league>
+    <league id="1746" feedContents="0">Asian Games - Men</league>
+    <league id="4593" feedContents="0">Asian Games - Women</league>
+    <league id="1748" feedContents="0">Audi - Cup (in Munich)</league>
+    <league id="6478" feedContents="0">Audi - Cup (in Munich) Corners</league>
+    <league id="8709" feedContents="0">Australia - Brisbane Cup</league>
+    <league id="1749" feedContents="0">Australia - Brisbane Premier League</league>
+    <league id="8826" feedContents="0">Australia Dockerty Cup</league>
+    <league id="9394" feedContents="0">Australia - FFA Cup</league>
+    <league id="1751" feedContents="0">Australia - Foxtel Cup</league>
+    <league id="8592" feedContents="0">Australia NPL - Capital Territory</league>
+    <league id="8594" feedContents="0">Australia NPL - Northern NSW</league>
+    <league id="8588" feedContents="0">Australia NPL - New South Wales</league>
+    <league id="8590" feedContents="0">Australia NPL - T-League</league>
+    <league id="8586" feedContents="0">Australia NPL - Western Australia</league>
+    <league id="8653" feedContents="0">Australia - NSW Cup</league>
+    <league id="1752" feedContents="0">Austria - ÖFB Cup</league>
+    <league id="6775" feedContents="0">Austria - Erste Liga Corners</league>
+    <league id="1753" feedContents="0">Australia - South Australia Premier League</league>
+    <league id="9318" feedContents="0">Western Australia Cup</league>
+    <league id="1756" feedContents="0">Australia NPL - Victoria Division 1</league>
+    <league id="8584" feedContents="0">Australia NPL - Queensland</league>
+    <league id="1765" feedContents="0">Australia - A-League Pre-Season Cup</league>
+    <league id="1766" feedContents="0">Australia - A League</league>
+    <league id="6782" feedContents="0">Australia - A League Corners</league>
+    <league id="1769" feedContents="0">Australia NPL - Victoria</league>
+    <league id="1773" feedContents="1">Austria - Erste Liga</league>
+    <league id="1776" feedContents="0">Austria - Cup</league>
+    <league id="1792" feedContents="1">Austria - Bundesliga</league>
+    <league id="6299" feedContents="0">Austria - Bundesliga Corners</league>
+    <league id="8727" feedContents="0">Australia Victorian Cup</league>
+    <league id="7167" feedContents="0">Azerbaijan - Premier League</league>
+    <league id="8666" feedContents="0">Bahrain - Premier League</league>
+    <league id="1801" feedContents="0">Baltic - Cup</league>
+    <league id="6416" feedContents="0">Belarus - Premier League</league>
+    <league id="1813" feedContents="0">Belarus - Cup</league>
+    <league id="1816" feedContents="0">Belgium - Super Cup</league>
+    <league id="1817" feedContents="0">Belgium - Pro League</league>
+    <league id="1818" feedContents="0">Belgium - 2nd Division</league>
+    <league id="6486" feedContents="0">Belgium - Pro League Corners</league>
+    <league id="1819" feedContents="0">Belgium - Cup</league>
+    <league id="5595" feedContents="0">Bolivia - LFPB</league>
+    <league id="1833" feedContents="0">Brazil - Cup</league>
+    <league id="1834" feedContents="0">Brazil - Serie A</league>
+    <league id="1835" feedContents="0">Brazil - Serie B</league>
+    <league id="6310" feedContents="0">Brazil - Serie A Corners</league>
+    <league id="9320" feedContents="0">Bulgaria A PFG</league>
+    <league id="9503" feedContents="0">Bulgaria - Super Cup</league>
+    <league id="5886" feedContents="0">Germany - Bundesliga 2 Corners</league>
+    <league id="8564" feedContents="0">Germany - Bundesliga 3 Corners</league>
+    <league id="5874" feedContents="0">Germany - Bundesliga Corners</league>
+    <league id="8705" feedContents="0">Germany - Bundesliga U19</league>
+    <league id="1842" feedContents="1">Germany - Bundesliga</league>
+    <league id="1843" feedContents="1">Germany - Bundesliga 2</league>
+    <league id="1844" feedContents="0">Germany - Bundesliga 3</league>
+    <league id="1850" feedContents="0">Canada - Championship</league>
+    <league id="1851" feedContents="0">Canada - Soccer League</league>
+    <league id="1852" feedContents="0">Brazil - Carioca</league>
+    <league id="4711" feedContents="0">Carling Nations Cup</league>
+    <league id="1854" feedContents="0">Africa - CECAFA Cup</league>
+    <league id="6476" feedContents="0">International Champions Cup Corners</league>
+    <league id="1855" feedContents="0">International Champions Cup</league>
+    <league id="1856" feedContents="0">Chile - Cup</league>
+    <league id="1857" feedContents="0">Chile - Primera Division</league>
+    <league id="6417" feedContents="1">China - Super League</league>
+    <league id="8655" feedContents="0">China - League One</league>
+    <league id="1859" feedContents="0">China - FA Cup</league>
+    <league id="5452" feedContents="0">UEFA - Champions League Corners</league>
+    <league id="5979" feedContents="0">Club Friendlies II</league>
+    <league id="1863" feedContents="0">Club Friendlies</league>
+    <league id="1864" feedContents="0">Club Friendly - Women</league>
+    <league id="1865" feedContents="0">FIFA - Club World Cup</league>
+    <league id="5591" feedContents="0">Colombia - Primera A</league>
+    <league id="1867" feedContents="0">Colombia - Cup</league>
+    <league id="1870" feedContents="0">CONCACAF - Champions League</league>
+    <league id="4787" feedContents="0">CONCACAF - U20 Championship</league>
+    <league id="6354" feedContents="0">FIFA - Confed Cup Corners</league>
+    <league id="1871" feedContents="0">FIFA - Confed Cup</league>
+    <league id="1872" feedContents="0">CONMEBOL - Copa America</league>
+    <league id="1875" feedContents="0">CONMEBOL - Copa Libertadores</league>
+    <league id="6283" feedContents="0">CONMEBOL - Copa Libertadores Corners</league>
+    <league id="4677" feedContents="0">CONCACAF - Copa Centro Americana</league>
+    <league id="9383" feedContents="0">Copa EuroAmericana</league>
+    <league id="1878" feedContents="0">Copa Panamericana</league>
+    <league id="9531" feedContents="0">Costa Rica - Primera Division</league>
+    <league id="9532" feedContents="0">Costa Rica - Cup</league>
+    <league id="1880" feedContents="0">Croatia - 1. HNL</league>
+    <league id="1881" feedContents="0">Croatia - 2. HNL</league>
+    <league id="1882" feedContents="0">Croatia - Cup</league>
+    <league id="6851" feedContents="0">sonia test</league>
+    <league id="1887" feedContents="0">Cyprus - 1st  Division</league>
+    <league id="1888" feedContents="0">Cyprus - Cup</league>
+    <league id="6648" feedContents="0">Cyprus - 1st Division Corners</league>
+    <league id="7955" feedContents="0">International - Cyprus Cup Women</league>
+    <league id="1890" feedContents="0">Cyprus - Super Cup</league>
+    <league id="1891" feedContents="0">Czech Republic - Gambrinus Liga</league>
+    <league id="6758" feedContents="0">Czech Republic - Gambrinus Liga Corners</league>
+    <league id="1898" feedContents="0">Czech Republic - Cup</league>
+    <league id="9441" feedContents="0">Czech Republic - 2. Liga</league>
+    <league id="1903" feedContents="0">Sweden - Damallsvenskan</league>
+    <league id="1904" feedContents="0">Denmark - Division 1</league>
+    <league id="6666" feedContents="0">Denmark - Division 1 Corners</league>
+    <league id="6822" feedContents="0">Denmark - Cup Corners</league>
+    <league id="1908" feedContents="0">Denmark - Cup</league>
+    <league id="1913" feedContents="1">Denmark - Superliga</league>
+    <league id="6426" feedContents="0">Denmark - Superliga Corners</league>
+    <league id="1928" feedContents="0">Netherlands - Eredivisie</league>
+    <league id="1929" feedContents="1">Netherlands - Eerste Divisie</league>
+    <league id="1930" feedContents="0">Netherlands - Cup</league>
+    <league id="6273" feedContents="0">Netherlands - Cup Corners</league>
+    <league id="6439" feedContents="0">Netherlands - Super Cup Corners</league>
+    <league id="1933" feedContents="0">Netherlands - Super Cup</league>
+    <league id="6312" feedContents="0">Netherlands - Eredivisie Corners</league>
+    <league id="6713" feedContents="0">Netherlands - Eerste Divisie Corners</league>
+    <league id="6437" feedContents="0">EAFF East Asian - Cup Women Corners</league>
+    <league id="1939" feedContents="0">EAFF East Asian - Cup Men</league>
+    <league id="6435" feedContents="0">EAFF East Asian Cup - Women</league>
+    <league id="5598" feedContents="0">Ecuador - Serie A</league>
+    <league id="6668" feedContents="0">Ecuador - Serie A Corners</league>
+    <league id="1946" feedContents="0">Egypt - Cup</league>
+    <league id="1950" feedContents="0">Emirates Cup</league>
+    <league id="6834" feedContents="0">England - League Cup Corners</league>
+    <league id="5938" feedContents="0">England - Championship Corners</league>
+    <league id="1951" feedContents="0">England - Conference North</league>
+    <league id="1952" feedContents="0">England - Conference South</league>
+    <league id="1953" feedContents="0">England - Community Shield</league>
+    <league id="1955" feedContents="0">England - FA Youth</league>
+    <league id="1957" feedContents="0">England - League 1</league>
+    <league id="6303" feedContents="0">England - League 1 Corners</league>
+    <league id="1958" feedContents="0">England - League 2</league>
+    <league id="5487" feedContents="1">England - Premier League Corners</league>
+    <league id="8713" feedContents="0">England - Womens Super League</league>
+    <league id="1977" feedContents="0">England - Championship</league>
+    <league id="1978" feedContents="1">England - Conference National</league>
+    <league id="1979" feedContents="0">England - FA Cup</league>
+    <league id="1980" feedContents="1">England - Premier League</league>
+    <league id="1981" feedContents="0">England - FA Cup Women</league>
+    <league id="6678" feedContents="0">England - Conference National Corners</league>
+    <league id="1982" feedContents="1">England - League Cup</league>
+    <league id="1983" feedContents="0">England - FA Trophy</league>
+    <league id="6516" feedContents="0">England - Community Shield Corners</league>
+    <league id="6276" feedContents="0">England - FA Cup Corners</league>
+    <league id="1985" feedContents="0">England - JP Trophy</league>
+    <league id="1988" feedContents="0">EPL Specials</league>
+    <league id="6565" feedContents="0">England - Premier League U21</league>
+    <league id="6682" feedContents="0">England - Premier League U21 Corners</league>
+    <league id="1989" feedContents="0">Estonia - Meistriliiga</league>
+    <league id="9544" feedContents="0">Estonia - Meistriliiga (1st Division) Corners</league>
+    <league id="5643" feedContents="0">EURO - 2012 Corners</league>
+    <league id="1998" feedContents="0">EURO LIVE</league>
+    <league id="5981" feedContents="0">FIFA - World Cup Qualifiers Europe II</league>
+    <league id="2010" feedContents="0">FIFA - U20 World Cup Women</league>
+    <league id="4483" feedContents="0">FIFA - U17 World Cup Women</league>
+    <league id="2012" feedContents="0">FIFA - World Cup Qualifiers Women</league>
+    <league id="2013" feedContents="0">FIFA - World Cup Qualifiers Africa</league>
+    <league id="2014" feedContents="0">FIFA - World Cup Qualifiers Asia</league>
+    <league id="2015" feedContents="0">FIFA - World Cup Qualifiers Europe</league>
+    <league id="6760" feedContents="0">FIFA - World Cup Qualifiers Intercontinental</league>
+    <league id="5001" feedContents="0">FIFA - World Cup Qualifiers Oceania</league>
+    <league id="2016" feedContents="0">FIFA - World Cup Qualifiers South America</league>
+    <league id="5894" feedContents="0">FIFA - World Cup Qualifiers Europe Corners</league>
+    <league id="6852" feedContents="0">FIFA - World Cup Qualifiers Women Corners</league>
+    <league id="6990" feedContents="0">FIFA - World Cup Qualifiers Africa Corners</league>
+    <league id="6522" feedContents="0">FIFA - World Cup Qualifiers Europe Corners</league>
+    <league id="7016" feedContents="0">FIFA - World Cup Qualifier Intercontinental Corner</league>
+    <league id="2017" feedContents="0">FIFA - World Cup Qualifiers North America</league>
+    <league id="6338" feedContents="0">FIFA - World Cup Qualifiers South America Corners</league>
+    <league id="2018" feedContents="0">Finland - Kakkonen</league>
+    <league id="2020" feedContents="0">Finland - Cup</league>
+    <league id="4993" feedContents="0">Finland - League Cup</league>
+    <league id="2022" feedContents="0">Finland - Suomen Cup</league>
+    <league id="2023" feedContents="0">Finland - Cup - Women</league>
+    <league id="2024" feedContents="1">Finland - Veikkausliiga</league>
+    <league id="6385" feedContents="0">Finland - Veikkausliiga Corners</league>
+    <league id="2025" feedContents="1">Finland - Ykkonen</league>
+    <league id="2026" feedContents="0">Four Nations Tournament</league>
+    <league id="6321" feedContents="0">France - Cup Corners</league>
+    <league id="2027" feedContents="0">France - National</league>
+    <league id="2032" feedContents="0">France - Cup</league>
+    <league id="2034" feedContents="0">France - League Cup</league>
+    <league id="6836" feedContents="0">France - League Cup Corners</league>
+    <league id="2035" feedContents="0">France - Super Cup</league>
+    <league id="6489" feedContents="0">France - Super Cup Corners</league>
+    <league id="2036" feedContents="1">France - Ligue 1</league>
+    <league id="2037" feedContents="0">France - Ligue 2</league>
+    <league id="6495" feedContents="0">France - Ligue 2 Corners</league>
+    <league id="6267" feedContents="0">France - Ligue 1 Corners</league>
+    <league id="2038" feedContents="0">Friendlies</league>
+    <league id="2039" feedContents="0">Friendly - U19</league>
+    <league id="2040" feedContents="0">Friendly - U20</league>
+    <league id="2041" feedContents="0">Friendly - U21</league>
+    <league id="2042" feedContents="0">Friendly - Women</league>
+    <league id="8719" feedContents="0">Germany Brandenburg Cup</league>
+    <league id="8721" feedContents="0">Germany Niedersachsen Cup</league>
+    <league id="6546" feedContents="0">Germany - Regionalliga Bavaria</league>
+    <league id="6680" feedContents="0">Germany - Regionalliga Bavaria Corners</league>
+    <league id="2048" feedContents="0">Germany - Regionalliga North</league>
+    <league id="6545" feedContents="0">Germany - Regionalliga North East</league>
+    <league id="2049" feedContents="0">Germany - Regionalliga Sued</league>
+    <league id="6543" feedContents="0">Germany - Regionalliga South West</league>
+    <league id="2050" feedContents="0">Germany - Regionalliga West</league>
+    <league id="8722" feedContents="0">Germany Rheinland Cup</league>
+    <league id="6441" feedContents="0">Germany - Super Cup Corners</league>
+    <league id="2054" feedContents="0">Germany - Super Cup</league>
+    <league id="6325" feedContents="0">Germany - Cup Corners</league>
+    <league id="2067" feedContents="0">Germany - Cup</league>
+    <league id="2068" feedContents="0">Germany - DFB Pokal - Women</league>
+    <league id="8732" feedContents="0">Germany - Regionalliga Cup Mittelrhein</league>
+    <league id="2077" feedContents="0">CONCACAF - Gold Cup</league>
+    <league id="6401" feedContents="0">CONCACAF - Gold Cup Corners</league>
+    <league id="2080" feedContents="0">Greece - Cup</league>
+    <league id="2081" feedContents="1">Greece - Super League</league>
+    <league id="6756" feedContents="0">Greece - Super League Corners</league>
+    <league id="2089" feedContents="0">AFC - Gulf Clubs Championship</league>
+    <league id="2090" feedContents="0">AFC - Gulf Cup</league>
+    <league id="7454" feedContents="0">INACTIVE</league>
+    <league id="2095" feedContents="0">Hungary - NB 1</league>
+    <league id="2096" feedContents="0">Hungary - Cup</league>
+    <league id="2098" feedContents="0">Hungary - League Cup</league>
+    <league id="6733" feedContents="0">Hungary - Ligakupa Corners</league>
+    <league id="2100" feedContents="0">Iceland - 1. Deild</league>
+    <league id="2101" feedContents="0">Iceland - Cup</league>
+    <league id="4994" feedContents="0">Iceland - League Cup</league>
+    <league id="2102" feedContents="1">Iceland - Premier League</league>
+    <league id="8717" feedContents="0">Indonesia - Super League</league>
+    <league id="5978" feedContents="0">International - Friendlies II</league>
+    <league id="6323" feedContents="0">International - Friendlies Corners</league>
+    <league id="2104" feedContents="0">Interliga</league>
+    <league id="2106" feedContents="0">UEFA - Intertoto Cup</league>
+    <league id="2107" feedContents="0">Friendly - International Friend. Youth Tournament</league>
+    <league id="2112" feedContents="0">International - Friendlies U19</league>
+    <league id="2113" feedContents="0">International - Friendlies U20</league>
+    <league id="2114" feedContents="0">International - Friendlies U21</league>
+    <league id="2115" feedContents="0">International - Friendlies U23</league>
+    <league id="2116" feedContents="0">International - Friendlies Women</league>
+    <league id="2117" feedContents="0">International - Friendlies</league>
+    <league id="2120" feedContents="0">Ireland - Premier</league>
+    <league id="6392" feedContents="0">Ireland - Premier Corners</league>
+    <league id="2122" feedContents="0">Ireland - Cup</league>
+    <league id="2123" feedContents="1">Ireland - Division 1</league>
+    <league id="2124" feedContents="0">Ireland - FAI Cup</league>
+    <league id="2125" feedContents="0">Ireland - Leinster Senior Cup</league>
+    <league id="2129" feedContents="0">Israel - Cup</league>
+    <league id="2133" feedContents="0">Israel - Ligat Leumit</league>
+    <league id="2136" feedContents="0">Israel - Premier League</league>
+    <league id="2138" feedContents="0">Israel - Toto Cup</league>
+    <league id="6650" feedContents="0">Israel - Premier League Corners</league>
+    <league id="2147" feedContents="0">Italy - Cup</league>
+    <league id="6319" feedContents="0">Italy - Cup Corners</league>
+    <league id="2149" feedContents="0">Italy - Lega Pro 1A</league>
+    <league id="2150" feedContents="0">Italy - Lega Pro 1B</league>
+    <league id="2153" feedContents="0">Italy - Super Cup</league>
+    <league id="2157" feedContents="1">Japan - J League</league>
+    <league id="6308" feedContents="0">Japan - J League Corners</league>
+    <league id="2159" feedContents="1">Japan - J2 League</league>
+    <league id="6784" feedContents="0">Japan - J2 League Corners</league>
+    <league id="2160" feedContents="0">Japan - Cup</league>
+    <league id="2161" feedContents="0">Japan - Cup Women</league>
+    <league id="6595" feedContents="0">Japan - League Cup Corners</league>
+    <league id="4995" feedContents="0">Japan - League Cup</league>
+    <league id="5421" feedContents="0">Japan - Super Cup</league>
+    <league id="6418" feedContents="0">Kazakhstan - Premier League</league>
+    <league id="2176" feedContents="0">Kazakhstan - Cup</league>
+    <league id="2178" feedContents="0">Asia - Kings Cup</league>
+    <league id="2179" feedContents="0">International - Kirin Cup</league>
+    <league id="9097" feedContents="1">Korea Republic - K League Challenge</league>
+    <league id="2181" feedContents="0">Korea Republic - FA Cup</league>
+    <league id="2185" feedContents="0">Korea Republic - K League Classic</league>
+    <league id="2188" feedContents="0">Korea - National League</league>
+    <league id="2189" feedContents="0">Korea - National League Cup</league>
+    <league id="2196" feedContents="1">Spain - La Liga</league>
+    <league id="5490" feedContents="1">Spain - La Liga Corners</league>
+    <league id="2198" feedContents="0">Spain - La Liga Specials</league>
+    <league id="2199" feedContents="0">La Manga Cup</league>
+    <league id="2201" feedContents="0">Lahti Cup</league>
+    <league id="2203" feedContents="0">Latvia - Virsliga</league>
+    <league id="9542" feedContents="0">Latvia - Virsliga Corner</league>
+    <league id="2211" feedContents="0">Lithuania -  A Lyga</league>
+    <league id="4672" feedContents="0">Live AFC - Asian Cup</league>
+    <league id="6304" feedContents="0">Live England - League 1 Corners</league>
+    <league id="5545" feedContents="0">Live - UEFA EURO 2012</league>
+    <league id="5051" feedContents="0">Live UEFA - Europa League Qualifier</league>
+    <league id="4932" feedContents="0">Live UEFA - Championship U21</league>
+    <league id="6307" feedContents="0">Live UEFA - Champions League Women</league>
+    <league id="6384" feedContents="0">Live Club - Friendlies II</league>
+    <league id="6440" feedContents="0">Live Netherlands - Super Cup Corners</league>
+    <league id="6488" feedContents="0">Live France - Super Cup</league>
+    <league id="8725" feedContents="0">INACTIVE</league>
+    <league id="5363" feedContents="0">Live Brazil - Paulista A1</league>
+    <league id="6422" feedContents="0">Live Poland - Ekstraklasa Corners</league>
+    <league id="8726" feedContents="0">INACTIVE</league>
+    <league id="2242" feedContents="0">Mexico - Primera Division</league>
+    <league id="6423" feedContents="0">Mexico - Primera Division Corners</league>
+    <league id="5778" feedContents="0">Mexico - Cup</league>
+    <league id="2253" feedContents="0">Morocco - Botola Pro</league>
+    <league id="4996" feedContents="0">Northern Ireland - League Cup</league>
+    <league id="2255" feedContents="0">North America - United Soccer League</league>
+    <league id="2258" feedContents="0">Northern Ireland - Cup</league>
+    <league id="2259" feedContents="0">Northern Ireland - Premiership</league>
+    <league id="2261" feedContents="0">North America - Super Liga</league>
+    <league id="2264" feedContents="0">New Zealand - Premier</league>
+    <league id="6816" feedContents="0">Norway - 1st Division Corners</league>
+    <league id="5888" feedContents="0">Norway - Tippeligaen Corners</league>
+    <league id="2280" feedContents="0">Norway - Cup</league>
+    <league id="2281" feedContents="0">Norway - Cup Women</league>
+    <league id="2331" feedContents="1">Norway - 1st Division</league>
+    <league id="2332" feedContents="0">Norway - 2nd Division</league>
+    <league id="2333" feedContents="0">Norway - Tippeligaen</league>
+    <league id="4999" feedContents="0">Olympic - Men</league>
+    <league id="2349" feedContents="0">Olympic - Qualifiers Men</league>
+    <league id="5000" feedContents="0">Olympic - Women</league>
+    <league id="2350" feedContents="0">Olympic Soccer Matches - Women Qualifiers</league>
+    <league id="2354" feedContents="0">Pan American Games - Men</league>
+    <league id="2355" feedContents="0">Pan American Games - Women</league>
+    <league id="2356" feedContents="0">UEFA - Pan Arabia Games</league>
+    <league id="2359" feedContents="0">Paraguay - Division Profesional</league>
+    <league id="2360" feedContents="0">Brazil - Paulista</league>
+    <league id="2361" feedContents="0">Friendlies - Peace Queen Cup</league>
+    <league id="2366" feedContents="0">Peru - Primera Division</league>
+    <league id="5592" feedContents="0">Peru - Copa Inca</league>
+    <league id="6421" feedContents="0">Poland - Ekstraklasa Corners</league>
+    <league id="6633" feedContents="0">Poland - 1st Liga</league>
+    <league id="2373" feedContents="0">Poland - Cup</league>
+    <league id="2374" feedContents="1">Poland - Ekstraklasa</league>
+    <league id="5828" feedContents="0">Poland - Super Cup</league>
+    <league id="6985" feedContents="0">Poland - 1st Liga Corners</league>
+    <league id="2381" feedContents="0">Portugal - Super Cup</league>
+    <league id="6814" feedContents="0">Portugal - Liga de Honra Corners</league>
+    <league id="6600" feedContents="0">Portugal - Primeira Liga Corners</league>
+    <league id="4997" feedContents="0">Portugal - League Cup</league>
+    <league id="6313" feedContents="0">Portugal - Cup Corners</league>
+    <league id="2384" feedContents="0">Portugal - Cup</league>
+    <league id="2386" feedContents="1">Portugal - Primeira Liga</league>
+    <league id="2387" feedContents="0">Portugal - Liga de Honra</league>
+    <league id="8128" feedContents="0">Qatar - Stars League</league>
+    <league id="2394" feedContents="0">CONMEBOL - Recopa Sudamericana</league>
+    <league id="6754" feedContents="0">Romania - Liga 1 Corners</league>
+    <league id="2395" feedContents="1">Romania - Liga 1</league>
+    <league id="2396" feedContents="0">Romania - Cup</league>
+    <league id="9250" feedContents="0">Romania - League Cup</league>
+    <league id="6838" feedContents="0">Romania - Cup Corners</league>
+    <league id="2406" feedContents="0">Russia - Premier League</league>
+    <league id="2407" feedContents="0">Russia - 1st  Division</league>
+    <league id="2409" feedContents="0">Russia - Cup</league>
+    <league id="6431" feedContents="0">Russia - Premier League Corners</league>
+    <league id="4763" feedContents="0">Russia - Super Cup</league>
+    <league id="9429" feedContents="0">Russia - Youth Championship U21</league>
+    <league id="2411" feedContents="0">South Africa - Cup</league>
+    <league id="2417" feedContents="0">Scotland - Championship</league>
+    <league id="2418" feedContents="0">Scotland - League One</league>
+    <league id="2419" feedContents="0">Scotland - League Two</league>
+    <league id="2420" feedContents="0">Scotland - Challenge Cup</league>
+    <league id="6315" feedContents="0">Scotland - Scottish Cup Corners</league>
+    <league id="4998" feedContents="0">Scotland - League Cup</league>
+    <league id="2421" feedContents="0">Scotland - Premier League</league>
+    <league id="2422" feedContents="0">Scotland - FA Cup</league>
+    <league id="6824" feedContents="0">Scotland - Championship Corners</league>
+    <league id="6519" feedContents="0">Scotland - Premier League Corners</league>
+    <league id="2426" feedContents="0">Scotland - Cup</league>
+    <league id="2429" feedContents="0">Spain - Segunda B Playoff</league>
+    <league id="5898" feedContents="0">Spain - Segunda Division Corners</league>
+    <league id="2432" feedContents="0">Spain - Segunda Division</league>
+    <league id="2434" feedContents="0">Serbia - Super Liga</league>
+    <league id="2435" feedContents="0">Serbia - Cup</league>
+    <league id="2436" feedContents="1">Italy - Serie A</league>
+    <league id="5488" feedContents="0">Italy - Serie A Corners</league>
+    <league id="2438" feedContents="0">Italy - Serie B</league>
+    <league id="5896" feedContents="0">Italy - Serie B Corners</league>
+    <league id="2444" feedContents="0">Ireland - Setanta Cup</league>
+    <league id="9427" feedContents="0">Singapore S League</league>
+    <league id="9163" feedContents="0">Singapore - League Cup</league>
+    <league id="2453" feedContents="0">Slovakia - Super Liga</league>
+    <league id="2454" feedContents="0">Slovakia - Cup</league>
+    <league id="2456" feedContents="0">Slovenia - Cup</league>
+    <league id="2457" feedContents="0">Slovenia - Prva Liga</league>
+    <league id="2460" feedContents="0">South Africa - Premier League</league>
+    <league id="8582" feedContents="0">Australia NPL - South Australia</league>
+    <league id="2462" feedContents="0">Spain - Cup</league>
+    <league id="6735" feedContents="0">Spain - Cup Corners</league>
+    <league id="2463" feedContents="0">Spain - Super Cup</league>
+    <league id="2470" feedContents="0">Spain - Copa del Rey</league>
+    <league id="5878" feedContents="0">Spain - Super Cup Corners</league>
+    <league id="2472" feedContents="0">CONMEBOL - Copa Sudamericana</league>
+    <league id="4679" feedContents="0">CONMEBOL - U20 Championship</league>
+    <league id="6914" feedContents="0">CONMEBOL - Copa Sudamericana Corners</league>
+    <league id="2473" feedContents="0">CONMEBOL - U20 Championship Women</league>
+    <league id="2476" feedContents="1">Sweden - Superettan</league>
+    <league id="6388" feedContents="0">Sweden - Superettan Corners</league>
+    <league id="6317" feedContents="0">Sweden - Cup Corners</league>
+    <league id="2503" feedContents="0">Sweden - International Tournament</league>
+    <league id="2510" feedContents="0">Sweden - Division 1 Norra</league>
+    <league id="2512" feedContents="0">Sweden - Super Cup</league>
+    <league id="2513" feedContents="1">Sweden - Division 1 Sodra</league>
+    <league id="2514" feedContents="0">Sweden - U21</league>
+    <league id="2516" feedContents="0">Sweden - Cup</league>
+    <league id="2517" feedContents="1">Switzerland - Super League</league>
+    <league id="2518" feedContents="0">Switzerland - Challenge League</league>
+    <league id="6428" feedContents="0">Switzerland - Super League Corners</league>
+    <league id="2519" feedContents="0">Switzerland - Cup</league>
+    <league id="2520" feedContents="0">Switzerland - Playoffs</league>
+    <league id="6664" feedContents="0">Test Corner League</league>
+    <league id="6420" feedContents="0">Thailand - FA Cup</league>
+    <league id="9096" feedContents="0">Thailand - League Cup</league>
+    <league id="6419" feedContents="0">Thailand - Premier League</league>
+    <league id="2568" feedContents="0">Italy - Trofeo Luigi Berlusconi</league>
+    <league id="2572" feedContents="0">Tunisia - Cup</league>
+    <league id="6811" feedContents="0">Turkey - Super League Corners</league>
+    <league id="2578" feedContents="0">Turkey - 1st League</league>
+    <league id="2586" feedContents="1">Turkey - Cup</league>
+    <league id="2592" feedContents="1">Turkey - Super League</league>
+    <league id="5497" feedContents="0">Turkey - Spor Toto Cup</league>
+    <league id="2597" feedContents="0">Turkey - Super Cup</league>
+    <league id="2604" feedContents="0">U17 Eur W Ch</league>
+    <league id="2605" feedContents="0">U17 EuroCham</league>
+    <league id="2606" feedContents="0">U17 InterFri</league>
+    <league id="2607" feedContents="0">U17 SAC Wom</league>
+    <league id="6779" feedContents="0">FIFA - World Cup U17 Corners</league>
+    <league id="2608" feedContents="0">FIFA - World Cup U17</league>
+    <league id="2609" feedContents="0">U17Eur Ch Q</league>
+    <league id="2610" feedContents="0">U17Eur W ChQ</league>
+    <league id="2611" feedContents="0">U17Inter.Cup</league>
+    <league id="2612" feedContents="0">U19 CL Cup</league>
+    <league id="2615" feedContents="0">U19 Eur Cham</league>
+    <league id="2616" feedContents="0">UEFA - U19 European Championship Women</league>
+    <league id="2617" feedContents="0">UEFA - Euro Champ. Qualifiers U19</league>
+    <league id="2619" feedContents="0">South America - U20</league>
+    <league id="2620" feedContents="0">FIFA - World Cup U20</league>
+    <league id="6381" feedContents="0">FIFA - U20 World Cup Corners</league>
+    <league id="8126" feedContents="0">UAE - Arabian Gulf League</league>
+    <league id="2625" feedContents="0">UAE - Division 1</league>
+    <league id="2626" feedContents="0">UAE - Division 2</league>
+    <league id="2627" feedContents="0">UEFA - Champions League</league>
+    <league id="2629" feedContents="1">UEFA - Champions League Qualifiers</league>
+    <league id="2630" feedContents="0">UEFA - Europa League</league>
+    <league id="2631" feedContents="0">UEFA Europa League - Specials</league>
+    <league id="2632" feedContents="0">UEFA - Europa League Qualifiers</league>
+    <league id="5264" feedContents="0">UEFA - EURO</league>
+    <league id="2635" feedContents="0">UEFA - EURO Qualifiers</league>
+    <league id="5880" feedContents="0">UEFA - Super Cup Corners</league>
+    <league id="2636" feedContents="0">UEFA - Super Cup</league>
+    <league id="2638" feedContents="0">UEFA - U19 European Championship</league>
+    <league id="6458" feedContents="0">UEFA - U19 European Championship Corners</league>
+    <league id="5983" feedContents="0">UEFA - U19 European Championship Qualifiers</league>
+    <league id="2639" feedContents="0">UEFA - U21 European Championship</league>
+    <league id="6334" feedContents="0">UEFA - U21 European Championship Corners</league>
+    <league id="5982" feedContents="0">UEFA - U21 European Championship Qualifiers</league>
+    <league id="2640" feedContents="0">UEFA - EURO Women</league>
+    <league id="2641" feedContents="0">UEFA - EURO Women Qualifiers</league>
+    <league id="2642" feedContents="0">UEFA - Champions League Women</league>
+    <league id="6619" feedContents="0">UEFA - Youth League U19</league>
+    <league id="6912" feedContents="0">UEFA - Youth League U19 Corners</league>
+    <league id="6493" feedContents="0">UEFA - Champions League Qualifiers Corners</league>
+    <league id="7014" feedContents="0">UEFA - U21 European Championship Qualifiers Corner</league>
+    <league id="6408" feedContents="0">UEFA - EURO Women Corners</league>
+    <league id="6263" feedContents="0">UEFA - Europa League Corners</league>
+    <league id="2645" feedContents="0">Uhren - Cup</league>
+    <league id="6845" feedContents="0">Ukraine - Cup Corners</league>
+    <league id="2647" feedContents="0">Ukraine - Cup</league>
+    <league id="2650" feedContents="0">Ukraine - Premier League</league>
+    <league id="6809" feedContents="0">Ukraine - Premier League  Corners</league>
+    <league id="2657" feedContents="0">Universiade - Soccer Men</league>
+    <league id="6398" feedContents="0">Universiade - Soccer Women</league>
+    <league id="5593" feedContents="0">Uruguay - Primera Division</league>
+    <league id="5594" feedContents="0">Uruguay - Cup</league>
+    <league id="2662" feedContents="0">USA - Open Cup</league>
+    <league id="2663" feedContents="0">USA - Major League Soccer</league>
+    <league id="4809" feedContents="0">USA - North American Soccer League</league>
+    <league id="6301" feedContents="0">USA - Major League Soccer Corners</league>
+    <league id="5596" feedContents="0">Venezuela - Primera Division</league>
+    <league id="5597" feedContents="0">Venezuela - Cup</league>
+    <league id="9154" feedContents="0">Vietnam - V League</league>
+    <league id="9253" feedContents="0">Vietnam - Cup</league>
+    <league id="2674" feedContents="0">Friendly - World Club</league>
+    <league id="2676" feedContents="0">Friendlies - Peace Cup</league>
+    <league id="2680" feedContents="0">World - Cup Live Betting</league>
+    <league id="2681" feedContents="0">FIFA - World Cup Qualifier</league>
+    <league id="8915" feedContents="0">FIFA - World Cup Advance Lines</league>
+    <league id="9146" feedContents="0">FIFA - World Cup Specials</league>
+    <league id="6331" feedContents="0">FIFA - World Cup Qualifiers Asia Corners</league>
+    <league id="6340" feedContents="0">FIFA - World Cup Qualifiers CONCACAF Corners</league>
+    <league id="2682" feedContents="0">FIFA - CONCACAF World Cup Qualifiers</league>
+    <league id="2684" feedContents="0">Friendlies - Wembley Cup</league>
+    <league id="2686" feedContents="0">FIFA - World Cup</league>
+    <league id="8581" feedContents="0">FIFA - World Cup Corners</league>
+    <league id="2687" feedContents="0">FIFA - World Cup Women</league>
+    <league id="9102" feedContents="0">FIFA - World Cup Extra Time</league>
+    <league id="2688" feedContents="0">Friendlies - World Football Challenge</league>
+    <league id="2689" feedContents="0">Yemen - Division 1</league>
+  </leagues>
+</rsp>

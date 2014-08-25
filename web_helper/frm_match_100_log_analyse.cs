@@ -30,9 +30,10 @@ namespace web_helper
             analyse();
         }
 
-        //f_state: 0-未处理   1-已处理，值更新了时间   2-已处理，一个匹配   3-已处理，2个匹配
+      
         public void update_standard_data()
         {
+            //f_state: 0-未处理   1-已处理，值更新了时间   2-已处理，一个匹配   3-已处理，2个匹配
             string sql = "select * from europe_100_log where f_state='0' ";
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
@@ -101,18 +102,15 @@ namespace web_helper
                     foreach (DataRow row_temp in dt_temp.Rows)
                     {
                         if (!string.IsNullOrEmpty(row_temp["f_host"].ToString()))
-                        {
-
+                        { 
                             sql = " update europe_100_log set f_host='{0}',f_state='3' where id='{1}'";
                             sql = string.Format(sql, row_temp["f_host"].ToString(), id);
                             SQLServerHelper.exe_sql(sql);
-                            Match100Helper.insert_name(row_temp["f_host"].ToString(), host);
-
+                            Match100Helper.insert_name(row_temp["f_host"].ToString(), host); 
 
                             sb.AppendLine(start_time.PR(30) + f_client.PR(50) + row_temp["f_host"].ToString());
                             this.txt_result.Text = sb.ToString();
-                            Application.DoEvents();
-
+                            Application.DoEvents(); 
                         }
                     }
                 }
@@ -224,7 +222,121 @@ namespace web_helper
             Application.DoEvents();
             this.dgv_result.DataSource = dt_result;
         }
+        public void analyse_by_odd()
+        {
+            DataTable dt_result = new DataTable();
+            dt_result.Columns.Add("id");
+            dt_result.Columns.Add("leage"); 
+            dt_result.Columns.Add("start_time"); 
+            dt_result.Columns.Add("host");
+            dt_result.Columns.Add("client");
+            dt_result.Columns.Add("f_leage");
+            dt_result.Columns.Add("f_start_time");
+            dt_result.Columns.Add("f_host");
+            dt_result.Columns.Add("f_client");
+            dt_result.Columns.Add("odd_type");
+            dt_result.Columns.Add("win");
+            dt_result.Columns.Add("draw");
+            dt_result.Columns.Add("lose");
+            dt_result.Columns.Add("target_id");
 
+
+
+            string sql = " select * from europe_100_log where f_state<>'0' order by f_type,start_time ";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+
+                string id = row["id"].ToString();
+                string leage = row["type"].ToString();
+                string start_time = row["start_time"].ToString();
+                string host = row["host"].ToString();
+                string client = row["clinet"].ToString();
+                string f_leage = row["f_type"].ToString();
+                string f_start_time = row["f_start_time"].ToString();
+                string f_host = row["f_host"].ToString();
+                string f_client = row["f_client"].ToString();
+                string  win = row["profit_win"].ToString();
+                string draw = row["profit_draw"].ToString();
+                string lose = row["profit_lose"].ToString();
+                string odd_type = get_odd_order(win, draw, lose);
+
+
+                DataRow row_new = dt_result.NewRow();
+                row_new["id"] = id;
+                row_new["leage"] = leage;
+                row_new["start_time"] = start_time;
+                row_new["host"] = host;
+                row_new["client"] = client;
+                row_new["f_leage"] = f_leage;
+                row_new["f_start_time"] = f_start_time;
+                row_new["f_host"] = f_host;
+                row_new["f_client"] = f_client;
+                row_new["odd_type"] = odd_type;
+                row_new["win"] = win;
+                row_new["draw"] = draw;
+                row_new["lose"] = lose; 
+                dgv_result.Rows.Add(row_new);
+                //sb.AppendLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+            }
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+            this.dgv_result.DataSource = dt_result;
+        }
+        public void update_by_odd()
+        { 
+            string sql = "";
+            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            {
+                if (dgv_result.Rows[i].Cells["type"].Value == null) continue;
+                //if (dgv_result.Rows[i].Cells["type"].Value.ToString() != "M") continue;
+                if (dgv_result.Rows[i].Cells["target_id"].Value == null) continue;
+
+                string id = dgv_result.Rows[i].Cells["id"].Value.ToString();
+                string target_id = dgv_result.Rows[i].Cells["target_id"].Value.ToString();
+
+                for (int j = 0; j < dgv_result.Rows.Count - 1; j++)
+                {
+                    if (dgv_result.Rows[i].Cells["id"].ToString() == target_id)
+                    {
+                        string host = dgv_result.Rows[j].Cells["host"].ToString();
+                        string client = dgv_result.Rows[j].Cells["client"].ToString();
+                        string f_host = dgv_result.Rows[j].Cells["f_host"].ToString();
+                        string f_client = dgv_result.Rows[j].Cells["f_client"].ToString();
+
+                        sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_state='3'  where id='{2}' ";
+                        sql = string.Format(sql, f_host, f_client, id);
+                        SQLServerHelper.exe_sql(sql);
+                        sql = " update europe_100_log set f_host='{0}',f_client='{1},f_state='3'  where id='{2}' ";
+                        sql = string.Format(sql, f_host, f_client, target_id);
+                        SQLServerHelper.exe_sql(sql);
+
+                        Match100Helper.insert_name(f_host, host);
+                        Match100Helper.insert_name(f_client, client);
+
+                        Match100Helper.insert_name(f_host, dgv_result.Rows[i].Cells["host"].ToString());
+                        Match100Helper.insert_name(f_client, dgv_result.Rows[i].Cells["client"].ToString());
+
+
+                    }
+                }
+            }
+        }
+        public string get_odd_order(string str_win, string str_draw, string str_lose)
+        {
+            double win = Convert.ToDouble(str_win);
+            double draw = Convert.ToDouble(str_draw);
+            double lose = Convert.ToDouble(str_lose);
+
+            if (win >= draw && draw >= lose) return "WDL";
+            if (win >= lose && lose >= draw) return "WLD";
+            if (draw >= win && win >= lose) return "DWL";
+            if (draw >= lose && lose >= win) return "DLW";
+            if (lose >= win && win >= draw) return "LWD";
+            if (lose >= draw && draw > win) return "LDW";
+            return "WRONG";
+        }
         private void btn_update_Click(object sender, EventArgs e)
         {
             string sql = "";
@@ -260,8 +372,7 @@ namespace web_helper
                     }
                 }
             }
-        }
-
+        } 
         private void btn_into_offical_Click(object sender, EventArgs e)
         {
             string sql = "select * from europe_100_log where f_state='3'";
@@ -291,4 +402,5 @@ namespace web_helper
             }
         } 
     }
+    
 }
