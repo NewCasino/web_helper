@@ -4,11 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Data.OleDb;
 using Microsoft.VisualBasic;
 
 
 class Tool
 {
+    public static DataTable get_table_from_excel(string filename, int sheet)
+    {
+        DataSet ds;
+
+
+        string str_con = "Provider=Microsoft.Jet.OLEDB.4.0;" +
+                        "Extended Properties=Excel 8.0;" +
+                        "data source=" + filename;
+        OleDbConnection con = new OleDbConnection(str_con);
+
+
+        con.Open();
+        DataTable dt_schema = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+        string sql = " SELECT * FROM [" + dt_schema.Rows[sheet - 1][2].ToString() + "]";
+        OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
+        ds = new DataSet();
+        adapter.Fill(ds);
+        con.Close();
+
+        return ds.Tables[0];
+    }
+
     public static string get_24h_from_12h(string str)
     {
         try

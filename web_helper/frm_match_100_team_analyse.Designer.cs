@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_read_to_names = new System.Windows.Forms.Button();
             this.btn_add_simple_complex = new System.Windows.Forms.Button();
             this.btn_90vs_read_all_team = new System.Windows.Forms.Button();
             this.btn_90vs_read_leage = new System.Windows.Forms.Button();
@@ -42,10 +43,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Text = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.btn_read_to_names = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgv_grid = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Text.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_grid)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -69,6 +73,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_read_to_names
+            // 
+            this.btn_read_to_names.Location = new System.Drawing.Point(6, 233);
+            this.btn_read_to_names.Name = "btn_read_to_names";
+            this.btn_read_to_names.Size = new System.Drawing.Size(111, 23);
+            this.btn_read_to_names.TabIndex = 11;
+            this.btn_read_to_names.Text = "Read To Names";
+            this.btn_read_to_names.UseVisualStyleBackColor = true;
+            this.btn_read_to_names.Click += new System.EventHandler(this.btn_read_to_names_Click);
             // 
             // btn_add_simple_complex
             // 
@@ -175,6 +189,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Text);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(275, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -206,15 +221,24 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // btn_read_to_names
+            // tabPage1
             // 
-            this.btn_read_to_names.Location = new System.Drawing.Point(6, 233);
-            this.btn_read_to_names.Name = "btn_read_to_names";
-            this.btn_read_to_names.Size = new System.Drawing.Size(111, 23);
-            this.btn_read_to_names.TabIndex = 11;
-            this.btn_read_to_names.Text = "Read To Names";
-            this.btn_read_to_names.UseVisualStyleBackColor = true;
-            this.btn_read_to_names.Click += new System.EventHandler(this.btn_read_to_names_Click);
+            this.tabPage1.Controls.Add(this.dgv_grid);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(704, 536);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "TABLE";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgv_grid
+            // 
+            this.dgv_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_grid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_grid.Location = new System.Drawing.Point(0, 0);
+            this.dgv_grid.Name = "dgv_grid";
+            this.dgv_grid.Size = new System.Drawing.Size(704, 536);
+            this.dgv_grid.TabIndex = 0;
             // 
             // frm_match_100_team_analyse
             // 
@@ -229,6 +253,8 @@
             this.tabControl1.ResumeLayout(false);
             this.Text.ResumeLayout(false);
             this.Text.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_grid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,5 +276,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_add_simple_complex;
         private System.Windows.Forms.Button btn_read_to_names;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dgv_grid;
     }
 }

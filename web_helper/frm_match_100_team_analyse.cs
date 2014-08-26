@@ -255,8 +255,7 @@ namespace web_helper
 
         private void btn_90vs_read_leage_Click(object sender, EventArgs e)
         {
-
-
+ 
             string path = root_path_90vs + "leage.js";
 
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
@@ -419,33 +418,44 @@ namespace web_helper
 
             //get leage english name from pinnaclesports 
             //--------------------------------------------------------------------------------------------------------------
-            XmlDocument doc=new XmlDocument();
-            FileStream stream = File.Open(root_path_teams + "leagues.xml",FileMode.Open);
-            StreamReader reader=new StreamReader(stream);
-            string xml=reader.ReadToEnd();
-            reader.Close();
-            stream.Close();
+            //XmlDocument doc=new XmlDocument();
+            //FileStream stream = File.Open(root_path_teams + "leagues.xml",FileMode.Open);
+            //StreamReader reader=new StreamReader(stream);
+            //string xml=reader.ReadToEnd();
+            //reader.Close();
+            //stream.Close();
 
-            doc.LoadXml(xml);
-            XmlNodeList node_list=doc.SelectNodes("rsp/leagues/league"); 
+            //doc.LoadXml(xml);
+            //XmlNodeList node_list=doc.SelectNodes("rsp/leagues/league"); 
 
-            int count = 0;
-            foreach(XmlNode node in node_list)
-            {
-                count = count + 1;
-                string[] items = node.InnerText.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
-                if (items.Length > 1)
-                {
-                    sb.AppendLine(count.PR(5) +items[0].PR(50)+items[1].ToString().TrimStart().TrimEnd());
-                }
-                else
-                {
-                    sb.AppendLine(count.PR(5) +"".PR(50)+node.InnerText.TrimStart().TrimEnd());
-                } 
-            }
-            this.txt_result.Text = sb.ToString();
-            Application.DoEvents();
+            //int count = 0;
+            //foreach(XmlNode node in node_list)
+            //{
+            //    count = count + 1;
+            //    string[] items = node.InnerText.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
+            //    if (items.Length > 1)
+            //    {
+            //        sb.AppendLine(items[0].ToString());
+            //        //sb.AppendLine(count.PR(5) + items[0].PR(50) + items[1].ToString().TrimStart().TrimEnd());
+            //    }
+            //    else
+            //    {
+            //        //sb.AppendLine(count.PR(5) + "".PR(50) + node.InnerText.TrimStart().TrimEnd());
+            //    } 
+            //    //sb.AppendLine(node.InnerText.TrimStart().TrimEnd());
+            //}
+            //this.txt_result.Text = sb.ToString();
+            //Application.DoEvents();
             //--------------------------------------------------------------------------------------------------------------
+
+            //read excel
+            //--------------------------------------------------------------------------------------------------------------
+            DataTable table = Tool.get_table_from_excel(root_path_teams+"leagues.xls", 3);
+            this.dgv_grid.DataSource = table;
+            
+
+            //--------------------------------------------------------------------------------------------------------------
+            
 
 
 

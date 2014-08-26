@@ -46,7 +46,7 @@ namespace web_helper
                     try
                     {
                         down_excel(lg, fid, start_time, host, client);
-                        table = get_table_from_excel(@"c:\data\" + fid + ".xls", 2);
+                        table = Tool.get_table_from_excel(@"c:\data\" + fid + ".xls", 2);
                     }
                     catch (Exception error)
                     {
@@ -64,27 +64,7 @@ namespace web_helper
             Response response = HttpSocketHelper.get_response(request);
             HttpSocketHelper.save_file_from_response(response, @"c:\data\" + id + ".xls"); 
         }
-        public DataTable get_table_from_excel(string filename, int sheet)
-        {
-            DataSet ds;
-
-
-            string str_con = "Provider=Microsoft.Jet.OLEDB.4.0;" +
-                            "Extended Properties=Excel 8.0;" +
-                            "data source=" + filename;
-            OleDbConnection con = new OleDbConnection(str_con);
-
-
-            con.Open();
-            DataTable dt_schema = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
-            string sql = " SELECT * FROM [" + dt_schema.Rows[sheet - 1][2].ToString() + "]";
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
-            ds = new DataSet();
-            adapter.Fill(ds);
-            con.Close();
-
-            return ds.Tables[0];
-        }
+      
         public void read_to_db(string lg,string start_time, string host, string client)
         {
             string sql = "";
