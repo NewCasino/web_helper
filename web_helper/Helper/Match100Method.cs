@@ -226,6 +226,7 @@ class Match100Method
         return doc_result;
     }
 
+
     public BsonDocument from_10bet_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -465,61 +466,93 @@ class Match100Method
         return doc_result;
     }
 
+    public BsonDocument from_188bet_1_back(ref WebBrowser browser)
+    {
+        BsonDocument doc_result = Match100Helper.get_doc_result();
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+
+        string result = "";
+        try
+        {
+            DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+            DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
+            ArrayList times = new ArrayList();
+            ArrayList teams = new ArrayList();
+            ArrayList wins = new ArrayList();
+            ArrayList draws = new ArrayList();
+            ArrayList loses = new ArrayList();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+                if (string.IsNullOrEmpty(dt.Rows[i][4].ToString())) continue;
+                times.Add(dt.Rows[i][0].ToString());
+                teams.Add(dt.Rows[i][3].ToString());
+                wins.Add(dt.Rows[i][4].ToString());
+                draws.Add(dt.Rows[i][6].ToString());
+                loses.Add(dt.Rows[i][8].ToString());
+            }
+
+            int min_count = 999999;
+            if (times.Count < min_count) min_count = times.Count;
+            if (teams.Count < min_count) min_count = teams.Count;
+            if (wins.Count < min_count) min_count = wins.Count;
+            if (draws.Count < min_count) min_count = draws.Count;
+            if (loses.Count < min_count) min_count = loses.Count;
+
+            for (int i = 0; i < min_count; i++)
+            {
+                string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+
+                string f_time = times[i].ToString();
+                string f_host = single_teams[0].ToString();
+                string f_client = single_teams[1].ToString();
+                string f_win = wins[i].ToString();
+                string f_draw = draws[i].ToString();
+                string f_lose = loses[i].ToString();
+                //Match100Helper.insert_data("188be", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
+                result = result + (single_times[0].ToString().Trim() + " " + single_times[1].ToString()).PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+            }
+        }
+        catch (Exception error)
+        {
+            result = error.Message + Environment.NewLine + error.StackTrace;
+        }
+        doc_result["data"] = result;
+        return doc_result;
+    }
     public BsonDocument from_188bet_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
         BsonDocument doc_condition = BrowserHelper.get_doc_condition();
 
         string result = "";
-        //try
-        //{
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
-        ArrayList times = new ArrayList();
-        ArrayList teams = new ArrayList();
-        ArrayList wins = new ArrayList();
-        ArrayList draws = new ArrayList();
-        ArrayList loses = new ArrayList();
-
-        for (int i = 0; i < dt.Rows.Count; i++)
+        try
         {
-
-            if (string.IsNullOrEmpty(dt.Rows[i][4].ToString())) continue;
-            times.Add(dt.Rows[i][0].ToString());
-            teams.Add(dt.Rows[i][3].ToString());
-            wins.Add(dt.Rows[i][4].ToString());
-            draws.Add(dt.Rows[i][6].ToString());
-            loses.Add(dt.Rows[i][8].ToString());
+            if (browser.Document == null) return doc_result; ;
+            string html = "<html>" + browser.Document.Body.OuterHtml + "</html>";
         }
-
-        int min_count = 999999;
-        if (times.Count < min_count) min_count = times.Count;
-        if (teams.Count < min_count) min_count = teams.Count;
-        if (wins.Count < min_count) min_count = wins.Count;
-        if (draws.Count < min_count) min_count = draws.Count;
-        if (loses.Count < min_count) min_count = loses.Count;
-
-        for (int i = 0; i < min_count; i++)
+        catch (Exception error)
         {
-            string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-
-            string f_time = times[i].ToString();
-            string f_host = single_teams[0].ToString();
-            string f_client = single_teams[1].ToString();
-            string f_win = wins[i].ToString();
-            string f_draw = draws[i].ToString();
-            string f_lose = loses[i].ToString();
-            Match100Helper.insert_data("188be", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
-            result = result + (single_times[0].ToString().Trim() + " " + single_times[1].ToString()).PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+            result = error.Message + Environment.NewLine + error.StackTrace;
         }
-        //}
-        //catch (Exception error)
-        //{
-        //    result = error.Message + Environment.NewLine + error.StackTrace;
-        //}
         doc_result["data"] = result;
         return doc_result;
+    }
+    public BsonDocument from_188bet_2(ref WebBrowser browser)
+    {
+        BsonDocument doc_result = Match100Helper.get_doc_result();
+        string txt = BrowserHelper.get_attr_by_id(ref browser, "btm_NextBtn", "class");
+        if (!txt.Contains("disabled"))
+        {
+            BrowserHelper.invoke_click_by_id(ref browser, "btm_NextBtn");
+        }
+        doc_result["data"] = "Invoke OK!";
+        doc_result["loop"].AsBsonArray.Add("1");
+        doc_result["loop"].AsBsonArray.Add("2"); 
+        return doc_result;
+
     }
 
     public BsonDocument from_fun88_1(ref WebBrowser browser)

@@ -1748,6 +1748,48 @@ class BrowserHelper
                 result = (ielement == null) ? "" : ielement.getAttribute(attr_name,0).ToString();
             } 
         }
+    }
+
+    public static string get_attrs_by_id(ref WebBrowser browser, string id)
+    {
+        string result = "";
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_attrs_by_id_loop(ref doc_child, ref result, id);
+        return result;
+    }
+    public static void get_attrs_by_id_loop(ref mshtml.HTMLDocument doc_input, ref string result, string id)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+            get_attrs_by_id_loop(ref doc_child, ref result, id);
+        }
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+            if (ielement.id == id)
+            {
+                if (attrs != null)
+                {
+                    foreach (IHTMLDOMAttribute attr in attrs)
+                    {
+                        if (attr.nodeValue != null && !string.IsNullOrEmpty(attr.nodeValue.ToString().Trim()))
+                        {
+                            result += attr.nodeName + ":" + attr.nodeValue.ToString() + ","+Environment.NewLine;
+                        }
+                    }
+                }  
+            }
+        }
     } 
 
     //public static IHTMLElement get_element_by_id(ref WebBrowser browser, string id)

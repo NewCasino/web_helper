@@ -1,2 +1,3 @@
-1,select teams_log data to teams
-2,add new table[name,names_all,remark]
+HTML Analyse add get_full_html function
+get league info form pinaclesports 
+

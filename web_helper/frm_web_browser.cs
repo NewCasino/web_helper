@@ -81,7 +81,7 @@ namespace web_helper
             if (browser.Document == null) return;
 
             HtmlDocument doc_main = browser.Document;
-            this.txt_result_script.Text = BrowserHelper.get_attr_by_id(ref browser, "btn_ok", "readOnly").ToLower();
+            this.txt_result_script.Text = BrowserHelper.get_attrs_by_id(ref browser, "btm_NextBtn").ToLower();
             //string result=BrowserHelper.get_text_by_id(ref browser, "txt_origin");
             //BrowserHelper.invoke_click_by_id(ref browser, "btn_ok");
             //this.txt_result_triggle.Text = result; 
