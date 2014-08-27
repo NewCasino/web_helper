@@ -33,7 +33,7 @@ namespace web_helper
         public static string root_path_90vs = Environment.CurrentDirectory.Replace(@"bin\Debug", "").Replace(@"bin\x86\Debug", "") + @"data\90vs\";
         string root_url_90vs = @"file:///" + root_path_90vs.Replace(@"\", @"/");
         public static string root_path_teams = Environment.CurrentDirectory.Replace(@"bin\Debug", "").Replace(@"bin\x86\Debug", "") + @"data\teams\";
-        string root_url_teams = @"file:///" + root_path_90vs.Replace(@"\", @"/");
+        string root_url_teams = @"file:///" + root_path_teams.Replace(@"\", @"/");
 
         private void btn_step_1_Click(object sender, EventArgs e)
         {
@@ -209,10 +209,10 @@ namespace web_helper
                 }
 
             }
-        }
-        //all info，include match info
+        } 
         public void read_500_team_detail()
         {
+            //all info，include match info
             StringBuilder sb = new StringBuilder();
 
             WebClient client = new WebClient();
@@ -251,11 +251,36 @@ namespace web_helper
 
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
-        } 
+        }
+        public void insert_db_500(string eng_name, string cn_name)
+        {
+            string sql = "";
+            sql = " select * from teams_log where name1='{0}' ";
+            sql = string.Format(sql, eng_name);
+            if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+            {
+                sql = "  insert into teams_log (website,name1,name2,name_all) values ('500','{0}','{1}','{2}')";
+                sql = string.Format(sql, eng_name, cn_name, eng_name + "●" + cn_name);
+                SQLServerHelper.exe_sql(sql);
+
+                sb.AppendLine(eng_name.PR(20) + cn_name.PR(20));
+                this.txt_result.Text = sb.ToString();
+                Application.DoEvents();
+            }
+        }
+        public void write_line(string file_name, string txt)
+        {
+            FileStream stream = (FileStream)File.Open(root_path + file_name, FileMode.Append);
+            StreamWriter writer = new StreamWriter(stream);
+
+            writer.WriteLine(txt);
+            writer.Close();
+            stream.Close();
+        }
 
         private void btn_90vs_read_leage_Click(object sender, EventArgs e)
         {
- 
+
             string path = root_path_90vs + "leage.js";
 
             FileStream stream = (FileStream)File.Open(path, FileMode.Open);
@@ -359,7 +384,7 @@ namespace web_helper
                         team_name_eng = element.Value.AsBsonArray[2].ToString();
                         team_name_chi = element.Value.AsBsonArray[1].ToString();
                         team_name_gd = element.Value.AsBsonArray[0].ToString();
-                        Match100Helper.insert_teams_log("90vs",lg_season_name, "", lg_name, lg_name_full, team_name_eng, team_name_chi, team_name_gd);
+                        Match100Helper.insert_teams_log("90vs", lg_season_name, "", lg_name, lg_name_full, team_name_eng, team_name_chi, team_name_gd);
                     }
                     sb.AppendLine(url);
                     this.txt_result.Text = sb.ToString();
@@ -379,28 +404,19 @@ namespace web_helper
             reader.Close();
             stream.Close();
         }
-
-
-        public void insert_db_500(string eng_name, string cn_name)
+        public void write_line_90vs(string file_name, string txt)
         {
-            string sql = "";
-            sql = " select * from teams_log where name1='{0}' ";
-            sql = string.Format(sql, eng_name);
-            if (SQLServerHelper.get_table(sql).Rows.Count == 0)
-            {
-                sql = "  insert into teams_log (website,name1,name2,name_all) values ('500','{0}','{1}','{2}')";
-                sql = string.Format(sql, eng_name, cn_name, eng_name + "●" + cn_name);
-                SQLServerHelper.exe_sql(sql);
+            FileStream stream = (FileStream)File.Open(root_path_90vs + file_name, FileMode.Append);
+            StreamWriter writer = new StreamWriter(stream);
 
-                sb.AppendLine(eng_name.PR(20) + cn_name.PR(20));
-                this.txt_result.Text = sb.ToString();
-                Application.DoEvents();
-            }
+            writer.WriteLine(txt);
+            writer.Close();
+            stream.Close();
         }
- 
+  
         private void btn_test_Click(object sender, EventArgs e)
         {
-            StringBuilder sb=new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             //intsert 500 teams data to [teams_log] from [teams]
             //--------------------------------------------------------------------------------------------------------------
@@ -412,7 +428,7 @@ namespace web_helper
             //    string name2 = row["name2"].ToString(); 
             //    Match100Helper.insert_teams_log("500", "", "", "", "", name1, name2, "");
             //}
-          
+
             //--------------------------------------------------------------------------------------------------------------
 
 
@@ -450,12 +466,66 @@ namespace web_helper
 
             //read excel
             //--------------------------------------------------------------------------------------------------------------
-            DataTable table = Tool.get_table_from_excel(root_path_teams+"leagues.xls", 3);
+            DataTable table = Tool.get_table_from_excel(root_path_teams + "leagues.xls", 3);
             this.dgv_grid.DataSource = table;
-            
-
             //--------------------------------------------------------------------------------------------------------------
-            
+
+            //read pin index
+            //--------------------------------------------------------------------------------------------------------------
+            sb.Remove(0, sb.Length);
+            WebClient client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_eng.html"));
+            HtmlAgilityPack.HtmlDocument doc1 = new HtmlAgilityPack.HtmlDocument();
+            doc1.LoadHtml(html);
+            ArrayList list_eng = new ArrayList();
+            ArrayList list_chn = new ArrayList();
+            ArrayList list_hk = new ArrayList();
+            HtmlNodeCollection nodes_all1 = doc1.DocumentNode.SelectNodes(@"//a");
+            foreach (HtmlNode node in nodes_all1)
+            {
+                if (!node.Attributes.Contains("href")) continue;
+                if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
+                if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
+                string txt = node.InnerText.Replace(Environment.NewLine, "").Trim();
+                list_eng.Add(txt);
+            }
+
+            html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_chn.html"));
+            HtmlAgilityPack.HtmlDocument doc2 = new HtmlAgilityPack.HtmlDocument();
+            doc2.LoadHtml(html);
+            HtmlNodeCollection nodes_all2 = doc2.DocumentNode.SelectNodes(@"//a");
+            foreach (HtmlNode node in nodes_all2)
+            {
+                if (!node.Attributes.Contains("href")) continue;
+                if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
+                if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
+                string txt = node.InnerText.Replace(Environment.NewLine, "").Trim();
+                list_chn.Add(txt);
+            }
+
+            html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_hk.html"));
+            HtmlAgilityPack.HtmlDocument doc3 = new HtmlAgilityPack.HtmlDocument();
+            doc3.LoadHtml(html);
+            HtmlNodeCollection nodes_all3 = doc3.DocumentNode.SelectNodes(@"//a");
+            foreach (HtmlNode node in nodes_all3)
+            {
+                if (!node.Attributes.Contains("href")) continue;
+                if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
+                if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
+                string txt = node.InnerText.Replace(Environment.NewLine, "").Trim(); 
+                list_hk.Add(txt);
+            }
+
+            for (int i = 0; i < list_eng.Count; i++)
+            {
+                string txt = list_eng[i].ToString();
+                if (txt.Contains("Half") || txt.Contains("Total") || txt.Contains("Corner") ||txt.Contains("Proposition")) continue;
+                sb.AppendLine(list_eng[i].PR(50) + list_chn[i].PR(50) + list_hk[i].PR(50));
+                //Match100Helper.insert_teams_log("pinnaclesports", "", list_eng[i].ToString(), "", list_chn[i].ToString(), "", "", "");
+            }
+            this.txt_result.Text = sb.ToString();
+            //--------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -475,7 +545,7 @@ namespace web_helper
                     sql = "insert into names   (name,name_all) values ( '{0}','{1}')";
                     sql = string.Format(sql, row["name1"].ToString(), Tool.drop_repeat(row["name_all"].ToString()));
                     SQLServerHelper.exe_sql(sql);
-                } 
+                }
             }
 
             sql = " select * from teams_log where website='500'";
@@ -488,7 +558,7 @@ namespace web_helper
             }
             MessageBox.Show("OK");
 
-        } 
+        }
         private void btn_add_simple_complex_Click(object sender, EventArgs e)
         {
             string sql = "select * from names";
@@ -511,30 +581,12 @@ namespace web_helper
                 if (temp != name_all)
                 {
                     sql = "update names set name_all='{0}' where id={1}";
-                    sql = string.Format(sql,Tool.drop_repeat(temp), id);
+                    sql = string.Format(sql, Tool.drop_repeat(temp), id);
                     SQLServerHelper.exe_sql(sql);
                 }
             }
             MessageBox.Show("OK");
         } 
-        public void write_line(string file_name, string txt)
-        {
-            FileStream stream = (FileStream)File.Open(root_path + file_name, FileMode.Append);
-            StreamWriter writer = new StreamWriter(stream);
-
-            writer.WriteLine(txt);
-            writer.Close();
-            stream.Close();
-        }
-        public void write_line_90vs(string file_name, string txt)
-        {
-            FileStream stream = (FileStream)File.Open(root_path_90vs + file_name, FileMode.Append);
-            StreamWriter writer = new StreamWriter(stream);
-
-            writer.WriteLine(txt);
-            writer.Close();
-            stream.Close();
-        }
         public string get_js_json(string str)
         {
             string result = str;
@@ -595,8 +647,6 @@ namespace web_helper
 
             return result;
         }
-
-
-
+ 
     }
 }

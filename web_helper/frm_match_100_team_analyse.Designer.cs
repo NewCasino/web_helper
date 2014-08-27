@@ -76,6 +76,7 @@
             // 
             // btn_read_to_names
             // 
+            this.btn_read_to_names.Enabled = false;
             this.btn_read_to_names.Location = new System.Drawing.Point(6, 233);
             this.btn_read_to_names.Name = "btn_read_to_names";
             this.btn_read_to_names.Size = new System.Drawing.Size(111, 23);
@@ -107,6 +108,7 @@
             // 
             // btn_90vs_read_leage
             // 
+            this.btn_90vs_read_leage.Enabled = false;
             this.btn_90vs_read_leage.Location = new System.Drawing.Point(7, 130);
             this.btn_90vs_read_leage.Name = "btn_90vs_read_leage";
             this.btn_90vs_read_leage.Size = new System.Drawing.Size(111, 23);
@@ -145,6 +147,7 @@
             // 
             // btn_read_to_db
             // 
+            this.btn_read_to_db.Enabled = false;
             this.btn_read_to_db.Location = new System.Drawing.Point(123, 72);
             this.btn_read_to_db.Name = "btn_read_to_db";
             this.btn_read_to_db.Size = new System.Drawing.Size(111, 23);
@@ -155,6 +158,7 @@
             // 
             // btn_step_3
             // 
+            this.btn_step_3.Enabled = false;
             this.btn_step_3.Location = new System.Drawing.Point(6, 72);
             this.btn_step_3.Name = "btn_step_3";
             this.btn_step_3.Size = new System.Drawing.Size(111, 23);
@@ -165,6 +169,7 @@
             // 
             // btn_step_2
             // 
+            this.btn_step_2.Enabled = false;
             this.btn_step_2.Location = new System.Drawing.Point(122, 42);
             this.btn_step_2.Name = "btn_step_2";
             this.btn_step_2.Size = new System.Drawing.Size(111, 23);

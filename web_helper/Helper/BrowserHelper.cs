@@ -1682,14 +1682,15 @@ class BrowserHelper
         return doc_condition;
     }
 
-    public static string get_text_by_id(ref WebBrowser browser, string id)
+
+    public static string get_html(ref WebBrowser browser)
     {
         string result = "";
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        get_text_by_id_loop(ref doc_child, ref result, id);
-        return result;
+        get_html_loop(ref doc_child, ref result);
+        return "<html><body>" + result + "</body></html>";
     }
-    public static void get_text_by_id_loop(ref mshtml.HTMLDocument doc_input, ref string result, string id)
+    public static void get_html_loop(ref mshtml.HTMLDocument doc_input, ref string result)
     {
         object j;
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
@@ -1698,56 +1699,11 @@ class BrowserHelper
             mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
             IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
             mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-            get_text_by_id_loop(ref doc_child, ref result, id);
+            get_html_loop(ref doc_child, ref result);
         }
 
-
-        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
-
-        foreach (mshtml.IHTMLElement ielement in ielements)
-        {
-            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
-
-            if (ielement.id == id)
-            {
-                result = (ielement == null) ? "" : ielement.innerText;
-            }
-
-        }
-    }
-
-    public static string get_attr_by_id(ref WebBrowser browser, string id,string attr_name)
-    {
-        string result = "";
-        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        get_attr_by_id_loop(ref doc_child, ref result, id,attr_name);
-        return result;
-    }
-    public static void get_attr_by_id_loop(ref mshtml.HTMLDocument doc_input, ref string result, string id,string attr_name)
-    {
-        object j;
-        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
-        {
-            j = i;
-            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
-            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
-            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-            get_attr_by_id_loop(ref doc_child, ref result, id,attr_name);
-        } 
-
-        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
-
-        foreach (mshtml.IHTMLElement ielement in ielements)
-        {
-            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
-
-            if (ielement.id == id)
-            {
-                result = (ielement == null) ? "" : ielement.getAttribute(attr_name,0).ToString();
-            } 
-        }
+        result = result + doc_input.body.innerHTML;
+       
     }
 
     public static string get_attrs_by_id(ref WebBrowser browser, string id)
@@ -1784,48 +1740,81 @@ class BrowserHelper
                     {
                         if (attr.nodeValue != null && !string.IsNullOrEmpty(attr.nodeValue.ToString().Trim()))
                         {
-                            result += attr.nodeName + ":" + attr.nodeValue.ToString() + ","+Environment.NewLine;
+                            result += attr.nodeName + ":" + attr.nodeValue.ToString() + "," + Environment.NewLine;
                         }
                     }
-                }  
+                }
             }
         }
     } 
 
-    //public static IHTMLElement get_element_by_id(ref WebBrowser browser, string id)
-    //{ 
-    //    mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument; 
-    //    get_element_by_id_loop(ref doc_child, ref element, id);
-    //    return element;
-    //}
-    //public static void get_element_by_id_loop(ref mshtml.HTMLDocument doc_input, ref IHTMLElement element, string id)
-    //{
-    //    object j;
-    //    for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
-    //    {
-    //        j = i;
-    //        mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
-    //        IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
-    //        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-    //        get_element_by_id_loop(ref doc_child, ref element, id);
-    //    }
+    public static string get_attr_by_id(ref WebBrowser browser, string id, string attr_name)
+    {
+        string result = "";
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_attr_by_id_loop(ref doc_child, ref result, id, attr_name);
+        return result;
+    }
+    public static void get_attr_by_id_loop(ref mshtml.HTMLDocument doc_input, ref string result, string id, string attr_name)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+            get_attr_by_id_loop(ref doc_child, ref result, id, attr_name);
+        }
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+            if (ielement.id == id)
+            {
+                result = (ielement == null) ? "" : ielement.getAttribute(attr_name, 0).ToString();
+            }
+        }
+    }
+
+    public static string get_text_by_id(ref WebBrowser browser, string id)
+    {
+        string result = "";
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_text_by_id_loop(ref doc_child, ref result, id);
+        return result;
+    }
+    public static void get_text_by_id_loop(ref mshtml.HTMLDocument doc_input, ref string result, string id)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+            get_text_by_id_loop(ref doc_child, ref result, id);
+        }
 
 
-    //    mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
 
-    //    foreach (mshtml.IHTMLElement ielement in ielements)
-    //    {
-    //        mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-    //        IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
 
-    //        if (ielement.id == id)
-    //        {
-    //             element =ielement;
-    //             return;
-    //        }
+            if (ielement.id == id)
+            {
+                result = (ielement == null) ? "" : ielement.innerText;
+            }
 
-    //    }
-    //}
+        }
+    }
 
     public static string invoke_click_by_id(ref WebBrowser browser, string id)
     {
@@ -1916,7 +1905,7 @@ class BrowserHelper
                         str_attrs += attr.nodeName + ":" + attr.nodeValue.ToString() + ",";
                     }
                 }
-            } 
+            }
 
 
             BsonDocument doc = new BsonDocument();
@@ -1935,7 +1924,119 @@ class BrowserHelper
             doc.Add("scrollTop", scrollTop);
             docs.Add(doc);
         }
+    }
+
+    public static BsonDocument get_element_by_id(ref WebBrowser browser, string id)
+    {
+        BsonDocument doc = new BsonDocument();
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_element_by_id_loop(ref doc, ref doc_child, id);
+        return doc;
+    }
+    public static void get_element_by_id_loop(ref BsonDocument doc, ref mshtml.HTMLDocument doc_input, string id)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+            get_element_by_id_loop(ref doc, ref doc_child, id);
+        }
+
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            if (ielement.id == id)
+            {
+
+                mshtml.IHTMLDOMNode inode = (mshtml.IHTMLDOMNode)ielement;
+                IHTMLAttributeCollection iattrs = (IHTMLAttributeCollection)inode.attributes;
+                IHTMLElement2 ielement2 = (IHTMLElement2)ielement;
+
+                string text = (ielement.innerText == null) ? "" : ielement.innerText;
+                string type = (ielement.tagName == null) ? "" : ielement.tagName;
+                string name = (ielement.getAttribute("name", 0) == null) ? "" : ielement.getAttribute("name", 0).ToString();
+                string html = (ielement.outerHTML == null) ? "" : ielement.outerHTML;
+                string class_name = (ielement.className == null) ? "" : ielement.className;
+                string offsetLeft = ielement.offsetLeft.ToString();
+                string offsetTop = ielement.offsetTop.ToString();
+                string offsetWidth = ielement.offsetWidth.ToString();
+                string offsetHeight = ielement.offsetHeight.ToString();
+                string clientTop = ielement2.clientTop.ToString();
+                string scrollTop = ielement2.scrollTop.ToString();
+
+
+                string str_attrs = "";
+                if (iattrs != null)
+                {
+                    foreach (IHTMLDOMAttribute attr in iattrs)
+                    {
+                        if (attr.nodeValue != null && !string.IsNullOrEmpty(attr.nodeValue.ToString().Trim()))
+                        {
+                            str_attrs += attr.nodeName + ":" + attr.nodeValue.ToString() + ",";
+                        }
+                    }
+                }
+
+                doc.Add("type", type);
+                doc.Add("id", id);
+                doc.Add("name", name);
+                doc.Add("html", html);
+                doc.Add("text", text);
+                doc.Add("class", class_name);
+                doc.Add("attrs", str_attrs);
+                doc.Add("offsetLeft", offsetLeft);
+                doc.Add("offsetTop", offsetTop);
+                doc.Add("offsetWidth", offsetWidth);
+                doc.Add("offsetHeight", offsetHeight);
+                doc.Add("clientTop", clientTop);
+                doc.Add("scrollTop", scrollTop);
+
+            }
+        }
     } 
+
+
+    //public static IHTMLElement get_element_by_id(ref WebBrowser browser, string id)
+    //{ 
+    //    mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument; 
+    //    get_element_by_id_loop(ref doc_child, ref element, id);
+    //    return element;
+    //}
+    //public static void get_element_by_id_loop(ref mshtml.HTMLDocument doc_input, ref IHTMLElement element, string id)
+    //{
+    //    object j;
+    //    for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+    //    {
+    //        j = i;
+    //        mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+    //        IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+    //        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+    //        get_element_by_id_loop(ref doc_child, ref element, id);
+    //    }
+
+
+    //    mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+    //    foreach (mshtml.IHTMLElement ielement in ielements)
+    //    {
+    //        mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+    //        IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+    //        if (ielement.id == id)
+    //        {
+    //             element =ielement;
+    //             return;
+    //        }
+
+    //    }
+    //}
+
+
 }
 
 

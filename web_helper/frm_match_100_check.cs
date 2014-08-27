@@ -36,6 +36,7 @@ namespace web_helper
 
             sql = "select distinct company  from europe_100_log where id> {0} ";
             sql = string.Format(sql, start_id);
+
             DataTable dt_company = SQLServerHelper.get_table(sql); 
             foreach (DataRow row in dt_company.Rows)
             {
