@@ -26,7 +26,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_fun88();
+            test_188bet();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)

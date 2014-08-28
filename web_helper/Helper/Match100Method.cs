@@ -527,17 +527,64 @@ class Match100Method
         BsonDocument doc_result = Match100Helper.get_doc_result();
         BsonDocument doc_condition = BrowserHelper.get_doc_condition();
 
-        string result = "";
-        try
+        string html = BrowserHelper.get_html(ref browser);
+        StringBuilder sb = new StringBuilder();
+        
+        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+        doc.LoadHtml(html);
+
+        HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+        List<HtmlNode> nodes = new List<HtmlNode>();
+
+        ArrayList list_lg = new ArrayList();
+        foreach (HtmlNode node in nodes_all)
         {
-            if (browser.Document == null) return doc_result; ;
-            string html = "<html>" + browser.Document.Body.OuterHtml + "</html>";
+            if (node.Attributes.Contains("class") && node.Attributes["class"].Value.Trim() == "comp-txt-wrapper")
+            {
+                list_lg.Add(node.InnerText);
+            }
         }
-        catch (Exception error)
+
+
+        int index = 0;
+        foreach (HtmlNode node in nodes_all)
         {
-            result = error.Message + Environment.NewLine + error.StackTrace;
+            if (node.Attributes.Contains("class") && node.Attributes["class"].Value.Trim() == "comp-container")
+            {
+                string path1 = node.XPath;
+                HtmlNodeCollection nodes_tr = doc.DocumentNode.SelectNodes(path1 + "/table[1]/tbody[1]/tr");
+
+                foreach (HtmlNode node_tr in nodes_tr)
+                {
+                    string path2 = node_tr.XPath;
+                    string date = "";
+                    string time = "";
+                    HtmlNodeCollection nodes_time = doc.DocumentNode.SelectNodes(path2 + "/td[1]/div");
+                    foreach (HtmlNode node_time in nodes_time)
+                    {
+                        if (node_time.Attributes.Contains("class") && node_time.Attributes["class"].Value.Trim() == "date") date = node_time.InnerText;
+                        if (node_time.Attributes.Contains("class") && node_time.Attributes["class"].Value.Trim() == "start-time") time = node_time.InnerText;
+                    }
+
+                    string[] str_dates = date.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+                    string start_tiime = str_dates[1] + "-" + str_dates[0] + "●" + time;
+
+                    string league = list_lg[index].ToString();
+                    string host = doc.DocumentNode.SelectSingleNode(path2 + "/td[2]/div[2]/div[1]/span[1]").InnerText;
+                    string client = doc.DocumentNode.SelectSingleNode(path2 + "/td[2]/div[2]/div[2]/span[1]").InnerText;
+                    string win = doc.DocumentNode.SelectSingleNode(path2 + "/td[3]/span[1]").InnerText;
+                    string draw = doc.DocumentNode.SelectSingleNode(path2 + "/td[4]/span[1]").InnerText;
+                    string lose = doc.DocumentNode.SelectSingleNode(path2 + "/td[5]/span[1]").InnerText;
+                    if (!league.Contains("Specials"))
+                    {
+                        sb.AppendLine(league.PR(80) + start_tiime.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        //Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
+                    }
+                }
+                index = index + 1;
+            }
         }
-        doc_result["data"] = result;
+        doc_result["data"] = sb.ToString();
         return doc_result;
     }
     public BsonDocument from_188bet_2(ref WebBrowser browser)
@@ -547,10 +594,11 @@ class Match100Method
         if (!txt.Contains("disabled"))
         {
             BrowserHelper.invoke_click_by_id(ref browser, "btm_NextBtn");
+            doc_result["loop"].AsBsonArray.Add("1");
+            doc_result["loop"].AsBsonArray.Add("2"); 
         }
-        doc_result["data"] = "Invoke OK!";
-        doc_result["loop"].AsBsonArray.Add("1");
-        doc_result["loop"].AsBsonArray.Add("2"); 
+        doc_result["data"] = "Invoke OK!"+txt;
+      
         return doc_result;
 
     }

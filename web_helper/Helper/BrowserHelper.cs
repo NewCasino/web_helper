@@ -1776,7 +1776,13 @@ class BrowserHelper
 
             if (ielement.id == id)
             {
-                result = (ielement == null) ? "" : ielement.getAttribute(attr_name, 0).ToString();
+                foreach (IHTMLDOMAttribute attr in attrs)
+                {
+                    if (attr.nodeName == attr_name && attr.nodeValue != null)
+                    {
+                        result = attr.nodeValue.ToString();
+                    } 
+                }
             }
         }
     }

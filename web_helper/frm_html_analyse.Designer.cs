@@ -208,6 +208,7 @@
             this.browser.Location = new System.Drawing.Point(0, 0);
             this.browser.MinimumSize = new System.Drawing.Size(20, 20);
             this.browser.Name = "browser";
+            this.browser.ScriptErrorsSuppressed = true;
             this.browser.Size = new System.Drawing.Size(976, 363);
             this.browser.TabIndex = 2;
             // 
