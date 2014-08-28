@@ -1,0 +1,11 @@
+competition eventType
+
+league /div[1]
+
+/table 
+start_time  /tbody[1]/tr[1]/td[1]/span[1]+/tbody[1]/tr[1]/td[1]/span[2] 
+host        /tbody[1]/tr[1]/td[2]/span[1]
+client      /tbody[1]/tr[1]/td[2]/span[2]
+win         /tbody[1]/tr[1]/td[3]
+draw        /tbody[1]/tr[1]/td[4]
+lose        /tbody[1]/tr[1]/td[5]
