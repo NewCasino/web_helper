@@ -1555,7 +1555,7 @@ class BrowserHelper
                     {
                         text = text + item + "●";
                     }
-                }
+                } 
                 if (text.Length > 1) text = text.Substring(0, text.Length - 1);
                 row_new[column_name] = text;
 

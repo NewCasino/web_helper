@@ -122,7 +122,9 @@ public partial class frm_html_analyse : Form
     private void btn_load_browser_Click(object sender, EventArgs e)
     {
         if (browser.Document == null) { MessageBox.Show("Empty Browser!"); return; }
-        this.txt_html_source.Text =  BrowserHelper.get_html(ref browser);
+        string html=BrowserHelper.get_html(ref browser);
+        html = html.Replace("<thead=\"\"", "");
+        this.txt_html_source.Text = html;
     }
 
     private void btn_load_web_client_Click(object sender, EventArgs e)
