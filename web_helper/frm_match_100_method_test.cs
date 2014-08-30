@@ -26,7 +26,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_sbobet();
+            test_fun88();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -321,7 +321,7 @@ namespace web_helper
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                             }
                         }
-                        catch (Exception error) { }
+                        catch (Exception error) {}
                     }
                 }
             }
@@ -557,6 +557,59 @@ namespace web_helper
                     }
 
                 } 
+            }
+
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+        }
+
+        public void test_mansion88()
+        {
+            sb.Remove(0, sb.Length);
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "mansion88.html"));
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                string xpath = node.XPath;
+                // && node.Attributes["class"].Value.ToString().ToLower().Trim().Contains("list-headerskinlight")
+                if (node.Attributes.Contains("class") && node.Attributes["class"].Value.ToString() == "bggroup rows")
+                {
+                    league = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").InnerText; 
+                }
+                if (node.Attributes.Contains("class") && node.Attributes["class"].Value.ToString() == "bgAltRow")
+                {
+                    if (doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").ChildNodes.Count > 10)
+                    {
+                        start_time = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]/div[1]").InnerText + "●" + doc.DocumentNode.SelectSingleNode(xpath + "/td[1]/div[2]").InnerText;
+                        host = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]/td[1]").InnerText;
+                        win = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]/td[2]").InnerText;
+                        draw = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]/td[3]").InnerText;
+                        lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]/td[4]").InnerText;
+                    }
+                    if (doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").ChildNodes.Count ==1)
+                    {
+                        client = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").InnerText;
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    }
+                }
             }
 
             this.txt_result.Text = sb.ToString();
