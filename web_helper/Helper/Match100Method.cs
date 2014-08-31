@@ -470,7 +470,7 @@ class Match100Method
                     }
 
                     string[] str_dates = date.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
-                    string start_tiime = str_dates[1] + "-" + str_dates[0] + "●" + time;
+                    string start_time = str_dates[1] + "-" + str_dates[0] + "●" + time;
 
                     string league = list_lg[index].ToString();
                     string host = doc.DocumentNode.SelectSingleNode(path2 + "/td[2]/div[2]/div[1]/span[1]").InnerText;
@@ -480,7 +480,7 @@ class Match100Method
                     string lose = doc.DocumentNode.SelectSingleNode(path2 + "/td[5]/span[1]").InnerText;
                     if (!league.Contains("Specials"))
                     {
-                        sb.AppendLine(league.PR(80) + start_tiime.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10)); 
+                        sb.AppendLine(league.PR(80) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10)); 
                         Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
                 }
