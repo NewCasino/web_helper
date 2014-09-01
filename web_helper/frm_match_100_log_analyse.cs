@@ -394,7 +394,7 @@ namespace web_helper
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
                 if (dt_temp.Rows.Count == 0)
                 {
-                    sql = " insert into europe_100  (timespan,website,type,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
+                    sql = " insert into europe_100  (timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
                           " ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')";
                     sql = string.Format(sql, time_span, website, league, start_time, host, client, odd_win, odd_draw, odd_lose);
                     SQLServerHelper.exe_sql(sql);

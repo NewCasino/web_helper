@@ -132,7 +132,7 @@ class Match100Method
 
                     string root = node.XPath;
                     string league = "NO DAT";
-                    string start_time = node.SelectSingleNode(root + "/h6[1]/span[1]").InnerText;
+                    string start_time = node.SelectSingleNode(root + "/h6[1]/span[2]").InnerText + "●" + node.SelectSingleNode(root + "/h6[1]/span[1]").InnerText;
                     string host = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[1]/button[1]/span[2]").InnerText;
                     string client = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[2]").InnerText;
                     string win = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[1]/button[1]/span[1]").InnerText;
@@ -147,7 +147,7 @@ class Match100Method
                 {
                     string root = node.XPath;
                     string league = "NO DAT";
-                    string start_time = node.SelectSingleNode(root + "/div[1]/h6[1]").InnerText;
+                    string start_time = node.SelectSingleNode(root + "/div[1]/h6[2]").InnerText + "●" + node.SelectSingleNode(root + "/div[1]/h6[1]").InnerText;
                     string host = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[1]/button[1]/span[2]").InnerText;
                     string client = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[2]").InnerText;
                     string win = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[1]/button[1]/span[1]").InnerText;
@@ -502,6 +502,7 @@ class Match100Method
                         win = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[1]").InnerText;
                         lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[2]").InnerText;
                         draw = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[3]").InnerText;
+                        if (start_time.Contains("LIVE")) start_time = start_time.Replace("LIVE", DateTime.Now.ToString("MM-dd") + "●");
                         if (!string.IsNullOrEmpty(win) && !string.IsNullOrEmpty(client) && !string.IsNullOrEmpty(win))
                         {
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));

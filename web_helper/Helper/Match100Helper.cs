@@ -147,11 +147,11 @@ class Match100Helper
         int len = start_time.Length;
 
         int pos1 = start_time.IndexOf('-');
-        if (string.IsNullOrEmpty(str_month) && pos1 > -1 && pos1 - 2 > 0)
+        if (string.IsNullOrEmpty(str_month) && pos1 > -1 && pos1 - 2 >= 0)
         {
             str_month = is_double_str(start_time.Substring(pos1 - 2, 2)) ? start_time.Substring(pos1 - 2, 2) : "";
         }
-        if (string.IsNullOrEmpty(str_month) && pos1 > -1 && pos1 - 1 > 0)
+        if (string.IsNullOrEmpty(str_month) && pos1 > -1 && pos1 - 1 >= 0)
         {
             str_month = is_double_str(start_time.Substring(pos1 - 1, 1)) ? start_time.Substring(pos1 - 1, 1) : "";
         }
@@ -165,11 +165,11 @@ class Match100Helper
         }
 
         int pos2 = start_time.IndexOf(':');
-        if (string.IsNullOrEmpty(str_hour) && pos2 > -1 && pos2 - 2 > 0)
+        if (string.IsNullOrEmpty(str_hour) && pos2 > -1 && pos2 - 2 >= 0)
         {
             str_hour = is_double_str(start_time.Substring(pos2 - 2, 2)) ? start_time.Substring(pos2 - 2, 2) : "";
         }
-        if (string.IsNullOrEmpty(str_hour) && pos2 > -1 && pos2 - 1 > 0)
+        if (string.IsNullOrEmpty(str_hour) && pos2 > -1 && pos2 - 1 >= 0)
         {
             str_hour = is_double_str(start_time.Substring(pos2 - 1, 1)) ? start_time.Substring(pos2 - 1, 1) : "";
         }
