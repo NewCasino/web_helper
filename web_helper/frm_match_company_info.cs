@@ -10,9 +10,9 @@ using MongoDB.Bson;
 
 namespace web_helper
 {
-    public partial class frm_match_company_info : Form
+    public partial class frm_match_website_info : Form
     {
-        public frm_match_company_info()
+        public frm_match_website_info()
         {
             InitializeComponent();
         }
@@ -24,27 +24,27 @@ namespace web_helper
         private void btn_save_Click(object sender, EventArgs e)
         {
             string sql = "";
-            for (int i = 0; i < dgv_company.Rows.Count; i++)
+            for (int i = 0; i < dgv_website.Rows.Count; i++)
             {
-                string id = dgv_company.Rows[i].Cells[0].Value == null ? "" : dgv_company.Rows[i].Cells[0].Value.ToString();
-                string name = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[1].Value.ToString();
-                string url = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[2].Value.ToString();
-                string other_names = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[3].Value.ToString();
-                string other_urls = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[4].Value.ToString();
-                string pay_ways = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[5].Value.ToString();
-                string info = dgv_company.Rows[i].Cells[1].Value == null ? "" : dgv_company.Rows[i].Cells[6].Value.ToString();
+                string id = dgv_website.Rows[i].Cells[0].Value == null ? "" : dgv_website.Rows[i].Cells[0].Value.ToString();
+                string name = dgv_website.Rows[i].Cells[1].Value == null ? "" : dgv_website.Rows[i].Cells[1].Value.ToString();
+                string url = dgv_website.Rows[i].Cells[1].Value == null ? "" : dgv_website.Rows[i].Cells[2].Value.ToString();
+                string other_names = dgv_website.Rows[i].Cells[1].Value == null ? "" : dgv_website.Rows[i].Cells[3].Value.ToString();
+                string other_urls = dgv_website.Rows[i].Cells[1].Value == null ? "" : dgv_website.Rows[i].Cells[4].Value.ToString();
+                string pay_ways = dgv_website.Rows[i].Cells[1].Value == null ? "" : dgv_website.Rows[i].Cells[5].Value.ToString();
+                string info = dgv_website.Rows[i].Cells[1].Value == null ? "" : dgv_website.Rows[i].Cells[6].Value.ToString();
 
 
                 if (string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(info))
                 {
-                    sql = " insert into company (name,url,other_names,other_urls,pay_ways,info) values ('{0}','{1}','{2}','{3}','{4}','{5}')";
+                    sql = " insert into website (name,url,other_names,other_urls,pay_ways,info) values ('{0}','{1}','{2}','{3}','{4}','{5}')";
                     sql = string.Format(sql, name, url, other_names, other_urls, pay_ways, info);
                     SQLServerHelper.exe_sql(sql);
                     continue;
                 }
                 if (!string.IsNullOrEmpty(id))
                 {
-                    sql = " update company set name='{0}',url='{1}',other_names='{2}',other_urls='{3}',pay_ways='{4}',info='{5}'  where id={6}";
+                    sql = " update website set name='{0}',url='{1}',other_names='{2}',other_urls='{3}',pay_ways='{4}',info='{5}'  where id={6}";
                     sql = string.Format(sql, name, url, other_names, other_urls, pay_ways, info, id);
                     SQLServerHelper.exe_sql(sql);
                     continue;
@@ -63,30 +63,30 @@ namespace web_helper
                 info = "%" + txt_condition.Text + "%";
             }
 
-            string sql = "select *  from company where  info like '{0}'";
+            string sql = "select *  from website where  info like '{0}'";
             sql = string.Format(sql, info);
 
             DataTable dt = new DataTable();
             dt = SQLServerHelper.get_table(sql);
-            this.dgv_company.DataSource = dt;
+            this.dgv_website.DataSource = dt;
         }
 
-        private void dgv_company_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void dgv_website_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            //this.dgv_company.Columns[1].Width = 200;
-            this.dgv_company.Columns[0].ReadOnly = true;
+            //this.dgv_website.Columns[1].Width = 200;
+            this.dgv_website.Columns[0].ReadOnly = true;
         }
-        private void dgv_company_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_website_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.lb_company_id.Text = dgv_company.Rows[e.RowIndex].Cells["id"].Value == null ? "" : dgv_company.Rows[e.RowIndex].Cells["id"].Value.ToString();
-            this.txt_result.Text = dgv_company.Rows[e.RowIndex].Cells["info"].Value == null ? "" : dgv_company.Rows[e.RowIndex].Cells["info"].Value.ToString();
+            this.lb_website_id.Text = dgv_website.Rows[e.RowIndex].Cells["id"].Value == null ? "" : dgv_website.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            this.txt_result.Text = dgv_website.Rows[e.RowIndex].Cells["info"].Value == null ? "" : dgv_website.Rows[e.RowIndex].Cells["info"].Value.ToString();
             this.lb_row_id.Text = e.RowIndex.ToString();
 
-            this.txt_name.Text = dgv_company.Rows[e.RowIndex].Cells["name"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["name"].Value.ToString();
-            this.txt_url.Text = dgv_company.Rows[e.RowIndex].Cells["url"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["url"].Value.ToString();
-            this.txt_other_names.Text = dgv_company.Rows[e.RowIndex].Cells["other_names"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_names"].Value.ToString();
-            this.txt_other_urls.Text = dgv_company.Rows[e.RowIndex].Cells["other_urls"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_urls"].Value.ToString();
-            this.txt_pay_ways.Text = dgv_company.Rows[e.RowIndex].Cells["pay_ways"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["pay_ways"].Value.ToString();
+            this.txt_name.Text = dgv_website.Rows[e.RowIndex].Cells["name"].Value == null ? "" : dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["name"].Value.ToString();
+            this.txt_url.Text = dgv_website.Rows[e.RowIndex].Cells["url"].Value == null ? "" : dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["url"].Value.ToString();
+            this.txt_other_names.Text = dgv_website.Rows[e.RowIndex].Cells["other_names"].Value == null ? "" : dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_names"].Value.ToString();
+            this.txt_other_urls.Text = dgv_website.Rows[e.RowIndex].Cells["other_urls"].Value == null ? "" : dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_urls"].Value.ToString();
+            this.txt_pay_ways.Text = dgv_website.Rows[e.RowIndex].Cells["pay_ways"].Value == null ? "" : dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["pay_ways"].Value.ToString();
 
         }
         private void btn_json_beautify_Click(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace web_helper
 
         private void btn_update_grid_Click(object sender, EventArgs e)
         {
-            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value = this.txt_result.Text;
+            dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value = this.txt_result.Text;
         }
 
 
@@ -117,8 +117,8 @@ namespace web_helper
         {
             if (string.IsNullOrEmpty(this.txt_name.Text) || string.IsNullOrEmpty(this.txt_url.Text)) return;
 
-            string id = dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["id"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["id"].Value.ToString();
-            string info = dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value == null ? "" : dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value.ToString();
+            string id = dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["id"].Value == null ? "" : dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["id"].Value.ToString();
+            string info = dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value == null ? "" : dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value.ToString();
 
             BsonDocument doc;
             if (!string.IsNullOrEmpty(info))
@@ -144,12 +144,12 @@ namespace web_helper
 
 
 
-            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["name"].Value = this.txt_name.Text;
-            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["url"].Value = this.txt_url.Text;
-            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_names"].Value = this.txt_other_names.Text;
-            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_urls"].Value = this.txt_other_urls.Text;
-            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["pay_ways"].Value = this.txt_pay_ways.Text;
-            dgv_company.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value = doc.ToString();
+            dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["name"].Value = this.txt_name.Text;
+            dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["url"].Value = this.txt_url.Text;
+            dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_names"].Value = this.txt_other_names.Text;
+            dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["other_urls"].Value = this.txt_other_urls.Text;
+            dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["pay_ways"].Value = this.txt_pay_ways.Text;
+            dgv_website.Rows[Convert.ToInt32(lb_row_id.Text)].Cells["info"].Value = doc.ToString();
 
 
 

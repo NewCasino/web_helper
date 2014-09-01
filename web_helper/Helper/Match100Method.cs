@@ -14,62 +14,7 @@ using System.Reflection;
 using System.Data;
 
 class Match100Method
-{
-    public BsonDocument from_baidu_1(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        StringBuilder sb = new StringBuilder();
-
-        if (browser.Document == null) return doc_result;
-        HtmlElementCollection elements = browser.Document.Body.All;
-        foreach (HtmlElement element in elements)
-        {
-            string row = "";
-            IHTMLElement el = (IHTMLElement)element.DomElement;
-            IHTMLDOMNode nd = (IHTMLDOMNode)el;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)nd.attributes;
-
-            row += el.tagName.PR(10);
-            row += el.className.PR(10);
-            row += el.id.PR(10);
-            row += ((IHTMLElementCollection)el.children).length.PR(10);
-
-            int left = el.offsetLeft;
-            int top = el.offsetTop;
-            BrowserHelper.get_absolute(ref el, ref left, ref top);
-
-            row += left.PR(10);
-            row += top.PR(10);
-            row += el.offsetLeft.PR(10);
-            row += el.offsetTop.PR(10);
-            row += el.offsetWidth.PR(10);
-            row += el.offsetHeight.PR(10);
-            row += el.innerText.PR(100);
-
-            if (((IHTMLElementCollection)el.children).length != 0) continue;
-            if (string.IsNullOrEmpty(el.innerText)) continue;
-            if (!string.IsNullOrEmpty(row)) sb.AppendLine(row);
-        }
-
-        doc_result["data"] = sb.ToString();
-        return doc_result;
-    }
-    public BsonDocument from_local_1(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        string result = "";
-        HtmlElementCollection list = browser.Document.Body.All;
-        foreach (HtmlElement element in list)
-        {
-            if (element.Id == "btn_ok") element.InvokeMember("click");
-            if (element.Id == "txt") result = element.GetAttribute("value");
-        }
-        doc_result["data"] = result;
-        return doc_result;
-    }
-
-    //-----------------------------------------------------------
-
+{ 
     public BsonDocument from_163_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -113,6 +58,7 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
     }
+
     public BsonDocument from_500_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -628,9 +574,62 @@ class Match100Method
 
     }
 
+    #region two function for test in website
+    public BsonDocument from_baidu_1(ref WebBrowser browser)
+    {
+        BsonDocument doc_result = Match100Helper.get_doc_result();
+        StringBuilder sb = new StringBuilder();
 
+        if (browser.Document == null) return doc_result;
+        HtmlElementCollection elements = browser.Document.Body.All;
+        foreach (HtmlElement element in elements)
+        {
+            string row = "";
+            IHTMLElement el = (IHTMLElement)element.DomElement;
+            IHTMLDOMNode nd = (IHTMLDOMNode)el;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)nd.attributes;
 
-    //back the function get content from position
+            row += el.tagName.PR(10);
+            row += el.className.PR(10);
+            row += el.id.PR(10);
+            row += ((IHTMLElementCollection)el.children).length.PR(10);
+
+            int left = el.offsetLeft;
+            int top = el.offsetTop;
+            BrowserHelper.get_absolute(ref el, ref left, ref top);
+
+            row += left.PR(10);
+            row += top.PR(10);
+            row += el.offsetLeft.PR(10);
+            row += el.offsetTop.PR(10);
+            row += el.offsetWidth.PR(10);
+            row += el.offsetHeight.PR(10);
+            row += el.innerText.PR(100);
+
+            if (((IHTMLElementCollection)el.children).length != 0) continue;
+            if (string.IsNullOrEmpty(el.innerText)) continue;
+            if (!string.IsNullOrEmpty(row)) sb.AppendLine(row);
+        }
+
+        doc_result["data"] = sb.ToString();
+        return doc_result;
+    }
+    public BsonDocument from_local_1(ref WebBrowser browser)
+    {
+        BsonDocument doc_result = Match100Helper.get_doc_result();
+        string result = "";
+        HtmlElementCollection list = browser.Document.Body.All;
+        foreach (HtmlElement element in list)
+        {
+            if (element.Id == "btn_ok") element.InvokeMember("click");
+            if (element.Id == "txt") result = element.GetAttribute("value");
+        }
+        doc_result["data"] = result;
+        return doc_result;
+    }
+    #endregion
+
+    #region back the function get content from position
     public BsonDocument from_fubo_1_back(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -942,4 +941,5 @@ class Match100Method
         doc_result["data"] = result;
         return doc_result;
     }
+    #endregion
 }

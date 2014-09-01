@@ -41,24 +41,24 @@ class Match100Helper
         doc_result.Add("loop", new BsonArray());
         return doc_result;
     }
-    public static void insert_data(string company, string type, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose, string time_zone, string time_add)
+    public static void insert_data(string website, string type, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose, string time_zone, string time_add)
     {
         string sql = "";
         string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
         sql = " insert into europe_100_log " +
-              " ( timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose,time_zone,time_add,f_state) values" +
+              " ( timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose,time_zone,time_add,f_state) values" +
               " ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','0')";
-        sql = string.Format(sql, timespan, company, type, start_time, host, client, odd_win, odd_draw, odd_lose, time_zone, time_add);
+        sql = string.Format(sql, timespan, website, type, start_time, host, client, odd_win, odd_draw, odd_lose, time_zone, time_add);
         SQLServerHelper.exe_sql(sql);
     }
-    public static void insert_future_match(string type, string time, string host, string client)
+    public static void insert_future_match(string league, string time, string host, string client)
     {
-        string sql = " delete  from future_match where type='{0}' and start_time='{1}' and host='{2}' and client='{3}'";
-        sql = string.Format(sql, type, time, host, client);
+        string sql = " delete  from future_match where league='{0}' and start_time='{1}' and host='{2}' and client='{3}'";
+        sql = string.Format(sql, league, time, host, client);
         SQLServerHelper.exe_sql(sql);
-        sql = "insert into future_match (type,start_time,host,client) values ('{0}','{1}','{2}','{3}')";
-        sql = string.Format(sql, type, time, host, client);
+        sql = "insert into future_match (league,start_time,host,client) values ('{0}','{1}','{2}','{3}')";
+        sql = string.Format(sql, league, time, host, client);
         SQLServerHelper.exe_sql(sql);
     }
     public static void insert_name(string name, string name_other)

@@ -33,31 +33,35 @@
             this.btn_three_range = new System.Windows.Forms.Button();
             this.cb_three_persent_desc = new System.Windows.Forms.CheckBox();
             this.cb_three_persent_asc = new System.Windows.Forms.CheckBox();
-            this.cb_three_company_desc = new System.Windows.Forms.CheckBox();
-            this.cb_three_company_asc = new System.Windows.Forms.CheckBox();
+            this.cb_three_website_desc = new System.Windows.Forms.CheckBox();
+            this.cb_three_website_asc = new System.Windows.Forms.CheckBox();
             this.btn_three_match = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cb_two_start_time_desc = new System.Windows.Forms.CheckBox();
+            this.cb_two_start_time_asc = new System.Windows.Forms.CheckBox();
             this.btn_two_range = new System.Windows.Forms.Button();
             this.cb_two_persent_desc = new System.Windows.Forms.CheckBox();
             this.cb_two_persent_asc = new System.Windows.Forms.CheckBox();
-            this.cb_two_company_desc = new System.Windows.Forms.CheckBox();
-            this.cb_two_company_asc = new System.Windows.Forms.CheckBox();
+            this.cb_two_website_desc = new System.Windows.Forms.CheckBox();
+            this.cb_two_website_asc = new System.Windows.Forms.CheckBox();
             this.btn_two_match = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cb_start_time_desc = new System.Windows.Forms.CheckBox();
+            this.cb_start_time_asc = new System.Windows.Forms.CheckBox();
             this.btn_single_range = new System.Windows.Forms.Button();
             this.cb_persent_desc = new System.Windows.Forms.CheckBox();
             this.cb_persent_asc = new System.Windows.Forms.CheckBox();
-            this.cb_company_desc = new System.Windows.Forms.CheckBox();
-            this.cb_company_asc = new System.Windows.Forms.CheckBox();
+            this.cb_website_desc = new System.Windows.Forms.CheckBox();
+            this.cb_website_asc = new System.Windows.Forms.CheckBox();
             this.btn_single_match = new System.Windows.Forms.Button();
             this.txt_condition = new System.Windows.Forms.TextBox();
             this.btn_load = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Condition = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_company_reverse = new System.Windows.Forms.Button();
-            this.btn_company_all = new System.Windows.Forms.Button();
-            this.dgv_company = new System.Windows.Forms.DataGridView();
+            this.btn_website_reverse = new System.Windows.Forms.Button();
+            this.btn_website_all = new System.Windows.Forms.Button();
+            this.dgv_website = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_match_reverse = new System.Windows.Forms.Button();
             this.btn_match_all = new System.Windows.Forms.Button();
@@ -66,10 +70,6 @@
             this.dgv_all = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.cb_start_time_desc = new System.Windows.Forms.CheckBox();
-            this.cb_start_time_asc = new System.Windows.Forms.CheckBox();
-            this.cb_two_start_time_desc = new System.Windows.Forms.CheckBox();
-            this.cb_two_start_time_asc = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -77,7 +77,7 @@
             this.tabControl1.SuspendLayout();
             this.Condition.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_company)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_website)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_match)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -106,8 +106,8 @@
             this.groupBox6.Controls.Add(this.btn_three_range);
             this.groupBox6.Controls.Add(this.cb_three_persent_desc);
             this.groupBox6.Controls.Add(this.cb_three_persent_asc);
-            this.groupBox6.Controls.Add(this.cb_three_company_desc);
-            this.groupBox6.Controls.Add(this.cb_three_company_asc);
+            this.groupBox6.Controls.Add(this.cb_three_website_desc);
+            this.groupBox6.Controls.Add(this.cb_three_website_asc);
             this.groupBox6.Controls.Add(this.btn_three_match);
             this.groupBox6.Location = new System.Drawing.Point(6, 335);
             this.groupBox6.Name = "groupBox6";
@@ -148,25 +148,25 @@
             this.cb_three_persent_asc.Text = "Persent ASC";
             this.cb_three_persent_asc.UseVisualStyleBackColor = true;
             // 
-            // cb_three_company_desc
+            // cb_three_website_desc
             // 
-            this.cb_three_company_desc.AutoSize = true;
-            this.cb_three_company_desc.Location = new System.Drawing.Point(118, 52);
-            this.cb_three_company_desc.Name = "cb_three_company_desc";
-            this.cb_three_company_desc.Size = new System.Drawing.Size(102, 17);
-            this.cb_three_company_desc.TabIndex = 10;
-            this.cb_three_company_desc.Text = "Company DESC";
-            this.cb_three_company_desc.UseVisualStyleBackColor = true;
+            this.cb_three_website_desc.AutoSize = true;
+            this.cb_three_website_desc.Location = new System.Drawing.Point(118, 52);
+            this.cb_three_website_desc.Name = "cb_three_website_desc";
+            this.cb_three_website_desc.Size = new System.Drawing.Size(97, 17);
+            this.cb_three_website_desc.TabIndex = 10;
+            this.cb_three_website_desc.Text = "Website DESC";
+            this.cb_three_website_desc.UseVisualStyleBackColor = true;
             // 
-            // cb_three_company_asc
+            // cb_three_website_asc
             // 
-            this.cb_three_company_asc.AutoSize = true;
-            this.cb_three_company_asc.Location = new System.Drawing.Point(6, 52);
-            this.cb_three_company_asc.Name = "cb_three_company_asc";
-            this.cb_three_company_asc.Size = new System.Drawing.Size(94, 17);
-            this.cb_three_company_asc.TabIndex = 9;
-            this.cb_three_company_asc.Text = "Company ASC";
-            this.cb_three_company_asc.UseVisualStyleBackColor = true;
+            this.cb_three_website_asc.AutoSize = true;
+            this.cb_three_website_asc.Location = new System.Drawing.Point(6, 52);
+            this.cb_three_website_asc.Name = "cb_three_website_asc";
+            this.cb_three_website_asc.Size = new System.Drawing.Size(89, 17);
+            this.cb_three_website_asc.TabIndex = 9;
+            this.cb_three_website_asc.Text = "Website ASC";
+            this.cb_three_website_asc.UseVisualStyleBackColor = true;
             // 
             // btn_three_match
             // 
@@ -185,8 +185,8 @@
             this.groupBox5.Controls.Add(this.btn_two_range);
             this.groupBox5.Controls.Add(this.cb_two_persent_desc);
             this.groupBox5.Controls.Add(this.cb_two_persent_asc);
-            this.groupBox5.Controls.Add(this.cb_two_company_desc);
-            this.groupBox5.Controls.Add(this.cb_two_company_asc);
+            this.groupBox5.Controls.Add(this.cb_two_website_desc);
+            this.groupBox5.Controls.Add(this.cb_two_website_asc);
             this.groupBox5.Controls.Add(this.btn_two_match);
             this.groupBox5.Location = new System.Drawing.Point(6, 190);
             this.groupBox5.Name = "groupBox5";
@@ -194,6 +194,26 @@
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Two";
+            // 
+            // cb_two_start_time_desc
+            // 
+            this.cb_two_start_time_desc.AutoSize = true;
+            this.cb_two_start_time_desc.Location = new System.Drawing.Point(118, 77);
+            this.cb_two_start_time_desc.Name = "cb_two_start_time_desc";
+            this.cb_two_start_time_desc.Size = new System.Drawing.Size(87, 17);
+            this.cb_two_start_time_desc.TabIndex = 15;
+            this.cb_two_start_time_desc.Text = "S-time DESC";
+            this.cb_two_start_time_desc.UseVisualStyleBackColor = true;
+            // 
+            // cb_two_start_time_asc
+            // 
+            this.cb_two_start_time_asc.AutoSize = true;
+            this.cb_two_start_time_asc.Location = new System.Drawing.Point(6, 77);
+            this.cb_two_start_time_asc.Name = "cb_two_start_time_asc";
+            this.cb_two_start_time_asc.Size = new System.Drawing.Size(83, 17);
+            this.cb_two_start_time_asc.TabIndex = 14;
+            this.cb_two_start_time_asc.Text = "S-Time ASC";
+            this.cb_two_start_time_asc.UseVisualStyleBackColor = true;
             // 
             // btn_two_range
             // 
@@ -227,25 +247,25 @@
             this.cb_two_persent_asc.Text = "Persent ASC";
             this.cb_two_persent_asc.UseVisualStyleBackColor = true;
             // 
-            // cb_two_company_desc
+            // cb_two_website_desc
             // 
-            this.cb_two_company_desc.AutoSize = true;
-            this.cb_two_company_desc.Location = new System.Drawing.Point(118, 49);
-            this.cb_two_company_desc.Name = "cb_two_company_desc";
-            this.cb_two_company_desc.Size = new System.Drawing.Size(102, 17);
-            this.cb_two_company_desc.TabIndex = 10;
-            this.cb_two_company_desc.Text = "Company DESC";
-            this.cb_two_company_desc.UseVisualStyleBackColor = true;
+            this.cb_two_website_desc.AutoSize = true;
+            this.cb_two_website_desc.Location = new System.Drawing.Point(118, 49);
+            this.cb_two_website_desc.Name = "cb_two_website_desc";
+            this.cb_two_website_desc.Size = new System.Drawing.Size(97, 17);
+            this.cb_two_website_desc.TabIndex = 10;
+            this.cb_two_website_desc.Text = "Website DESC";
+            this.cb_two_website_desc.UseVisualStyleBackColor = true;
             // 
-            // cb_two_company_asc
+            // cb_two_website_asc
             // 
-            this.cb_two_company_asc.AutoSize = true;
-            this.cb_two_company_asc.Location = new System.Drawing.Point(6, 49);
-            this.cb_two_company_asc.Name = "cb_two_company_asc";
-            this.cb_two_company_asc.Size = new System.Drawing.Size(94, 17);
-            this.cb_two_company_asc.TabIndex = 9;
-            this.cb_two_company_asc.Text = "Company ASC";
-            this.cb_two_company_asc.UseVisualStyleBackColor = true;
+            this.cb_two_website_asc.AutoSize = true;
+            this.cb_two_website_asc.Location = new System.Drawing.Point(6, 49);
+            this.cb_two_website_asc.Name = "cb_two_website_asc";
+            this.cb_two_website_asc.Size = new System.Drawing.Size(89, 17);
+            this.cb_two_website_asc.TabIndex = 9;
+            this.cb_two_website_asc.Text = "Website ASC";
+            this.cb_two_website_asc.UseVisualStyleBackColor = true;
             // 
             // btn_two_match
             // 
@@ -264,8 +284,8 @@
             this.groupBox4.Controls.Add(this.btn_single_range);
             this.groupBox4.Controls.Add(this.cb_persent_desc);
             this.groupBox4.Controls.Add(this.cb_persent_asc);
-            this.groupBox4.Controls.Add(this.cb_company_desc);
-            this.groupBox4.Controls.Add(this.cb_company_asc);
+            this.groupBox4.Controls.Add(this.cb_website_desc);
+            this.groupBox4.Controls.Add(this.cb_website_asc);
             this.groupBox4.Controls.Add(this.btn_single_match);
             this.groupBox4.Location = new System.Drawing.Point(6, 51);
             this.groupBox4.Name = "groupBox4";
@@ -273,6 +293,26 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Single";
+            // 
+            // cb_start_time_desc
+            // 
+            this.cb_start_time_desc.AutoSize = true;
+            this.cb_start_time_desc.Location = new System.Drawing.Point(118, 75);
+            this.cb_start_time_desc.Name = "cb_start_time_desc";
+            this.cb_start_time_desc.Size = new System.Drawing.Size(87, 17);
+            this.cb_start_time_desc.TabIndex = 11;
+            this.cb_start_time_desc.Text = "S-time DESC";
+            this.cb_start_time_desc.UseVisualStyleBackColor = true;
+            // 
+            // cb_start_time_asc
+            // 
+            this.cb_start_time_asc.AutoSize = true;
+            this.cb_start_time_asc.Location = new System.Drawing.Point(6, 75);
+            this.cb_start_time_asc.Name = "cb_start_time_asc";
+            this.cb_start_time_asc.Size = new System.Drawing.Size(83, 17);
+            this.cb_start_time_asc.TabIndex = 10;
+            this.cb_start_time_asc.Text = "S-Time ASC";
+            this.cb_start_time_asc.UseVisualStyleBackColor = true;
             // 
             // btn_single_range
             // 
@@ -306,25 +346,25 @@
             this.cb_persent_asc.Text = "Persent ASC";
             this.cb_persent_asc.UseVisualStyleBackColor = true;
             // 
-            // cb_company_desc
+            // cb_website_desc
             // 
-            this.cb_company_desc.AutoSize = true;
-            this.cb_company_desc.Location = new System.Drawing.Point(118, 48);
-            this.cb_company_desc.Name = "cb_company_desc";
-            this.cb_company_desc.Size = new System.Drawing.Size(102, 17);
-            this.cb_company_desc.TabIndex = 6;
-            this.cb_company_desc.Text = "Company DESC";
-            this.cb_company_desc.UseVisualStyleBackColor = true;
+            this.cb_website_desc.AutoSize = true;
+            this.cb_website_desc.Location = new System.Drawing.Point(118, 48);
+            this.cb_website_desc.Name = "cb_website_desc";
+            this.cb_website_desc.Size = new System.Drawing.Size(97, 17);
+            this.cb_website_desc.TabIndex = 6;
+            this.cb_website_desc.Text = "Website DESC";
+            this.cb_website_desc.UseVisualStyleBackColor = true;
             // 
-            // cb_company_asc
+            // cb_website_asc
             // 
-            this.cb_company_asc.AutoSize = true;
-            this.cb_company_asc.Location = new System.Drawing.Point(6, 48);
-            this.cb_company_asc.Name = "cb_company_asc";
-            this.cb_company_asc.Size = new System.Drawing.Size(94, 17);
-            this.cb_company_asc.TabIndex = 5;
-            this.cb_company_asc.Text = "Company ASC";
-            this.cb_company_asc.UseVisualStyleBackColor = true;
+            this.cb_website_asc.AutoSize = true;
+            this.cb_website_asc.Location = new System.Drawing.Point(6, 48);
+            this.cb_website_asc.Name = "cb_website_asc";
+            this.cb_website_asc.Size = new System.Drawing.Size(89, 17);
+            this.cb_website_asc.TabIndex = 5;
+            this.cb_website_asc.Text = "Website ASC";
+            this.cb_website_asc.UseVisualStyleBackColor = true;
             // 
             // btn_single_match
             // 
@@ -382,47 +422,47 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox3.Controls.Add(this.btn_company_reverse);
-            this.groupBox3.Controls.Add(this.btn_company_all);
-            this.groupBox3.Controls.Add(this.dgv_company);
+            this.groupBox3.Controls.Add(this.btn_website_reverse);
+            this.groupBox3.Controls.Add(this.btn_website_all);
+            this.groupBox3.Controls.Add(this.dgv_website);
             this.groupBox3.Location = new System.Drawing.Point(12, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(336, 517);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Company";
+            this.groupBox3.Text = "website";
             // 
-            // btn_company_reverse
+            // btn_website_reverse
             // 
-            this.btn_company_reverse.Location = new System.Drawing.Point(87, 22);
-            this.btn_company_reverse.Name = "btn_company_reverse";
-            this.btn_company_reverse.Size = new System.Drawing.Size(75, 25);
-            this.btn_company_reverse.TabIndex = 3;
-            this.btn_company_reverse.Text = "REVERSE";
-            this.btn_company_reverse.UseVisualStyleBackColor = true;
-            this.btn_company_reverse.Click += new System.EventHandler(this.btn_company_reverse_Click);
+            this.btn_website_reverse.Location = new System.Drawing.Point(87, 22);
+            this.btn_website_reverse.Name = "btn_website_reverse";
+            this.btn_website_reverse.Size = new System.Drawing.Size(75, 25);
+            this.btn_website_reverse.TabIndex = 3;
+            this.btn_website_reverse.Text = "REVERSE";
+            this.btn_website_reverse.UseVisualStyleBackColor = true;
+            this.btn_website_reverse.Click += new System.EventHandler(this.btn_website_reverse_Click);
             // 
-            // btn_company_all
+            // btn_website_all
             // 
-            this.btn_company_all.Location = new System.Drawing.Point(6, 22);
-            this.btn_company_all.Name = "btn_company_all";
-            this.btn_company_all.Size = new System.Drawing.Size(75, 25);
-            this.btn_company_all.TabIndex = 2;
-            this.btn_company_all.Text = "ALL";
-            this.btn_company_all.UseVisualStyleBackColor = true;
-            this.btn_company_all.Click += new System.EventHandler(this.btn_company_all_Click);
+            this.btn_website_all.Location = new System.Drawing.Point(6, 22);
+            this.btn_website_all.Name = "btn_website_all";
+            this.btn_website_all.Size = new System.Drawing.Size(75, 25);
+            this.btn_website_all.TabIndex = 2;
+            this.btn_website_all.Text = "ALL";
+            this.btn_website_all.UseVisualStyleBackColor = true;
+            this.btn_website_all.Click += new System.EventHandler(this.btn_website_all_Click);
             // 
-            // dgv_company
+            // dgv_website
             // 
-            this.dgv_company.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dgv_website.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_company.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_company.Location = new System.Drawing.Point(6, 59);
-            this.dgv_company.Name = "dgv_company";
-            this.dgv_company.Size = new System.Drawing.Size(324, 452);
-            this.dgv_company.TabIndex = 1;
-            this.dgv_company.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_company_DataBindingComplete);
+            this.dgv_website.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_website.Location = new System.Drawing.Point(6, 59);
+            this.dgv_website.Name = "dgv_website";
+            this.dgv_website.Size = new System.Drawing.Size(324, 452);
+            this.dgv_website.TabIndex = 1;
+            this.dgv_website.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_website_DataBindingComplete);
             // 
             // groupBox2
             // 
@@ -515,46 +555,6 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // cb_start_time_desc
-            // 
-            this.cb_start_time_desc.AutoSize = true;
-            this.cb_start_time_desc.Location = new System.Drawing.Point(118, 75);
-            this.cb_start_time_desc.Name = "cb_start_time_desc";
-            this.cb_start_time_desc.Size = new System.Drawing.Size(87, 17);
-            this.cb_start_time_desc.TabIndex = 11;
-            this.cb_start_time_desc.Text = "S-time DESC";
-            this.cb_start_time_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_start_time_asc
-            // 
-            this.cb_start_time_asc.AutoSize = true;
-            this.cb_start_time_asc.Location = new System.Drawing.Point(6, 75);
-            this.cb_start_time_asc.Name = "cb_start_time_asc";
-            this.cb_start_time_asc.Size = new System.Drawing.Size(83, 17);
-            this.cb_start_time_asc.TabIndex = 10;
-            this.cb_start_time_asc.Text = "S-Time ASC";
-            this.cb_start_time_asc.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_start_time_desc
-            // 
-            this.cb_two_start_time_desc.AutoSize = true;
-            this.cb_two_start_time_desc.Location = new System.Drawing.Point(118, 77);
-            this.cb_two_start_time_desc.Name = "cb_two_start_time_desc";
-            this.cb_two_start_time_desc.Size = new System.Drawing.Size(87, 17);
-            this.cb_two_start_time_desc.TabIndex = 15;
-            this.cb_two_start_time_desc.Text = "S-time DESC";
-            this.cb_two_start_time_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_start_time_asc
-            // 
-            this.cb_two_start_time_asc.AutoSize = true;
-            this.cb_two_start_time_asc.Location = new System.Drawing.Point(6, 77);
-            this.cb_two_start_time_asc.Name = "cb_two_start_time_asc";
-            this.cb_two_start_time_asc.Size = new System.Drawing.Size(83, 17);
-            this.cb_two_start_time_asc.TabIndex = 14;
-            this.cb_two_start_time_asc.Text = "S-Time ASC";
-            this.cb_two_start_time_asc.UseVisualStyleBackColor = true;
-            // 
             // frm_match_100_analyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,7 +563,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_100_analyse";
-            this.Load += new System.EventHandler(this.frm_match_compute_by_company_Load);
+            this.Load += new System.EventHandler(this.frm_match_compute_by_website_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -575,7 +575,7 @@
             this.tabControl1.ResumeLayout(false);
             this.Condition.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_company)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_website)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_match)).EndInit();
             this.tabPage1.ResumeLayout(false);
@@ -596,7 +596,7 @@
         private System.Windows.Forms.TextBox txt_result;
         private System.Windows.Forms.Button btn_load;
         private System.Windows.Forms.TabPage Condition;
-        private System.Windows.Forms.DataGridView dgv_company;
+        private System.Windows.Forms.DataGridView dgv_website;
         private System.Windows.Forms.DataGridView dgv_match;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -606,22 +606,22 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox cb_two_persent_desc;
         private System.Windows.Forms.CheckBox cb_two_persent_asc;
-        private System.Windows.Forms.CheckBox cb_two_company_desc;
-        private System.Windows.Forms.CheckBox cb_two_company_asc;
+        private System.Windows.Forms.CheckBox cb_two_website_desc;
+        private System.Windows.Forms.CheckBox cb_two_website_asc;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox cb_persent_desc;
         private System.Windows.Forms.CheckBox cb_persent_asc;
-        private System.Windows.Forms.CheckBox cb_company_desc;
-        private System.Windows.Forms.CheckBox cb_company_asc;
-        private System.Windows.Forms.Button btn_company_all;
+        private System.Windows.Forms.CheckBox cb_website_desc;
+        private System.Windows.Forms.CheckBox cb_website_asc;
+        private System.Windows.Forms.Button btn_website_all;
         private System.Windows.Forms.Button btn_match_all;
-        private System.Windows.Forms.Button btn_company_reverse;
+        private System.Windows.Forms.Button btn_website_reverse;
         private System.Windows.Forms.Button btn_match_reverse;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.CheckBox cb_three_persent_desc;
         private System.Windows.Forms.CheckBox cb_three_persent_asc;
-        private System.Windows.Forms.CheckBox cb_three_company_desc;
-        private System.Windows.Forms.CheckBox cb_three_company_asc;
+        private System.Windows.Forms.CheckBox cb_three_website_desc;
+        private System.Windows.Forms.CheckBox cb_three_website_asc;
         private System.Windows.Forms.Button btn_three_match;
         private System.Windows.Forms.Button btn_single_range;
         private System.Windows.Forms.Button btn_three_range;

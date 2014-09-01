@@ -332,7 +332,7 @@ namespace web_helper
                        dt_temp.Rows[0]["total_more"].ToString() != doc["total_more"].ToString())
                     {
                        sql = " insert into total" +
-                             " (timespan,web_site,start_time,host,client,total_0,total_1,total_2,total_3,total_4,total_5,total_6,total_more" +
+                             " (timespan,website,start_time,host,client,total_0,total_1,total_2,total_3,total_4,total_5,total_6,total_more" +
                              "  values"+
                              " ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')";
                         sql = string.Format(sql, doc["doc_id"].ToString(), doc["website"].ToString(), doc["start_time"].ToString(), doc["host"].ToString(), doc["client"].ToString(),

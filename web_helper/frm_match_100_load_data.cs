@@ -71,7 +71,7 @@ namespace web_helper
             dt.Columns.Add("final_time");
             dt.Columns.Add("browser");
 
-            string sql = "select * from company_url where is_use='y' order by site_name,step";
+            string sql = "select * from website_url where is_use='y' order by site_name,step";
             DataTable dt_temp = SQLServerHelper.get_table(sql);
             for (int i = 0; i < dt_temp.Rows.Count; i++)
             {

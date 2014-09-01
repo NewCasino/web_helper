@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 class BrowserHelper
 {
 
-    #region 报非安全引用错误 
+    #region Report Unauthorized Bug
     public static DataTable get_postion_table_back(ref WebBrowser browser)
     {
         //create positon table
@@ -384,8 +384,9 @@ class BrowserHelper
         }
     }
 
-    #endregion 
+    #endregion  
 
+    #region Get HTML Content By Position
     public static DataTable get_postion_table(ref WebBrowser browser)
     {
         //create positon table
@@ -1681,8 +1682,8 @@ class BrowserHelper
         doc_condition.Add("ajust", "n");
         return doc_condition;
     }
-
-
+    #endregion
+ 
     public static string get_html(ref WebBrowser browser)
     {
         string result = "";

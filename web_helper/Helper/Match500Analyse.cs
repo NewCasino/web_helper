@@ -14,7 +14,7 @@ class Match500Analyse
     static bool is_open_mongo = false;
 
 
-    public static BsonDocument get_max_from_single_match(string start_time, string host, string client, int max_count, ArrayList list_companys)
+    public static BsonDocument get_max_from_single_match(string start_time, string host, string client, int max_count, ArrayList list_websites)
     {
 
 
@@ -22,32 +22,32 @@ class Match500Analyse
         sql = string.Format(sql, start_time, host, client);
         DataTable dt = SQLServerHelper.get_table(sql);
 
-        //ArrayList list_fix_companys = new ArrayList();
+        //ArrayList list_fix_websites = new ArrayList();
 
         double[] max = new double[3] { -999999, -999999, -99999 };
-        string[] companys = new string[3] { "", "", "" };
+        string[] websites = new string[3] { "", "", "" };
 
         for (int i = 0; i < dt.Rows.Count; i++)
         {
-            //bool is_fix_company = false;
-            //foreach (string company in ArrayList)
+            //bool is_fix_website = false;
+            //foreach (string website in ArrayList)
             //{
-            //    if (company == dt.Rows[i]["company"].ToString()) is_fix_company = true;
+            //    if (website == dt.Rows[i]["website"].ToString()) is_fix_website = true;
             //}
-            //if (is_fix_company == false) continue;
+            //if (is_fix_website == false) continue;
 
-            bool is_in_companys = false;
-            foreach (string company in list_companys)
+            bool is_in_websites = false;
+            foreach (string website in list_websites)
             {
-                if (company == dt.Rows[i]["company"].ToString()) is_in_companys = true;
+                if (website == dt.Rows[i]["website"].ToString()) is_in_websites = true;
             }
-            if (is_in_companys == false) continue;
-            double[] input = new double[3]{Convert.ToDouble(dt.Rows[i]["profit_win"].ToString()),
-                                            Convert.ToDouble(dt.Rows[i]["profit_draw"].ToString()),
-                                            Convert.ToDouble(dt.Rows[i]["profit_lose"].ToString())};
-            if (input[0] > max[0]) { max[0] = input[0]; companys[0] = dt.Rows[i]["company"].ToString(); }
-            if (input[1] > max[1]) { max[1] = input[1]; companys[1] = dt.Rows[i]["company"].ToString(); }
-            if (input[2] > max[2]) { max[2] = input[2]; companys[2] = dt.Rows[i]["company"].ToString(); }
+            if (is_in_websites == false) continue;
+            double[] input = new double[3]{Convert.ToDouble(dt.Rows[i]["odd_win"].ToString()),
+                                            Convert.ToDouble(dt.Rows[i]["odd_draw"].ToString()),
+                                            Convert.ToDouble(dt.Rows[i]["odd_lose"].ToString())};
+            if (input[0] > max[0]) { max[0] = input[0]; websites[0] = dt.Rows[i]["website"].ToString(); }
+            if (input[1] > max[1]) { max[1] = input[1]; websites[1] = dt.Rows[i]["website"].ToString(); }
+            if (input[2] > max[2]) { max[2] = input[2]; websites[2] = dt.Rows[i]["website"].ToString(); }
         }
 
 
@@ -65,29 +65,29 @@ class Match500Analyse
         doc.Add("min_value", doc_max["min_value"].ToString());
         doc.Add("max_value", doc_max["max_value"].ToString());
 
-        BsonArray array_companys = new BsonArray();
-        foreach (string company in companys)
+        BsonArray array_websites = new BsonArray();
+        foreach (string website in websites)
         {
-            array_companys.Add(company);
+            array_websites.Add(website);
         }
-        doc.Add("companys", array_companys);
+        doc.Add("websites", array_websites);
 
-        BsonArray array_orign_profits = new BsonArray();
-        foreach (double profit in max)
+        BsonArray array_orign_odds = new BsonArray();
+        foreach (double odd in max)
         {
-            array_orign_profits.Add(profit.ToString("f2"));
+            array_orign_odds.Add(odd.ToString("f2"));
         }
-        doc.Add("orign_profits", array_orign_profits);
+        doc.Add("orign_odds", array_orign_odds);
 
 
-        BsonArray company_odds = new BsonArray();
-        foreach (string company in companys)
+        BsonArray website_odds = new BsonArray();
+        foreach (string website in websites)
         {
             bool is_has = false;
 
-            foreach (BsonDocument doc_item in company_odds)
+            foreach (BsonDocument doc_item in website_odds)
             {
-                if (doc_item["company"].ToString() == company)
+                if (doc_item["website"].ToString() == website)
                 {
                     is_has = true;
                 }
@@ -95,38 +95,38 @@ class Match500Analyse
             if (is_has == false)
             {
                 BsonDocument doc_item = new BsonDocument();
-                doc_item.Add("company", company);
-                string profit_win = "";
-                string profit_draw = "";
-                string profit_lose = "";
+                doc_item.Add("website", website);
+                string odd_win = "";
+                string odd_draw = "";
+                string odd_lose = "";
                 foreach (DataRow row in dt.Rows)
                 {
-                    if (row["company"].ToString() == company)
+                    if (row["website"].ToString() == website)
                     {
-                        profit_win = row["profit_win"].ToString();
-                        profit_draw = row["profit_draw"].ToString();
-                        profit_lose = row["profit_lose"].ToString();
+                        odd_win = row["odd_win"].ToString();
+                        odd_draw = row["odd_draw"].ToString();
+                        odd_lose = row["odd_lose"].ToString();
                     }
                 }
-                doc_item.Add("profit_win", profit_win);
-                doc_item.Add("profit_draw", profit_draw);
-                doc_item.Add("profit_lose", profit_lose);
+                doc_item.Add("odd_win", odd_win);
+                doc_item.Add("odd_draw", odd_draw);
+                doc_item.Add("odd_lose", odd_lose);
 
-                company_odds.Add(doc_item.AsBsonDocument);
+                website_odds.Add(doc_item.AsBsonDocument);
             }
 
 
         }
-        doc.Add("company_odds", company_odds);
+        doc.Add("website_odds", website_odds);
 
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
-        doc.Add("profits", doc_max["profits"].AsBsonArray);
+        doc.Add("odds", doc_max["odds"].AsBsonArray);
 
 
         return doc;
     }
-    public static BsonDocument get_max_from_two_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count, ArrayList list_companys)
+    public static BsonDocument get_max_from_two_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count, ArrayList list_websites)
     {
         string sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time1, host1, client1);
@@ -139,23 +139,23 @@ class Match500Analyse
 
 
         double[] max = new double[9] { -999999, -999999, -999999, -999999, -999999, -999999, -999999, -999999, -999999 };
-        string[] companys = new string[9] { "", "", "", "", "", "", "", "", "" };
+        string[] websites = new string[9] { "", "", "", "", "", "", "", "", "" };
 
         for (int i = 0; i < dt1.Rows.Count; i++)
         {
-            bool is_in_companys = false;
-            foreach (string company in list_companys)
+            bool is_in_websites = false;
+            foreach (string website in list_websites)
             {
-                if (company == dt1.Rows[i]["company"].ToString()) is_in_companys = true;
+                if (website == dt1.Rows[i]["website"].ToString()) is_in_websites = true;
             }
-            if (is_in_companys == false) continue;
+            if (is_in_websites == false) continue;
 
 
 
             int row_no = -1;
             for (int j = 0; j < dt2.Rows.Count; j++)
             {
-                if (dt1.Rows[i]["company"].ToString() == dt2.Rows[j]["company"].ToString())
+                if (dt1.Rows[i]["website"].ToString() == dt2.Rows[j]["website"].ToString())
                 {
                     row_no = j;
                     break;
@@ -164,25 +164,25 @@ class Match500Analyse
 
             if (row_no != -1)
             {
-                double ww = Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_win"].ToString());
-                double wd = Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_draw"].ToString());
-                double wl = Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_lose"].ToString());
-                double dw = Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_win"].ToString());
-                double dd = Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_draw"].ToString());
-                double dl = Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_lose"].ToString());
-                double lw = Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_win"].ToString());
-                double ld = Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_draw"].ToString());
-                double ll = Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["profit_lose"].ToString());
+                double ww = Convert.ToDouble(dt1.Rows[i]["odd_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_win"].ToString());
+                double wd = Convert.ToDouble(dt1.Rows[i]["odd_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_draw"].ToString());
+                double wl = Convert.ToDouble(dt1.Rows[i]["odd_win"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_lose"].ToString());
+                double dw = Convert.ToDouble(dt1.Rows[i]["odd_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_win"].ToString());
+                double dd = Convert.ToDouble(dt1.Rows[i]["odd_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_draw"].ToString());
+                double dl = Convert.ToDouble(dt1.Rows[i]["odd_draw"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_lose"].ToString());
+                double lw = Convert.ToDouble(dt1.Rows[i]["odd_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_win"].ToString());
+                double ld = Convert.ToDouble(dt1.Rows[i]["odd_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_draw"].ToString());
+                double ll = Convert.ToDouble(dt1.Rows[i]["odd_lose"].ToString()) * Convert.ToDouble(dt2.Rows[row_no]["odd_lose"].ToString());
 
-                if (ww > max[0]) { max[0] = ww; companys[0] = dt1.Rows[i]["company"].ToString(); }
-                if (wd > max[1]) { max[1] = wd; companys[1] = dt1.Rows[i]["company"].ToString(); }
-                if (wl > max[2]) { max[2] = wl; companys[2] = dt1.Rows[i]["company"].ToString(); }
-                if (dw > max[3]) { max[3] = dw; companys[3] = dt1.Rows[i]["company"].ToString(); }
-                if (dd > max[4]) { max[4] = dd; companys[4] = dt1.Rows[i]["company"].ToString(); }
-                if (dl > max[5]) { max[5] = dl; companys[5] = dt1.Rows[i]["company"].ToString(); }
-                if (lw > max[6]) { max[6] = lw; companys[6] = dt1.Rows[i]["company"].ToString(); }
-                if (ld > max[7]) { max[7] = ld; companys[7] = dt1.Rows[i]["company"].ToString(); }
-                if (ll > max[8]) { max[8] = ll; companys[8] = dt1.Rows[i]["company"].ToString(); }
+                if (ww > max[0]) { max[0] = ww; websites[0] = dt1.Rows[i]["website"].ToString(); }
+                if (wd > max[1]) { max[1] = wd; websites[1] = dt1.Rows[i]["website"].ToString(); }
+                if (wl > max[2]) { max[2] = wl; websites[2] = dt1.Rows[i]["website"].ToString(); }
+                if (dw > max[3]) { max[3] = dw; websites[3] = dt1.Rows[i]["website"].ToString(); }
+                if (dd > max[4]) { max[4] = dd; websites[4] = dt1.Rows[i]["website"].ToString(); }
+                if (dl > max[5]) { max[5] = dl; websites[5] = dt1.Rows[i]["website"].ToString(); }
+                if (lw > max[6]) { max[6] = lw; websites[6] = dt1.Rows[i]["website"].ToString(); }
+                if (ld > max[7]) { max[7] = ld; websites[7] = dt1.Rows[i]["website"].ToString(); }
+                if (ll > max[8]) { max[8] = ll; websites[8] = dt1.Rows[i]["website"].ToString(); }
             }
         }
 
@@ -204,30 +204,30 @@ class Match500Analyse
         doc.Add("min_value", doc_max["min_value"].ToString());
         doc.Add("max_value", doc_max["max_value"].ToString());
 
-        BsonArray array_companys = new BsonArray();
-        foreach (string company in companys)
+        BsonArray array_websites = new BsonArray();
+        foreach (string website in websites)
         {
-            array_companys.Add(company);
+            array_websites.Add(website);
         }
-        doc.Add("companys", array_companys);
+        doc.Add("websites", array_websites);
 
-        BsonArray array_orign_profits = new BsonArray();
-        foreach (double profit in max)
+        BsonArray array_orign_odds = new BsonArray();
+        foreach (double odd in max)
         {
-            array_orign_profits.Add(profit.ToString("f2"));
+            array_orign_odds.Add(odd.ToString("f2"));
         }
-        doc.Add("orign_profits", array_orign_profits);
+        doc.Add("orign_odds", array_orign_odds);
 
 
-        //Detail Company Odds
-        BsonArray company_odds = new BsonArray();
-        foreach (string company in companys)
+        //Detail website Odds
+        BsonArray website_odds = new BsonArray();
+        foreach (string website in websites)
         {
             bool is_has = false;
 
-            foreach (BsonDocument doc_item in company_odds)
+            foreach (BsonDocument doc_item in website_odds)
             {
-                if (doc_item["company"].ToString() == company)
+                if (doc_item["website"].ToString() == website)
                 {
                     is_has = true;
                 }
@@ -235,51 +235,51 @@ class Match500Analyse
             if (is_has == false)
             {
                 BsonDocument doc_item = new BsonDocument();
-                doc_item.Add("company", company);
-                string profit_win1 = "";
-                string profit_draw1 = "";
-                string profit_lose1 = "";
-                string profit_win2 = "";
-                string profit_draw2 = "";
-                string profit_lose2 = "";
+                doc_item.Add("website", website);
+                string odd_win1 = "";
+                string odd_draw1 = "";
+                string odd_lose1 = "";
+                string odd_win2 = "";
+                string odd_draw2 = "";
+                string odd_lose2 = "";
                 foreach (DataRow row in dt1.Rows)
                 {
-                    if (row["company"].ToString() == company)
+                    if (row["website"].ToString() == website)
                     {
-                        profit_win1 = row["profit_win"].ToString();
-                        profit_draw1 = row["profit_draw"].ToString();
-                        profit_lose1 = row["profit_lose"].ToString();
+                        odd_win1 = row["odd_win"].ToString();
+                        odd_draw1 = row["odd_draw"].ToString();
+                        odd_lose1 = row["odd_lose"].ToString();
                     }
                 }
                 foreach (DataRow row in dt2.Rows)
                 {
-                    if (row["company"].ToString() == company)
+                    if (row["website"].ToString() == website)
                     {
-                        profit_win2 = row["profit_win"].ToString();
-                        profit_draw2 = row["profit_draw"].ToString();
-                        profit_lose2 = row["profit_lose"].ToString();
+                        odd_win2 = row["odd_win"].ToString();
+                        odd_draw2 = row["odd_draw"].ToString();
+                        odd_lose2 = row["odd_lose"].ToString();
                     }
                 }
-                doc_item.Add("profit_win1", profit_win1);
-                doc_item.Add("profit_draw1", profit_draw1);
-                doc_item.Add("profit_lose1", profit_lose1);
-                doc_item.Add("profit_win2", profit_win2);
-                doc_item.Add("profit_draw2", profit_draw2);
-                doc_item.Add("profit_lose2", profit_lose2);
+                doc_item.Add("odd_win1", odd_win1);
+                doc_item.Add("odd_draw1", odd_draw1);
+                doc_item.Add("odd_lose1", odd_lose1);
+                doc_item.Add("odd_win2", odd_win2);
+                doc_item.Add("odd_draw2", odd_draw2);
+                doc_item.Add("odd_lose2", odd_lose2);
 
-                company_odds.Add(doc_item.AsBsonDocument);
+                website_odds.Add(doc_item.AsBsonDocument);
             }
         }
-        doc.Add("company_odds", company_odds);
+        doc.Add("website_odds", website_odds);
 
 
 
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
-        doc.Add("profits", doc_max["profits"].AsBsonArray);
+        doc.Add("odds", doc_max["odds"].AsBsonArray);
         return doc;
     }
-    public static BsonDocument get_max_from_three_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, string start_time3, string host3, string client3, int max_count, ArrayList list_companys)
+    public static BsonDocument get_max_from_three_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, string start_time3, string host3, string client3, int max_count, ArrayList list_websites)
     {
 
 
@@ -290,7 +290,7 @@ class Match500Analyse
         sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time2, host2, client2);
         DataTable dt2 = SQLServerHelper.get_table(sql);
-
+       
 
         sql = "select * from europe_500 where start_time='{0}' and host='{1}' and client='{2}'";
         sql = string.Format(sql, start_time3, host3, client3);
@@ -300,11 +300,11 @@ class Match500Analyse
 
         double[] max = new double[27];
 
-        string[] companys = new string[27];
+        string[] websites = new string[27];
         for (int i = 0; i < 27; i++)
         {
             max[i] = -999999;
-            companys[i] = "";
+            websites[i] = "";
         }
 
 
@@ -312,18 +312,18 @@ class Match500Analyse
         for (int i = 0; i < dt1.Rows.Count; i++)
         {
 
-            bool is_in_companys = false;
-            foreach (string company in list_companys)
+            bool is_in_websites = false;
+            foreach (string website in list_websites)
             {
-                if (company == dt1.Rows[i]["company"].ToString()) is_in_companys = true;
+                if (website == dt1.Rows[i]["website"].ToString()) is_in_websites = true;
             }
-            if (is_in_companys == false) continue;
+            if (is_in_websites == false) continue;
 
 
             int row_no2 = -1;
             for (int j = 0; j < dt2.Rows.Count; j++)
             {
-                if (dt1.Rows[i]["company"].ToString() == dt2.Rows[j]["company"].ToString())
+                if (dt1.Rows[i]["website"].ToString() == dt2.Rows[j]["website"].ToString())
                 {
                     row_no2 = j;
                     break;
@@ -333,7 +333,7 @@ class Match500Analyse
             int row_no3 = -1;
             for (int j = 0; j < dt3.Rows.Count; j++)
             {
-                if (dt1.Rows[i]["company"].ToString() == dt3.Rows[j]["company"].ToString())
+                if (dt1.Rows[i]["website"].ToString() == dt3.Rows[j]["website"].ToString())
                 {
                     row_no3 = j;
                     break;
@@ -344,13 +344,13 @@ class Match500Analyse
             if (row_no2 != -1 && row_no3 != -1)
             {
 
-                double[,] single_profit = new double[3, 3]{
-                     {Convert.ToDouble(dt1.Rows[i]["profit_win"].ToString()),Convert.ToDouble(dt1.Rows[i]["profit_draw"].ToString()),Convert.ToDouble(dt1.Rows[i]["profit_lose"].ToString())},
-                     {Convert.ToDouble(dt2.Rows[row_no2]["profit_win"].ToString()),Convert.ToDouble(dt2.Rows[row_no2]["profit_draw"].ToString()),Convert.ToDouble(dt2.Rows[row_no2]["profit_lose"].ToString())},
-                     {Convert.ToDouble(dt3.Rows[row_no3]["profit_win"].ToString()),Convert.ToDouble(dt3.Rows[row_no3]["profit_draw"].ToString()),Convert.ToDouble(dt3.Rows[row_no3]["profit_lose"].ToString())}
+                double[,] single_odd = new double[3, 3]{
+                     {Convert.ToDouble(dt1.Rows[i]["odd_win"].ToString()),Convert.ToDouble(dt1.Rows[i]["odd_draw"].ToString()),Convert.ToDouble(dt1.Rows[i]["odd_lose"].ToString())},
+                     {Convert.ToDouble(dt2.Rows[row_no2]["odd_win"].ToString()),Convert.ToDouble(dt2.Rows[row_no2]["odd_draw"].ToString()),Convert.ToDouble(dt2.Rows[row_no2]["odd_lose"].ToString())},
+                     {Convert.ToDouble(dt3.Rows[row_no3]["odd_win"].ToString()),Convert.ToDouble(dt3.Rows[row_no3]["odd_draw"].ToString()),Convert.ToDouble(dt3.Rows[row_no3]["odd_lose"].ToString())}
                 };
 
-                double[] profits = new double[27];
+                double[] odds = new double[27];
 
                 int index = 0;
                 for (int j = 0; j < 3; j++)
@@ -359,7 +359,7 @@ class Match500Analyse
                     {
                         for (int l = 0; l < 3; l++)
                         {
-                            profits[index] = single_profit[0, j] * single_profit[1, k] * single_profit[2, l];
+                            odds[index] = single_odd[0, j] * single_odd[1, k] * single_odd[2, l];
                             index = index + 1;
                         }
                     }
@@ -367,10 +367,10 @@ class Match500Analyse
 
                 for (int j = 0; j < 27; j++)
                 {
-                    if (profits[j] > max[j])
+                    if (odds[j] > max[j])
                     {
-                        max[j] = profits[j];
-                        companys[j] = dt1.Rows[i]["company"].ToString();
+                        max[j] = odds[j];
+                        websites[j] = dt1.Rows[i]["website"].ToString();
                     }
                 }
             }
@@ -397,29 +397,29 @@ class Match500Analyse
         doc.Add("min_value", doc_max["min_value"].ToString());
         doc.Add("max_value", doc_max["max_value"].ToString());
 
-        BsonArray array_companys = new BsonArray();
-        foreach (string company in companys)
+        BsonArray array_websites = new BsonArray();
+        foreach (string website in websites)
         {
-            array_companys.Add(company);
+            array_websites.Add(website);
         }
-        doc.Add("companys", array_companys);
+        doc.Add("websites", array_websites);
 
-        BsonArray array_orign_profits = new BsonArray();
-        foreach (double profit in max)
+        BsonArray array_orign_odds = new BsonArray();
+        foreach (double odd in max)
         {
-            array_orign_profits.Add(profit.ToString("f2"));
+            array_orign_odds.Add(odd.ToString("f2"));
         }
-        doc.Add("orign_profits", array_orign_profits);
+        doc.Add("orign_odds", array_orign_odds);
 
 
-        BsonArray company_odds = new BsonArray();
-        foreach (string company in companys)
+        BsonArray website_odds = new BsonArray();
+        foreach (string website in websites)
         {
             bool is_has = false;
 
-            foreach (BsonDocument doc_item in company_odds)
+            foreach (BsonDocument doc_item in website_odds)
             {
-                if (doc_item["company"].ToString() == company)
+                if (doc_item["website"].ToString() == website)
                 {
                     is_has = true;
                 }
@@ -427,59 +427,59 @@ class Match500Analyse
             if (is_has == false)
             {
                 BsonDocument doc_item = new BsonDocument();
-                doc_item.Add("company", company);
-                string profit_win1 = "";
-                string profit_draw1 = "";
-                string profit_lose1 = "";
-                string profit_win2 = "";
-                string profit_draw2 = "";
-                string profit_lose2 = "";
-                string profit_win3 = "";
-                string profit_draw3 = "";
-                string profit_lose3 = "";
+                doc_item.Add("website", website);
+                string odd_win1 = "";
+                string odd_draw1 = "";
+                string odd_lose1 = "";
+                string odd_win2 = "";
+                string odd_draw2 = "";
+                string odd_lose2 = "";
+                string odd_win3 = "";
+                string odd_draw3 = "";
+                string odd_lose3 = "";
                 foreach (DataRow row in dt1.Rows)
                 {
-                    if (row["company"].ToString() == company)
+                    if (row["website"].ToString() == website)
                     {
-                        profit_win1 = row["profit_win"].ToString();
-                        profit_draw1 = row["profit_draw"].ToString();
-                        profit_lose1 = row["profit_lose"].ToString();
+                        odd_win1 = row["odd_win"].ToString();
+                        odd_draw1 = row["odd_draw"].ToString();
+                        odd_lose1 = row["odd_lose"].ToString();
                     }
                 }
                 foreach (DataRow row in dt2.Rows)
                 {
-                    if (row["company"].ToString() == company)
+                    if (row["website"].ToString() == website)
                     {
-                        profit_win2 = row["profit_win"].ToString();
-                        profit_draw2 = row["profit_draw"].ToString();
-                        profit_lose2 = row["profit_lose"].ToString();
+                        odd_win2 = row["odd_win"].ToString();
+                        odd_draw2 = row["odd_draw"].ToString();
+                        odd_lose2 = row["odd_lose"].ToString();
                     }
                 }
                 foreach (DataRow row in dt3.Rows)
                 {
-                    if (row["company"].ToString() == company)
+                    if (row["website"].ToString() == website)
                     {
-                        profit_win3 = row["profit_win"].ToString();
-                        profit_draw3 = row["profit_draw"].ToString();
-                        profit_lose3 = row["profit_lose"].ToString();
+                        odd_win3 = row["odd_win"].ToString();
+                        odd_draw3 = row["odd_draw"].ToString();
+                        odd_lose3 = row["odd_lose"].ToString();
                     }
                 }
-                doc_item.Add("profit_win1", profit_win1);
-                doc_item.Add("profit_draw1", profit_draw1);
-                doc_item.Add("profit_lose1", profit_lose1);
-                doc_item.Add("profit_win2", profit_win2);
-                doc_item.Add("profit_draw2", profit_draw2);
-                doc_item.Add("profit_lose2", profit_lose2);
-                doc_item.Add("profit_win3", profit_win3);
-                doc_item.Add("profit_draw3", profit_draw3);
-                doc_item.Add("profit_lose3", profit_lose3);
-                company_odds.Add(doc_item.AsBsonDocument);
+                doc_item.Add("odd_win1", odd_win1);
+                doc_item.Add("odd_draw1", odd_draw1);
+                doc_item.Add("odd_lose1", odd_lose1);
+                doc_item.Add("odd_win2", odd_win2);
+                doc_item.Add("odd_draw2", odd_draw2);
+                doc_item.Add("odd_lose2", odd_lose2);
+                doc_item.Add("odd_win3", odd_win3);
+                doc_item.Add("odd_draw3", odd_draw3);
+                doc_item.Add("odd_lose3", odd_lose3);
+                website_odds.Add(doc_item.AsBsonDocument);
             }
         }
-        doc.Add("company_odds", company_odds); 
+        doc.Add("website_odds", website_odds); 
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
-        doc.Add("profits", doc_max["profits"].AsBsonArray);
+        doc.Add("odds", doc_max["odds"].AsBsonArray);
 
         return doc;
     }
@@ -491,8 +491,8 @@ class Match500Analyse
 
         int[] bids = new int[length];
         int[] order_nos = new int[length];
-        double[] profits = new double[length];
-        double[] profits_temp = new double[length];
+        double[] odds = new double[length];
+        double[] odds_temp = new double[length];
 
 
 
@@ -500,8 +500,8 @@ class Match500Analyse
         {
             bids[i] = 1;
             order_nos[i] = 0;
-            profits[i] = input[i];
-            profits_temp[i] = input[i];
+            odds[i] = input[i];
+            odds_temp[i] = input[i];
         }
 
 
@@ -512,14 +512,14 @@ class Match500Analyse
             double step_max = -999999999;
             for (int step2 = 0; step2 < length; step2++)
             {
-                if (profits_temp[step2] > step_max)
+                if (odds_temp[step2] > step_max)
                 {
-                    step_max = profits_temp[step2];
+                    step_max = odds_temp[step2];
                     step_index = step2;
                 }
             }
-            profits_temp[step_index] = 0;
-            profits[step1] = step_max;
+            odds_temp[step_index] = 0;
+            odds[step1] = step_max;
             order_nos[step1] = step_index;
         }
 
@@ -527,7 +527,7 @@ class Match500Analyse
         bids[0] = max_count;
         for (int i = 1; i < length; i++)
         {
-            bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+            bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
         }
 
 
@@ -543,8 +543,8 @@ class Match500Analyse
         double max = -999999999;
         for (int i = 0; i < length; i++)
         {
-            if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-            if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+            if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+            if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
         }
 
 
@@ -555,10 +555,10 @@ class Match500Analyse
         doc.Add("min_value", min.ToString("f4"));
         doc.Add("max_value", max.ToString("f4"));
 
-        BsonArray array_profits = new BsonArray();
-        foreach (double profit in profits)
+        BsonArray array_odds = new BsonArray();
+        foreach (double odd in odds)
         {
-            array_profits.Add(profit.ToString("f2"));
+            array_odds.Add(odd.ToString("f2"));
         }
 
         BsonArray array_bids = new BsonArray();
@@ -575,7 +575,7 @@ class Match500Analyse
 
         doc.Add("order_nos", array_order_nos);
         doc.Add("bids", array_bids);
-        doc.Add("profits", array_profits);
+        doc.Add("odds", array_odds);
 
         if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
@@ -589,8 +589,8 @@ class Match500Analyse
 
         int[] bids = new int[length];
         int[] order_nos = new int[length];
-        double[] profits = new double[length];
-        double[] profits_temp = new double[length];
+        double[] odds = new double[length];
+        double[] odds_temp = new double[length];
 
 
 
@@ -598,8 +598,8 @@ class Match500Analyse
         {
             bids[i] = 1;
             order_nos[i] = 0;
-            profits[i] = input[i];
-            profits_temp[i] = input[i];
+            odds[i] = input[i];
+            odds_temp[i] = input[i];
         }
 
 
@@ -610,14 +610,14 @@ class Match500Analyse
             double step_max = -999999999;
             for (int step2 = 0; step2 < length; step2++)
             {
-                if (profits_temp[step2] > step_max)
+                if (odds_temp[step2] > step_max)
                 {
-                    step_max = profits_temp[step2];
+                    step_max = odds_temp[step2];
                     step_index = step2;
                 }
             }
-            profits_temp[step_index] = 0;
-            profits[step1] = step_max;
+            odds_temp[step_index] = 0;
+            odds[step1] = step_max;
             order_nos[step1] = step_index;
         }
 
@@ -625,7 +625,7 @@ class Match500Analyse
         bids[0] = max_count;
         for (int i = 1; i < length; i++)
         {
-            bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+            bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
         }
 
 
@@ -633,7 +633,7 @@ class Match500Analyse
         double global_min = 0;
         double global_max = 0;
         int[] global_bids = new int[bids.Length];
-        get_min_by_wave_child(ref global_bids, ref global_min, ref global_max, bids, profits);
+        get_min_by_wave_child(ref global_bids, ref global_min, ref global_max, bids, odds);
 
 
         //total
@@ -650,10 +650,10 @@ class Match500Analyse
         doc.Add("min_value", global_min.ToString("f4"));
         doc.Add("max_value", global_max.ToString("f4"));
 
-        BsonArray array_profits = new BsonArray();
-        foreach (double profit in profits)
+        BsonArray array_odds = new BsonArray();
+        foreach (double odd in odds)
         {
-            array_profits.Add(profit.ToString("f2"));
+            array_odds.Add(odd.ToString("f2"));
         }
 
         BsonArray array_bids = new BsonArray();
@@ -670,14 +670,14 @@ class Match500Analyse
 
         doc.Add("order_nos", array_order_nos);
         doc.Add("bids", array_bids);
-        doc.Add("profits", array_profits);
+        doc.Add("odds", array_odds);
 
         if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
         return doc;
 
     }
-    public static void get_min_by_wave_child(ref int[] global_bids, ref double global_min, ref double global_max, int[] bids, double[] profits)
+    public static void get_min_by_wave_child(ref int[] global_bids, ref double global_min, ref double global_max, int[] bids, double[] odds)
     {
         int[] num = new int[] { -1, 0, 1 };
         global_min = -999999;
@@ -705,8 +705,8 @@ class Match500Analyse
                     double max = -999999999;
                     for (int i = 0; i < bids.Length; i++)
                     {
-                        if (bids_temp[i] * profits[i] - bid_total < min) min = bids_temp[i] * profits[i] - bid_total;
-                        if (bids_temp[i] * profits[i] - bid_total > max) max = bids_temp[i] * profits[i] - bid_total;
+                        if (bids_temp[i] * odds[i] - bid_total < min) min = bids_temp[i] * odds[i] - bid_total;
+                        if (bids_temp[i] * odds[i] - bid_total > max) max = bids_temp[i] * odds[i] - bid_total;
                     }
 
                     if (min > global_min)
@@ -763,8 +763,8 @@ class Match500Analyse
                                             double max = -999999999;
                                             for (int i = 0; i < bids.Length; i++)
                                             {
-                                                if (bids_temp[i] * profits[i] - bid_total < min) min = bids_temp[i] * profits[i] - bid_total;
-                                                if (bids_temp[i] * profits[i] - bid_total > max) max = bids_temp[i] * profits[i] - bid_total;
+                                                if (bids_temp[i] * odds[i] - bid_total < min) min = bids_temp[i] * odds[i] - bid_total;
+                                                if (bids_temp[i] * odds[i] - bid_total > max) max = bids_temp[i] * odds[i] - bid_total;
                                             }
 
                                             if (min > global_min)
@@ -802,8 +802,8 @@ class Match500Analyse
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "profits".PR(10);
-                foreach (string value in doc["profits"].AsBsonArray)
+                result = result + "odds".PR(10);
+                foreach (string value in doc["odds"].AsBsonArray)
                 {
                     result = result + value.PR(15);
                 }
@@ -826,8 +826,8 @@ class Match500Analyse
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "companys".PR(10);
-                foreach (string value in doc["companys"].AsBsonArray)
+                result = result + "websites".PR(10);
+                foreach (string value in doc["websites"].AsBsonArray)
                 {
                     result = result + value.PR(15);
                 }
@@ -835,7 +835,7 @@ class Match500Analyse
 
 
                 result = result + "orign".PR(10);
-                foreach (string value in doc["orign_profits"].AsBsonArray)
+                foreach (string value in doc["orign_odds"].AsBsonArray)
                 {
                     result = result + value.PR(15);
                 }
@@ -848,8 +848,8 @@ class Match500Analyse
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "profits".PR(10);
-                foreach (string value in doc["profits"].AsBsonArray)
+                result = result + "odds".PR(10);
+                foreach (string value in doc["odds"].AsBsonArray)
                 {
                     result = result + value.PR(15);
                 }
@@ -863,38 +863,38 @@ class Match500Analyse
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "company detail info:" + Environment.NewLine;
-                foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
+                result = result + "website detail info:" + Environment.NewLine;
+                foreach (BsonDocument doc_item in doc["website_odds"].AsBsonArray)
                 {
-                    result = result + doc_item["company"].PR(20);
-                    result = result + doc_item["profit_win"].PR(10);
-                    result = result + doc_item["profit_draw"].PR(10);
-                    result = result + doc_item["profit_lose"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["website"].PR(20);
+                    result = result + doc_item["odd_win"].PR(10);
+                    result = result + doc_item["odd_draw"].PR(10);
+                    result = result + doc_item["odd_lose"].PR(10) + Environment.NewLine;
                 }
 
 
-                result = result + "profit detail info:" + Environment.NewLine;
+                result = result + "odd detail info:" + Environment.NewLine;
                 for (int i = 0; i < doc["order_nos"].AsBsonArray.Count; i++)
                 {
                     string order_no = doc["order_nos"].AsBsonArray[i].ToString();
-                    string company = doc["companys"].AsBsonArray[Convert.ToInt32(order_no)].ToString();
-                    string profit = doc["profits"].AsBsonArray[i].ToString();
+                    string website = doc["websites"].AsBsonArray[Convert.ToInt32(order_no)].ToString();
+                    string odd = doc["odds"].AsBsonArray[i].ToString();
                     string bid = doc["bids"].AsBsonArray[i].ToString();
-                    result = result + company.PR(20) + profit.PR(10)+bid.PR(10);
-                    foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
+                    result = result + website.PR(20) + odd.PR(10)+bid.PR(10);
+                    foreach (BsonDocument doc_item in doc["website_odds"].AsBsonArray)
                     {
-                        if (doc_item["company"].ToString() == company)
+                        if (doc_item["website"].ToString() == website)
                         {
                             switch (order_no)
                             {
                                 case "0":
-                                    result = result + "Win".PR(10) + doc_item["profit_win"].PR(10);
+                                    result = result + "Win".PR(10) + doc_item["odd_win"].PR(10);
                                     break;
                                 case "1":
-                                    result = result + "Draw".PR(10) + doc_item["profit_draw"].PR(10);
+                                    result = result + "Draw".PR(10) + doc_item["odd_draw"].PR(10);
                                     break;
                                 case "2":
-                                    result = result + "Lose".PR(10) + doc_item["profit_lose"].PR(10);
+                                    result = result + "Lose".PR(10) + doc_item["odd_lose"].PR(10);
                                     break; 
                                 default:
                                     break;
@@ -912,8 +912,8 @@ class Match500Analyse
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "companys".PR(10);
-                foreach (string value in doc["companys"].AsBsonArray)
+                result = result + "websites".PR(10);
+                foreach (string value in doc["websites"].AsBsonArray)
                 {
                     result = result + value.PR(12);
                 }
@@ -921,7 +921,7 @@ class Match500Analyse
 
 
                 result = result + "orign".PR(10);
-                foreach (string value in doc["orign_profits"].AsBsonArray)
+                foreach (string value in doc["orign_odds"].AsBsonArray)
                 {
                     result = result + value.PR(12);
                 }
@@ -934,8 +934,8 @@ class Match500Analyse
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "profits".PR(10);
-                foreach (string value in doc["profits"].AsBsonArray)
+                result = result + "odds".PR(10);
+                foreach (string value in doc["odds"].AsBsonArray)
                 {
                     result = result + value.PR(12);
                 }
@@ -949,59 +949,59 @@ class Match500Analyse
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "company detail info:" + Environment.NewLine;
-                foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
+                result = result + "website detail info:" + Environment.NewLine;
+                foreach (BsonDocument doc_item in doc["website_odds"].AsBsonArray)
                 {
-                    result = result + doc_item["company"].PR(20);
-                    result = result + doc_item["profit_win1"].PR(10);
-                    result = result + doc_item["profit_draw1"].PR(10);
-                    result = result + doc_item["profit_lose1"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["website"].PR(20);
+                    result = result + doc_item["odd_win1"].PR(10);
+                    result = result + doc_item["odd_draw1"].PR(10);
+                    result = result + doc_item["odd_lose1"].PR(10) + Environment.NewLine;
                     result = result + "".PR(20);
-                    result = result + doc_item["profit_win2"].PR(10);
-                    result = result + doc_item["profit_draw2"].PR(10);
-                    result = result + doc_item["profit_lose2"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["odd_win2"].PR(10);
+                    result = result + doc_item["odd_draw2"].PR(10);
+                    result = result + doc_item["odd_lose2"].PR(10) + Environment.NewLine;
                 }
 
-                result = result + "profit detail info:" + Environment.NewLine;
+                result = result + "odd detail info:" + Environment.NewLine;
                 for (int i = 0; i < doc["order_nos"].AsBsonArray.Count; i++)
                 {
                     string order_no = doc["order_nos"].AsBsonArray[i].ToString();
-                    string company = doc["companys"].AsBsonArray[Convert.ToInt32(order_no)].ToString();
-                    string profit = doc["profits"].AsBsonArray[i].ToString();
+                    string website = doc["websites"].AsBsonArray[Convert.ToInt32(order_no)].ToString();
+                    string odd = doc["odds"].AsBsonArray[i].ToString();
                     string bid = doc["bids"].AsBsonArray[i].ToString();
-                    result = result + company.PR(20) + profit.PR(10) + bid.PR(10);
-                    foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
+                    result = result + website.PR(20) + odd.PR(10) + bid.PR(10);
+                    foreach (BsonDocument doc_item in doc["website_odds"].AsBsonArray)
                     {
-                        if (doc_item["company"].ToString() == company)
+                        if (doc_item["website"].ToString() == website)
                         {
                             switch (order_no)
                             {
                                 case "0":
-                                    result = result + "W X W".PR(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_win2"].PR(10);
+                                    result = result + "W X W".PR(10) + doc_item["odd_win1"].ToString() + " X " + doc_item["odd_win2"].PR(10);
                                     break;
                                 case "1":
-                                    result = result + "W X D".PR(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_draw2"].PR(10);
+                                    result = result + "W X D".PR(10) + doc_item["odd_win1"].ToString() + " X " + doc_item["odd_draw2"].PR(10);
                                     break;
                                 case "2":
-                                    result = result + "W X L".PR(10) + doc_item["profit_win1"].ToString() + " X " + doc_item["profit_lose2"].PR(10);
+                                    result = result + "W X L".PR(10) + doc_item["odd_win1"].ToString() + " X " + doc_item["odd_lose2"].PR(10);
                                     break;
                                 case "3":
-                                    result = result + "D X W".PR(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_win2"].PR(10);
+                                    result = result + "D X W".PR(10) + doc_item["odd_draw1"].ToString() + " X " + doc_item["odd_win2"].PR(10);
                                     break;
                                 case "4":
-                                    result = result + "D X D".PR(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_draw2"].PR(10);
+                                    result = result + "D X D".PR(10) + doc_item["odd_draw1"].ToString() + " X " + doc_item["odd_draw2"].PR(10);
                                     break;
                                 case "5":
-                                    result = result + "D X L".PR(10) + doc_item["profit_draw1"].ToString() + " X " + doc_item["profit_lose2"].PR(10);
+                                    result = result + "D X L".PR(10) + doc_item["odd_draw1"].ToString() + " X " + doc_item["odd_lose2"].PR(10);
                                     break;
                                 case "6":
-                                    result = result + "L X W".PR(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_win2"].PR(10);
+                                    result = result + "L X W".PR(10) + doc_item["odd_lose1"].ToString() + " X " + doc_item["odd_win2"].PR(10);
                                     break;
                                 case "7":
-                                    result = result + "L X D".PR(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_draw2"].PR(10);
+                                    result = result + "L X D".PR(10) + doc_item["odd_lose1"].ToString() + " X " + doc_item["odd_draw2"].PR(10);
                                     break;
                                 case "8":
-                                    result = result + "L X L".PR(10) + doc_item["profit_lose1"].ToString() + " X " + doc_item["profit_lose2"].PR(10);
+                                    result = result + "L X L".PR(10) + doc_item["odd_lose1"].ToString() + " X " + doc_item["odd_lose2"].PR(10);
                                     break;
                                 default:
                                     break;
@@ -1020,8 +1020,8 @@ class Match500Analyse
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +
                  "return persent: " + (Convert.ToDouble(doc["min_value"].ToString()) / Convert.ToDouble(doc["bid_count"].ToString()) * 100).ToString("f6") + "%" + Environment.NewLine;
 
-                result = result + "companys".PR(10);
-                foreach (string value in doc["companys"].AsBsonArray)
+                result = result + "websites".PR(10);
+                foreach (string value in doc["websites"].AsBsonArray)
                 {
                     result = result + value.PR(12);
                 }
@@ -1029,7 +1029,7 @@ class Match500Analyse
 
 
                 result = result + "orign".PR(10);
-                foreach (string value in doc["orign_profits"].AsBsonArray)
+                foreach (string value in doc["orign_odds"].AsBsonArray)
                 {
                     result = result + value.PR(12);
                 }
@@ -1042,8 +1042,8 @@ class Match500Analyse
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "profits".PR(10);
-                foreach (string value in doc["profits"].AsBsonArray)
+                result = result + "odds".PR(10);
+                foreach (string value in doc["odds"].AsBsonArray)
                 {
                     result = result + value.PR(12);
                 }
@@ -1057,21 +1057,21 @@ class Match500Analyse
                 }
                 result = result + Environment.NewLine;
 
-                result = result + "company detail info:" + Environment.NewLine;
-                foreach (BsonDocument doc_item in doc["company_odds"].AsBsonArray)
+                result = result + "website detail info:" + Environment.NewLine;
+                foreach (BsonDocument doc_item in doc["website_odds"].AsBsonArray)
                 {
-                    result = result + doc_item["company"].PR(20);
-                    result = result + doc_item["profit_win1"].PR(10);
-                    result = result + doc_item["profit_draw1"].PR(10);
-                    result = result + doc_item["profit_lose1"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["website"].PR(20);
+                    result = result + doc_item["odd_win1"].PR(10);
+                    result = result + doc_item["odd_draw1"].PR(10);
+                    result = result + doc_item["odd_lose1"].PR(10) + Environment.NewLine;
                     result = result + "".PR(20);
-                    result = result + doc_item["profit_win2"].PR(10);
-                    result = result + doc_item["profit_draw2"].PR(10);
-                    result = result + doc_item["profit_lose2"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["odd_win2"].PR(10);
+                    result = result + doc_item["odd_draw2"].PR(10);
+                    result = result + doc_item["odd_lose2"].PR(10) + Environment.NewLine;
                     result = result + "".PR(20);
-                    result = result + doc_item["profit_win3"].PR(10);
-                    result = result + doc_item["profit_draw3"].PR(10);
-                    result = result + doc_item["profit_lose3"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["odd_win3"].PR(10);
+                    result = result + doc_item["odd_draw3"].PR(10);
+                    result = result + doc_item["odd_lose3"].PR(10) + Environment.NewLine;
                 }
 
                 break;

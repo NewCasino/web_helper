@@ -28,6 +28,7 @@ namespace web_helper
         { 
             update_standard_data();
             analyse();
+            MessageBox.Show("Analyse OK!");
         }
 
       
@@ -39,13 +40,13 @@ namespace web_helper
             foreach (DataRow row in dt.Rows)
             {
                 string id = row["id"].ToString();
-                string company = row["company"].ToString();
+                string website = row["website"].ToString();
                 string start_time = row["start_time"].ToString();
                 string host = row["host"].ToString();
                 string client = row["client"].ToString();
-                string win = row["profit_win"].ToString();
-                string draw = row["profit_draw"].ToString();
-                string lose = row["profit_lose"].ToString();
+                string win = row["odd_win"].ToString();
+                string draw = row["odd_draw"].ToString();
+                string lose = row["odd_lose"].ToString();
                 string time_zone = row["time_zone"].ToString();
                 string time_add = row["time_add"].ToString();
 
@@ -58,7 +59,7 @@ namespace web_helper
                 convert_client = Match100Helper.convert_team_name(client);
                 DateTime time = Match100Helper.convert_start_time(start_time);
 
-                if (company == "pinnaclesports" && time.Minute % 5 != 0)   time = time.AddMinutes(Convert.ToInt16(time_add));
+                if (website == "pinnaclesports" && time.Minute % 5 != 0)   time = time.AddMinutes(Convert.ToInt16(time_add));
                
                 time = Tool.get_time_by_kind(time, Convert.ToInt16(time_zone));
                 convert_time = time.ToString("yyyy-MM-dd HH:mm:ss");
@@ -151,7 +152,7 @@ namespace web_helper
             dt_result.Columns.Add("win");
             dt_result.Columns.Add("draw");
             dt_result.Columns.Add("lose");
-            dt_result.Columns.Add("target_id");
+            dt_result.Columns.Add("f_target_id");
 
 
 
@@ -166,9 +167,9 @@ namespace web_helper
                 string client = row["client"].ToString();
                 string f_host = row["f_host"].ToString();
                 string f_client = row["f_client"].ToString();
-                string win = row["profit_win"].ToString();
-                string draw = row["profit_draw"].ToString();
-                string lose = row["profit_lose"].ToString();
+                string win = row["odd_win"].ToString();
+                string draw = row["odd_draw"].ToString();
+                string lose = row["odd_lose"].ToString();
                 string time_zone = row["time_zone"].ToString();
                 string time_add = row["time_add"].ToString();
                 string f_state = row["f_state"].ToString();
@@ -185,7 +186,7 @@ namespace web_helper
                 row_new["win"] = win;
                 row_new["draw"] = draw;
                 row_new["lose"] = lose;
-                row_new["target_id"] = "";
+                row_new["f_target_id"] = "";
                 dt_result.Rows.Add(row_new);
 
              
@@ -205,13 +206,13 @@ namespace web_helper
                     row_new_temp["f_start_time"] = row_temp["f_start_time"].ToString();
                     row_new_temp["f_host"] = row_temp["f_host"].ToString();
                     row_new_temp["f_client"] = row_temp["f_client"].ToString();
-                    row_new_temp["win"] = row_temp["profit_win"].ToString();
-                    row_new_temp["draw"] = row_temp["profit_draw"].ToString();
-                    row_new_temp["lose"] = row_temp["profit_lose"].ToString();
-                    row_new_temp["target_id"] = "";
+                    row_new_temp["win"] = row_temp["odd_win"].ToString();
+                    row_new_temp["draw"] = row_temp["odd_draw"].ToString();
+                    row_new_temp["lose"] = row_temp["odd_lose"].ToString();
+                    row_new_temp["f_target_id"] = "";
                     dt_result.Rows.Add(row_new_temp);
 
-                    sb.AppendLine("".PR(5) + row_temp["start_time"].PR(20) + row_temp["host"].PR(30) + row_temp["client"].PR(30) + row_temp["f_start_time"].PR(20) + row_temp["f_host"].PR(30) + row_temp["f_client"].PR(30) + row_temp["profit_win"].PR(10) + row_temp["profit_draw"].PR(10) + row_temp["profit_lose"].PR(10));
+                    sb.AppendLine("".PR(5) + row_temp["start_time"].PR(20) + row_temp["host"].PR(30) + row_temp["client"].PR(30) + row_temp["f_start_time"].PR(20) + row_temp["f_host"].PR(30) + row_temp["f_client"].PR(30) + row_temp["odd_win"].PR(10) + row_temp["odd_draw"].PR(10) + row_temp["odd_lose"].PR(10));
                   
                 }
                 sb.AppendLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -229,7 +230,7 @@ namespace web_helper
             dt_result.Columns.Add("start_time"); 
             dt_result.Columns.Add("host");
             dt_result.Columns.Add("client");
-            dt_result.Columns.Add("f_leage");
+            dt_result.Columns.Add("f_league");
             dt_result.Columns.Add("f_start_time");
             dt_result.Columns.Add("f_host");
             dt_result.Columns.Add("f_client");
@@ -237,27 +238,27 @@ namespace web_helper
             dt_result.Columns.Add("win");
             dt_result.Columns.Add("draw");
             dt_result.Columns.Add("lose");
-            dt_result.Columns.Add("target_id");
+            dt_result.Columns.Add("f_target_id");
 
 
 
-            string sql = " select * from europe_100_log where f_state<>'0' order by f_type,start_time ";
+            string sql = " select * from europe_100_log where f_state<>'0' order by f_league,start_time ";
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
             {
 
                 string id = row["id"].ToString();
-                string leage = row["type"].ToString();
+                string leage = row["league"].ToString();
                 string start_time = row["start_time"].ToString();
                 string host = row["host"].ToString();
                 string client = row["clinet"].ToString();
-                string f_leage = row["f_type"].ToString();
+                string f_league = row["f_league"].ToString();
                 string f_start_time = row["f_start_time"].ToString();
                 string f_host = row["f_host"].ToString();
                 string f_client = row["f_client"].ToString();
-                string  win = row["profit_win"].ToString();
-                string draw = row["profit_draw"].ToString();
-                string lose = row["profit_lose"].ToString();
+                string  win = row["odd_win"].ToString();
+                string draw = row["odd_draw"].ToString();
+                string lose = row["odd_lose"].ToString();
                 string odd_type = get_odd_order(win, draw, lose);
 
 
@@ -267,7 +268,7 @@ namespace web_helper
                 row_new["start_time"] = start_time;
                 row_new["host"] = host;
                 row_new["client"] = client;
-                row_new["f_leage"] = f_leage;
+                row_new["f_league"] = f_league;
                 row_new["f_start_time"] = f_start_time;
                 row_new["f_host"] = f_host;
                 row_new["f_client"] = f_client;
@@ -290,14 +291,14 @@ namespace web_helper
             {
                 if (dgv_result.Rows[i].Cells["type"].Value == null) continue;
                 //if (dgv_result.Rows[i].Cells["type"].Value.ToString() != "M") continue;
-                if (dgv_result.Rows[i].Cells["target_id"].Value == null) continue;
+                if (dgv_result.Rows[i].Cells["f_target_id"].Value == null) continue;
 
                 string id = dgv_result.Rows[i].Cells["id"].Value.ToString();
-                string target_id = dgv_result.Rows[i].Cells["target_id"].Value.ToString();
+                string f_target_id = dgv_result.Rows[i].Cells["f_target_id"].Value.ToString();
 
                 for (int j = 0; j < dgv_result.Rows.Count - 1; j++)
                 {
-                    if (dgv_result.Rows[i].Cells["id"].ToString() == target_id)
+                    if (dgv_result.Rows[i].Cells["id"].ToString() == f_target_id)
                     {
                         string host = dgv_result.Rows[j].Cells["host"].ToString();
                         string client = dgv_result.Rows[j].Cells["client"].ToString();
@@ -308,7 +309,7 @@ namespace web_helper
                         sql = string.Format(sql, f_host, f_client, id);
                         SQLServerHelper.exe_sql(sql);
                         sql = " update europe_100_log set f_host='{0}',f_client='{1},f_state='3'  where id='{2}' ";
-                        sql = string.Format(sql, f_host, f_client, target_id);
+                        sql = string.Format(sql, f_host, f_client, f_target_id);
                         SQLServerHelper.exe_sql(sql);
 
                         Match100Helper.insert_name(f_host, host);
@@ -343,14 +344,14 @@ namespace web_helper
             {
                 if (dgv_result.Rows[i].Cells["type"].Value == null) continue;
                 if (dgv_result.Rows[i].Cells["type"].Value.ToString() != "M") continue;
-                if (dgv_result.Rows[i].Cells["target_id"].Value == null) continue;
+                if (dgv_result.Rows[i].Cells["f_target_id"].Value == null) continue;
 
                 string id = dgv_result.Rows[i].Cells["id"].Value.ToString();
-                string target_id = dgv_result.Rows[i].Cells["target_id"].Value.ToString();
+                string f_target_id = dgv_result.Rows[i].Cells["f_target_id"].Value.ToString();
 
                 for (int j = 0; j < dgv_result.Rows.Count - 1; j++)
                 {
-                    if (dgv_result.Rows[i].Cells["id"].ToString() == target_id)
+                    if (dgv_result.Rows[i].Cells["id"].ToString() == f_target_id)
                     {
                         string host = dgv_result.Rows[j].Cells["host"].ToString();
                         string client = dgv_result.Rows[j].Cells["client"].ToString();
@@ -361,7 +362,7 @@ namespace web_helper
                         sql = string.Format(sql, f_host, f_client, id);
                         SQLServerHelper.exe_sql(sql);
                         sql = " update europe_100_log set f_host='{0}',f_client='{1},f_state='3'  where id='{2}' ";
-                        sql = string.Format(sql, f_host, f_client, target_id);
+                        sql = string.Format(sql, f_host, f_client, f_target_id);
                         SQLServerHelper.exe_sql(sql);
 
                         Match100Helper.insert_name(f_host, dgv_result.Rows[i].Cells["host"].ToString());
@@ -378,24 +379,24 @@ namespace web_helper
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
             {
-                string company = row["company"].ToString();
+                string website = row["website"].ToString();
                 string time_span = row["timespan"].ToString();
                 string start_time = row["f_start_time"].ToString();
-                string type = row["type"].ToString();
+                string league = row["league"].ToString();
                 string host = row["f_host"].ToString();
                 string client = row["f_client"].ToString();
-                string profit_win = row["profit_win"].ToString().Trim();
-                string profit_draw = row["profit_draw"].ToString().Trim();
-                string profit_lose = row["profit_lose"].ToString().Trim();
+                string odd_win = row["odd_win"].ToString().Trim();
+                string odd_draw = row["odd_draw"].ToString().Trim();
+                string odd_lose = row["odd_lose"].ToString().Trim();
 
-                sql = "select * from europe_100 where company='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and profit_win='{4}' and profit_draw='{5}' and profit_lose='{6}'";
-                sql = string.Format(sql, company,start_time, host, client,profit_win,profit_lose,profit_lose);
+                sql = "select * from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and odd_win='{4}' and odd_draw='{5}' and odd_lose='{6}'";
+                sql = string.Format(sql, website,start_time, host, client,odd_win,odd_lose,odd_lose);
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
                 if (dt_temp.Rows.Count == 0)
                 {
-                    sql = " insert into europe_100  (timespan,company,type,start_time,host,client,profit_win,profit_draw,profit_lose) values" +
+                    sql = " insert into europe_100  (timespan,website,type,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
                           " ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')";
-                    sql = string.Format(sql, time_span, company, type, start_time, host, client, profit_win, profit_draw, profit_lose);
+                    sql = string.Format(sql, time_span, website, league, start_time, host, client, odd_win, odd_draw, odd_lose);
                     SQLServerHelper.exe_sql(sql);
                 }
             }

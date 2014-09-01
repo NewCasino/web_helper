@@ -198,9 +198,9 @@ namespace web_helper
 
                     for (int i = 1; i <= 50; i++)
                     {
-                        double[] profits = get_profits_from_select();
-                        if (profits.Length == 0) return;
-                        BsonDocument doc = MatchMix.get_1_min_from_1_free_with_circle(match, profits, i);
+                        double[] odds = get_odds_from_select();
+                        if (odds.Length == 0) return;
+                        BsonDocument doc = MatchMix.get_1_min_from_1_free_with_circle(match, odds, i);
 
                         sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(MatchMix.get_info_from_doc(doc));
@@ -749,7 +749,7 @@ namespace web_helper
             this.cb_total_more.Text = match["total_more"].ToString();
 
         }
-        public double[] get_profits_from_select()
+        public double[] get_odds_from_select()
         {
             ArrayList list = new ArrayList();
 
@@ -812,12 +812,12 @@ namespace web_helper
             if (this.cb_total_more.Checked) list.Add(this.cb_total_more.Text);
 
 
-            double[] profits = new double[list.Count];
-            for (int i = 0; i < profits.Length; i++)
+            double[] odds = new double[list.Count];
+            for (int i = 0; i < odds.Length; i++)
             {
-                profits[i] = Convert.ToDouble(list[i].ToString());
+                odds[i] = Convert.ToDouble(list[i].ToString());
             }
-            return profits;
+            return odds;
         } 
 
     }

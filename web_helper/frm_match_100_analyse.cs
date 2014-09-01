@@ -20,7 +20,7 @@ namespace web_helper
             InitializeComponent();
         }
 
-        private void frm_match_compute_by_company_Load(object sender, EventArgs e)
+        private void frm_match_compute_by_website_Load(object sender, EventArgs e)
         {  
         } 
         private void btn_load_Click(object sender, EventArgs e)
@@ -29,13 +29,13 @@ namespace web_helper
         } 
         private void btn_single_match_Click(object sender, EventArgs e)
         {
-            ArrayList list_companys = new ArrayList();
-            foreach (DataGridViewRow row in dgv_company.Rows)
+            ArrayList list_websites = new ArrayList();
+            foreach (DataGridViewRow row in dgv_website.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
                 {
-                    string company = row.Cells["company"].Value.ToString();
-                    list_companys.Add(company);
+                    string website = row.Cells["website"].Value.ToString();
+                    list_websites.Add(website);
                 }
             }
 
@@ -49,7 +49,7 @@ namespace web_helper
                     string host = row.Cells["host"].Value.ToString();
                     string client = row.Cells["client"].Value.ToString();
 
-                    BsonDocument doc = Match100Analyse.get_max_from_single_match(start_time, host, client, 50, list_companys);
+                    BsonDocument doc = Match100Analyse.get_max_from_single_match(start_time, host, client, 50, list_websites);
                     list.Add(doc);
 
 
@@ -65,8 +65,8 @@ namespace web_helper
 
             if (cb_persent_asc.Checked) get_single_by_persent_asc(list);
             if (cb_persent_desc.Checked) get_single_by_persent_desc(list);
-            if (cb_company_asc.Checked) get_single_by_company_asc(list);
-            if (cb_company_desc.Checked) get_single_by_company_desc(list);
+            if (cb_website_asc.Checked) get_single_by_website_asc(list);
+            if (cb_website_desc.Checked) get_single_by_website_desc(list);
             if (cb_start_time_asc.Checked) get_single_by_start_time_asc(list);
             if (cb_start_time_desc.Checked) get_single_by_start_time_desc(list);
 
@@ -75,13 +75,13 @@ namespace web_helper
         private void btn_two_match_Click(object sender, EventArgs e)
         {
 
-            ArrayList list_companys = new ArrayList();
-            foreach (DataGridViewRow row in dgv_company.Rows)
+            ArrayList list_websites = new ArrayList();
+            foreach (DataGridViewRow row in dgv_website.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
                 {
-                    string company = row.Cells["company"].Value.ToString();
-                    list_companys.Add(company);
+                    string website = row.Cells["website"].Value.ToString();
+                    list_websites.Add(website);
                 }
             }
 
@@ -114,7 +114,7 @@ namespace web_helper
                                                                               dt.Rows[j]["start_time"].ToString(),
                                                                               dt.Rows[j]["host"].ToString(),
                                                                               dt.Rows[j]["client"].ToString(),
-                                                                              50,list_companys);
+                                                                              50,list_websites);
                     list.Add(doc);
                     sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                     sb.Append(Match100Analyse.get_info_from_doc(doc));
@@ -128,21 +128,21 @@ namespace web_helper
 
             if (cb_two_persent_asc.Checked) get_two_by_persent_asc(list);
             if (cb_two_persent_desc.Checked) get_two_by_persent_desc(list);
-            if (cb_two_company_asc.Checked) get_two_by_company_asc(list);
-            if (cb_two_company_desc.Checked) get_two_by_company_desc(list);
+            if (cb_two_website_asc.Checked) get_two_by_website_asc(list);
+            if (cb_two_website_desc.Checked) get_two_by_website_desc(list);
             if (cb_two_start_time_asc.Checked) get_two_by_start_time_asc(list);
             if (cb_two_start_time_desc.Checked) get_two_by_start_time_desc(list);
         }
         private void btn_three_match_Click(object sender, EventArgs e)
         {
 
-            ArrayList list_companys = new ArrayList();
-            foreach (DataGridViewRow row in dgv_company.Rows)
+            ArrayList list_websites = new ArrayList();
+            foreach (DataGridViewRow row in dgv_website.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
                 {
-                    string company = row.Cells["company"].Value.ToString();
-                    list_companys.Add(company);
+                    string website = row.Cells["website"].Value.ToString();
+                    list_websites.Add(website);
                 }
             }
 
@@ -180,7 +180,7 @@ namespace web_helper
                                                                                   dt.Rows[k]["start_time"].ToString(),
                                                                                   dt.Rows[k]["host"].ToString(),
                                                                                   dt.Rows[k]["client"].ToString(),
-                                                                                  50,list_companys);
+                                                                                  50,list_websites);
                         list.Add(doc);
                         sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(Match100Analyse.get_info_from_doc(doc));
@@ -195,20 +195,20 @@ namespace web_helper
 
             if (cb_three_persent_asc.Checked) get_three_by_persent_asc(list);
             if (cb_three_persent_desc.Checked) get_three_by_persent_desc(list);
-            if (cb_three_company_asc.Checked) get_three_by_company_asc(list);
-            if (cb_three_company_desc.Checked) get_three_by_company_desc(list);
+            if (cb_three_website_asc.Checked) get_three_by_website_asc(list);
+            if (cb_three_website_desc.Checked) get_three_by_website_desc(list);
         }
 
         private void btn_single_range_Click(object sender, EventArgs e)
         {
 
-            ArrayList list_companys = new ArrayList();
-            foreach (DataGridViewRow row in dgv_company.Rows)
+            ArrayList list_websites = new ArrayList();
+            foreach (DataGridViewRow row in dgv_website.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
                 {
-                    string company = row.Cells["company"].Value.ToString();
-                    list_companys.Add(company);
+                    string website = row.Cells["website"].Value.ToString();
+                    list_websites.Add(website);
                 }
             }
 
@@ -225,7 +225,7 @@ namespace web_helper
                     BsonDocument doc = new BsonDocument();
                     for (int i = 1; i < 101; i++)
                     {
-                        doc = Match100Analyse.get_max_from_single_match(start_time, host, client, i, list_companys);
+                        doc = Match100Analyse.get_max_from_single_match(start_time, host, client, i, list_websites);
                         list.Add(doc);
 
                         sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -244,13 +244,13 @@ namespace web_helper
         private void btn_two_range_Click(object sender, EventArgs e)
         {
 
-            ArrayList list_companys = new ArrayList();
-            foreach (DataGridViewRow row in dgv_company.Rows)
+            ArrayList list_websites = new ArrayList();
+            foreach (DataGridViewRow row in dgv_website.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
                 {
-                    string company = row.Cells["company"].Value.ToString();
-                    list_companys.Add(company);
+                    string website = row.Cells["website"].Value.ToString();
+                    list_websites.Add(website);
                 }
             }
 
@@ -285,7 +285,7 @@ namespace web_helper
                                                                                   dt.Rows[j]["start_time"].ToString(),
                                                                                   dt.Rows[j]["host"].ToString(),
                                                                                   dt.Rows[j]["client"].ToString(),
-                                                                                  k,list_companys);
+                                                                                  k,list_websites);
                         list.Add(doc);
                         sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                         sb.Append(Match100Analyse.get_info_from_doc(doc));
@@ -303,13 +303,13 @@ namespace web_helper
         private void btn_three_range_Click(object sender, EventArgs e)
         {
 
-            ArrayList list_companys = new ArrayList();
-            foreach (DataGridViewRow row in dgv_company.Rows)
+            ArrayList list_websites = new ArrayList();
+            foreach (DataGridViewRow row in dgv_website.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["selected"].Value) == true)
                 {
-                    string company = row.Cells["company"].Value.ToString();
-                    list_companys.Add(company);
+                    string website = row.Cells["website"].Value.ToString();
+                    list_websites.Add(website);
                 }
             } 
             StringBuilder sb = new StringBuilder();
@@ -347,7 +347,7 @@ namespace web_helper
                                                                                       dt.Rows[k]["start_time"].ToString(),
                                                                                       dt.Rows[k]["host"].ToString(),
                                                                                       dt.Rows[k]["client"].ToString(),
-                                                                                      l,list_companys);
+                                                                                      l,list_websites);
                             list.Add(doc);
                             sb.Append("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
                             sb.Append(Match100Analyse.get_info_from_doc(doc));
@@ -390,24 +390,24 @@ namespace web_helper
                 }
             }
         }
-        private void btn_company_all_Click(object sender, EventArgs e)
+        private void btn_website_all_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgv_company.Rows.Count - 1; i++)
+            for (int i = 0; i < dgv_website.Rows.Count - 1; i++)
             {
-                dgv_company.Rows[i].Cells["selected"].Value = true;
+                dgv_website.Rows[i].Cells["selected"].Value = true;
             }
         }
-        private void btn_company_reverse_Click(object sender, EventArgs e)
+        private void btn_website_reverse_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgv_company.Rows.Count - 1; i++)
+            for (int i = 0; i < dgv_website.Rows.Count - 1; i++)
             {
-                if (Convert.ToBoolean(dgv_company.Rows[i].Cells["selected"].Value) == true)
+                if (Convert.ToBoolean(dgv_website.Rows[i].Cells["selected"].Value) == true)
                 {
-                    dgv_company.Rows[i].Cells["selected"].Value = false;
+                    dgv_website.Rows[i].Cells["selected"].Value = false;
                 }
                 else
                 {
-                    dgv_company.Rows[i].Cells["selected"].Value = true;
+                    dgv_website.Rows[i].Cells["selected"].Value = true;
                 }
             }
         }
@@ -418,19 +418,19 @@ namespace web_helper
             dgv_match.Columns[2].Width = 130;
             dgv_match.Columns[3].Width = 130;
         }
-        private void dgv_company_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void dgv_website_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            dgv_company.Columns[0].Width = 50;
-            dgv_company.Columns[1].Width = 200;
+            dgv_website.Columns[0].Width = 50;
+            dgv_website.Columns[1].Width = 200;
         } 
 
         public void bind_data()
         {
 
             string sql = "";
-            sql = " select host,client,company,profit_win,profit_draw,profit_lose " +
+            sql = " select host,client,website,odd_win,odd_draw,odd_lose " +
                  " from europe_100" +
-                 " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
+                 " where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client)" +
                  " order by start_time,host,client,id";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             dt_all = SQLServerHelper.get_table(sql);
@@ -448,7 +448,7 @@ namespace web_helper
             dt_match.Columns.Add("client");
             sql = "  select distinct start_time,host,client" +
                  "  from europe_100" +
-                 "  where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client)" +
+                 "  where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client)" +
                  "  order by start_time,host,client";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);
@@ -464,25 +464,25 @@ namespace web_helper
 
 
 
-            DataTable dt_company = new DataTable();
+            DataTable dt_website = new DataTable();
             DataColumn col1 = new DataColumn();
             col1.DataType = Type.GetType("System.Boolean");
             col1.ColumnName = "selected";
             col1.DefaultValue = false;
-            dt_company.Columns.Add(col1);
-            dt_company.Columns.Add("company");
-            sql = " select distinct  company" +
+            dt_website.Columns.Add(col1);
+            dt_website.Columns.Add("website");
+            sql = " select distinct  website" +
                   " from europe_100" +
-                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by company,start_time,host,client) ";
+                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client) ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            DataTable dt_temp_company = SQLServerHelper.get_table(sql);
-            foreach (DataRow row in dt_temp_company.Rows)
+            DataTable dt_temp_website = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt_temp_website.Rows)
             {
-                DataRow row_new = dt_company.NewRow();
-                row_new["company"] = row["company"].ToString();
-                dt_company.Rows.Add(row_new);
+                DataRow row_new = dt_website.NewRow();
+                row_new["website"] = row["website"].ToString();
+                dt_website.Rows.Add(row_new);
             }
-            this.dgv_company.DataSource = dt_company; 
+            this.dgv_website.DataSource = dt_website; 
 
         }
         public void get_single_by_persent_asc(List<BsonDocument> list)
@@ -557,10 +557,10 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
-        public void get_single_by_company_asc(List<BsonDocument> list)
+        public void get_single_by_website_asc(List<BsonDocument> list)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("BY COMPANY ASC:" + Environment.NewLine);
+            sb.Append("BY website ASC:" + Environment.NewLine);
 
             DataTable dt = new DataTable();
             DataColumn order = new DataColumn("order");
@@ -574,7 +574,7 @@ namespace web_helper
             {
                 DataRow row_new = dt.NewRow();
                 row_new["order"] = i;
-                BsonArray array = list[i]["companys"].AsBsonArray;
+                BsonArray array = list[i]["websites"].AsBsonArray;
                 ArrayList al = new ArrayList();
                 foreach (BsonValue value in array)
                 {
@@ -603,10 +603,10 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
-        public void get_single_by_company_desc(List<BsonDocument> list)
+        public void get_single_by_website_desc(List<BsonDocument> list)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("BY COMPANY DESC:" + Environment.NewLine);
+            sb.Append("BY website DESC:" + Environment.NewLine);
 
             DataTable dt = new DataTable();
             DataColumn order = new DataColumn("order");
@@ -620,7 +620,7 @@ namespace web_helper
             {
                 DataRow row_new = dt.NewRow();
                 row_new["order"] = i;
-                BsonArray array = list[i]["companys"].AsBsonArray;
+                BsonArray array = list[i]["websites"].AsBsonArray;
                 ArrayList al = new ArrayList();
                 foreach (BsonValue value in array)
                 {
@@ -790,10 +790,10 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
-        public void get_two_by_company_asc(List<BsonDocument> list)
+        public void get_two_by_website_asc(List<BsonDocument> list)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("BY COMPANY ASC:" + Environment.NewLine);
+            sb.Append("BY website ASC:" + Environment.NewLine);
             DataTable dt = new DataTable();
             DataColumn order = new DataColumn("order");
             order.DataType = Type.GetType("System.Int32");
@@ -806,7 +806,7 @@ namespace web_helper
             {
                 DataRow row_new = dt.NewRow();
                 row_new["order"] = i;
-                BsonArray array = list[i]["companys"].AsBsonArray;
+                BsonArray array = list[i]["websites"].AsBsonArray;
                 ArrayList al = new ArrayList();
                 foreach (BsonValue value in array)
                 {
@@ -835,10 +835,10 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
-        public void get_two_by_company_desc(List<BsonDocument> list)
+        public void get_two_by_website_desc(List<BsonDocument> list)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("BY COMPANY DESC:" + Environment.NewLine);
+            sb.Append("BY website DESC:" + Environment.NewLine);
 
             DataTable dt = new DataTable();
             DataColumn order = new DataColumn("order");
@@ -852,7 +852,7 @@ namespace web_helper
             {
                 DataRow row_new = dt.NewRow();
                 row_new["order"] = i;
-                BsonArray array = list[i]["companys"].AsBsonArray;
+                BsonArray array = list[i]["websites"].AsBsonArray;
                 ArrayList al = new ArrayList();
                 foreach (BsonValue value in array)
                 {
@@ -1024,10 +1024,10 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
-        public void get_three_by_company_asc(List<BsonDocument> list)
+        public void get_three_by_website_asc(List<BsonDocument> list)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("BY COMPANY ASC:" + Environment.NewLine);
+            sb.Append("BY website ASC:" + Environment.NewLine);
             DataTable dt = new DataTable();
             DataColumn order = new DataColumn("order");
             order.DataType = Type.GetType("System.Int32");
@@ -1040,7 +1040,7 @@ namespace web_helper
             {
                 DataRow row_new = dt.NewRow();
                 row_new["order"] = i;
-                BsonArray array = list[i]["companys"].AsBsonArray;
+                BsonArray array = list[i]["websites"].AsBsonArray;
                 ArrayList al = new ArrayList();
                 foreach (BsonValue value in array)
                 {
@@ -1069,10 +1069,10 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
-        public void get_three_by_company_desc(List<BsonDocument> list)
+        public void get_three_by_website_desc(List<BsonDocument> list)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("BY COMPANY DESC:" + Environment.NewLine);
+            sb.Append("BY website DESC:" + Environment.NewLine);
 
             DataTable dt = new DataTable();
             DataColumn order = new DataColumn("order");
@@ -1086,7 +1086,7 @@ namespace web_helper
             {
                 DataRow row_new = dt.NewRow();
                 row_new["order"] = i;
-                BsonArray array = list[i]["companys"].AsBsonArray;
+                BsonArray array = list[i]["websites"].AsBsonArray;
                 ArrayList al = new ArrayList();
                 foreach (BsonValue value in array)
                 {

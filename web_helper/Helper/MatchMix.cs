@@ -24,34 +24,34 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1 };
 
-            double[] profits = new double[] { wdl_w, wdl_d, wdl_l };
-            double[] profits_temp = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds_temp = new double[] { wdl_w, wdl_d, wdl_l };
             for (int step1 = 0; step1 < 3; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 3; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
 
 
             bids_temp[0] = bids[0];
@@ -71,9 +71,9 @@ namespace web_helper
 
                     int total = bid0 + bid1 + bid2;
                     double min_temp = 999999999;
-                    if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                    if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                    if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
+                    if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                    if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                    if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
 
 
                     if (min_temp / total > max_persent)
@@ -93,12 +93,12 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
 
 
             DateTime dt_end = DateTime.Now;
@@ -119,12 +119,12 @@ namespace web_helper
             doc.Add("b1", bids[0].ToString());
             doc.Add("b2", bids[1].ToString());
             doc.Add("b3", bids[2].ToString());
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -141,34 +141,34 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1 };
 
-            double[] profits = new double[] { wdl_w, wdl_d, wdl_l };
-            double[] profits_temp = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds_temp = new double[] { wdl_w, wdl_d, wdl_l };
             for (int step1 = 0; step1 < 3; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 3; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
 
 
             bids_temp[0] = bids[0];
@@ -188,9 +188,9 @@ namespace web_helper
 
                     int total = bid0 + bid1 + bid2;
                     double min_temp = 999999999;
-                    if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                    if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                    if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
+                    if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                    if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                    if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
 
 
                     if (min_temp / total > max_persent)
@@ -210,12 +210,12 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
 
 
             DateTime dt_end = DateTime.Now;
@@ -236,12 +236,12 @@ namespace web_helper
             doc.Add("b1", bids[0].ToString());
             doc.Add("b2", bids[1].ToString());
             doc.Add("b3", bids[2].ToString());
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -253,43 +253,43 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 
-            double[] profits = new double[] { Convert.ToDouble(match["half_w_w"].ToString()), Convert.ToDouble(match["half_w_d"].ToString()), Convert.ToDouble(match["half_w_l"].ToString()),
+            double[] odds = new double[] { Convert.ToDouble(match["half_w_w"].ToString()), Convert.ToDouble(match["half_w_d"].ToString()), Convert.ToDouble(match["half_w_l"].ToString()),
                                               Convert.ToDouble(match["half_d_w"].ToString()), Convert.ToDouble(match["half_d_d"].ToString()), Convert.ToDouble(match["half_d_l"].ToString()),
                                               Convert.ToDouble(match["half_l_w"].ToString()), Convert.ToDouble(match["half_l_d"].ToString()), Convert.ToDouble(match["half_l_l"].ToString()),
             };
-            double[] profits_temp = new double[] { profits[0], profits[1], profits[2], profits[3], profits[4], profits[5], profits[6], profits[7], profits[8] };
+            double[] odds_temp = new double[] { odds[0], odds[1], odds[2], odds[3], odds[4], odds[5], odds[6], odds[7], odds[8] };
             for (int step1 = 0; step1 < 9; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 9; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
-            bids[3] = (int)Math.Floor(profits[0] * bids[0] / profits[3]);
-            bids[4] = (int)Math.Floor(profits[0] * bids[0] / profits[4]);
-            bids[5] = (int)Math.Floor(profits[0] * bids[0] / profits[5]);
-            bids[6] = (int)Math.Floor(profits[0] * bids[0] / profits[6]);
-            bids[7] = (int)Math.Floor(profits[0] * bids[0] / profits[7]);
-            bids[8] = (int)Math.Floor(profits[0] * bids[0] / profits[8]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
+            bids[3] = (int)Math.Floor(odds[0] * bids[0] / odds[3]);
+            bids[4] = (int)Math.Floor(odds[0] * bids[0] / odds[4]);
+            bids[5] = (int)Math.Floor(odds[0] * bids[0] / odds[5]);
+            bids[6] = (int)Math.Floor(odds[0] * bids[0] / odds[6]);
+            bids[7] = (int)Math.Floor(odds[0] * bids[0] / odds[7]);
+            bids[8] = (int)Math.Floor(odds[0] * bids[0] / odds[8]);
 
 
 
@@ -331,15 +331,15 @@ namespace web_helper
                                             int bid8 = bids[8] + ajust8;
                                             int total = bid0 + bid1 + bid2 + bid3 + bid4 + bid5 + bid6 + bid7 + bid8;
                                             double min_temp = 999999999;
-                                            if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                                            if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                                            if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
-                                            if (bid3 * profits[3] - total < min_temp) min_temp = bid3 * profits[3] - total;
-                                            if (bid4 * profits[4] - total < min_temp) min_temp = bid4 * profits[4] - total;
-                                            if (bid5 * profits[5] - total < min_temp) min_temp = bid5 * profits[5] - total;
-                                            if (bid6 * profits[6] - total < min_temp) min_temp = bid6 * profits[6] - total;
-                                            if (bid7 * profits[7] - total < min_temp) min_temp = bid7 * profits[7] - total;
-                                            if (bid8 * profits[8] - total < min_temp) min_temp = bid8 * profits[8] - total;
+                                            if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                                            if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                                            if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
+                                            if (bid3 * odds[3] - total < min_temp) min_temp = bid3 * odds[3] - total;
+                                            if (bid4 * odds[4] - total < min_temp) min_temp = bid4 * odds[4] - total;
+                                            if (bid5 * odds[5] - total < min_temp) min_temp = bid5 * odds[5] - total;
+                                            if (bid6 * odds[6] - total < min_temp) min_temp = bid6 * odds[6] - total;
+                                            if (bid7 * odds[7] - total < min_temp) min_temp = bid7 * odds[7] - total;
+                                            if (bid8 * odds[8] - total < min_temp) min_temp = bid8 * odds[8] - total;
 
                                             if (min_temp / total > max_persent)
                                             {
@@ -378,24 +378,24 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2] + bids[3] + bids[4] + bids[5] + bids[6] + bids[7] + bids[8];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total < min) min = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total < min) min = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total < min) min = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total < min) min = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total < min) min = bids[7] * profits[7] - bid_total;
-            if (bids[8] * profits[8] - bid_total < min) min = bids[8] * profits[8] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total > max) max = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total > max) max = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total > max) max = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total > max) max = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total > max) max = bids[7] * profits[7] - bid_total;
-            if (bids[8] * profits[8] - bid_total > max) max = bids[8] * profits[8] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total < min) min = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total < min) min = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total < min) min = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total < min) min = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total < min) min = bids[7] * odds[7] - bid_total;
+            if (bids[8] * odds[8] - bid_total < min) min = bids[8] * odds[8] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total > max) max = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total > max) max = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total > max) max = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total > max) max = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total > max) max = bids[7] * odds[7] - bid_total;
+            if (bids[8] * odds[8] - bid_total > max) max = bids[8] * odds[8] - bid_total;
 
             DateTime dt_end = DateTime.Now;
 
@@ -426,25 +426,25 @@ namespace web_helper
             doc.Add("b6", bids[5].ToString());
             doc.Add("b7", bids[6].ToString());
             doc.Add("b8", bids[7].ToString());
-            doc.Add("b9", profits[8].ToString("f2"));
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("p4", profits[3].ToString("f2"));
-            doc.Add("p5", profits[4].ToString("f2"));
-            doc.Add("p6", profits[5].ToString("f2"));
-            doc.Add("p7", profits[6].ToString("f2"));
-            doc.Add("p8", profits[7].ToString("f2"));
-            doc.Add("p9", profits[8].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
-            doc.Add("r4", (bids[3] * profits[3] - bid_total).ToString("f2"));
-            doc.Add("r5", (bids[4] * profits[4] - bid_total).ToString("f2"));
-            doc.Add("r6", (bids[5] * profits[5] - bid_total).ToString("f2"));
-            doc.Add("r7", (bids[6] * profits[6] - bid_total).ToString("f2"));
-            doc.Add("r8", (bids[7] * profits[7] - bid_total).ToString("f2"));
-            doc.Add("r9", (bids[8] * profits[8] - bid_total).ToString("f2"));
+            doc.Add("b9", odds[8].ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("p4", odds[3].ToString("f2"));
+            doc.Add("p5", odds[4].ToString("f2"));
+            doc.Add("p6", odds[5].ToString("f2"));
+            doc.Add("p7", odds[6].ToString("f2"));
+            doc.Add("p8", odds[7].ToString("f2"));
+            doc.Add("p9", odds[8].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
+            doc.Add("r4", (bids[3] * odds[3] - bid_total).ToString("f2"));
+            doc.Add("r5", (bids[4] * odds[4] - bid_total).ToString("f2"));
+            doc.Add("r6", (bids[5] * odds[5] - bid_total).ToString("f2"));
+            doc.Add("r7", (bids[6] * odds[6] - bid_total).ToString("f2"));
+            doc.Add("r8", (bids[7] * odds[7] - bid_total).ToString("f2"));
+            doc.Add("r9", (bids[8] * odds[8] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -456,42 +456,42 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };
 
-            double[] profits = new double[] { Convert.ToDouble(match["total_0"].ToString()), Convert.ToDouble(match["total_1"].ToString()), Convert.ToDouble(match["total_2"].ToString()),
+            double[] odds = new double[] { Convert.ToDouble(match["total_0"].ToString()), Convert.ToDouble(match["total_1"].ToString()), Convert.ToDouble(match["total_2"].ToString()),
                                               Convert.ToDouble(match["total_3"].ToString()), Convert.ToDouble(match["total_4"].ToString()), Convert.ToDouble(match["total_5"].ToString()),
                                               Convert.ToDouble(match["total_6"].ToString()), Convert.ToDouble(match["total_more"].ToString())};
 
-            double[] profits_temp = new double[] { profits[0], profits[1], profits[2], profits[3], profits[4], profits[5], profits[6], profits[7] };
+            double[] odds_temp = new double[] { odds[0], odds[1], odds[2], odds[3], odds[4], odds[5], odds[6], odds[7] };
             for (int step1 = 0; step1 < 8; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 8; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
-            bids[3] = (int)Math.Floor(profits[0] * bids[0] / profits[3]);
-            bids[4] = (int)Math.Floor(profits[0] * bids[0] / profits[4]);
-            bids[5] = (int)Math.Floor(profits[0] * bids[0] / profits[5]);
-            bids[6] = (int)Math.Floor(profits[0] * bids[0] / profits[6]);
-            bids[7] = (int)Math.Floor(profits[0] * bids[0] / profits[7]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
+            bids[3] = (int)Math.Floor(odds[0] * bids[0] / odds[3]);
+            bids[4] = (int)Math.Floor(odds[0] * bids[0] / odds[4]);
+            bids[5] = (int)Math.Floor(odds[0] * bids[0] / odds[5]);
+            bids[6] = (int)Math.Floor(odds[0] * bids[0] / odds[6]);
+            bids[7] = (int)Math.Floor(odds[0] * bids[0] / odds[7]);
 
 
             bids_temp[0] = bids[0];
@@ -529,14 +529,14 @@ namespace web_helper
                                         int bid7 = bids[7] + ajust7;
                                         int total = bid0 + bid1 + bid2 + bid3 + bid4 + bid5 + bid6 + bid7;
                                         double min_temp = 999999999;
-                                        if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                                        if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                                        if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
-                                        if (bid3 * profits[3] - total < min_temp) min_temp = bid3 * profits[3] - total;
-                                        if (bid4 * profits[4] - total < min_temp) min_temp = bid4 * profits[4] - total;
-                                        if (bid5 * profits[5] - total < min_temp) min_temp = bid5 * profits[5] - total;
-                                        if (bid6 * profits[6] - total < min_temp) min_temp = bid6 * profits[6] - total;
-                                        if (bid7 * profits[7] - total < min_temp) min_temp = bid7 * profits[7] - total;
+                                        if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                                        if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                                        if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
+                                        if (bid3 * odds[3] - total < min_temp) min_temp = bid3 * odds[3] - total;
+                                        if (bid4 * odds[4] - total < min_temp) min_temp = bid4 * odds[4] - total;
+                                        if (bid5 * odds[5] - total < min_temp) min_temp = bid5 * odds[5] - total;
+                                        if (bid6 * odds[6] - total < min_temp) min_temp = bid6 * odds[6] - total;
+                                        if (bid7 * odds[7] - total < min_temp) min_temp = bid7 * odds[7] - total;
 
 
                                         if (min_temp / total > max_persent)
@@ -572,22 +572,22 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2] + bids[3] + bids[4] + bids[5] + bids[6] + bids[7];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total < min) min = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total < min) min = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total < min) min = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total < min) min = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total < min) min = bids[7] * profits[7] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total > max) max = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total > max) max = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total > max) max = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total > max) max = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total > max) max = bids[7] * profits[7] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total < min) min = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total < min) min = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total < min) min = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total < min) min = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total < min) min = bids[7] * odds[7] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total > max) max = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total > max) max = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total > max) max = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total > max) max = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total > max) max = bids[7] * odds[7] - bid_total;
 
             DateTime dt_end = DateTime.Now;
 
@@ -617,22 +617,22 @@ namespace web_helper
             doc.Add("b6", bids[5].ToString());
             doc.Add("b7", bids[6].ToString());
             doc.Add("b8", bids[7].ToString());
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("p4", profits[3].ToString("f2"));
-            doc.Add("p5", profits[4].ToString("f2"));
-            doc.Add("p6", profits[5].ToString("f2"));
-            doc.Add("p7", profits[6].ToString("f2"));
-            doc.Add("p8", profits[7].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
-            doc.Add("r4", (bids[3] * profits[3] - bid_total).ToString("f2"));
-            doc.Add("r5", (bids[4] * profits[4] - bid_total).ToString("f2"));
-            doc.Add("r6", (bids[5] * profits[5] - bid_total).ToString("f2"));
-            doc.Add("r7", (bids[6] * profits[6] - bid_total).ToString("f2"));
-            doc.Add("r8", (bids[7] * profits[7] - bid_total).ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("p4", odds[3].ToString("f2"));
+            doc.Add("p5", odds[4].ToString("f2"));
+            doc.Add("p6", odds[5].ToString("f2"));
+            doc.Add("p7", odds[6].ToString("f2"));
+            doc.Add("p8", odds[7].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
+            doc.Add("r4", (bids[3] * odds[3] - bid_total).ToString("f2"));
+            doc.Add("r5", (bids[4] * odds[4] - bid_total).ToString("f2"));
+            doc.Add("r6", (bids[5] * odds[5] - bid_total).ToString("f2"));
+            doc.Add("r7", (bids[6] * odds[6] - bid_total).ToString("f2"));
+            doc.Add("r8", (bids[7] * odds[7] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -648,7 +648,7 @@ namespace web_helper
                 bids[i] = 1;
             }
 
-            double[] profits = new double[31]{
+            double[] odds = new double[31]{
                                              Convert.ToDouble(match["point_w_1_0"].ToString()),
                                              Convert.ToDouble(match["point_w_2_0"].ToString()),
                                              Convert.ToDouble(match["point_w_2_1"].ToString()),
@@ -680,10 +680,10 @@ namespace web_helper
                                              Convert.ToDouble(match["point_l_1_5"].ToString()),
                                              Convert.ToDouble(match["point_l_2_5"].ToString()),
                                              Convert.ToDouble(match["point_l_other"].ToString()) };
-            double[] profits_temp = new double[31];
+            double[] odds_temp = new double[31];
             for (int i = 0; i < 31; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -693,19 +693,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 31; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 3*3; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -713,7 +713,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < 31; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < 31; i++)
@@ -734,8 +734,8 @@ namespace web_helper
 
             for (int i = 0; i < 31; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -790,11 +790,11 @@ namespace web_helper
             return doc;
 
         }
-        public static BsonDocument get_1_min_from_1_free_with_circle(BsonDocument match, double[] profits, int max_count)
+        public static BsonDocument get_1_min_from_1_free_with_circle(BsonDocument match, double[] odds, int max_count)
         {
 
 
-            int length = profits.Length;
+            int length = odds.Length;
 
 
             int[] bids = new int[length];
@@ -806,10 +806,10 @@ namespace web_helper
             }
 
 
-            double[] profits_temp = new double[length];
+            double[] odds_temp = new double[length];
             for (int i = 0; i < length; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -819,19 +819,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < length; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 3*3; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -839,7 +839,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < length; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < length; i++)
@@ -860,8 +860,8 @@ namespace web_helper
 
             for (int i = 0; i < length; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -919,34 +919,34 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1 };
 
-            double[] profits = new double[] { wdl_w, wdl_d, wdl_l };
-            double[] profits_temp = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds_temp = new double[] { wdl_w, wdl_d, wdl_l };
             for (int step1 = 0; step1 < 3; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 3; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
 
 
             bids_temp[0] = bids[0];
@@ -966,9 +966,9 @@ namespace web_helper
 
                     int total = bid0 + bid1 + bid2;
                     double min_temp = 999999999;
-                    if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                    if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                    if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
+                    if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                    if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                    if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
 
 
                     if (min_temp / total > max_persent)
@@ -988,12 +988,12 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
 
 
             DateTime dt_end = DateTime.Now;
@@ -1014,12 +1014,12 @@ namespace web_helper
             doc.Add("b1", bids[0].ToString());
             doc.Add("b2", bids[1].ToString());
             doc.Add("b3", bids[2].ToString());
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -1066,34 +1066,34 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1 };
 
-            double[] profits = new double[] { wdl_w, wdl_d, wdl_l };
-            double[] profits_temp = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds = new double[] { wdl_w, wdl_d, wdl_l };
+            double[] odds_temp = new double[] { wdl_w, wdl_d, wdl_l };
             for (int step1 = 0; step1 < 3; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 3; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
 
 
             bids_temp[0] = bids[0];
@@ -1113,9 +1113,9 @@ namespace web_helper
 
                     int total = bid0 + bid1 + bid2;
                     double min_temp = 999999999;
-                    if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                    if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                    if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
+                    if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                    if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                    if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
 
 
                     if (min_temp / total > max_persent)
@@ -1135,12 +1135,12 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
 
 
             DateTime dt_end = DateTime.Now;
@@ -1161,12 +1161,12 @@ namespace web_helper
             doc.Add("b1", bids[0].ToString());
             doc.Add("b2", bids[1].ToString());
             doc.Add("b3", bids[2].ToString());
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -1208,40 +1208,40 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 
-            double[] profits = new double[] { half_w_w, half_w_d, half_w_l, half_d_w, half_d_d, half_d_l, half_l_w, half_l_d, half_l_l };
-            double[] profits_temp = new double[] { profits[0], profits[1], profits[2], profits[3], profits[4], profits[5], profits[6], profits[7], profits[8] };
+            double[] odds = new double[] { half_w_w, half_w_d, half_w_l, half_d_w, half_d_d, half_d_l, half_l_w, half_l_d, half_l_l };
+            double[] odds_temp = new double[] { odds[0], odds[1], odds[2], odds[3], odds[4], odds[5], odds[6], odds[7], odds[8] };
             for (int step1 = 0; step1 < 9; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 9; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
-            bids[3] = (int)Math.Floor(profits[0] * bids[0] / profits[3]);
-            bids[4] = (int)Math.Floor(profits[0] * bids[0] / profits[4]);
-            bids[5] = (int)Math.Floor(profits[0] * bids[0] / profits[5]);
-            bids[6] = (int)Math.Floor(profits[0] * bids[0] / profits[6]);
-            bids[7] = (int)Math.Floor(profits[0] * bids[0] / profits[7]);
-            bids[8] = (int)Math.Floor(profits[0] * bids[0] / profits[8]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
+            bids[3] = (int)Math.Floor(odds[0] * bids[0] / odds[3]);
+            bids[4] = (int)Math.Floor(odds[0] * bids[0] / odds[4]);
+            bids[5] = (int)Math.Floor(odds[0] * bids[0] / odds[5]);
+            bids[6] = (int)Math.Floor(odds[0] * bids[0] / odds[6]);
+            bids[7] = (int)Math.Floor(odds[0] * bids[0] / odds[7]);
+            bids[8] = (int)Math.Floor(odds[0] * bids[0] / odds[8]);
 
 
 
@@ -1283,15 +1283,15 @@ namespace web_helper
                                             int bid8 = bids[8] + ajust8;
                                             int total = bid0 + bid1 + bid2 + bid3 + bid4 + bid5 + bid6 + bid7 + bid8;
                                             double min_temp = 999999999;
-                                            if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                                            if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                                            if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
-                                            if (bid3 * profits[3] - total < min_temp) min_temp = bid3 * profits[3] - total;
-                                            if (bid4 * profits[4] - total < min_temp) min_temp = bid4 * profits[4] - total;
-                                            if (bid5 * profits[5] - total < min_temp) min_temp = bid5 * profits[5] - total;
-                                            if (bid6 * profits[6] - total < min_temp) min_temp = bid6 * profits[6] - total;
-                                            if (bid7 * profits[7] - total < min_temp) min_temp = bid7 * profits[7] - total;
-                                            if (bid8 * profits[8] - total < min_temp) min_temp = bid8 * profits[8] - total;
+                                            if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                                            if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                                            if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
+                                            if (bid3 * odds[3] - total < min_temp) min_temp = bid3 * odds[3] - total;
+                                            if (bid4 * odds[4] - total < min_temp) min_temp = bid4 * odds[4] - total;
+                                            if (bid5 * odds[5] - total < min_temp) min_temp = bid5 * odds[5] - total;
+                                            if (bid6 * odds[6] - total < min_temp) min_temp = bid6 * odds[6] - total;
+                                            if (bid7 * odds[7] - total < min_temp) min_temp = bid7 * odds[7] - total;
+                                            if (bid8 * odds[8] - total < min_temp) min_temp = bid8 * odds[8] - total;
 
                                             if (min_temp / total > max_persent)
                                             {
@@ -1330,24 +1330,24 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2] + bids[3] + bids[4] + bids[5] + bids[6] + bids[7] + bids[8];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total < min) min = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total < min) min = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total < min) min = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total < min) min = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total < min) min = bids[7] * profits[7] - bid_total;
-            if (bids[8] * profits[8] - bid_total < min) min = bids[8] * profits[8] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total > max) max = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total > max) max = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total > max) max = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total > max) max = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total > max) max = bids[7] * profits[7] - bid_total;
-            if (bids[8] * profits[8] - bid_total > max) max = bids[8] * profits[8] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total < min) min = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total < min) min = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total < min) min = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total < min) min = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total < min) min = bids[7] * odds[7] - bid_total;
+            if (bids[8] * odds[8] - bid_total < min) min = bids[8] * odds[8] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total > max) max = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total > max) max = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total > max) max = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total > max) max = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total > max) max = bids[7] * odds[7] - bid_total;
+            if (bids[8] * odds[8] - bid_total > max) max = bids[8] * odds[8] - bid_total;
 
             DateTime dt_end = DateTime.Now;
 
@@ -1387,25 +1387,25 @@ namespace web_helper
             doc.Add("b6", bids[5].ToString());
             doc.Add("b7", bids[6].ToString());
             doc.Add("b8", bids[7].ToString());
-            doc.Add("b9", profits[8].ToString("f2"));
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("p4", profits[3].ToString("f2"));
-            doc.Add("p5", profits[4].ToString("f2"));
-            doc.Add("p6", profits[5].ToString("f2"));
-            doc.Add("p7", profits[6].ToString("f2"));
-            doc.Add("p8", profits[7].ToString("f2"));
-            doc.Add("p9", profits[8].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
-            doc.Add("r4", (bids[3] * profits[3] - bid_total).ToString("f2"));
-            doc.Add("r5", (bids[4] * profits[4] - bid_total).ToString("f2"));
-            doc.Add("r6", (bids[5] * profits[5] - bid_total).ToString("f2"));
-            doc.Add("r7", (bids[6] * profits[6] - bid_total).ToString("f2"));
-            doc.Add("r8", (bids[7] * profits[7] - bid_total).ToString("f2"));
-            doc.Add("r9", (bids[8] * profits[8] - bid_total).ToString("f2"));
+            doc.Add("b9", odds[8].ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("p4", odds[3].ToString("f2"));
+            doc.Add("p5", odds[4].ToString("f2"));
+            doc.Add("p6", odds[5].ToString("f2"));
+            doc.Add("p7", odds[6].ToString("f2"));
+            doc.Add("p8", odds[7].ToString("f2"));
+            doc.Add("p9", odds[8].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
+            doc.Add("r4", (bids[3] * odds[3] - bid_total).ToString("f2"));
+            doc.Add("r5", (bids[4] * odds[4] - bid_total).ToString("f2"));
+            doc.Add("r6", (bids[5] * odds[5] - bid_total).ToString("f2"));
+            doc.Add("r7", (bids[6] * odds[6] - bid_total).ToString("f2"));
+            doc.Add("r8", (bids[7] * odds[7] - bid_total).ToString("f2"));
+            doc.Add("r9", (bids[8] * odds[8] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -1445,40 +1445,40 @@ namespace web_helper
             int[] bids = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };
             int[] bids_temp = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };
 
-            double[] profits = new double[] { total_0, total_1, total_2, total_3, total_4, total_5, total_6, total_more };
+            double[] odds = new double[] { total_0, total_1, total_2, total_3, total_4, total_5, total_6, total_more };
 
-            double[] profits_temp = new double[] { profits[0], profits[1], profits[2], profits[3], profits[4], profits[5], profits[6], profits[7] };
+            double[] odds_temp = new double[] { odds[0], odds[1], odds[2], odds[3], odds[4], odds[5], odds[6], odds[7] };
             for (int step1 = 0; step1 < 8; step1++)
             {
                 int step_index = 0;
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 8; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 9; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
             DateTime dt_start = DateTime.Now;
             bids[0] = max_count;
-            bids[1] = (int)Math.Floor(profits[0] * bids[0] / profits[1]);
-            bids[2] = (int)Math.Floor(profits[0] * bids[0] / profits[2]);
-            bids[3] = (int)Math.Floor(profits[0] * bids[0] / profits[3]);
-            bids[4] = (int)Math.Floor(profits[0] * bids[0] / profits[4]);
-            bids[5] = (int)Math.Floor(profits[0] * bids[0] / profits[5]);
-            bids[6] = (int)Math.Floor(profits[0] * bids[0] / profits[6]);
-            bids[7] = (int)Math.Floor(profits[0] * bids[0] / profits[7]);
+            bids[1] = (int)Math.Floor(odds[0] * bids[0] / odds[1]);
+            bids[2] = (int)Math.Floor(odds[0] * bids[0] / odds[2]);
+            bids[3] = (int)Math.Floor(odds[0] * bids[0] / odds[3]);
+            bids[4] = (int)Math.Floor(odds[0] * bids[0] / odds[4]);
+            bids[5] = (int)Math.Floor(odds[0] * bids[0] / odds[5]);
+            bids[6] = (int)Math.Floor(odds[0] * bids[0] / odds[6]);
+            bids[7] = (int)Math.Floor(odds[0] * bids[0] / odds[7]);
 
 
             bids_temp[0] = bids[0];
@@ -1517,14 +1517,14 @@ namespace web_helper
                                         int bid7 = bids[7] + ajust7;
                                         int total = bid0 + bid1 + bid2 + bid3 + bid4 + bid5 + bid6 + bid7;
                                         double min_temp = 999999999;
-                                        if (bid0 * profits[0] - total < min_temp) min_temp = bid0 * profits[0] - total;
-                                        if (bid1 * profits[1] - total < min_temp) min_temp = bid1 * profits[1] - total;
-                                        if (bid2 * profits[2] - total < min_temp) min_temp = bid2 * profits[2] - total;
-                                        if (bid3 * profits[3] - total < min_temp) min_temp = bid3 * profits[3] - total;
-                                        if (bid4 * profits[4] - total < min_temp) min_temp = bid4 * profits[4] - total;
-                                        if (bid5 * profits[5] - total < min_temp) min_temp = bid5 * profits[5] - total;
-                                        if (bid6 * profits[6] - total < min_temp) min_temp = bid6 * profits[6] - total;
-                                        if (bid7 * profits[7] - total < min_temp) min_temp = bid7 * profits[7] - total;
+                                        if (bid0 * odds[0] - total < min_temp) min_temp = bid0 * odds[0] - total;
+                                        if (bid1 * odds[1] - total < min_temp) min_temp = bid1 * odds[1] - total;
+                                        if (bid2 * odds[2] - total < min_temp) min_temp = bid2 * odds[2] - total;
+                                        if (bid3 * odds[3] - total < min_temp) min_temp = bid3 * odds[3] - total;
+                                        if (bid4 * odds[4] - total < min_temp) min_temp = bid4 * odds[4] - total;
+                                        if (bid5 * odds[5] - total < min_temp) min_temp = bid5 * odds[5] - total;
+                                        if (bid6 * odds[6] - total < min_temp) min_temp = bid6 * odds[6] - total;
+                                        if (bid7 * odds[7] - total < min_temp) min_temp = bid7 * odds[7] - total;
 
 
                                         if (min_temp / total > max_persent)
@@ -1562,22 +1562,22 @@ namespace web_helper
             int bid_total = bids[0] + bids[1] + bids[2] + bids[3] + bids[4] + bids[5] + bids[6] + bids[7];
             double min = 999999999;
             double max = -999999999;
-            if (bids[0] * profits[0] - bid_total < min) min = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total < min) min = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total < min) min = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total < min) min = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total < min) min = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total < min) min = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total < min) min = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total < min) min = bids[7] * profits[7] - bid_total;
-            if (bids[0] * profits[0] - bid_total > max) max = bids[0] * profits[0] - bid_total;
-            if (bids[1] * profits[1] - bid_total > max) max = bids[1] * profits[1] - bid_total;
-            if (bids[2] * profits[2] - bid_total > max) max = bids[2] * profits[2] - bid_total;
-            if (bids[3] * profits[3] - bid_total > max) max = bids[3] * profits[3] - bid_total;
-            if (bids[4] * profits[4] - bid_total > max) max = bids[4] * profits[4] - bid_total;
-            if (bids[5] * profits[5] - bid_total > max) max = bids[5] * profits[5] - bid_total;
-            if (bids[6] * profits[6] - bid_total > max) max = bids[6] * profits[6] - bid_total;
-            if (bids[7] * profits[7] - bid_total > max) max = bids[7] * profits[7] - bid_total;
+            if (bids[0] * odds[0] - bid_total < min) min = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total < min) min = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total < min) min = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total < min) min = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total < min) min = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total < min) min = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total < min) min = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total < min) min = bids[7] * odds[7] - bid_total;
+            if (bids[0] * odds[0] - bid_total > max) max = bids[0] * odds[0] - bid_total;
+            if (bids[1] * odds[1] - bid_total > max) max = bids[1] * odds[1] - bid_total;
+            if (bids[2] * odds[2] - bid_total > max) max = bids[2] * odds[2] - bid_total;
+            if (bids[3] * odds[3] - bid_total > max) max = bids[3] * odds[3] - bid_total;
+            if (bids[4] * odds[4] - bid_total > max) max = bids[4] * odds[4] - bid_total;
+            if (bids[5] * odds[5] - bid_total > max) max = bids[5] * odds[5] - bid_total;
+            if (bids[6] * odds[6] - bid_total > max) max = bids[6] * odds[6] - bid_total;
+            if (bids[7] * odds[7] - bid_total > max) max = bids[7] * odds[7] - bid_total;
 
             DateTime dt_end = DateTime.Now;
 
@@ -1615,22 +1615,22 @@ namespace web_helper
             doc.Add("b6", bids[5].ToString());
             doc.Add("b7", bids[6].ToString());
             doc.Add("b8", bids[7].ToString());
-            doc.Add("p1", profits[0].ToString("f2"));
-            doc.Add("p2", profits[1].ToString("f2"));
-            doc.Add("p3", profits[2].ToString("f2"));
-            doc.Add("p4", profits[3].ToString("f2"));
-            doc.Add("p5", profits[4].ToString("f2"));
-            doc.Add("p6", profits[5].ToString("f2"));
-            doc.Add("p7", profits[6].ToString("f2"));
-            doc.Add("p8", profits[7].ToString("f2"));
-            doc.Add("r1", (bids[0] * profits[0] - bid_total).ToString("f2"));
-            doc.Add("r2", (bids[1] * profits[1] - bid_total).ToString("f2"));
-            doc.Add("r3", (bids[2] * profits[2] - bid_total).ToString("f2"));
-            doc.Add("r4", (bids[3] * profits[3] - bid_total).ToString("f2"));
-            doc.Add("r5", (bids[4] * profits[4] - bid_total).ToString("f2"));
-            doc.Add("r6", (bids[5] * profits[5] - bid_total).ToString("f2"));
-            doc.Add("r7", (bids[6] * profits[6] - bid_total).ToString("f2"));
-            doc.Add("r8", (bids[7] * profits[7] - bid_total).ToString("f2"));
+            doc.Add("p1", odds[0].ToString("f2"));
+            doc.Add("p2", odds[1].ToString("f2"));
+            doc.Add("p3", odds[2].ToString("f2"));
+            doc.Add("p4", odds[3].ToString("f2"));
+            doc.Add("p5", odds[4].ToString("f2"));
+            doc.Add("p6", odds[5].ToString("f2"));
+            doc.Add("p7", odds[6].ToString("f2"));
+            doc.Add("p8", odds[7].ToString("f2"));
+            doc.Add("r1", (bids[0] * odds[0] - bid_total).ToString("f2"));
+            doc.Add("r2", (bids[1] * odds[1] - bid_total).ToString("f2"));
+            doc.Add("r3", (bids[2] * odds[2] - bid_total).ToString("f2"));
+            doc.Add("r4", (bids[3] * odds[3] - bid_total).ToString("f2"));
+            doc.Add("r5", (bids[4] * odds[4] - bid_total).ToString("f2"));
+            doc.Add("r6", (bids[5] * odds[5] - bid_total).ToString("f2"));
+            doc.Add("r7", (bids[6] * odds[6] - bid_total).ToString("f2"));
+            doc.Add("r8", (bids[7] * odds[7] - bid_total).ToString("f2"));
             if (is_open_mongo) MongoHelper.insert_bson("match", doc);
 
             return doc;
@@ -1745,15 +1745,15 @@ namespace web_helper
                 bids[i] = 1;
             }
 
-            double[] profits = new double[31]{ point_w_1_0, point_w_2_0, point_w_2_1,  point_w_3_0, point_w_3_1, point_w_3_2, point_w_4_0, point_w_4_1,  point_w_4_2,
+            double[] odds = new double[31]{ point_w_1_0, point_w_2_0, point_w_2_1,  point_w_3_0, point_w_3_1, point_w_3_2, point_w_4_0, point_w_4_1,  point_w_4_2,
                                                point_w_5_0,  point_w_5_1,  point_w_5_2, point_w_other,
                                                point_d_0_0,  point_d_1_1,  point_d_2_2,  point_d_3_3, point_d_other,
                                                point_l_0_1, point_l_0_2, point_l_1_2, point_l_0_3, point_l_1_3, point_l_2_3,  point_l_0_4, point_l_1_4,  point_l_2_4, 
                                                point_l_0_5, point_l_1_5, point_l_2_5, point_l_other };
-            double[] profits_temp = new double[31];
+            double[] odds_temp = new double[31];
             for (int i = 0; i < 31; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -1763,19 +1763,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < 31; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 3*3; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -1783,7 +1783,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < 31; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < 31; i++)
@@ -1804,8 +1804,8 @@ namespace web_helper
 
             for (int i = 0; i < 31; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -1900,7 +1900,7 @@ namespace web_helper
 
 
             int length = 9;
-            double[] profits = new double[]
+            double[] odds = new double[]
             {
                   Convert.ToDouble(match1["wdl_w"].ToString())*Convert.ToDouble(match2["wdl_w"].ToString()),
                   Convert.ToDouble(match1["wdl_w"].ToString())*Convert.ToDouble(match2["wdl_d"].ToString()),
@@ -1922,10 +1922,10 @@ namespace web_helper
             }
 
 
-            double[] profits_temp = new double[length];
+            double[] odds_temp = new double[length];
             for (int i = 0; i < length; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -1935,19 +1935,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < length; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < length; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -1955,7 +1955,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < length; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < length; i++)
@@ -1976,8 +1976,8 @@ namespace web_helper
 
             for (int i = 0; i < length; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -2008,7 +2008,7 @@ namespace web_helper
 
 
             int length = 9;
-            double[] profits = new double[]{
+            double[] odds = new double[]{
                                                   Convert.ToDouble(match1["spread_w"].ToString())*Convert.ToDouble(match2["spread_w"].ToString()),
                                                   Convert.ToDouble(match1["spread_w"].ToString())*Convert.ToDouble(match2["spread_d"].ToString()),
                                                   Convert.ToDouble(match1["spread_w"].ToString())*Convert.ToDouble(match2["spread_l"].ToString()),
@@ -2031,10 +2031,10 @@ namespace web_helper
             }
 
 
-            double[] profits_temp = new double[length];
+            double[] odds_temp = new double[length];
             for (int i = 0; i < length; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -2044,19 +2044,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < length; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 3*3; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -2064,7 +2064,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < length; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < length; i++)
@@ -2085,8 +2085,8 @@ namespace web_helper
 
             for (int i = 0; i < length; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -2143,14 +2143,14 @@ namespace web_helper
             };
 
             int length = list1.Length * list2.Length;
-            double[] profits = new double[length];
+            double[] odds = new double[length];
 
             int index = 0;
             for (int i = 0; i < list1.Length; i++)
             {
                 for (int j = 0; j < list1.Length; j++)
                 {
-                    profits[index] = list1[i] * list2[j];
+                    odds[index] = list1[i] * list2[j];
                     index = index + 1;
                 }
             }
@@ -2167,10 +2167,10 @@ namespace web_helper
             }
 
 
-            double[] profits_temp = new double[length];
+            double[] odds_temp = new double[length];
             for (int i = 0; i < length; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -2180,19 +2180,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < length; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 3*3; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -2200,7 +2200,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < length; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < length; i++)
@@ -2221,8 +2221,8 @@ namespace web_helper
 
             for (int i = 0; i < length; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -2277,14 +2277,14 @@ namespace web_helper
             };
 
             int length = list1.Length * list2.Length;
-            double[] profits = new double[length];
+            double[] odds = new double[length];
 
             int index = 0;
             for (int i = 0; i < list1.Length; i++)
             {
                 for (int j = 0; j < list1.Length; j++)
                 {
-                    profits[index] = list1[i] * list2[j];
+                    odds[index] = list1[i] * list2[j];
                     index = index + 1;
                 }
             }
@@ -2301,10 +2301,10 @@ namespace web_helper
             }
 
 
-            double[] profits_temp = new double[length];
+            double[] odds_temp = new double[length];
             for (int i = 0; i < length; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -2314,19 +2314,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < length; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 3*3; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -2334,7 +2334,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < length; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < length; i++)
@@ -2355,8 +2355,8 @@ namespace web_helper
 
             for (int i = 0; i < length; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -2457,14 +2457,14 @@ namespace web_helper
             };
 
             int length = list1.Length * list2.Length;
-            double[] profits = new double[length];
+            double[] odds = new double[length];
 
             int index = 0;
             for (int i = 0; i < list1.Length; i++)
             {
                 for (int j = 0; j < list1.Length; j++)
                 {
-                    profits[index] = list1[i] * list2[j];
+                    odds[index] = list1[i] * list2[j];
                     index = index + 1;
                 }
             }
@@ -2481,10 +2481,10 @@ namespace web_helper
             }
 
 
-            double[] profits_temp = new double[length];
+            double[] odds_temp = new double[length];
             for (int i = 0; i < length; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -2494,19 +2494,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < length; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < length; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -2514,7 +2514,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < length; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < length; i++)
@@ -2535,8 +2535,8 @@ namespace web_helper
 
             for (int i = 0; i < length; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 
@@ -2659,14 +2659,14 @@ namespace web_helper
                         list_point_1.Count * list_point_2.Count;
 
 
-            double[] profits = new double[length];
+            double[] odds = new double[length];
 
             int index = 0;
             for (int i = 0; i < list_wdl_1.Count; i++)
             {
                 for (int j = 0; j < list_wdl_2.Count; j++)
                 {
-                    profits[index] = Convert.ToDouble(list_wdl_1[i]) * Convert.ToDouble(list_wdl_2[j]);
+                    odds[index] = Convert.ToDouble(list_wdl_1[i]) * Convert.ToDouble(list_wdl_2[j]);
                     index = index + 1;
                 }
             }
@@ -2674,7 +2674,7 @@ namespace web_helper
             {
                 for (int j = 0; j < list_spread_2.Count; j++)
                 {
-                    profits[index] = Convert.ToDouble(list_spread_1[i]) * Convert.ToDouble(list_spread_2[j]);
+                    odds[index] = Convert.ToDouble(list_spread_1[i]) * Convert.ToDouble(list_spread_2[j]);
                     index = index + 1;
                 }
             }
@@ -2682,7 +2682,7 @@ namespace web_helper
             {
                 for (int j = 0; j < list_half_2.Count; j++)
                 {
-                    profits[index] = Convert.ToDouble(list_half_1[i]) * Convert.ToDouble(list_half_2[j]);
+                    odds[index] = Convert.ToDouble(list_half_1[i]) * Convert.ToDouble(list_half_2[j]);
                     index = index + 1;
                 }
             }
@@ -2690,7 +2690,7 @@ namespace web_helper
             {
                 for (int j = 0; j < list_total_2.Count; j++)
                 {
-                    profits[index] = Convert.ToDouble(list_total_1[i]) * Convert.ToDouble(list_total_2[j]);
+                    odds[index] = Convert.ToDouble(list_total_1[i]) * Convert.ToDouble(list_total_2[j]);
                     index = index + 1;
                 }
             }
@@ -2698,7 +2698,7 @@ namespace web_helper
             {
                 for (int j = 0; j < list_point_2.Count; j++)
                 {
-                    profits[index] = Convert.ToDouble(list_point_1[i]) * Convert.ToDouble(list_point_2[j]);
+                    odds[index] = Convert.ToDouble(list_point_1[i]) * Convert.ToDouble(list_point_2[j]);
                     index = index + 1;
                 }
             }
@@ -2715,10 +2715,10 @@ namespace web_helper
             }
 
 
-            double[] profits_temp = new double[length];
+            double[] odds_temp = new double[length];
             for (int i = 0; i < length; i++)
             {
-                profits_temp[i] = profits[i];
+                odds_temp[i] = odds[i];
             }
 
             //排序
@@ -2728,19 +2728,19 @@ namespace web_helper
                 double step_max = -999999999;
                 for (int step2 = 0; step2 < length; step2++)
                 {
-                    if (profits_temp[step2] > step_max)
+                    if (odds_temp[step2] > step_max)
                     {
-                        step_max = profits_temp[step2];
+                        step_max = odds_temp[step2];
                         step_index = step2;
                     }
                 }
-                profits_temp[step_index] = 0;
-                profits[step1] = step_max;
+                odds_temp[step_index] = 0;
+                odds[step1] = step_max;
             }
 
             //for (int step = 0; step < 3*3; step++)
             //{
-            //    profits[step] = profits[step] * 1.208;
+            //    odds[step] = odds[step] * 1.208;
             //}
 
 
@@ -2748,7 +2748,7 @@ namespace web_helper
             bids[0] = max_count;
             for (int i = 1; i < length; i++)
             {
-                bids[i] = (int)Math.Floor(profits[0] * bids[0] / profits[i]);
+                bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
             }
 
             for (int i = 0; i < length; i++)
@@ -2769,8 +2769,8 @@ namespace web_helper
 
             for (int i = 0; i < length; i++)
             {
-                if (bids[i] * profits[i] - bid_total < min) min = bids[i] * profits[i] - bid_total;
-                if (bids[i] * profits[i] - bid_total > max) max = bids[i] * profits[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
+                if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
             }
 
 

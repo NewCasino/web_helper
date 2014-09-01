@@ -16,7 +16,7 @@ namespace web_helper
             InitializeComponent();
         }
 
-        private void btn_compute_by_company_Click(object sender, EventArgs e)
+        private void btn_compute_by_website_Click(object sender, EventArgs e)
         {
             frm_match_500_analyse frm = new frm_match_500_analyse();
             frm.Show();
@@ -28,9 +28,9 @@ namespace web_helper
             frm.Show();
         }
 
-        private void frm_match_company_info_Click(object sender, EventArgs e)
+        private void frm_match_website_info_Click(object sender, EventArgs e)
         {
-            frm_match_company_info frm = new frm_match_company_info();
+            frm_match_website_info frm = new frm_match_website_info();
             frm.Show();
         }
 

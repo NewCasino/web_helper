@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_compute_by_company = new System.Windows.Forms.Button();
+            this.btn_compute_by_website = new System.Windows.Forms.Button();
             this.btn_down_excel = new System.Windows.Forms.Button();
-            this.frm_match_company_info = new System.Windows.Forms.Button();
+            this.frm_match_website_info = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_match_100 = new System.Windows.Forms.Button();
             this.btn_html_analyse = new System.Windows.Forms.Button();
@@ -43,15 +43,15 @@
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btn_compute_by_company
+            // btn_compute_by_website
             // 
-            this.btn_compute_by_company.Location = new System.Drawing.Point(12, 41);
-            this.btn_compute_by_company.Name = "btn_compute_by_company";
-            this.btn_compute_by_company.Size = new System.Drawing.Size(112, 23);
-            this.btn_compute_by_company.TabIndex = 0;
-            this.btn_compute_by_company.Text = "[500]Analyse";
-            this.btn_compute_by_company.UseVisualStyleBackColor = true;
-            this.btn_compute_by_company.Click += new System.EventHandler(this.btn_compute_by_company_Click);
+            this.btn_compute_by_website.Location = new System.Drawing.Point(12, 41);
+            this.btn_compute_by_website.Name = "btn_compute_by_website";
+            this.btn_compute_by_website.Size = new System.Drawing.Size(112, 23);
+            this.btn_compute_by_website.TabIndex = 0;
+            this.btn_compute_by_website.Text = "[500]Analyse";
+            this.btn_compute_by_website.UseVisualStyleBackColor = true;
+            this.btn_compute_by_website.Click += new System.EventHandler(this.btn_compute_by_website_Click);
             // 
             // btn_down_excel
             // 
@@ -63,15 +63,15 @@
             this.btn_down_excel.UseVisualStyleBackColor = true;
             this.btn_down_excel.Click += new System.EventHandler(this.btn_down_excel_Click);
             // 
-            // frm_match_company_info
+            // frm_match_website_info
             // 
-            this.frm_match_company_info.Location = new System.Drawing.Point(248, 12);
-            this.frm_match_company_info.Name = "frm_match_company_info";
-            this.frm_match_company_info.Size = new System.Drawing.Size(112, 23);
-            this.frm_match_company_info.TabIndex = 2;
-            this.frm_match_company_info.Text = "Company Info";
-            this.frm_match_company_info.UseVisualStyleBackColor = true;
-            this.frm_match_company_info.Click += new System.EventHandler(this.frm_match_company_info_Click);
+            this.frm_match_website_info.Location = new System.Drawing.Point(248, 12);
+            this.frm_match_website_info.Name = "frm_match_website_info";
+            this.frm_match_website_info.Size = new System.Drawing.Size(112, 23);
+            this.frm_match_website_info.TabIndex = 2;
+            this.frm_match_website_info.Text = "website Info";
+            this.frm_match_website_info.UseVisualStyleBackColor = true;
+            this.frm_match_website_info.Click += new System.EventHandler(this.frm_match_website_info_Click);
             // 
             // button1
             // 
@@ -188,9 +188,9 @@
             this.Controls.Add(this.btn_match_100);
             this.Controls.Add(this.btn_html_analyse);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.frm_match_company_info);
+            this.Controls.Add(this.frm_match_website_info);
             this.Controls.Add(this.btn_down_excel);
-            this.Controls.Add(this.btn_compute_by_company);
+            this.Controls.Add(this.btn_compute_by_website);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frm_match_bar";
@@ -201,9 +201,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_compute_by_company;
+        private System.Windows.Forms.Button btn_compute_by_website;
         private System.Windows.Forms.Button btn_down_excel;
-        private System.Windows.Forms.Button frm_match_company_info;
+        private System.Windows.Forms.Button frm_match_website_info;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_match_100;
         private System.Windows.Forms.Button btn_html_analyse;

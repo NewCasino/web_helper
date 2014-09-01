@@ -1,6 +1,6 @@
 ﻿namespace web_helper
 {
-    partial class frm_match_company_info
+    partial class frm_match_website_info
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_company = new System.Windows.Forms.DataGridView();
+            this.dgv_website = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lb_row_id = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lb_company_id = new System.Windows.Forms.Label();
+            this.lb_website_id = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,24 +54,24 @@
             this.btn_update_grid = new System.Windows.Forms.Button();
             this.btn_check_json = new System.Windows.Forms.Button();
             this.btn_json_beautify = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_company)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_website)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgv_company
+            // dgv_website
             // 
-            this.dgv_company.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dgv_website.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_company.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_company.Location = new System.Drawing.Point(516, 18);
-            this.dgv_company.Name = "dgv_company";
-            this.dgv_company.Size = new System.Drawing.Size(655, 273);
-            this.dgv_company.TabIndex = 0;
-            this.dgv_company.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_company_CellClick);
-            this.dgv_company.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_company_DataBindingComplete);
+            this.dgv_website.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_website.Location = new System.Drawing.Point(516, 18);
+            this.dgv_website.Name = "dgv_website";
+            this.dgv_website.Size = new System.Drawing.Size(655, 273);
+            this.dgv_website.TabIndex = 0;
+            this.dgv_website.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_website_CellClick);
+            this.dgv_website.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_website_DataBindingComplete);
             // 
             // groupBox1
             // 
@@ -81,7 +81,7 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.btn_load);
             this.groupBox1.Controls.Add(this.txt_condition);
-            this.groupBox1.Controls.Add(this.dgv_company);
+            this.groupBox1.Controls.Add(this.dgv_website);
             this.groupBox1.Location = new System.Drawing.Point(6, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1177, 297);
@@ -109,7 +109,7 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.lb_row_id);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.lb_company_id);
+            this.groupBox3.Controls.Add(this.lb_website_id);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
@@ -161,7 +161,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Company URL:";
+            this.label6.Text = "website URL:";
             // 
             // label4
             // 
@@ -189,13 +189,13 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "Row ID:";
             // 
-            // lb_company_id
+            // lb_website_id
             // 
-            this.lb_company_id.AutoSize = true;
-            this.lb_company_id.Location = new System.Drawing.Point(84, 24);
-            this.lb_company_id.Name = "lb_company_id";
-            this.lb_company_id.Size = new System.Drawing.Size(0, 13);
-            this.lb_company_id.TabIndex = 22;
+            this.lb_website_id.AutoSize = true;
+            this.lb_website_id.Location = new System.Drawing.Point(84, 24);
+            this.lb_website_id.Name = "lb_website_id";
+            this.lb_website_id.Size = new System.Drawing.Size(0, 13);
+            this.lb_website_id.TabIndex = 22;
             // 
             // label3
             // 
@@ -204,7 +204,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Company ID:";
+            this.label3.Text = "website ID:";
             // 
             // label2
             // 
@@ -213,7 +213,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Company URL:";
+            this.label2.Text = "website URL:";
             // 
             // label1
             // 
@@ -222,7 +222,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Company Name:";
+            this.label1.Text = "website Name:";
             // 
             // btn_update
             // 
@@ -326,15 +326,15 @@
             this.btn_json_beautify.UseVisualStyleBackColor = true;
             this.btn_json_beautify.Click += new System.EventHandler(this.btn_json_beautify_Click);
             // 
-            // frm_match_company_info
+            // frm_match_website_info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 566);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frm_match_company_info"; 
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_company)).EndInit();
+            this.Name = "frm_match_website_info"; 
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_website)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -347,7 +347,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_company;
+        private System.Windows.Forms.DataGridView dgv_website;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txt_result;
         private System.Windows.Forms.Button btn_load;
@@ -357,7 +357,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lb_row_id;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lb_company_id;
+        private System.Windows.Forms.Label lb_website_id;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_check_json;
         private System.Windows.Forms.Button btn_json_beautify;
