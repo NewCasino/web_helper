@@ -136,5 +136,10 @@ class Tool
             result = result.Substring(1, result.Length - 1);
         }
         return result; 
-    } 
+    }
+    public static string[] str_split(string str, string mark)
+    { 
+        string[] list  =str.ToString().Split(new string[] { mark }, StringSplitOptions.RemoveEmptyEntries);
+        return list;
+    }
 }

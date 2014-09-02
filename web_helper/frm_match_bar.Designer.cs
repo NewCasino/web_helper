@@ -41,6 +41,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_compute_by_website
@@ -69,7 +70,7 @@
             this.frm_match_website_info.Name = "frm_match_website_info";
             this.frm_match_website_info.Size = new System.Drawing.Size(112, 23);
             this.frm_match_website_info.TabIndex = 2;
-            this.frm_match_website_info.Text = "website Info";
+            this.frm_match_website_info.Text = "Website Info";
             this.frm_match_website_info.UseVisualStyleBackColor = true;
             this.frm_match_website_info.Click += new System.EventHandler(this.frm_match_website_info_Click);
             // 
@@ -85,7 +86,7 @@
             // 
             // btn_match_100
             // 
-            this.btn_match_100.Location = new System.Drawing.Point(12, 99);
+            this.btn_match_100.Location = new System.Drawing.Point(12, 127);
             this.btn_match_100.Name = "btn_match_100";
             this.btn_match_100.Size = new System.Drawing.Size(112, 23);
             this.btn_match_100.TabIndex = 5;
@@ -95,7 +96,7 @@
             // 
             // btn_html_analyse
             // 
-            this.btn_html_analyse.Location = new System.Drawing.Point(130, 70);
+            this.btn_html_analyse.Location = new System.Drawing.Point(130, 98);
             this.btn_html_analyse.Name = "btn_html_analyse";
             this.btn_html_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_html_analyse.TabIndex = 4;
@@ -115,7 +116,7 @@
             // 
             // btn_browser
             // 
-            this.btn_browser.Location = new System.Drawing.Point(12, 70);
+            this.btn_browser.Location = new System.Drawing.Point(12, 98);
             this.btn_browser.Name = "btn_browser";
             this.btn_browser.Size = new System.Drawing.Size(112, 23);
             this.btn_browser.TabIndex = 7;
@@ -125,7 +126,7 @@
             // 
             // btn_500_read_info
             // 
-            this.btn_500_read_info.Location = new System.Drawing.Point(130, 128);
+            this.btn_500_read_info.Location = new System.Drawing.Point(130, 156);
             this.btn_500_read_info.Name = "btn_500_read_info";
             this.btn_500_read_info.Size = new System.Drawing.Size(112, 23);
             this.btn_500_read_info.TabIndex = 8;
@@ -135,7 +136,7 @@
             // 
             // btn_log_analyse
             // 
-            this.btn_log_analyse.Location = new System.Drawing.Point(130, 99);
+            this.btn_log_analyse.Location = new System.Drawing.Point(130, 127);
             this.btn_log_analyse.Name = "btn_log_analyse";
             this.btn_log_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_log_analyse.TabIndex = 9;
@@ -145,7 +146,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(248, 99);
+            this.button2.Location = new System.Drawing.Point(248, 127);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 23);
             this.button2.TabIndex = 10;
@@ -155,7 +156,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 128);
+            this.button3.Location = new System.Drawing.Point(12, 156);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 23);
             this.button3.TabIndex = 11;
@@ -165,7 +166,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(248, 128);
+            this.button4.Location = new System.Drawing.Point(248, 156);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 23);
             this.button4.TabIndex = 12;
@@ -173,11 +174,22 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(12, 70);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(112, 23);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "[NowG]Data";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 160);
+            this.ClientSize = new System.Drawing.Size(374, 196);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -214,5 +226,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

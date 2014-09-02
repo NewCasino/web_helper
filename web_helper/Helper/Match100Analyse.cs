@@ -186,8 +186,10 @@ class Match100Analyse
             }
         }
 
-
+       
         BsonDocument doc_max = Match100Analyse.get_min_by_wave(max, max_count);
+
+
 
 
 
@@ -277,6 +279,33 @@ class Match100Analyse
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
         doc.Add("odds", doc_max["odds"].AsBsonArray);
+
+
+        //when only one website has this match odd
+        bool is_find = false;
+        foreach (string website in websites)
+        {
+            if (string.IsNullOrEmpty(website)) is_find = false;
+        }
+        if (is_find == false)
+        {
+            doc["bid_count"] = "0";
+            doc["min_value"] = "0";
+            doc["max_value"] = "0";
+            for (int i = 0; i < doc["order_nos"].AsBsonArray.Count; i++)
+            {
+                doc["order_nos"].AsBsonArray[i] = "0";
+            }
+            for (int i = 0; i < doc["bids"].AsBsonArray.Count; i++)
+            {
+                doc["bids"].AsBsonArray[i] = "0";
+            }
+            for (int i = 0; i < doc["odds"].AsBsonArray.Count; i++)
+            {
+                doc["odds"].AsBsonArray[i] = "0";
+            } 
+        }
+
         return doc;
     }
     public static BsonDocument get_max_from_three_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, string start_time3, string host3, string client3, int max_count, ArrayList list_websites)
