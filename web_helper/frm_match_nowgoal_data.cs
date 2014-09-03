@@ -371,7 +371,7 @@ namespace web_helper
                         index = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[1]").InnerText;
                         name_eng = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[2]").InnerText;
                         //&nbsp
-                        string[] names = Tool.str_split(name_eng, "&nbsp");
+                        string[] names =  name_eng.E_SPLIT( "&nbsp");
                         if (names.Length > 0) name_eng = names[0];
                         sb.AppendLine(index.PR(5) + name_eng);
                     }
