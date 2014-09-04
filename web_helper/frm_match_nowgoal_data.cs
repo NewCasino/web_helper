@@ -43,7 +43,7 @@ namespace web_helper
         private void btn_odd_1X2_single_company_Click(object sender, EventArgs e)
         {
             get_odd_1X2_single_company();
-        } 
+        }
         private void btn_odd_1X2_single_match_Click(object sender, EventArgs e)
         {
             get_odd_1X2_single_match();
@@ -55,6 +55,18 @@ namespace web_helper
         private void btn_league_fixtures_standings_Click(object sender, EventArgs e)
         {
             get_league_fixtures_standings();
+        }
+        private void btn_team_profile_Click(object sender, EventArgs e)
+        {
+            get_team_profile();
+        }
+        private void btn_match_result_Click(object sender, EventArgs e)
+        {
+            get_match_result();
+        }
+        private void btn_team_schedule_Click(object sender, EventArgs e)
+        {
+            get_team_schedule();
         }
 
         public void get_live_score()
@@ -143,11 +155,11 @@ namespace web_helper
                     HtmlNodeCollection nodes_td = doc.DocumentNode.SelectNodes(xpath + "/td");
                     if (nodes_td.Count == 12)
                     {
-                       
-                        league = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").InnerText;   
+
+                        league = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").InnerText;
 
                         start_time = doc.DocumentNode.SelectSingleNode(xpath + "/td[2]").InnerText;
-                        HtmlNode node_start_time= doc.DocumentNode.SelectSingleNode(xpath + "/td[2]");
+                        HtmlNode node_start_time = doc.DocumentNode.SelectSingleNode(xpath + "/td[2]");
                         foreach (HtmlNode node_script in node_start_time.ChildNodes)
                         {
                             if (node_script.Name == "script")
@@ -177,7 +189,7 @@ namespace web_helper
                         persent_lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]").InnerText;
                         persent_return = doc.DocumentNode.SelectSingleNode(xpath + "/td[7]").InnerText;
 
-                        sb.AppendLine(league.PR(10) + start_time.PR(20) + host.PR(30) + client.PR(30)+start_odd_win.PR(10)+start_odd_draw.PR(10)+start_odd_lose.PR(10)+start_persent_win.PR(10)+start_persent_draw.PR(10)+start_persent_lose.PR(10)+start_persent_return.PR(10));
+                        sb.AppendLine(league.PR(10) + start_time.PR(20) + host.PR(30) + client.PR(30) + start_odd_win.PR(10) + start_odd_draw.PR(10) + start_odd_lose.PR(10) + start_persent_win.PR(10) + start_persent_draw.PR(10) + start_persent_lose.PR(10) + start_persent_return.PR(10));
                         sb.AppendLine("".PR(10) + "".PR(20) + "".PR(30) + "".PR(30) + odd_win.PR(10) + odd_draw.PR(10) + odd_lose.PR(10) + persent_win.PR(10) + persent_draw.PR(10) + persent_lose.PR(10) + persent_return.PR(10));
                     }
 
@@ -191,106 +203,6 @@ namespace web_helper
         {
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "odd_1X2_single_match.html"));
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(html);
-
-
-            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
-
-            string league = "";
-            string start_time = "";
-            string host = "";
-            string client = "";
-
-            string company = "";
-            string odd_win = "";
-            string odd_draw = "";
-            string odd_lose = "";
-            string persent_win = "";
-            string persent_draw = "";
-            string persent_lose = "";
-            string persent_return = "";
-            string kelly_win = "";
-            string kelly_draw = "";
-            string kelly_lose = "";
-            string modify_time = "";
-            foreach (HtmlNode node in nodes_all)
-            {
-                string xpath = node.XPath;
-                if (node.Name == "tr")
-                {
-                    HtmlNodeCollection nodes_td = doc.DocumentNode.SelectNodes(xpath + "/td");
-                    if (nodes_td.Count == 14)
-                    {
-                        if (node.InnerText.Contains("Kelly")) continue;
-                        company = doc.DocumentNode.SelectSingleNode(xpath + "/td[2]").InnerText; 
-                        odd_win = doc.DocumentNode.SelectSingleNode(xpath + "/td[3]").InnerText;
-                        odd_draw = doc.DocumentNode.SelectSingleNode(xpath + "/td[4]").InnerText;
-                        odd_lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[5]").InnerText;
-                        persent_win = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]").InnerText;
-                        persent_draw = doc.DocumentNode.SelectSingleNode(xpath + "/td[7]").InnerText;
-                        persent_lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[8]").InnerText;
-                        persent_return = doc.DocumentNode.SelectSingleNode(xpath + "/td[9]").InnerText;
-                        kelly_win = doc.DocumentNode.SelectSingleNode(xpath + "/td[10]").InnerText;
-                        kelly_draw = doc.DocumentNode.SelectSingleNode(xpath + "/td[11]").InnerText;
-                        kelly_lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[12]").InnerText;
-                        modify_time = doc.DocumentNode.SelectSingleNode(xpath + "/td[13]").InnerText;
-                        sb.AppendLine(company.PR(20) + odd_win.PR(10) + odd_draw.PR(10) + odd_lose.PR(10)+persent_win.PR(10)+persent_draw.PR(10)+persent_lose.PR(10)+persent_return.PR(10)+kelly_win.PR(10)+kelly_draw.PR(10)+kelly_lose.PR(10)+modify_time.PR(20));
-
-
-                    } 
-                }
-
-            }
-            this.txt_result.Text = sb.ToString();
-
-        }
-        public void get_league_all()
-        {
-            WebClient web_client = new WebClient();
-            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "league_all.html"));
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(html);
-
-
-            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
-
-            string league="";
-            string year="";
-            string url="";
-            foreach (HtmlNode node in nodes_all)
-            { 
-                if (node.Name == "div"&&
-                    node.Attributes.Contains("class") &&
-                    node.Attributes["class"].Value == "floatDiv"  )
-                {
-                    string xpath = node.XPath;
-                    HtmlNodeCollection nodes_ul = doc.DocumentNode.SelectNodes(xpath + "/div[1]/ul[1]/li");
-                    foreach (HtmlNode node_url in nodes_ul)
-                    {
-                        string xpath2 = node_url.XPath;
-                        league = doc.DocumentNode.SelectSingleNode(xpath2 + "/a[1]").InnerText;
-
-                        HtmlNodeCollection node_years = doc.DocumentNode.SelectNodes(xpath2 + "/ul[1]/li");
-                        foreach (HtmlNode node_year in node_years)
-                        {
-                            string xpath3=node_year.XPath;
-                            year = doc.DocumentNode.SelectSingleNode(xpath3 + "/a[1]").InnerText;
-                            url = doc.DocumentNode.SelectSingleNode(xpath3 + "/a[1]").Attributes["href"].Value;
-                            sb.AppendLine(league.PR(20) + year.PR(20) + url);
-
-                        }
-                    }
-                }
-
-            }
-            this.txt_result.Text = sb.ToString();
-
-        }
-        public void get_league_single()
-        {
-            WebClient web_client = new WebClient();
-            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "league_single.html"));
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
 
@@ -345,6 +257,48 @@ namespace web_helper
             this.txt_result.Text = sb.ToString();
 
         }
+        public void get_league_all()
+        {
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "league_all.html"));
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+            string league = "";
+            string year = "";
+            string url = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "div" &&
+                    node.Attributes.Contains("class") &&
+                    node.Attributes["class"].Value == "floatDiv")
+                {
+                    string xpath = node.XPath;
+                    HtmlNodeCollection nodes_ul = doc.DocumentNode.SelectNodes(xpath + "/div[1]/ul[1]/li");
+                    foreach (HtmlNode node_url in nodes_ul)
+                    {
+                        string xpath2 = node_url.XPath;
+                        league = doc.DocumentNode.SelectSingleNode(xpath2 + "/a[1]").InnerText;
+
+                        HtmlNodeCollection node_years = doc.DocumentNode.SelectNodes(xpath2 + "/ul[1]/li");
+                        foreach (HtmlNode node_year in node_years)
+                        {
+                            string xpath3 = node_year.XPath;
+                            year = doc.DocumentNode.SelectSingleNode(xpath3 + "/a[1]").InnerText;
+                            url = doc.DocumentNode.SelectSingleNode(xpath3 + "/a[1]").Attributes["href"].Value;
+                            sb.AppendLine(league.PR(20) + year.PR(20) + url);
+
+                        }
+                    }
+                }
+
+            }
+            this.txt_result.Text = sb.ToString();
+
+        } 
         public void get_league_fixtures_standings()
         {
             WebClient web_client = new WebClient();
@@ -358,24 +312,174 @@ namespace web_helper
 
             string index = "";
             string name_eng = "";
+            string url = "";
             foreach (HtmlNode node in nodes_all)
             {
                 string xpath = node.XPath;
                 if (node.Id == "div_Table1")
                 {
                     HtmlNodeCollection nodes_tr = doc.DocumentNode.SelectNodes(xpath + "/tbody[1]/tr");
-                    for (int i = 1; i < nodes_tr.Count-1;i++ )
+                    for (int i = 1; i < nodes_tr.Count - 1; i++)
                     {
                         HtmlNode node_tr = nodes_tr[i];
                         string xpath2 = node_tr.XPath;
                         index = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[1]").InnerText;
                         name_eng = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[2]").InnerText;
+                        url = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[2]/a[1]").Attributes["href"].Value ;
                         //&nbsp
-                        string[] names =  name_eng.E_SPLIT( "&nbsp");
+                        string[] names = name_eng.E_SPLIT("&nbsp");
                         if (names.Length > 0) name_eng = names[0];
-                        sb.AppendLine(index.PR(5) + name_eng);
+                        sb.AppendLine(index.PR(5) + name_eng.PR(20)+url);
                     }
-            
+
+                }
+
+            }
+            this.txt_result.Text = sb.ToString(); 
+        }
+        public void get_team_profile()
+        {
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "team_profile.html"));
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+
+            string name = "";
+            string city = "";
+            string home_stadium = "";
+            string capacity = "";
+            string established_date = "";
+            string coach = "";
+            string website = "";
+
+            string player_positon = "";
+            string player_no = "";
+            string player_name = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Id == "mainTitle")
+                {
+                    name = node.SELECT_NODE("/table[1]/tbody[1]/tr[1]/td[3]").InnerText;
+                    city = node.SELECT_NODE("/table[1]/tbody[1]/tr[2]/td[2]").InnerText;
+                    home_stadium = node.SELECT_NODE("/table[1]/tbody[1]/tr[2]/td[4]").InnerText;
+                    capacity = node.SELECT_NODE("/table[1]/tbody[1]/tr[3]/td[2]").InnerText;
+                    established_date = node.SELECT_NODE("/table[1]/tbody[1]/tr[3]/td[4]").InnerText;
+                    coach = node.SELECT_NODE("/table[1]/tbody[1]/tr[4]/td[2]").InnerText;
+                    website = node.SELECT_NODE("/table[1]/tbody[1]/tr[4]/td[4]/a[1]").Attributes["href"].Value;
+                    sb.AppendLine(("NAME: " + name).PR(50) + ("WEBSITE: " + website).PR(200));
+                    sb.AppendLine(("CITY: " + city).PR(50) + ("ESTABLISHED DATE: " + established_date).PR(200));
+                    sb.AppendLine(("HOME STADIUM: " + home_stadium).PR(50) + ("CAPACITY: " + capacity).PR(200));
+                    sb.AppendLine(("COATCH: " + coach).PR(50));
+                    sb.AppendLine("");
+
+
+                }
+                if (node.CLASS() == "left_list2") player_positon = node.InnerText;
+                if (node.CLASS() == "STYLE16") player_no = node.InnerText.Replace("&nbsp;", "");
+                if (node.CLASS() == "STYLE1")
+                {
+                    player_name = node.InnerText;
+                    sb.AppendLine(player_positon.PR(20) + player_no.PR(5) + player_name);
+                }
+            }
+            this.txt_result.Text = sb.ToString();
+        }
+        public void get_match_result()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "match_result.html"));
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+            string league = "";
+            string league_simple = "";
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string point_host = "";
+            string point_client = "";
+            string date = "";
+            string time = "";
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.CLASS() == "Leaguestitle")
+                {
+                    date = node.InnerText.E_TRIM();
+                    sb.AppendLine(date);
+                }
+                if (node.CLASS() == "b2")
+                {
+                    league_simple = node.SELECT_NODE("/td[2]").InnerText;
+                    league = node.SELECT_NODE("/td[2]").Attributes["title"].Value;
+                    time = node.SELECT_NODE("/td[3]").InnerText;
+                    host = node.SELECT_NODE("/td[5]").InnerText;
+                    client = node.SELECT_NODE("/td[7]").InnerText;
+                    string str_points = node.SELECT_NODE("/td[6]").InnerText;
+                    string[] points = str_points.E_SPLIT("-");
+                    if (points.Length == 2)
+                    {
+                        point_host = points[0];
+                        point_client = points[1];
+                    }
+                    else
+                    {
+                        point_host = "";
+                        point_client = "";
+                    }
+                    start_time = date + " " + time;
+                    sb.AppendLine(time.PR(10) + league_simple.PR(10) + league.PR(50) + host.PR(30) + client.PR(30) + point_host + " - " + point_client);
+                }
+
+            }
+            this.txt_result.Text = sb.ToString();
+
+        }
+        public void get_team_schedule()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "team_schedule.html"));
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+            string league = "";
+            string start_time = "";
+            string host = "";
+            string client = "";
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.CLASS() == "tdlink")
+                {
+                    HtmlNodeCollection nodes_tr = node.SELECT_NODES("/tbody[1]/tr");
+                    foreach (HtmlNode node_tr in nodes_tr)
+                    {
+                        if (!node_tr.InnerText.Contains("League"))
+                        {
+                            if (node_tr.SELECT_NODES("/td").Count == 7)
+                            {
+                                league = node_tr.SELECT_NODE("/td[1]").InnerText;
+                                start_time = node_tr.SELECT_NODE("/td[2]").InnerText;
+                                host = node_tr.SELECT_NODE("/td[3]").InnerText;
+                                client = node_tr.SELECT_NODE("/td[5]").InnerText;
+                                sb.AppendLine(league.PR(20) + start_time.PR(20) + host.PR(20) + client.PR(20));
+                            }
+
+                        }
+
+                    }
                 }
 
             }
@@ -385,7 +489,12 @@ namespace web_helper
 
 
 
-        
+
+
+
+
+
+
 
 
 

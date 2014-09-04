@@ -47,48 +47,7 @@ namespace web_helper
         private void btn_load_Click(object sender, EventArgs e)
         {
             bind_data();
-        }
-        public void bind_data()
-        {
-            dt = new DataTable();
-
-            DataColumn col = new DataColumn();
-            col.DataType = Type.GetType("System.Boolean");
-            col.ColumnName = "selected";
-            col.DefaultValue = true;
-            dt.Columns.Add(col);
-
-            dt.Columns.Add("id");
-            dt.Columns.Add("site_name");
-            dt.Columns.Add("step");
-            dt.Columns.Add("select_type");
-            dt.Columns.Add("url");
-            dt.Columns.Add("method");
-            dt.Columns.Add("seconds");
-            dt.Columns.Add("state");
-            dt.Columns.Add("start_time");
-            dt.Columns.Add("end_time");
-            dt.Columns.Add("final_time");
-            dt.Columns.Add("browser");
-
-            string sql = "select * from website_url where is_use='y' order by site_name,step";
-            DataTable dt_temp = SQLServerHelper.get_table(sql);
-            for (int i = 0; i < dt_temp.Rows.Count; i++)
-            {
-                DataRow row_new = dt.NewRow();
-                row_new["id"] = i.ToString();
-                row_new["site_name"] = dt_temp.Rows[i]["site_name"].ToString();
-                row_new["url"] = dt_temp.Rows[i]["url"].ToString();
-                row_new["step"] = dt_temp.Rows[i]["step"].ToString();
-                row_new["method"] = dt_temp.Rows[i]["method"].ToString();
-                row_new["select_type"] = dt_temp.Rows[i]["select_type"].ToString();
-                row_new["seconds"] = dt_temp.Rows[i]["seconds"].ToString();
-                row_new["state"] = "wait";
-                dt.Rows.Add(row_new);
-            }
-            this.dgv_result.DataSource = dt;
-
-        }
+        } 
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
@@ -127,6 +86,47 @@ namespace web_helper
         {
             this.lb_time.Text = DateTime.Now.ToString("HH:mm:ss");
             analyse();
+        }
+        private void btn_all_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            {
+                dgv_result.Rows[i].Cells["selected"].Value = true;
+            }
+        }
+        private void btn_reverse_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            {
+                if (Convert.ToBoolean(dgv_result.Rows[i].Cells["selected"].Value) == true)
+                {
+                    dgv_result.Rows[i].Cells["selected"].Value = false;
+                }
+                else
+                {
+                    dgv_result.Rows[i].Cells["selected"].Value = true;
+                }
+            }
+        }
+
+
+        private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            WebBrowser browser = (WebBrowser)sender;
+            if (e.Url != browser.Document.Url) return;
+            if (browser.ReadyState != WebBrowserReadyState.Complete) return;
+
+            int index = Convert.ToInt32(browser.Name);
+            int row_id = ies[index].row_id;
+
+            if (dt.Rows[row_id]["select_type"].ToString() == "load")
+            {
+                dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                BsonDocument doc_result = Match100Helper.get_doc_result();
+                doc_result["data"] = "Load Complete!";
+                ies[index].doc_result = doc_result;
+            }
+            Application.DoEvents();
         }
         public void analyse()
         {
@@ -250,26 +250,7 @@ namespace web_helper
                 }
             }
             Application.DoEvents();
-        }
-        private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            WebBrowser browser = (WebBrowser)sender;
-            if (e.Url != browser.Document.Url) return;
-            if (browser.ReadyState != WebBrowserReadyState.Complete) return;
-
-            int index = Convert.ToInt32(browser.Name);
-            int row_id = ies[index].row_id;
-
-            if (dt.Rows[row_id]["select_type"].ToString() == "load")
-            {
-                dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                BsonDocument doc_result = Match100Helper.get_doc_result();
-                doc_result["data"] = "Load Complete!";
-                ies[index].doc_result = doc_result;
-            }
-            Application.DoEvents();
-        }
-
+        } 
         public void select_method_from_site(WebBrowser browser, int row_id)
         {
             int index = Convert.ToInt32(browser.Name);
@@ -287,29 +268,47 @@ namespace web_helper
             ies[index].doc_result = doc_result;
 
             Application.DoEvents();
-        }
-
-        private void btn_all_Click(object sender, EventArgs e)
+        }  
+        public void bind_data()
         {
-            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
-            {
-                dgv_result.Rows[i].Cells["selected"].Value = true;
-            }
-        }
+            dt = new DataTable();
 
-        private void btn_reverse_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            DataColumn col = new DataColumn();
+            col.DataType = Type.GetType("System.Boolean");
+            col.ColumnName = "selected";
+            col.DefaultValue = true;
+            dt.Columns.Add(col);
+
+            dt.Columns.Add("id");
+            dt.Columns.Add("site_name");
+            dt.Columns.Add("step");
+            dt.Columns.Add("select_type");
+            dt.Columns.Add("url");
+            dt.Columns.Add("method");
+            dt.Columns.Add("seconds");
+            dt.Columns.Add("state");
+            dt.Columns.Add("start_time");
+            dt.Columns.Add("end_time");
+            dt.Columns.Add("final_time");
+            dt.Columns.Add("browser");
+
+            string sql = "select * from website_url where is_use='y' order by site_name,step";
+            DataTable dt_temp = SQLServerHelper.get_table(sql);
+            for (int i = 0; i < dt_temp.Rows.Count; i++)
             {
-                if (Convert.ToBoolean(dgv_result.Rows[i].Cells["selected"].Value) == true)
-                {
-                    dgv_result.Rows[i].Cells["selected"].Value = false;
-                }
-                else
-                {
-                    dgv_result.Rows[i].Cells["selected"].Value = true;
-                }
+                DataRow row_new = dt.NewRow();
+                row_new["id"] = i.ToString();
+                row_new["site_name"] = dt_temp.Rows[i]["site_name"].ToString();
+                row_new["url"] = dt_temp.Rows[i]["url"].ToString();
+                row_new["step"] = dt_temp.Rows[i]["step"].ToString();
+                row_new["method"] = dt_temp.Rows[i]["method"].ToString();
+                row_new["select_type"] = dt_temp.Rows[i]["select_type"].ToString();
+                row_new["seconds"] = dt_temp.Rows[i]["seconds"].ToString();
+                row_new["state"] = "wait";
+                dt.Rows.Add(row_new);
             }
+            this.dgv_result.DataSource = dt;
+
         }
     }
 

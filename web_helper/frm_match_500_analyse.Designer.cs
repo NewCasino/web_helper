@@ -496,8 +496,10 @@
             // 
             // txt_result
             // 
+            this.txt_result.BackColor = System.Drawing.SystemColors.Window;
             this.txt_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_result.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_result.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txt_result.Location = new System.Drawing.Point(3, 3);
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";

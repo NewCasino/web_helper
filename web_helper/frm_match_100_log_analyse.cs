@@ -15,22 +15,83 @@ namespace web_helper
         public frm_match_100_log_analyse()
         {
             InitializeComponent();
-        }
+        } 
 
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
-        }
-
-
+        } 
         private void btn_analyse_Click(object sender, EventArgs e)
         { 
             update_standard_data();
             analyse();
             MessageBox.Show("Analyse OK!");
         }
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            string sql = "";
+            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            {
+                if (dgv_result.Rows[i].Cells["type"].Value == null) continue;
+                if (dgv_result.Rows[i].Cells["type"].Value.ToString() != "M") continue;
+                if (dgv_result.Rows[i].Cells["f_target_id"].Value == null) continue;
 
+                string id = dgv_result.Rows[i].Cells["id"].Value.ToString();
+                string f_target_id = dgv_result.Rows[i].Cells["f_target_id"].Value.ToString();
+
+                for (int j = 0; j < dgv_result.Rows.Count - 1; j++)
+                {
+                    if (dgv_result.Rows[i].Cells["id"].ToString() == f_target_id)
+                    {
+                        string host = dgv_result.Rows[j].Cells["host"].ToString();
+                        string client = dgv_result.Rows[j].Cells["client"].ToString();
+                        string f_host = dgv_result.Rows[j].Cells["f_host"].ToString();
+                        string f_client = dgv_result.Rows[j].Cells["f_client"].ToString();
+
+                        sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_state='3'  where id='{2}' ";
+                        sql = string.Format(sql, f_host, f_client, id);
+                        SQLServerHelper.exe_sql(sql);
+                        sql = " update europe_100_log set f_host='{0}',f_client='{1},f_state='3'  where id='{2}' ";
+                        sql = string.Format(sql, f_host, f_client, f_target_id);
+                        SQLServerHelper.exe_sql(sql);
+
+                        Match100Helper.insert_name(f_host, dgv_result.Rows[i].Cells["host"].ToString());
+                        Match100Helper.insert_name(f_client, dgv_result.Rows[i].Cells["client"].ToString());
+
+
+                    }
+                }
+            }
+        }
+        private void btn_into_offical_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from europe_100_log where f_state='3'";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                string website = row["website"].ToString();
+                string time_span = row["timespan"].ToString();
+                string start_time = row["f_start_time"].ToString();
+                string league = row["league"].ToString();
+                string host = row["f_host"].ToString();
+                string client = row["f_client"].ToString();
+                string odd_win = row["odd_win"].ToString().Trim();
+                string odd_draw = row["odd_draw"].ToString().Trim();
+                string odd_lose = row["odd_lose"].ToString().Trim();
+
+                sql = "select * from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and odd_win='{4}' and odd_draw='{5}' and odd_lose='{6}'";
+                sql = string.Format(sql, website, start_time, host, client, odd_win, odd_lose, odd_lose);
+                DataTable dt_temp = SQLServerHelper.get_table(sql);
+                if (dt_temp.Rows.Count == 0)
+                {
+                    sql = " insert into europe_100  (timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
+                          " ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')";
+                    sql = string.Format(sql, time_span, website, league, start_time, host, client, odd_win, odd_draw, odd_lose);
+                    SQLServerHelper.exe_sql(sql);
+                }
+            }
+        } 
       
         public void update_standard_data()
         {
@@ -49,6 +110,7 @@ namespace web_helper
                 string lose = row["odd_lose"].ToString();
                 string time_zone = row["time_zone"].ToString();
                 string time_add = row["time_add"].ToString();
+                string timespan = row["timespan"].ToString();
 
                 string convert_host = "";
                 string convert_client = "";
@@ -57,12 +119,12 @@ namespace web_helper
 
                 convert_host = Match100Helper.convert_team_name(host);
                 convert_client = Match100Helper.convert_team_name(client);
-                DateTime time = Match100Helper.convert_start_time(start_time);
 
-                if (website == "pinnaclesports" && time.Minute % 5 != 0)   time = time.AddMinutes(Convert.ToInt16(time_add));
-               
-                time = Tool.get_time_by_kind(time, Convert.ToInt16(time_zone));
+                
+                DateTime time = Match100Helper.convert_start_time(start_time,time_zone,timespan);   
+                if (website == "pinnaclesports" && time.Minute % 5 != 0)   time = time.AddMinutes(Convert.ToInt16(time_add));  
                 convert_time = time.ToString("yyyy-MM-dd HH:mm:ss");
+
 
                 if (!string.IsNullOrEmpty(convert_host) || !string.IsNullOrEmpty(convert_client))
                 {
@@ -337,70 +399,7 @@ namespace web_helper
             if (lose >= draw && draw > win) return "LDW";
             return "WRONG";
         }
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            string sql = "";
-            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
-            {
-                if (dgv_result.Rows[i].Cells["type"].Value == null) continue;
-                if (dgv_result.Rows[i].Cells["type"].Value.ToString() != "M") continue;
-                if (dgv_result.Rows[i].Cells["f_target_id"].Value == null) continue;
-
-                string id = dgv_result.Rows[i].Cells["id"].Value.ToString();
-                string f_target_id = dgv_result.Rows[i].Cells["f_target_id"].Value.ToString();
-
-                for (int j = 0; j < dgv_result.Rows.Count - 1; j++)
-                {
-                    if (dgv_result.Rows[i].Cells["id"].ToString() == f_target_id)
-                    {
-                        string host = dgv_result.Rows[j].Cells["host"].ToString();
-                        string client = dgv_result.Rows[j].Cells["client"].ToString();
-                        string f_host = dgv_result.Rows[j].Cells["f_host"].ToString();
-                        string f_client = dgv_result.Rows[j].Cells["f_client"].ToString();
-
-                        sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_state='3'  where id='{2}' ";
-                        sql = string.Format(sql, f_host, f_client, id);
-                        SQLServerHelper.exe_sql(sql);
-                        sql = " update europe_100_log set f_host='{0}',f_client='{1},f_state='3'  where id='{2}' ";
-                        sql = string.Format(sql, f_host, f_client, f_target_id);
-                        SQLServerHelper.exe_sql(sql);
-
-                        Match100Helper.insert_name(f_host, dgv_result.Rows[i].Cells["host"].ToString());
-                        Match100Helper.insert_name(f_client, dgv_result.Rows[i].Cells["client"].ToString());
-
-
-                    }
-                }
-            }
-        } 
-        private void btn_into_offical_Click(object sender, EventArgs e)
-        {
-            string sql = "select * from europe_100_log where f_state='3'";
-            DataTable dt = SQLServerHelper.get_table(sql);
-            foreach (DataRow row in dt.Rows)
-            {
-                string website = row["website"].ToString();
-                string time_span = row["timespan"].ToString();
-                string start_time = row["f_start_time"].ToString();
-                string league = row["league"].ToString();
-                string host = row["f_host"].ToString();
-                string client = row["f_client"].ToString();
-                string odd_win = row["odd_win"].ToString().Trim();
-                string odd_draw = row["odd_draw"].ToString().Trim();
-                string odd_lose = row["odd_lose"].ToString().Trim();
-
-                sql = "select * from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and odd_win='{4}' and odd_draw='{5}' and odd_lose='{6}'";
-                sql = string.Format(sql, website,start_time, host, client,odd_win,odd_lose,odd_lose);
-                DataTable dt_temp = SQLServerHelper.get_table(sql);
-                if (dt_temp.Rows.Count == 0)
-                {
-                    sql = " insert into europe_100  (timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
-                          " ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')";
-                    sql = string.Format(sql, time_span, website, league, start_time, host, client, odd_win, odd_draw, odd_lose);
-                    SQLServerHelper.exe_sql(sql);
-                }
-            }
-        } 
+   
     }
     
 }

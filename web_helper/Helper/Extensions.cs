@@ -8,7 +8,7 @@ using HtmlAgilityPack;
 
 static class Extensions
 {
-    //String Extentsions
+    //Object Extentsions
     public static string PR(this object o, int len)
     {
         if (o == null) return "  ".PadRight(len, ' ') + "  ";
@@ -34,6 +34,8 @@ static class Extensions
         }
         return "PR WRONG".PR(len);
     }
+
+    //String Extentsions 
     public static string E_TRIM(this string str)
     {
         return str.Replace("/r/n", "").Replace(" ", "").Trim();
@@ -43,8 +45,7 @@ static class Extensions
         string[] list = str.ToString().Split(new string[] { mark }, StringSplitOptions.RemoveEmptyEntries);
         return list;
     }
-
-
+ 
     //HtmlNode Extensions
     public static HtmlNode SELECT_NODE(this HtmlNode node_input, string xpath)
     {
@@ -90,5 +91,25 @@ static class Extensions
         }
     }
 
+    //StringBulider Extentsions
+    public static string PRINT(this StringBuilder sb)
+    {
+        string result = "";
+        string[] list = sb.ToString().E_SPLIT(Environment.NewLine);
+        if (list.Length > 200)
+        {
+            for (int i = list.Length -200; i < list.Length; i++)
+            {
+                result = result + list[i] + Environment.NewLine;
+            }
+        }
+        else
+        {
+            result = sb.ToString();
+        }
 
+        sb.Remove(0, sb.Length);
+        sb.Append(result);
+        return sb.ToString(); 
+    }
 }

@@ -96,6 +96,8 @@ class Tool
         //convert to  east +8
         return dt.AddHours(8-kind);
     }
+
+
     private static bool is_english(string str)
     {
         for (int i = 0; i < str.Length - 1; i++)
@@ -105,8 +107,7 @@ class Tool
             if (byte_len.Length == 2) { return false; }
         }
         return true;
-    }
-    
+    } 
     public static string to_simple_chinese(string str)
     { 
         return Strings.StrConv(str, VbStrConv.SimplifiedChinese, 0);

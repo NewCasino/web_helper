@@ -26,8 +26,38 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_coral();
-          
+            sb.AppendLine("-----------------------------------------188ebt-----------------------------------------");
+            test_188bet();
+            sb.AppendLine("-----------------------------------------macauslot-----------------------------------------");
+            test_macauslot();
+            sb.AppendLine("-----------------------------------------10bet-----------------------------------------");
+            test_10bet();
+            sb.AppendLine("-----------------------------------------fubo-----------------------------------------");
+            test_fubo();
+            sb.AppendLine("-----------------------------------------fun88-----------------------------------------");
+            test_fun88();
+
+
+            sb.AppendLine("-----------------------------------------bet16-----------------------------------------");
+            test_bet16();
+            sb.AppendLine("-----------------------------------------betvictor-----------------------------------------");
+            test_betvictor();
+            sb.AppendLine("-----------------------------------------interwetten-----------------------------------------");
+            test_interwetten();
+            sb.AppendLine("-----------------------------------------sbobet-----------------------------------------");
+            test_sbobet();
+            sb.AppendLine("-----------------------------------------mansion88-----------------------------------------");
+            test_mansion88();
+
+
+            sb.AppendLine("-----------------------------------------sportbet-----------------------------------------");
+            test_sportbet();
+            sb.AppendLine("-----------------------------------------victorbet-----------------------------------------");
+            test_victorbet();
+            sb.AppendLine("-----------------------------------------marathonbet-----------------------------------------");
+            test_marathonbet();
+            sb.AppendLine("-----------------------------------------coral-----------------------------------------"); 
+            test_coral(); 
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -38,9 +68,7 @@ namespace web_helper
 
         //2014-08-28
         public void test_188bet()
-        {
-
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "188bet.html"));
 
@@ -92,7 +120,7 @@ namespace web_helper
                         string lose = doc.DocumentNode.SelectSingleNode(path2 + "/td[5]/span[1]").InnerText;
                         if (!league.Contains("Specials"))
                         {
-                            sb.AppendLine(league.PR(80) + start_tiime.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            sb.AppendLine(league.PR(50) + start_tiime.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                             //Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
                     }
@@ -106,8 +134,7 @@ namespace web_helper
 
         }
         public void test_macauslot()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "macauslot.html"));
 
@@ -164,8 +191,7 @@ namespace web_helper
 
         }
         public void test_10bet()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "10bet.html"));
 
@@ -217,8 +243,7 @@ namespace web_helper
 
         }
         public void test_fubo()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "fubo.html"));
 
@@ -259,7 +284,7 @@ namespace web_helper
                         win = doc.DocumentNode.SelectSingleNode(xpath2 + "/tbody[1]/tr[1]/td[3]").InnerText;
                         draw = doc.DocumentNode.SelectSingleNode(xpath2 + "/tbody[1]/tr[1]/td[4]").InnerText;
                         lose = doc.DocumentNode.SelectSingleNode(xpath2 + "/tbody[1]/tr[1]/td[5]").InnerText;
-                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.E_TRIM().PR(10) + draw.E_TRIM().PR(10) + lose.E_TRIM().PR(10));
                     }
                 }
             }
@@ -268,8 +293,7 @@ namespace web_helper
             Application.DoEvents();
         }
         public void test_fun88()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "fun88.html"));
 
@@ -305,8 +329,7 @@ namespace web_helper
                 if (node.Attributes.Contains("class") &&
                     node.Attributes["class"].Value.ToString().ToLower().Trim().Contains("bgcpe"))
                 {
-
-
+ 
                     if (!string.IsNullOrEmpty(node.InnerText) && node.InnerText.Trim() != "&nbsp;")
                     {
                         try
@@ -318,7 +341,7 @@ namespace web_helper
                             lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[2]").InnerText;
                             draw = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[3]").InnerText;
                             if (!string.IsNullOrEmpty(win) && !string.IsNullOrEmpty(client) && !string.IsNullOrEmpty(win))
-                            {
+                            { 
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                             }
                         }
@@ -333,8 +356,7 @@ namespace web_helper
 
         //2014-08-29
         public void test_bet16()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "bet16.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -367,8 +389,7 @@ namespace web_helper
                     }
                     if (nodes_td != null && nodes_td.Count == 10)
                     {
-                        start_time = nodes_td[0].InnerText;
-                        if (start_time.Contains("LIVE")) start_time = DateTime.Now.ToString("MM-dd") + start_time; 
+                        start_time = nodes_td[0].InnerText; 
                         host = doc.DocumentNode.SelectSingleNode(nodes_td[1].XPath + "/div[1]").InnerText;
                         client = doc.DocumentNode.SelectSingleNode(nodes_td[1].XPath + "/div[2]").InnerText;
                         win = nodes_td[3].InnerText;
@@ -388,8 +409,7 @@ namespace web_helper
             Application.DoEvents();
         }
         public void test_betvictor()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "betvictor.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -423,7 +443,7 @@ namespace web_helper
                     string[] strs = teams.Split(new string[] { " v " }, StringSplitOptions.RemoveEmptyEntries);
                     host = strs[0];
                     client = strs[1];
-                    start_time = DateTime.Now.ToString("MM-dd") + "●" + doc.DocumentNode.SelectSingleNode(xpath + "/a[1]/div[2]").InnerText;
+                    start_time =  doc.DocumentNode.SelectSingleNode(xpath + "/a[1]/div[2]").InnerText;
                 }
                 if (node.Name == "li" && node.Attributes.Contains("class") && node.Attributes["class"].Value.ToString() == "row with-columns")
                 {
@@ -441,8 +461,7 @@ namespace web_helper
             Application.DoEvents();
         }
         public void test_interwetten()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "interwetten.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -504,8 +523,7 @@ namespace web_helper
             Application.DoEvents();
         }
         public void test_sbobet()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "sbobet.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -567,8 +585,7 @@ namespace web_helper
             Application.DoEvents();
         }
         public void test_mansion88()
-        {
-            sb.Remove(0, sb.Length);
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "mansion88.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -609,8 +626,7 @@ namespace web_helper
                     }
                     if (doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").ChildNodes.Count == 1)
                     {
-                        client = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").InnerText;
-                        if (start_time.Contains("Live")) start_time = DateTime.Now.ToString("MM-dd") + start_time;
+                        client = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").InnerText; 
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                     }
                 }
@@ -622,8 +638,7 @@ namespace web_helper
 
         //2014-09-02
         public void test_sportbet()
-        {
-            sb.Remove(0, sb.Length);
+        {   
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "sportbet.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -676,7 +691,7 @@ namespace web_helper
                             win = doc.DocumentNode.SelectSingleNode(xpath1 + "/div[2]/div[1]/div[1]/a[1]/span[2]").InnerText;
                             draw = doc.DocumentNode.SelectSingleNode(xpath1 + "/div[2]/div[1]/div[2]/a[1]/span[2]").InnerText;
                             lose = doc.DocumentNode.SelectSingleNode(xpath1 + "/div[2]/div[1]/div[3]/a[1]/span[2]").InnerText;
-                            sb.AppendLine(start_time.PR(20) + host.PR(20) + client.PR(20) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            sb.AppendLine("".PR(50)+start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
 
                         }
 
@@ -692,7 +707,7 @@ namespace web_helper
         }
         public void test_victorbet()
         {
-            sb.Remove(0, sb.Length);
+           
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "victorbet.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -744,7 +759,7 @@ namespace web_helper
                             draw = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[4]/span[1]/a[1]/span[1]").InnerText);
                             lose = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[5]/span[1]/a[1]/span[1]").InnerText);
 
-                            sb.AppendLine(start_time.PR(20) + league.PR(30) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            sb.AppendLine( league.PR(50)+start_time.PR(20)  + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                         }
                         catch (Exception error) { }
 
@@ -762,7 +777,7 @@ namespace web_helper
         }
         public void test_marathonbet()
         {
-            sb.Remove(0, sb.Length);
+            
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "marathonbet.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -806,14 +821,14 @@ namespace web_helper
                                 }
                                 if (date.Length == 5)
                                 {
-                                    start_time = DateTime.Now.ToString("MM-dd") + "●"+date;
+                                    start_time =  date;
                                 }
                                 host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
                                 client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
                                 win = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[2]").InnerText);
                                 draw =Match100Helper.convert_english_odd( node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
                                 lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
-                                sb.AppendLine(league.PR(70)+start_time.PR(20)+host.PR(30)+client.PR(30)+win.PR(10)+draw.PR(10)+lose.PR(10)); 
+                                sb.AppendLine(league.PR(50)+start_time.PR(20)+host.PR(30)+client.PR(30)+win.PR(10)+draw.PR(10)+lose.PR(10)); 
 
                             }
                           
@@ -829,7 +844,7 @@ namespace web_helper
         }
         public void test_coral()
         {
-            sb.Remove(0, sb.Length);
+            
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "coral.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -870,7 +885,7 @@ namespace web_helper
                     win = node.SELECT_NODE("/div[5]/div[1]/span[2]").InnerText;
                     draw = node.SELECT_NODE("/div[6]/div[1]/span[2]").InnerText;
                     lose = node.SELECT_NODE("/div[7]/div[1]/span[2]").InnerText;
-                    sb.AppendLine(start_time.PR(20)+host.PR(20)+client.PR(20)+win.PR(10)+draw.PR(10)+lose.PR(10));
+                    sb.AppendLine("".PR(50)+start_time.PR(20)+host.PR(30)+client.PR(30)+win.PR(10)+draw.PR(10)+lose.PR(10));
 
                 }
                  

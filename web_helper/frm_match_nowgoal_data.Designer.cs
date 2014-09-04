@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_league_fixtures_standings = new System.Windows.Forms.Button();
+            this.btn_league_all = new System.Windows.Forms.Button();
+            this.btn_odd_1X2_single_match = new System.Windows.Forms.Button();
+            this.btn_odd_1X2_single_company = new System.Windows.Forms.Button();
             this.btn_live_score = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Text = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgv_grid = new System.Windows.Forms.DataGridView();
-            this.btn_odd_1X2_single_company = new System.Windows.Forms.Button();
-            this.btn_odd_1X2_single_match = new System.Windows.Forms.Button();
-            this.btn_league_all = new System.Windows.Forms.Button();
-            this.btn_league_fixtures_standings = new System.Windows.Forms.Button();
+            this.btn_team_profile = new System.Windows.Forms.Button();
+            this.btn_match_result = new System.Windows.Forms.Button();
+            this.btn_team_schedule = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Text.SuspendLayout();
@@ -50,6 +53,9 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.btn_team_schedule);
+            this.groupBox1.Controls.Add(this.btn_match_result);
+            this.groupBox1.Controls.Add(this.btn_team_profile);
             this.groupBox1.Controls.Add(this.btn_league_fixtures_standings);
             this.groupBox1.Controls.Add(this.btn_league_all);
             this.groupBox1.Controls.Add(this.btn_odd_1X2_single_match);
@@ -61,6 +67,46 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_league_fixtures_standings
+            // 
+            this.btn_league_fixtures_standings.Location = new System.Drawing.Point(9, 168);
+            this.btn_league_fixtures_standings.Name = "btn_league_fixtures_standings";
+            this.btn_league_fixtures_standings.Size = new System.Drawing.Size(169, 23);
+            this.btn_league_fixtures_standings.TabIndex = 4;
+            this.btn_league_fixtures_standings.Text = "[L]Fixtures Standing";
+            this.btn_league_fixtures_standings.UseVisualStyleBackColor = true;
+            this.btn_league_fixtures_standings.Click += new System.EventHandler(this.btn_league_fixtures_standings_Click);
+            // 
+            // btn_league_all
+            // 
+            this.btn_league_all.Location = new System.Drawing.Point(9, 139);
+            this.btn_league_all.Name = "btn_league_all";
+            this.btn_league_all.Size = new System.Drawing.Size(169, 23);
+            this.btn_league_all.TabIndex = 3;
+            this.btn_league_all.Text = "[L] All";
+            this.btn_league_all.UseVisualStyleBackColor = true;
+            this.btn_league_all.Click += new System.EventHandler(this.btn_league_all_Click);
+            // 
+            // btn_odd_1X2_single_match
+            // 
+            this.btn_odd_1X2_single_match.Location = new System.Drawing.Point(9, 110);
+            this.btn_odd_1X2_single_match.Name = "btn_odd_1X2_single_match";
+            this.btn_odd_1X2_single_match.Size = new System.Drawing.Size(169, 23);
+            this.btn_odd_1X2_single_match.TabIndex = 2;
+            this.btn_odd_1X2_single_match.Text = "OD By Match";
+            this.btn_odd_1X2_single_match.UseVisualStyleBackColor = true;
+            this.btn_odd_1X2_single_match.Click += new System.EventHandler(this.btn_odd_1X2_single_match_Click);
+            // 
+            // btn_odd_1X2_single_company
+            // 
+            this.btn_odd_1X2_single_company.Location = new System.Drawing.Point(9, 81);
+            this.btn_odd_1X2_single_company.Name = "btn_odd_1X2_single_company";
+            this.btn_odd_1X2_single_company.Size = new System.Drawing.Size(169, 23);
+            this.btn_odd_1X2_single_company.TabIndex = 1;
+            this.btn_odd_1X2_single_company.Text = "OD By Company";
+            this.btn_odd_1X2_single_company.UseVisualStyleBackColor = true;
+            this.btn_odd_1X2_single_company.Click += new System.EventHandler(this.btn_odd_1X2_single_company_Click);
             // 
             // btn_live_score
             // 
@@ -129,45 +175,35 @@
             this.dgv_grid.Size = new System.Drawing.Size(853, 490);
             this.dgv_grid.TabIndex = 0;
             // 
-            // btn_odd_1X2_single_company
+            // btn_team_profile
             // 
-            this.btn_odd_1X2_single_company.Location = new System.Drawing.Point(9, 48);
-            this.btn_odd_1X2_single_company.Name = "btn_odd_1X2_single_company";
-            this.btn_odd_1X2_single_company.Size = new System.Drawing.Size(169, 23);
-            this.btn_odd_1X2_single_company.TabIndex = 1;
-            this.btn_odd_1X2_single_company.Text = "OD By Company";
-            this.btn_odd_1X2_single_company.UseVisualStyleBackColor = true;
-            this.btn_odd_1X2_single_company.Click += new System.EventHandler(this.btn_odd_1X2_single_company_Click);
+            this.btn_team_profile.Location = new System.Drawing.Point(9, 197);
+            this.btn_team_profile.Name = "btn_team_profile";
+            this.btn_team_profile.Size = new System.Drawing.Size(169, 23);
+            this.btn_team_profile.TabIndex = 5;
+            this.btn_team_profile.Text = "[T]Profile";
+            this.btn_team_profile.UseVisualStyleBackColor = true;
+            this.btn_team_profile.Click += new System.EventHandler(this.btn_team_profile_Click);
             // 
-            // btn_odd_1X2_single_match
+            // btn_match_result
             // 
-            this.btn_odd_1X2_single_match.Location = new System.Drawing.Point(9, 77);
-            this.btn_odd_1X2_single_match.Name = "btn_odd_1X2_single_match";
-            this.btn_odd_1X2_single_match.Size = new System.Drawing.Size(169, 23);
-            this.btn_odd_1X2_single_match.TabIndex = 2;
-            this.btn_odd_1X2_single_match.Text = "OD By Match";
-            this.btn_odd_1X2_single_match.UseVisualStyleBackColor = true;
-            this.btn_odd_1X2_single_match.Click += new System.EventHandler(this.btn_odd_1X2_single_match_Click);
+            this.btn_match_result.Location = new System.Drawing.Point(9, 48);
+            this.btn_match_result.Name = "btn_match_result";
+            this.btn_match_result.Size = new System.Drawing.Size(169, 23);
+            this.btn_match_result.TabIndex = 6;
+            this.btn_match_result.Text = "[M]Result";
+            this.btn_match_result.UseVisualStyleBackColor = true;
+            this.btn_match_result.Click += new System.EventHandler(this.btn_match_result_Click);
             // 
-            // btn_league_all
+            // btn_team_schedule
             // 
-            this.btn_league_all.Location = new System.Drawing.Point(9, 106);
-            this.btn_league_all.Name = "btn_league_all";
-            this.btn_league_all.Size = new System.Drawing.Size(169, 23);
-            this.btn_league_all.TabIndex = 3;
-            this.btn_league_all.Text = "[L] All";
-            this.btn_league_all.UseVisualStyleBackColor = true;
-            this.btn_league_all.Click += new System.EventHandler(this.btn_league_all_Click);
-            // 
-            // btn_league_fixtures_standings
-            // 
-            this.btn_league_fixtures_standings.Location = new System.Drawing.Point(9, 135);
-            this.btn_league_fixtures_standings.Name = "btn_league_fixtures_standings";
-            this.btn_league_fixtures_standings.Size = new System.Drawing.Size(169, 23);
-            this.btn_league_fixtures_standings.TabIndex = 4;
-            this.btn_league_fixtures_standings.Text = "[L]Fixtures Standing";
-            this.btn_league_fixtures_standings.UseVisualStyleBackColor = true;
-            this.btn_league_fixtures_standings.Click += new System.EventHandler(this.btn_league_fixtures_standings_Click);
+            this.btn_team_schedule.Location = new System.Drawing.Point(9, 226);
+            this.btn_team_schedule.Name = "btn_team_schedule";
+            this.btn_team_schedule.Size = new System.Drawing.Size(169, 23);
+            this.btn_team_schedule.TabIndex = 7;
+            this.btn_team_schedule.Text = "[T]Schedule";
+            this.btn_team_schedule.UseVisualStyleBackColor = true;
+            this.btn_team_schedule.Click += new System.EventHandler(this.btn_team_schedule_Click);
             // 
             // frm_match_nowgoal_data
             // 
@@ -201,5 +237,8 @@
         private System.Windows.Forms.Button btn_odd_1X2_single_match;
         private System.Windows.Forms.Button btn_league_all;
         private System.Windows.Forms.Button btn_league_fixtures_standings;
+        private System.Windows.Forms.Button btn_team_profile;
+        private System.Windows.Forms.Button btn_match_result;
+        private System.Windows.Forms.Button btn_team_schedule;
     }
 }

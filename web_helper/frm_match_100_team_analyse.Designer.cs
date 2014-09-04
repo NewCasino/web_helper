@@ -87,6 +87,7 @@
             // 
             // btn_add_simple_complex
             // 
+            this.btn_add_simple_complex.Enabled = false;
             this.btn_add_simple_complex.Location = new System.Drawing.Point(123, 233);
             this.btn_add_simple_complex.Name = "btn_add_simple_complex";
             this.btn_add_simple_complex.Size = new System.Drawing.Size(112, 23);

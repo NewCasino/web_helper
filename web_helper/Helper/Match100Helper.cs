@@ -133,10 +133,20 @@ class Match100Helper
         return result;
     }
 
-    public static DateTime convert_start_time(string start_time)
+    public static DateTime convert_start_time(string start_time,string time_zone,string timespan)
     {
         start_time = start_time.Trim().ToLower();
         start_time = start_time.Replace('/', '-');
+
+        //no date,get date by timezone & timespan
+        if (!start_time.Contains("-"))
+        {
+            DateTime dt_span = Convert.ToDateTime(timespan);
+            DateTime dt_convert = Tool.get_time_by_kind(dt_span, Convert.ToInt16(time_zone));
+            start_time = dt_convert.ToString("MM-dd") + "●" + start_time; 
+        }
+
+
         string result = "";
         string str_date = "";
         string str_time = "";
@@ -184,8 +194,16 @@ class Match100Helper
 
         str_date = Convert.ToInt16(str_month).ToString("00") + "-" + Convert.ToInt16(str_day).ToString("00");
         str_time = Convert.ToInt16(str_hour).ToString("00") + ":" + Convert.ToInt16(str_min).ToString("00");
+        
+        //convert pm time
         if (start_time.Contains("pm")) str_time = Tool.get_24h_from_12h(str_time);
-        return Tool.get_time(str_date, str_time);
+
+        DateTime dt_return =Tool.get_time(str_date, str_time); 
+
+        //convert timezone
+        dt_return = Tool.get_time_by_kind(dt_return, Convert.ToInt16(time_zone)); 
+
+        return dt_return;
     }
     public static DateTime round_time(DateTime dt)
     {
