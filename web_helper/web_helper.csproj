@@ -286,6 +286,7 @@
     <Compile Include="Helper\Match100Method.cs" />
     <Compile Include="Helper\MatchComputeMethod.cs" />
     <Compile Include="Helper\Match100Analyse.cs" />
+    <Compile Include="Helper\P.cs" />
     <Compile Include="Helper\TemplateHelper_Match.cs" />
     <Compile Include="Helper\Tool.cs" />
     <Compile Include="Helper\BrowserHelper.cs" />

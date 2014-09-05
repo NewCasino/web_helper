@@ -35,16 +35,44 @@ static class Extensions
         return "PR WRONG".PR(len);
     }
 
-    //String Extentsions 
+    //String Extentsions  
     public static string E_TRIM(this string str)
     {
-        return str.Replace("/r/n", "").Replace(" ", "").Trim();
+
+        str = str.Replace("/r/n", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\v", "").Replace("\f", "");
+        str = str.Replace(" ", "").Trim();
+        return str;
     }
+    public static string E_REMOVE(this string str)
+    {
+        string result = "";
+
+        str = str.Replace("/r/n", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\v", "").Replace("\f", "");
+        str=str.Replace("&nbsp;","");
+        str = str.Replace("<br>", "");
+        str = str.Replace("<BR>", "");
+
+        string[] list = str.E_SPLIT(" ");
+        if (list.Length > 0)
+        {
+            foreach (string item in list)
+            { 
+                    result = result + " " + item; 
+            }
+            result = result.Substring(1, result.Length - 2);
+        }
+        {
+            result = str;
+        }
+
+        return result;
+    } 
     public static string[] E_SPLIT(this string str, string mark)
     {
         string[] list = str.ToString().Split(new string[] { mark }, StringSplitOptions.RemoveEmptyEntries);
         return list;
     }
+  
  
     //HtmlNode Extensions
     public static HtmlNode SELECT_NODE(this HtmlNode node_input, string xpath)
