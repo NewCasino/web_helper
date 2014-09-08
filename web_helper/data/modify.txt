@@ -1,3 +1,5 @@
 modify Match100Analyse  bug:  -9999999  ¸ºÎÞÇî´ó
-modify frm_match_100_analyse bug:  select website then filter matchs
+modify frm_match_100_method_test to use Match100Method
+modify 1bet to remove half
 
+add new function invoke_method(HtmlElement......)

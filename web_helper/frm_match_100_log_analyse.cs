@@ -24,7 +24,7 @@ namespace web_helper
         } 
         private void btn_analyse_Click(object sender, EventArgs e)
         { 
-            update_standard_data();
+          
             analyse();
             MessageBox.Show("Analyse OK!");
         }
@@ -63,35 +63,13 @@ namespace web_helper
                     }
                 }
             }
-        }
-        private void btn_into_offical_Click(object sender, EventArgs e)
-        {
-            string sql = "select * from europe_100_log where f_state='3'";
-            DataTable dt = SQLServerHelper.get_table(sql);
-            foreach (DataRow row in dt.Rows)
-            {
-                string website = row["website"].ToString();
-                string time_span = row["timespan"].ToString();
-                string start_time = row["f_start_time"].ToString();
-                string league = row["league"].ToString();
-                string host = row["f_host"].ToString();
-                string client = row["f_client"].ToString();
-                string odd_win = row["odd_win"].ToString().Trim();
-                string odd_draw = row["odd_draw"].ToString().Trim();
-                string odd_lose = row["odd_lose"].ToString().Trim();
-
-                sql = "select * from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and odd_win='{4}' and odd_draw='{5}' and odd_lose='{6}'";
-                sql = string.Format(sql, website, start_time, host, client, odd_win, odd_lose, odd_lose);
-                DataTable dt_temp = SQLServerHelper.get_table(sql);
-                if (dt_temp.Rows.Count == 0)
-                {
-                    sql = " insert into europe_100  (timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
-                          " ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')";
-                    sql = string.Format(sql, time_span, website, league, start_time, host, client, odd_win, odd_draw, odd_lose);
-                    SQLServerHelper.exe_sql(sql);
-                }
-            }
         } 
+        private void btn_pick_data_Click(object sender, EventArgs e)
+        {
+            update_standard_data();
+            into_office();
+            MessageBox.Show("Pick Complete!!");
+        }
       
         public void update_standard_data()
         {
@@ -138,7 +116,7 @@ namespace web_helper
                 sql = string.Format(sql,  convert_host, convert_client,convert_time, f_state, id);
                 SQLServerHelper.exe_sql(sql);
 
-                sb.AppendLine(convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
+                sb.AppendLine(website.PR(10)+convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
                 this.txt_result.Text = sb.ToString();
                 Application.DoEvents();
 
@@ -199,6 +177,38 @@ namespace web_helper
                     }
                 }
             } 
+        }
+        public void into_office()
+        {
+            string sql = "select * from europe_100_log where f_state='3'";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                string id = row["id"].ToString();
+                string website = row["website"].ToString();
+                string time_span = row["timespan"].ToString();
+                string start_time = row["f_start_time"].ToString();
+                string league = row["league"].ToString();
+                string host = row["f_host"].ToString();
+                string client = row["f_client"].ToString();
+                string odd_win = row["odd_win"].ToString().Trim();
+                string odd_draw = row["odd_draw"].ToString().Trim();
+                string odd_lose = row["odd_lose"].ToString().Trim();
+
+                sql = "select * from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and odd_win='{4}' and odd_draw='{5}' and odd_lose='{6}'";
+                sql = string.Format(sql, website, start_time, host, client, odd_win, odd_lose, odd_lose);
+                DataTable dt_temp = SQLServerHelper.get_table(sql);
+                if (dt_temp.Rows.Count == 0)
+                {
+                    sql = " insert into europe_100  (timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
+                          " ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')";
+                    sql = string.Format(sql, time_span, website, league, start_time, host, client, odd_win, odd_draw, odd_lose);
+                    SQLServerHelper.exe_sql(sql);
+                }
+                sql = "update europe_100_log set f_state='4' where id={0}";
+                sql = string.Format(sql, id);
+                SQLServerHelper.exe_sql(sql);
+            }
         }
         public void analyse()
         {
@@ -385,6 +395,7 @@ namespace web_helper
                 }
             }
         }
+   
         public string get_odd_order(string str_win, string str_draw, string str_lose)
         {
             double win = Convert.ToDouble(str_win);
@@ -399,6 +410,8 @@ namespace web_helper
             if (lose >= draw && draw > win) return "LDW";
             return "WRONG";
         }
+
+
    
     }
     

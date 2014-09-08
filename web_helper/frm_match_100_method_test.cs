@@ -61,7 +61,7 @@ namespace web_helper
             //sb.AppendLine("-----------------------------------------coral-----------------------------------------"); 
             //test_coral(); 
             #endregion
-            test_oddsring();
+            test_betvictor();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -680,7 +680,7 @@ namespace web_helper
                             string[] dates = date.E_SPLIT("/");
                             if (dates.Length >= 3)
                             {
-                                date = dates[2] + "-" + dates[1];
+                                date = dates[1] + "-" + dates[0].Substring(dates[0].Length - 2, 2) ;
                             }
                         }
                         if (node_li.ChildNodes.Count == 5)

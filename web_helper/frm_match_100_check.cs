@@ -51,7 +51,12 @@ namespace web_helper
                 int team_single = SQLServerHelper.get_table(sql_temp).Rows.Count;
 
                 sql_temp = string.Format(sql, start_id, website, "3");
-                int team_all = SQLServerHelper.get_table(sql_temp).Rows.Count;
+                int team_all_3 = SQLServerHelper.get_table(sql_temp).Rows.Count;
+
+                sql_temp = string.Format(sql, start_id, website, "4");
+                int team_all_4 = SQLServerHelper.get_table(sql_temp).Rows.Count;
+
+                int team_all = team_all_3 + team_all_4;
 
                 int total = team_zero + team_single + team_all;
                 sb.AppendLine(website.PR(20) + "Team All:   " + team_all.PR(5) + (Math.Round(Convert.ToDouble(team_all) / total * 100, 2).ToString() + "%").PR(10) +

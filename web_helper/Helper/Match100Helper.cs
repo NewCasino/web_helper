@@ -41,15 +41,18 @@ class Match100Helper
         doc_result.Add("loop", new BsonArray());
         return doc_result;
     }
-    public static void insert_data(string website, string type, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose, string time_zone, string time_add)
+    public static void insert_data(string website, string league, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose, string time_zone, string time_add)
     {
         string sql = "";
         string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
+        league = league.Replace("'", " ");
+        host = host.Replace("'", " ");
+        client = client.Replace("'", " ");
         sql = " insert into europe_100_log " +
               " ( timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose,time_zone,time_add,f_state) values" +
               " ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','0')";
-        sql = string.Format(sql, timespan, website, type, start_time, host, client, odd_win, odd_draw, odd_lose, time_zone, time_add);
+        sql = string.Format(sql, timespan, website, league, start_time, host, client, odd_win, odd_draw, odd_lose, time_zone, time_add);
         SQLServerHelper.exe_sql(sql);
     }
     public static void insert_future_match(string league, string time, string host, string client)

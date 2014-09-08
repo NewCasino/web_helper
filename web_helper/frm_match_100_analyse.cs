@@ -428,7 +428,7 @@ namespace web_helper
         {
 
             string sql = "";
-            sql = " select host,client,website,odd_win,odd_draw,odd_lose " +
+            sql = " select  start_time,host,client,website,odd_win,odd_draw,odd_lose " +
                  " from europe_100" +
                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client)" +
                  " order by start_time,host,client,id";

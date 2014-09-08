@@ -81,15 +81,13 @@ namespace web_helper
             if (browser.Document == null) return;
 
             HtmlDocument doc_main = browser.Document;
-            this.txt_result_script.Text = BrowserHelper.get_attrs_by_id(ref browser, "btm_NextBtn").ToLower();
-            //string result=BrowserHelper.get_text_by_id(ref browser, "txt_origin");
-            //BrowserHelper.invoke_click_by_id(ref browser, "btn_ok");
+            BrowserHelper.invoke_click_by_id(ref browser, "1_1X2_Cnt");
             //this.txt_result_triggle.Text = result; 
         }
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            BsonDocument doc = method.from_fun88_1(ref browser);
+            BsonDocument doc =method.from_snai_1(ref browser);
             this.txt_result_method.Text = doc["data"].ToString();
             MessageBox.Show("method ok!");
         }
