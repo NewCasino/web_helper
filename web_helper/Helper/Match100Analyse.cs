@@ -18,8 +18,8 @@ class Match100Analyse
     {
 
 
-        string sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}'";
-        sql = string.Format(sql, start_time, host, client);
+        string sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and id in (select max(id) from europe_100 where start_time>'{3}'   group by website,start_time,host,client)";
+        sql = string.Format(sql, start_time, host, client, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         DataTable dt = SQLServerHelper.get_table(sql);
 
         //ArrayList list_fix_websites = new ArrayList();
@@ -128,12 +128,12 @@ class Match100Analyse
     }
     public static BsonDocument get_max_from_two_match(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count, ArrayList list_websites)
     {
-        string sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}'";
-        sql = string.Format(sql, start_time1, host1, client1);
+        string sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and id in (select max(id) from europe_100  where start_time>'{3}'  group by website,start_time,host,client)";
+        sql = string.Format(sql, start_time1, host1, client1, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         DataTable dt1 = SQLServerHelper.get_table(sql);
 
-        sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}'";
-        sql = string.Format(sql, start_time2, host2, client2);
+        sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and id in (select max(id) from europe_100   where start_time>'{3}' group by website,start_time,host,client)";
+        sql = string.Format(sql, start_time2, host2, client2, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         DataTable dt2 = SQLServerHelper.get_table(sql);
 
 
@@ -282,7 +282,7 @@ class Match100Analyse
 
 
         //when only one website has this match odd
-        bool is_find = false;
+        bool is_find = true;
         foreach (string website in websites)
         {
             if (string.IsNullOrEmpty(website)) is_find = false;
@@ -312,17 +312,17 @@ class Match100Analyse
     {
 
 
-        string sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}'";
-        sql = string.Format(sql, start_time1, host1, client1);
+        string sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and  id in (select max(id) from europe_100  where start_time>'{3}'  group by website,start_time,host,client)";
+        sql = string.Format(sql, start_time1, host1, client1, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         DataTable dt1 = SQLServerHelper.get_table(sql);
 
-        sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}'";
-        sql = string.Format(sql, start_time2, host2, client2);
+        sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and id in (select max(id) from europe_100  where start_time>'{3}' group by website,start_time,host,client)";
+        sql = string.Format(sql, start_time2, host2, client2, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         DataTable dt2 = SQLServerHelper.get_table(sql);
 
 
-        sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}'";
-        sql = string.Format(sql, start_time3, host3, client3);
+        sql = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and id in (select max(id) from europe_100  where start_time>'{3}'  group by website,start_time,host,client)";
+        sql = string.Format(sql, start_time3, host3, client3, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         DataTable dt3 = SQLServerHelper.get_table(sql);
 
 

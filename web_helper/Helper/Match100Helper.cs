@@ -38,7 +38,8 @@ class Match100Helper
     {
         BsonDocument doc_result = new BsonDocument();
         doc_result.Add("data", "");
-        doc_result.Add("loop", new BsonArray());
+        doc_result.Add("used", new BsonArray());
+        doc_result.Add("loop", new BsonArray()); 
         return doc_result;
     }
     public static void insert_data(string website, string league, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose, string time_zone, string time_add)

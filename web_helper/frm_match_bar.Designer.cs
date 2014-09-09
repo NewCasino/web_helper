@@ -46,7 +46,7 @@
             // 
             // btn_compute_by_website
             // 
-            this.btn_compute_by_website.Location = new System.Drawing.Point(12, 41);
+            this.btn_compute_by_website.Location = new System.Drawing.Point(130, 41);
             this.btn_compute_by_website.Name = "btn_compute_by_website";
             this.btn_compute_by_website.Size = new System.Drawing.Size(112, 23);
             this.btn_compute_by_website.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             // btn_down_excel
             // 
-            this.btn_down_excel.Location = new System.Drawing.Point(130, 41);
+            this.btn_down_excel.Location = new System.Drawing.Point(12, 41);
             this.btn_down_excel.Name = "btn_down_excel";
             this.btn_down_excel.Size = new System.Drawing.Size(112, 23);
             this.btn_down_excel.TabIndex = 1;

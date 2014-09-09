@@ -24,44 +24,11 @@ namespace web_helper
             InitializeComponent();
         }
 
+
+
         private void btn_test_Click(object sender, EventArgs e)
-        {
-
-            #region
-            //sb.AppendLine("-----------------------------------------188ebt-----------------------------------------");
-            //test_188bet();
-            //sb.AppendLine("-----------------------------------------macauslot-----------------------------------------");
-            //test_macauslot();
-            //sb.AppendLine("-----------------------------------------10bet-----------------------------------------");
-            //test_10bet();
-            //sb.AppendLine("-----------------------------------------fubo-----------------------------------------");
-            //test_fubo();
-            //sb.AppendLine("-----------------------------------------fun88-----------------------------------------");
-            //test_fun88();
-
-
-            //sb.AppendLine("-----------------------------------------bet16-----------------------------------------");
-            //test_bet16();
-            //sb.AppendLine("-----------------------------------------betvictor-----------------------------------------");
-            //test_betvictor();
-            //sb.AppendLine("-----------------------------------------interwetten-----------------------------------------");
-            //test_interwetten();
-            //sb.AppendLine("-----------------------------------------sbobet-----------------------------------------");
-            //test_sbobet();
-            //sb.AppendLine("-----------------------------------------mansion88-----------------------------------------");
-            //test_mansion88();
-
-
-            //sb.AppendLine("-----------------------------------------sportbet-----------------------------------------");
-            //test_sportbet();
-            //sb.AppendLine("-----------------------------------------victorbet-----------------------------------------");
-            //test_victorbet();
-            //sb.AppendLine("-----------------------------------------marathonbet-----------------------------------------");
-            //test_marathonbet();
-            //sb.AppendLine("-----------------------------------------coral-----------------------------------------"); 
-            //test_coral(); 
-            #endregion
-            test_betvictor();
+        { 
+            test_188bet(); 
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -114,7 +81,7 @@ namespace web_helper
                         }
 
                         string[] str_dates = date.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
-                        string start_tiime = str_dates[1] + "-" + str_dates[0] + "●" + time;
+                        string start_time = str_dates[1] + "-" + str_dates[0] + "●" + time;
 
                         string league = list_lg[index].ToString();
                         string host = doc.DocumentNode.SelectSingleNode(path2 + "/td[2]/div[2]/div[1]/span[1]").InnerText;
@@ -124,7 +91,7 @@ namespace web_helper
                         string lose = doc.DocumentNode.SelectSingleNode(path2 + "/td[5]/span[1]").InnerText;
                         if (!league.Contains("Specials"))
                         {
-                            sb.AppendLine(league.PR(50) + start_tiime.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                             //Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
                     }
@@ -680,7 +647,7 @@ namespace web_helper
                             string[] dates = date.E_SPLIT("/");
                             if (dates.Length >= 3)
                             {
-                                date = dates[1] + "-" + dates[0].Substring(dates[0].Length - 2, 2) ;
+                                date = dates[1] + "-" + dates[0].Substring(dates[0].Length - 2, 2);
                             }
                         }
                         if (node_li.ChildNodes.Count == 5)
@@ -1015,7 +982,7 @@ namespace web_helper
                             lose = node_tr.SELECT_NODE("/td[6]/div[1]/a[1]").InnerText;
                             if (league.Contains("Soccer"))
                             {
-                                start_time = start_time.Replace(" ",P.D);
+                                start_time = start_time.Replace(" ", P.D);
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                             }
 
@@ -1173,8 +1140,14 @@ namespace web_helper
             string lose = "";
             string date = "";
             string time = "";
+            string mark = "";
             foreach (HtmlNode node in nodes_all)
             {
+
+                if (node.Name == "h2" && node.CLASS() == "SubTitle")
+                {
+                    mark = node.InnerText.ToLower();
+                }
                 if (node.CLASS() == "Header")
                 {
                     league = node.InnerText;
@@ -1185,16 +1158,16 @@ namespace web_helper
                     if (!start_time.Contains("ShowTime"))
                     {
 
-                         string str_teams="";
-                         if (node.SELECT_NODE("/td[2]/a[1]") != null)
-                         {
-                             str_teams = node.SELECT_NODE("/td[2]/a[1]").InnerHtml;
-                         }
-                         else
-                         {
-                             str_teams = node.SELECT_NODE("/td[2]").InnerHtml;
-                         }
-                         string[] teams = str_teams.E_SPLIT("<em>vs</em>");
+                        string str_teams = "";
+                        if (node.SELECT_NODE("/td[2]/a[1]") != null)
+                        {
+                            str_teams = node.SELECT_NODE("/td[2]/a[1]").InnerHtml;
+                        }
+                        else
+                        {
+                            str_teams = node.SELECT_NODE("/td[2]").InnerHtml;
+                        }
+                        string[] teams = str_teams.E_SPLIT("<em>vs</em>");
                         if (teams.Length == 2)
                         {
                             host = teams[0]; client = teams[1];
@@ -1206,8 +1179,11 @@ namespace web_helper
                         win = node.SELECT_NODE("/td[3]").InnerText;
                         draw = node.SELECT_NODE("/td[4]").InnerText;
                         lose = node.SELECT_NODE("/td[5]").InnerText;
-                        start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
-                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        if (!mark.Contains("half"))
+                        {
+                            start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
+                            sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        }
                     }
                 }
 
@@ -1246,16 +1222,16 @@ namespace web_helper
             string time = "";
             foreach (HtmlNode node in nodes_all)
             {
-                if (node.CLASS()== "eventTSoccer")
+                if (node.CLASS() == "eventTSoccer")
                 {
-                    start_time = node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[1]").InnerText +P.D+ node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[2]").InnerText;
+                    start_time = node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[1]").InnerText + P.D + node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[2]").InnerText;
                     host = node.SELECT_NODE("tbody[1]/tr[1]/td[2]/div[1]").InnerText;
                     client = node.SELECT_NODE("tbody[1]/tr[1]/td[2]/div[2]").InnerText;
                     win = node.SELECT_NODE("tbody[1]/tr[1]/td[3]").InnerText;
                     draw = node.SELECT_NODE("tbody[1]/tr[1]/td[4]").InnerText;
                     lose = node.SELECT_NODE("tbody[1]/tr[1]/td[5]").InnerText;
 
-                    start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM() ;
+                    start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                 }
 
@@ -1266,6 +1242,8 @@ namespace web_helper
 
 
         }
+
+
 
 
 

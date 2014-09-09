@@ -88,7 +88,8 @@ namespace web_helper
                 string start_odd_win = (string.IsNullOrEmpty(dt_temp.Rows[i][11].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][11].ToString()).ToString("f2");
                 string start_odd_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][12].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][12].ToString()).ToString("f2");
                 string start_odd_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][13].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][13].ToString()).ToString("f2");
-                string start_persent_win = (string.IsNullOrEmpty(dt_temp.Rows[i][14].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][14].ToString()).ToString("f2");
+                string start_persent_win = (string.IsNullOrEmpty
+                    (dt_temp.Rows[i][14].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][14].ToString()).ToString("f2");
                 string start_persent_draw = (string.IsNullOrEmpty(dt_temp.Rows[i][15].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][15].ToString()).ToString("f2");
                 string start_persent_lose = (string.IsNullOrEmpty(dt_temp.Rows[i][16].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][16].ToString()).ToString("f2");
                 string start_persent_return = (string.IsNullOrEmpty(dt_temp.Rows[i][17].ToString())) ? "" : Convert.ToDouble(dt_temp.Rows[i][17].ToString()).ToString("f2");

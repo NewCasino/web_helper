@@ -68,6 +68,10 @@ namespace web_helper
         {
             get_team_schedule();
         }
+        private void btn_player_Click(object sender, EventArgs e)
+        {
+            get_player();
+        }
 
         public void get_live_score()
         {
@@ -298,7 +302,7 @@ namespace web_helper
             }
             this.txt_result.Text = sb.ToString();
 
-        } 
+        }
         public void get_league_fixtures_standings()
         {
             WebClient web_client = new WebClient();
@@ -325,17 +329,17 @@ namespace web_helper
                         string xpath2 = node_tr.XPath;
                         index = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[1]").InnerText;
                         name_eng = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[2]").InnerText;
-                        url = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[2]/a[1]").Attributes["href"].Value ;
+                        url = doc.DocumentNode.SelectSingleNode(xpath2 + "/td[2]/a[1]").Attributes["href"].Value;
                         //&nbsp
                         string[] names = name_eng.E_SPLIT("&nbsp");
                         if (names.Length > 0) name_eng = names[0];
-                        sb.AppendLine(index.PR(5) + name_eng.PR(20)+url);
+                        sb.AppendLine(index.PR(5) + name_eng.PR(20) + url);
                     }
 
                 }
 
             }
-            this.txt_result.Text = sb.ToString(); 
+            this.txt_result.Text = sb.ToString();
         }
         public void get_team_profile()
         {
@@ -484,22 +488,79 @@ namespace web_helper
 
             }
             this.txt_result.Text = sb.ToString();
+        }
+        public void get_player()
+        {
 
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_nowgoal + "player.html"));
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+            string player_name = "";
+            string player_contry = "";
+            string player_weight = "";
+            string player_height = "";
+            string player_birthday = "";
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Id == "mainTitle")
+                {
+
+                    player_name = node.SELECT_NODE("/table[1]/tbody[1]/tr[1]/td[3]").InnerText;
+                    player_contry = node.SELECT_NODE("/table[1]/tbody[1]/tr[2]/td[2]").InnerText;
+                    player_weight = node.SELECT_NODE("/table[1]/tbody[1]/tr[3]/td[2]").InnerText;
+                    player_height = node.SELECT_NODE("/table[1]/tbody[1]/tr[4]/td[2]").InnerText;
+                    player_birthday = node.SELECT_NODE("/table[1]/tbody[1]/tr[5]/td[2]").InnerText;
+
+                    sb.Append(("Name: " + player_name).PR(50));
+                    sb.AppendLine(("Contry: " + player_contry).PR(50));
+                    sb.Append(("Weight: " + player_weight).PR(50));
+                    sb.AppendLine(("Height: " + player_height).PR(50));
+                    sb.AppendLine(("Brithday: " + player_birthday).PR(50));
+                    sb.AppendLine("");
+                }
+
+                if (node.Id == "TwoYearDiv")
+                {
+                    HtmlNodeCollection nodes_tr = node.SELECT_NODES("/table[1]/tbody[1]/tr");
+
+                    for (int i = 0; i < nodes_tr.Count; i++)
+                    {
+                        try
+                        { 
+                            string league = nodes_tr[i].SELECT_NODE("/td[1]").InnerText;
+                            string start_time = nodes_tr[i].SELECT_NODE("/td[2]").InnerText;
+                            string host = nodes_tr[i].SELECT_NODE("/td[3]").InnerText;
+                            string score = nodes_tr[i].SELECT_NODE("/td[4]").InnerText;
+                            string client = nodes_tr[i].SELECT_NODE("/td[5]").InnerText;
+                            string goals = nodes_tr[i].SELECT_NODE("/td[6]").InnerText;
+                            string pen = nodes_tr[i].SELECT_NODE("/td[7]").InnerText;
+                            string og = nodes_tr[i].SELECT_NODE("/td[8]").InnerText;
+                            string yellow = nodes_tr[i].SELECT_NODE("/td[9]").InnerText;
+                            string red = nodes_tr[i].SELECT_NODE("/td[10]").InnerText;
+                            sb.AppendLine(league.PR(10) + start_time.PR(20) + host.PR(30) + score.PR(10) + client.PR(30) + goals.PR(10) + pen.PR(10) + og.PR(10) + yellow.PR(10) + red.PR(10));
+                        }
+                        catch (Exception error) { }
+
+                    }
+
+                }
+
+            }
+            this.txt_result.Text = sb.ToString();
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            sb.Remove(0, sb.Length);
+            this.txt_result.Text = "";
+        }
 
 
     }

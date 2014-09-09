@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.btn_team_schedule = new System.Windows.Forms.Button();
+            this.btn_match_result = new System.Windows.Forms.Button();
+            this.btn_team_profile = new System.Windows.Forms.Button();
             this.btn_league_fixtures_standings = new System.Windows.Forms.Button();
             this.btn_league_all = new System.Windows.Forms.Button();
             this.btn_odd_1X2_single_match = new System.Windows.Forms.Button();
@@ -39,9 +43,7 @@
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgv_grid = new System.Windows.Forms.DataGridView();
-            this.btn_team_profile = new System.Windows.Forms.Button();
-            this.btn_match_result = new System.Windows.Forms.Button();
-            this.btn_team_schedule = new System.Windows.Forms.Button();
+            this.btn_player = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Text.SuspendLayout();
@@ -53,6 +55,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.btn_player);
+            this.groupBox1.Controls.Add(this.btn_clear);
             this.groupBox1.Controls.Add(this.btn_team_schedule);
             this.groupBox1.Controls.Add(this.btn_match_result);
             this.groupBox1.Controls.Add(this.btn_team_profile);
@@ -67,6 +71,46 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_clear
+            // 
+            this.btn_clear.Location = new System.Drawing.Point(9, 284);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(169, 23);
+            this.btn_clear.TabIndex = 8;
+            this.btn_clear.Text = "Clear";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
+            // btn_team_schedule
+            // 
+            this.btn_team_schedule.Location = new System.Drawing.Point(9, 226);
+            this.btn_team_schedule.Name = "btn_team_schedule";
+            this.btn_team_schedule.Size = new System.Drawing.Size(169, 23);
+            this.btn_team_schedule.TabIndex = 7;
+            this.btn_team_schedule.Text = "[T]Schedule";
+            this.btn_team_schedule.UseVisualStyleBackColor = true;
+            this.btn_team_schedule.Click += new System.EventHandler(this.btn_team_schedule_Click);
+            // 
+            // btn_match_result
+            // 
+            this.btn_match_result.Location = new System.Drawing.Point(9, 48);
+            this.btn_match_result.Name = "btn_match_result";
+            this.btn_match_result.Size = new System.Drawing.Size(169, 23);
+            this.btn_match_result.TabIndex = 6;
+            this.btn_match_result.Text = "[M]Result";
+            this.btn_match_result.UseVisualStyleBackColor = true;
+            this.btn_match_result.Click += new System.EventHandler(this.btn_match_result_Click);
+            // 
+            // btn_team_profile
+            // 
+            this.btn_team_profile.Location = new System.Drawing.Point(9, 197);
+            this.btn_team_profile.Name = "btn_team_profile";
+            this.btn_team_profile.Size = new System.Drawing.Size(169, 23);
+            this.btn_team_profile.TabIndex = 5;
+            this.btn_team_profile.Text = "[T]Profile";
+            this.btn_team_profile.UseVisualStyleBackColor = true;
+            this.btn_team_profile.Click += new System.EventHandler(this.btn_team_profile_Click);
             // 
             // btn_league_fixtures_standings
             // 
@@ -175,35 +219,15 @@
             this.dgv_grid.Size = new System.Drawing.Size(853, 490);
             this.dgv_grid.TabIndex = 0;
             // 
-            // btn_team_profile
+            // btn_player
             // 
-            this.btn_team_profile.Location = new System.Drawing.Point(9, 197);
-            this.btn_team_profile.Name = "btn_team_profile";
-            this.btn_team_profile.Size = new System.Drawing.Size(169, 23);
-            this.btn_team_profile.TabIndex = 5;
-            this.btn_team_profile.Text = "[T]Profile";
-            this.btn_team_profile.UseVisualStyleBackColor = true;
-            this.btn_team_profile.Click += new System.EventHandler(this.btn_team_profile_Click);
-            // 
-            // btn_match_result
-            // 
-            this.btn_match_result.Location = new System.Drawing.Point(9, 48);
-            this.btn_match_result.Name = "btn_match_result";
-            this.btn_match_result.Size = new System.Drawing.Size(169, 23);
-            this.btn_match_result.TabIndex = 6;
-            this.btn_match_result.Text = "[M]Result";
-            this.btn_match_result.UseVisualStyleBackColor = true;
-            this.btn_match_result.Click += new System.EventHandler(this.btn_match_result_Click);
-            // 
-            // btn_team_schedule
-            // 
-            this.btn_team_schedule.Location = new System.Drawing.Point(9, 226);
-            this.btn_team_schedule.Name = "btn_team_schedule";
-            this.btn_team_schedule.Size = new System.Drawing.Size(169, 23);
-            this.btn_team_schedule.TabIndex = 7;
-            this.btn_team_schedule.Text = "[T]Schedule";
-            this.btn_team_schedule.UseVisualStyleBackColor = true;
-            this.btn_team_schedule.Click += new System.EventHandler(this.btn_team_schedule_Click);
+            this.btn_player.Location = new System.Drawing.Point(9, 255);
+            this.btn_player.Name = "btn_player";
+            this.btn_player.Size = new System.Drawing.Size(169, 23);
+            this.btn_player.TabIndex = 9;
+            this.btn_player.Text = "Player";
+            this.btn_player.UseVisualStyleBackColor = true;
+            this.btn_player.Click += new System.EventHandler(this.btn_player_Click);
             // 
             // frm_match_nowgoal_data
             // 
@@ -240,5 +264,7 @@
         private System.Windows.Forms.Button btn_team_profile;
         private System.Windows.Forms.Button btn_match_result;
         private System.Windows.Forms.Button btn_team_schedule;
+        private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.Button btn_player;
     }
 }

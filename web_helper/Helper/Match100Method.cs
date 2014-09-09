@@ -541,7 +541,7 @@ class Match100Method
         string draw = "";
         string lose = "";
         foreach (HtmlNode node in nodes_all)
-        {
+        { 
             string xpath = node.XPath;
             if (node.Attributes.Contains("class") &&
                 node.Attributes["class"].Value.ToString().ToLower().Trim().Contains("tabtitle") &&
@@ -1492,8 +1492,13 @@ class Match100Method
         string lose = "";
         string date = "";
         string time = "";
+        string mark = "";
         foreach (HtmlNode node in nodes_all)
         {
+            if (node.Name == "h2" && node.CLASS() == "SubTitle")
+            {
+                mark = node.InnerText.ToLower();
+            }
             if (node.CLASS() == "Header")
             {
                 league = node.InnerText;
@@ -1526,8 +1531,11 @@ class Match100Method
                     draw = node.SELECT_NODE("/td[4]").InnerText;
                     lose = node.SELECT_NODE("/td[5]").InnerText;
                     start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
-                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                    Match100Helper.insert_data("1bet", league, start_time, host, client, win, draw, lose, "2", "0");
+                    if (!mark.Contains("half"))
+                    {
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("1bet", league, start_time, host, client, win, draw, lose, "2", "0");
+                    }
                 }
             }
 
@@ -1589,6 +1597,7 @@ class Match100Method
     }  
 
     #region two function for test in website
+   
     public BsonDocument from_baidu_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -1627,7 +1636,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         return doc_result;
-    }
+    } 
     public BsonDocument from_local_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -1955,5 +1964,5 @@ class Match100Method
         doc_result["data"] = result;
         return doc_result;
     }
-    #endregion
+    #endregion 
 }

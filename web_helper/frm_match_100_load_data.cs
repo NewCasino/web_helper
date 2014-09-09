@@ -268,7 +268,7 @@ namespace web_helper
             ies[index].doc_result = doc_result;
 
             Application.DoEvents();
-        }  
+        } 
         public void bind_data()
         {
             dt = new DataTable();

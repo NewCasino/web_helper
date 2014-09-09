@@ -1821,43 +1821,7 @@ class BrowserHelper
             }
 
         }
-    }
-
-    public static string invoke_click_by_id(ref WebBrowser browser, string id)
-    {
-        string result = "";
-        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        invoke_click_by_id_loop(ref doc_child, id);
-        return result;
-    }
-    public static void invoke_click_by_id_loop(ref mshtml.HTMLDocument doc_input, string id)
-    {
-        object j;
-        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
-        {
-            j = i;
-            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
-            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
-            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-
-            invoke_click_by_id_loop(ref doc_child, id);
-        }
-
-
-        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
-
-        foreach (mshtml.IHTMLElement ielement in ielements)
-        {
-            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
-
-            if (ielement.id == id)
-            {
-                ielement.click();
-            }
-
-        }
-    }
+    } 
 
     public static List<BsonDocument> get_all_elments(ref WebBrowser browser)
     {
@@ -2005,43 +1969,151 @@ class BrowserHelper
 
             }
         }
+    }
+
+    public static string invoke_click_by_id(ref WebBrowser browser, string id)
+    {
+        string result = "";
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        invoke_click_by_id_loop(ref doc_child, id);
+        return result;
+    }
+    public static void invoke_click_by_id_loop(ref mshtml.HTMLDocument doc_input, string id)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+
+            invoke_click_by_id_loop(ref doc_child, id);
+        }
+
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+            if (ielement.id == id)
+            {
+                ielement.click();
+            }
+
+        }
     } 
 
+    public static string invoke_click_by_atrr(ref WebBrowser browser,string attr_name,string attr_value)
+    {
+        string result = "";
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        invoke_click_by_attr_loop(ref doc_child, attr_name, attr_value);
+        return result;
 
-    //public static IHTMLElement get_element_by_id(ref WebBrowser browser, string id)
-    //{ 
-    //    mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument; 
-    //    get_element_by_id_loop(ref doc_child, ref element, id);
-    //    return element;
-    //}
-    //public static void get_element_by_id_loop(ref mshtml.HTMLDocument doc_input, ref IHTMLElement element, string id)
-    //{
-    //    object j;
-    //    for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
-    //    {
-    //        j = i;
-    //        mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
-    //        IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
-    //        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-    //        get_element_by_id_loop(ref doc_child, ref element, id);
-    //    }
+    }
+    public static void invoke_click_by_attr_loop(ref mshtml.HTMLDocument doc_input, string attr_name,string attr_value)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+
+            invoke_click_by_attr_loop(ref doc_child, attr_name, attr_value);
+        }
 
 
-    //    mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
 
-    //    foreach (mshtml.IHTMLElement ielement in ielements)
-    //    {
-    //        mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-    //        IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
 
-    //        if (ielement.id == id)
-    //        {
-    //             element =ielement;
-    //             return;
-    //        }
+            foreach (IHTMLDOMAttribute attr in attrs)
+            {
+                if (attr.nodeName == attr_name && attr.nodeValue != null && attr.nodeValue.ToString()==attr_value)
+                {
+                    ielement.click();
+                }
+            }
+        }
+    }
 
-    //    }
-    //}
+    public static string invoke_click_by_outerhtml(ref WebBrowser browser, string html)
+    {
+        string result = "";
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        invoke_click_by_outerhtml_loop(ref doc_child, html);
+        return result; 
+    }
+    public static void invoke_click_by_outerhtml_loop(ref mshtml.HTMLDocument doc_input, string html)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+
+            invoke_click_by_outerhtml_loop(ref doc_child, html);
+        }
+
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+            if (ielement.outerHTML == html)
+            {
+                ielement.click();
+            } 
+        }
+    }
+
+    public static IHTMLElement get_ielement_by_id(ref WebBrowser browser,ref IHTMLElement element, string id)
+    {
+        mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
+        get_ielement_by_id_loop(ref doc_child, ref element, id);
+        return element;
+    }
+    public static void get_ielement_by_id_loop(ref mshtml.HTMLDocument doc_input, ref IHTMLElement element, string id)
+    {
+        object j;
+        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        {
+            j = i;
+            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+            get_ielement_by_id_loop(ref doc_child, ref element, id);
+        }
+
+
+        mshtml.IHTMLElementCollection ielements = (mshtml.IHTMLElementCollection)doc_input.all;
+
+        foreach (mshtml.IHTMLElement ielement in ielements)
+        {
+            mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+
+            if (ielement.id == id)
+            {
+                element = ielement;
+                return;
+            }
+
+        }
+    }
 
 
 }
