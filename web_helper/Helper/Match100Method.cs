@@ -440,6 +440,8 @@ class Match100Method
                     if (node_tr.Attributes.Contains("class") && node_tr.Attributes["class"].Value.Trim() == "time")
                     {
                         start_time = node_tr.InnerText;
+                        string[] times = start_time.E_TRIM().E_SPLIT("|");
+                        start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
                     }
                     if (node_tr.Attributes.Contains("class") && node_tr.Attributes["class"].Value.Trim().Contains("bets") && node_tr.Attributes["class"].Value.Trim().Contains("ml"))
                     {
@@ -1167,7 +1169,9 @@ class Match100Method
             {
 
                 string test = node.SELECT_NODE("/div[1]").TEXT(1);
-                start_time = node.SELECT_NODE("/div[1]").ChildNodes[0].InnerText.Replace(" ", "●").E_TRIM();
+                start_time = node.SELECT_NODE("/div[1]").ChildNodes[0].InnerText.Replace(" ", M.D).E_TRIM();
+                string[] times = start_time.E_TRIM().E_SPLIT(M.D);
+                start_time=times[0].Substring(3,2)+"-"+times[0].Substring(0,2)+M.D+times[1];
                 string str_teams = node.SELECT_NODE("/div[3]").InnerText;
                 string[] teams = str_teams.E_SPLIT(" v ");
                 if (teams.Length == 2)
@@ -1236,7 +1240,7 @@ class Match100Method
                 lose = node.SELECT_NODE("/tbody[1]/tr[1]/td[3]/button[1]/span[1]").InnerText;
 
                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                Match100Helper.insert_data("gamebookers", league, start_time, host, client, win, draw, lose, "-11", "0");
+                Match100Helper.insert_data("gamebookers", league, start_time, host, client, win, draw, lose, "1", "0");
             }
 
         }
@@ -1306,7 +1310,10 @@ class Match100Method
                         lose = node_tr.SELECT_NODE("/td[6]/div[1]/a[1]").InnerText;
                         if (league.Contains("Soccer"))
                         {
-                            start_time = start_time.Replace(" ", P.D);
+                            start_time = start_time.Replace(" ", M.D);
+                            string[] times = start_time.E_TRIM().E_SPLIT(M.D);
+                            start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
+
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                             Match100Helper.insert_data("oddring", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
@@ -1358,6 +1365,8 @@ class Match100Method
                 if (nodes_td != null && nodes_td.Count == 1)
                 {
                     start_time = node.SELECT_NODE("/td[1]").InnerText.Replace("&nbsp;&nbsp;", "").Replace(" ", "●").E_TRIM();
+                    string[] times = start_time.E_TRIM().E_SPLIT(M.D);
+                    start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
                 }
                 if (nodes_td != null && nodes_td.Count == 2)
                 {
@@ -1369,9 +1378,9 @@ class Match100Method
                         host = teams[0];
                         client = teams[1];
                     }
-                    win = node.SELECT_NODE("/td[2]/td[1]/a[1]/div[1]").InnerText;
-                    draw = node.SELECT_NODE("/td[2]/td[2]/a[1]/div[1]").InnerText;
-                    lose = node.SELECT_NODE("/td[2]/td[3]/a[1]/div[1]").InnerText;
+                    win = node.SELECT_NODE("/td[2]/td[1]/a[1]/div[1]").InnerText.Replace(",", ".");
+                    draw = node.SELECT_NODE("/td[2]/td[2]/a[1]/div[1]").InnerText.Replace(",", ".");
+                    lose = node.SELECT_NODE("/td[2]/td[3]/a[1]/div[1]").InnerText.Replace(",", ".");
 
                     Match100Helper.insert_data("snai", league, start_time, host, client, win, draw, lose, "8", "0");
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
@@ -1432,11 +1441,11 @@ class Match100Method
                 start_time = node.SELECT_NODE("/td[1]").InnerText;
                 host = node.SELECT_NODE("/td[2]/span[1]").InnerText;
                 client = node.SELECT_NODE("/td[2]/span[2]").InnerText;
-                string str_odds = node.SELECT_NODE("/td[9]/div[1]").InnerHtml;
+                string str_odds = node.SELECT_NODE("/td[6]/div[1]").InnerHtml;
                 string[] odds = str_odds.E_SPLIT("<br>");
                 if (odds.Length == 3)
                 {
-                    win = odds[0]; draw = odds[1]; lose = odds[2];
+                    win = odds[0]; draw = odds[2]; lose = odds[1];
                 }
                 else
                 {
@@ -1505,7 +1514,7 @@ class Match100Method
             }
             if (node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 9)
             {
-                start_time = node.SELECT_NODE("/td[1]/div[1]").InnerHtml.Replace("<br>", P.D);
+                start_time = node.SELECT_NODE("/td[1]/div[1]").InnerHtml.Replace("<br>", M.D);
                 if (!start_time.Contains("ShowTime"))
                 {
 
@@ -1545,7 +1554,7 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
 
-    }
+    } 
     public BsonDocument from_youwin_1(ref WebBrowser browser)
     {
 
@@ -1577,7 +1586,7 @@ class Match100Method
         {
             if (node.CLASS() == "eventTSoccer")
             {
-                start_time = node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[1]").InnerText + P.D + node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[2]").InnerText;
+                start_time = node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[1]").InnerText + M.D + node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[2]").InnerText;
                 host = node.SELECT_NODE("tbody[1]/tr[1]/td[2]/div[1]").InnerText;
                 client = node.SELECT_NODE("tbody[1]/tr[1]/td[2]/div[2]").InnerText;
                 win = node.SELECT_NODE("tbody[1]/tr[1]/td[3]").InnerText;

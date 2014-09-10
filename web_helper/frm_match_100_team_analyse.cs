@@ -434,96 +434,96 @@ namespace web_helper
 
             //get leage english name from pinnaclesports 
             //--------------------------------------------------------------------------------------------------------------
-            //XmlDocument doc=new XmlDocument();
-            //FileStream stream = File.Open(root_path_teams + "leagues.xml",FileMode.Open);
-            //StreamReader reader=new StreamReader(stream);
-            //string xml=reader.ReadToEnd();
-            //reader.Close();
-            //stream.Close();
+            XmlDocument doc = new XmlDocument();
+            FileStream stream = File.Open(root_path_teams + "leagues.xml", FileMode.Open);
+            StreamReader reader = new StreamReader(stream);
+            string xml = reader.ReadToEnd();
+            reader.Close();
+            stream.Close();
 
-            //doc.LoadXml(xml);
-            //XmlNodeList node_list=doc.SelectNodes("rsp/leagues/league"); 
+            doc.LoadXml(xml);
+            XmlNodeList node_list = doc.SelectNodes("rsp/leagues/league");
 
-            //int count = 0;
-            //foreach(XmlNode node in node_list)
-            //{
-            //    count = count + 1;
-            //    string[] items = node.InnerText.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
-            //    if (items.Length > 1)
-            //    {
-            //        sb.AppendLine(items[0].ToString());
-            //        //sb.AppendLine(count.PR(5) + items[0].PR(50) + items[1].ToString().TrimStart().TrimEnd());
-            //    }
-            //    else
-            //    {
-            //        //sb.AppendLine(count.PR(5) + "".PR(50) + node.InnerText.TrimStart().TrimEnd());
-            //    } 
-            //    //sb.AppendLine(node.InnerText.TrimStart().TrimEnd());
-            //}
-            //this.txt_result.Text = sb.ToString();
-            //Application.DoEvents();
+            int count = 0;
+            foreach (XmlNode node in node_list)
+            {
+                count = count + 1;
+                string[] items = node.InnerText.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
+                if (items.Length > 1)
+                {
+                    //sb.AppendLine(items[0].ToString());
+                    sb.AppendLine(count.PR(5) + items[0].PR(50) + items[1].ToString().TrimStart().TrimEnd());
+                }
+                else
+                {
+                    sb.AppendLine(count.PR(5) + "".PR(50) + node.InnerText.TrimStart().TrimEnd());
+                }
+                //sb.AppendLine(node.InnerText.TrimStart().TrimEnd());
+            }
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
             //--------------------------------------------------------------------------------------------------------------
 
             //read excel
             //--------------------------------------------------------------------------------------------------------------
-            DataTable table = Tool.get_table_from_excel(root_path_teams + "leagues.xls", 3);
-            this.dgv_grid.DataSource = table;
+            //DataTable table = Tool.get_table_from_excel(root_path_teams + "leagues.xls", 3);
+            //this.dgv_grid.DataSource = table;
             //--------------------------------------------------------------------------------------------------------------
 
-            //read pin index
+            //read pin IndexPage
             //--------------------------------------------------------------------------------------------------------------
-            sb.Remove(0, sb.Length);
-            WebClient client = new WebClient();
-            string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_eng.html"));
-            HtmlAgilityPack.HtmlDocument doc1 = new HtmlAgilityPack.HtmlDocument();
-            doc1.LoadHtml(html);
-            ArrayList list_eng = new ArrayList();
-            ArrayList list_chn = new ArrayList();
-            ArrayList list_hk = new ArrayList();
-            HtmlNodeCollection nodes_all1 = doc1.DocumentNode.SelectNodes(@"//a");
-            foreach (HtmlNode node in nodes_all1)
-            {
-                if (!node.Attributes.Contains("href")) continue;
-                if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
-                if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
-                string txt = node.InnerText.Replace(Environment.NewLine, "").Trim();
-                list_eng.Add(txt);
-            }
+            //sb.Remove(0, sb.Length);
+            //WebClient client = new WebClient();
+            //string html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_eng.html"));
+            //HtmlAgilityPack.HtmlDocument doc1 = new HtmlAgilityPack.HtmlDocument();
+            //doc1.LoadHtml(html);
+            //ArrayList list_eng = new ArrayList();
+            //ArrayList list_chn = new ArrayList();
+            //ArrayList list_hk = new ArrayList();
+            //HtmlNodeCollection nodes_all1 = doc1.DocumentNode.SelectNodes(@"//a");
+            //foreach (HtmlNode node in nodes_all1)
+            //{
+            //    if (!node.Attributes.Contains("href")) continue;
+            //    if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
+            //    if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
+            //    string txt = node.InnerText.Replace(Environment.NewLine, "").Trim();
+            //    list_eng.Add(txt);
+            //}
 
-            html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_chn.html"));
-            HtmlAgilityPack.HtmlDocument doc2 = new HtmlAgilityPack.HtmlDocument();
-            doc2.LoadHtml(html);
-            HtmlNodeCollection nodes_all2 = doc2.DocumentNode.SelectNodes(@"//a");
-            foreach (HtmlNode node in nodes_all2)
-            {
-                if (!node.Attributes.Contains("href")) continue;
-                if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
-                if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
-                string txt = node.InnerText.Replace(Environment.NewLine, "").Trim();
-                list_chn.Add(txt);
-            }
+            //html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_chn.html"));
+            //HtmlAgilityPack.HtmlDocument doc2 = new HtmlAgilityPack.HtmlDocument();
+            //doc2.LoadHtml(html);
+            //HtmlNodeCollection nodes_all2 = doc2.DocumentNode.SelectNodes(@"//a");
+            //foreach (HtmlNode node in nodes_all2)
+            //{
+            //    if (!node.Attributes.Contains("href")) continue;
+            //    if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
+            //    if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
+            //    string txt = node.InnerText.Replace(Environment.NewLine, "").Trim();
+            //    list_chn.Add(txt);
+            //}
 
-            html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_hk.html"));
-            HtmlAgilityPack.HtmlDocument doc3 = new HtmlAgilityPack.HtmlDocument();
-            doc3.LoadHtml(html);
-            HtmlNodeCollection nodes_all3 = doc3.DocumentNode.SelectNodes(@"//a");
-            foreach (HtmlNode node in nodes_all3)
-            {
-                if (!node.Attributes.Contains("href")) continue;
-                if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
-                if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
-                string txt = node.InnerText.Replace(Environment.NewLine, "").Trim(); 
-                list_hk.Add(txt);
-            }
+            //html = System.Text.Encoding.GetEncoding("GBK").GetString(client.DownloadData(root_url_teams + "pin_index_hk.html"));
+            //HtmlAgilityPack.HtmlDocument doc3 = new HtmlAgilityPack.HtmlDocument();
+            //doc3.LoadHtml(html);
+            //HtmlNodeCollection nodes_all3 = doc3.DocumentNode.SelectNodes(@"//a");
+            //foreach (HtmlNode node in nodes_all3)
+            //{
+            //    if (!node.Attributes.Contains("href")) continue;
+            //    if (!node.Attributes["href"].Value.ToLower().Contains("soccer")) continue;
+            //    if (string.IsNullOrEmpty(node.InnerText.Replace(Environment.NewLine, "").Trim())) continue;
+            //    string txt = node.InnerText.Replace(Environment.NewLine, "").Trim(); 
+            //    list_hk.Add(txt);
+            //}
 
-            for (int i = 0; i < list_eng.Count; i++)
-            {
-                string txt = list_eng[i].ToString();
-                if (txt.Contains("Half") || txt.Contains("Total") || txt.Contains("Corner") ||txt.Contains("Proposition")) continue;
-                sb.AppendLine(list_eng[i].PR(50) + list_chn[i].PR(50) + list_hk[i].PR(50));
-                //Match100Helper.insert_teams_log("pinnaclesports", "", list_eng[i].ToString(), "", list_chn[i].ToString(), "", "", "");
-            }
-            this.txt_result.Text = sb.ToString();
+            //for (int i = 0; i < list_eng.Count; i++)
+            //{
+            //    string txt = list_eng[i].ToString();
+            //    if (txt.Contains("Half") || txt.Contains("Total") || txt.Contains("Corner") ||txt.Contains("Proposition")) continue;
+            //    sb.AppendLine(list_eng[i].PR(50) + list_chn[i].PR(50) + list_hk[i].PR(50));
+            //    //Match100Helper.insert_teams_log("pinnaclesports", "", list_eng[i].ToString(), "", list_chn[i].ToString(), "", "", "");
+            //}
+            //this.txt_result.Text = sb.ToString();
             //--------------------------------------------------------------------------------------------------------------
 
 

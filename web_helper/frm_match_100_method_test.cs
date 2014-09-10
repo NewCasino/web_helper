@@ -27,8 +27,8 @@ namespace web_helper
 
 
         private void btn_test_Click(object sender, EventArgs e)
-        { 
-            test_188bet(); 
+        {
+            
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace web_helper
                         if (!league.Contains("Specials"))
                         {
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                            //Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
+                            Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
                     }
                     index = index + 1;
@@ -151,6 +151,7 @@ namespace web_helper
                     {
                         draw = td_nodes[3].InnerText;
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("macauslot", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
                 }
 
@@ -193,6 +194,8 @@ namespace web_helper
                         if (node_tr.Attributes.Contains("class") && node_tr.Attributes["class"].Value.Trim() == "time")
                         {
                             start_time = node_tr.InnerText;
+                            string[] times = start_time.E_TRIM().E_SPLIT("|");
+                            start_time = times[0].Substring(3, 2) +"-"+ times[0].Substring(0, 2) + M.D + times[1];
                         }
                         if (node_tr.Attributes.Contains("class") && node_tr.Attributes["class"].Value.Trim().Contains("bets") && node_tr.Attributes["class"].Value.Trim().Contains("ml"))
                         {
@@ -203,6 +206,7 @@ namespace web_helper
                             draw = doc.DocumentNode.SelectSingleNode(xpath2 + "/ul[1]/li[1]/dl[1]/dd[1]/ul[1]/li[2]").InnerText;
                             lose = doc.DocumentNode.SelectSingleNode(xpath2 + "/ul[1]/li[1]/dl[1]/dd[1]/ul[1]/li[3]").InnerText;
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            Match100Helper.insert_data("10bet", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
                     }
                 }
@@ -256,6 +260,7 @@ namespace web_helper
                         draw = doc.DocumentNode.SelectSingleNode(xpath2 + "/tbody[1]/tr[1]/td[4]").InnerText;
                         lose = doc.DocumentNode.SelectSingleNode(xpath2 + "/tbody[1]/tr[1]/td[5]").InnerText;
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.E_TRIM().PR(10) + draw.E_TRIM().PR(10) + lose.E_TRIM().PR(10));
+                         Match100Helper.insert_data("fubo", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
                 }
             }
@@ -314,6 +319,7 @@ namespace web_helper
                             if (!string.IsNullOrEmpty(win) && !string.IsNullOrEmpty(client) && !string.IsNullOrEmpty(win))
                             {
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                Match100Helper.insert_data("fun88", league, start_time, host, client, win, draw, lose, "8", "0");
                             }
                         }
                         catch (Exception error) { }
@@ -369,6 +375,7 @@ namespace web_helper
                         if (!league.Contains("LeagueName") && !start_time.Contains("<!--"))
                         {
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            Match100Helper.insert_data("bet16", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
 
                     }
@@ -424,6 +431,7 @@ namespace web_helper
                     win = Match100Helper.convert_english_odd(win);
                     draw = Match100Helper.convert_english_odd(draw);
                     lose = Match100Helper.convert_english_odd(lose);
+                    Match100Helper.insert_data("betvictor", league, start_time, host, client, win, draw, lose, "2", "0");
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                 }
             }
@@ -486,6 +494,7 @@ namespace web_helper
                     draw = draw.Replace(",", ".");
                     lose = lose.Replace(",", ".");
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("interwetten", league, start_time, host, client, win, draw, lose, "8", "0");
 
                 }
             }
@@ -545,6 +554,7 @@ namespace web_helper
                             lose = doc.DocumentNode.SelectSingleNode(nodes_td[4].XPath + "/a[1]/span[1]").InnerText;
 
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            //Match100Helper.insert_data("sobobet", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
 
                     }
@@ -599,6 +609,7 @@ namespace web_helper
                     {
                         client = doc.DocumentNode.SelectSingleNode(xpath + "/td[1]").InnerText;
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        //Match100Helper.insert_data("mansion88", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
                 }
             }
@@ -663,7 +674,7 @@ namespace web_helper
                             draw = doc.DocumentNode.SelectSingleNode(xpath1 + "/div[2]/div[1]/div[2]/a[1]/span[2]").InnerText;
                             lose = doc.DocumentNode.SelectSingleNode(xpath1 + "/div[2]/div[1]/div[3]/a[1]/span[2]").InnerText;
                             sb.AppendLine("".PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-
+                            Match100Helper.insert_data("sportbet", league, start_time, host, client, win, draw, lose, "10", "0");
                         }
 
                     }
@@ -729,7 +740,7 @@ namespace web_helper
                             win = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[3]/span[1]/a[1]/span[1]").InnerText);
                             draw = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[4]/span[1]/a[1]/span[1]").InnerText);
                             lose = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[5]/span[1]/a[1]/span[1]").InnerText);
-
+                            Match100Helper.insert_data("victorbet", league, start_time, host, client, win, draw, lose, "8", "0");
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                         }
                         catch (Exception error) { }
@@ -800,7 +811,7 @@ namespace web_helper
                                 draw = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
                                 lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", "0");
                             }
 
                         }
@@ -844,7 +855,11 @@ namespace web_helper
                 {
 
                     string test = node.SELECT_NODE("/div[1]").TEXT(1);
+
                     start_time = node.SELECT_NODE("/div[1]").ChildNodes[0].InnerText.Replace(" ", "●").E_TRIM();
+                    string[] times = start_time.E_TRIM().E_SPLIT(M.D);
+                    start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
+
                     string str_teams = node.SELECT_NODE("/div[3]").InnerText;
                     string[] teams = str_teams.E_SPLIT(" v ");
                     if (teams.Length == 2)
@@ -857,7 +872,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("/div[6]/div[1]/span[2]").InnerText;
                     lose = node.SELECT_NODE("/div[7]/div[1]/span[2]").InnerText;
                     sb.AppendLine("".PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-
+                    Match100Helper.insert_data("coral", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
 
             }
@@ -914,6 +929,7 @@ namespace web_helper
                     lose = node.SELECT_NODE("/tbody[1]/tr[1]/td[3]/button[1]/span[1]").InnerText;
 
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("gamebookers", league, start_time, host, client, win, draw, lose, "1", "0");
 
                 }
 
@@ -982,8 +998,11 @@ namespace web_helper
                             lose = node_tr.SELECT_NODE("/td[6]/div[1]/a[1]").InnerText;
                             if (league.Contains("Soccer"))
                             {
-                                start_time = start_time.Replace(" ", P.D);
+                                start_time = start_time.Replace(" ", M.D);
+                                string[] times = start_time.E_TRIM().E_SPLIT(M.D);
+                                start_time = times[0].Substring(3, 2) +"-"+ times[0].Substring(0, 2) + M.D + times[1];
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                Match100Helper.insert_data("oddring", league, start_time, host, client, win, draw, lose, "8", "0");
                             }
 
                         }
@@ -1031,6 +1050,8 @@ namespace web_helper
                     if (nodes_td != null && nodes_td.Count == 1)
                     {
                         start_time = node.SELECT_NODE("/td[1]").InnerText.Replace("&nbsp;&nbsp;", "").Replace(" ", "●").E_TRIM();
+                        string[] times = start_time.E_TRIM().E_SPLIT(M.D);
+                        start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
                     }
                     if (nodes_td != null && nodes_td.Count == 2)
                     {
@@ -1042,10 +1063,11 @@ namespace web_helper
                             host = teams[0];
                             client = teams[1];
                         }
-                        win = node.SELECT_NODE("/td[2]/td[1]/a[1]/div[1]").InnerText;
-                        draw = node.SELECT_NODE("/td[2]/td[2]/a[1]/div[1]").InnerText;
-                        lose = node.SELECT_NODE("/td[2]/td[3]/a[1]/div[1]").InnerText;
+                        win = node.SELECT_NODE("/td[2]/td[1]/a[1]/div[1]").InnerText.Replace(",", ".");
+                        draw = node.SELECT_NODE("/td[2]/td[2]/a[1]/div[1]").InnerText.Replace(",", ".");
+                        lose = node.SELECT_NODE("/td[2]/td[3]/a[1]/div[1]").InnerText.Replace(",", ".");
 
+                        Match100Helper.insert_data("snai", league, start_time, host, client, win, draw, lose, "8", "0"); 
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                     }
                 }
@@ -1093,11 +1115,11 @@ namespace web_helper
                     start_time = node.SELECT_NODE("/td[1]").InnerText;
                     host = node.SELECT_NODE("/td[2]/span[1]").InnerText;
                     client = node.SELECT_NODE("/td[2]/span[2]").InnerText;
-                    string str_odds = node.SELECT_NODE("/td[9]/div[1]").InnerHtml;
+                    string str_odds = node.SELECT_NODE("/td[6]/div[1]").InnerHtml;
                     string[] odds = str_odds.E_SPLIT("<br>");
                     if (odds.Length == 3)
                     {
-                        win = odds[0]; draw = odds[1]; lose = odds[2];
+                        win = odds[0]; draw = odds[2]; lose = odds[1];
                     }
                     else
                     {
@@ -1106,6 +1128,8 @@ namespace web_helper
                     if (!league.Contains("LeagueName") && !string.IsNullOrEmpty(win.Trim()) && !start_time.Contains("-"))
                     {
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("12bet", league, start_time, host, client, win, draw, lose, "8", "0");
+
                     }
                 }
 
@@ -1154,7 +1178,7 @@ namespace web_helper
                 }
                 if (node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 9)
                 {
-                    start_time = node.SELECT_NODE("/td[1]/div[1]").InnerHtml.Replace("<br>", P.D);
+                    start_time = node.SELECT_NODE("/td[1]/div[1]").InnerHtml.Replace("<br>", M.D);
                     if (!start_time.Contains("ShowTime"))
                     {
 
@@ -1183,6 +1207,7 @@ namespace web_helper
                         {
                             start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            Match100Helper.insert_data("1bet", league, start_time, host, client, win, draw, lose, "2", "0");
                         }
                     }
                 }
@@ -1224,7 +1249,7 @@ namespace web_helper
             {
                 if (node.CLASS() == "eventTSoccer")
                 {
-                    start_time = node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[1]").InnerText + P.D + node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[2]").InnerText;
+                    start_time = node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[1]").InnerText + M.D + node.SELECT_NODE("tbody[1]/tr[1]/td[1]/span[1]/span[2]").InnerText;
                     host = node.SELECT_NODE("tbody[1]/tr[1]/td[2]/div[1]").InnerText;
                     client = node.SELECT_NODE("tbody[1]/tr[1]/td[2]/div[2]").InnerText;
                     win = node.SELECT_NODE("tbody[1]/tr[1]/td[3]").InnerText;
@@ -1233,8 +1258,8 @@ namespace web_helper
 
                     start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("youwin", league, start_time, host, client, win, draw, lose, "2", "0");
                 }
-
             }
 
             this.txt_result.Text = sb.ToString();

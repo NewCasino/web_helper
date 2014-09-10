@@ -5,9 +5,10 @@ using System.Text;
 
 
 /// <summary>
-/// 项目全局使用 Project Use
+/// Mark
 /// </summary>
-class P
+class M
 {
     public static string D = "●";
+     
 }

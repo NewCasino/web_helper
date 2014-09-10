@@ -99,5 +99,11 @@ namespace web_helper
             frm_match_nowgoal_data frm = new frm_match_nowgoal_data();
             frm.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frm_match_tool frm = new frm_match_tool();
+            frm.Show();
+        }
     }
 }
