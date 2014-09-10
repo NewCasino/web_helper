@@ -1,0 +1,1097 @@
+<html><body>
+		<div id="pageHead"></div>
+		<div class="page">
+			<script type="text/javascript">
+    $(document).ready(function () {
+        //$.ajaxSetup({ cache: false });
+        navigateViaFragment('');
+    });
+
+    $(window).bind('hashchange', function (e) {
+        navigateViaFragment('');
+    });
+
+    //  Global variables for keeping track of state & timers
+    var mainRefreshKey = null;
+    var intervalClientAlertId = null;
+    var timeoutEventCompId = null;
+    var timeoutEventRaceId = null;
+    var timeoutRaceCardId = null;
+    var timeoutGroupMatchesId = null;
+    var intervalTimeToJumpId = null;
+    var racingRefreshId = null;
+
+    //  Self-refreshing Widget tracking
+    var timeoutNextRacesSubId = null;
+    var timeoutDateHTHSubId = null;
+</script>
+
+<div id="header">
+    <div id="headerContent">
+		<div id="HeaderDiv">
+			<a id="HeaderDivLink" href="/#Content=Home"><h1>TopSport Betting Site</h1></a>
+		</div>
+		<div id="AccountDiv">
+
+<script>
+	if (1==2 && !$(".blocker")[0])
+		document.location = "/";
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        clearInterval(intervalClientAlertId);
+
+        $('#Password').bind('keypress', function (e) {
+            var code = e.keyCode || e.which;
+            if (code == 13) {
+                login();
+            }
+        });
+    });
+
+    function hideHint(obj, target)
+    {
+    	$("#" + target).css("display", "none");
+	}
+    function showHint(obj, target)
+    {
+    	if ($(obj).val().length == 0)
+    		$("#" + target).css("display", "block");
+    }
+</script>
+
+<div id="SignUpButton"><a href="/#View=SignUp">Join Now</a></div>
+<form id="LoginForm" action="" method="post">
+    <div id="UsernameLabel">Username :</div><div id="UsernameDiv"><input name="Username" id="Username" onfocus="hideHint(this,'UsernameHint')" onblur="showHint(this,'UsernameHint')" type="text" value=""> <div id="UsernameHint" onclick="hideHint(this,'UsernameHint');$('#Username').focus();">UserID</div> </div>
+    <div id="PasswordLabel">Password :</div><div id="PasswordDiv"><input name="Password" id="Password" onfocus="hideHint(this,'PasswordHint')" onblur="showHint(this,'PasswordHint')" type="password"> <div id="PasswordHint" onclick="hideHint(this,'PasswordHint');$('#Password').focus();">Password</div></div>
+</form>
+<div id="RecoverPassButton"><a href="/#View=RecoverPass">Forgotten Password ?</a></div>
+<div id="LoginButton"><a onclick="login();">Login</a></div>		</div>
+		<div id="LanguageDiv">
+			<a class="languageEN Active" onclick="setLanguage('EN'); return false;" href="#"><span>English</span></a>
+			<a class="languageDE" onclick="setLanguage('DE'); return false;" href="#"><span>German</span></a>
+			<a class="languageFR" onclick="setLanguage('FR'); return false;" href="#"><span>French</span></a>
+			<a class="languageZH" onclick="setLanguage('ZH'); return false;" href="#"><span>Chinese</span></a>
+			<a class="languageZZ" onclick="setLanguage('ZZ'); return false;" href="#"><span>NON-SUP</span></a>
+		</div>
+		<div id="MenuDiv">
+
+
+
+
+<div style="left: 230px; top: 20px; text-align: center; text-transform: none; padding-left: 98px; position: absolute;"><div id="SignUpButtonTop" style="margin-top: 10px;"><a href="/#View=SignUp">Join Now</a></div>
+	Become a member today to<br>sample our top odds,<br>its quick &amp; easy!
+</div><div id="HeaderSocial"><a class="headerSocialIcon" href="https://www.facebook.com/TopSport.com.au" target="_blank"><img src="/Content/TopSport/images/icon_social_facebook.png"></a><a class="headerSocialIcon" href="https://twitter.com/TopSport_com_au" target="_blank"><img src="/Content/TopSport/images/icon_social_twitter.png"></a>Join the conversation
+</div><div id="HeaderPhoneInfo"><img src="/Content/TopSport/images/icon_phone.png"><span class="phoneNumber">1800 TOPSPORT</span></div><ul id="Menu"><li><a href="/#Content=Home&amp;Category=Public">Home</a></li><li><a href="/#View=RaceCard&amp;RaceWhen=Today&amp;RaceTypeCode=A">Racing</a></li><li><a href="/#Content=Sports">Sports</a></li><li><a href="/#View=SignUp">Join Now</a></li><li><a href="/#Content=Promotions">Promotions</a></li><li><a href="/#Content=Contact">Contact Us</a></li></ul>
+		</div>
+    </div>
+</div>
+<div id="bodyContent">
+	<div id="NavigationDiv">
+		
+<script type="text/javascript">
+    $(document).ready(function () {
+        setupSubMenus("RacingMenu");
+        racingRefreshId = setInterval(refreshNextToJump, 30000);
+    });
+</script>
+
+<div id="NavRacesDiv">
+	<h2>Racing</h2>
+	<ul id="RacingMenu">
+		           
+
+<div id="NextToJumpDiv">
+<li><a>Next To Jump</a>
+	<ul id="NextToJumpMenu">
+			<li><a class="racemenuT" href="/#View=EventRace&amp;EventID=779958&amp;BetMethod=WinPlace">Longchamp - Fra R1 (0m)</a></li>
+			<li><a class="racemenuT" href="/#View=EventRace&amp;EventID=779972&amp;BetMethod=WinPlace">Uttoxeter - Eng R3 (5m)</a></li>
+			<li><a class="racemenuT" href="/#View=EventRace&amp;EventID=779942&amp;BetMethod=WinPlace">Durbanville - Saf R6 (5m)</a></li>
+			<li><a class="racemenuT" href="/#View=EventRace&amp;EventID=779925&amp;BetMethod=WinPlace">Carlisle - Eng R3 (15m)</a></li>
+	</ul>
+</li>
+		<li class="NextToJumpCards"><a href="/#View=RaceCard&amp;RaceWhen=today&amp;RaceTypeCode=A">Today's Racing</a></li>
+		<li class="NextToJumpCards"><a href="/#View=RaceCard&amp;RaceWhen=tomorrow&amp;RaceTypeCode=A">Tomorrow's Racing</a></li>
+		<li class="NextToJumpCards"><a href="/#View=RaceCard&amp;RaceWhen=saturday&amp;RaceTypeCode=A">Saturday's Racing</a></li>
+</div>
+
+
+<li><a href="/#View=RaceCard&amp;RaceWhen=Today&amp;RaceTypeCode=T">Thoroughbreds</a></li><li><a href="/#View=RaceCard&amp;RaceWhen=Today&amp;RaceTypeCode=H">Harness</a></li><li><a href="/#View=RaceCard&amp;RaceWhen=Today&amp;RaceTypeCode=G">Greyhounds</a></li><li><a style="display: none;">Jockey Challenge</a><div class="SubMenuDiv" id="SportDiv_JOCK"><ul id="JOCK"></ul></div><span class="Disabled" id="menuLIJockey" style="display: inherit;">Jockey Challenge</span></li><li><a href="/#View=RaceCard&amp;RaceWhen=Futures&amp;RaceTypeCode=A">Feature Races</a></li><li><a href="/#View=RecentResultCard&amp;RaceWhen=Today&amp;RaceTypeCode=A">Results</a></li>
+	</ul>
+</div>
+
+<div id="NavSportsDiv">
+	<h2>Sports</h2>
+	<ul id="SportsMenu">
+
+
+<li><a href="/#Content=Sports">Today's Matches</a></li><li><a>LIVE BETTING</a><div class="SubMenuDiv" id="SportDiv_LVE" style="display: none;"><ul><li><a>Call 1800 TOPSPORT to bet live NOW !!</a></li></ul></div></li>
+    <li>
+            <a>Aussie Rules</a>	
+            <div class="SubMenuDiv" id="SportDiv_AFL">
+                <ul id="AFL">
+								<li><a href="/#View=SportFutures&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=AFL">AFL Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=Brownlow Medal">Brownlow Medal Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=Brownlow Team Votes">Brownlow Team Votes Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=Stage of Elimination">Stage of Elimination Futures</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=AFL - Finals Week 2">AFL - Finals Week 2</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=AFL - Finals Week 2 - 1st Half">AFL - Finals Week 2 - 1st Half</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=AFL - Finals Week 2 - 1st Quarter">AFL - Finals Week 2 - 1st Quarter</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Baseball</a>	
+            <div class="SubMenuDiv" id="SportDiv_BASE">
+                <ul id="BASE">
+                        <li><a href="/#View=GroupMatches&amp;Code=BASE&amp;Sport=Baseball&amp;Group=MLB Match">MLB Match</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=BASE&amp;Sport=Baseball&amp;Group=MLB Match - 1st Half">MLB Match - 1st Half</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Basketball</a>	
+            <div class="SubMenuDiv" id="SportDiv_BASK">
+                <ul id="BASK">
+								<li><a href="/#View=SportFutures&amp;Code=BASK&amp;Sport=Basketball&amp;Group=NBA 2014/15">NBA 2014/15 Futures</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=BASK&amp;Sport=Basketball&amp;Group=FIBA World Cup Matches">FIBA World Cup Matches</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <span class="Disabled">Boxing</span>
+    </li>
+    <li>
+            <a>Cricket</a>	
+            <div class="SubMenuDiv" id="SportDiv_CRIC">
+                <ul id="CRIC">
+                        <li><a href="/#View=EventComp&amp;EventID=736823&amp;Code=CRIC">Big Bash League 2014/15 -  Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=772253&amp;Code=CRIC">Champions League T20 2014 - Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=438391&amp;Code=CRIC">ICC World Cup 2015</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=741036&amp;Code=CRIC">The Ashes 2015 - Series Winner</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Darts</a>	
+            <div class="SubMenuDiv" id="SportDiv_DART">
+                <ul id="DART">
+                        <li><a href="/#View=EventComp&amp;EventID=615660&amp;Code=DART">PDC World Championship 14/15</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Golf</a>	
+            <div class="SubMenuDiv" id="SportDiv_GOLF">
+                <ul id="GOLF">
+								<li><a href="/#View=SportFutures&amp;Code=GOLF&amp;Sport=Golf&amp;Group=KLM Open 2014">KLM Open 2014 Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=GOLF&amp;Sport=Golf&amp;Group=Tour Championship 2014">Tour Championship 2014 Futures</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=GOLF&amp;Sport=Golf&amp;Group=KLM Open - Tournament Matchups">KLM Open - Tournament Matchups</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=GOLF&amp;Sport=Golf&amp;Group=Tour Championship - Tournament Matchups">Tour Championship - Tournament Matchups</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779433&amp;Code=GOLF">The Evian Championship 2014 - Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=394987&amp;Code=GOLF">Ryder Cup 2014</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Gridiron</a>	
+            <div class="SubMenuDiv" id="SportDiv_GRID">
+                <ul id="GRID">
+                        <li><a href="/#View=GroupMatches&amp;Code=GRID&amp;Sport=Gridiron&amp;Group=Canadian Football League - Week 12">Canadian Football League - Week 12</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=GRID&amp;Sport=Gridiron&amp;Group=NFL - Week 2">NFL - Week 2</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=GRID&amp;Sport=Gridiron&amp;Group=NFL - Week 2 - 1st Half">NFL - Week 2 - 1st Half</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=GRID&amp;Sport=Gridiron&amp;Group=US College Football - NCAA">US College Football - NCAA</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Ice Hockey</a>	
+            <div class="SubMenuDiv" id="SportDiv_NHL">
+                <ul id="NHL">
+								<li><a href="/#View=SportFutures&amp;Code=NHL&amp;Sport=Ice Hockey&amp;Group=NHL 2014/15">NHL 2014/15 Futures</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Motor Bikes</a>	
+            <div class="SubMenuDiv" id="SportDiv_MOTB">
+                <ul id="MOTB">
+                        <li><a href="/#View=EventComp&amp;EventID=741040&amp;Code=MOTB">Moto GP World Championship 2014 - Winner without Marquez</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=775008&amp;Code=MOTB">MotoGP San Marino -  Outright Winner</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Motor Racing</a>	
+            <div class="SubMenuDiv" id="SportDiv_MOTR">
+                <ul id="MOTR">
+								<li><a href="/#View=SportFutures&amp;Code=MOTR&amp;Sport=Motor Racing&amp;Group=Formula One 2014">Formula One 2014 Futures</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=614314&amp;Code=MOTR">V8 Supercars 2014 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779452&amp;Code=MOTR">V8 Supercars Sandown 500 -  Outright Winner</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Poker</a>	
+            <div class="SubMenuDiv" id="SportDiv_POKR">
+                <ul id="POKR">
+                        <li><a href="/#View=EventComp&amp;EventID=746599&amp;Code=POKR">WSOP - Main Event 2014</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Rugby League</a>	
+            <div class="SubMenuDiv" id="SportDiv_RGLE">
+                <ul id="RGLE">
+								<li><a href="/#View=SportFutures&amp;Code=RGLE&amp;Sport=Rugby League&amp;Group=NRL 2014">NRL 2014 Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=RGLE&amp;Sport=Rugby League&amp;Group=NRL Finals Specials">NRL Finals Specials Futures</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=RGLE&amp;Sport=Rugby League&amp;Group=NRL - Finals Week 1">NRL - Finals Week 1</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=RGLE&amp;Sport=Rugby League&amp;Group=NRL - Finals Week 1 - 1st Half">NRL - Finals Week 1 - 1st Half</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=582556&amp;Code=RGLE">Holden Cup - Premiership 2014</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=661460&amp;Code=RGLE">NSW Cup - Premiership 2014</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=661461&amp;Code=RGLE">QLD Cup - Premiership 2014</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779455&amp;Code=RGLE">Stage of Elimination - Melbourne Storm</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=755868&amp;Code=RGLE">State of Origin 2015 -  Winner</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Rugby Union</a>	
+            <div class="SubMenuDiv" id="SportDiv_RGUN">
+                <ul id="RGUN">
+								<li><a href="/#View=SportFutures&amp;Code=RGUN&amp;Sport=Rugby Union&amp;Group=The Rugby Championship 2014">The Rugby Championship 2014 Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=RGUN&amp;Sport=Rugby Union&amp;Group=European Rugby Champions Cup 2014/15">European Rugby Champions Cup 2014/15 Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=RGUN&amp;Sport=Rugby Union&amp;Group=ITM Cup 2014">ITM Cup 2014 Futures</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=RGUN&amp;Sport=Rugby Union&amp;Group=Rugby Championship">Rugby Championship</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=754077&amp;Code=RGUN">RBS 6 Nations 2015 - Outright Winner</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Snooker</a>	
+            <div class="SubMenuDiv" id="SportDiv_SNOO">
+                <ul id="SNOO">
+                        <li><a href="/#View=GroupMatches&amp;Code=SNOO&amp;Sport=Snooker&amp;Group=Shanghai Masters Match">Shanghai Masters Match</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Soccer</a>	
+            <div class="SubMenuDiv" id="SportDiv_SOCC" style="display: block;">
+                <ul id="SOCC">
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Austrian Bundesliga">Austrian Bundesliga</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Belgian Jupiler League">Belgian Jupiler League</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Brazilian Futebol Brasileiro">Brazilian Futebol Brasileiro</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Danish SAS-Ligaen">Danish SAS-Ligaen</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Dutch Eredivisie">Dutch Eredivisie</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=English Conference">English Conference</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=English League Championship">English League Championship</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=English League One">English League One</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=English League Two">English League Two</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=English Premier League">English Premier League</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=English Premier League - 1st Half">English Premier League - 1st Half</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=French Ligue 1">French Ligue 1</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=German Bundesliga">German Bundesliga</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Italian Serie A">Italian Serie A</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Japanese J-League">Japanese J-League</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Norwegian Tippeligaen">Norwegian Tippeligaen</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Russian Premier League">Russian Premier League</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Scottish Premier League">Scottish Premier League</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Spanish Copa del Rey">Spanish Copa del Rey</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Spanish La Liga">Spanish La Liga</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Swedish Allsvenskanliga">Swedish Allsvenskanliga</a></li>
+                        <li><a href="/#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=USA Major League Soccer">USA Major League Soccer</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Soccer Futures</a>	
+            <div class="SubMenuDiv" id="SportDiv_SOCF">
+                <ul id="SOCF">
+								<li><a href="/#View=SportFutures&amp;Code=SOCF&amp;Sport=Soccer Futures&amp;Group=EPL 2014/15">EPL 2014/15 Futures</a></li>
+								<li><a href="/#View=SportFutures&amp;Code=SOCF&amp;Sport=Soccer Futures&amp;Group=English Championship 2014/15">English Championship 2014/15 Futures</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=724980&amp;Code=SOCF">A League 2014/15 - Grand Final Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=724981&amp;Code=SOCF">Asian Cup 2015 - Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736329&amp;Code=SOCF">Dutch Eredivisie 2014/15 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=756168&amp;Code=SOCF">English Capital One Cup - Winner 2014/15</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736333&amp;Code=SOCF">English League One 2014/15 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736344&amp;Code=SOCF">Euro 2016</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=760304&amp;Code=SOCF">FFA Cup 2014/2015 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=756169&amp;Code=SOCF">FIFA World Cup 2018 - Winner </a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736339&amp;Code=SOCF">German Bundesliga 2014/15 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736340&amp;Code=SOCF">Italian Serie A 2014/15 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736341&amp;Code=SOCF">Scottish Premiership 2014/15 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736342&amp;Code=SOCF">Spanish Primera Division 2014/15 - Outright Winner</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=736343&amp;Code=SOCF">UEFA Champions League 2014/15 - Outright Winner</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Surfing</a>	
+            <div class="SubMenuDiv" id="SportDiv_SURF">
+                <ul id="SURF">
+                        <li><a href="/#View=EventComp&amp;EventID=602807&amp;Code=SURF">2014 ASP World Champion</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779440&amp;Code=SURF">Hurley Pro r 1H1</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779441&amp;Code=SURF">Hurley Pro r 1H2</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779442&amp;Code=SURF">Hurley Pro r 1H3</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779443&amp;Code=SURF">Hurley Pro r 1H4</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779444&amp;Code=SURF">Hurley Pro r 1H5</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779445&amp;Code=SURF">Hurley Pro r 1H6</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779446&amp;Code=SURF">Hurley Pro r 1H7</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779447&amp;Code=SURF">Hurley Pro r 1H8</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779448&amp;Code=SURF">Hurley Pro r 1H9</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779449&amp;Code=SURF">Hurley Pro r1H10</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779450&amp;Code=SURF">Hurley Pro r1H11</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=779451&amp;Code=SURF">Hurley Pro r1H12</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Tennis</a>	
+            <div class="SubMenuDiv" id="SportDiv_TENN">
+                <ul id="TENN">
+                        <li><a href="/#View=GroupMatches&amp;Code=TENN&amp;Sport=Tennis&amp;Group=Coupe Banque Nationale 2014 Match">Coupe Banque Nationale 2014 Match</a></li>
+                        <li><a href="/#View=EventComp&amp;EventID=628196&amp;Code=TENN">Davis Cup 2014 - Winner</a></li>
+                </ul>
+            </div>
+    </li>
+    <li>
+            <a>Volleyball</a>	
+            <div class="SubMenuDiv" id="SportDiv_VOLL">
+                <ul id="VOLL">
+                        <li><a href="/#View=GroupMatches&amp;Code=VOLL&amp;Sport=Volleyball&amp;Group=World Championships - Round 2">World Championships - Round 2</a></li>
+                </ul>
+            </div>
+    </li>
+
+</ul>
+</div>
+	</div>
+	<div id="MainContentDiv" style="width: 645px;">
+
+
+
+<div class="ViewDiv" id="GroupMatchesDiv">
+    <div class="MatchSport">Soccer</div>
+    <div class="MatchGroup">English League One<span style="font-size: 10px; float: right;"><a class="RefreshBtn" id="updateMatchPageBtn" onclick="updateMatchPageNow(); return false;" href="#">Refresh</a></span></div>
+            <div class="MatchDetails">Barnsley vs Milton Keynes Dons</div>
+            <div class="MatchLocation">Oakwell Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777894">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Barnsley</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777894', '', 'AWin', '');">2.40</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777894', '', 'Draw', '');">3.20</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777894', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.39</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Milton Keynes Dons</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777894', '', 'BWin', '');">2.85</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777894', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.53</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Bradford City vs Swindon Town</div>
+            <div class="MatchLocation">Coral Windows Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777897">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Bradford City</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777897', '', 'AWin', '');">2.44</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777897', '', 'Draw', '');">3.25</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777897', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.40</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Swindon Town</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777897', '', 'BWin', '');">2.80</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777897', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.51</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Bristol City vs Doncaster Rovers</div>
+            <div class="MatchLocation">Ashton Gate</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777900">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Bristol City</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777900', '', 'AWin', '');">1.80</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777900', '', 'Draw', '');">3.45</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777900', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.19</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Doncaster Rovers</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777900', '', 'BWin', '');">4.30</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777900', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.94</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Chesterfield vs Scunthorpe United</div>
+            <div class="MatchLocation">Proact Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777903">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Chesterfield</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777903', '', 'AWin', '');">1.82</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777903', '', 'Draw', '');">3.40</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777903', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.19</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Scunthorpe United</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777903', '', 'BWin', '');">4.30</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777903', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.92</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Coventry City vs Yeovil Town</div>
+            <div class="MatchLocation">Ricoh Arena</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777906">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Coventry City</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777906', '', 'AWin', '');">2.22</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777906', '', 'Draw', '');">3.25</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777906', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.32</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Yeovil Town</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777906', '', 'BWin', '');">3.15</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777906', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.61</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Crawley Town vs Fleetwood Town</div>
+            <div class="MatchLocation">Checkatrade.com Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777909">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Crawley Town</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777909', '', 'AWin', '');">2.90</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777909', '', 'Draw', '');">3.15</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777909', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.53</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Fleetwood Town</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777909', '', 'BWin', '');">2.40</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777909', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.37</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Crewe Alexandra vs Port Vale</div>
+            <div class="MatchLocation">The Alexandra Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777912">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Crewe Alexandra</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777912', '', 'AWin', '');">2.76</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777912', '', 'Draw', '');">3.35</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777912', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.53</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Port Vale</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777912', '', 'BWin', '');">2.40</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777912', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.41</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Leyton Orient vs Colchester United</div>
+            <div class="MatchLocation">Matchroom Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777915">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Leyton Orient</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777915', '', 'AWin', '');">1.59</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777915', '', 'Draw', '');">3.80</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777915', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.12</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Colchester United</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777915', '', 'BWin', '');">5.50</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777915', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 2.26</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Oldham Athletic vs Gillingham</div>
+            <div class="MatchLocation">SportsDirect.com Park</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777918">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Oldham Athletic</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777918', '', 'AWin', '');">1.93</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777918', '', 'Draw', '');">3.40</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777918', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.23</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Gillingham</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777918', '', 'BWin', '');">3.80</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777918', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.81</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Peterborough United vs Notts County</div>
+            <div class="MatchLocation">London Road Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777921">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Peterborough United</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777921', '', 'AWin', '');">1.62</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777921', '', 'Draw', '');">3.80</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777921', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.14</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Notts County</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777921', '', 'BWin', '');">5.10</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777921', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 2.20</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Sheffield United vs Rochdale</div>
+            <div class="MatchLocation">Bramall Lane</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777924">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Sheffield United</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777924', '', 'AWin', '');">1.73</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777924', '', 'Draw', '');">3.50</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777924', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.17</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Rochdale</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777924', '', 'BWin', '');">4.60</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777924', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 2.02</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+            <div class="MatchDetails">Walsall vs Preston North End</div>
+            <div class="MatchLocation">Banks's Stadium</div>
+            <div class="MatchOutcomeAt">Sunday 14-Sep-2014 @ 00:00</div>
+            <table class="MatchMarket" name="MatchTable_777927">
+                <thead>
+                    <tr>
+                        <th class="MatchName">Team</th>
+                        <th class="WinColumn">Win</th>
+                            <th class="DrawColumn">Draw</th>
+                            <th class="LineColumn">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="TeamA SelectionTd"> Walsall</th>
+                            <td class="WinA">
+                                <a onclick="couponSelect('M', '777927', '', 'AWin', '');">3.30</a>
+                            </td>
+                            <td class="Draw" rowspan="2">
+                                <a onclick="couponSelect('M', '777927', '', 'Draw', '');">3.20</a>
+                            </td>
+                            <td class="LineA">
+                                <a onclick="couponSelect('M', '777927', '', 'ALine', '', '', '0.5000', '0');">+0.5 @ 1.63</a>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="TeamB SelectionTd"> Preston North End</th>
+                            <td class="WinB">
+                                <a onclick="couponSelect('M', '777927', '', 'BWin', '');">2.18</a>
+                            </td>
+                       
+                            <td class="LineB">
+                                <a onclick="couponSelect('M', '777927', '', 'BLine', '', '', '0.5000', '0');">+0.5 @ 1.30</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div class="MatchOddsCond">All bets paid on the result after 90 minutes. (Includes injury time)</div>
+</div>
+
+</div>
+	<div id="CouponDiv">
+        <div id="CouponBody">
+			<form id="CouponForm" action="" method="post">
+				<input name="CouponCount" id="CouponCount" type="hidden" value="0">
+				<input name="CouponType" id="CouponType" type="hidden" value="">
+				<div id="CouponBets"></div>
+				<div id="CouponParlay2"><span id="Parlay2Desc"></span><input name="Parlay2Amount" class="CouponAmountTb" id="Parlay2Amount" type="text" value=""></div>
+				<div id="CouponParlay3"><span id="Parlay3Desc"></span><input name="Parlay3Amount" class="CouponAmountTb" id="Parlay3Amount" type="text" value=""></div>
+				<div id="CouponParlay4"><span id="Parlay4Desc"></span><input name="Parlay4Amount" class="CouponAmountTb" id="Parlay4Amount" type="text" value=""></div>
+				<div id="CouponMultis"><span id="MultiDesc"></span><input name="MultiBetAmount" class="CouponAmountTb" id="MultiBetAmount" type="text" value=""></div>
+			</form>
+			<div id="CouponSubmit"><a onclick="couponVerify();">Submit</a></div>
+			<div id="CouponClear"><a onclick="couponClear();">Clear</a></div>
+			<div id="VerifyResultsDiv"></div>
+        </div>
+	</div>
+	<div id="ExtraContentDiv" style="display: block;">
+		
+
+
+
+
+<script type="text/javascript">
+	var timeoutUpcomingSports;
+	$(document).ready(function ()
+	{
+		clearTimeout(timeoutUpcomingSports);
+		var nextRefreshIn = getRefreshSecs(120, 10, 21);
+		timeoutUpcomingSports = setTimeout(function ()
+		{
+			//console.log("updated upcomingsports");
+			return ajaxGET('Navigation/HotSports?viewToUse=UpcomingSports', '#UpcomingSports', false, null, true);
+		}, nextRefreshIn);
+	});
+</script>
+
+<div class="ViewDiv" id="UpcomingSports">
+
+
+<div class="ViewDiv" id="UpcomingSports">
+	<table>
+ 	<thead>
+		<tr>
+			<th>Coming Up...</th>
+			<th>
+					
+
+
+<div class="ClockContainer">
+	<div class="ClockDial">
+        <div class="ClockDialHour24">00</div>
+        <div class="ClockDialHours">00</div>
+        <div class="ClockDialSeperator1">:</div>
+        <div class="ClockDialMinutes">06</div>
+        <div class="ClockDialSeperator2">:</div>
+        <div class="ClockDialSeconds">47</div>
+    </div>
+    <div class="ClockAdditional">
+        <div class="ClockAdditionalAMPM">AM</div>
+        <div class="ClockAdditionalTimezone">AEST</div>
+    </div>
+</div>
+			</th>
+		</tr>
+ 	</thead>
+	<tbody>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=VOLL&amp;Sport=Volleyball&amp;Group=World Championships - Round 2">Volleyball - World Championships - Round 2</a></th>
+				<th>23m</th>
+			</tr>
+			<tr>
+				<td>Argentina</td>
+				<td>3.50</td>
+			</tr>
+			<tr>
+				<td>France</td>
+				<td>1.30</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=VOLL&amp;Sport=Volleyball&amp;Group=World Championships - Round 2">Volleyball - World Championships - Round 2</a></th>
+				<th>23m</th>
+			</tr>
+			<tr>
+				<td>Brazil</td>
+				<td>1.12</td>
+			</tr>
+			<tr>
+				<td>Bulgaria</td>
+				<td>6.00</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=TENN&amp;Sport=Tennis&amp;Group=Coupe Banque Nationale 2014 Match">Tennis - Coupe Banque Nationale 2014 Match</a></th>
+				<th>53m</th>
+			</tr>
+			<tr>
+				<td>Madison Brengle</td>
+				<td>1.79</td>
+			</tr>
+			<tr>
+				<td>Tatjana Maria</td>
+				<td>2.02</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=BASK&amp;Sport=Basketball&amp;Group=FIBA World Cup Matches">Basketball - FIBA World Cup Matches</a></th>
+				<th>113m</th>
+			</tr>
+			<tr>
+				<td>Serbia</td>
+				<td>2.68</td>
+			</tr>
+			<tr>
+				<td>Brazil</td>
+				<td>1.47</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=BASK&amp;Sport=Basketball&amp;Group=FIBA World Cup Matches">Basketball - FIBA World Cup Matches</a></th>
+				<th>113m</th>
+			</tr>
+			<tr>
+				<td>France</td>
+				<td>11.75</td>
+			</tr>
+			<tr>
+				<td>Spain</td>
+				<td>1.03</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=BASE&amp;Sport=Baseball&amp;Group=MLB Match">Baseball - MLB Match</a></th>
+				<th>3h 28m</th>
+			</tr>
+			<tr>
+				<td>Baltimore Orioles (W. Chen)</td>
+				<td>1.72</td>
+			</tr>
+			<tr>
+				<td>Boston Red Sox (B. Workman)</td>
+				<td>2.16</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=SOCC&amp;Sport=Soccer&amp;Group=Spanish Copa del Rey">Soccer - Spanish Copa del Rey</a></th>
+				<th>3h 53m</th>
+			</tr>
+			<tr>
+				<td>Albacete</td>
+				<td>2.56</td>
+			</tr>
+				<tr>
+					<td>Draw</td>
+					<td>3.15</td>
+				</tr>
+			<tr>
+				<td>Real Zaragoza</td>
+				<td>2.74</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=GOLF&amp;Sport=Golf&amp;Group=KLM Open - Tournament Matchups">Golf - KLM Open - Tournament Matchups</a></th>
+				<th>15h 38m</th>
+			</tr>
+			<tr>
+				<td>L. Slattery</td>
+				<td>2.00</td>
+			</tr>
+			<tr>
+				<td>T. Hatton</td>
+				<td>1.80</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=GRID&amp;Sport=Gridiron&amp;Group=US College Football - NCAA">Gridiron - US College Football - NCAA</a></th>
+				<th>33h 53m</th>
+			</tr>
+			<tr>
+				<td>Louisiana Tech</td>
+				<td>2.48</td>
+			</tr>
+			<tr>
+				<td>North Texas</td>
+				<td>1.53</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=AFL&amp;Sport=Aussie Rules&amp;Group=AFL - Finals Week 2">Aussie Rules - AFL - Finals Week 2</a></th>
+				<th>43h 43m</th>
+			</tr>
+			<tr>
+				<td>Geelong Cats</td>
+				<td>1.65</td>
+			</tr>
+			<tr>
+				<td>North Melbourne</td>
+				<td>2.25</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=RGLE&amp;Sport=Rugby League&amp;Group=NRL - Finals Week 1">Rugby League - NRL - Finals Week 1</a></th>
+				<th>43h 48m</th>
+			</tr>
+			<tr>
+				<td>Manly Sea Eagles</td>
+				<td>2.90</td>
+			</tr>
+			<tr>
+				<td>South Sydney</td>
+				<td>1.41</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=RGUN&amp;Sport=Rugby Union&amp;Group=Rugby Championship">Rugby Union - Rugby Championship</a></th>
+				<th>2d 17h</th>
+			</tr>
+			<tr>
+				<td>New Zealand</td>
+				<td>1.24</td>
+			</tr>
+			<tr>
+				<td>South Africa</td>
+				<td>4.00</td>
+			</tr>
+			<tr>
+				<th><a href="#View=GroupMatches&amp;Code=RGUN&amp;Sport=Rugby Union&amp;Group=Rugby Championship">Rugby Union - Rugby Championship</a></th>
+				<th>2d 19h</th>
+			</tr>
+			<tr>
+				<td>Australia</td>
+				<td>1.18</td>
+			</tr>
+			<tr>
+				<td>Argentina</td>
+				<td>4.80</td>
+			</tr>
+		</tbody>	
+	</table>
+</div></div>
+ 
+	</div>
+<div class="prodDesc" id="tooltip">...</div></div>
+<div id="FooterDiv">
+
+
+
+
+<div class="FooterRow"><div class="sponsorLogos"><img style="margin: 0px 4px;" src="/Content/TopSport/images/icon_18plus.png"></div><div class="sponsorLogos">Approved Betting Provider:<br><img src="/Content/TopSport/images/icon_afl.png"><img src="/Content/TopSport/images/icon_tennisaus.png"><img src="/Content/TopSport/images/icon_rvl.png"></div><div class="sponsorLogos">TopSport Is Powered By:<br><img src="/Content/TopSport/images/icon_bank-transfer.png"><img src="/Content/TopSport/images/icon_visa.png"><img src="/Content/TopSport/images/icon_bpay.png"><img src="/Content/TopSport/images/icon_mastercard.png"><img src="/Content/TopSport/images/icon_poli.png"></div><div class="sponsorLogos">TopSport Is Secured By:<br><img src="/Content/TopSport/images/icon_geotrust.png"></div></div><div class="FooterRow"><table id="FooterLinksTbl"><tbody><tr><td class="FooterLinksTblSitelinks"><strong>Site Links</strong><ul><li><a href="/#Content=Home">Home</a></li><li><a href="/#Content=About">About Us</a></li><li><a href="/#View=TransHistory&amp;HistType=All&amp;Filter=7&amp;Days=7">My Account</a></li><li><a href="/#Content=Contact">Contact Us</a></li><li><a href="/#Content=Rules">Rules</a></li></ul><ul><li><a href="/#Content=Privacy">Privacy Policy</a></li><li><a href="/#Content=Products">Betting Products</a></li><li><a href="/#Content=HowTo">How To Bet</a></li><li><a href="/#Content=FAQ">FAQs</a></li></ul></td><td class="FooterLinksTblResponsible"><strong>Responsible Gambling</strong><br>Think ! About your choices. Call Gambling Help on 1800 858 858<br>or visit the website <a href="http://www.gamblinghelp.nsw.gov.au">www.gamblinghelp.nsw.gov.au</a></td></tr></tbody></table></div><div class="FooterRow"><b>?2013 TopSport All bets accepted on behalf of Merlehan Bookmaking Pty Ltd - Greyhound Racing NSW Licensed | System by GenerationWeb | Design by 5IVE</b></div>
+	| System by <a href="http://www.generationweb.com.au" target="_blank">GenerationWeb</a>
+</div>
+<div id="BlockingDiv"></div>
+<div id="MessageDiv">
+	<div id="MessageText"></div>
+	<div id="CloseMessageDiv"><a id="MessageDivClose">OK</a></div>
+</div>
+<div id="CouponBlockingDiv"></div>
+<div id="CouponConfirmDiv">
+	<div id="CouponCopy"></div>
+	<div id="CouponConfirmText"></div>
+</div>
+<div id="ErrorDiv"></div>
+ 
+
+
+
+
+		</div>
+		<div id="pageFoot"></div>
+	
+
+</body></html>
