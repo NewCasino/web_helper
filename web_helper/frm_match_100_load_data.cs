@@ -126,8 +126,7 @@ namespace web_helper
                 BsonDocument doc_result = Match100Helper.get_doc_result();
                 doc_result["data"] = "Load Complete!";
                 ies[index].doc_result = doc_result;
-            }
-            Application.DoEvents();
+            } 
         }
         public void analyse()
         {

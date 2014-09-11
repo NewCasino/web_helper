@@ -81,13 +81,13 @@ namespace web_helper
             if (browser.Document == null) return;
 
             HtmlDocument doc_main = browser.Document;
-            BrowserHelper.invoke_click_by_id(ref browser, "1_1X2_Cnt");
+            BrowserHelper.invoke_click_by_id(ref browser, "tp_chk_br_999_l_1_1");
             //this.txt_result_triggle.Text = result; 
         }
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
-            BsonDocument doc =method.from_snai_1(ref browser);
+            BsonDocument doc =method.from_188bet_1(ref browser);
             this.txt_result_method.Text = doc["data"].ToString();
             MessageBox.Show("method ok!");
         }
