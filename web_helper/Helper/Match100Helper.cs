@@ -12,11 +12,14 @@ using System.Threading;
 using mshtml;
 using System.Reflection;
 using System.Data;
+using System.IO;
 
 
 
 class Match100Helper
 {
+
+
     public static bool is_odd_str(string str)
     {
         if (str.Contains(".") == false) return false;
@@ -28,18 +31,18 @@ class Match100Helper
     }
     public static bool is_double_str(string str)
     {
-        str=str.Replace(",", "#");
+        str = str.Replace(",", "#");
         double output = 0;
         if (double.TryParse(str, out output) == false) return false;
         return true;
-    } 
-    
+    }
+
     public static BsonDocument get_doc_result()
     {
         BsonDocument doc_result = new BsonDocument();
         doc_result.Add("data", "");
         doc_result.Add("used", new BsonArray());
-        doc_result.Add("loop", new BsonArray()); 
+        doc_result.Add("loop", new BsonArray());
         return doc_result;
     }
     public static void insert_data(string website, string league, string start_time, string host, string client, string odd_win, string odd_draw, string odd_lose, string time_zone, string time_add)
@@ -73,7 +76,7 @@ class Match100Helper
         //string name_like = name.Replace("FC", "");
         //name_like = name_like.Replace("(", "");
         //name_like = name_like.Replace(")", "");
-      
+
         string sql = "select * from names where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
         //string sql = "select * from names where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
         sql = string.Format(sql, name_like);
@@ -81,10 +84,10 @@ class Match100Helper
         if (dt.Rows.Count > 0)
         {
             string id = dt.Rows[0]["id"].ToString();
-            string name_all=dt.Rows[0]["name_all"].ToString();
+            string name_all = dt.Rows[0]["name_all"].ToString();
             string name_update = name_all;
-            if(!name_all.Contains(name_other)) name_update=name_update+"●" + name_other; 
-            if ( !name_all.Contains(name)) name_update = name_update + "●" + name;
+            if (!name_all.Contains(name_other)) name_update = name_update + "●" + name_other;
+            if (!name_all.Contains(name)) name_update = name_update + "●" + name;
             if (name_all != name_update)
             {
                 sql = " update names set name_all='{0}' where id={1}";
@@ -95,16 +98,16 @@ class Match100Helper
         else
         {
             sql = "insert into names (name,name_all) values ('{0}','{1}')";
-            sql = string.Format(sql, name,Tool.drop_repeat( name + "●" + name_other));
+            sql = string.Format(sql, name, Tool.drop_repeat(name + "●" + name_other));
             SQLServerHelper.exe_sql(sql);
-        } 
+        }
     }
     public static void insert_teams_log(string website, string season_name, string lg_name1, string lg_name2, string lg_name3, string name1, string name2, string name3)
     {
         string sql = "";
         string timespan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         sql = " select * from teams_log where website='{0}'and season_name='{1}' and lg_name1='{2}'and lg_name2='{3}'and lg_name3='{4}'and name1='{5}'and name2='{6}' and name3='{7}'";
-        sql = string.Format(sql,website,season_name,lg_name1,lg_name2,lg_name3,name1,name2,name3);
+        sql = string.Format(sql, website, season_name, lg_name1, lg_name2, lg_name3, name1, name2, name3);
         if (SQLServerHelper.get_table(sql).Rows.Count == 0)
         {
             sql = "   insert into teams_log (timespan,website,season_name,lg_name1,lg_name2,lg_name3,lg_name_all,name1,name2,name3,name_all) values" +
@@ -119,15 +122,15 @@ class Match100Helper
     public static string convert_team_name(string name)
     {
         string name_like = name;
-       //string name_like = name.Replace("FC", "");
-       //name_like = name_like.Replace("(", "");
-       //name_like = name_like.Replace(")", "");
+        //string name_like = name.Replace("FC", "");
+        //name_like = name_like.Replace("(", "");
+        //name_like = name_like.Replace(")", "");
 
         string result = "";
         string sql = " select * from names  " +
                      " where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
         //string sql = " select * from names  " +
-           //          " where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
+        //          " where replace(name_all,' ','') like '%'+replace('{0}',' ','')+'%'";
         sql = string.Format(sql, name_like);
         DataTable dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
@@ -137,7 +140,7 @@ class Match100Helper
         return result;
     }
 
-    public static DateTime convert_start_time(string start_time,string time_zone,string timespan)
+    public static DateTime convert_start_time(string start_time, string time_zone, string timespan)
     {
         start_time = start_time.Trim().ToLower();
         start_time = start_time.Replace('/', '-');
@@ -147,7 +150,7 @@ class Match100Helper
         {
             DateTime dt_span = Convert.ToDateTime(timespan);
             DateTime dt_convert = Tool.get_time_by_kind(dt_span, Convert.ToInt16(time_zone));
-            start_time = dt_convert.ToString("MM-dd") + "●" + start_time; 
+            start_time = dt_convert.ToString("MM-dd") + "●" + start_time;
         }
 
 
@@ -169,11 +172,11 @@ class Match100Helper
         {
             str_month = is_double_str(start_time.Substring(pos1 - 1, 1)) ? start_time.Substring(pos1 - 1, 1) : "";
         }
-        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 2 < len )
+        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 2 < len)
         {
             str_day = is_double_str(start_time.Substring(pos1 + 1, 2)) ? start_time.Substring(pos1 + 1, 2) : "";
         }
-        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 1 < len )
+        if (string.IsNullOrEmpty(str_day) && pos1 > -1 && pos1 + 1 < len)
         {
             str_day = is_double_str(start_time.Substring(pos1 + 1, 1)) ? start_time.Substring(pos1 + 1, 1) : "";
         }
@@ -187,25 +190,25 @@ class Match100Helper
         {
             str_hour = is_double_str(start_time.Substring(pos2 - 1, 1)) ? start_time.Substring(pos2 - 1, 1) : "";
         }
-        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 2 < len )
+        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 2 < len)
         {
             str_min = is_double_str(start_time.Substring(pos2 + 1, 2)) ? start_time.Substring(pos2 + 1, 2) : "";
         }
-        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 1 < len )
+        if (string.IsNullOrEmpty(str_min) && pos2 > -1 && pos2 + 1 < len)
         {
             str_min = is_double_str(start_time.Substring(pos2 + 1, 1)) ? start_time.Substring(pos2 + 1, 1) : "";
         }
 
         str_date = Convert.ToInt16(str_month).ToString("00") + "-" + Convert.ToInt16(str_day).ToString("00");
         str_time = Convert.ToInt16(str_hour).ToString("00") + ":" + Convert.ToInt16(str_min).ToString("00");
-        
+
         //convert pm time
         if (start_time.Contains("pm")) str_time = Tool.get_24h_from_12h(str_time);
 
-        DateTime dt_return =Tool.get_time(str_date, str_time); 
+        DateTime dt_return = Tool.get_time(str_date, str_time);
 
         //convert timezone
-        dt_return = Tool.get_time_by_kind(dt_return, Convert.ToInt16(time_zone)); 
+        dt_return = Tool.get_time_by_kind(dt_return, Convert.ToInt16(time_zone));
 
         return dt_return;
     }
@@ -350,6 +353,39 @@ class Match100Helper
             result = Math.Round(d1 / 100 + 1, 3).ToString("###.000");
         }
         return result;
+    }
+
+    public static void create_log(string method_name, WebBrowser browser)
+    {
+        string html_path = @"D:\log\htmls\" + DateTime.Now.ToString("yyyyMMdd");
+
+        if (!Directory.Exists(html_path))  Directory.CreateDirectory(html_path);
+        html_path = html_path + @"\";
+       
+        Random random = new Random(); 
+        string html = BrowserHelper.get_html(ref browser);
+        string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("hhmmss") + "_" + random.Next(100).ToString("000") + "_" + method_name + ".html";
+        FileStream stream = (FileStream)File.Open(html_path + file_name, FileMode.Create);
+        StreamWriter writer = new StreamWriter(stream); 
+        writer.WriteLine(html);
+        writer.Close();
+        stream.Close();
+
+
+        string log_name = @"D:\log\log\" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
+        if (!File.Exists(log_name)) 
+        {
+            FileStream  stream_temp=(FileStream)File.Create(log_name);
+            stream_temp.Close();
+        }
+             
+
+        FileStream stream2 = (FileStream)File.Open(log_name, FileMode.Append);
+        StreamWriter writer2 = new StreamWriter(stream2);
+        string line = file_name.PR(100) + browser.Url;
+        writer2.WriteLine(line);
+        writer2.Close();
+        stream2.Close();
     }
 }
 

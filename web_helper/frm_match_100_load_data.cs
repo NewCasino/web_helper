@@ -14,11 +14,12 @@ using System.Data.OleDb;
 using System.Threading;
 using mshtml;
 using System.Reflection;
+using System.IO;
 
 namespace web_helper
 {
     public partial class frm_match_100_load_data : Form
-    {
+    { 
         StringBuilder sb = new StringBuilder();
         List<IE> ies = new List<IE>();
         DataTable dt = new DataTable();
@@ -261,6 +262,7 @@ namespace web_helper
             Type reflect_type = Type.GetType("Match100Method");
             object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
             MethodInfo method_info = reflect_type.GetMethod(method);
+            Match100Helper.create_log(method_info.Name, browser);
             BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });
 
             //update grid 
@@ -310,6 +312,7 @@ namespace web_helper
             this.dgv_result.DataSource = dt;
 
         }
+     
     }
 
     public class IE

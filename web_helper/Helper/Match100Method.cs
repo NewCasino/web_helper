@@ -23,8 +23,12 @@ class Match100Method
 
         string html = BrowserHelper.get_html(ref browser);
         StringBuilder sb = new StringBuilder();
+       //================================================================
 
 
+
+
+        //===============================================================
         doc_result["data"] = sb.ToString();
         return doc_result;
 
@@ -1605,6 +1609,8 @@ class Match100Method
 
     }  
 
+
+    //2014-09-11
     #region two function for test in website
    
     public BsonDocument from_baidu_1(ref WebBrowser browser)
