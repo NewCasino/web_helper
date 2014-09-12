@@ -382,7 +382,7 @@ class Match100Helper
 
         FileStream stream2 = (FileStream)File.Open(log_name, FileMode.Append);
         StreamWriter writer2 = new StreamWriter(stream2);
-        string line = file_name.PR(50) + browser.Url;
+        string line = file_name.PR(50) + browser.Document.Url;
         writer2.WriteLine(line);
         writer2.Close();
         stream2.Close();

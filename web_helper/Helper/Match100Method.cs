@@ -25,14 +25,15 @@ class Match100Method
         StringBuilder sb = new StringBuilder();
        //================================================================
 
-
-
+         
 
         //===============================================================
         doc_result["data"] = sb.ToString();
         return doc_result;
 
-    }  
+    }
+
+    #region by date
     public BsonDocument from_163_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -1613,12 +1614,15 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
 
-    }  
+    }
 
 
     //2014-09-11
+
+    #endregion 
+
     #region two function for test in website
-   
+
     public BsonDocument from_baidu_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();

@@ -249,7 +249,7 @@ namespace web_helper
                     }
                 }
             }
-            Application.DoEvents();
+            //Application.DoEvents();
         } 
         public void select_method_from_site(WebBrowser browser, int row_id)
         {
