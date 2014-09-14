@@ -1,5 +1,2 @@
-modify Match100Analyse  bug:  -9999999  负无穷大
-modify frm_match_100_method_test to use Match100Method
-modify 1bet to remove half
-
-add new function invoke_method(HtmlElement......)
+fun88     day month 颠倒
+interwetten  day month  有空格

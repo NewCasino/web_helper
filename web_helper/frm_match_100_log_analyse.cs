@@ -95,30 +95,43 @@ namespace web_helper
                 string convert_time = "";
                 string f_state = "1";
 
-                convert_host = Match100Helper.convert_team_name(host);
-                convert_client = Match100Helper.convert_team_name(client);
-
-                
-                DateTime time = Match100Helper.convert_start_time(start_time,time_zone,timespan);   
-                if (website == "pinnaclesports" && time.Minute % 5 != 0)   time = time.AddMinutes(Convert.ToInt16(time_add));  
-                convert_time = time.ToString("yyyy-MM-dd HH:mm:ss");
-
-
-                if (!string.IsNullOrEmpty(convert_host) || !string.IsNullOrEmpty(convert_client))
+                try
                 {
-                    f_state = "2";
-                }
-                if (!string.IsNullOrEmpty(convert_host) && !string.IsNullOrEmpty(convert_client))
-                {
-                    f_state = "3";
-                }
-                sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_start_time='{2}' ,f_state='{3}' where id='{4}'";
-                sql = string.Format(sql,  convert_host, convert_client,convert_time, f_state, id);
-                SQLServerHelper.exe_sql(sql);
+                    convert_host = Match100Helper.convert_team_name(host);
+                    convert_client = Match100Helper.convert_team_name(client);
 
-                sb.AppendLine(website.PR(10)+convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
-                this.txt_result.Text = sb.ToString();
-                Application.DoEvents();
+
+                    DateTime time = Match100Helper.convert_start_time(start_time, time_zone, timespan);
+                    if (website == "pinnaclesports" && time.Minute % 5 != 0) time = time.AddMinutes(Convert.ToInt16(time_add));
+                    convert_time = time.ToString("yyyy-MM-dd HH:mm:ss");
+
+
+                    if (!string.IsNullOrEmpty(convert_host) || !string.IsNullOrEmpty(convert_client))
+                    {
+                        f_state = "2";
+                    }
+                    if (!string.IsNullOrEmpty(convert_host) && !string.IsNullOrEmpty(convert_client))
+                    {
+                        f_state = "3";
+                    }
+                    sql = " update europe_100_log set f_host='{0}',f_client='{1}',f_start_time='{2}' ,f_state='{3}' where id='{4}'";
+                    sql = string.Format(sql, convert_host, convert_client, convert_time, f_state, id);
+                    SQLServerHelper.exe_sql(sql);
+
+                    sb.AppendLine(website.PR(10) + convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
+                    this.txt_result.Text = sb.ToString();
+                    Application.DoEvents();
+                }
+                catch (Exception error)
+                {
+                    sql = " update europe_100_log set  f_state='w' where id='{0}'";
+                    sql = string.Format(sql, id);
+                    SQLServerHelper.exe_sql(sql);
+                    sb.AppendLine(id + " Wrong!");
+                    this.txt_result.Text = sb.ToString();
+                    Application.DoEvents();
+
+                }
 
             }
 

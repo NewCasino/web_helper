@@ -19,7 +19,7 @@ using System.IO;
 namespace web_helper
 {
     public partial class frm_match_100_load_data : Form
-    { 
+    {
         StringBuilder sb = new StringBuilder();
         List<IE> ies = new List<IE>();
         DataTable dt = new DataTable();
@@ -48,7 +48,7 @@ namespace web_helper
         private void btn_load_Click(object sender, EventArgs e)
         {
             bind_data();
-        } 
+        }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
@@ -126,7 +126,7 @@ namespace web_helper
                 BsonDocument doc_result = Match100Helper.get_doc_result();
                 doc_result["data"] = "Load Complete!";
                 ies[index].doc_result = doc_result;
-            } 
+            }
         }
         public void analyse()
         {
@@ -212,14 +212,14 @@ namespace web_helper
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if (Convert.ToBoolean(dt.Rows[i]["selected"].ToString()) == false) continue;
-                bool is_can_start = true; 
-                
+                bool is_can_start = true;
+
                 //同一个site_name只可以使用一个IE
-                if (i != 0 && dt.Rows[i - 1]["site_name"].ToString() == dt.Rows[i]["site_name"].ToString() && dt.Rows[i - 1]["state"].ToString()!="ok")
+                if (i != 0 && dt.Rows[i - 1]["site_name"].ToString() == dt.Rows[i]["site_name"].ToString() && dt.Rows[i - 1]["state"].ToString() != "ok")
                 {
                     is_can_start = false;
                 }
-                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load" && is_can_start==true)
+                if (dt.Rows[i]["state"].ToString() == "wait" && dt.Rows[i]["select_type"].ToString().Trim() == "load" && is_can_start == true)
                 {
                     for (int j = 0; j < ies.Count; j++)
                     {
@@ -250,26 +250,32 @@ namespace web_helper
                 }
             }
             //Application.DoEvents();
-        } 
+        }
         public void select_method_from_site(WebBrowser browser, int row_id)
         {
-            int index = Convert.ToInt32(browser.Name);
-            string method = dt.Rows[row_id]["method"].ToString();
-            string site_name = dt.Rows[row_id]["site_name"].ToString();
+            try
+            {
+                int index = Convert.ToInt32(browser.Name);
+                string method = dt.Rows[row_id]["method"].ToString();
+                string site_name = dt.Rows[row_id]["site_name"].ToString();
 
-            //invoke method
-            Type reflect_type = Type.GetType("Match100Method");
-            object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
-            MethodInfo method_info = reflect_type.GetMethod(method);
-            Match100Helper.create_log(method_info.Name, browser);
-            BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });
+                //invoke method
+                Type reflect_type = Type.GetType("Match100Method");
+                object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
+                MethodInfo method_info = reflect_type.GetMethod(method);
+                Match100Helper.create_log(method_info.Name, browser);
 
-            //update grid 
-            dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            ies[index].doc_result = doc_result;
+                BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });
 
-            Application.DoEvents();
-        } 
+                //update grid 
+                dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                ies[index].doc_result = doc_result;
+
+                Application.DoEvents();
+            }
+            catch (Exception error) { }
+
+        }
         public void bind_data()
         {
             dt = new DataTable();
@@ -311,7 +317,7 @@ namespace web_helper
             this.dgv_result.DataSource = dt;
 
         }
-     
+
     }
 
     public class IE
