@@ -6,3 +6,12 @@ victorbet:check is all data
 
 
 tagert to read all data
+------------------------
+
+1,read log to normal when load data
+2,one window with all analyse(AutoPickData)
+3,analyse pinsport index page
+4,analyse the spped select log data to normal
+
+
+victorbet: script click more (today)

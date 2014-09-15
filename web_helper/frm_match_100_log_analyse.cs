@@ -119,7 +119,7 @@ namespace web_helper
                     SQLServerHelper.exe_sql(sql);
 
                     sb.AppendLine(website.PR(10) + convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
-                    this.txt_result.Text = sb.ToString();
+                    this.txt_result.Text = sb.PRINT();
                     Application.DoEvents();
                 }
                 catch (Exception error)
@@ -128,7 +128,7 @@ namespace web_helper
                     sql = string.Format(sql, id);
                     SQLServerHelper.exe_sql(sql);
                     sb.AppendLine(id + " Wrong!");
-                    this.txt_result.Text = sb.ToString();
+                    this.txt_result.Text = sb.PRINT();
                     Application.DoEvents();
 
                 }
@@ -163,7 +163,7 @@ namespace web_helper
                             Match100Helper.insert_name(row_temp["f_host"].ToString(), host); 
 
                             sb.AppendLine(start_time.PR(30) + f_client.PR(50) + row_temp["f_host"].ToString());
-                            this.txt_result.Text = sb.ToString();
+                            this.txt_result.Text = sb.PRINT();
                             Application.DoEvents(); 
                         }
                     }
@@ -184,7 +184,7 @@ namespace web_helper
                             Match100Helper.insert_name(row_temp["f_client"].ToString(), client);
 
                             sb.AppendLine(start_time.PR(30) + f_host.PR(50) + row_temp["f_client"].ToString());
-                            this.txt_result.Text = sb.ToString();
+                            this.txt_result.Text = sb.PRINT();
                             Application.DoEvents();
                         }
                     }
