@@ -65,7 +65,7 @@ static class Extensions
             result = str;
         }
 
-        return result;
+        return result.TrimStart().TrimEnd();
     } 
     public static string[] E_SPLIT(this string str, string mark)
     {

@@ -316,8 +316,7 @@ namespace web_helper
             }
             this.dgv_result.DataSource = dt;
 
-        }
-
+        } 
     }
 
     public class IE

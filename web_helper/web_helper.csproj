@@ -285,6 +285,7 @@
       <DependentUpon>frm_web_browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\AutoPickHelper.cs" />
+    <Compile Include="Helper\BrowserProxy.cs" />
     <Compile Include="Helper\CrossDomainHelper.cs" />
     <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Helper\HtmlHelper.cs" />

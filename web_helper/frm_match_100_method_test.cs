@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_paddypower();
+            test_betin();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace web_helper
         }
 
 
-        public void sample()
+        public void sample() 
         {
 
             WebClient web_client = new WebClient();
@@ -366,10 +366,12 @@ namespace web_helper
                             win = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[1]").InnerText;
                             lose = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[2]").InnerText;
                             draw = doc.DocumentNode.SelectSingleNode(xpath + "/td[6]/div[1]/span[3]").InnerText;
+
+                            if (start_time.Contains("LIVE")) start_time = start_time.Replace("LIVE", DateTime.Now.ToString("MM-dd") + "●");
                             if (!string.IsNullOrEmpty(win) && !string.IsNullOrEmpty(client) && !string.IsNullOrEmpty(win))
                             {
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                                Match100Helper.insert_data("fun88", league, start_time, host, client, win, draw, lose, "8", "0");
+                                //Match100Helper.insert_data("fun88", league, start_time, host, client, win, draw, lose, "8", "0");
                             }
                         }
                         catch (Exception error) { }
@@ -1855,8 +1857,8 @@ namespace web_helper
 
                                 string[] teams = node_tr.SELECT_NODE("/td[2]").InnerText.E_SPLIT(" - ");
                                 host = teams[0].Replace("\r\n                  ", ""); client = teams[1].Replace("\r\n                  ", "");
- 
-                                win = node_tr.SELECT_NODE("/td[3]").InnerText.E_TRIM() ;
+
+                                win = node_tr.SELECT_NODE("/td[3]").InnerText.E_TRIM();
                                 draw = node_tr.SELECT_NODE("/td[4]").InnerText.E_TRIM();
                                 lose = node_tr.SELECT_NODE("/td[5]").InnerText.E_TRIM();
 
@@ -1909,10 +1911,10 @@ namespace web_helper
                 }
                 if (node.CLASS() == "MatchOutcomeAt")
                 {
-                    string[] times=node.InnerText.E_SPLIT(" ");
+                    string[] times = node.InnerText.E_SPLIT(" ");
                     if (times.Length == 4)
                     {
-                        start_time=Tool.get_12m_from_eng(times[1].Substring(3,3))+"-"+ times[1].Substring(0,2)+M.D+times[3];  
+                        start_time = Tool.get_12m_from_eng(times[1].Substring(3, 3)) + "-" + times[1].Substring(0, 2) + M.D + times[3];
                     }
                 }
                 if (node.CLASS() == "MatchMarket")
@@ -1925,14 +1927,434 @@ namespace web_helper
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
 
                 }
-               
+
             }
             //===============================================================================
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
 
 
+        }
+
+
+        //2014-09-15
+        public void test_apollobet()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "apollobet.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.CLASS() == "evenrow")
+                {
+                    if (node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 3)
+                    {
+                        start_time = "" + M.D + time;
+                        time = node.SELECT_NODE("/td[1]").InnerText;
+                        string[] teams = node.SELECT_NODE("/td[2]").InnerText.E_SPLIT(" v ");
+                        host = teams[0]; client = teams[1];
+
+                        win = node.SELECT_NODE("td[3]/table[1]/tbody[1]/tr[1]/td[2]/label[1]/input[1]").Attributes["value"].Value.Replace("EVS", "1/1");
+                        draw = node.SELECT_NODE("td[3]/table[1]/tbody[1]/tr[1]/td[3]/label[1]/input[1]").Attributes["value"].Value.Replace("EVS", "1/1");
+                        lose = node.SELECT_NODE("td[3]/table[1]/tbody[1]/tr[1]/td[4]/label[1]/input[1]").Attributes["value"].Value.Replace("EVS", "1/1");
+
+                        win = Match100Helper.convert_english_odd(win);
+                        draw = Match100Helper.convert_english_odd(draw);
+                        lose = Match100Helper.convert_english_odd(lose);
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    }
+                }
+            }
+            //===============================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_boylesports()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "boylesports.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 6)
+                {
+                    string[] dates = node.SELECT_NODE("/td[1]").InnerText.Replace("\r\n", "").E_SPLIT(" ");
+                    if (dates.Length == 2)
+                    {
+                        date = Tool.get_12m_from_eng(dates[1]) + "-" + dates[0];
+                    }
+                    else
+                    {
+                        date = "";
+                    }
+
+                }
+                if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 8)
+                {
+                    time = node.SELECT_NODE("/td[1]").InnerText.E_TRIM();
+                    start_time = date + M.D + time;
+                    if (start_time.Length > 20) start_time = start_time.Substring(0, 20);
+
+                    string[] teams = node.SELECT_NODE("/td[2]").InnerText.E_SPLIT(" v ");
+                    host = teams[0].E_REMOVE(); client = teams[1].E_REMOVE();
+
+                    win = node.SELECT_NODE("td[3]").InnerText.E_TRIM().Replace("EVS", "1/1");
+                    draw = node.SELECT_NODE("td[4]").InnerText.E_TRIM().Replace("EVS", "1/1");
+                    lose = node.SELECT_NODE("td[5]").InnerText.E_TRIM().Replace("EVS", "1/1");
+
+                    win = Match100Helper.convert_english_odd(win);
+                    draw = Match100Helper.convert_english_odd(draw);
+                    lose = Match100Helper.convert_english_odd(lose);
+                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                }
+            }
+            //===============================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_efbet()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "efbet.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 6)
+                {
+                    string[] times = node.SELECT_NODE("/td[1]").InnerHtml.E_SPLIT(" ");
+                    start_time = Tool.get_12m_from_eng(times[1]) + "-" + times[0] + M.D + times[3];
+
+                    string[] teams = node.SELECT_NODE("/td[2]").InnerText.E_SPLIT(" - ");
+                    host = teams[0]; client = teams[1];
+
+                    win = node.SELECT_NODE("/td[3]").InnerText;
+                    draw = node.SELECT_NODE("/td[4]").InnerText;
+                    lose = node.SELECT_NODE("/td[5]").InnerText;
+                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                }
+
+            }
+            //===============================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_betbright()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "betbright.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.CLASS() == "match_table_header")
+                {
+                    league = node.SELECT_NODE("/th[2]").InnerText;
+
+                }
+                if (node.Id.Contains("event_") && node.Name == "tr")
+                {
+                    start_time = node.SELECT_NODE("/td[1]").InnerText;
+                    string[] teams = node.SELECT_NODE("/td[2]").InnerText.E_SPLIT(" v ");
+                    host = teams[0].E_REMOVE(); client = teams[1].E_REMOVE();
+
+                    try
+                    {
+                        win = node.SELECT_NODE("/td[4]").InnerText.E_TRIM();
+                        draw = node.SELECT_NODE("/td[5]").InnerText.E_TRIM();
+                        lose = node.SELECT_NODE("/td[6]").InnerText.E_TRIM();
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    }
+                    catch (Exception error) { }
+
+                }
+
+            }
+            //===============================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_leonbets()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "leonbets.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "h1")
+                {
+                    league = node.InnerText.E_REMOVE();
+                }
+                if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 6)
+                {
+                    HtmlNode node_test = node.SELECT_NODE("/td[1]");
+                    string[] times = node.SELECT_NODE("/td[1]").ChildNodes[2].InnerText.E_REMOVE().E_SPLIT(" ");
+                    start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
+
+                    string[] teams = node.SELECT_NODE("/td[2]").InnerText.E_SPLIT(" - ");
+                    host = teams[0]; client = teams[1];
+
+                    win = node.SELECT_NODE("/td[3]/a[1]/strong[1]").InnerText;
+                    draw = node.SELECT_NODE("/td[4]/a[1]/strong[1]").InnerText;
+                    lose = node.SELECT_NODE("/td[5]/a[1]/strong[1]").InnerText;
+                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                }
+            }
+            //===============================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents(); 
+
         } 
+        public void test_betadria()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "betadria.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+
+                if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 4)
+                {
+
+                    HtmlNode node_first = node.SELECT_NODE("/td[1]");
+                    if (node_first.ChildNodes.Count == 2 && !string.IsNullOrEmpty(node_first.InnerText) && !node.InnerText.Contains("1X2"))
+                    {
+
+                        string[] times = node.SELECT_NODE("/td[1]").ChildNodes[1].InnerText.E_SPLIT(" ");
+                        if (times.Length == 2)
+                        {
+                            start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
+                        }
+                        else
+                        {
+                            start_time = node.SELECT_NODE("/td[1]").ChildNodes[1].InnerText;
+                        }
+
+
+                        string[] teams = node.SELECT_NODE("/td[1]").ChildNodes[0].InnerText.E_SPLIT(" - ");
+                        host = teams[0]; client = teams[1];
+
+                        win = node.SELECT_NODE("/td[2]").InnerText.Replace(",", ".");
+                        draw = node.SELECT_NODE("/td[3]").InnerText.Replace(",", ".");
+                        lose = node.SELECT_NODE("/td[4]").InnerText.Replace(",", ".");
+
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    }
+
+                }
+
+
+                if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 10 && !node.InnerText.Contains("Under"))
+                {
+                    string[] times = node.SELECT_NODE("/td[1]").ChildNodes[1].InnerText.E_SPLIT(" ");
+                    if (times.Length == 2)
+                    {
+                        start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
+                    }
+                    else
+                    {
+                        start_time = node.SELECT_NODE("/td[1]").ChildNodes[1].InnerText;
+                    }
+
+
+                    string[] teams = node.SELECT_NODE("/td[1]").ChildNodes[0].InnerText.E_SPLIT(" - ");
+                    host = teams[0]; client = teams[1];
+
+                    win = node.SELECT_NODE("/td[2]").InnerText.Replace(",", ".");
+                    draw = node.SELECT_NODE("/td[3]").InnerText.Replace(",", ".");
+                    lose = node.SELECT_NODE("/td[4]").InnerText.Replace(",", ".");
+
+                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                }
+
+
+            }
+            //===============================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_betin()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "betin.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "h2")
+                {
+                    league = node.InnerText;
+                }
+                if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 10)
+                {
+                    date = node.Attributes["dt"].Value;
+                    time=node.SELECT_NODE("/td[1]").InnerText;
+                    start_time = date.Substring(3, 2) + "-" + date.Substring(0, 2) + M.D + time;
+
+                    string[] teams = node.SELECT_NODE("/td[2]/div[1]/a[1]").InnerText.E_SPLIT(" v ");
+                    host = teams[0]; client = teams[1];
+
+                    win = node.SELECT_NODE("/td[3]").InnerText;
+                    draw = node.SELECT_NODE("/td[4]").InnerText;
+                    lose = node.SELECT_NODE("/td[5]").InnerText;
+                    
+                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                } 
+            }
+            //===============================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+
 
     }
 }

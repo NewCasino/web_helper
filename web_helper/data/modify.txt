@@ -1,2 +1,8 @@
-fun88     day month µßµ¹
-interwetten  day month  ÓÐ¿Õ¸ñ
+need data:
+
+pinsport: home index page 
+marathonbet: check is all data
+victorbet:check is all data
+
+
+tagert to read all data

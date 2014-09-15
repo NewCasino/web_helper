@@ -765,6 +765,7 @@ class Match100Method
                 lose = doc.DocumentNode.SelectSingleNode(xpath + "/table[1]/tbody[1]/tr[1]/td[3]/p[1]/strong[1]").InnerText;
 
                 start_time = date + time;
+                start_time = start_time.E_TRIM();
                 win = win.Replace(",", ".");
                 draw = draw.Replace(",", ".");
                 lose = lose.Replace(",", ".");
