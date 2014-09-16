@@ -71,10 +71,6 @@ namespace web_helper
             this.dgv_result.Columns["selected"].Width = 50;
         }
 
-        private void btn_analyse_Click(object sender, EventArgs e)
-        {
-            analyse();
-        }
         private void bn_start_Click(object sender, EventArgs e)
         {
             time.Start();

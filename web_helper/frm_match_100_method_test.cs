@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_betin();
+            test_pinnaclesports_index();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace web_helper
         }
 
 
-        public void sample() 
+        public void sample()
         {
 
             WebClient web_client = new WebClient();
@@ -79,7 +79,7 @@ namespace web_helper
                     Match100Helper.insert_data("youwin", league, start_time, host, client, win, draw, lose, "2", "0");
                 }
             }
-            //===============================================================================
+            //========================================================================================================
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
 
@@ -1322,6 +1322,7 @@ namespace web_helper
         #endregion
 
 
+        #region  waiting function
         //2014-09-11
         public void test_youwage()
         {
@@ -2208,9 +2209,9 @@ namespace web_helper
             }
             //===============================================================================
             this.txt_result.Text = sb.ToString();
-            Application.DoEvents(); 
+            Application.DoEvents();
 
-        } 
+        }
         public void test_betadria()
         {
 
@@ -2335,7 +2336,7 @@ namespace web_helper
                 if (node.Name == "tr" && node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 10)
                 {
                     date = node.Attributes["dt"].Value;
-                    time=node.SELECT_NODE("/td[1]").InnerText;
+                    time = node.SELECT_NODE("/td[1]").InnerText;
                     start_time = date.Substring(3, 2) + "-" + date.Substring(0, 2) + M.D + time;
 
                     string[] teams = node.SELECT_NODE("/td[2]/div[1]/a[1]").InnerText.E_SPLIT(" v ");
@@ -2344,9 +2345,9 @@ namespace web_helper
                     win = node.SELECT_NODE("/td[3]").InnerText;
                     draw = node.SELECT_NODE("/td[4]").InnerText;
                     lose = node.SELECT_NODE("/td[5]").InnerText;
-                    
+
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                } 
+                }
             }
             //===============================================================================
             this.txt_result.Text = sb.ToString();
@@ -2354,6 +2355,54 @@ namespace web_helper
 
 
         }
+        #endregion
+
+        //2014-09-16
+        public void test_pinnaclesports_index()
+        { 
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "pinnaclesports_index.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+
+            string str_class = "";
+            string name = "";
+            string href = "";
+            int count = 0;
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "div" && node.CLASS() == "clr")
+                {
+                    str_class = node.InnerText;
+                }
+                if (node.Name == "li" && node.SELECT_NODES("/div") != null && node.SELECT_NODES("/div").Count == 2)
+                {
+                    if (node.SELECT_NODE("/div[1]").CLASS() == "mea i")
+                    {
+                        name = node.SELECT_NODE("/div[2]").InnerText.E_REMOVE();
+                        href = node.SELECT_NODE("/div[2]/a[1]").Attributes["href"].Value;
+                        if (str_class == "Soccer" && !name.Contains("Halfs") && !name.Contains("Totals"))
+                        {
+                            count = count + 1;
+                            sb.AppendLine(count.PR(5) + str_class.PR(20) + name.PR(50) + href);
+                        }
+                    }
+                }
+            }
+            //===================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents(); 
+        }
+
 
 
     }

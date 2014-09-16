@@ -22,12 +22,16 @@ namespace web_helper
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
         }
-
-        private void btn_check_Click(object sender, EventArgs e)
+        private void btn_check_persent_Click(object sender, EventArgs e)
         {
             check_team_recongition_persent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             check_match_odd_count();
         }
+ 
         public void check_team_recongition_persent()
         { 
             string sql = "select isnull(min(id),0) from europe_100_log";
@@ -50,18 +54,23 @@ namespace web_helper
                 sql_temp = string.Format(sql, start_id,website, "2");
                 int team_single = SQLServerHelper.get_table(sql_temp).Rows.Count;
 
+
                 sql_temp = string.Format(sql, start_id, website, "3");
                 int team_all_3 = SQLServerHelper.get_table(sql_temp).Rows.Count;
 
                 sql_temp = string.Format(sql, start_id, website, "4");
                 int team_all_4 = SQLServerHelper.get_table(sql_temp).Rows.Count;
 
+                sql_temp = string.Format(sql, start_id, website, "w");
+                int team_w = SQLServerHelper.get_table(sql_temp).Rows.Count;
+
                 int team_all = team_all_3 + team_all_4;
 
-                int total = team_zero + team_single + team_all;
-                sb.AppendLine(website.PR(20) + "Team All:   " + team_all.PR(5) + (Math.Round(Convert.ToDouble(team_all) / total * 100, 2).ToString() + "%").PR(10) +
-                                               "Team Single:   " + team_single.PR(5) + (Math.Round(Convert.ToDouble(team_single) / total * 100, 2).ToString() + "%").PR(10) +
-                                               "Team Zero:   " + team_zero.PR(5) + (Math.Round(Convert.ToDouble(team_zero) / total * 100, 2).ToString() + "%").PR(10));
+                int total = team_zero + team_single + team_all+team_w;
+                sb.AppendLine(website.PR(20) + "Team All:   " + team_all.PR(5) + (Math.Round(Convert.ToDouble(team_all) / total * 100, 2).ToString() + "%").PR(12) +
+                                               "Team Single:   " + team_single.PR(5) + (Math.Round(Convert.ToDouble(team_single) / total * 100, 2).ToString() + "%").PR(12) +
+                                               "Team Zero:   " + team_zero.PR(5) + (Math.Round(Convert.ToDouble(team_zero) / total * 100, 2).ToString() + "%").PR(12)+
+                                               "Team Wrong:   " + team_w.PR(5) + (Math.Round(Convert.ToDouble(team_w) / total * 100, 2).ToString() + "%").PR(12));
                 this.txt_result.Text = sb.ToString();
                 Application.DoEvents();
             }
@@ -115,6 +124,7 @@ namespace web_helper
             sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------");
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
-        }
+        } 
+
     }
 }

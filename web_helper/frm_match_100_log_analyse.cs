@@ -12,6 +12,7 @@ namespace web_helper
     public partial class frm_match_100_log_analyse : Form
     {
         StringBuilder sb = new StringBuilder();
+        bool is_picking = false;
         public frm_match_100_log_analyse()
         {
             InitializeComponent();
@@ -66,13 +67,28 @@ namespace web_helper
         } 
         private void btn_pick_data_Click(object sender, EventArgs e)
         {
-            update_standard_data();
-            into_office();
+            pick_data(); 
             MessageBox.Show("Pick Complete!!");
         }
-      
-        public void update_standard_data()
+        private void time_Tick(object sender, EventArgs e)
         {
+            if (is_picking == false) { pick_data(); }
+            this.lb_time.Text = DateTime.Now.ToString("hh:mm:ss");
+        }
+        private void btn_start_Click(object sender, EventArgs e)
+        {
+            time.Start();
+        }
+        private void btn_stop_Click(object sender, EventArgs e)
+        {
+            time.Stop();
+        }
+      
+
+
+        public void pick_data()
+        {
+            is_picking = true;
             //f_state: 0-未处理   1-已处理，值更新了时间   2-已处理，一个匹配   3-已处理，2个匹配
             string sql = "select * from europe_100_log where f_state='0' ";
             DataTable dt = SQLServerHelper.get_table(sql);
@@ -189,13 +205,12 @@ namespace web_helper
                         }
                     }
                 }
-            } 
-        }
-        public void into_office()
-        {
-            string sql = "select * from europe_100_log where f_state='3'";
-            DataTable dt = SQLServerHelper.get_table(sql);
-            foreach (DataRow row in dt.Rows)
+            }  
+
+            //Insert Office
+            sql = "select * from europe_100_log where f_state='3'";
+            DataTable dt_log = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt_log.Rows)
             {
                 string id = row["id"].ToString();
                 string website = row["website"].ToString();
@@ -222,7 +237,9 @@ namespace web_helper
                 sql = string.Format(sql, id);
                 SQLServerHelper.exe_sql(sql);
             }
-        }
+
+            is_picking = false;
+        } 
         public void analyse()
         {
             DataTable dt_result = new DataTable();
@@ -298,10 +315,11 @@ namespace web_helper
                     dt_result.Rows.Add(row_new_temp);
 
                     sb.AppendLine("".PR(5) + row_temp["start_time"].PR(20) + row_temp["host"].PR(30) + row_temp["client"].PR(30) + row_temp["f_start_time"].PR(20) + row_temp["f_host"].PR(30) + row_temp["f_client"].PR(30) + row_temp["odd_win"].PR(10) + row_temp["odd_draw"].PR(10) + row_temp["odd_lose"].PR(10));
-                  
+                    this.txt_result.Text = sb.ToString();
+                    Application.DoEvents();
                 }
                 sb.AppendLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                
+              
             }
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
@@ -422,9 +440,7 @@ namespace web_helper
             if (lose >= win && win >= draw) return "LWD";
             if (lose >= draw && draw > win) return "LDW";
             return "WRONG";
-        }
-
-
+        } 
    
     }
     

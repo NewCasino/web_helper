@@ -1,17 +1,15 @@
-need data:
+1,need data  pinsport: home index page  to read all data
+2,need data  marathonbet: check is all data to read all data
+3,need data  victorbet:check is all data  to read all data
 
-pinsport: home index page 
-marathonbet: check is all data
-victorbet:check is all data
-
-
-tagert to read all data
-------------------------
+-------------------------
 
 1,read log to normal when load data
 2,one window with all analyse(AutoPickData)
 3,analyse pinsport index page
-4,analyse the spped select log data to normal
+4,analyse the speed select log data to normal 
+--------------------------
+2014-09-16 night
 
-
-victorbet: script click more (today)
+modify victorbet() to click [more] button  read all data
+modify pinsport()  to read all data from index page
