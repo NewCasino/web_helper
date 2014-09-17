@@ -249,8 +249,8 @@ namespace web_helper
         }
         public void select_method_from_site(WebBrowser browser, int row_id)
         {
-            try
-            {
+            //try
+            //{
                 int index = Convert.ToInt32(browser.Name);
                 string method = dt.Rows[row_id]["method"].ToString();
                 string site_name = dt.Rows[row_id]["site_name"].ToString();
@@ -261,15 +261,16 @@ namespace web_helper
                 MethodInfo method_info = reflect_type.GetMethod(method);
                 Match100Helper.create_log(method_info.Name, browser);
 
-                BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser });
+                BsonDocument doc_input = ies[index].doc_result;
+                BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser,doc_input});
 
                 //update grid 
                 dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 ies[index].doc_result = doc_result;
 
                 Application.DoEvents();
-            }
-            catch (Exception error) { }
+            //}
+            //catch (Exception error) { }
 
         }
         public void bind_data()

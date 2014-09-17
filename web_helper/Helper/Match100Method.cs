@@ -261,11 +261,11 @@ class Match100Method
         doc_result["data"] = result;
         return doc_result;
     }
-    public BsonDocument from_pinnaclesports_1(ref WebBrowser browser)
+    public BsonDocument from_pinnaclesports_1(ref WebBrowser browser,BsonDocument doc_result)
     {
 
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+        doc_result = Match100Helper.get_doc_result();
+        
 
         string html = BrowserHelper.get_html(ref browser);
         StringBuilder sb = new StringBuilder();
@@ -314,12 +314,10 @@ class Match100Method
         doc_result.Add("url2", url2);
         return doc_result;
     }
-    public BsonDocument from_pinnaclesports_2(ref WebBrowser browser)
+    public BsonDocument from_pinnaclesports_2(ref WebBrowser browser,BsonDocument doc_result)
     {
 
-
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+          
 
         string html = BrowserHelper.get_html(ref browser);
         StringBuilder sb = new StringBuilder();

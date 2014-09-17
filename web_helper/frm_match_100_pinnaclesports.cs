@@ -57,7 +57,7 @@ namespace web_helper
             HttpWebResponse response;
             //try
             //{
-                response = (HttpWebResponse)request.GetResponse();
+            response = (HttpWebResponse)request.GetResponse();
             //}
             //catch (WebException ex)
             //{
@@ -106,7 +106,7 @@ namespace web_helper
             HttpWebResponse response;
             //try
             //{
-                
+
             response = (HttpWebResponse)request.GetResponse();
             //}
             //catch (WebException ex)
