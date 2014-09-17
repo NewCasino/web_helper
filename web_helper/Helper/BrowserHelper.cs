@@ -2115,8 +2115,6 @@ class BrowserHelper
 
         }
     }
-
-
 }
 
 

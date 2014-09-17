@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_pinnaclesports_index();
+             
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -1274,8 +1274,7 @@ namespace web_helper
 
         //2014-09-04
         public void test_youwin()
-        {
-
+        { 
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "youwin.html"));
             html = html.Replace("<thead=\"\"", "");

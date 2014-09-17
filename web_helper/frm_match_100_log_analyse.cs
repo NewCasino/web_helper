@@ -87,10 +87,15 @@ namespace web_helper
 
 
         public void pick_data()
-        {
+        { 
             is_picking = true;
             //f_state: 0-未处理   1-已处理，值更新了时间   2-已处理，一个匹配   3-已处理，2个匹配
-            string sql = "select * from europe_100_log where f_state='0' ";
+            string id_min = "9999999999999999";
+            string sql = "select min(id) from europe_100_log where f_state='0' ";
+            DataTable dt_min = SQLServerHelper.get_table(sql);
+            if (!string.IsNullOrEmpty(dt_min.Rows[0][0].ToString())) id_min = dt_min.Rows[0][0].ToString();  
+
+            sql = "select * from europe_100_log where f_state='0' ";
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
             {
@@ -151,7 +156,9 @@ namespace web_helper
 
             }
 
-            sql = "select * from europe_100_log where f_state='1' ";
+
+            sql = "select * from europe_100_log where f_state='1'  and f_start_time>'{0}'";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             dt = SQLServerHelper.get_table(sql);
             //循环根据一个补全另一个
             foreach (DataRow row in dt.Rows)

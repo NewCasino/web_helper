@@ -16,3 +16,10 @@ modify pinsport()  to read all data from index page
 --------------------------
 2014-09-17
 modify invoke method pinsport_2 can test
+
+2014-09-17 night
+modify victorbet() to click [more] button  read all data
+modify pinsport()  to read all data from index page
+get more data to load for analyse
+
+--------------------------

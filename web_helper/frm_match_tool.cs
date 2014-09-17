@@ -28,11 +28,8 @@ namespace web_helper
             if (!string.IsNullOrEmpty(sb.ToString())) { sb.AppendLine("----------------------------------------------"); }
            
             sb.AppendLine("ODD".PR(15) + doc_odd["win"].PR(10) + doc_odd["draw"].PR(10) + doc_odd["lose"].PR(10));
-            sb.AppendLine("PERSENT".PR(15) + doc_odd["win_persent"].PR(10) + doc_odd["draw_persent"].PR(10) + doc_odd["lose_persent"].PR(10));
-            sb.AppendLine("RETURN PESENT:".PR(15) + doc_odd["return_persent"].PR(10));
-
-
-
+            sb.AppendLine("PERSENT".PR(15) + doc_odd["persent_win"].PR(10) + doc_odd["persent_draw"].PR(10) + doc_odd["persent_lose"].PR(10));
+            sb.AppendLine("RETURN PESENT:".PR(15) + doc_odd["persent_return"].PR(10)); 
 
             this.txt_result.Text = sb.ToString();
         }

@@ -272,10 +272,10 @@ class Match100Helper
         doc.Add("win", d_win.ToString("###.000"));
         doc.Add("draw", d_draw.ToString("###.000"));
         doc.Add("lose", d_lose.ToString("###.000"));
-        doc.Add("return_persent", Math.Round(d_return_persent, 3).ToString());
-        doc.Add("win_persent", Math.Round(d_win_persent, 3).ToString());
-        doc.Add("draw_persent", Math.Round(d_draw_persent, 3).ToString());
-        doc.Add("lose_persent", Math.Round(d_lose_persent, 3).ToString());
+        doc.Add("persent_return", Math.Round(d_return_persent, 3).ToString());
+        doc.Add("persent_win", Math.Round(d_win_persent, 3).ToString());
+        doc.Add("persent_draw", Math.Round(d_draw_persent, 3).ToString());
+        doc.Add("persent_lose", Math.Round(d_lose_persent, 3).ToString());
 
         return doc;
     }

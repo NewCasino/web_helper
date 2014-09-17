@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_add_all = new System.Windows.Forms.Button();
+            this.btn_check_matchs = new System.Windows.Forms.Button();
             this.btn_check_persent = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -47,7 +48,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btn_add_all);
+            this.groupBox1.Controls.Add(this.btn_check_matchs);
             this.groupBox1.Controls.Add(this.btn_check_persent);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
@@ -56,15 +58,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
-            // button1
+            // btn_add_all
             // 
-            this.button1.Location = new System.Drawing.Point(130, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 25);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Check Matchs";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_add_all.Location = new System.Drawing.Point(252, 19);
+            this.btn_add_all.Name = "btn_add_all";
+            this.btn_add_all.Size = new System.Drawing.Size(116, 25);
+            this.btn_add_all.TabIndex = 2;
+            this.btn_add_all.Text = "Add ALL";
+            this.btn_add_all.UseVisualStyleBackColor = true;
+            this.btn_add_all.Click += new System.EventHandler(this.btn_add_all_Click);
+            // 
+            // btn_check_matchs
+            // 
+            this.btn_check_matchs.Location = new System.Drawing.Point(130, 19);
+            this.btn_check_matchs.Name = "btn_check_matchs";
+            this.btn_check_matchs.Size = new System.Drawing.Size(116, 25);
+            this.btn_check_matchs.TabIndex = 1;
+            this.btn_check_matchs.Text = "Check Matchs";
+            this.btn_check_matchs.UseVisualStyleBackColor = true;
+            this.btn_check_matchs.Click += new System.EventHandler(this.btn_check_matchs_Click);
             // 
             // btn_check_persent
             // 
@@ -140,7 +152,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_100_check";
-            this.Text = "100 Check"; 
+            this.Text = "100 Check";
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Button btn_check_persent;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgv_result;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_check_matchs;
+        private System.Windows.Forms.Button btn_add_all;
     }
 }

@@ -23,6 +23,7 @@ class BrowserProxy
         const int INTERNET_OPTION_PROXY = 38;
         const int INTERNET_OPEN_TYPE_PROXY = 3;
 
+
         Struct_INTERNET_PROXY_INFO struct_IPI;
 
         // Filling in structure

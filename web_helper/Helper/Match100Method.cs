@@ -23,9 +23,9 @@ class Match100Method
 
         string html = BrowserHelper.get_html(ref browser);
         StringBuilder sb = new StringBuilder();
-       //================================================================
+        //================================================================
 
-         
+
 
         //===============================================================
         doc_result["data"] = sb.ToString();
@@ -76,7 +76,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         return doc_result;
-    } 
+    }
     public BsonDocument from_500_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -127,7 +127,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         return doc_result;
-    }  
+    }
     public BsonDocument from_bwin_1(ref WebBrowser browser)
     {
 
@@ -154,7 +154,7 @@ class Match100Method
                     string client = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[2]").InnerText;
                     string win = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[1]/button[1]/span[1]").InnerText;
                     string draw = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[2]/button[1]/span[1]").InnerText;
-                    string lose = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[1]").InnerText; 
+                    string lose = node.SelectSingleNode(root + "/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[1]").InnerText;
                     Match100Helper.insert_data("bwin", "", start_time, host, client, win, draw, lose, "8", "0");
                     sb.Append(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(20) + draw.PR(20) + lose.PR(20) + Environment.NewLine);
 
@@ -169,7 +169,7 @@ class Match100Method
                     string client = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[2]").InnerText;
                     string win = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[1]/button[1]/span[1]").InnerText;
                     string draw = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[2]/button[1]/span[1]").InnerText;
-                    string lose = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[1]").InnerText; 
+                    string lose = node.SelectSingleNode(root + "/div[1]/table[1]/tbody[1]/tr[1]/td[3]/button[1]/span[1]").InnerText;
                     Match100Helper.insert_data("bwin", "", start_time, host, client, win, draw, lose, "8", "0");
                     sb.Append(league.PR(50) + start_time.PR(30) + host.PR(30) + client.PR(20) + win.PR(20) + draw.PR(20) + lose.PR(20) + Environment.NewLine);
 
@@ -183,7 +183,7 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
     }
-    public BsonDocument from_pinnaclesports_1_back_2(ref WebBrowser browser)
+    public BsonDocument from_pinnaclesports_back(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
         string result = "";
@@ -303,117 +303,132 @@ class Match100Method
                     {
                         count = count + 1;
                         sb.AppendLine(count.PR(5) + str_class.PR(20) + name.PR(50) + href);
-                        url1.Add("http://www.pinnaclesports.com"+href);
+                        url1.Add("http://www.pinnaclesports.com" + href);
                     }
                 }
             }
-        } 
+        }
         //===============================================================
         doc_result["data"] = sb.ToString();
         doc_result.Add("url1", url1);
         doc_result.Add("url2", url2);
-        return doc_result; 
+        return doc_result;
     }
     public BsonDocument from_pinnaclesports_2(ref WebBrowser browser)
     {
-      
+
+
         BsonDocument doc_result = Match100Helper.get_doc_result();
+        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+
+        string html = BrowserHelper.get_html(ref browser);
+        StringBuilder sb = new StringBuilder();
         string result = "";
 
-        if (browser.Document == null) return doc_result; ;
-
-        string url = "";
-        if (doc_result["url2"].AsBsonArray.Count == 0)
-        {
-            url = doc_result["url1"].AsBsonArray[0].ToString();
-            doc_result["url2"].AsBsonArray.Add(url);
-            browser.Navigate(url);
-            return doc_result;
-        }
-        //================================================================ 
-        string html = "<html>" + browser.Document.Body.OuterHtml + "</html>";
-
-        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-        doc.LoadHtml(html);
-        HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
-        ArrayList list_lg = new ArrayList();
-        ArrayList list_times = new ArrayList();
-        ArrayList list_teams = new ArrayList();
-        ArrayList list_odds = new ArrayList();
-        foreach (HtmlNode node in nodes_all)
+        try
         {
 
-            if (node.Name == "table" && node.Attributes.Contains("class") && node.Attributes["class"].Value == "linesTbl")
+            //================================================================  
+            
+            string url = "";
+            if (doc_result["url2"].AsBsonArray.Count == 0)
             {
-                if (doc.DocumentNode.SelectSingleNode(node.XPath + "/tbody[1]/tr[2]/td[1]").InnerText.ToLower().Contains("half")) continue;
-                string lg_name = "";
-                string tr_path = node.XPath + "/tbody[1]/tr";
-                HtmlNodeCollection nodes_tr = doc.DocumentNode.SelectNodes(tr_path);
-                foreach (HtmlNode node_tr in nodes_tr)
+                url = doc_result["url1"].AsBsonArray[0].ToString();
+                doc_result["url2"].AsBsonArray.Add(url);
+                browser.Navigate(url);
+                doc_result["loop"].AsBsonArray.Add("2");
+
+                doc_result["data"] = "First URL:" + url;
+                return doc_result;
+            }
+            //----------------------------------
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            ArrayList list_lg = new ArrayList();
+            ArrayList list_times = new ArrayList();
+            ArrayList list_teams = new ArrayList();
+            ArrayList list_odds = new ArrayList();
+            foreach (HtmlNode node in nodes_all)
+            {
+
+                if (node.Name == "table" && node.Attributes.Contains("class") && node.Attributes["class"].Value == "linesTbl")
                 {
-                    switch (node_tr.Attributes["class"].Value.ToString())
+                    if (doc.DocumentNode.SelectSingleNode(node.XPath + "/tbody[1]/tr[2]/td[1]").InnerText.ToLower().Contains("half")) continue;
+                    string lg_name = "";
+                    string tr_path = node.XPath + "/tbody[1]/tr";
+                    HtmlNodeCollection nodes_tr = doc.DocumentNode.SelectNodes(tr_path);
+                    foreach (HtmlNode node_tr in nodes_tr)
                     {
-                        case "linesHeader":
-                            string lg_temp = doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[1]/h4[1]").InnerText;
-                            string[] lg_list = lg_temp.Split('-');
-                            lg_name = lg_list[0] + "-" + lg_list[1];
-                            break;
-                        case "linesAlt1":
-                            if (string.IsNullOrEmpty(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim())) continue;
-                            if (doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Contains("Offline")) continue;
+                        switch (node_tr.Attributes["class"].Value.ToString())
+                        {
+                            case "linesHeader":
+                                string lg_temp = doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[1]/h4[1]").InnerText;
+                                string[] lg_list = lg_temp.Split('-');
+                                lg_name = lg_list[0] + "-" + lg_list[1];
+                                break;
+                            case "linesAlt1":
+                                if (string.IsNullOrEmpty(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim())) continue;
+                                if (doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Contains("Offline")) continue;
 
-                            list_lg.Add(lg_name);
-                            list_times.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[1]").InnerText);
-                            list_teams.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[3]").InnerText);
-                            list_odds.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim());
-                            break;
-                        case "linesAlt2":
-                            if (string.IsNullOrEmpty(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim())) continue;
-                            if (doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Contains("Offline")) continue;
+                                list_lg.Add(lg_name);
+                                list_times.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[1]").InnerText);
+                                list_teams.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[3]").InnerText);
+                                list_odds.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim());
+                                break;
+                            case "linesAlt2":
+                                if (string.IsNullOrEmpty(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim())) continue;
+                                if (doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Contains("Offline")) continue;
 
-                            list_lg.Add(lg_name);
-                            list_times.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[1]").InnerText);
-                            list_teams.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[3]").InnerText);
-                            list_odds.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim());
-                            break;
-                        default:
-                            break;
+                                list_lg.Add(lg_name);
+                                list_times.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[1]").InnerText);
+                                list_teams.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[3]").InnerText);
+                                list_odds.Add(doc.DocumentNode.SelectSingleNode(node_tr.XPath + "/td[6]").InnerText.Replace("&nbsp;", "").Trim());
+                                break;
+                            default:
+                                break;
+                        }
+
                     }
-
                 }
             }
-        }
-        for (int i = 0; i < list_lg.Count; i++)
-        {
-            if ((i + 2) < list_lg.Count)
+            for (int i = 0; i < list_lg.Count; i++)
             {
-                string f_lg = list_lg[i].ToString();
-                string f_time = list_times[i].ToString() + " " + list_times[i + 1].ToString();
-                string f_host = list_teams[i].ToString();
-                string f_client = list_teams[i + 1].ToString();
-                string f_win = list_odds[i].ToString();
-                string f_draw = list_odds[i + 2].ToString();
-                string f_lose = list_odds[i + 1].ToString();
-                Match100Helper.insert_data("pinnaclesports", f_lg, f_time, f_host, f_client, f_win, f_draw, f_lose, "-7", "1");
-                result = result + f_lg.PR(50) + f_time.PR(20) + f_host.PR(30) + f_client.PR(30) + f_win.PR(20) + f_draw.PR(20) + f_lose.PR(20) + Environment.NewLine;
+                if ((i + 2) < list_lg.Count)
+                {
+                    string f_lg = list_lg[i].ToString();
+                    string f_time = list_times[i].ToString() + " " + list_times[i + 1].ToString();
+                    string f_host = list_teams[i].ToString();
+                    string f_client = list_teams[i + 1].ToString();
+                    string f_win = list_odds[i].ToString();
+                    string f_draw = list_odds[i + 2].ToString();
+                    string f_lose = list_odds[i + 1].ToString();
+                    Match100Helper.insert_data("pinnaclesports", f_lg, f_time, f_host, f_client, f_win, f_draw, f_lose, "-7", "1");
+                    result = result + f_lg.PR(50) + f_time.PR(20) + f_host.PR(30) + f_client.PR(30) + f_win.PR(20) + f_draw.PR(20) + f_lose.PR(20) + Environment.NewLine;
+                }
+                i = i + 2;
             }
-            i = i + 2;
-        }
-        //===============================================================
-        if (doc_result["url1"].AsBsonArray.Count == doc_result["url2"].AsBsonArray.Count)
-        {
-            doc_result["data"] = result;
-            return doc_result;
-        }
-        url = doc_result["url1"].AsBsonArray[doc_result["url2"].AsBsonArray.Count].ToString();
-        doc_result["url2"].AsBsonArray.Add(url);
-        browser.Navigate(url);
-        BsonArray loop = new BsonArray();
-        loop.Add("1");
-        loop.Add("2");
-        doc_result["loop"] = loop;
 
-        doc_result["data"] = result; 
+            //----------------------------------
+            if (doc_result["url1"].AsBsonArray.Count == doc_result["url2"].AsBsonArray.Count)
+            {
+                doc_result["data"] = result;
+                return doc_result;
+            }
+            url = doc_result["url1"].AsBsonArray[doc_result["url2"].AsBsonArray.Count].ToString();
+            doc_result["url2"].AsBsonArray.Add(url);
+            browser.Navigate(url);
+            doc_result["loop"].AsBsonArray.Add("2");
+            //===============================================================
+
+
+        }
+        catch (Exception error)
+        {
+            result = error.Message + Environment.NewLine + error.StackTrace;
+        }
+
+        doc_result["data"] = result;
         return doc_result;
     }
     //2014-08-28
@@ -446,7 +461,7 @@ class Match100Method
         string time = "";
         foreach (HtmlNode node in nodes_all)
         {
-            if (node.CLASS ()== "comp-title" && node.Name=="thead")
+            if (node.CLASS() == "comp-title" && node.Name == "thead")
             {
                 league = node.SELECT_NODE("/tr[1]/th[1]").InnerText;
             }
@@ -463,9 +478,9 @@ class Match100Method
                     draw = node_tr.SELECT_NODE("/td[4]").InnerText;
                     lose = node_tr.SELECT_NODE("/td[5]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                    Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0"); 
+                    Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
-            } 
+            }
 
         }
 
@@ -473,7 +488,7 @@ class Match100Method
         return doc_result;
 
 
-       
+
     }
     public BsonDocument from_188bet_2(ref WebBrowser browser)
     {
@@ -550,7 +565,7 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
 
-    }  
+    }
     public BsonDocument from_10bet_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -670,7 +685,7 @@ class Match100Method
         return doc_result;
 
 
-    } 
+    }
     public BsonDocument from_fun88_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -695,7 +710,7 @@ class Match100Method
         string draw = "";
         string lose = "";
         foreach (HtmlNode node in nodes_all)
-        { 
+        {
             string xpath = node.XPath;
             if (node.Attributes.Contains("class") &&
                 node.Attributes["class"].Value.ToString().ToLower().Trim().Contains("tabtitle") &&
@@ -728,14 +743,14 @@ class Match100Method
                             Match100Helper.insert_data("fun88", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
                     }
-                    catch (Exception error) { }
+                    catch (Exception error) { sb.Append(error.Message); }
                 }
             }
         }
 
         doc_result["data"] = sb.ToString();
         return doc_result;
-    }  
+    }
 
     //2014-08-29 
     public BsonDocument from_bet16_1(ref WebBrowser browser)
@@ -857,7 +872,7 @@ class Match100Method
                 Match100Helper.insert_data("betvictor", league, start_time, host, client, win, draw, lose, "2", "0");
             }
         }
-       
+
 
 
         doc_result["data"] = sb.ToString();
@@ -994,7 +1009,7 @@ class Match100Method
                 }
 
             }
-        }  
+        }
         doc_result["data"] = sb.ToString();
         return doc_result;
 
@@ -1271,7 +1286,7 @@ class Match100Method
                             draw = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
                             lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                            Match100Helper.insert_data("marathonbet", league,start_time, host, client, win, draw, lose, "1", "0");
+                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", "0");
                         }
 
                     }
@@ -1324,7 +1339,7 @@ class Match100Method
                 string test = node.SELECT_NODE("/div[1]").TEXT(1);
                 start_time = node.SELECT_NODE("/div[1]").ChildNodes[0].InnerText.Replace(" ", M.D).E_TRIM();
                 string[] times = start_time.E_TRIM().E_SPLIT(M.D);
-                start_time=times[0].Substring(3,2)+"-"+times[0].Substring(0,2)+M.D+times[1];
+                start_time = times[0].Substring(3, 2) + "-" + times[0].Substring(0, 2) + M.D + times[1];
                 string str_teams = node.SELECT_NODE("/div[3]").InnerText;
                 string[] teams = str_teams.E_SPLIT(" v ");
                 if (teams.Length == 2)
@@ -1538,15 +1553,13 @@ class Match100Method
                     Match100Helper.insert_data("snai", league, start_time, host, client, win, draw, lose, "8", "0");
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                 }
-            }
-
-
+            } 
         }
 
         doc_result["data"] = sb.ToString();
         return doc_result;
 
-    }  
+    }
     public BsonDocument from_12bet_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -1585,43 +1598,43 @@ class Match100Method
         string time = "";
         foreach (HtmlNode node in nodes_all)
         {
-            
+
             if (node.CLASS() == "tabtitle")
             {
                 league = node.InnerText.Replace("&nbsp;", "").E_REMOVE();
             }
             if (node.SELECT_NODES("/td") != null && node.SELECT_NODES("/td").Count == 10)
             {
-            
-                    start_time = node.SELECT_NODE("/td[1]").InnerText;
-                    if (!start_time.Contains("{"))
+
+                start_time = node.SELECT_NODE("/td[1]").InnerText;
+                if (!start_time.Contains("{"))
+                {
+                    string str_teams = node.SELECT_NODE("/td[2]/b[1]").InnerHtml;
+                    string[] teams = str_teams.E_SPLIT("<br>");
+                    if (teams.Length == 2)
                     {
-                        string str_teams = node.SELECT_NODE("/td[2]/b[1]").InnerHtml;
-                        string[] teams = str_teams.E_SPLIT("<br>");
-                        if (teams.Length == 2)
-                        {
-                            host = teams[0];
-                            client = teams[1];
-                        }
-                        win = node.SELECT_NODE("/td[4]").InnerText;
-                        draw = node.SELECT_NODE("/td[5]").InnerText;
-                        lose = node.SELECT_NODE("/td[6]").InnerText;
-                        //string str_odds = node.SELECT_NODE("/td[6]/div[1]").InnerHtml;
-                        //string[] odds = str_odds.E_SPLIT("<br>");
-                        //if (odds.Length == 3)
-                        //{
-                        //    win = odds[0]; draw = odds[2]; lose = odds[1];
-                        //}
-                        //else
-                        //{
-                        //    win = ""; draw = ""; lose = "";
-                        //}
-                        if (!league.Contains("LeagueName") && !string.IsNullOrEmpty(win.Trim()) && !start_time.Contains("-"))
-                        {
-                            sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                            Match100Helper.insert_data("12bet", league, start_time, host, client, win, draw, lose, "8", "0");
-                        }
+                        host = teams[0];
+                        client = teams[1];
                     }
+                    win = node.SELECT_NODE("/td[4]").InnerText;
+                    draw = node.SELECT_NODE("/td[5]").InnerText;
+                    lose = node.SELECT_NODE("/td[6]").InnerText;
+                    //string str_odds = node.SELECT_NODE("/td[6]/div[1]").InnerHtml;
+                    //string[] odds = str_odds.E_SPLIT("<br>");
+                    //if (odds.Length == 3)
+                    //{
+                    //    win = odds[0]; draw = odds[2]; lose = odds[1];
+                    //}
+                    //else
+                    //{
+                    //    win = ""; draw = ""; lose = "";
+                    //}
+                    if (!league.Contains("LeagueName") && !string.IsNullOrEmpty(win.Trim()) && !start_time.Contains("-"))
+                    {
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("12bet", league, start_time, host, client, win, draw, lose, "8", "0");
+                    }
+                }
             }
 
         }
@@ -1720,7 +1733,7 @@ class Match100Method
         doc_result["data"] = sb.ToString();
         return doc_result;
 
-    } 
+    }
     public BsonDocument from_youwin_1(ref WebBrowser browser)
     {
 
@@ -1774,7 +1787,7 @@ class Match100Method
 
     //2014-09-11
 
-    #endregion 
+    #endregion
 
     #region two function for test in website
 
@@ -1816,7 +1829,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         return doc_result;
-    } 
+    }
     public BsonDocument from_local_1(ref WebBrowser browser)
     {
         BsonDocument doc_result = Match100Helper.get_doc_result();
@@ -1833,316 +1846,316 @@ class Match100Method
     #endregion
 
     #region back the function get content from position
-    public BsonDocument from_fubo_1_back(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+    //public BsonDocument from_fubo_1_back(ref WebBrowser browser)
+    //{
+    //    BsonDocument doc_result = Match100Helper.get_doc_result();
+    //    BsonDocument doc_condition = BrowserHelper.get_doc_condition();
 
-        string result = "";
-        //try
-        //{
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
-        ArrayList times = new ArrayList();
-        ArrayList teams = new ArrayList();
-        ArrayList wins = new ArrayList();
-        ArrayList draws = new ArrayList();
-        ArrayList loses = new ArrayList();
+    //    string result = "";
+    //    //try
+    //    //{
+    //    DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+    //    DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
+    //    ArrayList times = new ArrayList();
+    //    ArrayList teams = new ArrayList();
+    //    ArrayList wins = new ArrayList();
+    //    ArrayList draws = new ArrayList();
+    //    ArrayList loses = new ArrayList();
 
-        for (int i = 0; i < dt.Rows.Count; i++)
-        {
+    //    for (int i = 0; i < dt.Rows.Count; i++)
+    //    {
 
-            if (string.IsNullOrEmpty(dt.Rows[i][3].ToString())) continue;
-            times.Add(dt.Rows[i][1].ToString());
-            teams.Add(dt.Rows[i][2].ToString());
-            wins.Add(dt.Rows[i][3].ToString());
-            draws.Add(dt.Rows[i][4].ToString());
-            loses.Add(dt.Rows[i][5].ToString());
-        }
+    //        if (string.IsNullOrEmpty(dt.Rows[i][3].ToString())) continue;
+    //        times.Add(dt.Rows[i][1].ToString());
+    //        teams.Add(dt.Rows[i][2].ToString());
+    //        wins.Add(dt.Rows[i][3].ToString());
+    //        draws.Add(dt.Rows[i][4].ToString());
+    //        loses.Add(dt.Rows[i][5].ToString());
+    //    }
 
-        int min_count = 999999;
-        if (times.Count < min_count) min_count = times.Count;
-        if (teams.Count < min_count) min_count = teams.Count;
-        if (wins.Count < min_count) min_count = wins.Count;
-        if (draws.Count < min_count) min_count = draws.Count;
-        if (loses.Count < min_count) min_count = loses.Count;
+    //    int min_count = 999999;
+    //    if (times.Count < min_count) min_count = times.Count;
+    //    if (teams.Count < min_count) min_count = teams.Count;
+    //    if (wins.Count < min_count) min_count = wins.Count;
+    //    if (draws.Count < min_count) min_count = draws.Count;
+    //    if (loses.Count < min_count) min_count = loses.Count;
 
-        for (int i = 0; i < min_count; i++)
-        {
-            //string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            string str_time = times[i].ToString().Replace("滚球", "").Replace("●", "").Trim();
-            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            string f_time = str_time;
-            string f_host = single_teams[0].ToString();
-            string f_client = single_teams[1].ToString();
-            string f_win = wins[i].ToString();
-            string f_draw = draws[i].ToString();
-            string f_lose = loses[i].ToString();
-            Match100Helper.insert_data("fubo", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
-            result = result + str_time.PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
-        }
-        //}
-        //catch (Exception error)
-        //{
-        //    result = error.Message + Environment.NewLine + error.StackTrace;
-        //}
-        doc_result["data"] = result;
-        return doc_result;
-    }
-    public BsonDocument from_pinnaclesports_1_back(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        string result = "";
-        //try
-        //{
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
-        ArrayList times = new ArrayList();
-        ArrayList teams = new ArrayList();
-        ArrayList odds = new ArrayList();
+    //    for (int i = 0; i < min_count; i++)
+    //    {
+    //        //string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //        string str_time = times[i].ToString().Replace("滚球", "").Replace("●", "").Trim();
+    //        string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //        string f_time = str_time;
+    //        string f_host = single_teams[0].ToString();
+    //        string f_client = single_teams[1].ToString();
+    //        string f_win = wins[i].ToString();
+    //        string f_draw = draws[i].ToString();
+    //        string f_lose = loses[i].ToString();
+    //        Match100Helper.insert_data("fubo", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
+    //        result = result + str_time.PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+    //    }
+    //    //}
+    //    //catch (Exception error)
+    //    //{
+    //    //    result = error.Message + Environment.NewLine + error.StackTrace;
+    //    //}
+    //    doc_result["data"] = result;
+    //    return doc_result;
+    //}
+    //public BsonDocument from_pinnaclesports_1_back(ref WebBrowser browser)
+    //{
+    //    BsonDocument doc_result = Match100Helper.get_doc_result();
+    //    string result = "";
+    //    //try
+    //    //{
+    //    BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+    //    DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+    //    DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
+    //    ArrayList times = new ArrayList();
+    //    ArrayList teams = new ArrayList();
+    //    ArrayList odds = new ArrayList();
 
-        for (int i = 0; i < dt.Rows.Count; i++)
-        {
-            if (!string.IsNullOrEmpty(dt.Rows[i][4].ToString()) && dt.Rows[i][4].ToString().Contains("1X2") == false)
-            {
-                times.Add(dt.Rows[i][0].ToString());
-                teams.Add(dt.Rows[i][2].ToString());
-                odds.Add(dt.Rows[i][4].ToString());
-            }
-        }
-
-
-        for (int i = 0; i < times.Count; i++)
-        {
-            if ((i + 2) < times.Count)
-            {
-                string f_time = times[i].ToString() + " " + times[i + 1].ToString();
-                string f_host = teams[i].ToString();
-                string f_client = teams[i + 1].ToString();
-                string f_win = odds[i].ToString();
-                string f_draw = odds[i + 2].ToString();
-                string f_lose = odds[i + 1].ToString();
-                Match100Helper.insert_data("pinnaclesports", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "-7", "0");
-                result = result + f_time.PR(20) + f_host.PR(50) + f_client.PR(50) + f_win.PR(20) + f_draw.PR(20) + f_lose.PR(20) + Environment.NewLine;
-            }
-            i = i + 2;
-        }
-        //}
-        //catch (Exception error)
-        //{
-        //    result = error.Message + Environment.NewLine + error.StackTrace;
-        //}
-        doc_result["data"] = result;
-        return doc_result;
-    }
-    public BsonDocument from_188bet_1_back(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
-
-        string result = "";
-        try
-        {
-            DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-            DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
-            ArrayList times = new ArrayList();
-            ArrayList teams = new ArrayList();
-            ArrayList wins = new ArrayList();
-            ArrayList draws = new ArrayList();
-            ArrayList loses = new ArrayList();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-
-                if (string.IsNullOrEmpty(dt.Rows[i][4].ToString())) continue;
-                times.Add(dt.Rows[i][0].ToString());
-                teams.Add(dt.Rows[i][3].ToString());
-                wins.Add(dt.Rows[i][4].ToString());
-                draws.Add(dt.Rows[i][6].ToString());
-                loses.Add(dt.Rows[i][8].ToString());
-            }
-
-            int min_count = 999999;
-            if (times.Count < min_count) min_count = times.Count;
-            if (teams.Count < min_count) min_count = teams.Count;
-            if (wins.Count < min_count) min_count = wins.Count;
-            if (draws.Count < min_count) min_count = draws.Count;
-            if (loses.Count < min_count) min_count = loses.Count;
-
-            for (int i = 0; i < min_count; i++)
-            {
-                string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-
-                string f_time = times[i].ToString();
-                string f_host = single_teams[0].ToString();
-                string f_client = single_teams[1].ToString();
-                string f_win = wins[i].ToString();
-                string f_draw = draws[i].ToString();
-                string f_lose = loses[i].ToString();
-                //Match100Helper.insert_data("188be", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
-                result = result + (single_times[0].ToString().Trim() + " " + single_times[1].ToString()).PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
-            }
-        }
-        catch (Exception error)
-        {
-            result = error.Message + Environment.NewLine + error.StackTrace;
-        }
-        doc_result["data"] = result;
-        return doc_result;
-    }
-    public BsonDocument from_macauslot_1_back(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        string result = "";
-        //try
-        //{
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
-        ArrayList times = new ArrayList();
-        ArrayList teams = new ArrayList();
-        ArrayList odds = new ArrayList();
-
-        for (int i = 0; i < dt.Rows.Count; i++)
-        {
-            if (!string.IsNullOrEmpty(dt.Rows[i][7].ToString()) && dt.Rows[i][7].ToString().ToLower().Contains("win") == false)
-            {
-                times.Add(dt.Rows[i][0].ToString());
-                teams.Add(dt.Rows[i][2].ToString());
-                odds.Add(dt.Rows[i][7].ToString());
-            }
-        }
+    //    for (int i = 0; i < dt.Rows.Count; i++)
+    //    {
+    //        if (!string.IsNullOrEmpty(dt.Rows[i][4].ToString()) && dt.Rows[i][4].ToString().Contains("1X2") == false)
+    //        {
+    //            times.Add(dt.Rows[i][0].ToString());
+    //            teams.Add(dt.Rows[i][2].ToString());
+    //            odds.Add(dt.Rows[i][4].ToString());
+    //        }
+    //    }
 
 
-        for (int i = 0; i < times.Count; i++)
-        {
+    //    for (int i = 0; i < times.Count; i++)
+    //    {
+    //        if ((i + 2) < times.Count)
+    //        {
+    //            string f_time = times[i].ToString() + " " + times[i + 1].ToString();
+    //            string f_host = teams[i].ToString();
+    //            string f_client = teams[i + 1].ToString();
+    //            string f_win = odds[i].ToString();
+    //            string f_draw = odds[i + 2].ToString();
+    //            string f_lose = odds[i + 1].ToString();
+    //            Match100Helper.insert_data("pinnaclesports", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "-7", "0");
+    //            result = result + f_time.PR(20) + f_host.PR(50) + f_client.PR(50) + f_win.PR(20) + f_draw.PR(20) + f_lose.PR(20) + Environment.NewLine;
+    //        }
+    //        i = i + 2;
+    //    }
+    //    //}
+    //    //catch (Exception error)
+    //    //{
+    //    //    result = error.Message + Environment.NewLine + error.StackTrace;
+    //    //}
+    //    doc_result["data"] = result;
+    //    return doc_result;
+    //}
+    //public BsonDocument from_188bet_1_back(ref WebBrowser browser)
+    //{
+    //    BsonDocument doc_result = Match100Helper.get_doc_result();
+    //    BsonDocument doc_condition = BrowserHelper.get_doc_condition();
 
-            if ((i + 2) < times.Count)
-            {
-                string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                string[] single_host = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                string[] single_client = teams[i + 1].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-                string f_time = single_times[0].ToString() + "●" + single_times[1].ToString();
-                string f_host = single_host[0].ToString();
-                string f_client = single_client[0].ToString();
-                string f_win = odds[i].ToString();
-                string f_draw = odds[i + 2].ToString();
-                string f_lose = odds[i].ToString();
-                Match100Helper.insert_data("macauslot", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
-                result = result + (single_times[0].ToString() + " " + single_times[1].ToString()).PR(20) + single_host[0].PR(50) + single_client[0].PR(50) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
-            }
-            i = i + 2;
-        }
-        //}
-        //catch (Exception error)
-        //{
-        //    result = error.Message + Environment.NewLine + error.StackTrace;
-        //}
-        doc_result["data"] = result;
-        return doc_result;
-    }
-    public BsonDocument from_10bet_2_back(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
-        doc_condition["element_type"].AsBsonArray.Add("div");
-        string result = "";
-        //try
-        //{
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
-        ArrayList times = new ArrayList();
-        ArrayList teams = new ArrayList();
-        ArrayList wins = new ArrayList();
-        ArrayList draws = new ArrayList();
-        ArrayList loses = new ArrayList();
+    //    string result = "";
+    //    try
+    //    {
+    //        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+    //        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
+    //        ArrayList times = new ArrayList();
+    //        ArrayList teams = new ArrayList();
+    //        ArrayList wins = new ArrayList();
+    //        ArrayList draws = new ArrayList();
+    //        ArrayList loses = new ArrayList();
 
-        for (int i = 0; i < dt.Rows.Count; i++)
-        {
-            if (string.IsNullOrEmpty(dt.Rows[i][3].ToString())) continue;
-            times.Add(dt.Rows[i][1].ToString());
-            teams.Add(dt.Rows[i][2].ToString());
-            wins.Add(dt.Rows[i][3].ToString());
-            draws.Add(dt.Rows[i][4].ToString());
-            loses.Add(dt.Rows[i][6].ToString());
-        }
+    //        for (int i = 0; i < dt.Rows.Count; i++)
+    //        {
 
-        int min_count = 999999;
-        if (times.Count < min_count) min_count = times.Count;
-        if (teams.Count < min_count) min_count = teams.Count;
-        if (wins.Count < min_count) min_count = wins.Count;
-        if (draws.Count < min_count) min_count = draws.Count;
-        if (loses.Count < min_count) min_count = loses.Count;
+    //            if (string.IsNullOrEmpty(dt.Rows[i][4].ToString())) continue;
+    //            times.Add(dt.Rows[i][0].ToString());
+    //            teams.Add(dt.Rows[i][3].ToString());
+    //            wins.Add(dt.Rows[i][4].ToString());
+    //            draws.Add(dt.Rows[i][6].ToString());
+    //            loses.Add(dt.Rows[i][8].ToString());
+    //        }
 
-        for (int i = 0; i < min_count; i++)
-        {
-            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            string f_time = times[i].ToString();
-            string f_host = single_teams[0].ToString();
-            string f_client = single_teams[2].ToString();
-            string f_win = wins[i].ToString();
-            string f_draw = draws[i].ToString();
-            string f_lose = loses[i].ToString();
-            Match100Helper.insert_data("10bet", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
-            result = result + times[i].PR(20) + single_teams[0].PR(50) + single_teams[2].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
-        }
-        //}
-        //catch (Exception error)
-        //{
-        //    result = error.Message + Environment.NewLine + error.StackTrace;
-        //}
-        doc_result["data"] = result;
-        return doc_result;
-    }
-    public BsonDocument from_fun88_1_back(ref WebBrowser browser)
-    {
-        BsonDocument doc_result = Match100Helper.get_doc_result();
-        string result = "";
-        //try
-        //{
-        BsonDocument doc_condition = BrowserHelper.get_doc_condition();
-        DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
-        DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
-        ArrayList times = new ArrayList();
-        ArrayList teams = new ArrayList();
-        ArrayList odds = new ArrayList();
+    //        int min_count = 999999;
+    //        if (times.Count < min_count) min_count = times.Count;
+    //        if (teams.Count < min_count) min_count = teams.Count;
+    //        if (wins.Count < min_count) min_count = wins.Count;
+    //        if (draws.Count < min_count) min_count = draws.Count;
+    //        if (loses.Count < min_count) min_count = loses.Count;
 
-        for (int i = 0; i < dt.Rows.Count; i++)
-        {
-            if (!string.IsNullOrEmpty(dt.Rows[i][5].ToString()) && dt.Rows[i][5].ToString().Contains("1X2") == false)
-            {
-                times.Add(dt.Rows[i][1].ToString());
-                teams.Add(dt.Rows[i][2].ToString());
-                odds.Add(dt.Rows[i][5].ToString());
-            }
-        }
+    //        for (int i = 0; i < min_count; i++)
+    //        {
+    //            string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+
+    //            string f_time = times[i].ToString();
+    //            string f_host = single_teams[0].ToString();
+    //            string f_client = single_teams[1].ToString();
+    //            string f_win = wins[i].ToString();
+    //            string f_draw = draws[i].ToString();
+    //            string f_lose = loses[i].ToString();
+    //            //Match100Helper.insert_data("188be", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
+    //            result = result + (single_times[0].ToString().Trim() + " " + single_times[1].ToString()).PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+    //        }
+    //    }
+    //    catch (Exception error)
+    //    {
+    //        result = error.Message + Environment.NewLine + error.StackTrace;
+    //    }
+    //    doc_result["data"] = result;
+    //    return doc_result;
+    //}
+    //public BsonDocument from_macauslot_1_back(ref WebBrowser browser)
+    //{
+    //    BsonDocument doc_result = Match100Helper.get_doc_result();
+    //    string result = "";
+    //    //try
+    //    //{
+    //    BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+    //    DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+    //    DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
+    //    ArrayList times = new ArrayList();
+    //    ArrayList teams = new ArrayList();
+    //    ArrayList odds = new ArrayList();
+
+    //    for (int i = 0; i < dt.Rows.Count; i++)
+    //    {
+    //        if (!string.IsNullOrEmpty(dt.Rows[i][7].ToString()) && dt.Rows[i][7].ToString().ToLower().Contains("win") == false)
+    //        {
+    //            times.Add(dt.Rows[i][0].ToString());
+    //            teams.Add(dt.Rows[i][2].ToString());
+    //            odds.Add(dt.Rows[i][7].ToString());
+    //        }
+    //    }
 
 
-        for (int i = 0; i < times.Count; i++)
-        {
+    //    for (int i = 0; i < times.Count; i++)
+    //    {
 
-            string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
-            string[] single_odds = odds[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //        if ((i + 2) < times.Count)
+    //        {
+    //            string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //            string[] single_host = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //            string[] single_client = teams[i + 1].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //            string f_time = single_times[0].ToString() + "●" + single_times[1].ToString();
+    //            string f_host = single_host[0].ToString();
+    //            string f_client = single_client[0].ToString();
+    //            string f_win = odds[i].ToString();
+    //            string f_draw = odds[i + 2].ToString();
+    //            string f_lose = odds[i].ToString();
+    //            Match100Helper.insert_data("macauslot", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
+    //            result = result + (single_times[0].ToString() + " " + single_times[1].ToString()).PR(20) + single_host[0].PR(50) + single_client[0].PR(50) + odds[i].PR(20) + odds[i + 2].PR(20) + odds[i + 1].PR(20) + Environment.NewLine;
+    //        }
+    //        i = i + 2;
+    //    }
+    //    //}
+    //    //catch (Exception error)
+    //    //{
+    //    //    result = error.Message + Environment.NewLine + error.StackTrace;
+    //    //}
+    //    doc_result["data"] = result;
+    //    return doc_result;
+    //}
+    //public BsonDocument from_10bet_2_back(ref WebBrowser browser)
+    //{
+    //    BsonDocument doc_result = Match100Helper.get_doc_result();
+    //    BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+    //    doc_condition["element_type"].AsBsonArray.Add("div");
+    //    string result = "";
+    //    //try
+    //    //{
+    //    DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+    //    DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
+    //    ArrayList times = new ArrayList();
+    //    ArrayList teams = new ArrayList();
+    //    ArrayList wins = new ArrayList();
+    //    ArrayList draws = new ArrayList();
+    //    ArrayList loses = new ArrayList();
 
-            string f_time = times[i].ToString();
-            string f_host = single_teams[0].ToString();
-            string f_client = single_teams[1].ToString();
-            string f_win = single_odds[0].ToString();
-            string f_draw = single_odds[2].ToString();
-            string f_lose = single_odds[1].ToString();
-            Match100Helper.insert_data("fun88", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
-            result = result + single_times[1].PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + single_odds[0].PR(20) + single_odds[2].PR(20) + single_odds[1].PR(20) + Environment.NewLine;
-        }
-        //}
-        //catch (Exception error)
-        //{
-        //    result = error.Message + Environment.NewLine + error.StackTrace;
-        //}
-        doc_result["data"] = result;
-        return doc_result;
-    }
-    #endregion 
+    //    for (int i = 0; i < dt.Rows.Count; i++)
+    //    {
+    //        if (string.IsNullOrEmpty(dt.Rows[i][3].ToString())) continue;
+    //        times.Add(dt.Rows[i][1].ToString());
+    //        teams.Add(dt.Rows[i][2].ToString());
+    //        wins.Add(dt.Rows[i][3].ToString());
+    //        draws.Add(dt.Rows[i][4].ToString());
+    //        loses.Add(dt.Rows[i][6].ToString());
+    //    }
+
+    //    int min_count = 999999;
+    //    if (times.Count < min_count) min_count = times.Count;
+    //    if (teams.Count < min_count) min_count = teams.Count;
+    //    if (wins.Count < min_count) min_count = wins.Count;
+    //    if (draws.Count < min_count) min_count = draws.Count;
+    //    if (loses.Count < min_count) min_count = loses.Count;
+
+    //    for (int i = 0; i < min_count; i++)
+    //    {
+    //        string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //        string f_time = times[i].ToString();
+    //        string f_host = single_teams[0].ToString();
+    //        string f_client = single_teams[2].ToString();
+    //        string f_win = wins[i].ToString();
+    //        string f_draw = draws[i].ToString();
+    //        string f_lose = loses[i].ToString();
+    //        Match100Helper.insert_data("10bet", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
+    //        result = result + times[i].PR(20) + single_teams[0].PR(50) + single_teams[2].PR(50) + wins[i].PR(20) + draws[i].PR(20) + loses[i].PR(20) + Environment.NewLine;
+    //    }
+    //    //}
+    //    //catch (Exception error)
+    //    //{
+    //    //    result = error.Message + Environment.NewLine + error.StackTrace;
+    //    //}
+    //    doc_result["data"] = result;
+    //    return doc_result;
+    //}
+    //public BsonDocument from_fun88_1_back(ref WebBrowser browser)
+    //{
+    //    BsonDocument doc_result = Match100Helper.get_doc_result();
+    //    string result = "";
+    //    //try
+    //    //{
+    //    BsonDocument doc_condition = BrowserHelper.get_doc_condition();
+    //    DataTable dt_analyse = BrowserHelper.get_analyse_table4(ref browser, ref doc_condition);
+    //    DataTable dt = BrowserHelper.get_filter_table(ref doc_condition, dt_analyse);
+    //    ArrayList times = new ArrayList();
+    //    ArrayList teams = new ArrayList();
+    //    ArrayList odds = new ArrayList();
+
+    //    for (int i = 0; i < dt.Rows.Count; i++)
+    //    {
+    //        if (!string.IsNullOrEmpty(dt.Rows[i][5].ToString()) && dt.Rows[i][5].ToString().Contains("1X2") == false)
+    //        {
+    //            times.Add(dt.Rows[i][1].ToString());
+    //            teams.Add(dt.Rows[i][2].ToString());
+    //            odds.Add(dt.Rows[i][5].ToString());
+    //        }
+    //    }
+
+
+    //    for (int i = 0; i < times.Count; i++)
+    //    {
+
+    //        string[] single_times = times[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //        string[] single_teams = teams[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+    //        string[] single_odds = odds[i].ToString().Split(new string[] { "●" }, StringSplitOptions.RemoveEmptyEntries);
+
+    //        string f_time = times[i].ToString();
+    //        string f_host = single_teams[0].ToString();
+    //        string f_client = single_teams[1].ToString();
+    //        string f_win = single_odds[0].ToString();
+    //        string f_draw = single_odds[2].ToString();
+    //        string f_lose = single_odds[1].ToString();
+    //        Match100Helper.insert_data("fun88", "", f_time, f_host, f_client, f_win, f_draw, f_lose, "8", "0");
+    //        result = result + single_times[1].PR(20) + single_teams[0].PR(50) + single_teams[1].PR(50) + single_odds[0].PR(20) + single_odds[2].PR(20) + single_odds[1].PR(20) + Environment.NewLine;
+    //    }
+    //    //}
+    //    //catch (Exception error)
+    //    //{
+    //    //    result = error.Message + Environment.NewLine + error.StackTrace;
+    //    //}
+    //    doc_result["data"] = result;
+    //    return doc_result;
+    //}
+    #endregion
 }
