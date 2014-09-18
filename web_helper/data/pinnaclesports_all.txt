@@ -1,0 +1,1228 @@
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  
+url:             http://www.pinnaclesports.com/
+time:            20:24:16    20:24:17    20:24:46    
+result data:     
+Load Complete!
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_1
+url:             http://www.pinnaclesports.com/
+time:            20:24:46    20:24:46    20:25:16    
+result data:     
+1      Soccer                Todays Games                                        /League/Soccer/Todays+Games/Lines.aspx
+2      Soccer                Argentina - Primera Division                        /League/Soccer/Argentine/1/Lines.aspx
+3      Soccer                Argentina - Cup                                     /League/Soccer/ArgentineCup/1/Lines.aspx
+4      Soccer                Argentina - Primera B Nacional                      /League/Soccer/Argentina+B/1/Lines.aspx
+5      Soccer                Austria – Bundesliga                                /League/Soccer/Austrian/1/Lines.aspx
+6      Soccer                Austria - Erste Liga                                /League/Soccer/Austri+RZ+EL/1/Lines.aspx
+7      Soccer                Bahrain - Premier League                            /League/Soccer/Bahrain+PL/7/Lines.aspx
+8      Soccer                Belgium - Pro League                                /League/Soccer/Belgian/1/Lines.aspx
+9      Soccer                Belgium - Pro League 1st Half                       /League/Soccer/Belgian/2/Lines.aspx
+10     Soccer                Belgium - 2nd Division                              /League/Soccer/Belgian+2/1/Lines.aspx
+11     Soccer                Brazil - Serie A                                    /League/Soccer/Brazil+Ser+A/1/Lines.aspx
+12     Soccer                Brazil - Serie A Corners                            /League/Soccer/BrazilSerACR/7/Lines.aspx
+13     Soccer                CONCACAF - Champions League                         /League/Soccer/CONCACAF+CL/1/Lines.aspx
+14     Soccer                CONMEBOL - Copa Sudamericana                        /League/Soccer/Sth~2E~Amer+Cup/1/Lines.aspx
+15     Soccer                Croatia - 1. HNL                                    /League/Soccer/Croati+1~2E~HNL/1/Lines.aspx
+16     Soccer                Czech Republic - Czech Liga                         /League/Soccer/Czech/1/Lines.aspx
+17     Soccer                Czech Republic - U21 League                         /League/Soccer/Czech+U21/7/Lines.aspx
+18     Soccer                Denmark - Superliga                                 /League/Soccer/Danish+L/1/Lines.aspx
+19     Soccer                Denmark - 1st Division                              /League/Soccer/Danish+1/1/Lines.aspx
+20     Soccer                Egypt - Premier League                              /League/Soccer/Egypt+PL/7/Lines.aspx
+21     Soccer                England - Premier League                            /League/Soccer/Eng~2E~+Premier/1/Lines.aspx
+22     Soccer                England – Championship                              /League/Soccer/Eng~2E~+Chship/1/Lines.aspx
+23     Soccer                England - League 1                                  /League/Soccer/Eng+L1/1/Lines.aspx
+24     Soccer                England - League 2                                  /League/Soccer/Eng+L2/1/Lines.aspx
+25     Soccer                England – Conference                                /League/Soccer/Eng~2E~+Conf~2E~/1/Lines.aspx
+26     Soccer                England - Conference 1st Half                       /League/Soccer/Eng~2E~+Conf~2E~/2/Lines.aspx
+27     Soccer                Finland - Veikkausliiga                             /League/Soccer/Finnish+V/1/Lines.aspx
+28     Soccer                France - Ligue 1                                    /League/Soccer/French+1/1/Lines.aspx
+29     Soccer                France - Ligue 2                                    /League/Soccer/French+2/1/Lines.aspx
+30     Soccer                Germany - Bundesliga                                /League/Soccer/Bundesliga/1/Lines.aspx
+31     Soccer                Germany - Bundesliga 2                              /League/Soccer/Bundesliga+2/1/Lines.aspx
+32     Soccer                Germany - Bundesliga 3                              /League/Soccer/Bundesliga+3/1/Lines.aspx
+33     Soccer                Iceland - Premier                                   /League/Soccer/Icelandic/1/Lines.aspx
+34     Soccer                Ireland - Premier                                   /League/Soccer/Irish/1/Lines.aspx
+35     Soccer                Ireland - 1st Division                              /League/Soccer/Irish+Div1/1/Lines.aspx
+36     Soccer                Italy - Serie A                                     /League/Soccer/Serie+A/1/Lines.aspx
+37     Soccer                Italy - Serie B                                     /League/Soccer/Serie+B/1/Lines.aspx
+38     Soccer                Japan - J League                                    /League/Soccer/J-League/1/Lines.aspx
+39     Soccer                Japan - J2 League                                   /League/Soccer/J2+League/1/Lines.aspx
+40     Soccer                Korea - K-League Classic                            /League/Soccer/Korean/7/Lines.aspx
+41     Soccer                Lithuania -  A Lyga                                 /League/Soccer/Lithuania+A~2E~/7/Lines.aspx
+42     Soccer                Mexico - Primera Division                           /League/Soccer/Mexican/1/Lines.aspx
+43     Soccer                Netherlands - Eredivisie                            /League/Soccer/Dutch+1/1/Lines.aspx
+44     Soccer                Netherlands - Eerste Divisie                        /League/Soccer/Dutch+2/1/Lines.aspx
+45     Soccer                Norway - Tippeligaen                                /League/Soccer/Norwegian+T/1/Lines.aspx
+46     Soccer                Poland - Ekstraklasa                                /League/Soccer/Poland+O+E/1/Lines.aspx
+47     Soccer                Poland - 1st Liga                                   /League/Soccer/Poland+1st/1/Lines.aspx
+48     Soccer                Portugal - Primeira Liga                            /League/Soccer/Portuguese/1/Lines.aspx
+49     Soccer                Qatar - Stars League                                /League/Soccer/Qatar+StarsL/1/Lines.aspx
+50     Soccer                Romania - Liga 1                                    /League/Soccer/Romania+1/1/Lines.aspx
+51     Soccer                Russia - Premier                                    /League/Soccer/Russia++P+L/1/Lines.aspx
+52     Soccer                Scotland - Premier                                  /League/Soccer/Scot+Premier/1/Lines.aspx
+53     Soccer                Spain - La Liga                                     /League/Soccer/La+Liga/1/Lines.aspx
+54     Soccer                Spain - Segunda Liga                                /League/Soccer/Segunda+Liga/1/Lines.aspx
+55     Soccer                Sweden - Allsvenskan                                /League/Soccer/Allsvenskan/1/Lines.aspx
+56     Soccer                Sweden - Superettan                                 /League/Soccer/Superettan/1/Lines.aspx
+57     Soccer                Turkey - Super League                               /League/Soccer/Turkey+SL/1/Lines.aspx
+58     Soccer                UEFA - Champions League                             /League/Soccer/UEFA+CL/1/Lines.aspx
+59     Soccer                Futures                                             /ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+60     Soccer                Group A                                             /ContestCategory/Soccer+Props/UEFA+-+Champions+League/Group+A/Lines.aspx
+61     Soccer                Group B                                             /ContestCategory/Soccer+Props/UEFA+-+Champions+League/Group+B/Lines.aspx
+62     Soccer                Group C                                             /ContestCategory/Soccer+Props/UEFA+-+Champions+League/Group+C/Lines.aspx
+63     Soccer                Group D                                             /ContestCategory/Soccer+Props/UEFA+-+Champions+League/Group+D/Lines.aspx
+64     Soccer                UEFA - Europa League                                /League/Soccer/UEFA+Cup/7/Lines.aspx
+65     Soccer                UEFA - Europa League Corners                        /League/Soccer/UefCup+Co/1/Lines.aspx
+66     Soccer                UEFA - U19 Euro Championship Women Qualifiers       /League/Soccer/U19+Eur+ChWQ/7/Lines.aspx
+67     Soccer                USA - Major League Soccer                           /League/Soccer/USA+~28~MLS~29~/1/Lines.aspx
+68     Soccer                USA - Major League Soccer Team Total                /TeamTotalsLeague/Soccer/USA+~28~MLS~29~/1/Lines.aspx
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Todays+Games/Lines.aspx
+time:            20:25:16    20:25:16    20:25:46    
+result data:     
+Start Read First URL ->http://www.pinnaclesports.com/League/Soccer/Todays+Games/Lines.aspx
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Argentine/1/Lines.aspx
+time:            20:25:46    20:25:46    20:26:16    
+result data:     
+Argentina - Cup Soccer                              Thu 9/18 01:59 PM     Racing Club (n)                 Argentinos Juniors              1.980                 3.170                 4.779                 
+Brazil - Serie A Soccer                             Thu 9/18 03:29 PM     Corinthians                     Chapecoense
+                    1.485                 4.150                 8.629                 
+Brazil - Serie A Soccer                             Thu 9/18 03:29 PM     Goias                           Atletico Mineiro                2.990                 3.140                 2.650                 
+Brazil - Serie A Soccer                             Thu 9/18 04:29 PM     Gremio Porto Alegre             Santos                          1.869                 3.340                 5.090                 
+CONCACAF - Champions League Soccer                  Thu 9/18 04:59 PM     Sporting Kansas City            Deportivo Saprissa              1.641                 4.140                 5.440                 
+CONCACAF - Champions League Soccer                  Thu 9/18 06:59 PM     A.D. Isidro Metapan (n)         CS Herediano                    3.880                 3.770                 1.970                 
+Denmark - 1st Division Soccer                       Thu 9/18 09:59 AM     AGF Aarhus                      Vejle                           1.401                 4.950                 8.710                 
+Iceland - Premier
+ Soccer                           Thu 9/18 09:59 AM     Vikingur Reykjavik              Stjarnan Gardabaer              3.000                 3.720                 2.360                 
+Iceland - Premier
+ Soccer                           Thu 9/18 09:59 AM     FH Hafnarfjordur                KR Reykjavik                    1.826                 3.910                 4.510                 
+CONMEBOL - Copa Sudamericana
+ Soccer                Thu 9/18 05:14 PM     Emelec Guayaquil
+               River Plate Montevideo          1.833                 3.440                 5.160                 
+CONMEBOL - Copa Sudamericana
+ Soccer                Thu 9/18 05:14 PM     Boca Juniors                    Rosario Central                 1.925                 3.400                 4.609                 
+Sweden - Superettan Soccer                          Thu 9/18 09:59 AM     Jonkopings Sodra                IK Sirius FK                    2.700                 3.510                 2.710                 
+UEFA - Europa League Soccer                         Thu 9/18 09:00 AM     Qarabag Aghdam
+                 Saint Etienne                   3.760                 3.280                 2.179                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Borussia Monchengladbach        Villarreal                      2.370                 3.430                 3.150                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Dnipro Dnipropetrovsk (n)       Inter Milan                     3.390                 3.410                 2.260                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Partizan Belgrade               Tottenham Hotspur               4.640                 3.830                 1.806                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Red Bull Salzburg               Celtic FC                       1.476                 4.859                 6.810                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Apollon Limassol (n)            FC Zurich                       2.889                 3.320                 2.610                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Club Brugge                     Torino                          2.389                 3.280                 3.250                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     FC Copenhagen                   HJK Helsinki                    1.591                 4.260                 6.000                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Besiktas                        Asteras Tripolis                1.452                 4.390                 8.820                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Dinamo Zagreb                   Astra Giurgiu
+                  1.943                 3.590                 4.220                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     PSV Eindhoven                   Estoril Praia
+                  1.657                 3.870                 5.960                 
+UEFA - Europa League Soccer                         Thu 9/18 10:00 AM     Panathinaikos                   Dynamo Moscow                   2.500                 3.340                 3.020                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Sevilla                         Feyenoord                       1.429                 4.840                 8.080                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Napoli                          Sparta Praha                    1.529                 4.359                 6.780                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Everton                         VfL Wolfsburg                   2.009                 3.670                 3.830                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Fiorentina                      Guingamp                        1.403                 4.700                 9.570                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Metalist Kharkiv (n)            Trabzonspor                     2.620                 3.280                 2.910                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Lille                           FC Krasnodar                    1.781                 3.560                 5.310                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Young Boys                      Slovan Bratislava               1.689                 3.950                 5.420                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Steaua Bucuresti                Aalborg                         1.606                 4.029                 6.280                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Rio Ave                         Dynamo Kyiv                     3.340                 3.360                 2.310                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     PAOK                            Dinamo Minsk                    1.704                 3.740                 5.670                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Standard Liege                  Rijeka                          2.320                 3.470                 3.230                 
+UEFA - Europa League Soccer                         Thu 9/18 12:05 PM     Legia Warszawa                  Lokeren                         1.724                 3.820                 5.300                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/ArgentineCup/1/Lines.aspx
+time:            20:26:16    20:26:16    20:26:46    
+result data:     
+Argentina - Primera Division Soccer                 Fri 9/19 04:29 PM     Quilmes                         Lanus                           3.510                 3.090                 2.370                 
+Argentina - Primera Division Soccer                 Sat 9/20 11:14 AM     Estudiantes La Plata            Gimnasia La Plata               2.030                 3.050                 4.740                 
+Argentina - Primera Division Soccer                 Sat 9/20 12:14 PM     Olimpo Bahia Blanca             Belgrano de Cordoba             2.750                 2.990                 3.010                 
+Argentina - Primera Division Soccer                 Sat 9/20 04:09 PM     Velez Sarsfield                 Atletico Rafaela                1.806                 3.550                 5.110                 
+Argentina - Primera Division Soccer                 Sun 9/21 02:14 PM     Banfield                        Boca Juniors                    2.910                 3.100                 2.750                 
+Argentina - Primera Division Soccer                 Sun 9/21 11:14 AM     Godoy Cruz Antonio Tomba        Club Atletico Tigre             2.450                 3.050                 3.400                 
+Argentina - Primera Division Soccer                 Sun 9/21 05:29 PM     River Plate                     Independiente                   1.500                 4.100                 8.340                 
+Argentina - Primera Division Soccer                 Sun 9/21 11:59 AM     Rosario Central                 Arsenal De Sarandi              1.990                 3.250                 4.529                 
+Argentina - Primera Division Soccer                 Mon 9/22 02:09 PM     Defensa y Justicia              San Lorenzo                     2.620                 3.160                 3.010                 
+Argentina - Primera Division Soccer                 Mon 9/22 04:29 PM     Racing Club                     Newells Old Boys                2.719                 3.060                 2.969                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Argentina+B/1/Lines.aspx
+time:            20:26:46    20:26:46    20:27:16    
+result data:     
+Argentina - Cup Soccer                              Thu 9/18 01:59 PM     Racing Club (n)                 Argentinos Juniors              1.943                 3.190                 4.930                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Austrian/1/Lines.aspx
+time:            20:27:16    20:27:16    20:27:46    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Austri+RZ+EL/1/Lines.aspx
+time:            20:27:46    20:27:46    20:28:16    
+result data:     
+Austria – Bundesliga Soccer - Sat 9/20              Sat 9/20 06:59 AM     Rapid Wien                      Wolfsberger AC                  2.070                 3.590                 3.720                 
+Austria – Bundesliga Soccer - Sat 9/20              Sat 9/20 09:29 AM     Admira Wacker Modling           SV Grodig                       2.320                 3.550                 3.150                 
+Austria – Bundesliga Soccer - Sat 9/20              Sat 9/20 09:29 AM     Rheindorf Altach                SC Wiener Neustadt              1.775                 3.840                 4.850                 
+Austria – Bundesliga Soccer - Sat 9/20              Sat 9/20 09:29 AM     SV Ried                         Sturm Graz                      2.850                 3.440                 2.570                 
+Austria – Bundesliga Soccer - Sun 9/21              Sun 9/21 07:29 AM     Red Bull Salzburg               Austria Wien                    1.416                 5.230                 7.540                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Bahrain+PL/7/Lines.aspx
+time:            20:28:16    20:28:16    20:28:46    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Belgian/1/Lines.aspx
+time:            20:28:46    20:28:46    20:29:16    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Belgian/2/Lines.aspx
+time:            20:29:16    20:29:16    20:29:46    
+result data:     
+Belgium - Pro League Soccer                         Fri 9/19 11:29 AM     Charleroi                       Zulte Waregem                   2.530                 3.450                 2.889                 
+Belgium - Pro League Soccer                         Sat 9/20 08:59 AM     Royal Mouscron Peruwelz         Racing Genk                     2.450                 3.510                 2.969                 
+Belgium - Pro League Soccer                         Sat 9/20 10:59 AM     Anderlecht                      Cercle Brugge                   1.204                 7.260                 16.079                
+Belgium - Pro League Soccer                         Sat 9/20 10:59 AM     Oostende                        KAA Gent                        3.040                 3.390                 2.460                 
+Belgium - Pro League Soccer                         Sat 9/20 10:59 AM     Westerlo                        Lierse                          1.793                 3.820                 4.750                 
+Belgium - Pro League Soccer                         Sun 9/21 05:29 AM     Waasland Beveren                Standard Liege                  4.470                 3.690                 1.869                 
+Belgium - Pro League Soccer                         Sun 9/21 08:59 AM     Club Brugge                     Kortrijk                        1.414                 4.880                 8.469                 
+Belgium - Pro League Soccer                         Sun 9/21 10:59 AM     Lokeren                         Mechelen                        1.900                 3.590                 4.450                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             res://ieframe.dll/dnserrordiagoff_webOC.htm#http://www.pinnaclesports.com/League/Soccer/Belgian+2/1/Lines.aspx
+time:            20:29:46    20:29:46    20:30:16    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Brazil+Ser+A/1/Lines.aspx
+time:            20:30:16    20:30:16    20:30:46    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/BrazilSerACR/7/Lines.aspx
+time:            20:30:46    20:30:46    20:31:16    
+result data:     
+Brazil - Serie A Soccer                             Thu 9/18 03:29 PM     Corinthians                     Chapecoense
+                    1.485                 4.150                 8.629                 
+Brazil - Serie A Soccer                             Thu 9/18 03:29 PM     Goias                           Atletico Mineiro                2.940                 3.140                 2.690                 
+Brazil - Serie A Soccer                             Thu 9/18 04:29 PM     Gremio Porto Alegre             Santos                          1.869                 3.340                 5.090                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/CONCACAF+CL/1/Lines.aspx
+time:            20:31:16    20:31:16    20:31:46    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Sth~2E~Amer+Cup/1/Lines.aspx
+time:            20:31:46    20:31:46    20:32:16    
+result data:     
+CONCACAF - Champions League Soccer                  Thu 9/18 04:59 PM     Sporting Kansas City            Deportivo Saprissa              1.641                 4.140                 5.440                 
+CONCACAF - Champions League Soccer                  Thu 9/18 06:59 PM     A.D. Isidro Metapan (n)         CS Herediano                    3.880                 3.770                 1.970                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Croati+1~2E~HNL/1/Lines.aspx
+time:            20:32:16    20:32:16    20:32:46    
+result data:     
+CONMEBOL - Copa Sudamericana
+ Soccer                Thu 9/18 05:14 PM     Emelec Guayaquil
+               River Plate Montevideo          1.833                 3.440                 5.160                 
+CONMEBOL - Copa Sudamericana
+ Soccer                Thu 9/18 05:14 PM     Boca Juniors                    Rosario Central                 1.925                 3.400                 4.609                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Czech/1/Lines.aspx
+time:            20:32:46    20:32:46    20:33:16    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Czech+U21/7/Lines.aspx
+time:            20:33:16    20:33:16    20:33:46    
+result data:     
+Czech Republic - Czech Liga
+ Soccer                 Fri 9/19 11:14 AM     Mlada Boleslav                  Teplice                         2.250                 3.370                 3.470                 
+Czech Republic - Czech Liga
+ Soccer                 Sat 9/20 07:59 AM     Baumit Jablonec                 Dynamo Ceske Budejovice         1.323                 5.250                 11.220                
+Czech Republic - Czech Liga
+ Soccer                 Sat 9/20 07:59 AM     Slovacko                        Dukla Praha                     1.980                 3.520                 4.140                 
+Czech Republic - Czech Liga
+ Soccer                 Sat 9/20 07:59 AM     Vysocina Jihlava                FK Pribram
+                     1.961                 3.550                 4.200                 
+Czech Republic - Czech Liga
+ Soccer                 Sat 9/20 07:59 AM     Zbrojovka Brno                  Slovan Liberec                  2.580                 3.340                 2.920                 
+Czech Republic - Czech Liga
+ Soccer                 Sat 9/20 11:14 AM     Bohemians 1905                  Slavia Praha                    2.840                 3.220                 2.730                 
+Czech Republic - Czech Liga
+ Soccer                 Sun 9/21 06:44 AM     Viktoria Plzen                  Banik Ostrava                   1.333                 5.240                 11.190                
+Czech Republic - Czech Liga
+ Soccer                 Sun 9/21 07:59 AM     Sparta Praha                    Hradec Kralove                  1.171                 8.020                 19.340                
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Danish+L/1/Lines.aspx
+time:            20:33:46    20:33:46    20:34:16    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Danish+1/1/Lines.aspx
+time:            20:34:16    20:34:16    20:34:46    
+result data:     
+Denmark - Superliga Soccer                          Fri 9/19 09:29 AM     Randers FC                      Silkeborg                       1.763                 3.790                 5.010                 
+Denmark - Superliga Soccer                          Sat 9/20 07:59 AM     Hobro                           Esbjerg                         4.150                 3.710                 1.925                 
+Denmark - Superliga Soccer                          Sun 9/21 04:59 AM     Odense BK                       SonderjyskE                     2.179                 3.570                 3.430                 
+Denmark - Superliga Soccer                          Sun 9/21 07:29 AM     FC Copenhagen                   Brondby IF                      2.060                 3.560                 3.800                 
+Denmark - Superliga Soccer                          Sun 9/21 09:59 AM     Nordsjaelland                   Midtjylland                     2.880                 3.530                 2.500                 
+Denmark - Superliga Soccer                          Mon 9/22 09:59 AM     FC Vestsjaelland                Aalborg                         3.590                 3.510                 2.139                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Egypt+PL/7/Lines.aspx
+time:            20:34:46    20:34:46    20:35:16    
+result data:     
+Denmark - 1st Division Soccer                       Thu 9/18 09:59 AM     AGF Aarhus                      Vejle                           1.401                 4.950                 8.710                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Eng~2E~+Premier/1/Lines.aspx
+time:            20:35:16    20:35:16    20:35:46    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Eng~2E~+Chship/1/Lines.aspx
+time:            20:35:46    20:35:46    20:36:16    
+result data:     
+England - Premier League Soccer                     Sat 9/20 04:45 AM     Queens Park Rangers             Stoke City                      2.850                 3.120                 2.870                 
+England - Premier League Soccer                     Sat 9/20 07:00 AM     Aston Villa                     Arsenal                         5.020                 3.750                 1.806                 
+England - Premier League Soccer                     Sat 9/20 07:00 AM     Burnley                         Sunderland                      2.520                 3.340                 3.090                 
+England - Premier League Soccer                     Sat 9/20 07:00 AM     Newcastle United                Hull City                       2.200                 3.370                 3.720                 
+England - Premier League Soccer                     Sat 9/20 07:00 AM     Swansea City                    Southampton                     2.510                 3.330                 3.110                 
+England - Premier League Soccer                     Sat 9/20 09:30 AM     West Ham United                 Liverpool                       4.550                 3.910                 1.833                 
+England - Premier League Soccer                     Sun 9/21 05:30 AM     Tottenham Hotspur               W.B.A                           1.520                 4.490                 7.180                 
+England - Premier League Soccer                     Sun 9/21 05:30 AM     Leicester City                  Manchester United               5.280                 4.140                 1.699                 
+England - Premier League Soccer                     Sun 9/21 08:00 AM     Everton                         Crystal Palace                  1.416                 5.000                 8.760                 
+England - Premier League Soccer                     Sun 9/21 08:00 AM     Manchester City                 Chelsea                         2.389                 3.480                 3.190                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Eng+L1/1/Lines.aspx
+time:            20:36:16    20:36:16    20:36:46    
+result data:     
+England – Championship Soccer - Sat 9/20            Sat 9/20 04:14 AM     Watford                         Bournemouth AFC                 2.300                 3.490                 3.290                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Brighton &amp; Hove Albion      Blackpool                       1.534                 4.100                 7.700                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Derby County                    Cardiff City                    1.751                 3.880                 5.060                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Fulham                          Blackburn Rovers                2.679                 3.440                 2.770                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Leeds United                    Huddersfield Town               2.560                 3.420                 2.929                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Middlesbrough                   Brentford                       1.769                 3.750                 5.180                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Millwall                        Nottingham Forest               3.110                 3.370                 2.460                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Norwich City                    Birmingham City                 1.446                 4.840                 7.880                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Rotherham United                Charlton Athletic               2.150                 3.440                 3.730                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Sheffield Wednesday             Reading                         2.110                 3.530                 3.730                 
+England – Championship Soccer - Sat 9/20            Sat 9/20 06:59 AM     Wolverhampton Wanderers         Bolton Wanderers                1.675                 3.930                 5.690                 
+England – Championship Soccer - Mon 9/22            Mon 9/22 11:44 AM     Wigan Athletic                  Ipswich Town                    2.040                 3.580                 3.910                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Eng+L2/1/Lines.aspx
+time:            20:36:46    20:36:46    20:37:16    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Eng~2E~+Conf~2E~/1/Lines.aspx
+time:            20:37:16    20:37:16    20:37:46    
+result data:     
+England - League 2 Soccer                           Sat 9/20 06:59 AM     AFC Wimbledon                   Morecambe                       2.230                 3.470                 3.420                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Bury                            Burton Albion                   2.350                 3.340                 3.270                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Cambridge United                Luton Town                      2.580                 3.370                 2.889                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Cheltenham Town                 Dagenham &amp; Redbridge        1.943                 3.560                 4.260                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Mansfield Town                  Carlisle United                 1.980                 3.650                 3.980                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Northampton Town                Accrington Stanley              1.704                 3.880                 5.380                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Oxford United                   Stevenage FC                    2.340                 3.420                 3.230                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Plymouth Argyle                 Hartlepool United               1.813                 3.660                 4.859                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Portsmouth                      Wycombe Wanderers               2.090                 3.450                 3.820                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Shrewsbury Town                 Newport County                  2.030                 3.550                 3.900                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     Tranmere Rovers                 Exeter City                     2.090                 3.480                 3.770                 
+England - League 2 Soccer                           Sat 9/20 06:59 AM     York City                       Southend United                 2.730                 3.290                 2.780                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Eng~2E~+Conf~2E~/2/Lines.aspx
+time:            20:37:46    20:37:46    20:38:16    
+result data:     
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Aldershot Town                  Lincoln City                    2.100                 3.530                 3.700                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Alfreton Town                   Nuneaton Town                   2.030                 3.690                 3.750                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Barnet                          Altrincham                      1.371                 5.240                 9.060                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Bristol Rovers                  Woking                          2.170                 3.630                 3.420                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Dartford FC
+                    Forest Green Rovers             4.019                 3.580                 1.990                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Eastleigh                       Braintree Town                  2.360                 3.510                 3.110                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Halifax Town                    Telford United                  1.331                 5.510                 10.310                
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Kidderminster Harriers          Grimsby Town                    2.550                 3.460                 2.870                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Macclesfield Town               Southport                       1.917                 3.630                 4.310                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Torquay United                  Dover Athletic                  1.462                 4.640                 7.650                 
+England – Conference Soccer - Sat 9/20              Sat 9/20 06:59 AM     Welling United                  Gateshead                       3.720                 3.640                 2.050                 
+England – Conference Soccer - Mon 9/22              Mon 9/22 11:59 AM     Chester                         Wrexham                         3.390                 3.480                 2.230                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Finnish+V/1/Lines.aspx
+time:            20:38:16    20:38:16    20:38:46    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Finnish+V/1/Lines.aspx
+time:            20:38:46    20:39:21    20:39:21    
+result data:     
+超时时间已到。在操作完成之前超时时间已过或服务器未响应。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 SQLServerHelper.exe_sql(String sql) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\SQLServerHelper.cs:行号 35
+   在 Match100Helper.insert_data(String website, String league, String start_time, String host, String client, String odd_win, String odd_draw, String odd_lose, String time_zone, String time_add) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Helper.cs:行号 60
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 400
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/French+1/1/Lines.aspx
+time:            20:39:21    20:39:21    20:39:51    
+result data:     
+Finland - Veikkausliiga Soccer                      Fri 9/19 08:29 AM     Jaro                            KuPS                            2.400                 3.580                 3.000                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/French+2/1/Lines.aspx
+time:            20:39:51    20:39:51    20:40:21    
+result data:     
+France - Ligue 1 Soccer                             Fri 9/19 11:29 AM     Bordeaux                        Evian Thonon Gaillar
+           1.543                 4.150                 7.340                 
+France - Ligue 1 Soccer                             Sat 9/20 07:59 AM     Marseille                       Rennes                          1.636                 3.960                 6.200                 
+France - Ligue 1 Soccer                             Sat 9/20 10:59 AM     Lorient                         Reims                           1.781                 3.560                 5.500                 
+France - Ligue 1 Soccer                             Sat 9/20 10:59 AM     Metz                            SC Bastia
+                      2.200                 3.140                 3.970                 
+France - Ligue 1 Soccer                             Sat 9/20 10:59 AM     Nantes Atlantique               Nice                            1.862                 3.380                 5.170                 
+France - Ligue 1 Soccer                             Sat 9/20 10:59 AM     Toulouse                        Caen                            2.350                 3.050                 3.670                 
+France - Ligue 1 Soccer                             Sun 9/21 04:59 AM     Lille                           Montpellier                     1.813                 3.410                 5.520                 
+France - Ligue 1 Soccer                             Sun 9/21 07:59 AM     RC Lens                         Saint Etienne                   3.650                 3.170                 2.290                 
+France - Ligue 1 Soccer                             Sun 9/21 07:59 AM     AS Monaco                       Guingamp                        1.613                 3.930                 6.640                 
+France - Ligue 1 Soccer                             Sun 9/21 11:59 AM     Paris Saint Germain             Lyon                            1.333                 5.400                 11.140                
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Bundesliga/1/Lines.aspx
+time:            20:40:21    20:40:21    20:40:51    
+result data:     
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Auxerre                         Ajaccio                         2.310                 3.090                 3.660                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Brest                           AC Arles Avignon
+               1.892                 3.170                 5.340                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Chamois Niortais                Valenciennes                    1.980                 3.180                 4.730                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Chateauroux                     Nancy                           3.370                 3.070                 2.460                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Creteil                         Clermont Foot
+                  2.120                 3.090                 4.290                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Gazelec Ajaccio                 Dijon                           2.910                 2.990                 2.850                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Laval                           Angers                          2.500                 2.940                 3.450                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Sochaux                         Nimes                           2.139                 3.110                 4.090                 
+France - Ligue 2 Soccer                             Fri 9/19 10:59 AM     Tours                           US Orleans                      2.210                 3.060                 4.050                 
+France - Ligue 2 Soccer                             Sat 9/20 04:59 AM     Le Havre                        Troyes                          2.860                 2.990                 2.889                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Bundesliga+2/1/Lines.aspx
+time:            20:40:51    20:40:51    20:41:21    
+result data:     
+Germany - Bundesliga Soccer                         Fri 9/19 11:30 AM     SC Freiburg                     Hertha BSC Berlin               2.600                 3.430                 2.910                 
+Germany - Bundesliga Soccer                         Sat 9/20 06:30 AM     Augsburg                        Werder Bremen                   1.925                 3.830                 4.200                 
+Germany - Bundesliga Soccer                         Sat 9/20 06:30 AM     Hamburger SV                    Bayern Munchen                  11.730                6.230                 1.291                 
+Germany - Bundesliga Soccer                         Sat 9/20 06:30 AM     SC Paderborn 07                 Hannover 96                     3.110                 3.520                 2.410                 
+Germany - Bundesliga Soccer                         Sat 9/20 06:30 AM     FC Schalke 04                   Eintracht Frankfurt             1.787                 4.029                 4.700                 
+Germany - Bundesliga Soccer                         Sat 9/20 06:30 AM     VfB Stuttgart                   TSG Hoffenheim                  2.639                 3.590                 2.760                 
+Germany - Bundesliga Soccer                         Sat 9/20 09:30 AM     FSV Mainz 05                    Borussia Dortmund               5.730                 4.290                 1.632                 
+Germany - Bundesliga Soccer                         Sun 9/21 06:30 AM     VfL Wolfsburg                   Bayer Leverkusen                2.860                 3.720                 2.490                 
+Germany - Bundesliga Soccer                         Sun 9/21 08:30 AM     Koln                            Borussia Monchengladbach        2.969                 3.390                 2.580                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Bundesliga+3/1/Lines.aspx
+time:            20:41:21    20:41:22    20:41:51    
+result data:     
+Germany - Bundesliga 2 Soccer                       Fri 9/19 09:29 AM     Eintracht Braunschweig          SV Darmstadt 98                 2.120                 3.440                 3.740                 
+Germany - Bundesliga 2 Soccer                       Fri 9/19 09:29 AM     Erzgebirge Aue                  St. Pauli                       2.530                 3.450                 2.900                 
+Germany - Bundesliga 2 Soccer                       Fri 9/19 09:29 AM     VfR Aalen                       SV Sandhausen                   2.190                 3.310                 3.700                 
+Germany - Bundesliga 2 Soccer                       Sat 9/20 03:59 AM     FSV Frankfurt                   VFL Bochum                      3.010                 3.430                 2.460                 
+Germany - Bundesliga 2 Soccer                       Sat 9/20 03:59 AM     Greuther Furth                  Kaiserslautern                  2.630                 3.350                 2.850                 
+Germany - Bundesliga 2 Soccer                       Sat 9/20 03:59 AM     TSV 1860 Munchen                Ingolstadt 04                   3.020                 3.350                 2.500                 
+Germany - Bundesliga 2 Soccer                       Sun 9/21 04:29 AM     Fortuna Dusseldorf              FC Heidenheim                   2.000                 3.470                 4.140                 
+Germany - Bundesliga 2 Soccer                       Sun 9/21 04:29 AM     Karlsruher SC                   1.FC Nürnberg                   1.970                 3.460                 4.279                 
+Germany - Bundesliga 2 Soccer                       Sun 9/21 04:29 AM     Union Berlin                    RB Leipzig                      3.140                 3.390                 2.400                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Icelandic/1/Lines.aspx
+time:            20:41:51    20:41:52    20:42:21    
+result data:     
+Germany - Bundesliga 3 Soccer                       Fri 9/19 09:59 AM     Dynamo Dresden                  FSV Mainz 05 Am                 1.518                 4.410                 6.670                 
+Germany - Bundesliga 3 Soccer                       Fri 9/19 09:59 AM     Stuttgarter Kickers             VfL Osnabruck                   2.120                 3.450                 3.650                 
+Germany - Bundesliga 3 Soccer                       Fri 9/19 09:59 AM     Unterhaching                    MSV Duisburg                    3.020                 3.410                 2.440                 
+Germany - Bundesliga 3 Soccer                       Sat 9/20 04:59 AM     Borussia Dortmund Am            Fortuna Koln                    2.020                 3.590                 3.820                 
+Germany - Bundesliga 3 Soccer                       Sat 9/20 04:59 AM     FC Energie Cottbus              Hallescher FC                   2.070                 3.440                 3.830                 
+Germany - Bundesliga 3 Soccer                       Sat 9/20 04:59 AM     FC Hansa Rostock                Arminia Bielefeld               3.020                 3.350                 2.469                 
+Germany - Bundesliga 3 Soccer                       Sat 9/20 04:59 AM     Holstein Kiel                   SV Wehen Wiesbaden              2.160                 3.430                 3.560                 
+Germany - Bundesliga 3 Soccer                       Sat 9/20 04:59 AM     Preussen Munster                SG Sonnenhof Grossaspach        1.621                 4.130                 5.690                 
+Germany - Bundesliga 3 Soccer                       Sat 9/20 04:59 AM     Rot-Weiss Erfurt                Jahn Regensburg                 1.862                 3.720                 4.350                 
+Germany - Bundesliga 3 Soccer                       Sat 9/20 04:59 AM     VfB Stuttgart Am                Chemnitzer                      3.180                 3.340                 2.370                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Irish/1/Lines.aspx
+time:            20:42:21    20:42:21    20:42:51    
+result data:     
+Iceland - Premier
+ Soccer                           Thu 9/18 09:59 AM     Vikingur Reykjavik              Stjarnan Gardabaer              3.000                 3.720                 2.360                 
+Iceland - Premier
+ Soccer                           Thu 9/18 09:59 AM     FH Hafnarfjordur                KR Reykjavik                    1.826                 3.910                 4.510                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Irish+Div1/1/Lines.aspx
+time:            20:42:51    20:42:52    20:43:21    
+result data:     
+Ireland - Premier Soccer                            Fri 9/19 11:44 AM     Athlone Town                    Bohemians                       3.240                 3.450                 2.320                 
+Ireland - Premier Soccer                            Fri 9/19 11:44 AM     Bray Wanderers                  St Patricks Athletic            8.330                 4.730                 1.431                 
+Ireland - Premier Soccer                            Sat 9/20 11:44 AM     Sligo Rovers                    Drogheda United                 1.684                 4.040                 5.300                 
+Ireland - Premier Soccer                            Sun 9/21 09:29 AM     Limerick FC                     Cork City                       3.670                 3.510                 2.120                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Serie+A/1/Lines.aspx
+time:            20:43:21    20:43:22    20:43:51    
+result data:     
+Ireland - 1st Division Soccer                       Fri 9/19 11:59 AM     Shelbourne                      Shamrock Rovers 2               1.255                 5.950                 15.330                
+Ireland - 1st Division Soccer                       Fri 9/19 11:59 AM     Wexford Youths                  Waterford United                1.432                 4.580                 8.790                 
+Ireland - 1st Division Soccer                       Sat 9/20 11:29 AM     Longford Town                   Cobh Ramblers                   1.178                 7.900                 18.000                
+Ireland - 1st Division Soccer                       Sat 9/20 11:44 AM     Galway FC                       Finn Harps                      1.558                 3.930                 7.430                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Serie+B/1/Lines.aspx
+time:            20:43:51    20:43:52    20:44:21    
+result data:     
+Italy - Serie A Soccer                              Sat 9/20 09:00 AM     Cesena                          Empoli                          2.950                 3.130                 2.770                 
+Italy - Serie A Soccer                              Sat 9/20 11:45 AM     AC Milan                        Juventus                        3.430                 3.320                 2.340                 
+Italy - Serie A Soccer                              Sun 9/21 03:30 AM     Chievo                          Parma                           3.190                 3.130                 2.580                 
+Italy - Serie A Soccer                              Sun 9/21 06:00 AM     Genoa                           Lazio                           3.210                 3.170                 2.550                 
+Italy - Serie A Soccer                              Sun 9/21 06:00 AM     AS Roma                         Cagliari                        1.314                 5.730                 11.800                
+Italy - Serie A Soccer                              Sun 9/21 06:00 AM     Sassuolo                        Sampdoria                       2.760                 3.310                 2.810                 
+Italy - Serie A Soccer                              Sun 9/21 09:00 AM     Atalanta
+                       Fiorentina                      3.550                 3.220                 2.330                 
+Italy - Serie A Soccer                              Sun 9/21 09:00 AM     Udinese                         Napoli                          3.500                 3.340                 2.300                 
+Italy - Serie A Soccer                              Sun 9/21 11:45 AM     Palermo                         Inter Milan                     4.290                 3.460                 2.009                 
+Italy - Serie A Soccer                              Sun 9/21 11:45 AM     Torino                          Hellas Verona
+                  1.900                 3.560                 4.710                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/J-League/1/Lines.aspx
+time:            20:44:21    20:44:22    20:44:51    
+result data:     
+Italy - Serie B Soccer                              Fri 9/19 09:59 AM     Carpi                           Trapani                         2.160                 3.180                 3.970                 
+Italy - Serie B Soccer                              Fri 9/19 11:59 AM     Spezia                          Virtus Entella                  2.050                 3.170                 4.380                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Bari                            Livorno                         2.200                 3.150                 3.870                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Bologna                         Crotone                         1.709                 3.530                 6.170                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Brescia                         Ternana                         2.230                 3.050                 3.970                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Catania                         Modena                          2.050                 3.220                 4.300                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Cittadella                      Pescara                         2.929                 3.090                 2.750                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Latina                          Avellino                        2.000                 3.240                 4.520                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Perugia                         Vicenza                         1.598                 3.740                 7.240                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Pro Vercelli                    Varese                          2.570                 3.050                 3.190                 
+Italy - Serie B Soccer                              Sat 9/20 05:59 AM     Virtus Lanciano                 Frosinone                       2.380                 3.070                 3.520                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/J2+League/1/Lines.aspx
+time:            20:44:51    20:44:52    20:45:21    
+result data:     
+Japan - J League Soccer                             Fri 9/19 10:59 PM     Nagoya Grampus                  Ventforet Kofu                  2.360                 3.330                 3.260                 
+Japan - J League Soccer                             Sat 9/20 12:00 AM     Gamba Osaka                     Cerezo Osaka                    1.980                 3.690                 3.950                 
+Japan - J League Soccer                             Sat 9/20 02:59 AM     Kashima Antlers                 Yokohama F.Marinos              2.179                 3.530                 3.490                 
+Japan - J League Soccer                             Sat 9/20 02:59 AM     Kawasaki Frontale               FC Tokyo                        2.370                 3.610                 3.020                 
+Japan - J League Soccer                             Sat 9/20 02:59 AM     Sagan Tosu                      Vegalta Sendai                  2.040                 3.480                 3.960                 
+Japan - J League Soccer                             Sat 9/20 02:59 AM     Sanfrecce Hiroshima             Albirex Niigata                 2.050                 3.440                 3.980                 
+Japan - J League Soccer                             Sat 9/20 02:59 AM     Tokushima Vortis                Omiya Ardija                    3.490                 3.560                 2.160                 
+Japan - J League Soccer                             Sat 9/20 02:59 AM     Urawa Red Diamonds              Kashiwa Reysol                  1.943                 3.720                 4.060                 
+Japan - J League Soccer                             Sat 9/20 02:59 AM     Vissel Kobe (n)                 Shimizu S Pulse                 2.090                 3.710                 3.540                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Korean/7/Lines.aspx
+time:            20:45:21    20:45:22    20:45:51    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Lithuania+A~2E~/7/Lines.aspx
+time:            20:45:51    20:45:52    20:46:21    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Mexican/1/Lines.aspx
+time:            20:46:22    20:46:22    20:46:52    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Dutch+1/1/Lines.aspx
+time:            20:46:52    20:46:52    20:47:22    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Dutch+2/1/Lines.aspx
+time:            20:47:22    20:47:23    20:47:52    
+result data:     
+Netherlands - Eredivisie Soccer                     Fri 9/19 10:59 AM     Willem II                       NAC Breda                       2.040                 3.730                 3.680                 
+Netherlands - Eredivisie Soccer                     Sat 9/20 09:29 AM     Excelsior SBV                   Dordrecht                       2.090                 3.710                 3.560                 
+Netherlands - Eredivisie Soccer                     Sat 9/20 10:44 AM     ADO Den Haag                    Go Ahead Eagles                 1.800                 4.050                 4.380                 
+Netherlands - Eredivisie Soccer                     Sat 9/20 11:44 AM     Vitesse Arnhem                  SC Heerenveen                   1.724                 4.189                 4.740                 
+Netherlands - Eredivisie Soccer                     Sun 9/21 03:29 AM     Heracles Almelo                 FC Twente Enschede              4.880                 4.090                 1.724                 
+Netherlands - Eredivisie Soccer                     Sun 9/21 05:29 AM     AZ Alkmaar                      PEC Zwolle                      1.943                 3.800                 3.970                 
+Netherlands - Eredivisie Soccer                     Sun 9/21 05:29 AM     Feyenoord                       Ajax                            2.540                 3.580                 2.800                 
+Netherlands - Eredivisie Soccer                     Sun 9/21 05:29 AM     PSV Eindhoven                   Cambuur Leeuwarden              1.398                 5.260                 8.000                 
+Netherlands - Eredivisie Soccer                     Sun 9/21 07:44 AM     FC Utrecht                      Groningen                       2.460                 3.640                 2.870                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Norwegian+T/1/Lines.aspx
+time:            20:47:52    20:47:53    20:48:22    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Poland+O+E/1/Lines.aspx
+time:            20:48:22    20:48:23    20:48:52    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Poland+1st/1/Lines.aspx
+time:            20:48:52    20:48:53    20:49:22    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Portuguese/1/Lines.aspx
+time:            20:49:22    20:49:23    20:49:52    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Qatar+StarsL/1/Lines.aspx
+time:            20:49:52    20:49:53    20:50:22    
+result data:     
+Portugal - Primeira Liga Soccer                     Fri 9/19 12:29 PM     Vitoria Guimaraes               Pacos de Ferreira               1.970                 3.350                 4.450                 
+Portugal - Primeira Liga Soccer                     Sat 9/20 07:59 AM     Penafiel                        Vitoria Setubal                 2.670                 3.140                 2.969                 
+Portugal - Primeira Liga Soccer                     Sat 9/20 12:14 PM     Nacional da Madeira             Sporting Braga                  3.050                 3.240                 2.540                 
+Portugal - Primeira Liga Soccer                     Sun 9/21 07:59 AM     Belenenses                      Maritimo                        2.560                 3.180                 3.070                 
+Portugal - Primeira Liga Soccer                     Sun 9/21 07:59 AM     Rio Ave                         FC Arouca
+                      1.724                 3.610                 5.710                 
+Portugal - Primeira Liga Soccer                     Sun 9/21 08:59 AM     Benfica                         Moreirense                      1.223                 6.740                 15.550                
+Portugal - Primeira Liga Soccer                     Sun 9/21 09:59 AM     Gil Vicente                     Sporting Lisbon                 8.050                 4.180                 1.500                 
+Portugal - Primeira Liga Soccer                     Sun 9/21 12:14 PM     Porto                           Boavista                        1.149                 8.809                 21.500                
+Portugal - Primeira Liga Soccer                     Mon 9/22 11:59 PM     Academica Coimbra               Estoril Praia
+                  3.110                 3.160                 2.550                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Romania+1/1/Lines.aspx
+time:            20:50:22    20:50:23    20:50:52    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Russia++P+L/1/Lines.aspx
+time:            20:50:52    20:50:52    20:51:22    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Scot+Premier/1/Lines.aspx
+time:            20:51:22    20:51:23    20:51:52    
+result data:     
+Russia - Premier Soccer                             Fri 9/19 08:59 AM     Arsenal Tula                    Mordovia Saransk                2.929                 3.220                 2.650                 
+Russia - Premier Soccer                             Sat 9/20 12:59 AM     FC Ufa                          Ural Sverdlovsk Oblast          2.550                 3.150                 3.130                 
+Russia - Premier Soccer                             Sat 9/20 03:29 AM     Rostov FK                       Zenit St. Petersburg            8.020                 4.529                 1.460                 
+Russia - Premier Soccer                             Sat 9/20 05:59 AM     Kuban Krasnodar                 Rubin Kazan                     2.250                 3.230                 3.600                 
+Russia - Premier Soccer                             Sat 9/20 08:59 AM     Spartak Moscow                  Terek Grozny                    1.714                 3.870                 5.340                 
+Russia - Premier Soccer                             Sun 9/21 02:29 AM     CSKA Moscow                     Lokomotiv Moscow                1.763                 3.720                 5.160                 
+Russia - Premier Soccer                             Mon 9/22 05:29 AM     Amkar Perm                      FC Krasnodar                    4.189                 3.430                 2.000                 
+Russia - Premier Soccer                             Mon 9/22 08:59 AM     Torpedo Moscow                  Dynamo Moscow                   9.850                 5.080                 1.366                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/La+Liga/1/Lines.aspx
+time:            20:51:52    20:51:53    20:52:22    
+result data:     
+Scotland - Premier Soccer                           Fri 9/19 11:44 AM     Partick Thistle                 Saint Mirren                    2.130                 3.490                 3.650                 
+Scotland - Premier Soccer                           Sat 9/20 06:59 AM     Aberdeen                        Ross County                     1.476                 4.510                 7.640                 
+Scotland - Premier Soccer                           Sat 9/20 06:59 AM     Hamilton Academical             Kilmarnock                      2.090                 3.520                 3.740                 
+Scotland - Premier Soccer                           Sat 9/20 06:59 AM     Inverness                       Saint Johnstone                 2.260                 3.190                 3.660                 
+Scotland - Premier Soccer                           Sun 9/21 04:14 AM     Dundee                          Dundee United                   3.100                 3.510                 2.360                 
+Scotland - Premier Soccer                           Sun 9/21 06:59 AM     Celtic FC                       Motherwell                      1.289                 6.030                 11.200                
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Segunda+Liga/1/Lines.aspx
+time:            20:52:22    20:52:23    20:52:52    
+result data:     
+Spain - La Liga Soccer                              Fri 9/19 12:00 PM     Elche                           Eibar                           2.300                 3.090                 3.820                 
+Spain - La Liga Soccer                              Sat 9/20 07:00 AM     Deportivo La Coruna             Real Madrid                     11.450                6.250                 1.294                 
+Spain - La Liga Soccer                              Sat 9/20 09:00 AM     Athletic Bilbao                 Granada                         1.446                 4.710                 8.580                 
+Spain - La Liga Soccer                              Sat 9/20 11:00 AM     Atletico Madrid                 Celta Vigo                      1.502                 4.330                 8.100                 
+Spain - La Liga Soccer                              Sat 9/20 01:00 PM     RCD Espanyol                    Malaga                          2.139                 3.390                 3.870                 
+Spain - La Liga Soccer                              Sun 9/21 03:00 AM     Real Sociedad                   Almeria                         1.458                 4.830                 7.820                 
+Spain - La Liga Soccer                              Sun 9/21 08:00 AM     Villarreal                      Rayo Vallecano                  1.578                 4.290                 6.510                 
+Spain - La Liga Soccer                              Sun 9/21 10:00 AM     Cordoba                         Sevilla                         4.400                 3.500                 1.970                 
+Spain - La Liga Soccer                              Sun 9/21 12:00 PM     Levante                         Barcelona                       18.430                7.840                 1.193                 
+Spain - La Liga Soccer                              Mon 9/22 11:45 AM     Getafe                          Valencia                        4.029                 3.500                 2.060                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Allsvenskan/1/Lines.aspx
+time:            20:52:52    20:52:53    20:53:22    
+result data:     
+Spain - Segunda Liga Soccer                         Sat 9/20 06:59 AM     Recreativo Huelva               CD Lugo                         2.179                 3.160                 3.920                 
+Spain - Segunda Liga Soccer                         Sat 9/20 08:59 AM     Barcelona-B                     Llagostera                      1.689                 3.910                 5.480                 
+Spain - Segunda Liga Soccer                         Sat 9/20 08:59 AM     CD Mirandes
+                    Sporting Gijon                  3.570                 3.230                 2.270                 
+Spain - Segunda Liga Soccer                         Sat 9/20 09:14 AM     Real Zaragoza                   Alaves                          2.170                 3.270                 3.810                 
+Spain - Segunda Liga Soccer                         Sat 9/20 10:59 AM     CE Sabadell                     Ponferradina                    2.710                 3.160                 2.900                 
+Spain - Segunda Liga Soccer                         Sat 9/20 10:59 AM     Las Palmas                      AD Alcorcon                     2.110                 3.290                 3.970                 
+Spain - Segunda Liga Soccer                         Sun 9/21 02:59 AM     Osasuna                         Mallorca                        2.070                 3.230                 4.240                 
+Spain - Segunda Liga Soccer                         Sun 9/21 07:59 AM     Girona                          Real Betis                      2.940                 3.190                 2.650                 
+Spain - Segunda Liga Soccer                         Sun 9/21 09:14 AM     Leganes                         Racing Santander                2.170                 3.190                 3.890                 
+Spain - Segunda Liga Soccer                         Sun 9/21 10:59 AM     Real Valladolid                 Tenerife                        1.917                 3.320                 4.810                 
+Spain - Segunda Liga Soccer                         Sun 9/21 11:59 AM     Albacete                        Numancia                        2.420                 3.130                 3.370                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Superettan/1/Lines.aspx
+time:            20:53:22    20:53:23    20:53:52    
+result data:     
+Sweden - Allsvenskan Soccer                         Fri 9/19 09:59 AM     IFK Goteborg                    Gefle                           1.335                 5.290                 10.820                
+Sweden - Allsvenskan Soccer                         Sat 9/20 06:59 AM     Brommapojkarna                  BK Hacken                       7.850                 4.900                 1.431                 
+Sweden - Allsvenskan Soccer                         Sat 9/20 06:59 AM     Falkenbergs                     Orebro                          2.490                 3.530                 2.889                 
+Sweden - Allsvenskan Soccer                         Sun 9/21 05:59 AM     AIK Solna                       Halmstads                       1.454                 4.810                 7.400                 
+Sweden - Allsvenskan Soccer                         Sun 9/21 05:59 AM     Kalmar                          Djurgardens                     2.410                 3.470                 3.060                 
+Sweden - Allsvenskan Soccer                         Sun 9/21 05:59 AM     Mjallby                         Elfsborg                        5.000                 3.910                 1.740                 
+Sweden - Allsvenskan Soccer                         Sun 9/21 08:29 AM     Malmo                           Helsingborgs                    1.613                 4.270                 5.690                 
+Sweden - Allsvenskan Soccer                         Mon 9/22 10:04 AM     Atvidabergs                     IFK Norrkoping                  2.410                 3.600                 2.969                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/Turkey+SL/1/Lines.aspx
+time:            20:53:53    20:53:53    20:54:23    
+result data:     
+Sweden - Superettan Soccer                          Thu 9/18 09:59 AM     Jonkopings Sodra                IK Sirius FK                    2.750                 3.520                 2.650                 
+Sweden - Superettan Soccer                          Fri 9/19 09:29 AM     Osters                          Varberg BoIS                    2.240                 3.510                 3.340                 
+Sweden - Superettan Soccer                          Sat 9/20 06:59 AM     GAIS Goteborg                   Landskrona BoIS                 1.704                 4.010                 5.150                 
+Sweden - Superettan Soccer                          Sat 9/20 06:59 AM     Ostersunds FK                   Degerfors                       1.862                 3.880                 4.250                 
+Sweden - Superettan Soccer                          Sun 9/21 07:59 AM     Assyriska                       Husqvarna FF                    1.621                 4.330                 5.480                 
+Sweden - Superettan Soccer                          Sun 9/21 07:59 AM     GIF Sundsvall                   IFK Varnamo                     1.480                 4.810                 6.830                 
+Sweden - Superettan Soccer                          Sun 9/21 09:19 AM     Hammarby                        Syrianska FC                    1.296                 6.220                 10.170                
+Sweden - Superettan Soccer                          Mon 9/22 10:19 AM     Angelholms FF                   Ljungskile                      3.340                 3.610                 2.200                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/League/Soccer/UEFA+CL/1/Lines.aspx
+time:            20:54:23    20:54:24    20:54:53    
+result data:     
+Turkey - Super League
+ Soccer                       Fri 9/19 09:59 AM     Eskisehirspor                   Genclerbirligi                  1.884                 3.570                 4.510                 
+Turkey - Super League
+ Soccer                       Sat 9/20 06:59 AM     Kayseri Erciyesspor
+            Akhisar Belediyespor
+           2.350                 3.380                 3.230                 
+Turkey - Super League
+ Soccer                       Sat 9/20 09:59 AM     Balikesirspor                   Galatasaray                     8.280                 4.640                 1.440                 
+Turkey - Super League
+ Soccer                       Sat 9/20 09:59 AM     Mersin Idman Yurdu (n)          Caykur Rizespor                 2.630                 3.270                 2.920                 
+Turkey - Super League
+ Soccer                       Sun 9/21 04:29 AM     Kasimpasa                       Kardemir Karabukspor            1.877                 3.600                 4.560                 
+Turkey - Super League
+ Soccer                       Sun 9/21 06:59 AM     Sivasspor                       Konyaspor                       2.040                 3.640                 3.760                 
+Turkey - Super League
+ Soccer                       Sun 9/21 09:59 AM     Fenerbahce                      Gaziantepspor                   1.358                 5.250                 9.650                 
+Turkey - Super League
+ Soccer                       Mon 9/22 08:59 AM     Istanbul Buyuksehir Belediyesp  Trabzonspor                     3.000                 3.350                 2.510                 
+Turkey - Super League
+ Soccer                       Mon 9/22 11:29 AM     Bursaspor                       Besiktas                        3.210                 3.420                 2.350                 
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:54:53    20:54:54    20:55:23    
+result data:     
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:55:23    20:55:24    20:55:53    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:55:53    20:55:54    20:56:23    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:56:23    20:56:24    20:56:53    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:56:53    20:56:54    20:57:23    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:57:23    20:57:24    20:57:53    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:57:53    20:57:54    20:58:23    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:58:23    20:58:24    20:58:53    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:58:53    20:58:54    20:59:23    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:59:23    20:59:24    20:59:53    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            20:59:53    20:59:54    21:00:23    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:00:23    21:00:24    21:00:53    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:00:54    21:00:54    21:01:24    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:01:24    21:01:25    21:01:54    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:01:54    21:01:55    21:02:24    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:02:24    21:02:25    21:02:54    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:02:54    21:02:55    21:03:24    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:03:24    21:03:25    21:03:54    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:03:54    21:03:55    21:04:24    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:04:24    21:04:25    21:04:54    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:04:54    21:04:55    21:05:24    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:05:24    21:05:25    21:05:54    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:05:54    21:05:55    21:06:24    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:06:24    21:06:25    21:06:54    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:06:55    21:06:55    21:07:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:07:25    21:07:26    21:07:55    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:07:55    21:07:56    21:08:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:08:25    21:08:26    21:08:55    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:08:55    21:08:56    21:09:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:09:25    21:09:26    21:09:55    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:09:55    21:09:56    21:10:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:10:25    21:10:26    21:10:55    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:10:55    21:10:56    21:11:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:11:25    21:11:26    21:11:55    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:11:55    21:11:56    21:12:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:12:25    21:12:26    21:12:55    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:12:55    21:12:56    21:13:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:13:25    21:13:26    21:13:55    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:13:55    21:13:56    21:14:25    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:14:26    21:14:26    21:14:56    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:14:57    21:14:57    21:15:27    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:15:27    21:15:28    21:15:57    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:15:58    21:15:58    21:16:28    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:16:29    21:16:29    21:16:59    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:17:00    21:17:00    21:17:30    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:17:31    21:17:31    21:18:01    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:18:02    21:18:02    21:18:32    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+web site:        pinnaclesp  from_pinnaclesports_2
+url:             http://www.pinnaclesports.com/ContestCategory/Soccer+Props/UEFA+-+Champions+League/Futures/Lines.aspx
+time:            21:18:32    21:18:33    21:19:02    
+result data:     
+未将对象引用设置到对象的实例。
+   在 Match100Method.from_pinnaclesports_2(WebBrowser& browser, BsonDocument doc_result) 位置 c:\Users\Administrator\Documents\GitHub\web_helper\web_helper\Helper\Match100Method.cs:行号 360
+-----------------------------------------------------------------------------------------------------------------

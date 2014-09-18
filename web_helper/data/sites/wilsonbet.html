@@ -1,0 +1,1193 @@
+<html><body><DIV id=slipbg class=slipbg style="HEIGHT: 0px">
+<TABLE cellSpacing=0 cellPadding=4 width="100%" border=0>
+<TBODY>
+<TR>
+<TD class=slipheader3 width=140>Singles</TD>
+<TD class=slipheader3 width=30>Odds</TD>
+<TD class=slipheader3 width=100>Stake</TD></TR></TBODY></TABLE>
+<DIV class=slipdatacontainer><!-- Selections --><!-- Special Selections --><!-- End of Special Selections --><!-- Bet Types --><!-- End of Bet Types -->
+<TABLE cellSpacing=0 cellPadding=4 width=250 border=0>
+<TBODY>
+<TR>
+<TD class=white colSpan=3 align=right>Stake total : <SPAN id=stake_total>0.00</SPAN> <INPUT type=hidden value=0.00 name=stake_total> <INPUT type=hidden value=0.00 name=winning_total> </TD></TR>
+<TR>
+<TD class=white colSpan=3 align=right>Potential Returns : <SPAN id=winning_total>0.00</SPAN> </TD></TR></TBODY></TABLE><INPUT type=hidden value=0 name=is_remote> </FORM>
+<TABLE class=betslip-buttons cellSpacing=0 cellPadding=4 width="100%" border=0>
+<TBODY>
+<TR>
+<FORM method=post name=menu action=/wilsonbet><INPUT type=hidden value=0 name=is_remote> </FORM></TR></TBODY></TABLE></DIV></DIV><FORM method=post name=mainnews action=http://www.wilsonbet.com/wilsonbet><INPUT type=hidden name=ev_class_id> <INPUT type=hidden name=ev_type_id> <INPUT type=hidden name=ev_id> <INPUT type=hidden name=coupon_id> <INPUT type=hidden name=seln_id> </FORM>
+<SCRIPT type=text/javascript>
+
+	// change the display of odds
+	function odds_type(sel) {
+
+		var type = sel.options[sel.selectedIndex].value;
+		document.forms['odds'].price_type.value = type;
+		submit_form('odds','GoChangePrice');
+	}
+
+
+	// on focus of the quick event (clear message)
+	function quickEventFocus() {
+
+		var f = document.forms['typenav'];
+
+		if(f.quick_event.value == "Event:") {
+			f.quick_event.value = '';
+		}
+
+	}
+
+
+	// on key-up within the quik-event (only allow digits, including zero)
+	document.quick_event = "";
+	function quickEventKeyUp() {
+
+		var re = /^[0-9]+$/;
+		var f = document.forms['typenav'];
+
+		if(re.test(f.quick_event.value)) {
+			document.quick_event = f.quick_event.value;
+		}
+		else if(f.quick_event.value.length) {
+			f.quick_event.value = document.quick_event;
+		}
+		else {
+			document.quick_event = "";
+		}
+	}
+
+
+	// on submitting the type-nav form
+	function typeNavSubmit() {
+
+		var f = document.forms['typenav'];
+
+		if(f.quick_event.value != "Event:" && f.quick_event.value.length) {
+			submit_form('typenav', 'GoQuickEvent');
+		}
+	}
+
+</SCRIPT>
+<!-- DUMMY LOGIN --><!-- Top Navigation -->
+<DIV class=top-bar>
+<DIV class=top-bar-content>
+<DIV class=top-nav-logo><A href="/wilsonbet"><IMG border=0 alt=WilsonBet src="http://www.wilsonbet.com/static/wilsonbet/images/logo.gif"> </A></DIV>
+<DIV id=tabcontent>
+<UL id=tabnav>
+<LI id=sports><A href="http://www.wilsonbet.com/wilsonbet">Sports<EM title=Sports></EM></A> </LI>
+<LI id=casino><A href="/wilsonbet?action=GoCasino">Casino<EM title=Casino></EM></A> </LI>
+<LI id=games><A href="/wilsonbet?action=GoGames">Games<EM title=Games></EM></A> </LI>
+<LI id=affiliates><A href="http://www.aceworldgaming.com" target=_blank>Affiliates<EM title=Affiliates></EM></A> </LI></UL></DIV>
+<DIV id=hiddendiv style="DISPLAY: none"><IMG src="http://www.wilsonbet.com/static/wilsonbet/images/nav/affiliateg.jpg"><BR><IMG src="http://www.wilsonbet.com/static/wilsonbet/images/nav/casinog.jpg"><BR><IMG src="http://www.wilsonbet.com/static/wilsonbet/images/nav/gamesg.jpg"><BR><IMG src="http://www.wilsonbet.com/static/wilsonbet/images/nav/pokerg.jpg"><BR><IMG src="http://www.wilsonbet.com/static/wilsonbet/images/nav/sportsg.jpg"><BR><IMG src="http://www.wilsonbet.com/static/wilsonbet/images/nav/forumg.jpg"><BR></DIV></DIV></DIV><!-- Betting Slip -->
+<SCRIPT language=JavaScript>
+function betslip_load() {
+	document.getElementById("betslip").height = get_cookie("betslip_height");
+}
+</SCRIPT>
+<!-- Green Nav --><!-- Betting Slip -->
+<DIV id=mainsliplayer>
+<DIV style="POSITION: absolute; LEFT: 700px">
+<DIV id=slipcontainer style="FLOAT: right">
+<DIV id=slipheader>
+<DIV><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=8><BR>
+<DIV style="FLOAT: left; PADDING-LEFT: 5px; WIDTH: 90px"><SPAN class=slipheader2>BETS (<SPAN id=numBetsTopNav>0</SPAN>)</SPAN></DIV>
+<DIV style="FLOAT: left; TEXT-ALIGN: right; PADDING-RIGHT: 5px; WIDTH: 100px"><SPAN class=slipheader2>Show / Hide</SPAN></DIV>
+<DIV style="FLOAT: left; WIDTH: 12px"><IMG onclick="view_betslip('/wilsonbet?action=GoBetSlip',false)" class=showstate border=0 alt=Expand src="http://www.wilsonbet.com/static/wilsonbet/images/buttons/plus.gif" width=12 height=12></DIV></DIV></DIV>
+<FORM method=post name=betslipCount action=http://www.wilsonbet.com/wilsonbet><INPUT type=hidden value=0 name=bet_count> </FORM>
+<DIV id=betslipDiv class=switchcontent style="HEIGHT: 0px; DISPLAY: none" align=left><!-- Betslip Content --><IFRAME id=betslip onload=betslip_load(); height=0 marginHeight=0 src="/wilsonbet?action=GoBetSlipBlank" frameBorder=0 width=268 name=betslip marginWidth=0 scrolling=no></IFRAME><!-- Betslip Content --></DIV></DIV></DIV></DIV><!-- End Betslip --><!-- login -->
+<FORM method=post name=login action=https://www.wilsonbet.com/wilsonbet><INPUT type=hidden value=GoCategory name=login_action> <INPUT style="DISPLAY: none" type=hidden value=Football name=sport> 
+<DIV id=orangenavlayer>
+<TABLE cellSpacing=0 cellPadding=0 border=0>
+<TBODY>
+<TR>
+<TD>Username: <INPUT onkeypress="return login_on_enter(event)" onfocus="javascript:clearLoginFields('login')" class=input size=10 name=username></TD>
+<TD>Password: <INPUT onkeypress="return login_on_enter(event)" class=input size=10 type=password value="" name=pwd></TD>
+<TD class=section-end><INPUT onclick=javascript:go_login(); class=button type=button value=Submit></TD>
+<TD><INPUT type=checkbox name=remember_me></TD>
+<TD class=section-end>Remember Me</TD>
+<TD><A href="javascript:submit_form('login', 'GoRegister', 'post')">Open Account</A></TD></TR></TBODY></TABLE></DIV></FORM><!-- end login -->
+<DIV class=push-content></DIV><!-- End Of Top Navigation --><!-- Main Content Body -->
+<TABLE class=main-content-container cellSpacing=0 cellPadding=0 border=0>
+<TBODY>
+<TR><!-- Left Hand Navigation -->
+<TD vAlign=top width=140>
+<TABLE cellSpacing=0 cellPadding=0 width=140 border=0><!-- Sports Menu -->
+<TBODY>
+<TR>
+<TD class=leftnav_hdr>Sports</TD></TR>
+<TR>
+<TD><A class="menulink  homelink" href="http://www.wilsonbet.com/wilsonbet">Home</A> <A class="menulink menulink-expanded" href="http://www.wilsonbet.com/wilsonbet?action=GoCategory&amp;sport=Football">Football</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_112=112&amp;sport=FOOTBALL">England</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_209=209&amp;sport=FOOTBALL">Europa League</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_126=126&amp;sport=FOOTBALL">France</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_125=125&amp;sport=FOOTBALL">Germany</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_154=154&amp;sport=FOOTBALL">Ireland Republic</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_137=137&amp;sport=FOOTBALL">Italy</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_132=132&amp;sport=FOOTBALL">Netherlands</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_124=124&amp;sport=FOOTBALL">Scotland</A> <A class=submenulink href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_127=127&amp;sport=FOOTBALL">Spain</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=116">Football Ante-Post</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=2">Horse Racing</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=113">Ante Post Racing</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=141">American Football</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=144">Australian Rules</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=118">Boxing</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=119">Cricket</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=121">Darts</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=117">Formula 1</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=120">Golf</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=146">Hurling</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=123">Rugby League</A> <A class=menulink href="http://www.wilsonbet.com/wilsonbet?action=GoEvClass&amp;ev_class_id=122">Rugby Union</A> </TD></TR><!-- End of Sports Menu -->
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=leftnav_hdr_non_sport>Settings</TD></TR>
+<TR><!-- Lang dropdown --><!-- $Id: lang_dropdown.html,v 1.2 2008/02/05 19:51:47 jowers Exp $-->
+<SCRIPT language=JavaScript>
+
+	// change language depending on drop down
+	function change_language (sel) {
+		var opt = sel.options[sel.selectedIndex].value;
+		var parts = opt.split(',');
+
+		self.location = "http://www.wilsonbet.com/wilsonbet?lang_choice=" + parts[0];
+	}
+
+</SCRIPT>
+
+<TD class=leftnav_box><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=3><BR>Price / Odds Format:<BR><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=3><BR><!-- fractional/decimal option	-->
+<FORM method=post name=odds action=http://www.wilsonbet.com/wilsonbet><INPUT type=hidden value=GoCategory name=login_action> <INPUT type=hidden name=price_type> <INPUT type=hidden value=Football name=sport> </FORM><SELECT onchange=javascript:odds_type(this) style="COLOR: #24467a"> 
+<SCRIPT language=JavaScript>
+				write_select("ODDS"
+					
+                                            ,"DECIMAL", "Decimal Odds"
+                                        
+                                            ,"ODDS", "Fractional Odds"
+                                        
+                                            ,"AMERICAN", "American Odds"
+                                        
+                                            ,"ITALIAN", "Italian Odds"
+                                        )
+				</SCRIPT>
+<OPTION value=DECIMAL>Decimal Odds</OPTION> <OPTION selected value=ODDS>Fractional Odds</OPTION> <OPTION value=AMERICAN>American Odds</OPTION> <OPTION value=ITALIAN>Italian Odds</OPTION></SELECT><BR><!-- End of fractional/decimal option --></TD></TR><!-- Promotions -->
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=leftnav_hdr_non_sport>Promotions</TD></TR>
+<TR>
+<TD><A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoSportPromo">Sports</A> </TD></TR>
+<TR>
+<TD><A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoGamesPromo">Games</A> </TD></TR><!-- Site Information -->
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=leftnav_hdr_non_sport>Site Information</TD></TR>
+<TR>
+<TD><A class=menulink2 href="javascript:submit_form('login', 'GoRegister')">Open Account</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpAboutUs">About Us</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpContactUs">Contact Us</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpTandC">Terms &amp; Conditions</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpRules">Rules</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpLegAndDis">Legal</A> </TD></TR><!-- Help -->
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=leftnav_hdr_non_sport>Help</TD></TR>
+<TR>
+<TD><A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpDeposit">Deposits &amp; Withdrawals</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpTechnicalSupport">Technical Support</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoHelpLostPassword">Lost Password</A> <A class=menulink2 href="http://www.wilsonbet.com/wilsonbet?action=GoResponsibleGambling">Responsible Gambling</A> </TD></TR><!-- Payment Options -->
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=leftnav_hdr_non_sport>Payment Options</TD></TR>
+<TR>
+<TD align=center><A style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" href="http://www.wilsonbet.com/wilsonbet?action=GoHelpDeposit"><IMG style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/banners/payments1.gif"></A> </TD></TR></TBODY></TABLE></TD><!-- End of Left Nav -->
+<TD width=2><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=2 height=1></TD><!-- Main Navigation --><!-- Middle Content FOOTBALL -->
+<SCRIPT language=javascript>
+function clearClasses() {
+	
+		document.forms['ClassList'].CLASS_112.checked = 0;
+	
+		document.forms['ClassList'].CLASS_209.checked = 0;
+	
+		document.forms['ClassList'].CLASS_126.checked = 0;
+	
+		document.forms['ClassList'].CLASS_125.checked = 0;
+	
+		document.forms['ClassList'].CLASS_154.checked = 0;
+	
+		document.forms['ClassList'].CLASS_137.checked = 0;
+	
+		document.forms['ClassList'].CLASS_132.checked = 0;
+	
+		document.forms['ClassList'].CLASS_124.checked = 0;
+	
+		document.forms['ClassList'].CLASS_127.checked = 0;
+	
+
+ }
+
+</SCRIPT>
+
+<SCRIPT language=javascript>
+
+	/* calculate the odds of a scorecast market when either the first-scorer or
+	 * correct-score select box has changed */
+	function calculate_sc_odds(ev_mkt_id) {
+
+		var f = document.forms['ev_oc'];
+		var fs_seln = get_cs_seln(eval("f.sc_fs_" + ev_mkt_id));
+		var cs_seln = get_cs_seln(eval("f.sc_cs_" + ev_mkt_id));
+
+		// selected a title
+		if(fs_seln == "" || cs_seln == "") {
+			set_sc_odds(f, ev_mkt_id, "", "N");
+			return;
+		}
+
+		/* get the mkt-selection details
+		 * fs = H or A|lp_num|lp_den|ev_oc_id
+		 * cs = home score|away score|lp_num|lp_den|ev_oc_id */
+		var fs = fs_seln.split("|");
+		var cs = cs_seln.split("|");
+		if(fs.length != 4 || cs.length != 5) {
+			set_sc_odds(f, ev_mkt_id, "error", "N");
+			return;
+		}
+
+		cs[0] = parseInt(cs[0]);
+		cs[1] = parseInt(cs[1]);
+
+		// check if first-scorer's team has at least 1 goal
+		if((fs[0] == "H" && !cs[0]) || (fs[0] == "A" && !cs[1])) {
+			set_sc_odds(f, ev_mkt_id, "impossible", "N");
+			return;
+		}
+
+		// is the scorer on winning, drawing or losing team
+		//var sc_type = cs[0] > cs[1] ? 'W' : cs[0] == cs[1] ? 'D' : 'L';
+
+		if (cs[0] > cs[1]) {
+			var sc_type = fs[0] == 'H' ? 'W' : 'L';
+		} else if (cs[1] > cs[0]) {
+			var sc_type = fs[0] == 'A' ? 'W' : 'L';
+		} else {
+			var sc_type = 'D';
+		}
+
+		// calculate the odds
+		var odds = calc_sc_odds(sc_type, cs[2], cs[3], fs[1], fs[2]);
+		var valid = odds == 'error' ? 'N' : 'Y';
+
+		// set the odds
+		var p = odds.split("|");
+		var price = p[0].split('/');
+		eval("f.sc_lp_num_" + ev_mkt_id + ".value=\"" + price[0] + "\"");
+		eval("f.sc_lp_den_" + ev_mkt_id + ".value=\"" + price[1] + "\"");
+
+		
+			set_sc_odds(f, ev_mkt_id, p[0], valid);
+		
+	}
+
+
+	// scorecast bet
+	function go_sc_bet(ev_mkt_id, hcap_value, bir_index) {
+
+		var f = document.forms['ev_oc'];
+		var fs_seln = get_cs_seln(eval("f.sc_fs_" + ev_mkt_id));
+		var cs_seln = get_cs_seln(eval("f.sc_cs_" + ev_mkt_id));
+
+		// valid price available
+		if(eval("f.sc_valid_" + ev_mkt_id + ".value") == "N") {
+			return;
+		}
+
+		/* get the mkt-selection details
+		 * fs = H or A|lp_num|lp_den|ev_oc_id
+		 * cs = home score|away score|lp_num|lp_den|ev_oc_id */
+		var fs = fs_seln.split("|");
+		var cs = cs_seln.split("|");
+		if(fs.length != 4 || cs.length != 5) {
+			set_sc_odds(f, ev_mkt_id, "error", "N");
+			return;
+		}
+
+		// get the odds
+		var lp_num = eval("f.sc_lp_num_" + ev_mkt_id + ".value");
+		var lp_den = eval("f.sc_lp_den_" + ev_mkt_id + ".value");
+
+		// build bet url
+		var url = "http://www.wilsonbet.com/wilsonbet?action=GoBetAdd&leg=%7CSC%7CL%7C" + lp_num + "%7C" + lp_den + "%7C" + hcap_value + "%7C" + bir_index + "%7CN%7C" + fs[3] + "c" + cs[4] + "%7C";
+
+		
+		url += '&uid=1411048049'
+		
+
+		inc_bet_count();
+
+		view_betslip(url, true);
+
+	}
+
+
+	// get the scorecast selection
+	function get_cs_seln(mkt) {
+
+		var sel = mkt.selectedIndex;
+
+		return mkt.options[sel].value;
+	}
+
+
+	// set the scorecast odds
+	function set_sc_odds(f, ev_mkt_id, value, valid) {
+
+		document.getElementById('sc_odds_div').innerHTML=value
+		eval("f.sc_odds_" + ev_mkt_id + ".value=\"" + value + "\"");
+		eval("f.sc_valid_" + ev_mkt_id + ".value=\"" + valid + "\"");
+	}
+
+
+	// calculate the scorecast odds
+	function calc_sc_odds(sc_type, cs_num, cs_den, fs_num, fs_den) {
+
+		var odds_pcg;
+
+		// Check which team the first scorer is on
+		switch(sc_type) {
+			case 'W':
+				odds_pcg = parseFloat(0.00);
+				break;
+			case 'D':
+				odds_pcg = parseFloat(0.15);
+				break;
+			case 'L':
+				odds_pcg = parseFloat(1.00);
+				break;
+		}
+
+		limit = parseFloat(1250);
+		prop  = parseFloat(0.60);
+
+		fs_odds = ((parseFloat(fs_num) + parseFloat(fs_den)) / parseFloat(fs_den));
+		cs_odds = ((parseFloat(cs_num) + parseFloat(cs_den)) / parseFloat(cs_den));
+
+		dec_odds = (1.0 / ((1.0 / limit) + (1.0 / (fs_odds * cs_odds * prop * (1.0 + odds_pcg))))) - 1.0;
+
+		doubleOdds = round_sc_odds(dec_odds);
+		if(doubleOdds == 0) {
+			return "error";
+		}
+
+		/* javascript removes the floating point in certain cases e.g. 56.0 -> 56
+		 * so turn the odds into string and add .0 if necessary */
+		var odds = new String(doubleOdds);
+		if(odds.indexOf(".") == -1 && odds.indexOf("/") == -1) {
+			odds = odds + ".0";
+		}
+
+		return odds;
+	}
+
+
+	// round scorecast odds
+	function round_sc_odds(odds) {
+
+		if(odds < 13.0) {
+			return find_sc_odds(odds, 1, 1, 12);
+
+		} else if(odds < 23.5) {
+			return find_sc_odds(odds, 2, 12, 22);
+
+		} else if(odds < 29.0) {
+			return find_sc_odds(odds, 3, 25, 28);
+
+		} else if(odds < 31.5) {
+			return find_sc_odds(odds, 2, 28, 30);
+
+		} else if(odds < 34.0) {
+			return find_sc_odds(odds, 3, 30, 33);
+
+		} else if(odds < 37.5) {
+			return find_sc_odds(odds, 2, 33, 35);
+
+		} else if(odds < 55.0) {
+			return find_sc_odds(odds, 5, 35, 50);
+
+		} else if(odds < 63.0) {
+			return find_sc_odds(odds, 10, 50, 60);
+
+		} else if(odds < 70.5) {
+			return find_sc_odds(odds, 6, 60, 66);
+
+		} else if(odds < 77.5) {
+			return find_sc_odds(odds, 9, 66, 75);
+
+		} else if(odds < 90.0) {
+			return find_sc_odds(odds, 5, 75, 80);
+
+		} else if(odds < 112.5) {
+			return find_sc_odds(odds, 20, 80, 100);
+
+		} else if(odds < 525.0) {
+			return find_sc_odds(odds, 25, 100, 500);
+
+		} else {
+			return find_sc_odds(odds, 50, 100, 5000);
+		}
+
+		return 0
+	}
+
+
+	// find scorecast odds
+	function find_sc_odds(odds, multiple, lowerBound, upperBound) {
+
+		var sc_num, sc_den, decimal;
+		candidatePrice = 1000000.0;
+
+		for(price = lowerBound; price <= upperBound; price += multiple) {
+
+			range = Math.abs(parseFloat(price) - parseFloat(odds));
+			if(range <= candidatePrice) {
+				candidatePrice = range;
+				sc_num = price;
+				sc_den = 1;
+				decimal = price + 1.00;
+			} else {
+				break;
+			}
+		}
+
+		return sc_num + "/" + sc_den + "|" + decimal;
+	}
+
+</SCRIPT>
+
+<TD class=middle-content-container vAlign=top>
+<TABLE cellSpacing=0 cellPadding=0 border=0>
+<TBODY>
+<TR>
+<TD colSpan=2>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+<TBODY>
+<TR>
+<TD class=footballheader><A class=sportsheadertxt href="#">Football</A></TD></TR></TBODY></TABLE><!-- Coupons Navigation -->
+<TABLE cellSpacing=0 cellPadding=0 border=0>
+<TBODY>
+<TR>
+<TD vAlign=top>
+<TABLE cellSpacing=0 cellPadding=0 border=0>
+<TBODY>
+<TR>
+<TD class=border width=175>
+<DIV class=boxheader>COUPONS</DIV></TD>
+<TD width=5><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=5 height=1></TD>
+<TD class=border style="BACKGROUND-IMAGE: url(http://www.wilsonbet.com/static/wilsonbet/images/headers/sliphdr_bg2.gif); PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" width=434>
+<DIV>
+<DIV style="FLOAT: left"><SPAN class=slipheader2>&nbsp;&nbsp;PRICES&nbsp;&nbsp;</SPAN></DIV>
+<DIV style="FLOAT: right; PADDING-RIGHT: 5px; WIDTH: 12px"><IMG onclick="expandcontent(this, 'fc1')" class=showstate border=0 alt=Expand src="http://www.wilsonbet.com/static/wilsonbet/images/buttons/plus.gif" width=12 height=12></DIV></DIV></TD></TR>
+<TR id=fc1>
+<TD class=border style="BORDER-TOP: medium none" vAlign=top width=175>
+<DIV class=couponsbox></DIV></TD>
+<TD width=5><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=5 height=1></TD>
+<TD class=border style="BORDER-TOP: medium none" vAlign=top>
+<FORM method=post name=ClassList action=http://www.wilsonbet.com/wilsonbet>
+<TABLE cellSpacing=0 cellPadding=0 align=left border=0>
+<TBODY>
+<TR>
+<TD class=couponsboxclear vAlign=top width=144>
+<TABLE cellSpacing=0 cellPadding=0 width=140 align=center border=0>
+<TBODY>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_112=112">England</A></TD>
+<TD align=right><INPUT CHECKED type=checkbox name=CLASS_112></TD></TR>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_209=209">Europa League</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_209></TD></TR>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_126=126">France</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_126></TD></TR></TBODY></TABLE></TD>
+<TD class=couponsboxclear vAlign=top width=144>
+<TABLE cellSpacing=0 cellPadding=0 width=140 align=center border=0>
+<TBODY>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_125=125">Germany</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_125></TD></TR>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_154=154">Ireland Republic</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_154></TD></TR>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_137=137">Italy</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_137></TD></TR></TBODY></TABLE></TD>
+<TD class=couponsboxclear vAlign=top width=144>
+<TABLE cellSpacing=0 cellPadding=0 width=140 align=center border=0>
+<TBODY>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_132=132">Netherlands</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_132></TD></TR>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_124=124">Scotland</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_124></TD></TR>
+<TR>
+<TD><A href="http://www.wilsonbet.com/wilsonbet?action=showClasses&amp;CLASS_127=127">Spain</A></TD>
+<TD align=right><INPUT type=checkbox name=CLASS_127></TD></TR></TBODY></TABLE></TD></TR>
+<TR align=right>
+<TD style="BORDER-TOP: #cce0e0 1px solid" colSpan=3>
+<TABLE style="PADDING-BOTTOM: 5px; PADDING-TOP: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px" cellSpacing=0 cellPadding=0 align=right border=0>
+<TBODY>
+<TR>
+<TD id=clear_classes><A class=button href="javascript:clearClasses();">Clear All</A></TD>
+<TD>&nbsp;&nbsp;&nbsp;</TD>
+<TD id=go_classes><A class=button href="javascript:submit_form('ClassList','showClasses');">Show Selected</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><INPUT type=hidden value=showClasses name=action> </FORM></TD></TR>
+<TR>
+<TD width=5><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TH></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+<FORM method=post name=ev_oc action=http://www.wilsonbet.com/wilsonbet><INPUT type=hidden name=ev_type_id> <INPUT type=hidden name=ev_class_id> <INPUT type=hidden name=ev_id> <INPUT type=hidden name=type> </FORM>
+<TBODY></TBODY></TABLE><!-- football_matches.html -->
+<TABLE class=border cellSpacing=0 cellPadding=0 width="100%" border=0>
+<TBODY>
+<TR>
+<TD class=mainbox_hdr colSpan=6>ENGLAND - Premier League</TD></TR>
+<TR>
+<TD class=boxheader colSpan=6><SPAN class=ev_date_time_text>Saturday 20th of September 2014</SPAN></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px" width=100><STRONG>Time</STRONG></TD>
+<TD width=258><STRONG>Event</STRONG></TD>
+<TD width=70 align=center><STRONG>Home</STRONG></TD>
+<TD width=70 align=center><STRONG>Draw</STRONG></TD>
+<TD width=70 align=center><STRONG>Away</STRONG></TD>
+<TD width=50 align=center><STRONG>Markets</STRONG></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>12:45</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876881&amp;sport=Football">QPR v Stoke</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',9, 5, '', '', 'N', '12085141');">&nbsp;9/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',85, 40, '', '', 'N', '12085143');">&nbsp;85/40</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',9, 5, '', '', 'N', '12085142');">&nbsp;9/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876881&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876880&amp;sport=Football">Aston Villa v Arsenal</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12085138');">&nbsp;7/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12085140');">&nbsp;5/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',4, 5, '', '', 'N', '12085139');">&nbsp;4/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876880&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876882&amp;sport=Football">Burnley v Sunderland</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 4, '', '', 'N', '12085144');">&nbsp;6/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12085146');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',2, 1, '', '', 'N', '12085145');">&nbsp;2/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876882&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876884&amp;sport=Football">Swansea v Southampton</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',7, 5, '', '', 'N', '12085150');">&nbsp;7/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12085152');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',2, 1, '', '', 'N', '12085151');">&nbsp;2/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876884&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876885&amp;sport=Football">Newcastle v Hull</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 5, '', '', 'N', '12085153');">&nbsp;6/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12085155');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12085154');">&nbsp;5/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876885&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>17:30</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876883&amp;sport=Football">West Ham v Liverpool</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12085147');">&nbsp;7/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',11, 4, '', '', 'N', '12085149');">&nbsp;11/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',4, 5, '', '', 'N', '12085148');">&nbsp;4/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=876883&amp;sport=Football">More</A></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR></TR>
+<TR>
+<TD class=boxheader colSpan=6>Sunday 21st of September 2014</TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px" width=100><STRONG>Time</STRONG></TD>
+<TD width=258><STRONG>Event</STRONG></TD>
+<TD width=70 align=center><STRONG>Home</STRONG></TD>
+<TD width=70 align=center><STRONG>Draw</STRONG></TD>
+<TD width=70 align=center><STRONG>Away</STRONG></TD>
+<TD width=50 align=center><STRONG>Markets</STRONG></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>13:30</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877069&amp;sport=Football">Tottenham v West Brom</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',1, 2, '', '', 'N', '12087134');">&nbsp;1/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',100, 30, '', '', 'N', '12087136');">&nbsp;100/30</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',6, 1, '', '', 'N', '12087135');">&nbsp;6/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877069&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>13:30</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877070&amp;sport=Football">Leicester v Man Utd</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',9, 2, '', '', 'N', '12087137');">&nbsp;9/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',3, 1, '', '', 'N', '12087139');">&nbsp;3/1</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',4, 6, '', '', 'N', '12087138');">&nbsp;4/6</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877070&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>16:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877068&amp;sport=Football">Man City v Chelsea</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',7, 5, '', '', 'N', '12087131');">&nbsp;7/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12087133');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',2, 1, '', '', 'N', '12087132');">&nbsp;2/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877068&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>16:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877071&amp;sport=Football">Everton v C Palace</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',2, 5, '', '', 'N', '12087140');">&nbsp;2/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12087142');">&nbsp;7/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',15, 2, '', '', 'N', '12087141');">&nbsp;15/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=877071&amp;sport=Football">More</A></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=mainbox_hdr colSpan=6>ENGLAND - Championship</TD></TR>
+<TR>
+<TD class=boxheader colSpan=6><SPAN class=ev_date_time_text>Saturday 20th of September 2014</SPAN></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px" width=100><STRONG>Time</STRONG></TD>
+<TD width=258><STRONG>Event</STRONG></TD>
+<TD width=70 align=center><STRONG>Home</STRONG></TD>
+<TD width=70 align=center><STRONG>Draw</STRONG></TD>
+<TD width=70 align=center><STRONG>Away</STRONG></TD>
+<TD width=50 align=center><STRONG>Markets</STRONG></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>12:15</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878306&amp;sport=Football">Watford v Bournemouth</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 4, '', '', 'N', '12099254');">&nbsp;5/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099256');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099255');">&nbsp;23/10</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878306&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878302&amp;sport=Football">Brighton v Blackpool</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',1, 2, '', '', 'N', '12099234');">&nbsp;1/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',3, 1, '', '', 'N', '12099236');">&nbsp;3/1</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',6, 1, '', '', 'N', '12099235');">&nbsp;6/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878302&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878303&amp;sport=Football">Millwall v Nottm Forest</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',11, 5, '', '', 'N', '12099239');">&nbsp;11/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099241');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 5, '', '', 'N', '12099240');">&nbsp;7/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878303&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878304&amp;sport=Football">Sheff Wed v Reading</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',11, 10, '', '', 'N', '12099244');">&nbsp;11/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099246');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099245');">&nbsp;5/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878304&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878305&amp;sport=Football">Norwich v Birmingham</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',9, 20, '', '', 'N', '12099249');">&nbsp;9/20</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12099251');">&nbsp;7/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',6, 1, '', '', 'N', '12099250');">&nbsp;6/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878305&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878307&amp;sport=Football">Fulham v Blackburn</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 4, '', '', 'N', '12099259');">&nbsp;6/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099261');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 4, '', '', 'N', '12099260');">&nbsp;7/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878307&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878308&amp;sport=Football">Wolves v Bolton</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',4, 6, '', '', 'N', '12099264');">&nbsp;4/6</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',11, 4, '', '', 'N', '12099266');">&nbsp;11/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',4, 1, '', '', 'N', '12099265');">&nbsp;4/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878308&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878309&amp;sport=Football">Rotherham v Charlton</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',11, 10, '', '', 'N', '12099269');">&nbsp;11/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099271');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099270');">&nbsp;5/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878309&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878310&amp;sport=Football">Derby v Cardiff</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',8, 11, '', '', 'N', '12099274');">&nbsp;8/11</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',11, 4, '', '', 'N', '12099276');">&nbsp;11/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12099275');">&nbsp;7/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878310&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878311&amp;sport=Football">Leeds v Huddersfield</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 4, '', '', 'N', '12099279');">&nbsp;6/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099281');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',15, 8, '', '', 'N', '12099280');">&nbsp;15/8</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878311&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878312&amp;sport=Football">Middlesbrough v Brentford</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',4, 5, '', '', 'N', '12099284');">&nbsp;4/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099286');">&nbsp;5/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12099285');">&nbsp;7/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878312&amp;sport=Football">More</A></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=mainbox_hdr colSpan=6>ENGLAND - League One</TD></TR>
+<TR>
+<TD class=boxheader colSpan=6><SPAN class=ev_date_time_text>Saturday 20th of September 2014</SPAN></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px" width=100><STRONG>Time</STRONG></TD>
+<TD width=258><STRONG>Event</STRONG></TD>
+<TD width=70 align=center><STRONG>Home</STRONG></TD>
+<TD width=70 align=center><STRONG>Draw</STRONG></TD>
+<TD width=70 align=center><STRONG>Away</STRONG></TD>
+<TD width=50 align=center><STRONG>Markets</STRONG></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878313&amp;sport=Football">Port Vale v Barnsley</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',13, 8, '', '', 'N', '12099289');">&nbsp;13/8</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099291');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',13, 8, '', '', 'N', '12099290');">&nbsp;13/8</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878313&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878314&amp;sport=Football">Rochdale v Coventry</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 4, '', '', 'N', '12099294');">&nbsp;5/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099296');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099295');">&nbsp;9/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878314&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878315&amp;sport=Football">Gillingham v Walsall</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 4, '', '', 'N', '12099299');">&nbsp;6/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099301');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',9, 5, '', '', 'N', '12099300');">&nbsp;9/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878315&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878316&amp;sport=Football">Preston v Crawley Town</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',8, 13, '', '', 'N', '12099304');">&nbsp;8/13</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099306');">&nbsp;5/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',9, 2, '', '', 'N', '12099305');">&nbsp;9/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878316&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878317&amp;sport=Football">Colchester v Bradford</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',13, 8, '', '', 'N', '12099309');">&nbsp;13/8</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099311');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',13, 8, '', '', 'N', '12099310');">&nbsp;13/8</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878317&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878318&amp;sport=Football">Fleetwood Town v Bristol City</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',2, 1, '', '', 'N', '12099314');">&nbsp;2/1</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099316');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 5, '', '', 'N', '12099315');">&nbsp;7/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878318&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878319&amp;sport=Football">Notts Co v Oldham</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 4, '', '', 'N', '12099319');">&nbsp;6/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099321');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 4, '', '', 'N', '12099320');">&nbsp;7/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878319&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878320&amp;sport=Football">MK Dons v Crewe</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',4, 9, '', '', 'N', '12099324');">&nbsp;4/9</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',3, 1, '', '', 'N', '12099326');">&nbsp;3/1</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',11, 2, '', '', 'N', '12099325');">&nbsp;11/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878320&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878321&amp;sport=Football">Yeovil v Peterborough</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',2, 1, '', '', 'N', '12099329');">&nbsp;2/1</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099331');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 5, '', '', 'N', '12099330');">&nbsp;7/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878321&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878322&amp;sport=Football">Doncaster v Chesterfield</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',9, 5, '', '', 'N', '12099334');">&nbsp;9/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099336');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',6, 4, '', '', 'N', '12099335');">&nbsp;6/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878322&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878323&amp;sport=Football">Scunthorpe v Leyton Orient</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099339');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099341');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',6, 5, '', '', 'N', '12099340');">&nbsp;6/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878323&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878324&amp;sport=Football">Swindon v Sheff Utd</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 4, '', '', 'N', '12099344');">&nbsp;5/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099346');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099345');">&nbsp;9/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878324&amp;sport=Football">More</A></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=mainbox_hdr colSpan=6>ENGLAND - League Two</TD></TR>
+<TR>
+<TD class=boxheader colSpan=6><SPAN class=ev_date_time_text>Saturday 20th of September 2014</SPAN></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px" width=100><STRONG>Time</STRONG></TD>
+<TD width=258><STRONG>Event</STRONG></TD>
+<TD width=70 align=center><STRONG>Home</STRONG></TD>
+<TD width=70 align=center><STRONG>Draw</STRONG></TD>
+<TD width=70 align=center><STRONG>Away</STRONG></TD>
+<TD width=50 align=center><STRONG>Markets</STRONG></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878325&amp;sport=Football">Portsmouth v Wycombe</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',21, 20, '', '', 'N', '12099349');">&nbsp;21/20</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099351');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',11, 4, '', '', 'N', '12099350');">&nbsp;11/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878325&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878326&amp;sport=Football">Oxford Utd v Stevenage</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 4, '', '', 'N', '12099354');">&nbsp;5/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099356');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099355');">&nbsp;23/10</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878326&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878327&amp;sport=Football">Cheltenham v Dag and Red</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',10, 11, '', '', 'N', '12099359');">&nbsp;10/11</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099361');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',3, 1, '', '', 'N', '12099360');">&nbsp;3/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878327&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878328&amp;sport=Football">Bury v Burton</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 4, '', '', 'N', '12099364');">&nbsp;5/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099366');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',11, 5, '', '', 'N', '12099365');">&nbsp;11/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878328&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878329&amp;sport=Football">Mansfield v Carlisle</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',19, 20, '', '', 'N', '12099369');">&nbsp;19/20</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099371');">&nbsp;5/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',11, 4, '', '', 'N', '12099370');">&nbsp;11/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878329&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878330&amp;sport=Football">Tranmere v Exeter</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',1, 1, '', '', 'N', '12099374');">&nbsp;evens</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099376');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',11, 4, '', '', 'N', '12099375');">&nbsp;11/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878330&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878331&amp;sport=Football">Plymouth v Hartlepool</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',8, 11, '', '', 'N', '12099379');">&nbsp;8/11</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099381');">&nbsp;5/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12099380');">&nbsp;7/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878331&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878332&amp;sport=Football">Shrewsbury v Newport County</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',19, 20, '', '', 'N', '12099384');">&nbsp;19/20</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099386');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',3, 1, '', '', 'N', '12099385');">&nbsp;3/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878332&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878333&amp;sport=Football">Northampton v Accrington S</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',8, 11, '', '', 'N', '12099389');">&nbsp;8/11</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099391');">&nbsp;5/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',4, 1, '', '', 'N', '12099390');">&nbsp;4/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878333&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878334&amp;sport=Football">York City v Southend</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',13, 8, '', '', 'N', '12099394');">&nbsp;13/8</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',11, 5, '', '', 'N', '12099396');">&nbsp;11/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',9, 5, '', '', 'N', '12099395');">&nbsp;9/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878334&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878335&amp;sport=Football">Cambridge Utd v Luton</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 4, '', '', 'N', '12099399');">&nbsp;6/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',11, 5, '', '', 'N', '12099401');">&nbsp;11/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',9, 5, '', '', 'N', '12099400');">&nbsp;9/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878335&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878336&amp;sport=Football">AFC Wimbledon v Morecambe</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',6, 5, '', '', 'N', '12099404');">&nbsp;6/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099406');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099405');">&nbsp;12/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878336&amp;sport=Football">More</A></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD class=mainbox_hdr colSpan=6>ENGLAND - Conference</TD></TR>
+<TR>
+<TD class=boxheader colSpan=6><SPAN class=ev_date_time_text>Saturday 20th of September 2014</SPAN></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px" width=100><STRONG>Time</STRONG></TD>
+<TD width=258><STRONG>Event</STRONG></TD>
+<TD width=70 align=center><STRONG>Home</STRONG></TD>
+<TD width=70 align=center><STRONG>Draw</STRONG></TD>
+<TD width=70 align=center><STRONG>Away</STRONG></TD>
+<TD width=50 align=center><STRONG>Markets</STRONG></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878337&amp;sport=Football">Welling Utd v Gateshead</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099409');">&nbsp;5/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099411');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',1, 1, '', '', 'N', '12099410');">&nbsp;evens</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878337&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878338&amp;sport=Football">Macclesfield v Southport</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 6, '', '', 'N', '12099412');">&nbsp;5/6</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099414');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',3, 1, '', '', 'N', '12099413');">&nbsp;3/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878338&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878339&amp;sport=Football">Barnet v Altrincham</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',4, 11, '', '', 'N', '12099415');">&nbsp;4/11</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12099417');">&nbsp;7/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 1, '', '', 'N', '12099416');">&nbsp;7/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878339&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878340&amp;sport=Football">Torquay v Dover</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',4, 9, '', '', 'N', '12099418');">&nbsp;4/9</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',3, 1, '', '', 'N', '12099420');">&nbsp;3/1</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',6, 1, '', '', 'N', '12099419');">&nbsp;6/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878340&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878341&amp;sport=Football">Bristol Rovers v Woking</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',21, 20, '', '', 'N', '12099421');">&nbsp;21/20</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099423');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099422');">&nbsp;23/10</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878341&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878342&amp;sport=Football">FC Halifax Town v Telford</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',1, 3, '', '', 'N', '12099424');">&nbsp;1/3</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',7, 2, '', '', 'N', '12099426');">&nbsp;7/2</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',8, 1, '', '', 'N', '12099425');">&nbsp;8/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878342&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878343&amp;sport=Football">Aldershot v Lincoln</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',21, 20, '', '', 'N', '12099427');">&nbsp;21/20</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099429');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',5, 2, '', '', 'N', '12099428');">&nbsp;5/2</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878343&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878344&amp;sport=Football">Alfreton Town v Nuneaton</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',1, 1, '', '', 'N', '12099430');">&nbsp;evens</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099432');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099431');">&nbsp;12/5</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878344&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878345&amp;sport=Football">Kidderminster v Grimsby</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',7, 5, '', '', 'N', '12099433');">&nbsp;7/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',9, 4, '', '', 'N', '12099435');">&nbsp;9/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',7, 4, '', '', 'N', '12099434');">&nbsp;7/4</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878345&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg1>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878346&amp;sport=Football">Eastleigh v Braintree</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',5, 4, '', '', 'N', '12099436');">&nbsp;5/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',23, 10, '', '', 'N', '12099438');">&nbsp;23/10</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',2, 1, '', '', 'N', '12099437');">&nbsp;2/1</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878346&amp;sport=Football">More</A></TD></TR>
+<TR class=results_bg2>
+<TD style="PADDING-LEFT: 5px" width=100>15:00</TD>
+<TD width=258><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878347&amp;sport=Football">Dartford v Forest Green</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>H</DIV><A class=orange href="javascript:go_bet('', 'L',11, 4, '', '', 'N', '12099439');">&nbsp;11/4</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>D</DIV><A class=orange href="javascript:go_bet('', 'L',12, 5, '', '', 'N', '12099441');">&nbsp;12/5</A> </TD>
+<TD class=odds width=70>
+<DIV class=odds_wdw>A</DIV><A class=orange href="javascript:go_bet('', 'L',19, 20, '', '', 'N', '12099440');">&nbsp;19/20</A> </TD>
+<TD width=50 align=center><A href="http://www.wilsonbet.com/wilsonbet?action=GoEv&amp;ev_id=878347&amp;sport=Football">More</A></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR>
+<TR>
+<TD><IMG border=0 alt="" src="http://www.wilsonbet.com/static/wilsonbet/images/spacer.gif" width=1 height=2></TD></TR></TBODY></TABLE></TD></TR><!-- Hitmatic --></TD><!-- End Of Middle Content -->
+<TR>
+<TD class=copyright colSpan=6><BR>
+<HR width="100%">
+
+<DIV style="FLOAT: left; PADDING-LEFT: 3px; WIDTH: 350px">Wilsonbet is powered by TGP Europe Ltd of registered address 2nd Floor Armitage House, Ridgeway Street, Douglas, IM1 1LE. TGP Europe is regulated by the Isle of Man Gambling Supervision Commission. The licence was issued under the Online Gambling Regulation Act 2001 on 23 September 2009. Wilsonbet 2014. All rights reserved.
+<P>Gambling debts are enforceable in the Isle of Man<A class=copyright href="javascript:open_window('http://www.wilsonbet.com/static/wilsonbet/html/en/copyright.html', 'GENERAL', 500, 550, 'yes', 'yes')"></A><BR><BR><BR></P></DIV>
+<DIV style="TEXT-ALIGN: right"><IMG border=0 src="http://www.wilsonbet.com/static/wilsonbet/images/banners/payments.jpg" width=322 height=44 useMap=#Footer> <MAP id=Footer name=Footer><AREA href="http://www.gov.im/gambling/" shape=rect alt="Gambling Supervision Commission" target=_blank coords=3,-1,48,42><AREA href="http://www.geotrust.com/" shape=rect alt="Geo Trust" target=_blank coords=52,-1,129,69 border="0" usemap="#Logos"><AREA href="http://www.wilsonbet.com/wilsonbet?action=GoResponsibleGambling" shape=rect alt="Responsible Gambling" target=_self coords=135,-5,183,59><AREA href="http://www.gamcare.org.uk/" shape=rect alt=GamCare target=_blank coords=187,-6,228,67><!-- <area shape="rect" coords="231,-3,320,82" href="http://www.ibas-uk.com/" target="_blank" alt="IBAS"> --><AREA href="http://www.abb.uk.com/" shape=rect alt=ABB target=_blank coords=231,-13,376,130></MAP></DIV></TD></TR></TBODY></TABLE></body></html>
