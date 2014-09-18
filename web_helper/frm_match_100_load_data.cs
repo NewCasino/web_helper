@@ -263,10 +263,11 @@ namespace web_helper
 
                 BsonDocument doc_input = ies[index].doc_result;
                 BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser,doc_input});
+                ies[index].doc_result = doc_result;
 
                 //update grid 
                 dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                ies[index].doc_result = doc_result;
+                
 
                 Application.DoEvents();
             //}

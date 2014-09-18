@@ -1894,7 +1894,6 @@ namespace web_helper
 
         }
 
-
         public static BsonDocument get_2_min_from_2_wld_with_circle(BsonDocument match1, BsonDocument match2, int max_count)
         {
 

@@ -11,8 +11,7 @@ using MongoDB.Bson.Serialization;
 
 
 public class MongoHelper
-{
-
+{ 
     public static string con_str = "mongodb://127.0.0.1:27017";
     public static string db_name = "db";
     public static string base_doc_name = "web";

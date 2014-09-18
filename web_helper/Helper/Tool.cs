@@ -100,7 +100,7 @@ class Tool
 
     private static bool is_english(string str)
     {
-        for (int i = 0; i < str.Length - 1; i++)
+        for (int i = 0; i < str.Length; i++)
         {
             string item = str.Substring(i, 1);
             byte[] byte_len = System.Text.Encoding.Default.GetBytes(item);

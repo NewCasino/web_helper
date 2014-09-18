@@ -257,10 +257,6 @@ class BrowserHelper
             dt_position.Rows.Add(row_new);
 
         }
-
-
-
-
     }
 
     public static List<BsonDocument> get_all_elment_back(ref WebBrowser browser)
@@ -385,7 +381,7 @@ class BrowserHelper
         }
     }
 
-    #endregion  
+    #endregion
 
     #region Get HTML Content By Position
     public static DataTable get_postion_table(ref WebBrowser browser)
@@ -919,16 +915,10 @@ class BrowserHelper
         }
         dt.Rows.Add(row_count);
         dt.Rows.Add(row_text);
-
-
         return dt;
-
-
     }
     public static bool is_overlap(int input_left1, int input_width1, int input_left2, int input_width2)
     {
-
-
         double width1 = input_width1;
         double width2 = input_width2;
         double start1 = input_left1;
@@ -1311,7 +1301,7 @@ class BrowserHelper
     }
 
     //查找td,div,li......,并取子内容
-    public static DataTable get_position_table4(ref WebBrowser browser,ref BsonDocument doc_condition)
+    public static DataTable get_position_table4(ref WebBrowser browser, ref BsonDocument doc_condition)
     {
         if (browser.Document == null) return new DataTable();
 
@@ -1354,7 +1344,7 @@ class BrowserHelper
 
         if (browser.Document == null) return dt_position;
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
-        get_position_from_doc_4(ref doc_condition,ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
+        get_position_from_doc_4(ref doc_condition, ref dt_position, ref doc_child, ((IHTMLWindow3)doc_child.parentWindow).screenLeft, ((IHTMLWindow3)doc_child.parentWindow).screenTop);
 
         if (doc_condition["ajust"].ToString() == "y")
         {
@@ -1395,7 +1385,7 @@ class BrowserHelper
     {
         if (browser.Document == null) return new DataTable();
 
-        DataTable dt_position = get_position_table4(ref browser,ref doc_condition);
+        DataTable dt_position = get_position_table4(ref browser, ref doc_condition);
         //add column to dt 
         DataTable dt = new DataTable();
         dt.Columns.Add("NO");
@@ -1516,7 +1506,7 @@ class BrowserHelper
 
 
     }
-    public static DataTable get_filter_table(ref BsonDocument doc_condition,DataTable dt_analyse)
+    public static DataTable get_filter_table(ref BsonDocument doc_condition, DataTable dt_analyse)
     {
         DataTable dt = new DataTable();
         ArrayList cols = new ArrayList();
@@ -1544,7 +1534,7 @@ class BrowserHelper
             DataRow row_new = dt.NewRow();
             bool is_use = false;
             for (int j = 0; j < dt.Columns.Count; j++)
-            { 
+            {
                 string column_name = dt.Columns[j].ColumnName;
                 if (string.IsNullOrEmpty(dt_analyse.Rows[i][column_name].ToString().Replace(Environment.NewLine, "").Replace(" ", "").Trim())) continue;
                 is_use = true;
@@ -1557,7 +1547,7 @@ class BrowserHelper
                     {
                         text = text + item + "●";
                     }
-                } 
+                }
                 if (text.Length > 1) text = text.Substring(0, text.Length - 1);
                 row_new[column_name] = text;
 
@@ -1566,7 +1556,7 @@ class BrowserHelper
         }
         return dt;
     }
-    public static void get_position_from_doc_4(ref BsonDocument doc_condition,ref DataTable dt_position, ref mshtml.HTMLDocument doc_input, int start_x, int start_y)
+    public static void get_position_from_doc_4(ref BsonDocument doc_condition, ref DataTable dt_position, ref mshtml.HTMLDocument doc_input, int start_x, int start_y)
     {
         object j;
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
@@ -1575,7 +1565,7 @@ class BrowserHelper
             mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
             IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
             mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-            get_position_from_doc_4(ref doc_condition,ref dt_position, ref doc_child, start_x, start_y);
+            get_position_from_doc_4(ref doc_condition, ref dt_position, ref doc_child, start_x, start_y);
         }
 
 
@@ -1584,7 +1574,7 @@ class BrowserHelper
         foreach (mshtml.IHTMLElement ielement in ielements)
         {
 
-            if (is_final_element(ref doc_condition,ielement))
+            if (is_final_element(ref doc_condition, ielement))
             {
                 mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
                 IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
@@ -1596,26 +1586,26 @@ class BrowserHelper
                 int left = 0;
                 int top = 0;
                 int width = 0;
-                int height = 0; 
+                int height = 0;
                 //td,tr,offsetTop计算重复
                 if (ielement.tagName.ToLower().Contains("td"))
-                { 
+                {
                     top = ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y;
                 }
                 else
-                { 
+                {
                     top = ielement.offsetTop + ((IHTMLWindow3)doc_input.parentWindow).screenTop - start_y;
                 }
                 left = ielement.offsetLeft + ((IHTMLWindow3)doc_input.parentWindow).screenLeft - start_x;
                 width = ielement.offsetWidth;
                 height = ielement.offsetHeight;
-                string text =  (ielement.innerText==null)? "" :ielement.innerText;
+                string text = (ielement.innerText == null) ? "" : ielement.innerText;
 
                 IHTMLElement ielement_input = ielement;
-                get_absolute4(ref doc_condition,ref ielement_input, ref left, ref top);
-                get_child_text(ref doc_condition,ref ielement_input, ref text);
-                text=text.Replace(Environment.NewLine, "●");
-                 
+                get_absolute4(ref doc_condition, ref ielement_input, ref left, ref top);
+                get_child_text(ref doc_condition, ref ielement_input, ref text);
+                text = text.Replace(Environment.NewLine, "●");
+
                 row_new["left"] = left;
                 row_new["top"] = top;
                 row_new["width"] = ielement.offsetWidth;
@@ -1643,8 +1633,8 @@ class BrowserHelper
     {
         string tag_name = ielement.tagName.ToLower().Trim();
         string html = ielement.innerHTML == null ? "" : ielement.innerHTML.ToLower().Trim();
-        bool is_tag=false;
-        bool is_html=false;
+        bool is_tag = false;
+        bool is_html = false;
         foreach (string item in doc_condition["element_type"].AsBsonArray)
         {
             if (tag_name.Contains(item)) is_tag = true;
@@ -1652,20 +1642,20 @@ class BrowserHelper
         }
         if (is_tag == true && is_html == false) return true;
         return false;
-       
+
     }
     public static void get_child_text(ref BsonDocument doc_condition, ref IHTMLElement element, ref string txt)
     {
-        if (element == null) return; 
+        if (element == null) return;
         if (!string.IsNullOrEmpty(element.innerText))
         {
             txt = txt.Replace(element.innerText, "●" + element.innerText + "●");
         }
-         
+
         foreach (IHTMLElement child in (IHTMLElementCollection)element.children)
         {
             IHTMLElement input_child = child;
-            get_child_text(ref doc_condition,ref input_child, ref txt);
+            get_child_text(ref doc_condition, ref input_child, ref txt);
         }
     }
     public static BsonDocument get_doc_condition()
@@ -1684,7 +1674,7 @@ class BrowserHelper
         return doc_condition;
     }
     #endregion
- 
+
     public static string get_html(ref WebBrowser browser)
     {
         string result = "";
@@ -1705,7 +1695,7 @@ class BrowserHelper
         }
 
         result = result + doc_input.body.innerHTML;
-       
+
     }
 
     public static string get_attrs_by_id(ref WebBrowser browser, string id)
@@ -1748,7 +1738,7 @@ class BrowserHelper
                 }
             }
         }
-    } 
+    }
 
     public static string get_attr_by_id(ref WebBrowser browser, string id, string attr_name)
     {
@@ -1783,7 +1773,7 @@ class BrowserHelper
                     if (attr.nodeName == attr_name && attr.nodeValue != null)
                     {
                         result = attr.nodeValue.ToString();
-                    } 
+                    }
                 }
             }
         }
@@ -1822,7 +1812,7 @@ class BrowserHelper
             }
 
         }
-    } 
+    }
 
     public static List<BsonDocument> get_all_elments(ref WebBrowser browser)
     {
@@ -2006,9 +1996,9 @@ class BrowserHelper
             }
 
         }
-    } 
+    }
 
-    public static string invoke_click_by_atrr(ref WebBrowser browser,string attr_name,string attr_value)
+    public static string invoke_click_by_atrr(ref WebBrowser browser, string attr_name, string attr_value)
     {
         string result = "";
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
@@ -2016,7 +2006,7 @@ class BrowserHelper
         return result;
 
     }
-    public static void invoke_click_by_attr_loop(ref mshtml.HTMLDocument doc_input, string attr_name,string attr_value)
+    public static void invoke_click_by_attr_loop(ref mshtml.HTMLDocument doc_input, string attr_name, string attr_value)
     {
         object j;
         for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
@@ -2039,7 +2029,7 @@ class BrowserHelper
 
             foreach (IHTMLDOMAttribute attr in attrs)
             {
-                if (attr.nodeName == attr_name && attr.nodeValue != null && attr.nodeValue.ToString()==attr_value)
+                if (attr.nodeName == attr_name && attr.nodeValue != null && attr.nodeValue.ToString() == attr_value)
                 {
                     ielement.click();
                 }
@@ -2052,7 +2042,7 @@ class BrowserHelper
         string result = "";
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
         invoke_click_by_outerhtml_loop(ref doc_child, html);
-        return result; 
+        return result;
     }
     public static void invoke_click_by_outerhtml_loop(ref mshtml.HTMLDocument doc_input, string html)
     {
@@ -2077,11 +2067,11 @@ class BrowserHelper
             if (ielement.outerHTML == html)
             {
                 ielement.click();
-            } 
+            }
         }
     }
 
-    public static IHTMLElement get_ielement_by_id(ref WebBrowser browser,ref IHTMLElement element, string id)
+    public static IHTMLElement get_ielement_by_id(ref WebBrowser browser, ref IHTMLElement element, string id)
     {
         mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)browser.Document.DomDocument;
         get_ielement_by_id_loop(ref doc_child, ref element, id);
@@ -2112,7 +2102,6 @@ class BrowserHelper
                 element = ielement;
                 return;
             }
-
         }
     }
 }
