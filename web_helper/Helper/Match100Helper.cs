@@ -41,6 +41,7 @@ class Match100Helper
     {
         BsonDocument doc_result = new BsonDocument();
         doc_result.Add("data", "");
+        doc_result.Add("url", "");
         doc_result.Add("used", new BsonArray());
         doc_result.Add("loop", new BsonArray());
         return doc_result;
@@ -335,8 +336,7 @@ class Match100Helper
         {
             double d1 = Convert.ToDouble(list[0].ToString().Trim());
             double d2 = Convert.ToDouble(list[1].ToString().Trim());
-            result = Math.Round(d1 / d2 + 1, 3).ToString("###.000");
-
+            result = Math.Round(d1 / d2 + 1, 3).ToString("###.000"); 
         }
         return result;
     }

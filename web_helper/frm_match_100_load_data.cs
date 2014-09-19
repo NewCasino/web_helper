@@ -121,6 +121,7 @@ namespace web_helper
                 dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 BsonDocument doc_result = Match100Helper.get_doc_result();
                 doc_result["data"] = "Load Complete!";
+                doc_result["url"] = browser.Document.Url.ToString();
                 ies[index].doc_result = doc_result;
             }
         }
@@ -154,9 +155,9 @@ namespace web_helper
                             BsonDocument doc_result = ies[Convert.ToInt32(row["browser"].ToString())].doc_result;
 
                             sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
-                            sb.AppendLine("web site:".PR(15) + row["site_name"].PR(10) + row["method"].ToString());
-                            sb.AppendLine("url:".PR(15) + ies[Convert.ToInt32(row["browser"].ToString())].browser.Document.Url.ToString());
+                            sb.AppendLine("web site:".PR(15) + row["site_name"].PR(10) + row["method"].ToString()); 
                             sb.AppendLine("time:".PR(15) + row["start_time"].ToString().Substring(11, 8).PR(10) + row["end_time"].ToString().Substring(11, 8).PR(10) + row["final_time"].ToString().Substring(11, 8).PR(10));
+                            sb.AppendLine("url:".PR(15) + doc_result["url"].ToString());
                             sb.AppendLine("result data:".PR(15));
                             sb.AppendLine(doc_result["data"].ToString());
                             sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
