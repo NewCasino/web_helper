@@ -15,6 +15,7 @@ using System.Threading;
 using mshtml;
 using System.Reflection;
 using System.IO;
+using System.Collections;
 
 namespace web_helper
 {
@@ -247,6 +248,29 @@ namespace web_helper
                 }
             }
             //Application.DoEvents();
+        }
+        public void analyse_reset()
+        {
+            ArrayList list_selected = new ArrayList();
+            ArrayList list_abort = new ArrayList();
+            ArrayList list_wait = new ArrayList();
+            ArrayList list_complete = new ArrayList();
+
+            foreach (DataRow row in dt.Rows)
+            {
+              bool is_has=false;
+              foreach(string item in list_selected)
+              {
+                  if (item == row["site_name"].ToString()) is_has = true;
+              }
+              if (is_has == false) list_selected.Add(row["site_name"].ToString()); 
+            }
+
+            //5 minutes later,restar browser
+            foreach (string site_name in list_selected)
+            {
+                 
+            }
         }
         public void select_method_from_site(WebBrowser browser, int row_id)
         {

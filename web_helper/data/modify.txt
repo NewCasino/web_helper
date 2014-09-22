@@ -26,3 +26,8 @@ get more data to load for analyse
 2014-09-18
 check points odd,and all points count,and all point type
 check all odd type[wdl,handicap,under/over,points,total...]
+
+--------------------------
+2014-09-22 night
+get betfair_es index data to analyse
+get more_data to analyse

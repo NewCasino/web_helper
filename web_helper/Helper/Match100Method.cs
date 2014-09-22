@@ -421,6 +421,7 @@ class Match100Method
         {
             doc_result["url"] = browser.Document.Url.ToString();
             doc_result["data"] = result;
+            doc_result["loop"].AsBsonArray.Clear();
             return doc_result;
         }
         url = doc_result["url1"].AsBsonArray[doc_result["url2"].AsBsonArray.Count].ToString();
@@ -485,8 +486,7 @@ class Match100Method
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                     Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
-            }
-
+            } 
         }
         //======================================================
         doc_result["data"] = sb.ToString();
@@ -505,8 +505,7 @@ class Match100Method
         }
         doc_result["data"] = "Invoke OK!" + txt;
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result;
-
+        return doc_result; 
     }
     public BsonDocument from_macauslot_1(ref WebBrowser browser, BsonDocument doc_result)
     {
