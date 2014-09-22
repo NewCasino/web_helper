@@ -1684,18 +1684,25 @@ class BrowserHelper
     }
     public static void get_html_loop(ref mshtml.HTMLDocument doc_input, ref string result)
     {
-        object j;
-        for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+        try
         {
-            j = i;
-            mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
-            IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
-            mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
-            get_html_loop(ref doc_child, ref result);
+            object j;
+            for (int i = 0; i < doc_input.parentWindow.frames.length; i++)
+            {
+                j = i;
+                mshtml.IHTMLWindow2 frame = doc_input.parentWindow.frames.item(ref j) as IHTMLWindow2;
+                IHTMLDocument3 doc_child3 = CorssDomainHelper.GetDocumentFromWindow(frame.window as IHTMLWindow2);
+                mshtml.HTMLDocument doc_child = (mshtml.HTMLDocument)doc_child3;
+                get_html_loop(ref doc_child, ref result);
+            }
+
+            result = result + doc_input.body.innerHTML;
+
         }
-
-        result = result + doc_input.body.innerHTML;
-
+        catch (Exception error)
+        {
+            result = "<html></html>";
+        }
     }
 
     public static string get_attrs_by_id(ref WebBrowser browser, string id)
