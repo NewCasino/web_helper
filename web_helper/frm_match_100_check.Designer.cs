@@ -37,6 +37,7 @@
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
+            this.btn_check_qty = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -48,6 +49,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_check_qty);
             this.groupBox1.Controls.Add(this.btn_add_all);
             this.groupBox1.Controls.Add(this.btn_check_matchs);
             this.groupBox1.Controls.Add(this.btn_check_persent);
@@ -144,6 +146,16 @@
             this.dgv_result.Size = new System.Drawing.Size(916, 455);
             this.dgv_result.TabIndex = 0;
             // 
+            // btn_check_qty
+            // 
+            this.btn_check_qty.Location = new System.Drawing.Point(374, 19);
+            this.btn_check_qty.Name = "btn_check_qty";
+            this.btn_check_qty.Size = new System.Drawing.Size(116, 25);
+            this.btn_check_qty.TabIndex = 3;
+            this.btn_check_qty.Text = "Check Qty";
+            this.btn_check_qty.UseVisualStyleBackColor = true;
+            this.btn_check_qty.Click += new System.EventHandler(this.btn_check_qty_Click);
+            // 
             // frm_match_100_check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.DataGridView dgv_result;
         private System.Windows.Forms.Button btn_check_matchs;
         private System.Windows.Forms.Button btn_add_all;
+        private System.Windows.Forms.Button btn_check_qty;
     }
 }

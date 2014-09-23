@@ -35,7 +35,10 @@ namespace web_helper
         {
             add_all_to_europe_100();
         }
-
+        private void btn_check_qty_Click(object sender, EventArgs e)
+        {
+            check_qty();
+        }
 
 
 
@@ -165,6 +168,36 @@ namespace web_helper
 
             }
         }
+        public void check_qty()
+        {
+            string sql = "select distinct substring(timespan,0,11) date  from europe_100_log order by date desc";
+            DataTable dt_date = SQLServerHelper.get_table(sql);
+            if (dt_date.Rows.Count > 3)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    string date = dt_date.Rows[i][0].ToString();
+                    sql = " select website, count(*) qty" +
+                        " from europe_100_log" +
+                        " where substring(timespan,0,11)='{0}'" +
+                        " group by website" +
+                        " order by qty";
+                    sql = string.Format(sql, date);
+
+                    DataTable dt = SQLServerHelper.get_table(sql);
+                    sb.AppendLine("----------------------------------------------");
+                    sb.AppendLine(date);
+                    foreach (DataRow row in dt.Rows)
+                    { 
+                        sb.AppendLine(row[0].ToString().PR(20) + row[1].ToString().PR(10));
+                    } 
+                }
+            }
+
+            this.txt_result.Text = sb.ToString();
+        }
+
+
 
 
 

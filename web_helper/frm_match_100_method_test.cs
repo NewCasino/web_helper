@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_betfair_es(); 
+            test_pinnaclesports(); 
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace web_helper
 
                     start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                   // Match100Helper.insert_data("youwin", league, start_time, host, client, win, draw, lose, "2", "0");
+                   // Match100Helper.insert_data("XXXX", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //========================================================================================================
@@ -2655,9 +2655,8 @@ namespace web_helper
 
 
         }
-        #endregion
 
- 
+
         //2014-09-22
         public void test_666bet()
         {
@@ -2689,7 +2688,7 @@ namespace web_helper
                 if (node.CLASS() == "upcoming block")
                 {
                     league = node.SELECT_NODE("/h2").InnerText;
-                    
+
                 }
                 if (node.CLASS() == "bet_row")
                 {
@@ -2715,7 +2714,7 @@ namespace web_helper
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "betfair_es.html"));
             //==========================================================================================================
-            html = html.Replace("<thead=\"\"", "");  
+            html = html.Replace("<thead=\"\"", "");
 
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
@@ -2787,12 +2786,12 @@ namespace web_helper
             {
                 if (node.Name == "td" && node.CLASS() == "TdDate")
                 {
-                    date = Tool.get_12m_from_eng(node.InnerText.E_SPLIT(" ")[2])+"-"+node.InnerText.E_SPLIT(" ")[1];
+                    date = Tool.get_12m_from_eng(node.InnerText.E_SPLIT(" ")[2]) + "-" + node.InnerText.E_SPLIT(" ")[1];
                 }
                 if (node.CLASS().Contains("TblByLeagues_Odds"))
                 {
                     league = node.SELECT_NODE("/td[6]").Attributes["title"].Value;
-                    start_time = date+M.D+node.SELECT_NODE("/td[5]").InnerText;
+                    start_time = date + M.D + node.SELECT_NODE("/td[5]").InnerText;
 
                     string[] teams = node.SELECT_NODE("/td[8]").InnerText.E_SPLIT(" - ");
                     host = teams[0]; client = teams[1];
@@ -2811,8 +2810,50 @@ namespace web_helper
 
 
         }
+        #endregion
+
+ 
+
+        //2014-09-23
+        public void test_betfair_es_index()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "betfair_es.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "a" && node.InnerText.Contains("Fixtures") && node.CLASS().Contains("child"))
+                {
+                    string url = node.Attributes["href"].Value;
+                    sb.AppendLine(url);
+                }
+            }
+            //========================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
 
 
+        }
 
     }
 }

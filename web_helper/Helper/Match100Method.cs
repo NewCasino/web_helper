@@ -31,6 +31,63 @@ class Match100Method
         return doc_result;
 
     }
+    public BsonDocument sample_loop(ref WebBrowser browser, BsonDocument doc_result)
+    {
+        string html = BrowserHelper.get_html(ref browser);
+        StringBuilder sb = new StringBuilder();
+        string result = "";
+
+
+        string url = "";
+        try
+        {
+            //================================================================   
+            if (doc_result["url2"].AsBsonArray.Count == 0)
+            {
+                url = doc_result["url1"].AsBsonArray[0].ToString();
+                doc_result["url2"].AsBsonArray.Add(url);
+                browser.Navigate(url);
+                doc_result["loop"].AsBsonArray.Add("2");
+
+                doc_result["data"] = "Start Read First URL ->" + url;
+                doc_result["url"] = browser.Document.Url.ToString();
+                return doc_result;
+            }
+            //---------------------------------------------------------------
+
+
+
+
+            //---------------------------------------------------------------
+        }
+        catch (Exception error)
+        {
+
+            sb.AppendLine(error.Message + Environment.NewLine + error.StackTrace);
+            Log.error("from_pinnaclesports_2", error);
+        }
+
+
+        if (doc_result["url1"].AsBsonArray.Count == doc_result["url2"].AsBsonArray.Count)
+        {
+            doc_result["url"] = browser.Document.Url.ToString();
+            doc_result["data"] = result;
+            doc_result["loop"].AsBsonArray.Clear();
+            return doc_result;
+        }
+        url = doc_result["url1"].AsBsonArray[doc_result["url2"].AsBsonArray.Count].ToString();
+        doc_result["url2"].AsBsonArray.Add(url);
+        browser.Navigate(url);
+
+        doc_result["loop"].AsBsonArray.Clear();
+        doc_result["loop"].AsBsonArray.Add("2");
+        //=============================================================== 
+
+
+        doc_result["data"] = sb.ToString();
+        doc_result["url"] = browser.Document.Url.ToString();
+        return doc_result;
+    }
 
     #region by date
     public BsonDocument from_163_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -300,7 +357,7 @@ class Match100Method
                 {
                     name = node.SELECT_NODE("/div[2]").InnerText.E_REMOVE();
                     href = node.SELECT_NODE("/div[2]/a[1]").Attributes["href"].Value;
-                    if (str_class == "Soccer" && !name.Contains("Halfs") && !name.Contains("Totals"))
+                    if (str_class == "Soccer" && !name.Contains("Halfs") && !name.Contains("Totals") && !href.Contains("ContestCategory"))
                     {
                         count = count + 1;
                         sb.AppendLine(count.PR(5) + str_class.PR(20) + name.PR(50) + href);
@@ -325,10 +382,8 @@ class Match100Method
 
         string url = "";
         try
-        { 
-            //================================================================  
-
-            
+        {
+            //================================================================   
             if (doc_result["url2"].AsBsonArray.Count == 0)
             {
                 url = doc_result["url1"].AsBsonArray[0].ToString();
@@ -340,7 +395,7 @@ class Match100Method
                 doc_result["url"] = browser.Document.Url.ToString();
                 return doc_result;
             }
-            //----------------------------------
+            //---------------------------------------------------------------
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
             HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
@@ -416,7 +471,7 @@ class Match100Method
             Log.error("from_pinnaclesports_2", error);
         }
 
-        //----------------------------------
+        //--------------------------------------------------------------
         if (doc_result["url1"].AsBsonArray.Count == doc_result["url2"].AsBsonArray.Count)
         {
             doc_result["url"] = browser.Document.Url.ToString();
@@ -486,12 +541,12 @@ class Match100Method
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                     Match100Helper.insert_data("188bet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
-            } 
+            }
         }
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
     }
     public BsonDocument from_188bet_2(ref WebBrowser browser, BsonDocument doc_result)
     {
@@ -505,7 +560,7 @@ class Match100Method
         }
         doc_result["data"] = "Invoke OK!" + txt;
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
     }
     public BsonDocument from_macauslot_1(ref WebBrowser browser, BsonDocument doc_result)
     {
@@ -563,7 +618,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_10bet_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -626,7 +681,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_fubo_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -679,7 +734,7 @@ class Match100Method
         //====================================================== 
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
 
     }
@@ -745,7 +800,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
     }
 
     //2014-08-29 
@@ -812,7 +867,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
     }
     public BsonDocument from_betvictor_1(ref WebBrowser browser, BsonDocument doc_result)
     {
@@ -870,7 +925,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_interwetten_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -938,7 +993,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_sbobet_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -1005,7 +1060,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
     }
     public BsonDocument from_mansion88_1(ref WebBrowser browser, BsonDocument doc_result)
     {
@@ -1070,7 +1125,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
 
@@ -1144,7 +1199,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_victorbet_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -1216,7 +1271,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_marathonbet_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -1284,16 +1339,16 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
-    public BsonDocument from_coral_1(ref WebBrowser browser,BsonDocument doc_result)
+    public BsonDocument from_coral_1(ref WebBrowser browser, BsonDocument doc_result)
     {
 
-         doc_result = Match100Helper.get_doc_result(); 
+        doc_result = Match100Helper.get_doc_result();
 
         string html = BrowserHelper.get_html(ref browser);
-        StringBuilder sb = new StringBuilder(); 
+        StringBuilder sb = new StringBuilder();
 
 
         html = html.Replace("<thead=\"\"", "");
@@ -1343,7 +1398,7 @@ class Match100Method
         }
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
 
@@ -1402,7 +1457,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_oddring_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -1483,7 +1538,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_snai_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -1545,7 +1600,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_12bet_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -1628,7 +1683,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
     }
     public BsonDocument from_1bet_1(ref WebBrowser browser, BsonDocument doc_result)
     {
@@ -1717,7 +1772,7 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result; 
+        return doc_result;
 
     }
     public BsonDocument from_youwin_1(ref WebBrowser browser, BsonDocument doc_result)
@@ -1766,11 +1821,11 @@ class Match100Method
         //======================================================
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result;  
+        return doc_result;
     }
 
 
-     
+
 
     #endregion
 
@@ -1814,7 +1869,7 @@ class Match100Method
 
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result;  
+        return doc_result;
     }
     public BsonDocument from_local_1(ref WebBrowser browser, BsonDocument doc_result)
     {
@@ -1824,11 +1879,11 @@ class Match100Method
         foreach (HtmlElement element in list)
         {
             if (element.Id == "btn_ok") element.InvokeMember("click");
-            if (element.Id == "txt")   sb.AppendLine( element.GetAttribute("value"));
+            if (element.Id == "txt") sb.AppendLine(element.GetAttribute("value"));
         }
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
-        return doc_result;  
+        return doc_result;
     }
     #endregion
 

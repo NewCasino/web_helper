@@ -709,8 +709,7 @@ namespace web_helper
             }
 
             if (dt.Rows.Count == 0)
-            {
-
+            { 
                 MessageBox.Show("not select data!");
                 return;
             }
@@ -890,20 +889,6 @@ namespace web_helper
                 }
             }
             this.dgv_condition.DataSource = dt_condition;
-        }
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
+        } 
     }
 }

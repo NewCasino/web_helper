@@ -33,7 +33,7 @@
             this.lb_time = new System.Windows.Forms.Label();
             this.btn_load = new System.Windows.Forms.Button();
             this.btn_stop = new System.Windows.Forms.Button();
-            this.bn_start = new System.Windows.Forms.Button();
+            this.btn_start = new System.Windows.Forms.Button();
             this.txt_url = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -57,7 +57,7 @@
             this.groupBox1.Controls.Add(this.lb_time);
             this.groupBox1.Controls.Add(this.btn_load);
             this.groupBox1.Controls.Add(this.btn_stop);
-            this.groupBox1.Controls.Add(this.bn_start);
+            this.groupBox1.Controls.Add(this.btn_start);
             this.groupBox1.Controls.Add(this.txt_url);
             this.groupBox1.Location = new System.Drawing.Point(6, 0);
             this.groupBox1.Name = "groupBox1";
@@ -98,16 +98,16 @@
             this.btn_stop.UseVisualStyleBackColor = true;
             this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
-            // bn_start
+            // btn_start
             // 
-            this.bn_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bn_start.Location = new System.Drawing.Point(924, 20);
-            this.bn_start.Name = "bn_start";
-            this.bn_start.Size = new System.Drawing.Size(75, 23);
-            this.bn_start.TabIndex = 3;
-            this.bn_start.Text = "Start";
-            this.bn_start.UseVisualStyleBackColor = true;
-            this.bn_start.Click += new System.EventHandler(this.bn_start_Click);
+            this.btn_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_start.Location = new System.Drawing.Point(924, 20);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Size = new System.Drawing.Size(75, 23);
+            this.btn_start.TabIndex = 3;
+            this.btn_start.Text = "Start";
+            this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // txt_url
             // 
@@ -233,7 +233,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgv_result;
         private System.Windows.Forms.Button btn_stop;
-        private System.Windows.Forms.Button bn_start;
+        private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.Button btn_load;
         private System.Windows.Forms.Label lb_time;
         private System.Windows.Forms.Button btn_all;

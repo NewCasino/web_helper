@@ -38,8 +38,7 @@ namespace web_helper
             }
             else
             {
-                browser.Navigate(this.txt_url.Text);
-
+                browser.Navigate(this.txt_url.Text); 
             } 
         }
         private void btn_analyse_Click(object sender, EventArgs e)
@@ -87,9 +86,9 @@ namespace web_helper
         {
             Match100Method method = new Match100Method();
             BsonDocument doc_input = new BsonDocument();
-            BsonDocument doc = method.from_pinnaclesports_2(ref browser,doc_input);
+            BsonDocument doc = method.from_pinnaclesports_2(ref browser, doc_input);
             this.txt_result_method.Text = doc["data"].ToString();
-            MessageBox.Show("method ok!");
+            MessageBox.Show("method ok!"); 
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {

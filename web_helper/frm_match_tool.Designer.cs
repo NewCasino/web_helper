@@ -30,10 +30,12 @@
         {
             this.txt_win = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_draw = new System.Windows.Forms.TextBox();
-            this.txt_lose = new System.Windows.Forms.TextBox();
             this.btn_compute = new System.Windows.Forms.Button();
+            this.txt_lose = new System.Windows.Forms.TextBox();
+            this.txt_draw = new System.Windows.Forms.TextBox();
             this.txt_result = new System.Windows.Forms.TextBox();
+            this.cb_usa = new System.Windows.Forms.CheckBox();
+            this.cb_eng = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +50,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cb_eng);
+            this.groupBox1.Controls.Add(this.cb_usa);
             this.groupBox1.Controls.Add(this.btn_compute);
             this.groupBox1.Controls.Add(this.txt_lose);
             this.groupBox1.Controls.Add(this.txt_draw);
@@ -59,12 +63,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
-            // txt_draw
+            // btn_compute
             // 
-            this.txt_draw.Location = new System.Drawing.Point(84, 19);
-            this.txt_draw.Name = "txt_draw";
-            this.txt_draw.Size = new System.Drawing.Size(51, 20);
-            this.txt_draw.TabIndex = 1;
+            this.btn_compute.Location = new System.Drawing.Point(319, 16);
+            this.btn_compute.Name = "btn_compute";
+            this.btn_compute.Size = new System.Drawing.Size(75, 23);
+            this.btn_compute.TabIndex = 3;
+            this.btn_compute.Text = "Compute";
+            this.btn_compute.UseVisualStyleBackColor = true;
+            this.btn_compute.Click += new System.EventHandler(this.btn_compute_Click);
             // 
             // txt_lose
             // 
@@ -73,15 +80,12 @@
             this.txt_lose.Size = new System.Drawing.Size(51, 20);
             this.txt_lose.TabIndex = 2;
             // 
-            // btn_compute
+            // txt_draw
             // 
-            this.btn_compute.Location = new System.Drawing.Point(221, 17);
-            this.btn_compute.Name = "btn_compute";
-            this.btn_compute.Size = new System.Drawing.Size(75, 23);
-            this.btn_compute.TabIndex = 3;
-            this.btn_compute.Text = "Compute";
-            this.btn_compute.UseVisualStyleBackColor = true;
-            this.btn_compute.Click += new System.EventHandler(this.btn_compute_Click);
+            this.txt_draw.Location = new System.Drawing.Point(84, 19);
+            this.txt_draw.Name = "txt_draw";
+            this.txt_draw.Size = new System.Drawing.Size(51, 20);
+            this.txt_draw.TabIndex = 1;
             // 
             // txt_result
             // 
@@ -97,6 +101,26 @@
             this.txt_result.TabIndex = 2;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
+            // 
+            // cb_usa
+            // 
+            this.cb_usa.AutoSize = true;
+            this.cb_usa.Location = new System.Drawing.Point(210, 21);
+            this.cb_usa.Name = "cb_usa";
+            this.cb_usa.Size = new System.Drawing.Size(48, 17);
+            this.cb_usa.TabIndex = 4;
+            this.cb_usa.Text = "USA";
+            this.cb_usa.UseVisualStyleBackColor = true;
+            // 
+            // cb_eng
+            // 
+            this.cb_eng.AutoSize = true;
+            this.cb_eng.Location = new System.Drawing.Point(264, 21);
+            this.cb_eng.Name = "cb_eng";
+            this.cb_eng.Size = new System.Drawing.Size(49, 17);
+            this.cb_eng.TabIndex = 5;
+            this.cb_eng.Text = "ENG";
+            this.cb_eng.UseVisualStyleBackColor = true;
             // 
             // frm_match_tool
             // 
@@ -121,5 +145,7 @@
         private System.Windows.Forms.TextBox txt_lose;
         private System.Windows.Forms.TextBox txt_draw;
         private System.Windows.Forms.TextBox txt_result;
+        private System.Windows.Forms.CheckBox cb_eng;
+        private System.Windows.Forms.CheckBox cb_usa;
     }
 }

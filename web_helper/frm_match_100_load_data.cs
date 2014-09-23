@@ -72,7 +72,7 @@ namespace web_helper
             this.dgv_result.Columns["selected"].Width = 50;
         }
 
-        private void bn_start_Click(object sender, EventArgs e)
+        private void btn_start_Click(object sender, EventArgs e)
         {
             time.Start();
         }
@@ -82,8 +82,15 @@ namespace web_helper
         }
         private void time_Tick(object sender, EventArgs e)
         {
+            //每秒判断
             this.lb_time.Text = DateTime.Now.ToString("HH:mm:ss");
             analyse();
+
+            //每分钟判断
+            if (DateTime.Now.ToString("ss") == "01")
+            {
+
+            }
         }
         private void btn_all_Click(object sender, EventArgs e)
         {
@@ -254,7 +261,8 @@ namespace web_helper
             ArrayList list_selected = new ArrayList();
             ArrayList list_abort = new ArrayList();
             ArrayList list_wait = new ArrayList();
-            ArrayList list_complete = new ArrayList();
+            ArrayList list_ok = new ArrayList();
+            ArrayList list_doing = new ArrayList();
 
             foreach (DataRow row in dt.Rows)
             {
@@ -269,7 +277,55 @@ namespace web_helper
             //5 minutes later,restar browser
             foreach (string site_name in list_selected)
             {
-                 
+
+                string state = "";
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row["site_name"].ToString() == site_name)
+                    {
+                        state = row["state"].ToString();
+                        if (state == "abort") break;
+                    }
+                }
+                switch (state)
+                {
+                    case "abort":
+                        list_abort.Add(site_name);
+                        break;
+                    case "wait":
+                        list_wait.Add(site_name);
+                        break;
+                    case "doing":
+                        list_doing.Add(site_name);
+                        break;
+                    case "ok":
+                        list_ok.Add(site_name);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            //ok
+            foreach (string site_name in list_ok)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row["site_name"].ToString()== site_name)
+                    {
+                        DateTime final_time = Convert.ToDateTime(row["final"].ToString());
+                        TimeSpan span = DateTime.Now - final_time;
+                        if (span.TotalMinutes > 5)
+                        {
+                            row["state"] = "waiting";
+                            row["start_time"] = "";
+                            row["end_time"] = "";
+                            row["final_time"] = "";
+                            row["browser"] = "";
+                        }
+                    }
+                }
+
             }
         }
         public void select_method_from_site(WebBrowser browser, int row_id)

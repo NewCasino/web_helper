@@ -22,10 +22,28 @@ namespace web_helper
             string win = txt_win.Text;
             string draw = txt_draw.Text;
             string lose = txt_lose.Text;
+            if (cb_usa.Checked)
+            {
+                win = Match100Helper.convert_ameriaca_odd(win);
+                draw = Match100Helper.convert_ameriaca_odd(draw);
+                lose = Match100Helper.convert_ameriaca_odd(lose);
+            }
+            if (cb_eng.Checked)
+            {
+                win = Match100Helper.convert_english_odd(win);
+                draw = Match100Helper.convert_english_odd(draw);
+                lose = Match100Helper.convert_english_odd(lose);
+            }
+          
             if (string.IsNullOrEmpty(win) || string.IsNullOrEmpty(draw) || string.IsNullOrEmpty(lose)) return;
             BsonDocument doc_odd = Match100Helper.get_odd_doc_from_europe(win, draw, lose);
 
             if (!string.IsNullOrEmpty(sb.ToString())) { sb.AppendLine("----------------------------------------------"); }
+
+            if (cb_usa.Checked || cb_eng.Checked)
+            {
+                sb.AppendLine("ODD".PR(15) + txt_win.Text.PR(10) + txt_draw.Text.PR(10) + txt_lose.Text.PR(10)); 
+            }
            
             sb.AppendLine("ODD".PR(15) + doc_odd["win"].PR(10) + doc_odd["draw"].PR(10) + doc_odd["lose"].PR(10));
             sb.AppendLine("PERSENT".PR(15) + doc_odd["persent_win"].PR(10) + doc_odd["persent_draw"].PR(10) + doc_odd["persent_lose"].PR(10));
