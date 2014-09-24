@@ -31,3 +31,9 @@ check all odd type[wdl,handicap,under/over,points,total...]
 2014-09-22 night
 get betfair_es index data to analyse
 get more_data to analyse
+
+--------------------------
+2014-09-25
+modify match_analyse add website odd time
+modify match_analyse  speed
+go on match 100 mix analyse
