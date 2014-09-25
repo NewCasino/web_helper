@@ -99,6 +99,7 @@ class Match100Analyse
                 string odd_win = "";
                 string odd_draw = "";
                 string odd_lose = "";
+                string odd_timespan = "";
                 foreach (DataRow row in dt.Rows)
                 {
                     if (row["website"].ToString() == website)
@@ -106,11 +107,13 @@ class Match100Analyse
                         odd_win = row["odd_win"].ToString();
                         odd_draw = row["odd_draw"].ToString();
                         odd_lose = row["odd_lose"].ToString();
+                        odd_timespan = row["timespan"].ToString();
                     }
                 }
                 doc_item.Add("odd_win", odd_win);
                 doc_item.Add("odd_draw", odd_draw);
                 doc_item.Add("odd_lose", odd_lose);
+                doc_item.Add("timespan", odd_timespan);
 
                 website_odds.Add(doc_item.AsBsonDocument);
             }
@@ -186,7 +189,7 @@ class Match100Analyse
             }
         }
 
-       
+
         BsonDocument doc_max = Match100Analyse.get_min_by_wave(max, max_count);
 
 
@@ -241,9 +244,11 @@ class Match100Analyse
                 string odd_win1 = "";
                 string odd_draw1 = "";
                 string odd_lose1 = "";
+                string odd_timespan1 = "";
                 string odd_win2 = "";
                 string odd_draw2 = "";
                 string odd_lose2 = "";
+                string odd_timespan2 = "";
                 foreach (DataRow row in dt1.Rows)
                 {
                     if (row["website"].ToString() == website)
@@ -251,6 +256,7 @@ class Match100Analyse
                         odd_win1 = row["odd_win"].ToString();
                         odd_draw1 = row["odd_draw"].ToString();
                         odd_lose1 = row["odd_lose"].ToString();
+                        odd_timespan1 = row["timespan"].ToString();
                     }
                 }
                 foreach (DataRow row in dt2.Rows)
@@ -260,14 +266,17 @@ class Match100Analyse
                         odd_win2 = row["odd_win"].ToString();
                         odd_draw2 = row["odd_draw"].ToString();
                         odd_lose2 = row["odd_lose"].ToString();
+                        odd_timespan2 = row["timespan"].ToString();
                     }
                 }
                 doc_item.Add("odd_win1", odd_win1);
                 doc_item.Add("odd_draw1", odd_draw1);
                 doc_item.Add("odd_lose1", odd_lose1);
+                doc_item.Add("timespan1", odd_timespan1);
                 doc_item.Add("odd_win2", odd_win2);
                 doc_item.Add("odd_draw2", odd_draw2);
                 doc_item.Add("odd_lose2", odd_lose2);
+                doc_item.Add("timespan2", odd_timespan2);
 
                 website_odds.Add(doc_item.AsBsonDocument);
             }
@@ -303,7 +312,7 @@ class Match100Analyse
             for (int i = 0; i < doc["odds"].AsBsonArray.Count; i++)
             {
                 doc["odds"].AsBsonArray[i] = "0";
-            } 
+            }
         }
 
         return doc;
@@ -505,7 +514,7 @@ class Match100Analyse
                 website_odds.Add(doc_item.AsBsonDocument);
             }
         }
-        doc.Add("website_odds", website_odds); 
+        doc.Add("website_odds", website_odds);
         doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
         doc.Add("bids", doc_max["bids"].AsBsonArray);
         doc.Add("odds", doc_max["odds"].AsBsonArray);
@@ -898,7 +907,8 @@ class Match100Analyse
                     result = result + doc_item["website"].PR(20);
                     result = result + doc_item["odd_win"].PR(10);
                     result = result + doc_item["odd_draw"].PR(10);
-                    result = result + doc_item["odd_lose"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["odd_lose"].PR(10);
+                    result = result + doc_item["timespan"].ToString() + Environment.NewLine;
                 }
 
 
@@ -909,7 +919,7 @@ class Match100Analyse
                     string website = doc["websites"].AsBsonArray[Convert.ToInt32(order_no)].ToString();
                     string odd = doc["odds"].AsBsonArray[i].ToString();
                     string bid = doc["bids"].AsBsonArray[i].ToString();
-                    result = result + website.PR(20) + odd.PR(10)+bid.PR(10);
+                    result = result + website.PR(20) + odd.PR(10) + bid.PR(10);
                     foreach (BsonDocument doc_item in doc["website_odds"].AsBsonArray)
                     {
                         if (doc_item["website"].ToString() == website)
@@ -924,7 +934,7 @@ class Match100Analyse
                                     break;
                                 case "2":
                                     result = result + "Lose".PR(10) + doc_item["odd_lose"].PR(10);
-                                    break; 
+                                    break;
                                 default:
                                     break;
                             }
@@ -984,11 +994,13 @@ class Match100Analyse
                     result = result + doc_item["website"].PR(20);
                     result = result + doc_item["odd_win1"].PR(10);
                     result = result + doc_item["odd_draw1"].PR(10);
-                    result = result + doc_item["odd_lose1"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["odd_lose1"].PR(10);
+                    result = result + doc_item["timespan1"].ToString() + Environment.NewLine;
                     result = result + "".PR(20);
                     result = result + doc_item["odd_win2"].PR(10);
                     result = result + doc_item["odd_draw2"].PR(10);
-                    result = result + doc_item["odd_lose2"].PR(10) + Environment.NewLine;
+                    result = result + doc_item["odd_lose2"].PR(10);
+                    result = result + doc_item["timespan2"].ToString() + Environment.NewLine;
                 }
 
                 result = result + "odd detail info:" + Environment.NewLine;
@@ -1037,13 +1049,13 @@ class Match100Analyse
                             }
                         }
                     }
-                    result = result + Environment.NewLine; 
+                    result = result + Environment.NewLine;
                 }
                 break;
             case "three-match-max":
                 result = "type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine +
                  doc["start_time1"].ToString() + "    " + doc["host1"].PR(20) + doc["client1"].PR(20) + Environment.NewLine +
-                 doc["start_time2"].ToString() + "    " + doc["host2"].PR(20) + doc["client2"].PR(20)+ Environment.NewLine +
+                 doc["start_time2"].ToString() + "    " + doc["host2"].PR(20) + doc["client2"].PR(20) + Environment.NewLine +
                  doc["start_time3"].ToString() + "    " + doc["host3"].PR(20) + doc["client3"].PR(20) + Environment.NewLine +
                  "bid count:" + doc["bid_count"].ToString() + Environment.NewLine +
                  "return value: " + doc["min_value"].ToString() + "  ~  " + doc["max_value"].ToString() + Environment.NewLine +

@@ -3,7 +3,7 @@
 3,need data  victorbet:check is all data  to read all data
 
 -------------------------
-
+2014-09-15
 1,read log to normal when load data
 2,one window with all analyse(AutoPickData)
 3,analyse pinsport index page
@@ -37,3 +37,7 @@ get more_data to analyse
 modify match_analyse add website odd time
 modify match_analyse  speed
 go on match 100 mix analyse
+
+--------------------------
+2014-09-26 night
+test the frm_load_data unknown dead

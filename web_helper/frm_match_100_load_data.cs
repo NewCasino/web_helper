@@ -40,7 +40,7 @@ namespace web_helper
                 ie.browser.Height = 600;
                 ie.is_use = false;
                 ie.index = i;
-                ie.browser.ScriptErrorsSuppressed = true;
+                ie.browser.ScriptErrorsSuppressed = true; 
                 ie.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.browser_DocumentCompleted);
                 ies.Add(ie);
             }
@@ -254,7 +254,7 @@ namespace web_helper
                     }
                 }
             }
-            //Application.DoEvents();
+            Application.DoEvents();
         }
         public void analyse_reset()
         {

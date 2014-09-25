@@ -230,9 +230,15 @@ namespace web_helper
                 string odd_draw = row["odd_draw"].ToString().Trim();
                 string odd_lose = row["odd_lose"].ToString().Trim();
 
-                sql = "select * from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and odd_win='{4}' and odd_draw='{5}' and odd_lose='{6}'";
-                sql = string.Format(sql, website, start_time, host, client, odd_win, odd_lose, odd_lose);
+                //get max id
+                sql = " select isnull(max(id),-1)  from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}'";
+                sql = string.Format(sql, website, start_time, host, client);
+                string max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
+
+                sql = "select * from europe_100 where website='{0}' and  start_time='{1}' and host='{2}' and client='{3}' and odd_win='{4}' and odd_draw='{5}' and odd_lose='{6}' and id={7}";
+                sql = string.Format(sql, website, start_time, host, client, odd_win, odd_draw, odd_lose,max_id);
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
+
                 if (dt_temp.Rows.Count == 0)
                 {
                     sql = " insert into europe_100  (timespan,website,league,start_time,host,client,odd_win,odd_draw,odd_lose) values" +
@@ -240,11 +246,16 @@ namespace web_helper
                     sql = string.Format(sql, time_span, website, league, start_time, host, client, odd_win, odd_draw, odd_lose);
                     SQLServerHelper.exe_sql(sql);
                 }
+                else
+                {
+                    sql = "update europe_100 set timespan='{0}' where id={1}";
+                    sql = string.Format(sql, time_span,max_id);
+                    SQLServerHelper.exe_sql(sql);
+                }
                 sql = "update europe_100_log set f_state='4' where id={0}";
                 sql = string.Format(sql, id);
                 SQLServerHelper.exe_sql(sql);
-            }
-
+            } 
             is_picking = false;
         } 
         public void analyse()
