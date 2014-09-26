@@ -23,9 +23,9 @@ namespace web_helper
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
         }
-        private void btn_check_persent_Click(object sender, EventArgs e)
+        private void btn_team_discrimination_Click(object sender, EventArgs e)
         {
-            check_team_recongition_persent();
+            team_discrimination();
         }
         private void btn_check_matchs_Click(object sender, EventArgs e)
         {
@@ -37,12 +37,12 @@ namespace web_helper
         }
         private void btn_check_qty_Click(object sender, EventArgs e)
         {
-            check_qty();
+            load_qty();
         }
 
 
 
-        public void check_team_recongition_persent()
+        public void team_discrimination()
         {
             string sql = "select isnull(min(id),0) from europe_100_log";
             DataTable dt_temp = SQLServerHelper.get_table(sql);
@@ -52,6 +52,7 @@ namespace web_helper
             sql = string.Format(sql, start_id);
 
             DataTable dt_website = SQLServerHelper.get_table(sql);
+            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
             foreach (DataRow row in dt_website.Rows)
             {
                 string website = row["website"].ToString();
@@ -84,7 +85,9 @@ namespace web_helper
                 this.txt_result.Text = sb.ToString();
                 Application.DoEvents();
             }
-            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------");
+            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
         }
         public void check_match_odd_count()
         {
@@ -119,6 +122,7 @@ namespace web_helper
 
                     if (i == 0)
                     {
+                        sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
                         sb.AppendLine(start_time.PR(20) + host.PR(30) + client.PR(30) + website.PR(20) + win.PR(10) + draw.PR(10) + lose.PR(10));
                         this.txt_result.Text = sb.ToString();
                         Application.DoEvents();
@@ -131,7 +135,7 @@ namespace web_helper
                     }
                 }
             }
-            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------");
+            sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
             this.txt_result.Text = sb.ToString();
             Application.DoEvents();
         }
@@ -168,7 +172,7 @@ namespace web_helper
 
             }
         }
-        public void check_qty()
+        public void load_qty()
         {
             string sql = "select distinct substring(timespan,0,11) date  from europe_100_log order by date desc";
             DataTable dt_date = SQLServerHelper.get_table(sql);
@@ -185,14 +189,14 @@ namespace web_helper
                     sql = string.Format(sql, date);
 
                     DataTable dt = SQLServerHelper.get_table(sql);
-                    sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------");
+                    sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
                     sb.AppendLine(date);
                     foreach (DataRow row in dt.Rows)
                     { 
                         sb.AppendLine(row[0].ToString().PR(20) + row[1].ToString().PR(10));
                     } 
                 }
-                sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------");
+                sb.AppendLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
 
             this.txt_result.Text = sb.ToString();

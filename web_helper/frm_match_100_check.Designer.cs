@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_check_qty = new System.Windows.Forms.Button();
             this.btn_add_all = new System.Windows.Forms.Button();
             this.btn_check_matchs = new System.Windows.Forms.Button();
-            this.btn_check_persent = new System.Windows.Forms.Button();
+            this.btn_team_discrimination = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
-            this.btn_check_qty = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -52,13 +52,23 @@
             this.groupBox1.Controls.Add(this.btn_check_qty);
             this.groupBox1.Controls.Add(this.btn_add_all);
             this.groupBox1.Controls.Add(this.btn_check_matchs);
-            this.groupBox1.Controls.Add(this.btn_check_persent);
+            this.groupBox1.Controls.Add(this.btn_team_discrimination);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(916, 56);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_check_qty
+            // 
+            this.btn_check_qty.Location = new System.Drawing.Point(374, 19);
+            this.btn_check_qty.Name = "btn_check_qty";
+            this.btn_check_qty.Size = new System.Drawing.Size(116, 25);
+            this.btn_check_qty.TabIndex = 3;
+            this.btn_check_qty.Text = "Load Qty";
+            this.btn_check_qty.UseVisualStyleBackColor = true;
+            this.btn_check_qty.Click += new System.EventHandler(this.btn_check_qty_Click);
             // 
             // btn_add_all
             // 
@@ -80,15 +90,15 @@
             this.btn_check_matchs.UseVisualStyleBackColor = true;
             this.btn_check_matchs.Click += new System.EventHandler(this.btn_check_matchs_Click);
             // 
-            // btn_check_persent
+            // btn_team_discrimination
             // 
-            this.btn_check_persent.Location = new System.Drawing.Point(8, 19);
-            this.btn_check_persent.Name = "btn_check_persent";
-            this.btn_check_persent.Size = new System.Drawing.Size(116, 25);
-            this.btn_check_persent.TabIndex = 0;
-            this.btn_check_persent.Text = "Check Persent";
-            this.btn_check_persent.UseVisualStyleBackColor = true;
-            this.btn_check_persent.Click += new System.EventHandler(this.btn_check_persent_Click);
+            this.btn_team_discrimination.Location = new System.Drawing.Point(8, 19);
+            this.btn_team_discrimination.Name = "btn_team_discrimination";
+            this.btn_team_discrimination.Size = new System.Drawing.Size(116, 25);
+            this.btn_team_discrimination.TabIndex = 0;
+            this.btn_team_discrimination.Text = "T Discrimination(%)";
+            this.btn_team_discrimination.UseVisualStyleBackColor = true;
+            this.btn_team_discrimination.Click += new System.EventHandler(this.btn_team_discrimination_Click);
             // 
             // tabControl1
             // 
@@ -146,16 +156,6 @@
             this.dgv_result.Size = new System.Drawing.Size(916, 455);
             this.dgv_result.TabIndex = 0;
             // 
-            // btn_check_qty
-            // 
-            this.btn_check_qty.Location = new System.Drawing.Point(374, 19);
-            this.btn_check_qty.Name = "btn_check_qty";
-            this.btn_check_qty.Size = new System.Drawing.Size(116, 25);
-            this.btn_check_qty.TabIndex = 3;
-            this.btn_check_qty.Text = "Check Qty";
-            this.btn_check_qty.UseVisualStyleBackColor = true;
-            this.btn_check_qty.Click += new System.EventHandler(this.btn_check_qty_Click);
-            // 
             // frm_match_100_check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,7 +164,6 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_100_check";
-            this.Text = "100 Check";
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -181,7 +180,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txt_result;
-        private System.Windows.Forms.Button btn_check_persent;
+        private System.Windows.Forms.Button btn_team_discrimination;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgv_result;
         private System.Windows.Forms.Button btn_check_matchs;
