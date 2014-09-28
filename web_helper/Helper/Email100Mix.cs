@@ -18,10 +18,9 @@ class Email100Mix
         BsonDocument doc = new BsonDocument();
         doc.Add("start_time", "");
         doc.Add("host", "");
-        doc.Add("client", ""); 
+        doc.Add("client", "");
 
-        return doc;
-
+        return doc; 
     }
     public void compute()
     {
