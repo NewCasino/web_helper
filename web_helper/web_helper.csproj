@@ -538,6 +538,10 @@
       <DependentUpon>frm_match_100_check.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_100_load_data_pinnaclesports.resx">
+      <DependentUpon>frm_match_100_load_data_pinnaclesports.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -577,6 +581,12 @@
     </Compile>
     <Compile Include="frm_match_100_check.Designer.cs">
       <DependentUpon>frm_match_100_check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_100_load_data_pinnaclesports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_100_load_data_pinnaclesports.Designer.cs">
+      <DependentUpon>frm_match_100_load_data_pinnaclesports.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -43,11 +43,16 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_compute_by_website
             // 
-            this.btn_compute_by_website.Location = new System.Drawing.Point(130, 41);
+            this.btn_compute_by_website.Location = new System.Drawing.Point(126, 19);
             this.btn_compute_by_website.Name = "btn_compute_by_website";
             this.btn_compute_by_website.Size = new System.Drawing.Size(112, 23);
             this.btn_compute_by_website.TabIndex = 0;
@@ -57,7 +62,7 @@
             // 
             // btn_down_excel
             // 
-            this.btn_down_excel.Location = new System.Drawing.Point(12, 41);
+            this.btn_down_excel.Location = new System.Drawing.Point(8, 19);
             this.btn_down_excel.Name = "btn_down_excel";
             this.btn_down_excel.Size = new System.Drawing.Size(112, 23);
             this.btn_down_excel.TabIndex = 1;
@@ -67,7 +72,7 @@
             // 
             // frm_match_website_info
             // 
-            this.frm_match_website_info.Location = new System.Drawing.Point(248, 12);
+            this.frm_match_website_info.Location = new System.Drawing.Point(244, 19);
             this.frm_match_website_info.Name = "frm_match_website_info";
             this.frm_match_website_info.Size = new System.Drawing.Size(112, 23);
             this.frm_match_website_info.TabIndex = 2;
@@ -77,7 +82,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(8, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 23);
             this.button1.TabIndex = 3;
@@ -87,7 +92,7 @@
             // 
             // btn_match_100
             // 
-            this.btn_match_100.Location = new System.Drawing.Point(12, 127);
+            this.btn_match_100.Location = new System.Drawing.Point(8, 77);
             this.btn_match_100.Name = "btn_match_100";
             this.btn_match_100.Size = new System.Drawing.Size(112, 23);
             this.btn_match_100.TabIndex = 5;
@@ -97,7 +102,7 @@
             // 
             // btn_html_analyse
             // 
-            this.btn_html_analyse.Location = new System.Drawing.Point(130, 98);
+            this.btn_html_analyse.Location = new System.Drawing.Point(126, 48);
             this.btn_html_analyse.Name = "btn_html_analyse";
             this.btn_html_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_html_analyse.TabIndex = 4;
@@ -107,7 +112,7 @@
             // 
             // btn_compute_method
             // 
-            this.btn_compute_method.Location = new System.Drawing.Point(130, 12);
+            this.btn_compute_method.Location = new System.Drawing.Point(126, 19);
             this.btn_compute_method.Name = "btn_compute_method";
             this.btn_compute_method.Size = new System.Drawing.Size(112, 23);
             this.btn_compute_method.TabIndex = 6;
@@ -117,7 +122,7 @@
             // 
             // btn_browser
             // 
-            this.btn_browser.Location = new System.Drawing.Point(12, 98);
+            this.btn_browser.Location = new System.Drawing.Point(8, 48);
             this.btn_browser.Name = "btn_browser";
             this.btn_browser.Size = new System.Drawing.Size(112, 23);
             this.btn_browser.TabIndex = 7;
@@ -127,7 +132,7 @@
             // 
             // btn_500_read_info
             // 
-            this.btn_500_read_info.Location = new System.Drawing.Point(130, 156);
+            this.btn_500_read_info.Location = new System.Drawing.Point(126, 106);
             this.btn_500_read_info.Name = "btn_500_read_info";
             this.btn_500_read_info.Size = new System.Drawing.Size(112, 23);
             this.btn_500_read_info.TabIndex = 8;
@@ -137,7 +142,7 @@
             // 
             // btn_log_analyse
             // 
-            this.btn_log_analyse.Location = new System.Drawing.Point(130, 127);
+            this.btn_log_analyse.Location = new System.Drawing.Point(126, 77);
             this.btn_log_analyse.Name = "btn_log_analyse";
             this.btn_log_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_log_analyse.TabIndex = 9;
@@ -147,7 +152,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(248, 127);
+            this.button2.Location = new System.Drawing.Point(244, 77);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 23);
             this.button2.TabIndex = 10;
@@ -157,7 +162,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 156);
+            this.button3.Location = new System.Drawing.Point(8, 106);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 23);
             this.button3.TabIndex = 11;
@@ -167,7 +172,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(248, 156);
+            this.button4.Location = new System.Drawing.Point(244, 106);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 23);
             this.button4.TabIndex = 12;
@@ -177,7 +182,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 70);
+            this.button5.Location = new System.Drawing.Point(8, 48);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(112, 23);
             this.button5.TabIndex = 13;
@@ -187,7 +192,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(248, 41);
+            this.button6.Location = new System.Drawing.Point(244, 48);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(112, 23);
             this.button6.TabIndex = 14;
@@ -195,30 +200,61 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.btn_down_excel);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.btn_compute_by_website);
+            this.groupBox1.Location = new System.Drawing.Point(5, 147);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(365, 112);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(8, 77);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(112, 23);
+            this.button7.TabIndex = 12;
+            this.button7.Text = "Pinnacle";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.frm_match_website_info);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btn_html_analyse);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btn_match_100);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btn_compute_method);
+            this.groupBox2.Controls.Add(this.btn_log_analyse);
+            this.groupBox2.Controls.Add(this.btn_browser);
+            this.groupBox2.Controls.Add(this.btn_500_read_info);
+            this.groupBox2.Location = new System.Drawing.Point(5, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(365, 139);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 196);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btn_log_analyse);
-            this.Controls.Add(this.btn_500_read_info);
-            this.Controls.Add(this.btn_browser);
-            this.Controls.Add(this.btn_compute_method);
-            this.Controls.Add(this.btn_match_100);
-            this.Controls.Add(this.btn_html_analyse);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.frm_match_website_info);
-            this.Controls.Add(this.btn_down_excel);
-            this.Controls.Add(this.btn_compute_by_website);
+            this.ClientSize = new System.Drawing.Size(374, 269);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frm_match_bar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -240,5 +276,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

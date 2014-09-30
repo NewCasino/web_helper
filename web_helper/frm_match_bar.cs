@@ -105,5 +105,11 @@ namespace web_helper
             frm_match_tool frm = new frm_match_tool();
             frm.Show();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            frm_match_100_load_data_pinnaclesports frm = new frm_match_100_load_data_pinnaclesports();
+            frm.Show();
+        }
     }
 }

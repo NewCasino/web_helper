@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_marathonbet(); 
+            test_pinnaclesports_me();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace web_helper
 
                     start_time = Tool.get_12m_from_eng(start_time.Substring(0, 3)) + "-" + start_time.Substring(3, start_time.Length - 3).E_TRIM();
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                   // Match100Helper.insert_data("XXXX", league, start_time, host, client, win, draw, lose, "8", "0");
+                    // Match100Helper.insert_data("XXXX", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //========================================================================================================
@@ -1274,7 +1274,7 @@ namespace web_helper
 
         //2014-09-04
         public void test_youwin()
-        { 
+        {
             WebClient web_client = new WebClient();
             string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "youwin.html"));
             html = html.Replace("<thead=\"\"", "");
@@ -1731,7 +1731,7 @@ namespace web_helper
                     start_time = node.InnerText.E_TRIM();
                     start_time = start_time.Substring(3, 2) + "-" + start_time.Substring(0, 2) + M.D + start_time.Substring(10, 5);
                 }
-                if (node.CLASS() == "odd" )
+                if (node.CLASS() == "odd")
                 {
                     league = node.SELECT_NODE("/td[1]/span[1]").Attributes["title"].Value;
 
@@ -2810,9 +2810,6 @@ namespace web_helper
 
 
         }
-        #endregion
-
- 
 
         //2014-09-23
         public void test_betfair_es_index()
@@ -2847,6 +2844,161 @@ namespace web_helper
                     string url = node.Attributes["href"].Value;
                     sb.AppendLine(url);
                 }
+            }
+            //========================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        #endregion
+
+
+        public void test_pinnaclesports_me_index()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "pinnaclesports_me_index.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            string str_class = "";
+            string name = "";
+            string href = "";
+            int count = 0;
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "h4")
+                {
+                    str_class = node.InnerText;
+                }
+                if (str_class == "Soccer")
+                {
+
+                    if (node.Name == "a" && node.Attributes.Contains("href") && node.Attributes["href"].Value.Contains("Soccer"))
+                    {
+                        name = node.InnerText.E_REMOVE();
+                        href = node.Attributes["href"].Value.ToString();
+                        if (!name.Contains("Half") && !name.Contains("Total") && !name.Contains("Corners") && !name.Contains(" vs ") && !name.Contains("Live") && !href.Contains("Soccer+Props"))
+                        {
+                            if (!sb.ToString().Contains(href))
+                            {
+                                count = count + 1;
+                                sb.AppendLine(count.PR(5) + name.PR(50) + href);
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            //========================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_pinnaclesports_me()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "pinnaclesports_me.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+            ArrayList list_lg = new ArrayList();
+            string league = "";
+
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            HtmlNode node_host;
+            HtmlNode node_client;
+            HtmlNode node_draw;
+            foreach (HtmlNode node in nodes_all)
+            { 
+                if (node.CLASS() == "linesTbl")
+                {
+
+                    HtmlNodeCollection nodes_tr = node.SELECT_NODES("/tbody[1]/tr");
+                    if (nodes_tr != null)
+                    {
+                        league = nodes_tr[0].InnerText.E_REMOVE();
+
+
+                        int count = 0;
+                        for (int i = 2; i < nodes_tr.Count; i++)
+                        {
+                            count = count + 1;
+                            if (count == 2)
+                            {
+                                if (i + 1 < nodes_tr.Count && nodes_tr[i + 1].SELECT_NODE("/td[3]") != null && nodes_tr[i + 1].SELECT_NODE("/td[3]").InnerText.Contains("Draw"))
+                                {
+                                    string test = "200";
+                                    node_host = nodes_tr[i - 1];
+                                    node_client = nodes_tr[i];
+                                    node_draw = nodes_tr[i + 1];
+                                    count = 0;
+                                    i = i + 1;
+                                    date = node_host.SELECT_NODE("/td[1]").InnerText;
+                                    time = node_client.SELECT_NODE("/td[1]").InnerText;
+                                    start_time = date + M.D + time;
+
+                                    host = node_host.SELECT_NODE("/td[3]").InnerText;
+                                    client = node_client.SELECT_NODE("/td[3]").InnerText;
+
+                                    win = node_host.SELECT_NODE("/td[5]").InnerText.Replace("o", "").Replace("&nbsp;", "").E_TRIM();
+                                    draw = node_draw.SELECT_NODE("/td[5]").InnerText.Replace("o", "").Replace("&nbsp;", "").E_TRIM();
+                                    lose = node_client.SELECT_NODE("/td[5]").InnerText.Replace("o", "").Replace("&nbsp;", "").E_TRIM();
+                                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                    // Match100Helper.insert_data("pinnaclesports", league, start_time, host, client, win, draw, lose, "-7", "0");Match100Helper.insert_data("pinnaclesports", league, start_time, host, client, win, draw, lose, "-7", "0");
+                                }
+                                if (i + 1 < nodes_tr.Count && nodes_tr[i + 1].SELECT_NODE("/td[3]") != null && nodes_tr[i + 1].SELECT_NODE("/td[3]").InnerText != "Draw")
+                                {
+                                    node_host = nodes_tr[i - 1];
+                                    node_client = nodes_tr[i];
+                                    count = 0;
+                                }
+                                if (i + 1 == nodes_tr.Count)
+                                {
+                                    node_host = nodes_tr[i - 1];
+                                    node_client = nodes_tr[i];
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+
             }
             //========================================================================================================
             this.txt_result.Text = sb.ToString();
