@@ -118,6 +118,8 @@ namespace web_helper
         private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             WebBrowser browser = (WebBrowser)sender;
+            string test = browser.Document.Url.ToString();
+            //res://ieframe.dll/navcancl.htm#D:\DOC\Visual Studio 2008\MyProjects\WebSite2\test.htm
             if (e.Url != browser.Document.Url) return;
             if (browser.ReadyState != WebBrowserReadyState.Complete) return;
 

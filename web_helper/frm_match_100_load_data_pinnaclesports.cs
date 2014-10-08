@@ -552,5 +552,10 @@ namespace web_helper
             return doc_result;
         }
 
+        private void btn_full_Click(object sender, EventArgs e)
+        { 
+
+        }
+
     }
 }
