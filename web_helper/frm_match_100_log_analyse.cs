@@ -276,7 +276,16 @@ namespace web_helper
 
 
 
-            string sql = " select * from europe_100_log where f_state ='1' or f_state='2' ";
+           // string sql = " select * from europe_100_log where f_state in('1','2') and f_start_time>'{0}' ";
+            string sql = " select * from  europe_100_log " +
+                " where id in" +
+                " (" +
+                " select max(id)" +
+                " from europe_100_log " +
+                " where f_state in('1','2') and f_start_time>'{0}' " +
+                " group by website,league,start_time,host,client,f_league,f_start_time,f_host,f_client" +
+                " )";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")); 
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
             {
@@ -312,8 +321,16 @@ namespace web_helper
              
                 sb.AppendLine(id.PR(5) + start_time.PR(20) + host.PR(30) + client.PR(30) + f_start_time.PR(20) + f_host.PR(30) + f_client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
           
-                sql = " select * from europe_100_log where (f_state='2' or f_state='3') and f_start_time='{0}' and id<>'{1}' and f_start_time='{2}'";
-                sql = string.Format(sql, f_start_time, id,f_start_time);
+                sql = " select * from europe_100_log "+
+                      " where  id in"+
+                        " (" +
+                        " select max(id)" +
+                        " from europe_100_log " +
+                        " where f_state in('1','2','4') and f_start_time>'{0}' " +
+                        " group by website,league,start_time,host,client,f_league,f_start_time,f_host,f_client" +
+                        " )"+ 
+                      "  and id<>'{1}' and f_start_time='{2}'";
+                sql = string.Format(sql,  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), id,f_start_time);
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
                 foreach (DataRow row_temp in dt_temp.Rows)
                 {
@@ -333,13 +350,13 @@ namespace web_helper
                     dt_result.Rows.Add(row_new_temp);
 
                     sb.AppendLine("".PR(5) + row_temp["start_time"].PR(20) + row_temp["host"].PR(30) + row_temp["client"].PR(30) + row_temp["f_start_time"].PR(20) + row_temp["f_host"].PR(30) + row_temp["f_client"].PR(30) + row_temp["odd_win"].PR(10) + row_temp["odd_draw"].PR(10) + row_temp["odd_lose"].PR(10));
-                    this.txt_result.Text = sb.ToString();
+                    this.txt_result.Text = sb.PRINT();
                     Application.DoEvents();
                 }
                 sb.AppendLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
               
             }
-            this.txt_result.Text = sb.ToString();
+            this.txt_result.Text = sb.PRINT();
             Application.DoEvents();
             this.dgv_result.DataSource = dt_result;
         }

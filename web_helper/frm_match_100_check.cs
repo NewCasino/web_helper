@@ -168,8 +168,7 @@ namespace web_helper
                     this.txt_result.Text = sb.PRINT();
                     Application.DoEvents();
 
-                }
-
+                } 
             }
         }
         public void load_qty()
