@@ -41,3 +41,10 @@ go on match 100 mix analyse
 --------------------------
 2014-09-26 night
 test the frm_load_data unknown dead
+
+--------------------------
+2014-10-11
+modify frm_match_100_log_analyse:
+modify method when no date info
+modify frm_match_100_check: 
+add two teams(pinnacle & marathonbet) analyse persent:matching persent
