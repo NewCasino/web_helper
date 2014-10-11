@@ -143,6 +143,10 @@ class Match100Helper
 
     public static DateTime convert_start_time(string start_time, string time_zone, string timespan)
     {
+
+        //wether has date info
+        bool is_has_date = true;
+
         start_time = start_time.Trim().ToLower();
         start_time = start_time.Replace('/', '-');
 
@@ -152,6 +156,7 @@ class Match100Helper
             DateTime dt_span = Convert.ToDateTime(timespan);
             DateTime dt_convert = Tool.get_time_by_kind(dt_span, Convert.ToInt16(time_zone));
             start_time = dt_convert.ToString("MM-dd") + "●" + start_time;
+            is_has_date = false;
         }
 
 
@@ -210,6 +215,15 @@ class Match100Helper
 
         //convert timezone
         dt_return = Tool.get_time_by_kind(dt_return, Convert.ToInt16(time_zone));
+
+        //when has no date info and the date less than now
+        if (is_has_date == false)
+        {
+            if ((dt_return - DateTime.Now).Seconds < 0)
+            {
+                dt_return = dt_return.AddDays(1);
+            }
+        }
 
         return dt_return;
     }
