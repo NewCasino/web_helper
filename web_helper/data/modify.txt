@@ -48,3 +48,7 @@ modify frm_match_100_log_analyse:
 modify method when no date info
 modify frm_match_100_check: 
 add two teams(pinnacle & marathonbet) analyse persent:matching persent
+--------------------------
+2014-10-13
+modify frm_match_100_log_analyse:
+modify method when no date info(2014_10_12_004.xlsx)
