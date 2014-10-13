@@ -43,6 +43,13 @@ namespace web_helper
                 ie.browser.ScriptErrorsSuppressed = true; 
                 ie.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.browser_DocumentCompleted);
                 ies.Add(ie);
+
+                if (i == 0)
+                {
+                    this.tab_browser.Controls.Add(ie.browser);
+                    ie.browser.Dock = System.Windows.Forms.DockStyle.Fill;
+                    ie.browser.BringToFront();
+                }
             }
             bind_data();
         }

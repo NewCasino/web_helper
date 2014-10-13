@@ -1881,6 +1881,10 @@ class Match100Method
             if (element.Id == "btn_ok") element.InvokeMember("click");
             if (element.Id == "txt") sb.AppendLine(element.GetAttribute("value"));
         }
+
+        //if (browser.Document == null) return doc_result;  
+        //BrowserHelper.invoke_click_by_id(ref browser, "btn_ok"); 
+
         doc_result["data"] = sb.ToString();
         doc_result["url"] = browser.Document.Url.ToString();
         return doc_result;

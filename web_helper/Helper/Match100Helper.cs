@@ -91,6 +91,7 @@ class Match100Helper
             if (!name_all.Contains(name)) name_update = name_update + "●" + name;
             if (name_all != name_update)
             {
+
                 sql = " update names set name_all='{0}' where id={1}";
                 sql = string.Format(sql, Tool.drop_repeat(name_update), id);
                 SQLServerHelper.exe_sql(sql);
@@ -154,8 +155,9 @@ class Match100Helper
         if (!start_time.Contains("-"))
         {
             DateTime dt_span = Convert.ToDateTime(timespan);
-            DateTime dt_convert = Tool.get_time_by_kind(dt_span, Convert.ToInt16(time_zone));
-            start_time = dt_convert.ToString("MM-dd") + "●" + start_time;
+            //convert to orgrin time zone
+            dt_span = dt_span.AddHours(Convert.ToInt16(time_zone) - 8);
+            start_time = dt_span.ToString("MM-dd") + "●" + start_time;
             is_has_date = false;
         }
 
@@ -222,7 +224,7 @@ class Match100Helper
             if ((dt_return - DateTime.Now).Seconds < 0)
             {
                 dt_return = dt_return.AddDays(1);
-            }
+            } 
         }
 
         return dt_return;

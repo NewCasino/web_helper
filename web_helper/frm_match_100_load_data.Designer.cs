@@ -43,6 +43,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.time = new System.Windows.Forms.Timer(this.components);
+            this.tab_browser = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -123,6 +124,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tab_browser);
             this.tabControl1.Location = new System.Drawing.Point(6, 62);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -202,6 +204,15 @@
             this.time.Interval = 1000;
             this.time.Tick += new System.EventHandler(this.time_Tick);
             // 
+            // tab_browser
+            // 
+            this.tab_browser.Location = new System.Drawing.Point(4, 22);
+            this.tab_browser.Name = "tab_browser";
+            this.tab_browser.Size = new System.Drawing.Size(1170, 474);
+            this.tab_browser.TabIndex = 3;
+            this.tab_browser.Text = "Browser";
+            this.tab_browser.UseVisualStyleBackColor = true;
+            // 
             // frm_match_100_load_data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,5 +249,6 @@
         private System.Windows.Forms.Label lb_time;
         private System.Windows.Forms.Button btn_all;
         private System.Windows.Forms.Button btn_reverse;
+        private System.Windows.Forms.TabPage tab_browser;
     }
 }
