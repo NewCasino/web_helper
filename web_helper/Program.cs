@@ -25,9 +25,14 @@ namespace web_helper
         [STAThread]
         static void Main()
         {
+
+            if (Environment.UserName == "CY120467")  SQLServerHelper.str_con = "Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new  frm_match_bar()); 
+            Application.Run(new  frm_match_bar());
+         
+            
         }
     }
 }

@@ -521,7 +521,176 @@ class Match100Analyse
 
         return doc;
     }
+    public static BsonDocument get_max_from_two_match_with_present(string start_time1, string host1, string client1, string start_time2, string host2, string client2, int max_count, double add)
+    {
 
+        double a1_win = 0.01;
+        double a1_draw = 0.01;
+        double a1_lose = 0.01;
+        string a1_timespan = "";
+        double a2_win = 0.01;
+        double a2_draw = 0.01;
+        double a2_lose = 0.01;
+        string a2_timespan = "";
+        double b1_win = 0.01;
+        double b1_draw = 0.01;
+        double b1_lose = 0.01;
+        string b1_timespan = "";
+        double b2_win = 0.01;
+        double b2_draw = 0.01;
+        double b2_lose = 0.01;
+        string b2_timespan = "";
+        
+        DataTable dt = new DataTable(); 
+        string sql_template = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and website='{3}' and id in (select max(id) from europe_100  where start_time>'{4}'  group by website,start_time,host,client)";
+        string sql = "";
+        sql = string.Format(sql_template, start_time1, host1, client1, "marathonbet", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        dt = SQLServerHelper.get_table(sql);
+        if (dt.Rows.Count > 0)
+        {
+            a1_win = Convert.ToDouble(dt.Rows[0]["odd_win"].ToString());
+            a1_draw = Convert.ToDouble(dt.Rows[0]["odd_draw"].ToString());
+            a1_lose = Convert.ToDouble(dt.Rows[0]["odd_lose"].ToString());
+            a1_timespan = dt.Rows[0]["timespan"].ToString();
+        }
+        sql = string.Format(sql_template, start_time2, host2, client2, "marathonbet", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        dt = SQLServerHelper.get_table(sql);
+        if (dt.Rows.Count > 0)
+        {
+            a2_win = Convert.ToDouble(dt.Rows[0]["odd_win"].ToString());
+            a2_draw = Convert.ToDouble(dt.Rows[0]["odd_draw"].ToString());
+            a2_lose = Convert.ToDouble(dt.Rows[0]["odd_lose"].ToString());
+            a2_timespan = dt.Rows[0]["timespan"].ToString();
+        }
+        sql = string.Format(sql_template, start_time1, host1, client1, "marathonbet", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        dt = SQLServerHelper.get_table(sql);
+        if (dt.Rows.Count > 0)
+        {
+            b1_win = Convert.ToDouble(dt.Rows[0]["odd_win"].ToString());
+            b1_draw = Convert.ToDouble(dt.Rows[0]["odd_draw"].ToString());
+            b1_lose = Convert.ToDouble(dt.Rows[0]["odd_lose"].ToString());
+            b1_timespan = dt.Rows[0]["timespan"].ToString();
+        }
+        sql = string.Format(sql_template, start_time2, host2, client2, "marathonbet", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        dt = SQLServerHelper.get_table(sql);
+        if (dt.Rows.Count > 0)
+        {
+            b2_win = Convert.ToDouble(dt.Rows[0]["odd_win"].ToString());
+            b2_draw = Convert.ToDouble(dt.Rows[0]["odd_draw"].ToString());
+            b2_lose = Convert.ToDouble(dt.Rows[0]["odd_lose"].ToString());
+            b2_timespan = dt.Rows[0]["timespan"].ToString();
+        }
+
+ 
+        
+        string[] sample = new string[9] { "", "", "", "", "", "", "", "", "" };
+        string[] websites = new string[9] { "", "", "", "", "", "", "", "", "" };
+        double[] max = new double[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };  
+        double[] max_a = new double[9] { a1_win * a2_win, a1_win * a2_draw, a1_win * a2_lose, 
+                                         a1_draw * a2_win, a1_draw * a2_draw, a1_draw * a2_lose,
+                                         a1_lose * a2_win, a1_lose * a2_draw, a1_lose * a2_lose };
+        double[] max_a_orign = new double[9] { a1_win * a2_win, a1_win * a2_draw, a1_win * a2_lose, 
+                                         a1_draw * a2_win, a1_draw * a2_draw, a1_draw * a2_lose,
+                                         a1_lose * a2_win, a1_lose * a2_draw, a1_lose * a2_lose };
+        double[] max_b = new double[9] { b1_win * b2_win, b1_win * b2_draw, b1_win * b2_lose, 
+                                         b1_draw * b2_win, b1_draw * b2_draw, b1_draw * b2_lose,
+                                         b1_lose * b2_win, b1_lose * b2_draw, b1_lose * b2_lose };
+
+        for (int i = 0; i < 9; i++)
+        {
+            max_a[i] = max_a[i] * (1 + add);
+        }
+        for (int i = 0; i < 9; i++)
+        {
+            if (max_a[i] >= max_b[i])
+            {
+                max[i] = max_a[i];
+                sample[i] = "a";
+                websites[i] = "500";
+            }
+            else
+            {
+                max[i] = max_b[i];
+                sample[i] = "b";
+                websites[i] = "pinnaclesports";
+            } 
+        } 
+        BsonDocument doc_max = Match100Analyse.get_min_by_wave(max, max_count);
+
+ 
+        BsonDocument doc = new BsonDocument();
+        doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
+        doc.Add("start_time1", start_time1);
+        doc.Add("host1", host1);
+        doc.Add("client1", client1);
+        doc.Add("start_time2", start_time2);
+        doc.Add("host2", host2);
+        doc.Add("client2", client2);
+        doc.Add("type", "two-match-max");
+        doc.Add("bid_count", doc_max["bid_count"].ToString());
+        doc.Add("min_value", doc_max["min_value"].ToString());
+        doc.Add("max_value", doc_max["max_value"].ToString());
+
+        BsonArray array_websites = new BsonArray();
+        foreach (string website in websites)
+        {
+            array_websites.Add(website);
+        }
+        doc.Add("websites", array_websites);
+
+        BsonArray array_orign_odds = new BsonArray();
+        foreach (double odd in max)
+        {
+            array_orign_odds.Add(odd.ToString("f2"));
+        }
+        doc.Add("orign_odds", array_orign_odds);
+
+
+        //Detail website Odds 
+        BsonArray website_odds = new BsonArray(); 
+        BsonDocument doc_item0 = new BsonDocument();
+        doc_item0.Add("website", "500-Orign");
+        doc_item0.Add("odd_win1",a1_win.ToString());
+        doc_item0.Add("odd_draw1",a1_draw.ToString());
+        doc_item0.Add("odd_lose1", a1_lose.ToString());
+        doc_item0.Add("timespan1", a1_timespan);
+        doc_item0.Add("odd_win2", a2_win.ToString());
+        doc_item0.Add("odd_draw2", a2_draw.ToString());
+        doc_item0.Add("odd_lose2", a2_lose.ToString());
+        doc_item0.Add("timespan2", a2_timespan);
+        website_odds.Add(doc_item0);
+
+        BsonDocument doc_item1 = new BsonDocument();
+        doc_item1.Add("website", "500");
+        doc_item1.Add("odd_win1", (Convert.ToDouble(a1_win)*(1+add)).ToString());
+        doc_item1.Add("odd_draw1", (Convert.ToDouble(a1_draw) * (1 + add)).ToString());
+        doc_item1.Add("odd_lose1", (Convert.ToDouble(a1_lose) * (1 + add)).ToString());
+        doc_item1.Add("timespan1", a1_timespan);
+        doc_item1.Add("odd_win2", (Convert.ToDouble(a2_win) * (1 + add)).ToString());
+        doc_item1.Add("odd_draw2", (Convert.ToDouble(a2_draw) * (1 + add)).ToString());
+        doc_item1.Add("odd_lose2", (Convert.ToDouble(a2_lose) * (1 + add)).ToString());
+        doc_item1.Add("timespan2", a2_timespan);
+        website_odds.Add(doc_item1);
+
+        BsonDocument doc_item2 = new BsonDocument();
+        doc_item2.Add("website", "pinnaclesports");
+        doc_item2.Add("odd_win1", b1_win.ToString());
+        doc_item2.Add("odd_draw1", b1_draw.ToString());
+        doc_item2.Add("odd_lose1", b1_lose.ToString());
+        doc_item2.Add("timespan1", b1_timespan);
+        doc_item2.Add("odd_win2", b2_win.ToString());
+        doc_item2.Add("odd_draw2", b2_draw.ToString());
+        doc_item2.Add("odd_lose2", b2_lose.ToString());
+        doc_item2.Add("timespan2", b2_timespan); 
+        website_odds.Add(doc_item2);
+        doc.Add("website_odds", website_odds); 
+
+        doc.Add("order_nos", doc_max["order_nos"].AsBsonArray);
+        doc.Add("bids", doc_max["bids"].AsBsonArray);
+        doc.Add("odds", doc_max["odds"].AsBsonArray); 
+ 
+        return doc;
+    }
     public static BsonDocument get_min(double[] input, int max_count)
     {
         int length = input.Length;

@@ -46,6 +46,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -202,6 +203,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.btn_down_excel);
             this.groupBox1.Controls.Add(this.button5);
@@ -242,6 +244,16 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(244, 19);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(112, 23);
+            this.button8.TabIndex = 14;
+            this.button8.Text = "[500]Present";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,5 +291,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button8;
     }
 }
