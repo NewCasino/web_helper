@@ -16,8 +16,7 @@ using MongoDB.Driver.Builders;
 
 namespace web_helper
 {
-    static class Program
-
+    static class Program 
     {
         /// <summary>
         /// 应用程序的主入口点。

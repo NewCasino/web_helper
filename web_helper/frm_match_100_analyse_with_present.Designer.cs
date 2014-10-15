@@ -30,6 +30,10 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_add = new System.Windows.Forms.TextBox();
+            this.txt_id = new System.Windows.Forms.TextBox();
             this.cb_two_start_time_desc = new System.Windows.Forms.CheckBox();
             this.cb_two_start_time_asc = new System.Windows.Forms.CheckBox();
             this.cb_two_persent_desc = new System.Windows.Forms.CheckBox();
@@ -47,10 +51,6 @@
             this.dgv_all = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.txt_id = new System.Windows.Forms.TextBox();
-            this.txt_add = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -93,6 +93,40 @@
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Present";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Present Add:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Present ID:";
+            // 
+            // txt_add
+            // 
+            this.txt_add.Location = new System.Drawing.Point(81, 52);
+            this.txt_add.Name = "txt_add";
+            this.txt_add.Size = new System.Drawing.Size(149, 20);
+            this.txt_add.TabIndex = 17;
+            this.txt_add.Text = "0.2";
+            // 
+            // txt_id
+            // 
+            this.txt_id.Location = new System.Drawing.Point(81, 19);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(149, 20);
+            this.txt_id.TabIndex = 16;
+            this.txt_id.Text = "3785";
             // 
             // cb_two_start_time_desc
             // 
@@ -279,40 +313,6 @@
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
-            // 
-            // txt_id
-            // 
-            this.txt_id.Location = new System.Drawing.Point(81, 19);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(149, 20);
-            this.txt_id.TabIndex = 16;
-            this.txt_id.Text = "3761";
-            // 
-            // txt_add
-            // 
-            this.txt_add.Location = new System.Drawing.Point(81, 52);
-            this.txt_add.Name = "txt_add";
-            this.txt_add.Size = new System.Drawing.Size(149, 20);
-            this.txt_add.TabIndex = 17;
-            this.txt_add.Text = "0.2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Present ID:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Present Add:";
             // 
             // frm_match_100_analyse_with_present
             // 
