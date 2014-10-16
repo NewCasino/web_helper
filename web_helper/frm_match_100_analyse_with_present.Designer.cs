@@ -126,7 +126,7 @@
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(149, 20);
             this.txt_id.TabIndex = 16;
-            this.txt_id.Text = "3785";
+            this.txt_id.Text = "3812";
             // 
             // cb_two_start_time_desc
             // 
