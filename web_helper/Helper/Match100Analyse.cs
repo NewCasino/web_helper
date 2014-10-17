@@ -544,7 +544,7 @@ class Match100Analyse
         DataTable dt = new DataTable(); 
         string sql_template = "select * from europe_100 where start_time='{0}' and host='{1}' and client='{2}' and website='{3}' and id in (select max(id) from europe_100  where start_time>'{4}'  group by website,start_time,host,client)";
         string sql = "";
-        sql = string.Format(sql_template, start_time1, host1, client1, "500", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        sql = string.Format(sql_template, start_time1, host1, client1, "marathonbet", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
         {
@@ -553,7 +553,7 @@ class Match100Analyse
             a1_lose = Convert.ToDouble(dt.Rows[0]["odd_lose"].ToString());
             a1_timespan = dt.Rows[0]["timespan"].ToString();
         }
-        sql = string.Format(sql_template, start_time2, host2, client2, "500", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        sql = string.Format(sql_template, start_time2, host2, client2, "marathonbet", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
         {
@@ -649,7 +649,7 @@ class Match100Analyse
         //Detail website Odds 
         BsonArray website_odds = new BsonArray(); 
         BsonDocument doc_item0 = new BsonDocument();
-        doc_item0.Add("website", "500-Orign");
+        doc_item0.Add("website", "500");
         doc_item0.Add("odd_win1",a1_win.ToString());
         doc_item0.Add("odd_draw1",a1_draw.ToString());
         doc_item0.Add("odd_lose1", a1_lose.ToString());
@@ -660,17 +660,7 @@ class Match100Analyse
         doc_item0.Add("timespan2", a2_timespan);
         website_odds.Add(doc_item0);
 
-        BsonDocument doc_item1 = new BsonDocument();
-        doc_item1.Add("website", "500");
-        doc_item1.Add("odd_win1", (Convert.ToDouble(a1_win)*(1+add)).ToString());
-        doc_item1.Add("odd_draw1", (Convert.ToDouble(a1_draw) * (1 + add)).ToString());
-        doc_item1.Add("odd_lose1", (Convert.ToDouble(a1_lose) * (1 + add)).ToString());
-        doc_item1.Add("timespan1", a1_timespan);
-        doc_item1.Add("odd_win2", (Convert.ToDouble(a2_win) * (1 + add)).ToString());
-        doc_item1.Add("odd_draw2", (Convert.ToDouble(a2_draw) * (1 + add)).ToString());
-        doc_item1.Add("odd_lose2", (Convert.ToDouble(a2_lose) * (1 + add)).ToString());
-        doc_item1.Add("timespan2", a2_timespan);
-        website_odds.Add(doc_item1);
+ 
 
         BsonDocument doc_item2 = new BsonDocument();
         doc_item2.Add("website", "pinnaclesports");

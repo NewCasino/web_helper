@@ -20,6 +20,7 @@ namespace web_helper
             InitializeComponent();
         }
 
+
         private void frm_match_compute_by_website_Load(object sender, EventArgs e)
         {  
         } 
@@ -161,7 +162,7 @@ namespace web_helper
             sql = "  select distinct id,start_time,host,client,odd_win,odd_draw,odd_lose" +
                  "  from europe_100" +
                  "  where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client)" +
-                 "  and   website='500'"+
+                 "  and   website='marathonbet'" +
                  "  order by start_time,host,client";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);

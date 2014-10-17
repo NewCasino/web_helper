@@ -1391,6 +1391,7 @@ namespace web_helper
                                 draw = node_tr.SELECT_NODE("td[4]").InnerText;
                                 draw = Match100Helper.convert_ameriaca_odd(draw);
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                Match100Helper.insert_data("youwage", league, start_time, host, client, win, draw, lose, "8", "0");
 
                             }
 
@@ -1466,6 +1467,7 @@ namespace web_helper
                     if (!start_time.ToLower().Contains("live"))
                     {
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("paddypowser", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
 
                 }
@@ -1521,6 +1523,7 @@ namespace web_helper
                             draw = node.SELECT_NODE("/td[5]").InnerText;
                             lose = node.SELECT_NODE("/td[6]").InnerText;
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                            Match100Helper.insert_data("vwin", league, start_time, host, client, win, draw, lose, "8", "0");
                         }
                     }
                 }
@@ -1577,6 +1580,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("/ul[1]/li[1]/dl[1]/dd[1]/ul[1]/li[2]").InnerText;
                     lose = node.SELECT_NODE("/ul[1]/li[1]/dl[1]/dd[1]/ul[1]/li[3]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("betrally", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //===============================================================================
@@ -1631,6 +1635,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("/div[1]/p[2]").InnerText;
                     lose = node.SELECT_NODE("/div[1]/p[3]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("18bet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //===============================================================================
@@ -1689,6 +1694,7 @@ namespace web_helper
                         draw = Match100Helper.convert_english_odd(draw);
                         lose = Match100Helper.convert_english_odd(lose);
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("mcbookie", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
 
                 }
@@ -1742,6 +1748,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("/td[5]").InnerText.Replace(",", ".");
                     lose = node.SELECT_NODE("/td[6]").InnerText.Replace(",", ".");
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("betcenter", league, start_time, host, client, win, draw, lose, "8", "0");
 
                 }
             }
@@ -1793,6 +1800,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("td[7]").InnerText;
                     lose = node.SELECT_NODE("td[9]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("joinbet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //===============================================================================
@@ -1865,6 +1873,7 @@ namespace web_helper
                                 if (!start_time.Contains("min"))
                                 {
                                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                    Match100Helper.insert_data("tonybet", league, start_time, host, client, win, draw, lose, "8", "0");
                                 }
                             }
                         }
@@ -1925,7 +1934,7 @@ namespace web_helper
                     client = node.SELECT_NODE("/tbody[1]/tr[2]/th[1]").InnerText;
                     lose = node.SELECT_NODE("/tbody[1]/tr[2]/td[1]/a[1]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-
+                    Match100Helper.insert_data("topsport", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
 
             }
@@ -1982,6 +1991,7 @@ namespace web_helper
                         draw = Match100Helper.convert_english_odd(draw);
                         lose = Match100Helper.convert_english_odd(lose);
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("apollobet", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
                 }
             }
@@ -2048,6 +2058,7 @@ namespace web_helper
                     draw = Match100Helper.convert_english_odd(draw);
                     lose = Match100Helper.convert_english_odd(lose);
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("boylesports", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //===============================================================================
@@ -2095,6 +2106,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("/td[4]").InnerText;
                     lose = node.SELECT_NODE("/td[5]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("efbet", league, start_time, host, client, win, draw, lose, "8", "0");  
                 }
 
             }
@@ -2148,6 +2160,7 @@ namespace web_helper
                         draw = node.SELECT_NODE("/td[5]").InnerText.E_TRIM();
                         lose = node.SELECT_NODE("/td[6]").InnerText.E_TRIM();
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("betbright", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
                     catch (Exception error) { }
 
@@ -2204,6 +2217,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("/td[4]/a[1]/strong[1]").InnerText;
                     lose = node.SELECT_NODE("/td[5]/a[1]/strong[1]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("leonbets", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //===============================================================================
@@ -2265,6 +2279,7 @@ namespace web_helper
                         lose = node.SELECT_NODE("/td[4]").InnerText.Replace(",", ".");
 
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("betadria", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
 
                 }
@@ -2291,6 +2306,7 @@ namespace web_helper
                     lose = node.SELECT_NODE("/td[4]").InnerText.Replace(",", ".");
 
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("betadria", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
 
 
@@ -2346,6 +2362,7 @@ namespace web_helper
                     lose = node.SELECT_NODE("/td[5]").InnerText;
 
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("betin", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //===============================================================================
@@ -2453,7 +2470,7 @@ namespace web_helper
                     draw = Match100Helper.convert_english_odd(draw);
                     lose = Match100Helper.convert_english_odd(lose);
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                    //Match100Helper.insert_data("wilsonbet", league, start_time, host, client, win, draw, lose, "2", "0");
+                    Match100Helper.insert_data("wilsonbet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
 
             }
@@ -2507,7 +2524,7 @@ namespace web_helper
                     lose = node.SELECT_NODE("/div[2]/div[1]/div[3]/a[1]/span[2]").InnerText.E_REMOVE();
 
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                    //Match100Helper.insert_data("youwin", league, start_time, host, client, win, draw, lose, "2", "0");
+                    Match100Helper.insert_data("sportsbet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //========================================================================================================
@@ -2557,7 +2574,7 @@ namespace web_helper
                     draw = node.SELECT_NODE("/tbody[1]/tr[1]/td[4]/b[1]").InnerText;
                     lose = node.SELECT_NODE("/tbody[1]/tr[1]/td[6]/b[1]").InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                    // Match100Helper.insert_data("youwin", league, start_time, host, client, win, draw, lose, "2", "0");
+                    Match100Helper.insert_data("intertops", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
             }
             //========================================================================================================
@@ -2699,6 +2716,7 @@ namespace web_helper
                     client = node.SELECT_NODE("/div[2]/a[3]/div[1]").ChildNodes[0].InnerText;
                     lose = node.SELECT_NODE("/div[2]/a[3]/div[1]").ChildNodes[1].InnerText;
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                    Match100Helper.insert_data("666bet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
 
             }
