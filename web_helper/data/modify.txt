@@ -52,3 +52,9 @@ add two teams(pinnacle & marathonbet) analyse persent:matching persent
 2014-10-13
 modify frm_match_100_log_analyse:
 modify method when no date info(2014_10_12_004.xlsx)
+--------------------------
+2014-10-20
+frm_match_100_load_data   textbox scroll to bottom
+sql report  everytime two sites odd
+modify frm_browser three mehod test function
+

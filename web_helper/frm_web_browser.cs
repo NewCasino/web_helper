@@ -79,21 +79,45 @@ namespace web_helper
         { 
             if (browser.Document == null) return;
 
-            HtmlDocument doc_main = browser.Document;
-            BrowserHelper.invoke_click_by_id(ref browser, "btn_ok"); 
+            //HtmlDocument doc_main = browser.Document;
+            //BrowserHelper.invoke_click_by_id(ref browser, "btn_ok"); 
+          
+
         }
         private void btn_method_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
             BsonDocument doc_input = new BsonDocument();
-            BsonDocument doc = method.from_pinnaclesports_2(ref browser, doc_input);
-            this.txt_result_method.Text = doc["data"].ToString();
+            BsonDocument doc = method.from_gobetgo_1(ref browser, doc_input);
+            sb.AppendLine(doc["data"].ToString());
+            this.txt_result_method.Text = sb.ToString();
             MessageBox.Show("method ok!"); 
         }
+        private void btn_method2_Click(object sender, EventArgs e)
+        {
+            Match100Method method = new Match100Method();
+            BsonDocument doc_input = new BsonDocument();
+            BsonDocument doc = method.from_gobetgo_2(ref browser, doc_input);
+            sb.AppendLine(doc["data"].ToString());
+            this.txt_result_method.Text = sb.ToString();
+            MessageBox.Show("method ok!"); 
+        }
+
+        private void btn_method3_Click(object sender, EventArgs e)
+        {
+            Match100Method method = new Match100Method();
+            BsonDocument doc_input = new BsonDocument();
+            BsonDocument doc = method.from_gobetgo_3(ref browser, doc_input);
+            sb.AppendLine(doc["data"].ToString());
+            this.txt_result_method.Text = sb.ToString();
+            MessageBox.Show("method ok!"); 
+        } 
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
-        } 
+        }
+
+      
     }
 }

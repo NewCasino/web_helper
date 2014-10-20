@@ -2070,9 +2070,10 @@ class BrowserHelper
         foreach (mshtml.IHTMLElement ielement in ielements)
         {
             mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
-            if (ielement.outerHTML == html)
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes; 
+             if (ielement.outerHTML!=null && ielement.outerHTML.Replace("\"", "").Trim().ToLower() == html.Replace("\"", "").Trim().ToLower())
             {
+               
                 ielement.click();
             }
         }

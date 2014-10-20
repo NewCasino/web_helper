@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_gobetgo();
+            test_pinnaclesports();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
