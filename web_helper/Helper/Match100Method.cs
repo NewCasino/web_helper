@@ -1824,9 +1824,156 @@ class Match100Method
         return doc_result;
     }
 
+    //2014-10-20
+    public BsonDocument from_gobetgo_1(ref WebBrowser browser, BsonDocument doc_result)
+    {
+
+        doc_result = Match100Helper.get_doc_result();
+        string html = BrowserHelper.get_html(ref browser);
+        StringBuilder sb = new StringBuilder();
+        //================================================================
+        html = html.Replace("<thead=\"\"", "");
+
+        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+        doc.LoadHtml(html);
+
+        HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+        foreach (HtmlNode node in nodes_all)
+        {
+            if (node.Name == "a" && node.SELECT_NODE("/span[1]") != null && node.SELECT_NODE("span[1]").InnerText == "SOCCER")
+            {
+                BrowserHelper.invoke_click_by_outerhtml(ref browser,node.OuterHtml);
+            }
+        }
 
 
+        //===============================================================
+        doc_result["data"] = sb.ToString();
+        doc_result["url"] = browser.Document.Url.ToString();
+        return doc_result;
 
+    }
+    public BsonDocument from_gobetgo_2(ref WebBrowser browser, BsonDocument doc_result)
+    {
+
+        doc_result = Match100Helper.get_doc_result();
+
+
+        string html = BrowserHelper.get_html(ref browser);
+        StringBuilder sb = new StringBuilder();
+        //================================================================
+        BsonArray url1 = new BsonArray();
+        BsonArray url2 = new BsonArray();
+        html = html.Replace("<thead=\"\"", "");
+
+        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+        doc.LoadHtml(html);
+
+        HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+
+        foreach (HtmlNode node in nodes_all)
+        {
+            if (node.Name == "a" && node.CLASS() == "item_submenu_link")
+            {
+                url1.Add(node.OuterHtml);
+            }
+        }
+        //===============================================================
+        doc_result["data"] = sb.ToString();
+        doc_result["url"] = browser.Document.Url.ToString();
+        doc_result.Add("url1", url1);
+        doc_result.Add("url2", url2);
+        return doc_result;
+    }
+    public BsonDocument from_gobetgo_3(ref WebBrowser browser, BsonDocument doc_result)
+    {
+        string html = BrowserHelper.get_html(ref browser);
+        StringBuilder sb = new StringBuilder();
+        string result = "";
+
+
+        string url = "";
+
+        //================================================================   
+        if (doc_result["url2"].AsBsonArray.Count == 0)
+        {
+            url = doc_result["url1"].AsBsonArray[0].ToString();
+            doc_result["url2"].AsBsonArray.Add(url);
+            browser.Navigate(url);
+            doc_result["loop"].AsBsonArray.Add("2");
+
+            doc_result["data"] = "Start Read Index URL ->" + url;
+            doc_result["url"] = browser.Document.Url.ToString();
+            return doc_result;
+        }
+        //---------------------------------------------------------------
+        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+        doc.LoadHtml(html);
+        HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+        string league = "";
+        string start_time = "";
+        string host = "";
+        string client = "";
+        string win = "";
+        string draw = "";
+        string lose = "";
+        string date = "";
+        string time = "";
+        foreach (HtmlNode node in nodes_all)
+        {
+
+            if (node.CLASS() == "eventsContainer BettingContent")
+            {
+                league = node.SELECT_NODE("/div[1]").InnerText;
+
+            }
+            if (node.CLASS() == "eventstable")
+            {
+                HtmlNodeCollection node_trs = node.SELECT_NODES("/table/tbody/tr");
+                if (node_trs.Count > 0)
+                {
+                    foreach (HtmlNode node_tr in node_trs)
+                    {
+                        date = node_tr.SELECT_NODE("/td[1]/header[1]/div[2]").ChildNodes[0].InnerText.E_SPLIT("/")[0] + "-" + node_tr.SELECT_NODE("/td[1]/header[1]/div[2]").ChildNodes[0].InnerText.E_SPLIT("/")[1];
+                        time = node_tr.SELECT_NODE("/td[1]/header[1]/div[2]").ChildNodes[1].InnerText;
+                        start_time = date + M.D + time;
+                        host = node_tr.SELECT_NODE("/td[1]/header[1]/div[1]/span[1]").InnerText;
+                        client = node_tr.SELECT_NODE("/td[1]/header[1]/div[1]/span[2]").InnerText;
+                        win = node_tr.SELECT_NODE("/td[1]/div[1]/div[1]/span[2]").InnerText;
+                        draw = node_tr.SELECT_NODE("/td[1]/div[2]/div[1]/span[2]").InnerText;
+                        lose = node_tr.SELECT_NODE("/td[1]/div[3]/div[1]/span[2]").InnerText;
+                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                        Match100Helper.insert_data("gobetgo", league, start_time, host, client, win, draw, lose, "8", "0");
+                    }
+                }
+            }
+        }
+
+        //--------------------------------------------------------------
+        if (doc_result["url1"].AsBsonArray.Count == doc_result["url2"].AsBsonArray.Count)
+        {
+            doc_result["url"] = browser.Document.Url.ToString();
+            doc_result["data"] = result;
+            doc_result["loop"].AsBsonArray.Clear();
+            return doc_result;
+        }
+        url = doc_result["url1"].AsBsonArray[doc_result["url2"].AsBsonArray.Count].ToString();
+        doc_result["url2"].AsBsonArray.Add(url);
+        BrowserHelper.invoke_click_by_outerhtml(ref browser, url);
+
+        doc_result["loop"].AsBsonArray.Clear();
+        doc_result["loop"].AsBsonArray.Add("2");
+        //=============================================================== 
+
+
+        doc_result["data"] = sb.ToString();
+        doc_result["url"] = browser.Document.Url.ToString();
+        return doc_result;
+
+    }
     #endregion
 
     #region two function for test in website

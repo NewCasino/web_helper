@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_marathonbet();
+            test_gobetgo();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -2871,7 +2871,7 @@ namespace web_helper
         }
         #endregion
 
-
+        //2013-10-20
         public void test_pinnaclesports_me_index()
         {
 
@@ -3024,6 +3024,123 @@ namespace web_helper
 
 
         }
+
+
+        public void test_gobetgo_index_click()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "gobetgo_index.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "a" && node.SELECT_NODE("/span[1]") != null && node.SELECT_NODE("span[1]").InnerText == "SOCCER")
+                {
+                    sb.AppendLine(node.OuterHtml);
+                }
+            }
+            //========================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_gobetgo_index()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "gobetgo_index.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*"); 
+
+            foreach (HtmlNode node in nodes_all)
+            { 
+                if (node.Name == "a" && node.CLASS() == "item_submenu_link")
+                { 
+                    sb.AppendLine(node.InnerText); 
+                } 
+            }
+            //========================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+        public void test_gobetgo()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "gobetgo_detail.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+             
+
+            ;
+            string league = ""; 
+            string start_time = "";
+            string host = "";
+            string client = "";
+            string win = "";
+            string draw = "";
+            string lose = "";
+            string date = "";
+            string time = "";
+            foreach (HtmlNode node in nodes_all)
+            {
+
+                if (node.CLASS() == "eventsContainer BettingContent")
+                {
+                    league = node.SELECT_NODE("/div[1]").InnerText;
+
+                }
+                if (node.CLASS() == "eventstable")
+                {
+                    HtmlNodeCollection node_trs = node.SELECT_NODES("/table/tbody/tr");
+                    if (node_trs.Count > 0)
+                    {
+                        foreach (HtmlNode node_tr in node_trs)
+                        {
+                            date = node_tr.SELECT_NODE("/td[1]/header[1]/div[2]").ChildNodes[0].InnerText.E_SPLIT("/")[0] +"-"+ node_tr.SELECT_NODE("/td[1]/header[1]/div[2]").ChildNodes[0].InnerText.E_SPLIT("/")[1];
+                            time = node_tr.SELECT_NODE("/td[1]/header[1]/div[2]").ChildNodes[1].InnerText;
+                            start_time = date + M.D + time;
+                            host = node_tr.SELECT_NODE("/td[1]/header[1]/div[1]/span[1]").InnerText;
+                            client = node_tr.SELECT_NODE("/td[1]/header[1]/div[1]/span[2]").InnerText;
+                            win = node_tr.SELECT_NODE("/td[1]/div[1]/div[1]/span[2]").InnerText;
+                            draw = node_tr.SELECT_NODE("/td[1]/div[2]/div[1]/span[2]").InnerText;
+                            lose = node_tr.SELECT_NODE("/td[1]/div[3]/div[1]/span[2]").InnerText;
+                            if (!string.IsNullOrEmpty(win.E_TRIM()))
+                            {
+                                sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                //Match100Helper.insert_data("gobetgo", league, start_time, host, client, win, draw, lose, "8", "0");
+                            }
+                        } 
+                    } 
+                }
+            }
+            //========================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
+
 
     }
 }
