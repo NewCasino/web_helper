@@ -24,6 +24,7 @@ namespace web_helper
         }
 
         StringBuilder sb = new StringBuilder();
+        BsonDocument doc_result = new BsonDocument();
         private void frm_web_browser_Load(object sender, EventArgs e)
         {
 
@@ -84,39 +85,62 @@ namespace web_helper
           
 
         }
-        private void btn_method_Click(object sender, EventArgs e)
+        private void btn_method1_Click(object sender, EventArgs e)
         {
             Match100Method method = new Match100Method();
             BsonDocument doc_input = new BsonDocument();
-            BsonDocument doc = method.from_gobetgo_1(ref browser, doc_input);
-            sb.AppendLine(doc["data"].ToString());
+            doc_result = method.from_gobetgo_1(ref browser, doc_input);
+            sb.AppendLine(doc_result["data"].ToString());
             this.txt_result_method.Text = sb.ToString();
             MessageBox.Show("method ok!"); 
         }
         private void btn_method2_Click(object sender, EventArgs e)
         {
+            if (doc_result == null)
+            {
+                MessageBox.Show("Empty  Input Document!");
+            }
             Match100Method method = new Match100Method();
-            BsonDocument doc_input = new BsonDocument();
-            BsonDocument doc = method.from_gobetgo_2(ref browser, doc_input);
-            sb.AppendLine(doc["data"].ToString());
+            BsonDocument doc_input = doc_result;
+            BsonDocument doc_result = method.from_gobetgo_2(ref browser, doc_input);
+            sb.AppendLine(doc_result["data"].ToString());
             this.txt_result_method.Text = sb.ToString();
             MessageBox.Show("method ok!"); 
         }
 
         private void btn_method3_Click(object sender, EventArgs e)
         {
+            if (doc_result == null)
+            {
+                MessageBox.Show("Empty  Input Document!");
+            }
             Match100Method method = new Match100Method();
-            BsonDocument doc_input = new BsonDocument();
-            BsonDocument doc = method.from_gobetgo_3(ref browser, doc_input);
-            sb.AppendLine(doc["data"].ToString());
+            BsonDocument doc_input = doc_result;
+            BsonDocument doc_result = method.from_gobetgo_3(ref browser, doc_input);
+            sb.AppendLine(doc_result["data"].ToString());
             this.txt_result_method.Text = sb.ToString();
             MessageBox.Show("method ok!"); 
-        } 
+        }
+        private void btn_method4_Click(object sender, EventArgs e)
+        {
+            if (doc_result == null)
+            {
+                MessageBox.Show("Empty  Input Document!");
+            }
+            Match100Method method = new Match100Method();
+            BsonDocument doc_input = doc_result;
+            BsonDocument doc_result = method.from_gobetgo_4(ref browser, doc_input);
+            sb.AppendLine(doc_result["data"].ToString());
+            this.txt_result_method.Text = sb.ToString();
+            MessageBox.Show("method ok!"); 
+        }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
         }
+
+   
 
       
     }

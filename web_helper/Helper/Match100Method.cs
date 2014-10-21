@@ -1841,6 +1841,36 @@ class Match100Method
 
         foreach (HtmlNode node in nodes_all)
         {
+            if (node.Name == "dd" && node.ChildNodes.Count == 2 && node.ChildNodes[1].InnerText == "English")
+            {
+                BrowserHelper.invoke_click_by_outerhtml(ref browser, node.OuterHtml);
+                sb.AppendLine("Invoke Click!!!");
+            }
+        }
+
+
+        //===============================================================
+        doc_result["data"] = sb.ToString();
+        doc_result["url"] = browser.Document.Url.ToString();
+        return doc_result;
+
+    }
+    public BsonDocument from_gobetgo_2(ref WebBrowser browser, BsonDocument doc_result)
+    {
+
+        doc_result = Match100Helper.get_doc_result();
+        string html = BrowserHelper.get_html(ref browser);
+        StringBuilder sb = new StringBuilder();
+        //================================================================
+        html = html.Replace("<thead=\"\"", "");
+
+        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+        doc.LoadHtml(html);
+
+        HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+        foreach (HtmlNode node in nodes_all)
+        {
             if (node.Name == "a" && node.SELECT_NODE("/span[1]") != null && node.SELECT_NODE("span[1]").InnerText == "SOCCER")
             {
                 BrowserHelper.invoke_click_by_outerhtml(ref browser,node.OuterHtml);
@@ -1855,7 +1885,7 @@ class Match100Method
         return doc_result;
 
     }
-    public BsonDocument from_gobetgo_2(ref WebBrowser browser, BsonDocument doc_result)
+    public BsonDocument from_gobetgo_3(ref WebBrowser browser, BsonDocument doc_result)
     {
 
         doc_result = Match100Helper.get_doc_result();
@@ -1888,7 +1918,7 @@ class Match100Method
         doc_result.Add("url2", url2);
         return doc_result;
     }
-    public BsonDocument from_gobetgo_3(ref WebBrowser browser, BsonDocument doc_result)
+    public BsonDocument from_gobetgo_4(ref WebBrowser browser, BsonDocument doc_result)
     {
         string html = BrowserHelper.get_html(ref browser);
         StringBuilder sb = new StringBuilder();

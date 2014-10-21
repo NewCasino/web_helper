@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_pinnaclesports();
+            test_gobetgo_index_language();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -3026,6 +3026,32 @@ namespace web_helper
         }
 
 
+        public void test_gobetgo_index_language()
+        {
+
+            WebClient web_client = new WebClient();
+            string html = System.Text.Encoding.GetEncoding("GBK").GetString(web_client.DownloadData(root_url_sites + "gobetgo_index.html"));
+            //==========================================================================================================
+            html = html.Replace("<thead=\"\"", "");
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.Name == "dd" && node.ChildNodes.Count == 2 && node.ChildNodes[1].InnerText == "English")
+                {
+                    sb.AppendLine(node.OuterHtml);
+                }
+            }
+            //========================================================================================================
+            this.txt_result.Text = sb.ToString();
+            Application.DoEvents();
+
+
+        }
         public void test_gobetgo_index_click()
         {
 
