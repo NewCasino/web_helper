@@ -134,11 +134,22 @@ namespace web_helper
             this.txt_result_method.Text = sb.ToString();
             MessageBox.Show("method ok!"); 
         }
+        private void btn_method5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_method6_Click(object sender, EventArgs e)
+        {
+
+        }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
         }
+
+
 
    
 

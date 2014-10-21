@@ -55,6 +55,8 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dgv_4 = new System.Windows.Forms.DataGridView();
             this.btn_method4 = new System.Windows.Forms.Button();
+            this.btn_method5 = new System.Windows.Forms.Button();
+            this.btn_method6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -75,6 +77,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_method6);
+            this.groupBox1.Controls.Add(this.btn_method5);
             this.groupBox1.Controls.Add(this.btn_method4);
             this.groupBox1.Controls.Add(this.btn_method3);
             this.groupBox1.Controls.Add(this.btn_method2);
@@ -93,21 +97,21 @@
             // 
             // btn_method3
             // 
-            this.btn_method3.Location = new System.Drawing.Point(1017, 18);
+            this.btn_method3.Location = new System.Drawing.Point(958, 18);
             this.btn_method3.Name = "btn_method3";
-            this.btn_method3.Size = new System.Drawing.Size(75, 23);
+            this.btn_method3.Size = new System.Drawing.Size(39, 23);
             this.btn_method3.TabIndex = 7;
-            this.btn_method3.Text = "Method(3)";
+            this.btn_method3.Text = "M(3)";
             this.btn_method3.UseVisualStyleBackColor = true;
             this.btn_method3.Click += new System.EventHandler(this.btn_method3_Click);
             // 
             // btn_method2
             // 
-            this.btn_method2.Location = new System.Drawing.Point(936, 18);
+            this.btn_method2.Location = new System.Drawing.Point(913, 18);
             this.btn_method2.Name = "btn_method2";
-            this.btn_method2.Size = new System.Drawing.Size(75, 23);
+            this.btn_method2.Size = new System.Drawing.Size(39, 23);
             this.btn_method2.TabIndex = 6;
-            this.btn_method2.Text = "Method(2)";
+            this.btn_method2.Text = "M(2)";
             this.btn_method2.UseVisualStyleBackColor = true;
             this.btn_method2.Click += new System.EventHandler(this.btn_method2_Click);
             // 
@@ -123,11 +127,11 @@
             // 
             // btn_method1
             // 
-            this.btn_method1.Location = new System.Drawing.Point(855, 18);
+            this.btn_method1.Location = new System.Drawing.Point(868, 18);
             this.btn_method1.Name = "btn_method1";
-            this.btn_method1.Size = new System.Drawing.Size(66, 23);
+            this.btn_method1.Size = new System.Drawing.Size(39, 23);
             this.btn_method1.TabIndex = 4;
-            this.btn_method1.Text = "Method(1)";
+            this.btn_method1.Text = "M(1)";
             this.btn_method1.UseVisualStyleBackColor = true;
             // 
             // btn_script
@@ -352,13 +356,33 @@
             // 
             // btn_method4
             // 
-            this.btn_method4.Location = new System.Drawing.Point(1098, 18);
+            this.btn_method4.Location = new System.Drawing.Point(1003, 18);
             this.btn_method4.Name = "btn_method4";
-            this.btn_method4.Size = new System.Drawing.Size(75, 23);
+            this.btn_method4.Size = new System.Drawing.Size(39, 23);
             this.btn_method4.TabIndex = 8;
-            this.btn_method4.Text = "Method(4)";
+            this.btn_method4.Text = "M(4)";
             this.btn_method4.UseVisualStyleBackColor = true;
             this.btn_method4.Click += new System.EventHandler(this.btn_method4_Click);
+            // 
+            // btn_method5
+            // 
+            this.btn_method5.Location = new System.Drawing.Point(1048, 18);
+            this.btn_method5.Name = "btn_method5";
+            this.btn_method5.Size = new System.Drawing.Size(39, 23);
+            this.btn_method5.TabIndex = 9;
+            this.btn_method5.Text = "M(5)";
+            this.btn_method5.UseVisualStyleBackColor = true;
+            this.btn_method5.Click += new System.EventHandler(this.btn_method5_Click);
+            // 
+            // btn_method6
+            // 
+            this.btn_method6.Location = new System.Drawing.Point(1093, 18);
+            this.btn_method6.Name = "btn_method6";
+            this.btn_method6.Size = new System.Drawing.Size(39, 23);
+            this.btn_method6.TabIndex = 10;
+            this.btn_method6.Text = "M(6)";
+            this.btn_method6.UseVisualStyleBackColor = true;
+            this.btn_method6.Click += new System.EventHandler(this.btn_method6_Click);
             // 
             // frm_web_browser
             // 
@@ -420,5 +444,7 @@
         private System.Windows.Forms.Button btn_method3;
         private System.Windows.Forms.Button btn_method2;
         private System.Windows.Forms.Button btn_method4;
+        private System.Windows.Forms.Button btn_method6;
+        private System.Windows.Forms.Button btn_method5;
     }
 }
