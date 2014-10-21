@@ -1838,15 +1838,15 @@ class Match100Method
         doc.LoadHtml(html);
 
         HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
-
-        foreach (HtmlNode node in nodes_all)
-        {
-            if (node.Name == "dd" && node.ChildNodes.Count == 2 && node.ChildNodes[1].InnerText == "English")
-            {
-                BrowserHelper.invoke_click_by_outerhtml(ref browser, node.OuterHtml);
-                sb.AppendLine("Invoke Click!!!");
-            }
-        }
+        BrowserHelper.invoke_click_by_outerhtml(ref browser, "<OPTION class=en value=en-US>English</OPTION>");
+        //foreach (HtmlNode node in nodes_all)
+        //{
+        //    if (node.Name.ToLower() == "option" && node.CLASS() == "en")
+        //    {
+        //        BrowserHelper.invoke_click_by_outerhtml(ref browser, node.OuterHtml);
+        //        sb.AppendLine("Invoke Click!!!");
+        //    }
+        //}
 
 
         //===============================================================
@@ -1909,6 +1909,7 @@ class Match100Method
             if (node.Name == "a" && node.CLASS() == "item_submenu_link")
             {
                 url1.Add(node.OuterHtml);
+                sb.AppendLine(node.OuterHtml);
             }
         }
         //===============================================================
@@ -1932,7 +1933,7 @@ class Match100Method
         {
             url = doc_result["url1"].AsBsonArray[0].ToString();
             doc_result["url2"].AsBsonArray.Add(url);
-            browser.Navigate(url);
+            BrowserHelper.invoke_click_by_outerhtml(ref browser, url);
             doc_result["loop"].AsBsonArray.Add("2");
 
             doc_result["data"] = "Start Read Index URL ->" + url;
@@ -2003,7 +2004,7 @@ class Match100Method
         BrowserHelper.invoke_click_by_outerhtml(ref browser, url);
 
         doc_result["loop"].AsBsonArray.Clear();
-        doc_result["loop"].AsBsonArray.Add("2");
+        doc_result["loop"].AsBsonArray.Add("4");
         //=============================================================== 
 
 

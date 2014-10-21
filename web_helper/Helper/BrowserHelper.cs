@@ -2070,7 +2070,11 @@ class BrowserHelper
         foreach (mshtml.IHTMLElement ielement in ielements)
         {
             mshtml.IHTMLDOMNode node = (mshtml.IHTMLDOMNode)ielement;
-            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes; 
+            IHTMLAttributeCollection attrs = (IHTMLAttributeCollection)node.attributes;
+            if (ielement.outerHTML!=null && ielement.outerHTML.ToLower().Contains("option") && ielement.outerHTML.ToLower().Contains("en"))
+            {
+                string test = "testing";
+            }
              if (ielement.outerHTML!=null && ielement.outerHTML.Replace("\"", "").Trim().ToLower() == html.Replace("\"", "").Trim().ToLower())
             {
                
