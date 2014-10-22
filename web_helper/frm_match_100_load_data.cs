@@ -360,7 +360,7 @@ namespace web_helper
                 Type reflect_type = Type.GetType("Match100Method");
                 object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
                 MethodInfo method_info = reflect_type.GetMethod(method);
-                Match100Helper.create_log(method_info.Name, browser);
+                //Match100Helper.create_log(method_info.Name, browser);
 
                 BsonDocument doc_input = ies[index].doc_result;
                 BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser,doc_input});
