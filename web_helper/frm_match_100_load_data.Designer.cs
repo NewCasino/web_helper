@@ -37,13 +37,16 @@
             this.txt_url = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_select_gobetgo = new System.Windows.Forms.Button();
+            this.btn_select_marathonbet = new System.Windows.Forms.Button();
+            this.btn_select_pinnaclesports = new System.Windows.Forms.Button();
             this.btn_reverse = new System.Windows.Forms.Button();
             this.btn_all = new System.Windows.Forms.Button();
             this.dgv_result = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.time = new System.Windows.Forms.Timer(this.components);
             this.tab_browser = new System.Windows.Forms.TabPage();
+            this.time = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -133,6 +136,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_select_gobetgo);
+            this.tabPage3.Controls.Add(this.btn_select_marathonbet);
+            this.tabPage3.Controls.Add(this.btn_select_pinnaclesports);
             this.tabPage3.Controls.Add(this.btn_reverse);
             this.tabPage3.Controls.Add(this.btn_all);
             this.tabPage3.Controls.Add(this.dgv_result);
@@ -142,6 +148,36 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Result Table";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btn_select_gobetgo
+            // 
+            this.btn_select_gobetgo.Location = new System.Drawing.Point(494, 8);
+            this.btn_select_gobetgo.Name = "btn_select_gobetgo";
+            this.btn_select_gobetgo.Size = new System.Drawing.Size(41, 23);
+            this.btn_select_gobetgo.TabIndex = 5;
+            this.btn_select_gobetgo.Text = "S(3)";
+            this.btn_select_gobetgo.UseVisualStyleBackColor = true;
+            this.btn_select_gobetgo.Click += new System.EventHandler(this.btn_select_website_3_Click);
+            // 
+            // btn_select_marathonbet
+            // 
+            this.btn_select_marathonbet.Location = new System.Drawing.Point(450, 8);
+            this.btn_select_marathonbet.Name = "btn_select_marathonbet";
+            this.btn_select_marathonbet.Size = new System.Drawing.Size(41, 23);
+            this.btn_select_marathonbet.TabIndex = 4;
+            this.btn_select_marathonbet.Text = "S(2)";
+            this.btn_select_marathonbet.UseVisualStyleBackColor = true;
+            this.btn_select_marathonbet.Click += new System.EventHandler(this.btn_select_website_2_Click);
+            // 
+            // btn_select_pinnaclesports
+            // 
+            this.btn_select_pinnaclesports.Location = new System.Drawing.Point(406, 8);
+            this.btn_select_pinnaclesports.Name = "btn_select_pinnaclesports";
+            this.btn_select_pinnaclesports.Size = new System.Drawing.Size(41, 23);
+            this.btn_select_pinnaclesports.TabIndex = 3;
+            this.btn_select_pinnaclesports.Text = "S(1)";
+            this.btn_select_pinnaclesports.UseVisualStyleBackColor = true;
+            this.btn_select_pinnaclesports.Click += new System.EventHandler(this.btn_select_website_1_Click);
             // 
             // btn_reverse
             // 
@@ -199,11 +235,6 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // time
-            // 
-            this.time.Interval = 1000;
-            this.time.Tick += new System.EventHandler(this.time_Tick);
-            // 
             // tab_browser
             // 
             this.tab_browser.Location = new System.Drawing.Point(4, 22);
@@ -212,6 +243,11 @@
             this.tab_browser.TabIndex = 3;
             this.tab_browser.Text = "Browser";
             this.tab_browser.UseVisualStyleBackColor = true;
+            // 
+            // time
+            // 
+            this.time.Interval = 1000;
+            this.time.Tick += new System.EventHandler(this.time_Tick);
             // 
             // frm_match_100_load_data
             // 
@@ -250,5 +286,8 @@
         private System.Windows.Forms.Button btn_all;
         private System.Windows.Forms.Button btn_reverse;
         private System.Windows.Forms.TabPage tab_browser;
+        private System.Windows.Forms.Button btn_select_gobetgo;
+        private System.Windows.Forms.Button btn_select_marathonbet;
+        private System.Windows.Forms.Button btn_select_pinnaclesports;
     }
 }

@@ -28,7 +28,7 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_gobetgo_index_language();
+            test_gobetgo();
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
@@ -3154,7 +3154,7 @@ namespace web_helper
                             if (!string.IsNullOrEmpty(win.E_TRIM()))
                             {
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                                //Match100Helper.insert_data("gobetgo", league, start_time, host, client, win, draw, lose, "8", "0");
+                                //Match100Helper.insert_data("gobetgo", league, start_time, host, client, win, draw, lose, "0", "0");
                             }
                         } 
                     } 

@@ -120,7 +120,18 @@ namespace web_helper
                 }
             }
         }
-
+        private void btn_select_website_1_Click(object sender, EventArgs e)
+        {
+            select_website("pinnaclesports");
+        } 
+        private void btn_select_website_2_Click(object sender, EventArgs e)
+        {
+            select_website("marathonbet");
+        } 
+        private void btn_select_website_3_Click(object sender, EventArgs e)
+        {
+            select_website("gobetgo");
+        }
 
         private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
@@ -404,6 +415,21 @@ namespace web_helper
             }
             this.dgv_result.DataSource = dt;
 
+        }
+
+        public void select_website(string website)
+        { 
+            for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
+            {
+                if (dgv_result.Rows[i].Cells["site_name"].Value.ToString() == website)
+                {
+                    dgv_result.Rows[i].Cells["selected"].Value = true;
+                }
+                else
+                {
+                    dgv_result.Rows[i].Cells["selected"].Value = false;
+                }
+            }
         } 
     }
 

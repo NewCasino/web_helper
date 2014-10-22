@@ -79,9 +79,7 @@ namespace web_helper
             if (browser.Document == null) return;
 
             //HtmlDocument doc_main = browser.Document;
-            //BrowserHelper.invoke_click_by_id(ref browser, "btn_ok"); 
-          
-
+            //BrowserHelper.invoke_click_by_id(ref browser, "btn_ok");  
         }
         private void btn_method1_Click(object sender, EventArgs e)
         {
@@ -96,7 +94,7 @@ namespace web_helper
         {
             if (this.doc_result == null)
             {
-                MessageBox.Show("Empty  Input Document!");
+                MessageBox.Show("Input Document is Empty!");
             }
             Match100Method method = new Match100Method();
             BsonDocument doc_input = this.doc_result;
@@ -110,7 +108,7 @@ namespace web_helper
         {
             if (this.doc_result == null)
             {
-                MessageBox.Show("Empty  Input Document!");
+                MessageBox.Show("Input Document is Empty!");
             }
             Match100Method method = new Match100Method();
             BsonDocument doc_input = this.doc_result;
@@ -121,22 +119,12 @@ namespace web_helper
         }
         private void btn_method4_Click(object sender, EventArgs e)
         {
-            if (this.doc_result == null)
-            {
-                MessageBox.Show("Empty  Input Document!");
-            }
-            Match100Method method = new Match100Method();
-            BsonDocument doc_input = this.doc_result;
-            doc_result = method.from_gobetgo_4(ref browser, doc_input);
-            sb.AppendLine(doc_result["data"].ToString());
-            this.txt_result_method.Text = sb.ToString();
-            MessageBox.Show("method ok!"); 
+            
         }
         private void btn_method5_Click(object sender, EventArgs e)
         {
 
-        }
-
+        } 
         private void btn_method6_Click(object sender, EventArgs e)
         {
 
