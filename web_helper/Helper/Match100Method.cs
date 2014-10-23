@@ -1982,7 +1982,10 @@ class Match100Method
                                 draw = node_tr.SELECT_NODE("/td[1]/div[2]/div[1]/span[2]").InnerText;
                                 lose = node_tr.SELECT_NODE("/td[1]/div[3]/div[1]/span[2]").InnerText;
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                                Match100Helper.insert_data("gobetgo", league, start_time, host, client, win, draw, lose, "0", "0");
+                                if (!string.IsNullOrEmpty(win.E_TRIM()))
+                                {
+                                    Match100Helper.insert_data("gobetgo", league, start_time, host, client, win, draw, lose, "0", "0");
+                                }
                             }
                         }
                     }

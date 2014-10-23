@@ -3118,7 +3118,7 @@ namespace web_helper
             HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
              
 
-            ;
+             
             string league = ""; 
             string start_time = "";
             string host = "";

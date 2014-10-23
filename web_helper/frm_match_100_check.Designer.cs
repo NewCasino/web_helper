@@ -38,6 +38,10 @@
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgv_result = new System.Windows.Forms.DataGridView();
+            this.btn_update = new System.Windows.Forms.Button();
+            this.btn_analyse = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -49,20 +53,23 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btn_analyse);
             this.groupBox1.Controls.Add(this.btn_check_qty);
             this.groupBox1.Controls.Add(this.btn_add_all);
             this.groupBox1.Controls.Add(this.btn_check_matchs);
             this.groupBox1.Controls.Add(this.btn_team_discrimination);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(916, 56);
+            this.groupBox1.Size = new System.Drawing.Size(916, 79);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
             // btn_check_qty
             // 
-            this.btn_check_qty.Location = new System.Drawing.Point(374, 19);
+            this.btn_check_qty.Location = new System.Drawing.Point(311, 19);
             this.btn_check_qty.Name = "btn_check_qty";
             this.btn_check_qty.Size = new System.Drawing.Size(116, 25);
             this.btn_check_qty.TabIndex = 3;
@@ -72,7 +79,7 @@
             // 
             // btn_add_all
             // 
-            this.btn_add_all.Location = new System.Drawing.Point(252, 19);
+            this.btn_add_all.Location = new System.Drawing.Point(67, 48);
             this.btn_add_all.Name = "btn_add_all";
             this.btn_add_all.Size = new System.Drawing.Size(116, 25);
             this.btn_add_all.TabIndex = 2;
@@ -82,7 +89,7 @@
             // 
             // btn_check_matchs
             // 
-            this.btn_check_matchs.Location = new System.Drawing.Point(130, 19);
+            this.btn_check_matchs.Location = new System.Drawing.Point(189, 19);
             this.btn_check_matchs.Name = "btn_check_matchs";
             this.btn_check_matchs.Size = new System.Drawing.Size(116, 25);
             this.btn_check_matchs.TabIndex = 1;
@@ -92,7 +99,7 @@
             // 
             // btn_team_discrimination
             // 
-            this.btn_team_discrimination.Location = new System.Drawing.Point(8, 19);
+            this.btn_team_discrimination.Location = new System.Drawing.Point(67, 19);
             this.btn_team_discrimination.Name = "btn_team_discrimination";
             this.btn_team_discrimination.Size = new System.Drawing.Size(116, 25);
             this.btn_team_discrimination.TabIndex = 0;
@@ -107,10 +114,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(4, 64);
+            this.tabControl1.Location = new System.Drawing.Point(4, 87);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(924, 481);
+            this.tabControl1.Size = new System.Drawing.Size(924, 458);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -139,22 +146,63 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_update);
             this.tabPage2.Controls.Add(this.dgv_result);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(916, 455);
+            this.tabPage2.Size = new System.Drawing.Size(916, 432);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "TABLE";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dgv_result
             // 
+            this.dgv_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_result.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_result.Location = new System.Drawing.Point(0, 0);
+            this.dgv_result.Location = new System.Drawing.Point(0, 36);
             this.dgv_result.Name = "dgv_result";
-            this.dgv_result.Size = new System.Drawing.Size(916, 455);
+            this.dgv_result.Size = new System.Drawing.Size(916, 396);
             this.dgv_result.TabIndex = 0;
+            // 
+            // btn_update
+            // 
+            this.btn_update.Location = new System.Drawing.Point(4, 7);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(75, 23);
+            this.btn_update.TabIndex = 5;
+            this.btn_update.Text = "Update Grid";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            // 
+            // btn_analyse
+            // 
+            this.btn_analyse.Location = new System.Drawing.Point(189, 48);
+            this.btn_analyse.Name = "btn_analyse";
+            this.btn_analyse.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse.TabIndex = 4;
+            this.btn_analyse.Text = "Analyse(T)";
+            this.btn_analyse.UseVisualStyleBackColor = true;
+            this.btn_analyse.Click += new System.EventHandler(this.btn_analyse_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Report:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Update:";
             // 
             // frm_match_100_check
             // 
@@ -165,6 +213,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_100_check";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -186,5 +235,9 @@
         private System.Windows.Forms.Button btn_check_matchs;
         private System.Windows.Forms.Button btn_add_all;
         private System.Windows.Forms.Button btn_check_qty;
+        private System.Windows.Forms.Button btn_analyse;
+        private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
