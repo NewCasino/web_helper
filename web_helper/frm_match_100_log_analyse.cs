@@ -117,62 +117,63 @@ namespace web_helper
             }
 
 
-            sql = "select * from europe_100_log where f_state='1'  and f_start_time>'{0}'";
-            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            dt = SQLServerHelper.get_table(sql);
+
             //循环根据一个补全另一个
-            foreach (DataRow row in dt.Rows)
-            {
-                string id = row["id"].ToString();
-                string start_time = row["start_time"].ToString();
-                string host = row["host"].ToString();
-                string client = row["client"].ToString();
-                string f_start_time = row["f_start_time"].ToString();
-                string f_host = row["f_host"].ToString();
-                string f_client = row["f_client"].ToString();
+            //sql = "select * from europe_100_log where f_state='1'  and f_start_time>'{0}'";
+            //sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            //dt = SQLServerHelper.get_table(sql); 
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    string id = row["id"].ToString();
+            //    string start_time = row["start_time"].ToString();
+            //    string host = row["host"].ToString();
+            //    string client = row["client"].ToString();
+            //    string f_start_time = row["f_start_time"].ToString();
+            //    string f_host = row["f_host"].ToString();
+            //    string f_client = row["f_client"].ToString();
 
-                if (string.IsNullOrEmpty(f_host) && !string.IsNullOrEmpty(f_start_time) && !string.IsNullOrEmpty(f_client))
-                {
-                    sql = " select * from europe_100_log where f_start_time='{0}' and f_client='{1}' and id<>'{2}'";
-                    sql = string.Format(sql, f_start_time, f_client, id);
-                    DataTable dt_temp = SQLServerHelper.get_table(sql);
-                    foreach (DataRow row_temp in dt_temp.Rows)
-                    {
-                        if (!string.IsNullOrEmpty(row_temp["f_host"].ToString()))
-                        { 
-                            sql = " update europe_100_log set f_host='{0}',f_state='3' where id='{1}'";
-                            sql = string.Format(sql, row_temp["f_host"].ToString(), id);
-                            SQLServerHelper.exe_sql(sql);
-                            Match100Helper.insert_name(row_temp["f_host"].ToString(), host); 
+            //    if (string.IsNullOrEmpty(f_host) && !string.IsNullOrEmpty(f_start_time) && !string.IsNullOrEmpty(f_client))
+            //    {
+            //        sql = " select * from europe_100_log where f_start_time='{0}' and f_client='{1}' and id<>'{2}'";
+            //        sql = string.Format(sql, f_start_time, f_client, id);
+            //        DataTable dt_temp = SQLServerHelper.get_table(sql);
+            //        foreach (DataRow row_temp in dt_temp.Rows)
+            //        {
+            //            if (!string.IsNullOrEmpty(row_temp["f_host"].ToString()))
+            //            { 
+            //                sql = " update europe_100_log set f_host='{0}',f_state='3' where id='{1}'";
+            //                sql = string.Format(sql, row_temp["f_host"].ToString(), id);
+            //                SQLServerHelper.exe_sql(sql);
+            //                Match100Helper.insert_name(row_temp["f_host"].ToString(), host); 
 
-                            sb.AppendLine(start_time.PR(30) + f_client.PR(50) + row_temp["f_host"].ToString());
-                            this.txt_result.Text = sb.PRINT();
-                            Application.DoEvents(); 
-                        }
-                    }
-                }
+            //                sb.AppendLine(start_time.PR(30) + f_client.PR(50) + row_temp["f_host"].ToString());
+            //                this.txt_result.Text = sb.PRINT();
+            //                Application.DoEvents(); 
+            //            }
+            //        }
+            //    }
 
-                if (string.IsNullOrEmpty(f_client) && !string.IsNullOrEmpty(f_start_time) && !string.IsNullOrEmpty(f_host))
-                {
-                    sql = " select * from europe_100_log where f_start_time='{0}' and f_host='{1}' and id<>'{2}'";
-                    sql = string.Format(sql, f_start_time, f_host, id);
-                    DataTable dt_temp = SQLServerHelper.get_table(sql);
-                    foreach (DataRow row_temp in dt_temp.Rows)
-                    {
-                        if (!string.IsNullOrEmpty(row_temp["f_client"].ToString()))
-                        {
-                            sql = " update europe_100_log set f_client='{0}',f_state='3' where id='{1}'";
-                            sql = string.Format(sql, row_temp["f_client"].ToString(), id);
-                            SQLServerHelper.exe_sql(sql);
-                            Match100Helper.insert_name(row_temp["f_client"].ToString(), client);
+            //    if (string.IsNullOrEmpty(f_client) && !string.IsNullOrEmpty(f_start_time) && !string.IsNullOrEmpty(f_host))
+            //    {
+            //        sql = " select * from europe_100_log where f_start_time='{0}' and f_host='{1}' and id<>'{2}'";
+            //        sql = string.Format(sql, f_start_time, f_host, id);
+            //        DataTable dt_temp = SQLServerHelper.get_table(sql);
+            //        foreach (DataRow row_temp in dt_temp.Rows)
+            //        {
+            //            if (!string.IsNullOrEmpty(row_temp["f_client"].ToString()))
+            //            {
+            //                sql = " update europe_100_log set f_client='{0}',f_state='3' where id='{1}'";
+            //                sql = string.Format(sql, row_temp["f_client"].ToString(), id);
+            //                SQLServerHelper.exe_sql(sql);
+            //                Match100Helper.insert_name(row_temp["f_client"].ToString(), client);
 
-                            sb.AppendLine(start_time.PR(30) + f_host.PR(50) + row_temp["f_client"].ToString());
-                            this.txt_result.Text = sb.PRINT();
-                            Application.DoEvents();
-                        }
-                    }
-                }
-            }  
+            //                sb.AppendLine(start_time.PR(30) + f_host.PR(50) + row_temp["f_client"].ToString());
+            //                this.txt_result.Text = sb.PRINT();
+            //                Application.DoEvents();
+            //            }
+            //        }
+            //    }
+            //}  
 
             //Insert Office
             sql = "select * from europe_100_log where f_state='3'";
