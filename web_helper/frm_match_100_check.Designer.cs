@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_analyse_data_odd = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_analyse = new System.Windows.Forms.Button();
             this.btn_check_qty = new System.Windows.Forms.Button();
             this.btn_add_all = new System.Windows.Forms.Button();
             this.btn_check_matchs = new System.Windows.Forms.Button();
@@ -37,11 +41,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgv_result = new System.Windows.Forms.DataGridView();
             this.btn_update = new System.Windows.Forms.Button();
-            this.btn_analyse = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dgv_result = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_analyse_data_odd);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_analyse);
@@ -66,6 +68,44 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_analyse_data_odd
+            // 
+            this.btn_analyse_data_odd.Location = new System.Drawing.Point(311, 48);
+            this.btn_analyse_data_odd.Name = "btn_analyse_data_odd";
+            this.btn_analyse_data_odd.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse_data_odd.TabIndex = 7;
+            this.btn_analyse_data_odd.Text = "Analyse(T O)";
+            this.btn_analyse_data_odd.UseVisualStyleBackColor = true;
+            this.btn_analyse_data_odd.Click += new System.EventHandler(this.btn_analyse_data_odd_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Update:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Report:";
+            // 
+            // btn_analyse
+            // 
+            this.btn_analyse.Location = new System.Drawing.Point(189, 48);
+            this.btn_analyse.Name = "btn_analyse";
+            this.btn_analyse.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse.TabIndex = 4;
+            this.btn_analyse.Text = "Analyse(T)";
+            this.btn_analyse.UseVisualStyleBackColor = true;
+            this.btn_analyse.Click += new System.EventHandler(this.btn_analyse_Click);
             // 
             // btn_check_qty
             // 
@@ -83,7 +123,7 @@
             this.btn_add_all.Name = "btn_add_all";
             this.btn_add_all.Size = new System.Drawing.Size(116, 25);
             this.btn_add_all.TabIndex = 2;
-            this.btn_add_all.Text = "Add ALL";
+            this.btn_add_all.Text = "Add Persent";
             this.btn_add_all.UseVisualStyleBackColor = true;
             this.btn_add_all.Click += new System.EventHandler(this.btn_add_all_Click);
             // 
@@ -126,7 +166,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(916, 455);
+            this.tabPage1.Size = new System.Drawing.Size(916, 432);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TEXT";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -139,7 +179,7 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(910, 449);
+            this.txt_result.Size = new System.Drawing.Size(910, 426);
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
@@ -155,17 +195,6 @@
             this.tabPage2.Text = "TABLE";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dgv_result
-            // 
-            this.dgv_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_result.Location = new System.Drawing.Point(0, 36);
-            this.dgv_result.Name = "dgv_result";
-            this.dgv_result.Size = new System.Drawing.Size(916, 396);
-            this.dgv_result.TabIndex = 0;
-            // 
             // btn_update
             // 
             this.btn_update.Location = new System.Drawing.Point(4, 7);
@@ -176,33 +205,16 @@
             this.btn_update.UseVisualStyleBackColor = true;
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
-            // btn_analyse
+            // dgv_result
             // 
-            this.btn_analyse.Location = new System.Drawing.Point(189, 48);
-            this.btn_analyse.Name = "btn_analyse";
-            this.btn_analyse.Size = new System.Drawing.Size(116, 25);
-            this.btn_analyse.TabIndex = 4;
-            this.btn_analyse.Text = "Analyse(T)";
-            this.btn_analyse.UseVisualStyleBackColor = true;
-            this.btn_analyse.Click += new System.EventHandler(this.btn_analyse_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Report:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Update:";
+            this.dgv_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_result.Location = new System.Drawing.Point(0, 36);
+            this.dgv_result.Name = "dgv_result";
+            this.dgv_result.Size = new System.Drawing.Size(916, 396);
+            this.dgv_result.TabIndex = 0;
             // 
             // frm_match_100_check
             // 
@@ -239,5 +251,6 @@
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_analyse_data_odd;
     }
 }
