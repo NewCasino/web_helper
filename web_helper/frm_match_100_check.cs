@@ -485,10 +485,10 @@ namespace web_helper
 
             string sql = "select id from europe_100_log where (f_state='1' or f_state='2') and   timespan>'{0}' ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd ") + "00:00:00");
-            DataTable dt_id = SQLServerHelper.get_table(sql);
-
+            DataTable dt_id = SQLServerHelper.get_table(sql); 
             foreach (DataRow row_id in dt_id.Rows)
             {
+                Application.DoEvents();
                 DataRow row;
                 sql = sql_select + "and id='{0}' and (f_state='1' or f_state='2')";
                 sql = string.Format(sql, row_id[0].ToString());
@@ -623,9 +623,10 @@ namespace web_helper
 
                                             //update id_1 and id_2
                                             update_two(id_1, host_1, client_1, id_2, host_2, client_2);
-
+                                            
                                             sb.AppendLine(row_group_1["id"].PR(5) + row_group_1["start_time"].ToString().PR(20) + row_group_1["host"].PR(30) + row_group_1["client"].PR(30));
                                             sb.AppendLine(row_group["id"].PR(5) + row_group["start_time"].ToString().PR(20) + row_group["host"].PR(30) + row_group["client"].PR(30));
+                                            sb.AppendLine("--------------------------------------------------------------------------------------------------------------------------------");
                                             this.txt_result.Text = sb.ToString();
                                             Application.DoEvents();
                                         }

@@ -40,7 +40,7 @@ namespace web_helper
                 ie.browser.Height = 600;
                 ie.is_use = false;
                 ie.index = i;
-                ie.browser.ScriptErrorsSuppressed = true; 
+                ie.browser.ScriptErrorsSuppressed = true;
                 ie.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.browser_DocumentCompleted);
                 ies.Add(ie);
 
@@ -123,11 +123,11 @@ namespace web_helper
         private void btn_select_website_1_Click(object sender, EventArgs e)
         {
             select_website("pinnaclesports");
-        } 
+        }
         private void btn_select_website_2_Click(object sender, EventArgs e)
         {
             select_website("marathonbet");
-        } 
+        }
         private void btn_select_website_3_Click(object sender, EventArgs e)
         {
             select_website("gobetgo");
@@ -183,7 +183,7 @@ namespace web_helper
                             BsonDocument doc_result = ies[Convert.ToInt32(row["browser"].ToString())].doc_result;
 
                             sb.AppendLine("-----------------------------------------------------------------------------------------------------------------");
-                            sb.AppendLine("web site:".PR(15) + row["site_name"].PR(10) + row["method"].ToString()); 
+                            sb.AppendLine("web site:".PR(15) + row["site_name"].PR(10) + row["method"].ToString());
                             sb.AppendLine("time:".PR(15) + row["start_time"].ToString().Substring(11, 8).PR(10) + row["end_time"].ToString().Substring(11, 8).PR(10) + row["final_time"].ToString().Substring(11, 8).PR(10));
                             sb.AppendLine("url:".PR(15) + doc_result["url"].ToString());
                             sb.AppendLine("result data:".PR(15));
@@ -286,12 +286,12 @@ namespace web_helper
 
             foreach (DataRow row in dt.Rows)
             {
-              bool is_has=false;
-              foreach(string item in list_selected)
-              {
-                  if (item == row["site_name"].ToString()) is_has = true;
-              }
-              if (is_has == false) list_selected.Add(row["site_name"].ToString()); 
+                bool is_has = false;
+                foreach (string item in list_selected)
+                {
+                    if (item == row["site_name"].ToString()) is_has = true;
+                }
+                if (is_has == false) list_selected.Add(row["site_name"].ToString());
             }
 
             //5 minutes later,restar browser
@@ -331,7 +331,7 @@ namespace web_helper
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    if (row["site_name"].ToString()== site_name)
+                    if (row["site_name"].ToString() == site_name)
                     {
                         DateTime final_time = Convert.ToDateTime(row["final"].ToString());
                         TimeSpan span = DateTime.Now - final_time;
@@ -350,29 +350,29 @@ namespace web_helper
         }
         public void select_method_from_site(WebBrowser browser, int row_id)
         {
-            //try
-            //{
-                int index = Convert.ToInt32(browser.Name);
-                string method = dt.Rows[row_id]["method"].ToString();
-                string site_name = dt.Rows[row_id]["site_name"].ToString();
 
-                //invoke method
-                Type reflect_type = Type.GetType("Match100Method");
-                object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
-                MethodInfo method_info = reflect_type.GetMethod(method);
-                //Match100Helper.create_log(method_info.Name, browser);
+            int index = Convert.ToInt32(browser.Name);
+            string method = dt.Rows[row_id]["method"].ToString();
+            string site_name = dt.Rows[row_id]["site_name"].ToString();
 
-                BsonDocument doc_input = ies[index].doc_result;
-                BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser,doc_input});
-                ies[index].doc_result = doc_result;
+            //invoke method
+            Type reflect_type = Type.GetType("Match100Method");
+            object reflect_acvtive = Activator.CreateInstance(reflect_type, null);
+            MethodInfo method_info = reflect_type.GetMethod(method);
 
-                //update grid 
-                dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                
+            try
+            {
+                Match100Helper.create_log(method_info.Name, browser);
+            }
+            catch (Exception error) { }
 
-                Application.DoEvents();
-            //}
-            //catch (Exception error) { }
+            BsonDocument doc_input = ies[index].doc_result;
+            BsonDocument doc_result = (BsonDocument)method_info.Invoke(reflect_acvtive, new object[] { browser, doc_input });
+            ies[index].doc_result = doc_result;
+
+            //update grid 
+            dt.Rows[row_id]["end_time"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); 
+            Application.DoEvents();
 
         }
         public void bind_data()
@@ -418,7 +418,7 @@ namespace web_helper
         }
 
         public void select_website(string website)
-        { 
+        {
             for (int i = 0; i < dgv_result.Rows.Count - 1; i++)
             {
                 if (dgv_result.Rows[i].Cells["site_name"].Value.ToString() == website)
@@ -430,7 +430,7 @@ namespace web_helper
                     dgv_result.Rows[i].Cells["selected"].Value = false;
                 }
             }
-        } 
+        }
     }
 
     public class IE
