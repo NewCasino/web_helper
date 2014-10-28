@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_analyse_data_odd = new System.Windows.Forms.Button();
+            this.btn_analyse_by_similar_name = new System.Windows.Forms.Button();
+            this.btn_analyse_by_date_odd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_analyse = new System.Windows.Forms.Button();
+            this.btn_analyse_by_hand = new System.Windows.Forms.Button();
             this.btn_check_qty = new System.Windows.Forms.Button();
             this.btn_add_all = new System.Windows.Forms.Button();
             this.btn_check_matchs = new System.Windows.Forms.Button();
@@ -54,10 +55,11 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.btn_analyse_data_odd);
+            this.groupBox1.Controls.Add(this.btn_analyse_by_similar_name);
+            this.groupBox1.Controls.Add(this.btn_analyse_by_date_odd);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btn_analyse);
+            this.groupBox1.Controls.Add(this.btn_analyse_by_hand);
             this.groupBox1.Controls.Add(this.btn_check_qty);
             this.groupBox1.Controls.Add(this.btn_add_all);
             this.groupBox1.Controls.Add(this.btn_check_matchs);
@@ -69,15 +71,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
-            // btn_analyse_data_odd
+            // btn_analyse_by_similar_name
             // 
-            this.btn_analyse_data_odd.Location = new System.Drawing.Point(311, 48);
-            this.btn_analyse_data_odd.Name = "btn_analyse_data_odd";
-            this.btn_analyse_data_odd.Size = new System.Drawing.Size(116, 25);
-            this.btn_analyse_data_odd.TabIndex = 7;
-            this.btn_analyse_data_odd.Text = "Analyse(T O)";
-            this.btn_analyse_data_odd.UseVisualStyleBackColor = true;
-            this.btn_analyse_data_odd.Click += new System.EventHandler(this.btn_analyse_data_odd_Click);
+            this.btn_analyse_by_similar_name.Location = new System.Drawing.Point(433, 48);
+            this.btn_analyse_by_similar_name.Name = "btn_analyse_by_similar_name";
+            this.btn_analyse_by_similar_name.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse_by_similar_name.TabIndex = 8;
+            this.btn_analyse_by_similar_name.Text = "Analyse(Similar T)";
+            this.btn_analyse_by_similar_name.UseVisualStyleBackColor = true;
+            this.btn_analyse_by_similar_name.Click += new System.EventHandler(this.btn_analyse_by_similar_name_Click);
+            // 
+            // btn_analyse_by_date_odd
+            // 
+            this.btn_analyse_by_date_odd.Location = new System.Drawing.Point(311, 48);
+            this.btn_analyse_by_date_odd.Name = "btn_analyse_by_date_odd";
+            this.btn_analyse_by_date_odd.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse_by_date_odd.TabIndex = 7;
+            this.btn_analyse_by_date_odd.Text = "Analyse(S and O)";
+            this.btn_analyse_by_date_odd.UseVisualStyleBackColor = true;
+            this.btn_analyse_by_date_odd.Click += new System.EventHandler(this.btn_analyse_by_date_odd_Click);
             // 
             // label2
             // 
@@ -97,15 +109,15 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Report:";
             // 
-            // btn_analyse
+            // btn_analyse_by_hand
             // 
-            this.btn_analyse.Location = new System.Drawing.Point(189, 48);
-            this.btn_analyse.Name = "btn_analyse";
-            this.btn_analyse.Size = new System.Drawing.Size(116, 25);
-            this.btn_analyse.TabIndex = 4;
-            this.btn_analyse.Text = "Analyse(T)";
-            this.btn_analyse.UseVisualStyleBackColor = true;
-            this.btn_analyse.Click += new System.EventHandler(this.btn_analyse_Click);
+            this.btn_analyse_by_hand.Location = new System.Drawing.Point(189, 48);
+            this.btn_analyse_by_hand.Name = "btn_analyse_by_hand";
+            this.btn_analyse_by_hand.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse_by_hand.TabIndex = 4;
+            this.btn_analyse_by_hand.Text = "Analyse(Hand)";
+            this.btn_analyse_by_hand.UseVisualStyleBackColor = true;
+            this.btn_analyse_by_hand.Click += new System.EventHandler(this.btn_analyse_by_hand_Click);
             // 
             // btn_check_qty
             // 
@@ -247,10 +259,11 @@
         private System.Windows.Forms.Button btn_check_matchs;
         private System.Windows.Forms.Button btn_add_all;
         private System.Windows.Forms.Button btn_check_qty;
-        private System.Windows.Forms.Button btn_analyse;
+        private System.Windows.Forms.Button btn_analyse_by_hand;
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_analyse_data_odd;
+        private System.Windows.Forms.Button btn_analyse_by_date_odd;
+        private System.Windows.Forms.Button btn_analyse_by_similar_name;
     }
 }

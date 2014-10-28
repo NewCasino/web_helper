@@ -40,9 +40,9 @@ namespace web_helper
             load_qty();
         }
 
-        private void btn_analyse_Click(object sender, EventArgs e)
+        private void btn_analyse_by_hand_Click(object sender, EventArgs e)
         {
-            analyse();
+            analyse_by_hand();
             MessageBox.Show("Analyse OK!");
         }
         private void btn_update_Click(object sender, EventArgs e)
@@ -81,10 +81,16 @@ namespace web_helper
                 }
             }
         }
-        private void btn_analyse_data_odd_Click(object sender, EventArgs e)
+
+        private void btn_analyse_by_date_odd_Click(object sender, EventArgs e)
         {
             analyse_by_time_and_odd();
         }
+        private void btn_analyse_by_similar_name_Click(object sender, EventArgs e)
+        {
+            analyse_by_similar_name();
+        }
+
 
         public void team_discrimination()
         {
@@ -246,7 +252,7 @@ namespace web_helper
         }
 
 
-        public void analyse()
+        public void analyse_by_hand()
         {
             DataTable dt_result = new DataTable();
             dt_result.Columns.Add("type");
@@ -347,8 +353,7 @@ namespace web_helper
             this.txt_result.Text = sb.PRINT();
             Application.DoEvents();
             this.dgv_result.DataSource = dt_result;
-        }
-
+        } 
 
 
         //the function  used for future
@@ -468,6 +473,7 @@ namespace web_helper
             return "WRONG";
         }
 
+        //analyse by start_time and win persent
         public void analyse_by_time_and_odd()
         {
             //one by one 
@@ -483,9 +489,9 @@ namespace web_helper
                 " and   ISNUMERIC(odd_lose)=1 " +
                 " and   id in (select max(id) from europe_100_log group by website,start_time,host,client) ";
 
-            string sql = "select id from europe_100_log where (f_state='1' or f_state='2') and   timespan>'{0}' ";
+            string sql = "select id from europe_100_log where id in (select max(id) from europe_100_log where (f_state='1' or f_state='2') and   timespan>'{0}' group by website,start_time,host,client) ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd ") + "00:00:00");
-            DataTable dt_id = SQLServerHelper.get_table(sql); 
+            DataTable dt_id = SQLServerHelper.get_table(sql);
             foreach (DataRow row_id in dt_id.Rows)
             {
                 Application.DoEvents();
@@ -493,14 +499,9 @@ namespace web_helper
                 sql = sql_select + "and id='{0}' and (f_state='1' or f_state='2')";
                 sql = string.Format(sql, row_id[0].ToString());
                 DataTable dt = SQLServerHelper.get_table(sql);
-                if (dt.Rows.Count > 0)
-                {
-                    row = dt.Rows[0];
-                }
-                else
-                {
-                    continue;
-                }
+                if (dt.Rows.Count == 0) continue;
+                row = dt.Rows[0];
+
 
                 int group_id = 0;
                 DataTable dt_group = dt.Clone();
@@ -514,7 +515,7 @@ namespace web_helper
                 {
 
                     //all this start_time's match
-                    sql = sql_select + "and  website<>'{0}' and  f_start_time='{1}'";
+                    sql = sql_select + " and id in (select max(id) from europe_100_log where website<>'{0}' and  f_start_time='{1}' group by website,start_time,host,client) ";
                     sql = string.Format(sql, row_host["website"].ToString(), row_host["f_start_time"].ToString());
                     DataTable dt_start_time = SQLServerHelper.get_table(sql);
 
@@ -558,7 +559,7 @@ namespace web_helper
                         if (row_website["website"].ToString() == row_group["website"].ToString())
                         {
                             is_has = true;
-                            if (!row_website["group"].ToString().Contains("["+row_group["group_id"].ToString()+"]"))
+                            if (!row_website["group"].ToString().Contains("[" + row_group["group_id"].ToString() + "]"))
                             {
                                 row_website["qty"] = (Convert.ToInt32(row_website["qty"].ToString()) + 1).ToString();
                                 row_website["group"] = row_website["group"].ToString() + "[" + row_group["group_id"].ToString() + "]";
@@ -570,10 +571,10 @@ namespace web_helper
                     if (is_has == false)
                     {
                         DataRow row_new = dt_website.NewRow();
-                        row_new["website"] = row_group["website"].ToString(); 
+                        row_new["website"] = row_group["website"].ToString();
                         row_new["qty"] = "1";
                         row_new["group"] = "[" + row_group["group_id"].ToString() + "]";
-                         
+
                         dt_website.Rows.Add(row_new);
                     }
                 }
@@ -597,17 +598,17 @@ namespace web_helper
                                 client_1 = row_group["client"].ToString();
 
 
-                                bool is_fit = false; 
+                                bool is_fit = false;
                                 foreach (DataRow row_group_1 in dt_group.Rows)
                                 {
                                     if (
                                        row_group_1["website"].ToString() == row_group["website"].ToString() &&
                                        row_group_1["group_id"].ToString() != row_group["group_id"].ToString() &&
-                                      (row_group_1["host"].ToString() == row_group["host"].ToString() || row_group_1["host"].ToString() == row_group["client"].ToString()||
+                                      (row_group_1["host"].ToString() == row_group["host"].ToString() || row_group_1["host"].ToString() == row_group["client"].ToString() ||
                                        row_group_1["client"].ToString() == row_group["host"].ToString() || row_group_1["client"].ToString() == row_group["host"].ToString())
                                        )
-                                    { 
-                                        is_fit = true; 
+                                    {
+                                        is_fit = true;
                                     }
 
                                 }
@@ -623,7 +624,7 @@ namespace web_helper
 
                                             //update id_1 and id_2
                                             update_two(id_1, host_1, client_1, id_2, host_2, client_2);
-                                            
+
                                             sb.AppendLine(row_group_1["id"].PR(5) + row_group_1["start_time"].ToString().PR(20) + row_group_1["host"].PR(30) + row_group_1["client"].PR(30));
                                             sb.AppendLine(row_group["id"].PR(5) + row_group["start_time"].ToString().PR(20) + row_group["host"].PR(30) + row_group["client"].PR(30));
                                             sb.AppendLine("--------------------------------------------------------------------------------------------------------------------------------");
@@ -631,9 +632,7 @@ namespace web_helper
                                             Application.DoEvents();
                                         }
                                     }
-                                }
-
-
+                                } 
                             }
                         }
                     }
@@ -661,7 +660,7 @@ namespace web_helper
             }
             if (string.IsNullOrEmpty(dt.Rows[0]["f_host"].ToString()) && string.IsNullOrEmpty(dt.Rows[1]["f_host"].ToString()))
             {
-                //Match100Helper.insert_name(dt.Rows[0]["f_host"].ToString(), dt.Rows[1]["f_host"].ToString());
+                //Match100Helper.insert_name_all(dt.Rows[0]["f_host"].ToString(), dt.Rows[1]["f_host"].ToString());
                 host = dt.Rows[0]["f_host"].ToString();
             }
 
@@ -677,7 +676,7 @@ namespace web_helper
             }
             if (string.IsNullOrEmpty(dt.Rows[0]["f_client"].ToString()) && string.IsNullOrEmpty(dt.Rows[1]["f_client"].ToString()))
             {
-                //Match100Helper.insert_name(dt.Rows[0]["f_client"].ToString(), dt.Rows[1]["f_client"].ToString());
+                //Match100Helper.insert_name_all(dt.Rows[0]["f_client"].ToString(), dt.Rows[1]["f_client"].ToString());
                 client = dt.Rows[0]["f_client"].ToString();
             }
             sql = "update europe_100_log set f_host='{0}' , f_client='{1}',f_state='3'  where id in ('{2}','{3}')";
@@ -685,6 +684,120 @@ namespace web_helper
             //SQLServerHelper.exe_sql(sql); 
         }
 
+        //analyse by team  split name word
+        public void analyse_by_similar_name()
+        {
+            string sql = "select id  from europe_100_log where (f_state='1' or f_state='2') and   timespan>'{0}' ";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd ") + "00:00:00");
+            DataTable dt_id = SQLServerHelper.get_table(sql);
+            foreach (DataRow row_id in dt_id.Rows)
+            {
+                string max_id = row_id[0].ToString();
+                //max id row
+                sql = "select * from  europe_100_log where id='{0}' and (f_state='1' or f_state='2')";
+                sql = string.Format(sql, max_id);
+                DataTable dt = SQLServerHelper.get_table(sql);  
+                if (dt.Rows.Count == 0) continue;
+                DataRow row = dt.Rows[0];
 
+
+                bool has_update = false;
+                sql = "select * from europe_100_log  where  f_start_time='{0}' and website<>'{1}'";
+                sql = string.Format(sql, row["f_start_time"].ToString(), row["website"].ToString());
+                DataTable dt_temp = SQLServerHelper.get_table(sql);
+                foreach (DataRow row_temp in dt_temp.Rows)
+                {
+                    if (row["f_start_time"].ToString() == row_temp["f_start_time"].ToString())
+                    {
+                        if (is_similar_name(row["host"].ToString(), row_temp["host"].ToString()) && is_similar_name(row["client"].ToString(), row_temp["client"].ToString()))
+                        {
+                            sb.AppendLine(row["website"].PR(15) + row["league"].PR(50) + row["f_start_time"].PR(20) + row["host"].PR(30) + row["client"].PR(30) + row["f_host"].PR(30) + row["f_client"].PR(30));
+                            sb.AppendLine(row_temp["website"].PR(15) + row_temp["league"].PR(50) + row_temp["f_start_time"].PR(20) + row_temp["host"].PR(30) + row_temp["client"].PR(30) + row_temp["f_host"].PR(30) + row_temp["f_client"].PR(30));
+                            sb.AppendLine("-------------------------------------------------------------------------------------------------------------------");
+                            this.txt_result.Text = sb.ToString();
+                            Application.DoEvents();
+
+                            string host = "";
+                            string client = "";
+                            string sql_update = "update europe_100_log set host='{0}', client='{1}',f_state='3' where id='{2}'";
+                            if (has_update == false)
+                            {
+                                host = Match100Helper.insert_name_all(row["host"].ToString(), row_temp["host"].ToString());
+                                client = Match100Helper.insert_name_all(row["client"].ToString(), row_temp["client"].ToString());
+                                sql = string.Format(sql_update, host, client, row["id"].ToString());
+                                SQLServerHelper.exe_sql(sql);
+                                sql = string.Format(sql_update, host, client, row_temp["id"].ToString());
+                                SQLServerHelper.exe_sql(sql);
+                                row["f_host"] = host;
+                                row["f_client"] = client;
+                                has_update = true;
+                            }
+                            else
+                            {
+                                host = row["f_host"].ToString();
+                                client = row["f_client"].ToString();
+                                Match100Helper.insert_name(host, row_temp["host"].ToString());
+                                Match100Helper.insert_name(client, row_temp["client"].ToString());
+                                sql = string.Format(sql_update, host, client, row_temp["id"].ToString());
+                                SQLServerHelper.exe_sql(sql);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        public bool is_similar_name(string name1, string name2)
+        {
+            if (string.IsNullOrEmpty(name1) || string.IsNullOrEmpty(name2)) return false;
+            name1 = name1.Replace("/r/n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ").Replace("\v", " ").Replace("\f", " ").Replace("&nbsp;", " ").Replace("<br>", " ").Replace("<BR>", " ");
+            name2 = name2.Replace("/r/n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ").Replace("\v", " ").Replace("\f", " ").Replace("&nbsp;", " ").Replace("<br>", " ").Replace("<BR>", " ");
+            name1 = name1.ToLower();
+            name2 = name2.ToLower();
+            name1 = name1.Replace("fc", " ");
+            name2 = name2.Replace("fc", " ");
+
+            string[] names1 = name1.E_SPLIT(" ");
+            string[] names2 = name2.E_SPLIT(" ");
+
+            foreach (string item1 in names1)
+            {
+                foreach (string item2 in names2)
+                {
+                    if (item1 == item2)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public int similar_word_count(string name1, string name2)
+        {
+            int count = 0;
+
+            if (string.IsNullOrEmpty(name1) || string.IsNullOrEmpty(name2)) return count;
+            name1 = name1.Replace("/r/n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ").Replace("\v", " ").Replace("\f", " ").Replace("&nbsp;", " ").Replace("<br>", " ").Replace("<BR>", " ").Replace("(", " ").Replace(")", " ");
+            name2 = name1.Replace("/r/n", " ").Replace("\r", " ").Replace("\n", " ").Replace("\t", " ").Replace("\v", " ").Replace("\f", " ").Replace("&nbsp;", " ").Replace("<br>", " ").Replace("<BR>", " ").Replace("(", " ").Replace(")", " ");
+            name1 = name1.ToLower();
+            name2 = name2.ToLower();
+            name1 = name1.Replace("fc", " ");
+            name2 = name2.Replace("fc", " ");
+
+            string[] names1 = name1.E_SPLIT(" ");
+            string[] names2 = name2.E_SPLIT(" ");
+
+            foreach (string item1 in names1)
+            {
+                foreach (string item2 in names2)
+                {
+                    if (item1 == item2)
+                    {
+                        count = count + 1;
+                    }
+                }
+            }
+            return count;
+        } 
     }
 }

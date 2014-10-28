@@ -87,8 +87,8 @@ class Match100Helper
             string id = dt.Rows[0]["id"].ToString();
             string name_all = dt.Rows[0]["name_all"].ToString();
             string name_update = name_all;
-            if (!name_all.Contains(name_other)) name_update = name_update + "●" + name_other;
-            if (!name_all.Contains(name)) name_update = name_update + "●" + name;
+            if (!name_all.Contains(name_other)) name_update = name_update + M.D + name_other;
+            if (!name_all.Contains(name)) name_update = name_update + M.D + name;
             if (name_all != name_update)
             {
 
@@ -100,10 +100,92 @@ class Match100Helper
         else
         {
             sql = "insert into names (name,name_all) values ('{0}','{1}')";
-            sql = string.Format(sql, name, Tool.drop_repeat(name + "●" + name_other));
+            sql = string.Format(sql, name, Tool.drop_repeat(name + M.D + name_other));
             SQLServerHelper.exe_sql(sql);
         }
     }
+    public static string insert_name_all(string name1, string name2)
+    {
+
+        string result = "";
+
+        if (string.IsNullOrEmpty(name1) || string.IsNullOrEmpty(name2)) return "";
+        string sql = "select * from names where replace(lower(name_all),' ','') like '%'+replace(lower('{0}'),' ','')+'%'";
+        sql = string.Format(sql, name1);
+        DataTable dt1 = SQLServerHelper.get_table(sql);
+        sql = string.Format(sql, name2);
+        DataTable dt2 = SQLServerHelper.get_table(sql);
+
+        if (dt1.Rows.Count == 0 && dt2.Rows.Count == 0)
+        {
+            sql = "insert into names (name,name_all) values ('{0}','{1}')";
+            sql = string.Format(sql, name1, Tool.drop_repeat(name1 + M.D + name2));
+            SQLServerHelper.exe_sql(sql);
+            result = name1;
+        }
+        string id = "";
+        string name_all = "";
+        string name_update = "";
+        if (dt1.Rows.Count > 0 && dt2.Rows.Count == 0)
+        {
+            result = dt1.Rows[0]["name"].ToString();
+            id = dt1.Rows[0]["id"].ToString();
+            name_all = dt1.Rows[0]["name_all"].ToString();
+            name_update = name_all;
+            if (!name_all.Contains(name1)) name_update = name_update + M.D + name1;
+            if (!name_all.Contains(name2)) name_update = name_update + M.D + name2;
+            if (name_all != name_update)
+            {
+                sql = " update names set name_all='{0}' where id={1}";
+                sql = string.Format(sql, Tool.drop_repeat(name_update), id);
+                SQLServerHelper.exe_sql(sql);
+            }
+        }
+        if (dt1.Rows.Count == 0 && dt2.Rows.Count > 0)
+        {
+            result = dt2.Rows[0]["name"].ToString();
+            id = dt2.Rows[0]["id"].ToString();
+            name_all = dt2.Rows[0]["name_all"].ToString();
+            name_update = name_all;
+            if (!name_all.Contains(name1)) name_update = name_update + M.D + name1;
+            if (!name_all.Contains(name2)) name_update = name_update + M.D + name2;
+            if (name_all != name_update)
+            {
+                sql = " update names set name_all='{0}' where id={1}";
+                sql = string.Format(sql, Tool.drop_repeat(name_update), id);
+                SQLServerHelper.exe_sql(sql);
+            }
+        }
+        if (dt1.Rows.Count > 0 && dt2.Rows.Count > 0)
+        {
+            
+            if (dt1.Rows[0]["name_all"].ToString().E_SPLIT(M.D).Length >= dt2.Rows[0]["name_all"].ToString().E_SPLIT(M.D).Length)
+            {
+                id = dt1.Rows[0]["id"].ToString();
+                name_all = dt1.Rows[0]["name_all"].ToString();
+                result = dt1.Rows[0]["name"].ToString();
+            }
+            else
+            {
+                id = dt2.Rows[0]["id"].ToString();
+                name_all = dt2.Rows[0]["name_all"].ToString();
+                result = dt2.Rows[0]["name"].ToString();
+            }
+            name_update = name_all;
+
+            if (!name_all.Contains(name1)) name_update = name_update + M.D + name1;
+            if (!name_all.Contains(name2)) name_update = name_update + M.D + name2;
+            if (name_all != name_update)
+            {
+                sql = " update names set name_all='{0}' where id={1}";
+                sql = string.Format(sql, Tool.drop_repeat(name_update), id);
+                SQLServerHelper.exe_sql(sql);
+            } 
+        }
+
+        return result;  
+    }
+
     public static void insert_teams_log(string website, string season_name, string lg_name1, string lg_name2, string lg_name3, string name1, string name2, string name3)
     {
         string sql = "";
@@ -224,7 +306,7 @@ class Match100Helper
             if ((dt_return - DateTime.Now).Seconds < 0)
             {
                 dt_return = dt_return.AddDays(1);
-            } 
+            }
         }
 
         return dt_return;
@@ -352,7 +434,7 @@ class Match100Helper
         {
             double d1 = Convert.ToDouble(list[0].ToString().Trim());
             double d2 = Convert.ToDouble(list[1].ToString().Trim());
-            result = Math.Round(d1 / d2 + 1, 3).ToString("###.000"); 
+            result = Math.Round(d1 / d2 + 1, 3).ToString("###.000");
         }
         return result;
     }
@@ -375,26 +457,26 @@ class Match100Helper
     {
         string html_path = @"D:\log\htmls\" + DateTime.Now.ToString("yyyyMMdd");
 
-        if (!Directory.Exists(html_path))  Directory.CreateDirectory(html_path);
+        if (!Directory.Exists(html_path)) Directory.CreateDirectory(html_path);
         html_path = html_path + @"\";
-       
-        Random random = new Random(); 
+
+        Random random = new Random();
         string html = BrowserHelper.get_html(ref browser);
         string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("hhmmss") + "_" + random.Next(100).ToString("000") + "_" + method_name + ".html";
         FileStream stream = (FileStream)File.Open(html_path + file_name, FileMode.Create);
-        StreamWriter writer = new StreamWriter(stream); 
+        StreamWriter writer = new StreamWriter(stream);
         writer.WriteLine(html);
         writer.Close();
         stream.Close();
 
 
         string log_name = @"D:\log\log\" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
-        if (!File.Exists(log_name)) 
+        if (!File.Exists(log_name))
         {
-            FileStream  stream_temp=(FileStream)File.Create(log_name);
+            FileStream stream_temp = (FileStream)File.Create(log_name);
             stream_temp.Close();
         }
-             
+
 
         FileStream stream2 = (FileStream)File.Open(log_name, FileMode.Append);
         StreamWriter writer2 = new StreamWriter(stream2);

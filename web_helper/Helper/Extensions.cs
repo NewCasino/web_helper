@@ -47,10 +47,7 @@ static class Extensions
     {
         string result = "";
 
-        str = str.Replace("/r/n", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\v", "").Replace("\f", "");
-        str=str.Replace("&nbsp;","");
-        str = str.Replace("<br>", "");
-        str = str.Replace("<BR>", "");
+        str = str.Replace("/r/n", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace("&nbsp;","").Replace("<br>", "").Replace("<BR>", ""); 
 
         string[] list = str.E_SPLIT(" ");
         if (list.Length > 0)
