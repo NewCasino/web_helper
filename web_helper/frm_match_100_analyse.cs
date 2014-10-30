@@ -430,9 +430,9 @@ namespace web_helper
             string sql = "";
             sql = " select  start_time,host,client,website,odd_win,odd_draw,odd_lose " +
                  " from europe_100" +
-                 " where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client)" +
+                 " where id in (select max(id) from europe_100 where start_time>'{0}' and timespan>'{1}' group by website,start_time,host,client)" +
                  " order by start_time,host,client,id";
-            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ,DateTime.Now.ToString("yyyy-MM-dd"+" 00:00:00"));
             dt_all = SQLServerHelper.get_table(sql);
             this.dgv_all.DataSource = dt_all;
 
@@ -448,9 +448,9 @@ namespace web_helper
             dt_match.Columns.Add("client");
             sql = "  select distinct start_time,host,client" +
                  "  from europe_100" +
-                 "  where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client)" +
+                 "  where id in (select max(id) from europe_100 where start_time>'{0}' and timespan>'{1}' group by website,start_time,host,client)" +
                  "  order by start_time,host,client";
-            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd" + " 00:00:00"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_match.Rows)
             {
@@ -473,8 +473,8 @@ namespace web_helper
             dt_website.Columns.Add("website");
             sql = " select distinct  website" +
                   " from europe_100" +
-                  " where id in (select max(id) from europe_100 where start_time>'{0}' group by website,start_time,host,client) ";
-            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                  " where id in (select max(id) from europe_100 where start_time>'{0}' and timespan>'{1}' group by website,start_time,host,client) ";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd" + " 00:00:00"));
             DataTable dt_temp_website = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt_temp_website.Rows)
             {

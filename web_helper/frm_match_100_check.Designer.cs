@@ -44,6 +44,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_update = new System.Windows.Forms.Button();
             this.dgv_result = new System.Windows.Forms.DataGridView();
+            this.btn_analyse_one_by_other = new System.Windows.Forms.Button();
+            this.btn_insert_office = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -55,6 +57,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_insert_office);
+            this.groupBox1.Controls.Add(this.btn_analyse_one_by_other);
             this.groupBox1.Controls.Add(this.btn_analyse_by_similar_name);
             this.groupBox1.Controls.Add(this.btn_analyse_by_date_odd);
             this.groupBox1.Controls.Add(this.label2);
@@ -73,21 +77,21 @@
             // 
             // btn_analyse_by_similar_name
             // 
-            this.btn_analyse_by_similar_name.Location = new System.Drawing.Point(433, 48);
+            this.btn_analyse_by_similar_name.Location = new System.Drawing.Point(311, 48);
             this.btn_analyse_by_similar_name.Name = "btn_analyse_by_similar_name";
             this.btn_analyse_by_similar_name.Size = new System.Drawing.Size(116, 25);
             this.btn_analyse_by_similar_name.TabIndex = 8;
-            this.btn_analyse_by_similar_name.Text = "Analyse(Similar T)";
+            this.btn_analyse_by_similar_name.Text = "A(Similar T)";
             this.btn_analyse_by_similar_name.UseVisualStyleBackColor = true;
             this.btn_analyse_by_similar_name.Click += new System.EventHandler(this.btn_analyse_by_similar_name_Click);
             // 
             // btn_analyse_by_date_odd
             // 
-            this.btn_analyse_by_date_odd.Location = new System.Drawing.Point(311, 48);
+            this.btn_analyse_by_date_odd.Location = new System.Drawing.Point(433, 48);
             this.btn_analyse_by_date_odd.Name = "btn_analyse_by_date_odd";
             this.btn_analyse_by_date_odd.Size = new System.Drawing.Size(116, 25);
             this.btn_analyse_by_date_odd.TabIndex = 7;
-            this.btn_analyse_by_date_odd.Text = "Analyse(S and O)";
+            this.btn_analyse_by_date_odd.Text = "A(S and W Persent)";
             this.btn_analyse_by_date_odd.UseVisualStyleBackColor = true;
             this.btn_analyse_by_date_odd.Click += new System.EventHandler(this.btn_analyse_by_date_odd_Click);
             // 
@@ -111,11 +115,11 @@
             // 
             // btn_analyse_by_hand
             // 
-            this.btn_analyse_by_hand.Location = new System.Drawing.Point(189, 48);
+            this.btn_analyse_by_hand.Location = new System.Drawing.Point(555, 48);
             this.btn_analyse_by_hand.Name = "btn_analyse_by_hand";
             this.btn_analyse_by_hand.Size = new System.Drawing.Size(116, 25);
             this.btn_analyse_by_hand.TabIndex = 4;
-            this.btn_analyse_by_hand.Text = "Analyse(Hand)";
+            this.btn_analyse_by_hand.Text = "A(By Hand)";
             this.btn_analyse_by_hand.UseVisualStyleBackColor = true;
             this.btn_analyse_by_hand.Click += new System.EventHandler(this.btn_analyse_by_hand_Click);
             // 
@@ -228,6 +232,26 @@
             this.dgv_result.Size = new System.Drawing.Size(916, 396);
             this.dgv_result.TabIndex = 0;
             // 
+            // btn_analyse_one_by_other
+            // 
+            this.btn_analyse_one_by_other.Location = new System.Drawing.Point(189, 48);
+            this.btn_analyse_one_by_other.Name = "btn_analyse_one_by_other";
+            this.btn_analyse_one_by_other.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse_one_by_other.TabIndex = 9;
+            this.btn_analyse_one_by_other.Text = "A(One By Ohter)";
+            this.btn_analyse_one_by_other.UseVisualStyleBackColor = true;
+            this.btn_analyse_one_by_other.Click += new System.EventHandler(this.btn_analyse_one_by_other_Click);
+            // 
+            // btn_insert_office
+            // 
+            this.btn_insert_office.Location = new System.Drawing.Point(677, 48);
+            this.btn_insert_office.Name = "btn_insert_office";
+            this.btn_insert_office.Size = new System.Drawing.Size(116, 25);
+            this.btn_insert_office.TabIndex = 10;
+            this.btn_insert_office.Text = "Insert Office";
+            this.btn_insert_office.UseVisualStyleBackColor = true;
+            this.btn_insert_office.Click += new System.EventHandler(this.btn_insert_office_Click);
+            // 
             // frm_match_100_check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,5 +289,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_analyse_by_date_odd;
         private System.Windows.Forms.Button btn_analyse_by_similar_name;
+        private System.Windows.Forms.Button btn_insert_office;
+        private System.Windows.Forms.Button btn_analyse_one_by_other;
     }
 }

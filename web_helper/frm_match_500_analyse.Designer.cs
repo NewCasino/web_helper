@@ -429,7 +429,7 @@
             this.groupBox2.Size = new System.Drawing.Size(493, 518);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Condition";
+            this.groupBox2.Text = "condition";
             // 
             // btn_match_reverse
             // 

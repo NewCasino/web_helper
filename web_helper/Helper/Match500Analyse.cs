@@ -11,8 +11,7 @@ using MongoDB.Driver;
 
 class Match500Analyse
 {
-    static bool is_open_mongo = false;
-
+    static bool is_open_mongo = false; 
 
     public static BsonDocument get_max_from_single_match(string start_time, string host, string client, int max_count, ArrayList list_websites)
     {

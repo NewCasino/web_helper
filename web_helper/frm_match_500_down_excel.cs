@@ -18,8 +18,7 @@ namespace web_helper
 
     public partial class frm_match_500_down_excel : Form
     {
-        public DataTable table = new DataTable();
-
+        public DataTable table = new DataTable(); 
         public frm_match_500_down_excel()
         {
             InitializeComponent();
@@ -63,8 +62,7 @@ namespace web_helper
             Request request = HttpSocketHelper.get_request_500_excel(id);
             Response response = HttpSocketHelper.get_response(request);
             HttpSocketHelper.save_file_from_response(response, @"c:\data\" + id + ".xls"); 
-        }
-      
+        } 
         public void read_to_db(string lg,string start_time, string host, string client)
         {
             string sql = "";

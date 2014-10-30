@@ -833,8 +833,20 @@ namespace web_helper
             string lose = "";
             string date = "";
             string time = "";
+            string zone = "";
             foreach (HtmlNode node in nodes_all)
             {
+
+                if (node.Id == "timer")
+                {
+                    //02.09.14, 14:47 (GMT+1)
+                    string timer = node.InnerText.E_TRIM();
+                    DateTime dt_timer = new DateTime(Convert.ToInt16("20" + timer.Substring(6, 2)) ,Convert.ToInt16(timer.Substring(3, 2)), Convert.ToInt16(timer.Substring(0, 2)),
+                                                     Convert.ToInt16(timer.Substring(9, 2)), Convert.ToInt16(timer.Substring(12, 2)), 0);
+                    TimeSpan span = DateTime.Now - dt_timer;
+
+                    zone = (8 - Math.Round(span.TotalHours)).ToString();  
+                }
                 if (node.Id == "container_EVENTS")
                 {
                     HtmlNodeCollection nodes_div = node.SELECT_NODES("/div");
@@ -863,7 +875,7 @@ namespace web_helper
                                 draw = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
                                 lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", "0");
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, zone, "0");
                             }
 
                         }
