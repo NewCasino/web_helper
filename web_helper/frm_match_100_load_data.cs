@@ -439,6 +439,6 @@ namespace web_helper
         public int row_id;
         public int index;
         public bool is_use = false;
-        public BsonDocument doc_result = new BsonDocument();
+        public BsonDocument doc_result = Match100Helper.get_doc_result();
     }
 }

@@ -98,7 +98,51 @@ namespace web_helper
             insert_office();
             MessageBox.Show("Inert Office OK!");
         }
+        private void btn_repair_Click(object sender, EventArgs e)
+        { 
+            string sql = " select * " +
+                         " from europe_100 " +
+                         " where id in (select max(id) from europe_100 where start_time>'{0}'   and website<>'marathonbet' group by website,start_time,host,client)";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            DataTable dt1 = SQLServerHelper.get_table(sql);
 
+             sql = " select * " +
+                        " from europe_100 " +
+                        " where id in (select max(id) from europe_100 where start_time>'{0}'   and website='marathonbet' group by website,start_time,host,client)";
+            sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            DataTable dt2 = SQLServerHelper.get_table(sql);
+
+            foreach (DataRow row1 in dt1.Rows)
+            {
+                foreach (DataRow row2 in dt2.Rows)
+                {
+                    if (row1["host"].ToString() == row2["host"].ToString() && row1["client"].ToString() == row2["client"].ToString() && row1["start_time"].ToString() != row2["start_time"].ToString())
+                    {
+                        DateTime time1 = Convert.ToDateTime(row1["start_time"].ToString());
+                        DateTime time2 = Convert.ToDateTime(row2["start_time"].ToString());
+                        TimeSpan span = time1 - time2;
+                        if (span.TotalHours >= -12 && span.TotalHours <= 12)
+                        {
+                            sql = "update europe_100  set start_time='{0}' where start_time='{1}' and host='{2}' and client='{3}'";
+                            sql = string.Format(sql, row1["start_time"].ToString(), row2["start_time"].ToString(), row2["host"].ToString(), row2["client"].ToString());
+                            //SQLServerHelper.exe_sql(sql); 
+                            sb.AppendLine(row2["start_time"].PR(20) + row2["host"].PR(30) + row2["client"].PR(30) + row1["start_time"].PR(20));
+                            this.txt_result.Text = sb.ToString();
+                            Application.DoEvents();
+                        }
+
+                    }
+
+                }
+
+
+            }
+
+
+            
+
+
+        }
 
         public void team_discrimination()
         {
@@ -931,6 +975,8 @@ namespace web_helper
             }
 
         }
+
+
 
 
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_insert_office = new System.Windows.Forms.Button();
+            this.btn_analyse_one_by_other = new System.Windows.Forms.Button();
             this.btn_analyse_by_similar_name = new System.Windows.Forms.Button();
             this.btn_analyse_by_date_odd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,8 +46,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_update = new System.Windows.Forms.Button();
             this.dgv_result = new System.Windows.Forms.DataGridView();
-            this.btn_analyse_one_by_other = new System.Windows.Forms.Button();
-            this.btn_insert_office = new System.Windows.Forms.Button();
+            this.btn_repair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_repair);
             this.groupBox1.Controls.Add(this.btn_insert_office);
             this.groupBox1.Controls.Add(this.btn_analyse_one_by_other);
             this.groupBox1.Controls.Add(this.btn_analyse_by_similar_name);
@@ -70,14 +72,34 @@
             this.groupBox1.Controls.Add(this.btn_team_discrimination);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(916, 79);
+            this.groupBox1.Size = new System.Drawing.Size(1109, 79);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
+            // btn_insert_office
+            // 
+            this.btn_insert_office.Location = new System.Drawing.Point(799, 48);
+            this.btn_insert_office.Name = "btn_insert_office";
+            this.btn_insert_office.Size = new System.Drawing.Size(116, 25);
+            this.btn_insert_office.TabIndex = 10;
+            this.btn_insert_office.Text = "Insert Office";
+            this.btn_insert_office.UseVisualStyleBackColor = true;
+            this.btn_insert_office.Click += new System.EventHandler(this.btn_insert_office_Click);
+            // 
+            // btn_analyse_one_by_other
+            // 
+            this.btn_analyse_one_by_other.Location = new System.Drawing.Point(311, 48);
+            this.btn_analyse_one_by_other.Name = "btn_analyse_one_by_other";
+            this.btn_analyse_one_by_other.Size = new System.Drawing.Size(116, 25);
+            this.btn_analyse_one_by_other.TabIndex = 9;
+            this.btn_analyse_one_by_other.Text = "A(One By Ohter)";
+            this.btn_analyse_one_by_other.UseVisualStyleBackColor = true;
+            this.btn_analyse_one_by_other.Click += new System.EventHandler(this.btn_analyse_one_by_other_Click);
+            // 
             // btn_analyse_by_similar_name
             // 
-            this.btn_analyse_by_similar_name.Location = new System.Drawing.Point(311, 48);
+            this.btn_analyse_by_similar_name.Location = new System.Drawing.Point(433, 48);
             this.btn_analyse_by_similar_name.Name = "btn_analyse_by_similar_name";
             this.btn_analyse_by_similar_name.Size = new System.Drawing.Size(116, 25);
             this.btn_analyse_by_similar_name.TabIndex = 8;
@@ -87,7 +109,7 @@
             // 
             // btn_analyse_by_date_odd
             // 
-            this.btn_analyse_by_date_odd.Location = new System.Drawing.Point(433, 48);
+            this.btn_analyse_by_date_odd.Location = new System.Drawing.Point(555, 48);
             this.btn_analyse_by_date_odd.Name = "btn_analyse_by_date_odd";
             this.btn_analyse_by_date_odd.Size = new System.Drawing.Size(116, 25);
             this.btn_analyse_by_date_odd.TabIndex = 7;
@@ -115,7 +137,7 @@
             // 
             // btn_analyse_by_hand
             // 
-            this.btn_analyse_by_hand.Location = new System.Drawing.Point(555, 48);
+            this.btn_analyse_by_hand.Location = new System.Drawing.Point(677, 48);
             this.btn_analyse_by_hand.Name = "btn_analyse_by_hand";
             this.btn_analyse_by_hand.Size = new System.Drawing.Size(116, 25);
             this.btn_analyse_by_hand.TabIndex = 4;
@@ -173,7 +195,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 87);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(924, 458);
+            this.tabControl1.Size = new System.Drawing.Size(1109, 458);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -182,7 +204,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(916, 432);
+            this.tabPage1.Size = new System.Drawing.Size(1101, 432);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TEXT";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -195,7 +217,7 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(910, 426);
+            this.txt_result.Size = new System.Drawing.Size(1095, 426);
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
@@ -232,31 +254,21 @@
             this.dgv_result.Size = new System.Drawing.Size(916, 396);
             this.dgv_result.TabIndex = 0;
             // 
-            // btn_analyse_one_by_other
+            // btn_repair
             // 
-            this.btn_analyse_one_by_other.Location = new System.Drawing.Point(189, 48);
-            this.btn_analyse_one_by_other.Name = "btn_analyse_one_by_other";
-            this.btn_analyse_one_by_other.Size = new System.Drawing.Size(116, 25);
-            this.btn_analyse_one_by_other.TabIndex = 9;
-            this.btn_analyse_one_by_other.Text = "A(One By Ohter)";
-            this.btn_analyse_one_by_other.UseVisualStyleBackColor = true;
-            this.btn_analyse_one_by_other.Click += new System.EventHandler(this.btn_analyse_one_by_other_Click);
-            // 
-            // btn_insert_office
-            // 
-            this.btn_insert_office.Location = new System.Drawing.Point(677, 48);
-            this.btn_insert_office.Name = "btn_insert_office";
-            this.btn_insert_office.Size = new System.Drawing.Size(116, 25);
-            this.btn_insert_office.TabIndex = 10;
-            this.btn_insert_office.Text = "Insert Office";
-            this.btn_insert_office.UseVisualStyleBackColor = true;
-            this.btn_insert_office.Click += new System.EventHandler(this.btn_insert_office_Click);
+            this.btn_repair.Location = new System.Drawing.Point(189, 48);
+            this.btn_repair.Name = "btn_repair";
+            this.btn_repair.Size = new System.Drawing.Size(116, 25);
+            this.btn_repair.TabIndex = 11;
+            this.btn_repair.Text = "Repair MB";
+            this.btn_repair.UseVisualStyleBackColor = true;
+            this.btn_repair.Click += new System.EventHandler(this.btn_repair_Click);
             // 
             // frm_match_100_check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 545);
+            this.ClientSize = new System.Drawing.Size(1119, 545);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_100_check";
@@ -291,5 +303,6 @@
         private System.Windows.Forms.Button btn_analyse_by_similar_name;
         private System.Windows.Forms.Button btn_insert_office;
         private System.Windows.Forms.Button btn_analyse_one_by_other;
+        private System.Windows.Forms.Button btn_repair;
     }
 }

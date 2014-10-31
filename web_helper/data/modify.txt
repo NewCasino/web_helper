@@ -62,3 +62,18 @@ modify frm_browser three mehod test function
 2014-10-23
 gobetgo europe_100 empty odd value
 
+--------------------------
+2014-10-31 Night
+some problem need to solve:
+1,marathonbet start_time:
+    pick five difirent time
+    repair start_time by other same team name
+2,Discrimination:
+    use one by other function 
+    use the similar team name function(same start_time)
+3,Access Define
+    marathonbet->use input endtime
+    gobetgo&betfair->use VPN(fqrouter)
+4,Bank use fee
+--------------------------
+     

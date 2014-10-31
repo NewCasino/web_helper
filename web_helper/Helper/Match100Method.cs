@@ -1344,7 +1344,10 @@ class Match100Method
                             Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", "0");
                             Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", "0");
                             Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-1", "0");
+                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "2", "0");
+                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-2", "0");
                            
+
                         }
 
                     }
