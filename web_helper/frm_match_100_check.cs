@@ -125,7 +125,7 @@ namespace web_helper
                         {
                             sql = "update europe_100  set start_time='{0}' where start_time='{1}' and host='{2}' and client='{3}'";
                             sql = string.Format(sql, row1["start_time"].ToString(), row2["start_time"].ToString(), row2["host"].ToString(), row2["client"].ToString());
-                            //SQLServerHelper.exe_sql(sql); 
+                            SQLServerHelper.exe_sql(sql); 
                             sb.AppendLine(row2["start_time"].PR(20) + row2["host"].PR(30) + row2["client"].PR(30) + row1["start_time"].PR(20));
                             this.txt_result.Text = sb.ToString();
                             Application.DoEvents();
@@ -404,7 +404,7 @@ namespace web_helper
 
                             string host = "";
                             string client = "";
-                            string sql_update = "update europe_100_log set host='{0}', client='{1}',f_state='3' where id='{2}'";
+                            string sql_update = "update europe_100_log set f_host='{0}', f_client='{1}',f_state='3' where id='{2}'";
                             if (has_update == false)
                             {
                                 host = Match100Helper.insert_name_all(row["host"].ToString(), row_temp["host"].ToString());

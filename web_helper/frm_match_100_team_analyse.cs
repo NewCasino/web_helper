@@ -516,7 +516,7 @@ namespace web_helper
             //    list_hk.Add(txt);
             //}
 
-            //for (int i = 0; i < list_eng.Count; i++)
+            //for (int i = 0; i < list_eng.Count; i++
             //{
             //    string txt = list_eng[i].ToString();
             //    if (txt.Contains("Half") || txt.Contains("Total") || txt.Contains("Corner") ||txt.Contains("Proposition")) continue;

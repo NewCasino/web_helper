@@ -1,0 +1,2013 @@
+BY PERSENT ASC:
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205222331
+2014-11-01 18:00:00    JEF United Ichihara   Jubilo Iwata          
+bid count:177
+return value: -6.1500  ~  -4.5000
+return persent: -3.474576%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.26             3.45             3.35             
+order no    1                2                0                
+odds        3.45             3.35             2.26             
+bids        50               51               76               
+website detail info:
+marathonbet           2.260       3.450       3.350       2014-10-31 20:10:37
+pinnaclesports        2.250       3.450       3.320       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        3.45        50          Draw        3.450       
+marathonbet           3.35        51          Lose        3.350       
+marathonbet           2.26        76          Win         2.260       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120522086
+2014-11-01 14:00:00    Ehime FC              V-Varen Nagasaki      
+bid count:170
+return value: -5.4400  ~  -3.6000
+return persent: -3.200000%
+websites    marathonbet      marathonbet      marathonbet      
+orign       3.20             3.30             2.42             
+order no    1                0                2                
+odds        3.30             3.20             2.42             
+bids        50               52               68               
+website detail info:
+marathonbet           3.200       3.300       2.420       2014-10-31 20:10:37
+odd detail info:
+marathonbet           3.30        50          Draw        3.300       
+marathonbet           3.20        52          Win         3.200       
+marathonbet           2.42        68          Lose        2.420       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205247290
+2014-11-02 21:00:00    Lausanne Sports       FC Wil 1900           
+bid count:203
+return value: -6.0000  ~  -4.7800
+return persent: -2.955665%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       1.97             3.74             3.95             
+order no    2                1                0                
+odds        3.95             3.74             1.97             
+bids        50               53               100              
+website detail info:
+pinnaclesports        1.970       3.740       3.840       2014-10-31 20:34:55
+marathonbet           1.952       3.700       3.950       2014-10-31 20:10:49
+odd detail info:
+marathonbet           3.95        50          Lose        3.950       
+pinnaclesports        3.74        53          Draw        3.740       
+pinnaclesports        1.97        100         Win         1.970       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205255697
+2014-11-03 00:00:00    Aalesund FK           Valerenga             
+bid count:206
+return value: -6.0200  ~  -3.6500
+return persent: -2.922330%
+websites    marathonbet      marathonbet      marathonbet      
+orign       2.02             4.00             3.55             
+order no    1                2                0                
+odds        4.00             3.55             2.02             
+bids        50               57               99               
+website detail info:
+marathonbet           2.020       4.000       3.550       2014-10-31 20:10:39
+odd detail info:
+marathonbet           4.00        50          Draw        4.000       
+marathonbet           3.55        57          Lose        3.550       
+marathonbet           2.02        99          Win         2.020       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120530176
+2014-11-03 00:00:00    Viking                Sarpsborg 08 FF       
+bid count:216
+return value: -6.2400  ~  -3.5000
+return persent: -2.888889%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.84             4.05             4.25             
+order no    2                1                0                
+odds        4.25             4.05             1.84             
+bids        50               52               114              
+website detail info:
+pinnaclesports        1.840       4.040       4.200       2014-10-31 20:24:55
+marathonbet           1.840       4.050       4.250       2014-10-31 20:10:39
+odd detail info:
+marathonbet           4.25        50          Lose        4.250       
+marathonbet           4.05        52          Draw        4.050       
+pinnaclesports        1.84        114         Win         1.840       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205147167
+2014-10-31 22:00:00    VFC Plauen            Germania Halberstadt  
+bid count:176
+return value: -4.8900  ~  -3.5000
+return persent: -2.778409%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       2.41             3.45             3.13             
+order no    1                2                0                
+odds        3.45             3.13             2.41             
+bids        50               55               71               
+website detail info:
+pinnaclesports        2.410       3.420       3.010       2014-10-31 19:55:55
+marathonbet           2.340       3.450       3.125       2014-10-31 20:10:32
+odd detail info:
+marathonbet           3.45        50          Draw        3.450       
+marathonbet           3.13        55          Lose        3.125       
+pinnaclesports        2.41        71          Win         2.410       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205218198
+2014-11-01 13:00:00    Kataller Toyama       Tochigi SC            
+bid count:180
+return value: -5.0000  ~  -4.0500
+return persent: -2.777778%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       3.50             3.45             2.22             
+order no    0                1                2                
+odds        3.50             3.45             2.22             
+bids        50               51               79               
+website detail info:
+marathonbet           3.500       3.450       2.200       2014-10-31 20:10:37
+pinnaclesports        3.410       3.430       2.219       2014-10-31 19:55:55
+odd detail info:
+marathonbet           3.50        50          Win         3.500       
+marathonbet           3.45        51          Draw        3.450       
+pinnaclesports        2.22        79          Lose        2.219       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205307813
+2014-11-04 01:45:00    Chiasso               Wohlen                
+bid count:176
+return value: -4.8800  ~  -3.5000
+return persent: -2.772727%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.76             3.45             2.68             
+order no    1                0                2                
+odds        3.45             2.76             2.68             
+bids        50               62               64               
+website detail info:
+marathonbet           2.760       3.450       2.600       2014-10-31 20:10:49
+pinnaclesports        2.730       3.390       2.679       2014-10-31 20:34:55
+odd detail info:
+marathonbet           3.45        50          Draw        3.450       
+marathonbet           2.76        62          Win         2.760       
+pinnaclesports        2.68        64          Lose        2.679       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205233649
+2014-11-02 03:00:00    Basel                 Grasshoppers Youth    
+bid count:291
+return value: -8.0250  ~  -6.0000
+return persent: -2.757732%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.62             4.30             5.70             
+order no    2                1                0                
+odds        5.70             4.30             1.62             
+bids        50               66               175              
+website detail info:
+pinnaclesports        1.617       4.260       5.650       2014-10-31 20:34:25
+marathonbet           1.615       4.300       5.700       2014-10-31 20:10:48
+odd detail info:
+marathonbet           5.70        50          Lose        5.700       
+marathonbet           4.30        66          Draw        4.300       
+pinnaclesports        1.62        175         Win         1.617       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205304107
+2014-11-03 02:15:00    Academica Coimbra     Sporting Braga        
+bid count:207
+return value: -5.7000  ~  -4.5000
+return persent: -2.753623%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       4.05             3.30             2.10             
+order no    0                1                2                
+odds        4.05             3.30             2.10             
+bids        50               61               96               
+website detail info:
+marathonbet           4.050       3.300       2.100       2014-10-31 20:10:41
+pinnaclesports        4.000       3.280       2.100       2014-10-31 20:27:25
+odd detail info:
+marathonbet           4.05        50          Win         4.050       
+marathonbet           3.30        61          Draw        3.300       
+pinnaclesports        2.10        96          Lose        2.100       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205228988
+2014-11-01 23:00:00    Mallorca              CD Lugo               
+bid count:220
+return value: -6.0000  ~  -5.0000
+return persent: -2.727273%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.00             3.41             4.30             
+order no    2                1                0                
+odds        4.30             3.41             2.00             
+bids        50               63               107              
+website detail info:
+marathonbet           2.000       3.400       4.300       2014-10-31 20:10:46
+pinnaclesports        1.990       3.410       4.290       2014-10-31 20:33:25
+odd detail info:
+marathonbet           4.30        50          Lose        4.300       
+pinnaclesports        3.41        63          Draw        3.410       
+marathonbet           2.00        107         Win         2.000       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205240117
+2014-11-02 18:00:00    Osasuna               Real Betis            
+bid count:165
+return value: -4.5000  ~  -3.0900
+return persent: -2.727273%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       2.57             3.21             3.10             
+order no    1                2                0                
+odds        3.21             3.10             2.57             
+bids        50               52               63               
+website detail info:
+pinnaclesports        2.570       3.210       3.020       2014-10-31 20:33:25
+marathonbet           2.550       3.200       3.100       2014-10-31 20:10:46
+odd detail info:
+pinnaclesports        3.21        50          Draw        3.210       
+marathonbet           3.10        52          Lose        3.100       
+pinnaclesports        2.57        63          Win         2.570       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205249269
+2014-11-02 22:00:00    St. Gallen            Bedworth United       
+bid count:195
+return value: -5.2800  ~  -2.6000
+return persent: -2.707692%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.04             3.70             3.81             
+order no    2                1                0                
+odds        3.81             3.70             2.04             
+bids        50               52               93               
+website detail info:
+marathonbet           2.040       3.700       3.750       2014-10-31 20:10:48
+pinnaclesports        2.020       3.650       3.810       2014-10-31 20:34:25
+odd detail info:
+pinnaclesports        3.81        50          Lose        3.810       
+marathonbet           3.70        52          Draw        3.700       
+marathonbet           2.04        93          Win         2.040       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205312637
+2014-11-04 02:45:00    Ross County           Aberdeen              
+bid count:308
+return value: -8.3000  ~  -8.0000
+return persent: -2.694805%
+websites    marathonbet      marathonbet      marathonbet      
+orign       6.00             4.05             1.63             
+order no    0                1                2                
+odds        6.00             4.05             1.63             
+bids        50               74               184              
+website detail info:
+marathonbet           6.000       4.050       1.630       2014-10-31 20:10:44
+odd detail info:
+marathonbet           6.00        50          Win         6.000       
+marathonbet           4.05        74          Draw        4.050       
+marathonbet           1.63        184         Lose        1.630       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205214980
+2014-11-01 10:30:00    Club Tijuana          Toluca                
+bid count:169
+return value: -4.5500  ~  -4.0000
+return persent: -2.692308%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       2.53             3.30             3.05             
+order no    1                2                0                
+odds        3.30             3.05             2.53             
+bids        50               54               65               
+website detail info:
+pinnaclesports        2.530       3.280       3.030       2014-10-31 19:55:55
+marathonbet           2.520       3.300       3.050       2014-10-31 20:10:37
+odd detail info:
+marathonbet           3.30        50          Draw        3.300       
+marathonbet           3.05        54          Lose        3.050       
+pinnaclesports        2.53        65          Win         2.530       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205309944
+2014-11-04 02:30:00    Jagiellonia Bialysto  GKS Belchatow         
+bid count:223
+return value: -6.0000  ~  -4.5000
+return persent: -2.690583%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.96             3.50             4.37             
+order no    2                1                0                
+odds        4.37             3.50             1.96             
+bids        50               62               111              
+website detail info:
+marathonbet           1.960       3.500       4.350       2014-10-31 20:10:40
+pinnaclesports        1.943       3.480       4.370       2014-10-31 20:25:55
+odd detail info:
+pinnaclesports        4.37        50          Lose        4.370       
+marathonbet           3.50        62          Draw        3.500       
+marathonbet           1.96        111         Win         1.960       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205202219
+2014-11-01 03:00:00    Fortuna Sittard       Emmen                 
+bid count:187
+return value: -5.0000  ~  -3.5000
+return persent: -2.673797%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       3.25             3.67             2.25             
+order no    1                0                2                
+odds        3.67             3.25             2.25             
+bids        50               56               81               
+website detail info:
+marathonbet           3.250       3.650       2.250       2014-10-31 20:10:38
+pinnaclesports        3.240       3.670       2.250       2014-10-31 20:24:25
+odd detail info:
+pinnaclesports        3.67        50          Draw        3.670       
+marathonbet           3.25        56          Win         3.250       
+marathonbet           2.25        81          Lose        2.250       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205149932
+2014-11-01 01:30:00    Fortuna Dusseldorf    FC Ingolstadt 04      
+bid count:172
+return value: -4.5000  ~  -3.9800
+return persent: -2.616279%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       2.71             3.35             2.80             
+order no    1                2                0                
+odds        3.35             2.80             2.71             
+bids        50               60               62               
+website detail info:
+pinnaclesports        2.710       3.340       2.760       2014-10-31 19:55:55
+marathonbet           2.700       3.350       2.800       2014-10-31 20:10:31
+odd detail info:
+marathonbet           3.35        50          Draw        3.350       
+marathonbet           2.80        60          Lose        2.800       
+pinnaclesports        2.71        62          Win         2.710       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205301568
+2014-11-03 00:15:00    Recreativo Huelva     Numancia              
+bid count:207
+return value: -5.4000  ~  -4.0000
+return persent: -2.608696%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.15             3.20             4.06             
+order no    2                1                0                
+odds        4.06             3.20             2.15             
+bids        50               63               94               
+website detail info:
+marathonbet           2.150       3.200       4.000       2014-10-31 20:10:46
+pinnaclesports        2.130       3.180       4.060       2014-10-31 20:33:25
+odd detail info:
+pinnaclesports        4.06        50          Lose        4.060       
+marathonbet           3.20        63          Draw        3.200       
+marathonbet           2.15        94          Win         2.150       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205250309
+2014-11-02 22:30:00    Rheindorf Altach      Rapid Wien            
+bid count:184
+return value: -4.7200  ~  -3.4600
+return persent: -2.565217%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       3.54             3.60             2.16             
+order no    1                0                2                
+odds        3.60             3.54             2.16             
+bids        50               51               83               
+website detail info:
+pinnaclesports        3.540       3.540       2.150       2014-10-31 19:58:55
+marathonbet           3.500       3.600       2.160       2014-10-31 20:10:20
+odd detail info:
+marathonbet           3.60        50          Draw        3.600       
+pinnaclesports        3.54        51          Win         3.540       
+marathonbet           2.16        83          Lose        2.160       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205304599
+2014-11-03 03:00:00    Leganes               SD Ponferradina       
+bid count:200
+return value: -5.0900  ~  -4.8000
+return persent: -2.545000%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       2.19             3.20             3.90             
+order no    2                1                0                
+odds        3.90             3.20             2.19             
+bids        50               61               89               
+website detail info:
+pinnaclesports        2.190       3.160       3.890       2014-10-31 20:33:25
+marathonbet           2.180       3.200       3.900       2014-10-31 20:10:46
+odd detail info:
+marathonbet           3.90        50          Lose        3.900       
+marathonbet           3.20        61          Draw        3.200       
+pinnaclesports        2.19        89          Win         2.190       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205207798
+2014-11-01 03:15:00    Mlada Boleslav        FC Bohemians 1905     
+bid count:400
+return value: -9.9000  ~  -8.0000
+return persent: -2.475000%
+websites    pinnaclesports   marathonbet      pinnaclesports   
+orign       1.46             4.70             7.84             
+order no    2                1                0                
+odds        7.84             4.70             1.46             
+bids        50               83               267              
+website detail info:
+pinnaclesports        1.462       4.580       7.840       2014-10-31 19:55:55
+marathonbet           1.460       4.700       7.800       2014-10-31 20:10:23
+odd detail info:
+pinnaclesports        7.84        50          Lose        7.840       
+marathonbet           4.70        83          Draw        4.700       
+pinnaclesports        1.46        267         Win         1.462       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205209196
+2014-11-01 03:30:00    Korona Kielce         Wisla Krakow          
+bid count:201
+return value: -4.7700  ~  -3.5000
+return persent: -2.373134%
+websites    pinnaclesports   marathonbet      pinnaclesports   
+orign       3.95             3.40             2.11             
+order no    0                1                2                
+odds        3.95             3.40             2.11             
+bids        50               58               93               
+website detail info:
+pinnaclesports        3.950       3.350       2.110       2014-10-31 20:25:55
+marathonbet           3.900       3.400       2.100       2014-10-31 20:10:40
+odd detail info:
+pinnaclesports        3.95        50          Win         3.950       
+marathonbet           3.40        58          Draw        3.400       
+pinnaclesports        2.11        93          Lose        2.110       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205219123
+2014-11-01 13:00:00    Pohang Steelers       Jeju United FC        
+bid count:209
+return value: -4.8600  ~  -4.0000
+return persent: -2.325359%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.05             3.46             4.10             
+order no    2                1                0                
+odds        4.10             3.46             2.05             
+bids        50               59               100              
+website detail info:
+marathonbet           2.050       3.400       4.100       2014-10-31 20:10:37
+pinnaclesports        2.009       3.460       4.019       2014-10-31 19:55:55
+odd detail info:
+marathonbet           4.10        50          Lose        4.100       
+pinnaclesports        3.46        59          Draw        3.460       
+marathonbet           2.05        100         Win         2.050       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205220893
+2014-11-01 16:30:00    Perth Glory FC        Newcastle Jets FC     
+bid count:221
+return value: -5.0000  ~  -3.5000
+return persent: -2.262443%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.95             3.60             4.35             
+order no    2                1                0                
+odds        4.35             3.60             1.95             
+bids        50               60               111              
+website detail info:
+pinnaclesports        1.952       3.500       4.310       2014-10-31 19:58:25
+marathonbet           1.930       3.600       4.350       2014-10-31 20:10:19
+odd detail info:
+marathonbet           4.35        50          Lose        4.350       
+marathonbet           3.60        60          Draw        3.600       
+pinnaclesports        1.95        111         Win         1.952       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205222948
+2014-11-01 18:00:00    Roasso Kumamoto       Montedio Yamagata Am  
+bid count:189
+return value: -4.2000  ~  -2.0000
+return persent: -2.222222%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       3.70             3.40             2.20             
+order no    0                1                2                
+odds        3.70             3.40             2.20             
+bids        50               55               84               
+website detail info:
+marathonbet           3.700       3.400       2.140       2014-10-31 20:10:37
+pinnaclesports        3.550       3.350       2.200       2014-10-31 19:55:55
+odd detail info:
+marathonbet           3.70        50          Win         3.700       
+marathonbet           3.40        55          Draw        3.400       
+pinnaclesports        2.20        84          Lose        2.200       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205223769
+2014-11-01 18:00:00    Shonan Bellmare       Thespa Kusatsu Gunma  
+bid count:387
+return value: -8.6000  ~  -8.5000
+return persent: -2.222222%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.52             4.30             7.57             
+order no    2                1                0                
+odds        7.57             4.30             1.52             
+bids        50               88               249              
+website detail info:
+marathonbet           1.520       4.250       7.200       2014-10-31 20:10:37
+pinnaclesports        1.492       4.300       7.570       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        7.57        50          Lose        7.570       
+pinnaclesports        4.30        88          Draw        4.300       
+marathonbet           1.52        249         Win         1.520       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205328580
+2014-11-07 01:00:00    HJK Helsinki          Torino                
+bid count:335
+return value: -7.4000  ~  -5.0000
+return persent: -2.208955%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       6.60             3.90             1.63             
+order no    0                1                2                
+odds        6.60             3.90             1.63             
+bids        50               84               201              
+website detail info:
+marathonbet           6.600       3.900       1.630       2014-10-31 20:10:51
+pinnaclesports        6.520       3.900       1.588       2014-10-31 20:36:55
+odd detail info:
+marathonbet           6.60        50          Win         6.600       
+pinnaclesports        3.90        84          Draw        3.900       
+marathonbet           1.63        201         Lose        1.630       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205155439
+2014-11-01 02:30:00    Steaua Bucuresti      Dinamo Bucuresti      
+bid count:347
+return value: -7.6640  ~  -6.8000
+return persent: -2.208646%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.57             4.20             6.80             
+order no    2                1                0                
+odds        6.80             4.20             1.57             
+bids        50               81               216              
+website detail info:
+pinnaclesports        1.571       4.160       6.530       2014-10-31 20:28:55
+marathonbet           1.550       4.200       6.800       2014-10-31 20:10:42
+odd detail info:
+marathonbet           6.80        50          Lose        6.800       
+marathonbet           4.20        81          Draw        4.200       
+pinnaclesports        1.57        216         Win         1.571       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205331405
+2014-11-07 03:05:00    Fiorentina            PAOK Saloniki         
+bid count:322
+return value: -7.0000  ~  -6.1000
+return persent: -2.173913%
+websites    marathonbet      marathonbet      marathonbet      
+orign       1.65             3.90             6.30             
+order no    2                1                0                
+odds        6.30             3.90             1.65             
+bids        50               81               191              
+website detail info:
+marathonbet           1.650       3.900       6.300       2014-10-31 20:10:51
+odd detail info:
+marathonbet           6.30        50          Lose        6.300       
+marathonbet           3.90        81          Draw        3.900       
+marathonbet           1.65        191         Win         1.650       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205234636
+2014-11-02 03:00:00    Las Palmas            Albacete              
+bid count:356
+return value: -7.6800  ~  -6.0000
+return persent: -2.157303%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.56             4.25             7.00             
+order no    2                1                0                
+odds        7.00             4.25             1.56             
+bids        50               82               224              
+website detail info:
+pinnaclesports        1.555       4.180       6.770       2014-10-31 20:33:25
+marathonbet           1.540       4.250       7.000       2014-10-31 20:10:46
+odd detail info:
+marathonbet           7.00        50          Lose        7.000       
+marathonbet           4.25        82          Draw        4.250       
+pinnaclesports        1.56        224         Win         1.555       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205257777
+2014-11-03 00:00:00    Legia Warszawa Youth  Ruch Chorzow(N)       
+bid count:613
+return value: -13.1500  ~  -11.8400
+return persent: -2.145188%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       1.33             5.32             12.00            
+order no    2                1                0                
+odds        12.00            5.32             1.33             
+bids        50               113              450              
+website detail info:
+marathonbet           1.333       5.200       12.000      2014-10-31 20:10:40
+pinnaclesports        1.322       5.320       11.610      2014-10-31 20:25:55
+odd detail info:
+marathonbet           12.00       50          Lose        12.000      
+pinnaclesports        5.32        113         Draw        5.320       
+marathonbet           1.33        450         Win         1.333       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205329915
+2014-11-07 03:05:00    Everton               Lille OSC             
+bid count:231
+return value: -4.9000  ~  -3.5000
+return persent: -2.121212%
+websites    marathonbet      marathonbet      marathonbet      
+orign       1.90             3.65             4.55             
+order no    2                1                0                
+odds        4.55             3.65             1.90             
+bids        50               62               119              
+website detail info:
+marathonbet           1.900       3.650       4.550       2014-10-31 20:10:51
+odd detail info:
+marathonbet           4.55        50          Lose        4.550       
+marathonbet           3.65        62          Draw        3.650       
+marathonbet           1.90        119         Win         1.900       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205154382
+2014-11-01 02:00:00    Wacker Burghausen     SpVgg Bayreuth        
+bid count:189
+return value: -4.0000  ~  -2.7000
+return persent: -2.116402%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.18             3.70             3.45             
+order no    1                2                0                
+odds        3.70             3.45             2.18             
+bids        50               54               85               
+website detail info:
+marathonbet           2.180       3.700       3.250       2014-10-31 20:10:32
+pinnaclesports        2.100       3.650       3.450       2014-10-31 19:55:55
+odd detail info:
+marathonbet           3.70        50          Draw        3.700       
+pinnaclesports        3.45        54          Lose        3.450       
+marathonbet           2.18        85          Win         2.180       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205153415
+2014-11-01 01:30:00    Union Berlin          Greuther Furth        
+bid count:178
+return value: -3.7600  ~  -2.5000
+return persent: -2.112360%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       2.42             3.51             3.13             
+order no    1                2                0                
+odds        3.51             3.13             2.42             
+bids        50               56               72               
+website detail info:
+pinnaclesports        2.420       3.510       3.010       2014-10-31 19:55:55
+marathonbet           2.380       3.500       3.125       2014-10-31 20:10:31
+odd detail info:
+pinnaclesports        3.51        50          Draw        3.510       
+marathonbet           3.13        56          Lose        3.125       
+pinnaclesports        2.42        72          Win         2.420       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205238299
+2014-11-02 14:00:00    Sydney FC(N)          Central Coast Marine  
+bid count:229
+return value: -4.8000  ~  -4.0000
+return persent: -2.096070%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.87             3.80             4.50             
+order no    2                1                0                
+odds        4.50             3.80             1.87             
+bids        50               59               120              
+website detail info:
+pinnaclesports        1.869       3.740       4.380       2014-10-31 19:58:25
+marathonbet           1.850       3.800       4.500       2014-10-31 20:10:19
+odd detail info:
+marathonbet           4.50        50          Lose        4.500       
+marathonbet           3.80        59          Draw        3.800       
+pinnaclesports        1.87        120         Win         1.869       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205242249
+2014-11-02 18:30:00    FC Utrecht            Vitesse Arnhem        
+bid count:201
+return value: -4.2000  ~  -3.5000
+return persent: -2.089552%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       3.59             3.95             2.05             
+order no    1                0                2                
+odds        3.95             3.59             2.05             
+bids        50               55               96               
+website detail info:
+pinnaclesports        3.590       3.950       2.009       2014-10-31 20:23:55
+marathonbet           3.550       3.900       2.050       2014-10-31 20:10:38
+odd detail info:
+pinnaclesports        3.95        50          Draw        3.950       
+pinnaclesports        3.59        55          Win         3.590       
+marathonbet           2.05        96          Lose        2.050       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205206279
+2014-11-01 03:00:00    US Boulogne           Vendee Lucon          
+bid count:225
+return value: -4.6800  ~  -3.9000
+return persent: -2.080000%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.04             3.30             4.42             
+order no    2                1                0                
+odds        4.42             3.30             2.04             
+bids        50               67               108              
+website detail info:
+marathonbet           2.040       3.300       4.200       2014-10-31 20:10:29
+pinnaclesports        2.020       3.180       4.420       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        4.42        50          Lose        4.420       
+marathonbet           3.30        67          Draw        3.300       
+marathonbet           2.04        108         Win         2.040       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205210841
+2014-11-01 03:45:00    Accrington Stanley    Morecambe             
+bid count:180
+return value: -3.7200  ~  -1.6400
+return persent: -2.066667%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.26             3.43             3.54             
+order no    2                1                0                
+odds        3.54             3.43             2.26             
+bids        50               52               78               
+website detail info:
+marathonbet           2.260       3.400       3.450       2014-10-31 20:10:27
+pinnaclesports        2.190       3.430       3.540       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        3.54        50          Lose        3.540       
+pinnaclesports        3.43        52          Draw        3.430       
+marathonbet           2.26        78          Win         2.260       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205225646
+2014-11-01 23:00:00    Austria Wien          Sturm Graz            
+bid count:245
+return value: -4.9700  ~  -2.5000
+return persent: -2.028571%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       1.82             3.81             4.85             
+order no    2                1                0                
+odds        4.85             3.81             1.82             
+bids        50               63               132              
+website detail info:
+pinnaclesports        1.819       3.810       4.580       2014-10-31 19:58:55
+marathonbet           1.800       3.800       4.850       2014-10-31 20:10:19
+odd detail info:
+marathonbet           4.85        50          Lose        4.850       
+pinnaclesports        3.81        63          Draw        3.810       
+pinnaclesports        1.82        132         Win         1.819       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205306929
+2014-11-03 23:30:00    Petrolul Ploiesti     FC Otelul Galati      
+bid count:715
+return value: -14.4000  ~  -12.5000
+return persent: -2.013986%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.27             6.20             14.05            
+order no    2                1                0                
+odds        14.05            6.20             1.27             
+bids        50               113              552              
+website detail info:
+marathonbet           1.270       6.200       12.000      2014-10-31 20:10:42
+pinnaclesports        1.256       5.950       14.050      2014-10-31 20:28:55
+odd detail info:
+pinnaclesports        14.05       50          Lose        14.050      
+marathonbet           6.20        113         Draw        6.200       
+marathonbet           1.27        552         Win         1.270       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120530013
+2014-11-03 00:00:00    Stromsgodset          Molde                 
+bid count:190
+return value: -3.8000  ~  -3.1200
+return persent: -2.000000%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       2.45             3.73             2.92             
+order no    1                2                0                
+odds        3.73             2.92             2.45             
+bids        50               64               76               
+website detail info:
+pinnaclesports        2.450       3.730       2.830       2014-10-31 20:24:55
+marathonbet           2.420       3.700       2.920       2014-10-31 20:10:39
+odd detail info:
+pinnaclesports        3.73        50          Draw        3.730       
+marathonbet           2.92        64          Lose        2.920       
+pinnaclesports        2.45        76          Win         2.450       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205200865
+2014-11-01 03:00:00    FC Eindhoven          Jong Ajax Amsterdam   
+bid count:260
+return value: -5.1200  ~  -4.5000
+return persent: -1.969231%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.69             4.32             5.11             
+order no    2                1                0                
+odds        5.11             4.32             1.69             
+bids        50               59               151              
+website detail info:
+marathonbet           1.690       4.300       4.950       2014-10-31 20:10:38
+pinnaclesports        1.671       4.320       5.110       2014-10-31 20:24:25
+odd detail info:
+pinnaclesports        5.11        50          Lose        5.110       
+pinnaclesports        4.32        59          Draw        4.320       
+marathonbet           1.69        151         Win         1.690       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205329313
+2014-11-07 03:05:00    Dynamo Kyiv           Aalborg BK            
+bid count:493
+return value: -9.6500  ~  -8.0000
+return persent: -1.957404%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.38             5.20             9.70             
+order no    2                1                0                
+odds        9.70             5.20             1.38             
+bids        50               93               350              
+website detail info:
+pinnaclesports        1.381       4.990       8.640       2014-10-31 20:36:55
+marathonbet           1.380       5.200       9.700       2014-10-31 20:10:51
+odd detail info:
+marathonbet           9.70        50          Lose        9.700       
+marathonbet           5.20        93          Draw        5.200       
+pinnaclesports        1.38        350         Win         1.381       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205204404
+2014-11-01 03:00:00    Stade Lavallois MFC   Tours FC              
+bid count:275
+return value: -5.3600  ~  -4.7030
+return persent: -1.949091%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       1.92             3.21             5.40             
+order no    2                1                0                
+odds        5.40             3.21             1.92             
+bids        50               84               141              
+website detail info:
+pinnaclesports        1.917       3.210       5.090       2014-10-31 19:55:55
+marathonbet           1.909       3.150       5.400       2014-10-31 20:10:29
+odd detail info:
+marathonbet           5.40        50          Lose        5.400       
+pinnaclesports        3.21        84          Draw        3.210       
+pinnaclesports        1.92        141         Win         1.917       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205326834
+2014-11-07 01:00:00    Asteras Tripolis      Tottenham Hotspur     
+bid count:257
+return value: -5.0000  ~  -2.0000
+return persent: -1.945525%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       5.10             3.77             1.80             
+order no    0                1                2                
+odds        5.10             3.77             1.80             
+bids        50               67               140              
+website detail info:
+marathonbet           5.100       3.700       1.800       2014-10-31 20:10:51
+pinnaclesports        4.740       3.770       1.775       2014-10-31 20:36:55
+odd detail info:
+marathonbet           5.10        50          Win         5.100       
+pinnaclesports        3.77        67          Draw        3.770       
+marathonbet           1.80        140         Lose        1.800       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205215615
+2014-11-01 12:00:00    Mito Hollyhock        Yokohama FC Hong Kon  
+bid count:167
+return value: -3.2000  ~  -2.0000
+return persent: -1.916168%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.52             3.30             3.16             
+order no    1                2                0                
+odds        3.30             3.16             2.52             
+bids        50               52               65               
+website detail info:
+marathonbet           2.520       3.300       3.050       2014-10-31 20:10:36
+pinnaclesports        2.400       3.300       3.160       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        3.30        50          Draw        3.300       
+pinnaclesports        3.16        52          Lose        3.160       
+marathonbet           2.52        65          Win         2.520       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205212257
+2014-11-01 03:45:00    Benfica(U19)          Rio Ave               
+bid count:601
+return value: -11.4000  ~  -10.4800
+return persent: -1.896839%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.34             5.32             11.80            
+order no    2                1                0                
+odds        11.80            5.32             1.34             
+bids        50               111              440              
+website detail info:
+marathonbet           1.340       5.300       11.000      2014-10-31 20:10:41
+pinnaclesports        1.327       5.320       11.800      2014-10-31 20:27:25
+odd detail info:
+pinnaclesports        11.80       50          Lose        11.800      
+pinnaclesports        5.32        111         Draw        5.320       
+marathonbet           1.34        440         Win         1.340       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120525120
+2014-11-02 22:45:00    FC Groningen          NAC Breda             
+bid count:288
+return value: -5.4600  ~  -3.0000
+return persent: -1.895833%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       1.66             4.16             5.70             
+order no    2                1                0                
+odds        5.70             4.16             1.66             
+bids        50               68               170              
+website detail info:
+pinnaclesports        1.662       4.160       5.330       2014-10-31 20:23:55
+marathonbet           1.650       4.100       5.700       2014-10-31 20:10:38
+odd detail info:
+marathonbet           5.70        50          Lose        5.700       
+pinnaclesports        4.16        68          Draw        4.160       
+pinnaclesports        1.66        170         Win         1.662       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205313203
+2014-11-04 03:00:00    Belenenses            Boavista FC           
+bid count:264
+return value: -5.0000  ~  -2.5000
+return persent: -1.893939%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.85             3.50             5.23             
+order no    2                1                0                
+odds        5.23             3.50             1.85             
+bids        50               74               140              
+website detail info:
+marathonbet           1.850       3.500       5.000       2014-10-31 20:10:41
+pinnaclesports        1.813       3.490       5.230       2014-10-31 20:27:25
+odd detail info:
+pinnaclesports        5.23        50          Lose        5.230       
+marathonbet           3.50        74          Draw        3.500       
+marathonbet           1.85        140         Win         1.850       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205230484
+2014-11-02 01:30:00    SC Wiener Neustadt    SV Grodig             
+bid count:186
+return value: -3.5000  ~  -2.7000
+return persent: -1.881720%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       3.15             3.65             2.35             
+order no    1                0                2                
+odds        3.65             3.15             2.35             
+bids        50               58               78               
+website detail info:
+marathonbet           3.150       3.600       2.320       2014-10-31 20:10:20
+pinnaclesports        3.020       3.650       2.350       2014-10-31 19:58:55
+odd detail info:
+pinnaclesports        3.65        50          Draw        3.650       
+marathonbet           3.15        58          Win         3.150       
+pinnaclesports        2.35        78          Lose        2.350       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205306446
+2014-11-03 20:30:00    Rubin Kazan           Amkar Perm            
+bid count:365
+return value: -6.8620  ~  -5.0000
+return persent: -1.880000%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.61             3.90             7.20             
+order no    2                1                0                
+odds        7.20             3.90             1.61             
+bids        50               92               223              
+website detail info:
+pinnaclesports        1.606       3.800       6.910       2014-10-31 20:29:25
+marathonbet           1.600       3.900       7.200       2014-10-31 20:10:42
+odd detail info:
+marathonbet           7.20        50          Lose        7.200       
+marathonbet           3.90        92          Draw        3.900       
+pinnaclesports        1.61        223         Win         1.606       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205148216
+2014-11-01 00:00:00    Miedz Legnica         Pogon Siedlce         
+bid count:242
+return value: -4.5000  ~  -4.1500
+return persent: -1.859504%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.90             3.55             4.75             
+order no    2                1                0                
+odds        4.75             3.55             1.90             
+bids        50               67               125              
+website detail info:
+marathonbet           1.900       3.550       4.500       2014-10-31 20:10:40
+pinnaclesports        1.869       3.450       4.750       2014-10-31 20:26:55
+odd detail info:
+pinnaclesports        4.75        50          Lose        4.750       
+marathonbet           3.55        67          Draw        3.550       
+marathonbet           1.90        125         Win         1.900       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205318194
+2014-11-05 02:45:00    Basel                 Ludogorets Razgrad    
+bid count:264
+return value: -4.8390  ~  -4.0000
+return persent: -1.832955%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       1.76             3.88             5.20             
+order no    2                1                0                
+odds        5.20             3.88             1.76             
+bids        50               67               147              
+website detail info:
+pinnaclesports        1.763       3.880       5.110       2014-10-31 20:36:25
+marathonbet           1.760       3.850       5.200       2014-10-31 20:10:49
+odd detail info:
+marathonbet           5.20        50          Lose        5.200       
+pinnaclesports        3.88        67          Draw        3.880       
+pinnaclesports        1.76        147         Win         1.763       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205303175
+2014-11-03 01:00:00    Levante               Almeria               
+bid count:166
+return value: -3.0000  ~  -1.0000
+return persent: -1.807229%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.48             3.26             3.30             
+order no    2                1                0                
+odds        3.30             3.26             2.48             
+bids        50               50               66               
+website detail info:
+marathonbet           2.480       3.250       3.300       2014-10-31 20:10:45
+pinnaclesports        2.450       3.260       3.270       2014-10-31 20:32:25
+odd detail info:
+marathonbet           3.30        50          Lose        3.300       
+pinnaclesports        3.26        50          Draw        3.260       
+marathonbet           2.48        66          Win         2.480       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205237396
+2014-11-02 05:30:00    Quilmes               Velez Sarsfield       
+bid count:170
+return value: -3.0500  ~  -1.5000
+return persent: -1.794118%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       3.37             3.15             2.50             
+order no    0                1                2                
+odds        3.37             3.15             2.50             
+bids        50               53               67               
+website detail info:
+pinnaclesports        3.370       3.140       2.410       2014-10-31 19:57:25
+marathonbet           3.250       3.150       2.500       2014-10-31 20:10:19
+odd detail info:
+pinnaclesports        3.37        50          Win         3.370       
+marathonbet           3.15        53          Draw        3.150       
+marathonbet           2.50        67          Lose        2.500       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205258920
+2014-11-03 00:00:00    Stabaek(U19)          FK Haugesund          
+bid count:193
+return value: -3.4600  ~  -3.0000
+return persent: -1.792746%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.34             3.80             3.06             
+order no    1                2                0                
+odds        3.80             3.06             2.34             
+bids        50               62               81               
+website detail info:
+marathonbet           2.340       3.800       2.980       2014-10-31 20:10:39
+pinnaclesports        2.280       3.780       3.060       2014-10-31 20:24:55
+odd detail info:
+marathonbet           3.80        50          Draw        3.800       
+pinnaclesports        3.06        62          Lose        3.060       
+marathonbet           2.34        81          Win         2.340       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205251978
+2014-11-02 23:00:00    Kuban Krasnodar       Spartak Moscow Youth  
+bid count:168
+return value: -3.0000  ~  -1.6800
+return persent: -1.785714%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.52             3.30             3.18             
+order no    1                2                0                
+odds        3.30             3.18             2.52             
+bids        50               52               66               
+website detail info:
+marathonbet           2.520       3.300       3.125       2014-10-31 20:10:42
+pinnaclesports        2.429       3.290       3.180       2014-10-31 20:29:25
+odd detail info:
+marathonbet           3.30        50          Draw        3.300       
+pinnaclesports        3.18        52          Lose        3.180       
+marathonbet           2.52        66          Win         2.520       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205321892
+2014-11-06 02:45:00    Ajax Lasnamae         Barcelona             
+bid count:507
+return value: -8.9200  ~  -7.0000
+return persent: -1.759369%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       10.00            5.66             1.35             
+order no    0                1                2                
+odds        10.00            5.66             1.35             
+bids        50               88               369              
+website detail info:
+marathonbet           10.000      5.600       1.350       2014-10-31 20:10:49
+pinnaclesports        9.870       5.660       1.348       2014-10-31 20:36:25
+odd detail info:
+marathonbet           10.00       50          Win         10.000      
+pinnaclesports        5.66        88          Draw        5.660       
+marathonbet           1.35        369         Lose        1.350       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205252998
+2014-11-02 23:00:00    Maritimo              Moreirense            
+bid count:218
+return value: -3.8000  ~  -3.5000
+return persent: -1.743119%
+websites    pinnaclesports   marathonbet      pinnaclesports   
+orign       2.04             3.40             4.29             
+order no    2                1                0                
+odds        4.29             3.40             2.04             
+bids        50               63               105              
+website detail info:
+pinnaclesports        2.040       3.260       4.290       2014-10-31 20:27:25
+marathonbet           2.020       3.400       4.200       2014-10-31 20:10:41
+odd detail info:
+pinnaclesports        4.29        50          Lose        4.290       
+marathonbet           3.40        63          Draw        3.400       
+pinnaclesports        2.04        105         Win         2.040       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205158180
+2014-11-01 03:00:00    Auxerre               Stade Brestois        
+bid count:173
+return value: -3.0000  ~  -1.3100
+return persent: -1.734104%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.66             2.91             3.40             
+order no    2                1                0                
+odds        3.40             2.91             2.66             
+bids        50               59               64               
+website detail info:
+marathonbet           2.660       2.800       3.400       2014-10-31 20:10:29
+pinnaclesports        2.550       2.910       3.390       2014-10-31 19:55:55
+odd detail info:
+marathonbet           3.40        50          Lose        3.400       
+pinnaclesports        2.91        59          Draw        2.910       
+marathonbet           2.66        64          Win         2.660       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205217395
+2014-11-01 13:00:00    FC Gifu               Oita Trinita          
+bid count:173
+return value: -3.0000  ~  -1.4800
+return persent: -1.734104%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       3.05             3.40             2.56             
+order no    1                0                2                
+odds        3.40             3.05             2.56             
+bids        50               56               67               
+website detail info:
+marathonbet           3.050       3.400       2.440       2014-10-31 20:10:37
+pinnaclesports        2.870       3.380       2.560       2014-10-31 19:55:55
+odd detail info:
+marathonbet           3.40        50          Draw        3.400       
+marathonbet           3.05        56          Win         3.050       
+pinnaclesports        2.56        67          Lose        2.560       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205334354
+2014-11-07 03:05:00    Rio Ave               Steaua Bucuresti      
+bid count:173
+return value: -3.0000  ~  -2.6390
+return persent: -1.734104%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       3.15             3.40             2.47             
+order no    1                0                2                
+odds        3.40             3.15             2.47             
+bids        50               54               69               
+website detail info:
+marathonbet           3.150       3.400       2.450       2014-10-31 20:10:51
+pinnaclesports        2.969       3.340       2.469       2014-10-31 20:36:55
+odd detail info:
+marathonbet           3.40        50          Draw        3.400       
+marathonbet           3.15        54          Win         3.150       
+pinnaclesports        2.47        69          Lose        2.469       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205245590
+2014-11-02 20:30:00    Sparta Rotterdam      N E C  Nijmegen       
+bid count:206
+return value: -3.5000  ~  -3.0200
+return persent: -1.699029%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       4.05             3.98             1.93             
+order no    0                1                2                
+odds        4.05             3.98             1.93             
+bids        50               51               105              
+website detail info:
+pinnaclesports        4.050       3.980       1.869       2014-10-31 20:24:25
+marathonbet           3.950       3.950       1.930       2014-10-31 20:10:38
+odd detail info:
+pinnaclesports        4.05        50          Win         4.050       
+pinnaclesports        3.98        51          Draw        3.980       
+marathonbet           1.93        105         Lose        1.930       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205256820
+2014-11-03 00:00:00    Brann                 Sogndal               
+bid count:221
+return value: -3.7500  ~  -3.2680
+return persent: -1.696833%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.88             3.95             4.35             
+order no    2                1                0                
+odds        4.35             3.95             1.88             
+bids        50               55               116              
+website detail info:
+pinnaclesports        1.877       3.850       4.230       2014-10-31 20:24:55
+marathonbet           1.840       3.950       4.350       2014-10-31 20:10:39
+odd detail info:
+marathonbet           4.35        50          Lose        4.350       
+marathonbet           3.95        55          Draw        3.950       
+pinnaclesports        1.88        116         Win         1.877       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205334864
+2014-11-07 03:05:00    Sevilla               Standard Liege        
+bid count:661
+return value: -11.2000  ~  -10.9240
+return persent: -1.694402%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.31             5.70             13.00            
+order no    2                1                0                
+odds        13.00            5.70             1.31             
+bids        50               114              497              
+website detail info:
+pinnaclesports        1.308       5.500       10.610      2014-10-31 20:36:55
+marathonbet           1.300       5.700       13.000      2014-10-31 20:10:51
+odd detail info:
+marathonbet           13.00       50          Lose        13.000      
+marathonbet           5.70        114         Draw        5.700       
+pinnaclesports        1.31        497         Win         1.308       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120523382
+2014-11-02 02:45:00    FC Twente Enschede    SC Heerenveen         
+bid count:318
+return value: -5.3710  ~  -3.5000
+return persent: -1.688994%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.57             4.54             6.29             
+order no    2                1                0                
+odds        6.29             4.54             1.57             
+bids        50               69               199              
+website detail info:
+marathonbet           1.571       4.450       6.100       2014-10-31 20:10:38
+pinnaclesports        1.537       4.540       6.290       2014-10-31 20:23:55
+odd detail info:
+pinnaclesports        6.29        50          Lose        6.290       
+pinnaclesports        4.54        69          Draw        4.540       
+marathonbet           1.57        199         Win         1.571       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205322689
+2014-11-06 02:45:00    Athletic Bilbao       Portogruaro           
+bid count:178
+return value: -3.0000  ~  -1.6000
+return persent: -1.685393%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.52             3.50             3.02             
+order no    1                2                0                
+odds        3.50             3.02             2.52             
+bids        50               58               70               
+website detail info:
+marathonbet           2.520       3.450       3.000       2014-10-31 20:10:49
+pinnaclesports        2.490       3.500       3.020       2014-10-31 20:36:25
+odd detail info:
+pinnaclesports        3.50        50          Draw        3.500       
+pinnaclesports        3.02        58          Lose        3.020       
+marathonbet           2.52        70          Win         2.520       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205333642
+2014-11-07 03:05:00    Napoli                Young Boys(HOL)       
+bid count:452
+return value: -7.5400  ~  -6.1100
+return persent: -1.668142%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       1.42             5.01             8.90             
+order no    2                1                0                
+odds        8.90             5.01             1.42             
+bids        50               89               313              
+website detail info:
+marathonbet           1.420       4.900       8.900       2014-10-31 20:10:51
+pinnaclesports        1.387       5.010       8.360       2014-10-31 20:36:55
+odd detail info:
+marathonbet           8.90        50          Lose        8.900       
+pinnaclesports        5.01        89          Draw        5.010       
+marathonbet           1.42        313         Win         1.420       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205159399
+2014-11-01 03:00:00    Dijon                 Ajaccio               
+bid count:333
+return value: -5.5000  ~  -4.7500
+return persent: -1.651652%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.80             3.25             6.55             
+order no    2                1                0                
+odds        6.55             3.25             1.80             
+bids        50               101              182              
+website detail info:
+marathonbet           1.800       3.250       6.200       2014-10-31 20:10:29
+pinnaclesports        1.757       3.240       6.550       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        6.55        50          Lose        6.550       
+marathonbet           3.25        101         Draw        3.250       
+marathonbet           1.80        182         Win         1.800       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205239485
+2014-11-02 18:00:00    Athletic Bilbao       Sevilla               
+bid count:173
+return value: -2.8200  ~  -1.5000
+return persent: -1.630058%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.54             3.43             3.05             
+order no    1                2                0                
+odds        3.43             3.05             2.54             
+bids        50               56               67               
+website detail info:
+marathonbet           2.540       3.400       3.050       2014-10-31 20:10:45
+pinnaclesports        2.520       3.430       3.010       2014-10-31 20:32:25
+odd detail info:
+pinnaclesports        3.43        50          Draw        3.430       
+marathonbet           3.05        56          Lose        3.050       
+marathonbet           2.54        67          Win         2.540       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205308369
+2014-11-04 02:00:00    CFR Cluj              FC Brasov             
+bid count:564
+return value: -9.1500  ~  -7.8000
+return persent: -1.622340%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.35             5.40             11.10            
+order no    2                1                0                
+odds        11.10            5.40             1.35             
+bids        50               103              411              
+website detail info:
+marathonbet           1.350       5.400       9.500       2014-10-31 20:10:42
+pinnaclesports        1.348       4.920       11.100      2014-10-31 20:28:55
+odd detail info:
+pinnaclesports        11.10       50          Lose        11.100      
+marathonbet           5.40        103         Draw        5.400       
+marathonbet           1.35        411         Win         1.350       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205319435
+2014-11-05 02:45:00    Borussia Dortmund     Galatasaray(N)        
+bid count:760
+return value: -12.1960  ~  -10.0000
+return persent: -1.604737%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.23             7.20             15.00            
+order no    2                1                0                
+odds        15.00            7.20             1.23             
+bids        50               104              606              
+website detail info:
+pinnaclesports        1.234       7.160       14.260      2014-10-31 20:36:25
+marathonbet           1.230       7.200       15.000      2014-10-31 20:10:49
+odd detail info:
+marathonbet           15.00       50          Lose        15.000      
+marathonbet           7.20        104         Draw        7.200       
+pinnaclesports        1.23        606         Win         1.234       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205327707
+2014-11-07 01:00:00    Dinamo Zagreb         Red Bull Salzburg     
+bid count:189
+return value: -3.0000  ~  -2.0000
+return persent: -1.587302%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       3.40             3.72             2.22             
+order no    1                0                2                
+odds        3.72             3.40             2.22             
+bids        50               55               84               
+website detail info:
+marathonbet           3.400       3.650       2.220       2014-10-31 20:10:51
+pinnaclesports        3.130       3.720       2.210       2014-10-31 20:36:55
+odd detail info:
+pinnaclesports        3.72        50          Draw        3.720       
+marathonbet           3.40        55          Win         3.400       
+marathonbet           2.22        84          Lose        2.220       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205216385
+2014-11-01 12:00:00    Tokyo Verdy           Consadole Sapporo     
+bid count:171
+return value: -2.7000  ~  -1.0000
+return persent: -1.578947%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       3.40             3.30             2.41             
+order no    0                1                2                
+odds        3.40             3.30             2.41             
+bids        50               51               70               
+website detail info:
+marathonbet           3.400       3.300       2.300       2014-10-31 20:10:37
+pinnaclesports        3.190       3.270       2.410       2014-10-31 19:55:55
+odd detail info:
+marathonbet           3.40        50          Win         3.400       
+marathonbet           3.30        51          Draw        3.300       
+pinnaclesports        2.41        70          Lose        2.410       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205231943
+2014-11-02 02:45:00    De Graafschap         Helmond Sport         
+bid count:247
+return value: -3.7500  ~  -2.0000
+return persent: -1.518219%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       1.75             4.21             4.90             
+order no    2                1                0                
+odds        4.90             4.21             1.75             
+bids        50               58               139              
+website detail info:
+marathonbet           1.750       4.000       4.900       2014-10-31 20:10:38
+pinnaclesports        1.699       4.210       4.900       2014-10-31 20:24:25
+odd detail info:
+marathonbet           4.90        50          Lose        4.900       
+pinnaclesports        4.21        58          Draw        4.210       
+marathonbet           1.75        139         Win         1.750       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205221475
+2014-11-01 18:00:00    Avispa Fukuoka        Matsumoto Yamaga FC   
+bid count:214
+return value: -3.2100  ~  -1.5000
+return persent: -1.500000%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       4.25             3.70             1.97             
+order no    0                1                2                
+odds        4.25             3.70             1.97             
+bids        50               57               107              
+website detail info:
+marathonbet           4.250       3.700       1.900       2014-10-31 20:10:37
+pinnaclesports        3.970       3.610       1.970       2014-10-31 19:55:55
+odd detail info:
+marathonbet           4.25        50          Win         4.250       
+marathonbet           3.70        57          Draw        3.700       
+pinnaclesports        1.97        107         Lose        1.970       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205228411
+2014-11-01 23:00:00    Kilmarnock            Dundee United         
+bid count:173
+return value: -2.5000  ~  -0.7500
+return persent: -1.445087%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.44             3.41             3.25             
+order no    1                2                0                
+odds        3.41             3.25             2.44             
+bids        50               53               70               
+website detail info:
+marathonbet           2.440       3.350       3.150       2014-10-31 20:10:44
+pinnaclesports        2.330       3.410       3.250       2014-10-31 20:30:25
+odd detail info:
+pinnaclesports        3.41        50          Draw        3.410       
+pinnaclesports        3.25        53          Lose        3.250       
+marathonbet           2.44        70          Win         2.440       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205151307
+2014-11-01 01:30:00    Karlsruher SC         SV Sandhausen         
+bid count:371
+return value: -5.3000  ~  -3.5000
+return persent: -1.428571%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.59             4.03             7.35             
+order no    2                1                0                
+odds        7.35             4.03             1.59             
+bids        50               91               230              
+website detail info:
+marathonbet           1.590       3.950       7.000       2014-10-31 20:10:31
+pinnaclesports        1.549       4.029       7.350       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        7.35        50          Lose        7.350       
+pinnaclesports        4.03        91          Draw        4.029       
+marathonbet           1.59        230         Win         1.590       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:201410312053216
+2014-11-05 02:45:00    Real Madrid           Liverpool             
+bid count:644
+return value: -9.0000  ~  -4.1600
+return persent: -1.397516%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.25             7.44             12.72            
+order no    2                1                0                
+odds        12.72            7.44             1.25             
+bids        50               86               508              
+website detail info:
+marathonbet           1.250       7.300       12.000      2014-10-31 20:10:49
+pinnaclesports        1.238       7.440       12.720      2014-10-31 20:36:25
+odd detail info:
+pinnaclesports        12.72       50          Lose        12.720      
+pinnaclesports        7.44        86          Draw        7.440       
+marathonbet           1.25        508         Win         1.250       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205305489
+2014-11-03 18:00:00    FC Torpedo Moscow     Arsenal Tula          
+bid count:219
+return value: -2.7600  ~  -1.6500
+return persent: -1.260274%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       2.04             3.45             4.33             
+order no    2                1                0                
+odds        4.33             3.45             2.04             
+bids        50               63               106              
+website detail info:
+pinnaclesports        2.040       3.360       4.130       2014-10-31 20:29:25
+marathonbet           2.000       3.450       4.333       2014-10-31 20:10:42
+odd detail info:
+marathonbet           4.33        50          Lose        4.333       
+marathonbet           3.45        63          Draw        3.450       
+pinnaclesports        2.04        106         Win         2.040       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205331991
+2014-11-07 03:05:00    Guingamp              Dinamo Minsk(N)       
+bid count:269
+return value: -3.3500  ~  -1.5000
+return persent: -1.245353%
+websites    pinnaclesports   marathonbet      pinnaclesports   
+orign       1.78             3.85             5.35             
+order no    2                1                0                
+odds        5.35             3.85             1.78             
+bids        50               69               150              
+website detail info:
+pinnaclesports        1.775       3.450       5.350       2014-10-31 20:36:55
+marathonbet           1.750       3.850       5.300       2014-10-31 20:10:51
+odd detail info:
+pinnaclesports        5.35        50          Lose        5.350       
+marathonbet           3.85        69          Draw        3.850       
+pinnaclesports        1.78        150         Win         1.775       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205330399
+2014-11-07 03:05:00    Feyenoord Rotterdam   NK Rijeka  (U19)      
+bid count:249
+return value: -2.9500  ~  -1.5000
+return persent: -1.184739%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       1.85             3.73             4.95             
+order no    2                1                0                
+odds        4.95             3.73             1.85             
+bids        50               66               133              
+website detail info:
+marathonbet           1.850       3.600       4.950       2014-10-31 20:10:51
+pinnaclesports        1.813       3.730       4.550       2014-10-31 20:36:55
+odd detail info:
+marathonbet           4.95        50          Lose        4.950       
+pinnaclesports        3.73        66          Draw        3.730       
+marathonbet           1.85        133         Win         1.850       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205243236
+2014-11-02 19:00:00    San Lorenzo           Boca Juniors          
+bid count:187
+return value: -2.2000  ~  -1.0000
+return persent: -1.176471%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.40             3.10             3.71             
+order no    2                1                0                
+odds        3.71             3.10             2.40             
+bids        50               60               77               
+website detail info:
+marathonbet           2.400       3.100       3.500       2014-10-31 20:10:19
+pinnaclesports        2.310       3.060       3.710       2014-10-31 19:57:25
+odd detail info:
+pinnaclesports        3.71        50          Lose        3.710       
+marathonbet           3.10        60          Draw        3.100       
+marathonbet           2.40        77          Win         2.400       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205224612
+2014-11-01 20:00:00    Gefle IF              Helsingborgs IF Akad  
+bid count:189
+return value: -2.0000  ~  0.0000
+return persent: -1.058201%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.20             3.75             3.50             
+order no    1                2                0                
+odds        3.75             3.50             2.20             
+bids        50               54               85               
+website detail info:
+marathonbet           2.200       3.700       3.350       2014-10-31 20:10:48
+pinnaclesports        2.090       3.750       3.500       2014-10-31 20:33:55
+odd detail info:
+pinnaclesports        3.75        50          Draw        3.750       
+pinnaclesports        3.50        54          Lose        3.500       
+marathonbet           2.20        85          Win         2.200       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205244747
+2014-11-02 20:30:00    Go Ahead Eagles       Heracles Almelo       
+bid count:192
+return value: -2.0000  ~  -1.6000
+return persent: -1.041667%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       2.21             3.80             3.40             
+order no    1                2                0                
+odds        3.80             3.40             2.21             
+bids        50               56               86               
+website detail info:
+pinnaclesports        2.210       3.800       3.180       2014-10-31 20:23:55
+marathonbet           2.140       3.800       3.400       2014-10-31 20:10:38
+odd detail info:
+marathonbet           3.80        50          Draw        3.800       
+marathonbet           3.40        56          Lose        3.400       
+pinnaclesports        2.21        86          Win         2.210       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205332493
+2014-11-07 03:05:00    KSC Lokeren           Trabzonspor           
+bid count:174
+return value: -1.7500  ~  -0.5400
+return persent: -1.005747%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       2.65             3.45             2.94             
+order no    1                2                0                
+odds        3.45             2.94             2.65             
+bids        50               59               65               
+website detail info:
+marathonbet           2.650       3.450       2.840       2014-10-31 20:10:51
+pinnaclesports        2.500       3.330       2.940       2014-10-31 20:36:55
+odd detail info:
+marathonbet           3.45        50          Draw        3.450       
+pinnaclesports        2.94        59          Lose        2.940       
+marathonbet           2.65        65          Win         2.650       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205315627
+2014-11-04 06:30:00    Defensa Y Justicia    Newells Old Boys      
+bid count:178
+return value: -1.7500  ~  -0.5000
+return persent: -0.983146%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.35             3.34             3.55             
+order no    2                1                0                
+odds        3.55             3.34             2.35             
+bids        50               53               75               
+website detail info:
+marathonbet           2.350       3.125       3.550       2014-10-31 20:10:19
+pinnaclesports        2.340       3.340       3.310       2014-10-31 19:57:25
+odd detail info:
+marathonbet           3.55        50          Lose        3.550       
+pinnaclesports        3.34        53          Draw        3.340       
+marathonbet           2.35        75          Win         2.350       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205205208
+2014-11-01 03:00:00    Telstar               MVV Maastricht        
+bid count:186
+return value: -1.7400  ~  -1.2400
+return persent: -0.935484%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       2.49             3.69             2.98             
+order no    1                2                0                
+odds        3.69             2.98             2.49             
+bids        50               62               74               
+website detail info:
+pinnaclesports        2.490       3.690       2.830       2014-10-31 20:24:25
+marathonbet           2.420       3.600       2.980       2014-10-31 20:10:38
+odd detail info:
+pinnaclesports        3.69        50          Draw        3.690       
+marathonbet           2.98        62          Lose        2.980       
+pinnaclesports        2.49        74          Win         2.490       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205309256
+2014-11-04 02:00:00    Jong PSV Eindhoven    VVV Venlo             
+bid count:194
+return value: -1.7200  ~  1.0000
+return persent: -0.886598%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       2.09             3.85             3.75             
+order no    1                2                0                
+odds        3.85             3.75             2.09             
+bids        50               52               92               
+website detail info:
+pinnaclesports        2.090       3.670       3.580       2014-10-31 20:24:25
+marathonbet           2.000       3.850       3.750       2014-10-31 20:10:38
+odd detail info:
+marathonbet           3.85        50          Draw        3.850       
+marathonbet           3.75        52          Lose        3.750       
+pinnaclesports        2.09        92          Win         2.090       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205254671
+2014-11-02 23:00:00    Villarreal            Valencia              
+bid count:190
+return value: -1.6800  ~  -0.7200
+return persent: -0.884211%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.14             3.64             3.77             
+order no    2                1                0                
+odds        3.77             3.64             2.14             
+bids        50               52               88               
+website detail info:
+marathonbet           2.140       3.550       3.750       2014-10-31 20:10:45
+pinnaclesports        2.080       3.640       3.770       2014-10-31 20:32:25
+odd detail info:
+pinnaclesports        3.77        50          Lose        3.770       
+pinnaclesports        3.64        52          Draw        3.640       
+marathonbet           2.14        88          Win         2.140       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120521463
+2014-11-01 03:45:00    Norwich City          Bolton Wanderers      
+bid count:339
+return value: -2.8060  ~  -0.5000
+return persent: -0.827729%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.57             4.49             6.77             
+order no    2                1                0                
+odds        6.77             4.49             1.57             
+bids        50               75               214              
+website detail info:
+marathonbet           1.571       4.250       6.700       2014-10-31 20:10:25
+pinnaclesports        1.526       4.490       6.770       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        6.77        50          Lose        6.770       
+pinnaclesports        4.49        75          Draw        4.490       
+marathonbet           1.57        214         Win         1.571       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205155969
+2014-11-01 02:30:00    Viktoria koln         TSV Alemannia Aachen  
+bid count:229
+return value: -1.8500  ~  -0.2500
+return persent: -0.807860%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.93             3.75             4.55             
+order no    2                1                0                
+odds        4.55             3.75             1.93             
+bids        50               61               118              
+website detail info:
+pinnaclesports        1.925       3.630       4.080       2014-10-31 19:55:55
+marathonbet           1.820       3.750       4.550       2014-10-31 20:10:33
+odd detail info:
+marathonbet           4.55        50          Lose        4.550       
+marathonbet           3.75        61          Draw        3.750       
+pinnaclesports        1.93        118         Win         1.925       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205148669
+2014-11-01 00:00:00    NK Maribor            Domzale               
+bid count:310
+return value: -2.5000  ~  -1.9000
+return persent: -0.806452%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.70             3.90             6.15             
+order no    2                1                0                
+odds        6.15             3.90             1.70             
+bids        50               79               181              
+website detail info:
+marathonbet           1.700       3.800       5.200       2014-10-31 20:10:45
+pinnaclesports        1.609       3.900       6.150       2014-10-31 20:31:55
+odd detail info:
+pinnaclesports        6.15        50          Lose        6.150       
+pinnaclesports        3.90        79          Draw        3.900       
+marathonbet           1.70        181         Win         1.700       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205236465
+2014-11-02 05:00:00    Real Sociedad         Malaga                
+bid count:186
+return value: -1.5000  ~  0.3000
+return persent: -0.806452%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.25             3.45             3.70             
+order no    2                1                0                
+odds        3.70             3.45             2.25             
+bids        50               54               82               
+website detail info:
+marathonbet           2.250       3.350       3.700       2014-10-31 20:10:45
+pinnaclesports        2.219       3.450       3.580       2014-10-31 20:32:25
+odd detail info:
+marathonbet           3.70        50          Lose        3.700       
+pinnaclesports        3.45        54          Draw        3.450       
+marathonbet           2.25        82          Win         2.250       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205203166
+2014-11-01 03:00:00    Paris FC              Colomiers             
+bid count:402
+return value: -3.0000  ~  -2.6500
+return persent: -0.746269%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       1.63             3.73             7.98             
+order no    2                1                0                
+odds        7.98             3.73             1.63             
+bids        50               107              245              
+website detail info:
+marathonbet           1.630       3.650       7.100       2014-10-31 20:10:30
+pinnaclesports        1.558       3.730       7.980       2014-10-31 19:55:55
+odd detail info:
+pinnaclesports        7.98        50          Lose        7.980       
+pinnaclesports        3.73        107         Draw        3.730       
+marathonbet           1.63        245         Win         1.630       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205311536
+2014-11-04 02:45:00    Rayo Vallecano        Eibar                 
+bid count:209
+return value: -1.5000  ~  -1.1000
+return persent: -0.717703%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.10             3.46             4.15             
+order no    2                1                0                
+odds        4.15             3.46             2.10             
+bids        50               60               99               
+website detail info:
+marathonbet           2.100       3.350       4.150       2014-10-31 20:10:45
+pinnaclesports        2.050       3.460       4.120       2014-10-31 20:32:25
+odd detail info:
+marathonbet           4.15        50          Lose        4.150       
+pinnaclesports        3.46        60          Draw        3.460       
+marathonbet           2.10        99          Win         2.100       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205227319
+2014-11-01 23:00:00    Granada CF            Real Madrid           
+bid count:755
+return value: -5.3000  ~  -2.6000
+return persent: -0.701987%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       15.00            6.84             1.26             
+order no    0                1                2                
+odds        15.00            6.84             1.26             
+bids        50               110              595              
+website detail info:
+marathonbet           15.000      6.400       1.260       2014-10-31 20:10:45
+pinnaclesports        14.450      6.840       1.242       2014-10-31 20:32:25
+odd detail info:
+marathonbet           15.00       50          Win         15.000      
+pinnaclesports        6.84        110         Draw        6.840       
+marathonbet           1.26        595         Lose        1.260       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205317254
+2014-11-05 02:45:00    Arsenal               Anderlecht U19        
+bid count:526
+return value: -3.5000  ~  -1.0000
+return persent: -0.665399%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.37             5.50             10.50            
+order no    2                1                0                
+odds        10.50            5.50             1.37             
+bids        50               95               381              
+website detail info:
+pinnaclesports        1.373       5.420       9.310       2014-10-31 20:36:25
+marathonbet           1.350       5.500       10.500      2014-10-31 20:10:49
+odd detail info:
+marathonbet           10.50       50          Lose        10.500      
+marathonbet           5.50        95          Draw        5.500       
+pinnaclesports        1.37        381         Win         1.373       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205225160
+2014-11-01 22:00:00    Bursaspor             Sivasspor             
+bid count:240
+return value: -1.5000  ~  -0.6000
+return persent: -0.625000%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.88             3.80             4.77             
+order no    2                1                0                
+odds        4.77             3.80             1.88             
+bids        50               63               127              
+website detail info:
+marathonbet           1.880       3.800       4.300       2014-10-31 20:10:49
+pinnaclesports        1.800       3.790       4.770       2014-10-31 20:35:25
+odd detail info:
+pinnaclesports        4.77        50          Lose        4.770       
+marathonbet           3.80        63          Draw        3.800       
+marathonbet           1.88        127         Win         1.880       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205240966
+2014-11-02 18:30:00    Chojniczanka Chojnic  Wisla Plock           
+bid count:161
+return value: -1.0000  ~  -0.2600
+return persent: -0.621118%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       3.15             3.20             2.68             
+order no    1                0                2                
+odds        3.20             3.15             2.68             
+bids        50               51               60               
+website detail info:
+marathonbet           3.150       3.200       2.500       2014-10-31 20:10:41
+pinnaclesports        2.830       3.190       2.679       2014-10-31 20:26:55
+odd detail info:
+marathonbet           3.20        50          Draw        3.200       
+marathonbet           3.15        51          Win         3.150       
+pinnaclesports        2.68        60          Lose        2.679       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205229516
+2014-11-02 00:45:00    Winterthur            FC Lugano             
+bid count:179
+return value: -1.0000  ~  0.4000
+return persent: -0.558659%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.60             3.56             2.98             
+order no    1                2                0                
+odds        3.56             2.98             2.60             
+bids        50               60               69               
+website detail info:
+marathonbet           2.600       3.450       2.760       2014-10-31 20:10:49
+pinnaclesports        2.389       3.560       2.980       2014-10-31 20:34:55
+odd detail info:
+pinnaclesports        3.56        50          Draw        3.560       
+pinnaclesports        2.98        60          Lose        2.980       
+marathonbet           2.60        69          Win         2.600       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120533353
+2014-11-07 03:05:00    Legia Warszawa Youth  Metalist Kharkiv      
+bid count:277
+return value: -1.0000  ~  0.5000
+return persent: -0.361011%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       1.75             4.00             5.55             
+order no    2                1                0                
+odds        5.55             4.00             1.75             
+bids        50               69               158              
+website detail info:
+marathonbet           1.750       4.000       5.000       2014-10-31 20:10:51
+pinnaclesports        1.699       3.680       5.550       2014-10-31 20:36:55
+odd detail info:
+pinnaclesports        5.55        50          Lose        5.550       
+marathonbet           4.00        69          Draw        4.000       
+marathonbet           1.75        158         Win         1.750       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205243997
+2014-11-02 19:45:00    Young Boys(HOL)       Vaduz                 
+bid count:406
+return value: -1.0000  ~  -0.9250
+return persent: -0.246305%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.47             5.00             8.10             
+order no    2                1                0                
+odds        8.10             5.00             1.47             
+bids        50               81               275              
+website detail info:
+pinnaclesports        1.473       4.570       7.520       2014-10-31 20:34:25
+marathonbet           1.420       5.000       8.100       2014-10-31 20:10:48
+odd detail info:
+marathonbet           8.10        50          Lose        8.100       
+marathonbet           5.00        81          Draw        5.000       
+pinnaclesports        1.47        275         Win         1.473       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205152178
+2014-11-01 01:30:00    Midtjylland Am        Nordsjaelland (U19)   
+bid count:264
+return value: -0.4120  ~  1.0000
+return persent: -0.156061%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.78             4.00             5.30             
+order no    2                1                0                
+odds        5.30             4.00             1.78             
+bids        50               66               148              
+website detail info:
+pinnaclesports        1.781       3.920       4.689       2014-10-31 19:55:55
+marathonbet           1.700       4.000       5.300       2014-10-31 20:10:24
+odd detail info:
+marathonbet           5.30        50          Lose        5.300       
+marathonbet           4.00        66          Draw        4.000       
+pinnaclesports        1.78        148         Win         1.781       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:201410312051573
+2014-11-01 02:45:00    Widzew lodz           Zaglebie Lubin        
+bid count:274
+return value: -0.4000  ~  1.5000
+return persent: -0.145985%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       5.51             3.42             1.90             
+order no    0                1                2                
+odds        5.51             3.42             1.90             
+bids        50               80               144              
+website detail info:
+pinnaclesports        5.510       3.420       1.781       2014-10-31 20:26:55
+marathonbet           4.850       3.350       1.900       2014-10-31 20:10:40
+odd detail info:
+pinnaclesports        5.51        50          Win         5.510       
+pinnaclesports        3.42        80          Draw        3.420       
+marathonbet           1.90        144         Lose        1.900       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205323334
+2014-11-06 02:45:00    FC Shakhtar Donetsk   BATE Borisov          
+bid count:949
+return value: 0.4940  ~  2.6000
+return persent: 0.052055%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.22             7.80             19.00            
+order no    2                1                0                
+odds        19.00            7.80             1.22             
+bids        50               122              777              
+website detail info:
+pinnaclesports        1.222       7.000       16.900      2014-10-31 20:36:25
+marathonbet           1.190       7.800       19.000      2014-10-31 20:10:49
+odd detail info:
+marathonbet           19.00       50          Lose        19.000      
+marathonbet           7.80        122         Draw        7.800       
+pinnaclesports        1.22        777         Win         1.222       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205246454
+2014-11-02 20:30:00    Willem II             Cambuur Leeuwarden    
+bid count:183
+return value: 0.2600  ~  2.0000
+return persent: 0.142077%
+websites    marathonbet      pinnaclesports   pinnaclesports   
+orign       2.38             3.70             3.28             
+order no    1                2                0                
+odds        3.70             3.28             2.38             
+bids        50               56               77               
+website detail info:
+marathonbet           2.380       3.500       3.125       2014-10-31 20:10:38
+pinnaclesports        2.200       3.700       3.280       2014-10-31 20:23:55
+odd detail info:
+pinnaclesports        3.70        50          Draw        3.700       
+pinnaclesports        3.28        56          Lose        3.280       
+marathonbet           2.38        77          Win         2.380       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205324434
+2014-11-06 02:45:00    Manchester City       CSKA Moscow           
+bid count:798
+return value: 1.6320  ~  2.0000
+return persent: 0.204511%
+websites    pinnaclesports   marathonbet      marathonbet      
+orign       1.23             8.00             16.00            
+order no    2                1                0                
+odds        16.00            8.00             1.23             
+bids        50               100              648              
+website detail info:
+pinnaclesports        1.234       7.000       14.870      2014-10-31 20:36:25
+marathonbet           1.200       8.000       16.000      2014-10-31 20:10:49
+odd detail info:
+marathonbet           16.00       50          Lose        16.000      
+marathonbet           8.00        100         Draw        8.000       
+pinnaclesports        1.23        648         Win         1.234       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205248321
+2014-11-02 21:30:00    Slask Wroclaw         Lech Poznan           
+bid count:170
+return value: 0.4000  ~  1.0000
+return persent: 0.235294%
+websites    marathonbet      pinnaclesports   marathonbet      
+orign       2.84             3.42             2.84             
+order no    1                0                2                
+odds        3.42             2.84             2.84             
+bids        50               60               60               
+website detail info:
+marathonbet           2.840       3.100       2.840       2014-10-31 20:10:40
+pinnaclesports        2.650       3.420       2.780       2014-10-31 20:25:55
+odd detail info:
+pinnaclesports        3.42        50          Draw        3.420       
+marathonbet           2.84        60          Win         2.840       
+marathonbet           2.84        60          Lose        2.840       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:2014103120532656
+2014-11-06 02:45:00    NK Maribor            Chelsea FC            
+bid count:693
+return value: 7.0000  ~  7.6000
+return persent: 1.010101%
+websites    marathonbet      marathonbet      pinnaclesports   
+orign       14.00            6.20             1.32             
+order no    0                1                2                
+odds        14.00            6.20             1.32             
+bids        50               113              530              
+website detail info:
+marathonbet           14.000      6.200       1.270       2014-10-31 20:10:49
+pinnaclesports        11.630      5.650       1.321       2014-10-31 20:36:25
+odd detail info:
+marathonbet           14.00       50          Win         14.000      
+marathonbet           6.20        113         Draw        6.200       
+pinnaclesports        1.32        530         Lose        1.321       
+----------------------------------------------------------------------------------------------------------------------------------------
+type:single-match-max  doc id:20141031205314367
+2014-11-04 03:30:00    Melbourne Victory FC  Wellington Phoenix    
+bid count:271
+return value: 3.2740  ~  4.0000
+return persent: 1.208118%
+websites    pinnaclesports   pinnaclesports   marathonbet      
+orign       1.78             4.10             5.50             
+order no    2                1                0                
+odds        5.50             4.10             1.78             
+bids        50               67               154              
+website detail info:
+pinnaclesports        1.781       4.100       4.460       2014-10-31 19:58:25
+marathonbet           1.720       3.800       5.500       2014-10-31 20:10:19
+odd detail info:
+marathonbet           5.50        50          Lose        5.500       
+pinnaclesports        4.10        67          Draw        4.100       
+pinnaclesports        1.78        154         Win         1.781       
+----------------------------------------------------------------------------------------------------------------------------------------
