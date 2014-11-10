@@ -76,4 +76,7 @@ some problem need to solve:
     gobetgo&betfair->use VPN(fqrouter)
 4,Bank use fee
 --------------------------
+2014-11-10
+
+gobetgo: empty odd (Modify Match100Method)
      
