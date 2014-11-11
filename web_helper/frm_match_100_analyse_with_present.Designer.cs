@@ -30,8 +30,14 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cb_two_start_time_desc_2 = new System.Windows.Forms.CheckBox();
+            this.cb_two_start_time_asc_2 = new System.Windows.Forms.CheckBox();
+            this.cb_two_persent_desc_2 = new System.Windows.Forms.CheckBox();
+            this.cb_two_persent_asc_2 = new System.Windows.Forms.CheckBox();
             this.btn_compute_2 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_add = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.cb_two_start_time_desc = new System.Windows.Forms.CheckBox();
@@ -55,12 +61,6 @@
             this.dgv_all = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.cb_two_start_time_desc_2 = new System.Windows.Forms.CheckBox();
-            this.cb_two_start_time_asc_2 = new System.Windows.Forms.CheckBox();
-            this.cb_two_persent_desc_2 = new System.Windows.Forms.CheckBox();
-            this.cb_two_persent_asc_2 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_add = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -104,6 +104,48 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Persent( >188%,Return 50%)";
             // 
+            // cb_two_start_time_desc_2
+            // 
+            this.cb_two_start_time_desc_2.AutoSize = true;
+            this.cb_two_start_time_desc_2.Location = new System.Drawing.Point(127, 57);
+            this.cb_two_start_time_desc_2.Name = "cb_two_start_time_desc_2";
+            this.cb_two_start_time_desc_2.Size = new System.Drawing.Size(87, 17);
+            this.cb_two_start_time_desc_2.TabIndex = 19;
+            this.cb_two_start_time_desc_2.Text = "S-time DESC";
+            this.cb_two_start_time_desc_2.UseVisualStyleBackColor = true;
+            // 
+            // cb_two_start_time_asc_2
+            // 
+            this.cb_two_start_time_asc_2.AutoSize = true;
+            this.cb_two_start_time_asc_2.Location = new System.Drawing.Point(15, 57);
+            this.cb_two_start_time_asc_2.Name = "cb_two_start_time_asc_2";
+            this.cb_two_start_time_asc_2.Size = new System.Drawing.Size(83, 17);
+            this.cb_two_start_time_asc_2.TabIndex = 18;
+            this.cb_two_start_time_asc_2.Text = "S-Time ASC";
+            this.cb_two_start_time_asc_2.UseVisualStyleBackColor = true;
+            // 
+            // cb_two_persent_desc_2
+            // 
+            this.cb_two_persent_desc_2.AutoSize = true;
+            this.cb_two_persent_desc_2.Location = new System.Drawing.Point(127, 33);
+            this.cb_two_persent_desc_2.Name = "cb_two_persent_desc_2";
+            this.cb_two_persent_desc_2.Size = new System.Drawing.Size(94, 17);
+            this.cb_two_persent_desc_2.TabIndex = 17;
+            this.cb_two_persent_desc_2.Text = "Persent DESC";
+            this.cb_two_persent_desc_2.UseVisualStyleBackColor = true;
+            // 
+            // cb_two_persent_asc_2
+            // 
+            this.cb_two_persent_asc_2.AutoSize = true;
+            this.cb_two_persent_asc_2.Checked = true;
+            this.cb_two_persent_asc_2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_two_persent_asc_2.Location = new System.Drawing.Point(15, 33);
+            this.cb_two_persent_asc_2.Name = "cb_two_persent_asc_2";
+            this.cb_two_persent_asc_2.Size = new System.Drawing.Size(86, 17);
+            this.cb_two_persent_asc_2.TabIndex = 16;
+            this.cb_two_persent_asc_2.Text = "Persent ASC";
+            this.cb_two_persent_asc_2.UseVisualStyleBackColor = true;
+            // 
             // btn_compute_2
             // 
             this.btn_compute_2.Location = new System.Drawing.Point(72, 90);
@@ -130,7 +172,24 @@
             this.groupBox5.Size = new System.Drawing.Size(252, 167);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Present(One Add 20%)";
+            this.groupBox5.Text = "Present(One Add 18%)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Present Add:";
+            // 
+            // txt_add
+            // 
+            this.txt_add.Location = new System.Drawing.Point(85, 46);
+            this.txt_add.Name = "txt_add";
+            this.txt_add.Size = new System.Drawing.Size(145, 20);
+            this.txt_add.TabIndex = 18;
+            this.txt_add.Text = "0.18";
             // 
             // label1
             // 
@@ -380,65 +439,6 @@
             this.txt_result.TabIndex = 0;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
-            // 
-            // cb_two_start_time_desc_2
-            // 
-            this.cb_two_start_time_desc_2.AutoSize = true;
-            this.cb_two_start_time_desc_2.Location = new System.Drawing.Point(127, 57);
-            this.cb_two_start_time_desc_2.Name = "cb_two_start_time_desc_2";
-            this.cb_two_start_time_desc_2.Size = new System.Drawing.Size(87, 17);
-            this.cb_two_start_time_desc_2.TabIndex = 19;
-            this.cb_two_start_time_desc_2.Text = "S-time DESC";
-            this.cb_two_start_time_desc_2.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_start_time_asc_2
-            // 
-            this.cb_two_start_time_asc_2.AutoSize = true;
-            this.cb_two_start_time_asc_2.Location = new System.Drawing.Point(15, 57);
-            this.cb_two_start_time_asc_2.Name = "cb_two_start_time_asc_2";
-            this.cb_two_start_time_asc_2.Size = new System.Drawing.Size(83, 17);
-            this.cb_two_start_time_asc_2.TabIndex = 18;
-            this.cb_two_start_time_asc_2.Text = "S-Time ASC";
-            this.cb_two_start_time_asc_2.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_persent_desc_2
-            // 
-            this.cb_two_persent_desc_2.AutoSize = true;
-            this.cb_two_persent_desc_2.Location = new System.Drawing.Point(127, 33);
-            this.cb_two_persent_desc_2.Name = "cb_two_persent_desc_2";
-            this.cb_two_persent_desc_2.Size = new System.Drawing.Size(94, 17);
-            this.cb_two_persent_desc_2.TabIndex = 17;
-            this.cb_two_persent_desc_2.Text = "Persent DESC";
-            this.cb_two_persent_desc_2.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_persent_asc_2
-            // 
-            this.cb_two_persent_asc_2.AutoSize = true;
-            this.cb_two_persent_asc_2.Checked = true;
-            this.cb_two_persent_asc_2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_two_persent_asc_2.Location = new System.Drawing.Point(15, 33);
-            this.cb_two_persent_asc_2.Name = "cb_two_persent_asc_2";
-            this.cb_two_persent_asc_2.Size = new System.Drawing.Size(86, 17);
-            this.cb_two_persent_asc_2.TabIndex = 16;
-            this.cb_two_persent_asc_2.Text = "Persent ASC";
-            this.cb_two_persent_asc_2.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Present Add:";
-            // 
-            // txt_add
-            // 
-            this.txt_add.Location = new System.Drawing.Point(85, 46);
-            this.txt_add.Name = "txt_add";
-            this.txt_add.Size = new System.Drawing.Size(145, 20);
-            this.txt_add.TabIndex = 18;
-            this.txt_add.Text = "0.198";
             // 
             // frm_match_100_analyse_with_present
             // 

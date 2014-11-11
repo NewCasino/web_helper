@@ -1340,12 +1340,16 @@ class Match100Method
                             win = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[2]").InnerText);
                             draw = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
                             lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
-                            sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", "0");
-                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", "0");
-                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-1", "0");
-                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "2", "0");
-                            Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-2", "0");
+
+                            if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
+                            {
+                                sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", "0");
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", "0");
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-1", "0");
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "2", "0");
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-2", "0");
+                            }
                            
 
                         }
