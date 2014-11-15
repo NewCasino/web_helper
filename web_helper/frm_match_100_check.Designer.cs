@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_repair = new System.Windows.Forms.Button();
             this.btn_insert_office = new System.Windows.Forms.Button();
             this.btn_analyse_one_by_other = new System.Windows.Forms.Button();
             this.btn_analyse_by_similar_name = new System.Windows.Forms.Button();
@@ -46,7 +47,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_update = new System.Windows.Forms.Button();
             this.dgv_result = new System.Windows.Forms.DataGridView();
-            this.btn_repair = new System.Windows.Forms.Button();
+            this.btn_clear_text = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_clear_text);
             this.groupBox1.Controls.Add(this.btn_repair);
             this.groupBox1.Controls.Add(this.btn_insert_office);
             this.groupBox1.Controls.Add(this.btn_analyse_one_by_other);
@@ -76,6 +78,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_repair
+            // 
+            this.btn_repair.Location = new System.Drawing.Point(189, 48);
+            this.btn_repair.Name = "btn_repair";
+            this.btn_repair.Size = new System.Drawing.Size(116, 25);
+            this.btn_repair.TabIndex = 11;
+            this.btn_repair.Text = "Repair MB";
+            this.btn_repair.UseVisualStyleBackColor = true;
+            this.btn_repair.Click += new System.EventHandler(this.btn_repair_Click);
             // 
             // btn_insert_office
             // 
@@ -228,7 +240,7 @@
             this.tabPage2.Controls.Add(this.dgv_result);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(916, 432);
+            this.tabPage2.Size = new System.Drawing.Size(1101, 432);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "TABLE";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -254,15 +266,15 @@
             this.dgv_result.Size = new System.Drawing.Size(916, 396);
             this.dgv_result.TabIndex = 0;
             // 
-            // btn_repair
+            // btn_clear_text
             // 
-            this.btn_repair.Location = new System.Drawing.Point(189, 48);
-            this.btn_repair.Name = "btn_repair";
-            this.btn_repair.Size = new System.Drawing.Size(116, 25);
-            this.btn_repair.TabIndex = 11;
-            this.btn_repair.Text = "Repair MB";
-            this.btn_repair.UseVisualStyleBackColor = true;
-            this.btn_repair.Click += new System.EventHandler(this.btn_repair_Click);
+            this.btn_clear_text.Location = new System.Drawing.Point(799, 19);
+            this.btn_clear_text.Name = "btn_clear_text";
+            this.btn_clear_text.Size = new System.Drawing.Size(116, 25);
+            this.btn_clear_text.TabIndex = 12;
+            this.btn_clear_text.Text = "Clear Text";
+            this.btn_clear_text.UseVisualStyleBackColor = true;
+            this.btn_clear_text.Click += new System.EventHandler(this.btn_clear_text_Click);
             // 
             // frm_match_100_check
             // 
@@ -304,5 +316,6 @@
         private System.Windows.Forms.Button btn_insert_office;
         private System.Windows.Forms.Button btn_analyse_one_by_other;
         private System.Windows.Forms.Button btn_repair;
+        private System.Windows.Forms.Button btn_clear_text;
     }
 }

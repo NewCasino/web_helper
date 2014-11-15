@@ -30,12 +30,12 @@
         {
             this.txt_win = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_eng = new System.Windows.Forms.CheckBox();
+            this.cb_usa = new System.Windows.Forms.CheckBox();
             this.btn_compute = new System.Windows.Forms.Button();
             this.txt_lose = new System.Windows.Forms.TextBox();
             this.txt_draw = new System.Windows.Forms.TextBox();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.cb_usa = new System.Windows.Forms.CheckBox();
-            this.cb_eng = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // cb_eng
+            // 
+            this.cb_eng.AutoSize = true;
+            this.cb_eng.Location = new System.Drawing.Point(264, 21);
+            this.cb_eng.Name = "cb_eng";
+            this.cb_eng.Size = new System.Drawing.Size(49, 17);
+            this.cb_eng.TabIndex = 5;
+            this.cb_eng.Text = "ENG";
+            this.cb_eng.UseVisualStyleBackColor = true;
+            // 
+            // cb_usa
+            // 
+            this.cb_usa.AutoSize = true;
+            this.cb_usa.Location = new System.Drawing.Point(210, 21);
+            this.cb_usa.Name = "cb_usa";
+            this.cb_usa.Size = new System.Drawing.Size(48, 17);
+            this.cb_usa.TabIndex = 4;
+            this.cb_usa.Text = "USA";
+            this.cb_usa.UseVisualStyleBackColor = true;
             // 
             // btn_compute
             // 
@@ -101,26 +121,6 @@
             this.txt_result.TabIndex = 2;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
-            // 
-            // cb_usa
-            // 
-            this.cb_usa.AutoSize = true;
-            this.cb_usa.Location = new System.Drawing.Point(210, 21);
-            this.cb_usa.Name = "cb_usa";
-            this.cb_usa.Size = new System.Drawing.Size(48, 17);
-            this.cb_usa.TabIndex = 4;
-            this.cb_usa.Text = "USA";
-            this.cb_usa.UseVisualStyleBackColor = true;
-            // 
-            // cb_eng
-            // 
-            this.cb_eng.AutoSize = true;
-            this.cb_eng.Location = new System.Drawing.Point(264, 21);
-            this.cb_eng.Name = "cb_eng";
-            this.cb_eng.Size = new System.Drawing.Size(49, 17);
-            this.cb_eng.TabIndex = 5;
-            this.cb_eng.Text = "ENG";
-            this.cb_eng.UseVisualStyleBackColor = true;
             // 
             // frm_match_tool
             // 

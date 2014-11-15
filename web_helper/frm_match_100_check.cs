@@ -23,34 +23,46 @@ namespace web_helper
             this.txt_result.SelectionStart = this.txt_result.TextLength;
             this.txt_result.ScrollToCaret();
         }
+        private void btn_clear_text_Click(object sender, EventArgs e)
+        {
+            sb.Remove(0, sb.Length);
+            this.txt_result.Text = sb.ToString();
+        }
         private void btn_team_discrimination_Click(object sender, EventArgs e)
         {
             team_discrimination();
+            MessageBox.Show("Analyse OK!");
         }
         private void btn_check_matchs_Click(object sender, EventArgs e)
         {
             check_match_odd_count();
+            MessageBox.Show("Analyse OK!");
         }
         private void btn_add_all_Click(object sender, EventArgs e)
         {
             add_all_to_europe_100();
+            MessageBox.Show("Analyse OK!");
         }
         private void btn_check_qty_Click(object sender, EventArgs e)
         {
             load_qty();
+            MessageBox.Show("Analyse OK!");
         }
 
         private void btn_analyse_one_by_other_Click(object sender, EventArgs e)
         {
             analyse_one_by_other();
+            MessageBox.Show("Analyse OK!");
         }
         private void btn_analyse_by_date_odd_Click(object sender, EventArgs e)
         {
             analyse_by_time_and_odd();
+            MessageBox.Show("Analyse OK!");
         }
         private void btn_analyse_by_similar_name_Click(object sender, EventArgs e)
         {
             analyse_by_similar_name();
+            MessageBox.Show("Analyse OK!");
         }
         private void btn_analyse_by_hand_Click(object sender, EventArgs e)
         {
@@ -99,16 +111,16 @@ namespace web_helper
             MessageBox.Show("Inert Office OK!");
         }
         private void btn_repair_Click(object sender, EventArgs e)
-        { 
+        {
             string sql = " select * " +
                          " from europe_100 " +
                          " where id in (select max(id) from europe_100 where start_time>'{0}'   and website<>'marathonbet' group by website,start_time,host,client)";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt1 = SQLServerHelper.get_table(sql);
 
-             sql = " select * " +
-                        " from europe_100 " +
-                        " where id in (select max(id) from europe_100 where start_time>'{0}'   and website='marathonbet' group by website,start_time,host,client)";
+            sql = " select * " +
+                       " from europe_100 " +
+                       " where id in (select max(id) from europe_100 where start_time>'{0}'   and website='marathonbet' group by website,start_time,host,client)";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             DataTable dt2 = SQLServerHelper.get_table(sql);
 
@@ -125,7 +137,7 @@ namespace web_helper
                         {
                             sql = "update europe_100  set start_time='{0}' where start_time='{1}' and host='{2}' and client='{3}'";
                             sql = string.Format(sql, row1["start_time"].ToString(), row2["start_time"].ToString(), row2["host"].ToString(), row2["client"].ToString());
-                            SQLServerHelper.exe_sql(sql); 
+                            SQLServerHelper.exe_sql(sql);
                             sb.AppendLine(row2["start_time"].PR(20) + row2["host"].PR(30) + row2["client"].PR(30) + row1["start_time"].PR(20));
                             this.txt_result.Text = sb.ToString();
                             Application.DoEvents();
@@ -136,12 +148,8 @@ namespace web_helper
                 }
 
 
-            }
-
-
-            
-
-
+            } 
+            MessageBox.Show("Analyse OK!"); 
         }
 
         public void team_discrimination()
@@ -975,6 +983,8 @@ namespace web_helper
             }
 
         }
+
+
 
 
 
