@@ -77,6 +77,8 @@ some problem need to solve:
 4,Bank use fee
 --------------------------
 2014-11-10
-
 gobetgo: empty odd (Modify Match100Method)
-     
+--------------------------
+2014-11-24
+add Tool:two website's same match compute
+--------------------------
