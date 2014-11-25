@@ -47,6 +47,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +94,7 @@
             // 
             // btn_match_100
             // 
-            this.btn_match_100.Location = new System.Drawing.Point(8, 103);
+            this.btn_match_100.Location = new System.Drawing.Point(8, 127);
             this.btn_match_100.Name = "btn_match_100";
             this.btn_match_100.Size = new System.Drawing.Size(112, 23);
             this.btn_match_100.TabIndex = 5;
@@ -103,7 +104,7 @@
             // 
             // btn_html_analyse
             // 
-            this.btn_html_analyse.Location = new System.Drawing.Point(126, 47);
+            this.btn_html_analyse.Location = new System.Drawing.Point(126, 46);
             this.btn_html_analyse.Name = "btn_html_analyse";
             this.btn_html_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_html_analyse.TabIndex = 4;
@@ -123,7 +124,7 @@
             // 
             // btn_browser
             // 
-            this.btn_browser.Location = new System.Drawing.Point(8, 47);
+            this.btn_browser.Location = new System.Drawing.Point(8, 46);
             this.btn_browser.Name = "btn_browser";
             this.btn_browser.Size = new System.Drawing.Size(112, 23);
             this.btn_browser.TabIndex = 7;
@@ -133,7 +134,7 @@
             // 
             // btn_500_read_info
             // 
-            this.btn_500_read_info.Location = new System.Drawing.Point(8, 75);
+            this.btn_500_read_info.Location = new System.Drawing.Point(8, 73);
             this.btn_500_read_info.Name = "btn_500_read_info";
             this.btn_500_read_info.Size = new System.Drawing.Size(112, 23);
             this.btn_500_read_info.TabIndex = 8;
@@ -143,7 +144,7 @@
             // 
             // btn_log_analyse
             // 
-            this.btn_log_analyse.Location = new System.Drawing.Point(126, 103);
+            this.btn_log_analyse.Location = new System.Drawing.Point(126, 127);
             this.btn_log_analyse.Name = "btn_log_analyse";
             this.btn_log_analyse.Size = new System.Drawing.Size(112, 23);
             this.btn_log_analyse.TabIndex = 9;
@@ -153,7 +154,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(126, 131);
+            this.button2.Location = new System.Drawing.Point(126, 154);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 23);
             this.button2.TabIndex = 10;
@@ -163,7 +164,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(8, 131);
+            this.button3.Location = new System.Drawing.Point(8, 154);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 23);
             this.button3.TabIndex = 11;
@@ -173,7 +174,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(126, 75);
+            this.button4.Location = new System.Drawing.Point(126, 73);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 23);
             this.button4.TabIndex = 12;
@@ -193,7 +194,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(244, 75);
+            this.button6.Location = new System.Drawing.Point(8, 100);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(112, 23);
             this.button6.TabIndex = 14;
@@ -208,7 +209,7 @@
             this.groupBox1.Controls.Add(this.btn_down_excel);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.btn_compute_by_website);
-            this.groupBox1.Location = new System.Drawing.Point(5, 174);
+            this.groupBox1.Location = new System.Drawing.Point(5, 197);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(365, 108);
             this.groupBox1.TabIndex = 15;
@@ -236,6 +237,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button9);
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.frm_match_website_info);
             this.groupBox2.Controls.Add(this.button1);
@@ -250,15 +252,25 @@
             this.groupBox2.Controls.Add(this.btn_500_read_info);
             this.groupBox2.Location = new System.Drawing.Point(5, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(365, 169);
+            this.groupBox2.Size = new System.Drawing.Size(365, 189);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(126, 100);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(112, 23);
+            this.button9.TabIndex = 15;
+            this.button9.Text = "TOOL(2.W)";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 294);
+            this.ClientSize = new System.Drawing.Size(378, 315);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -292,5 +304,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }

@@ -116,6 +116,12 @@ namespace web_helper
         {
             frm_match_100_analyse_with_present frm = new frm_match_100_analyse_with_present();
             frm.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            frm_match_tool_for_two_site frm = new frm_match_tool_for_two_site();
+            frm.Show();
         } 
     }
 }

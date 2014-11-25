@@ -58,8 +58,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btn_navigate);
             this.groupBox1.Controls.Add(this.btn_load_browser);
             this.groupBox1.Controls.Add(this.btn_fuzzy_find);
@@ -73,16 +73,16 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(984, 119);
+            this.groupBox1.Size = new System.Drawing.Size(984, 129);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
             // btn_navigate
             // 
-            this.btn_navigate.Location = new System.Drawing.Point(848, 10);
+            this.btn_navigate.Location = new System.Drawing.Point(848, 11);
             this.btn_navigate.Name = "btn_navigate";
-            this.btn_navigate.Size = new System.Drawing.Size(96, 21);
+            this.btn_navigate.Size = new System.Drawing.Size(96, 23);
             this.btn_navigate.TabIndex = 11;
             this.btn_navigate.Text = "Navigate";
             this.btn_navigate.UseVisualStyleBackColor = true;
@@ -90,9 +90,9 @@
             // 
             // btn_load_browser
             // 
-            this.btn_load_browser.Location = new System.Drawing.Point(16, 91);
+            this.btn_load_browser.Location = new System.Drawing.Point(16, 99);
             this.btn_load_browser.Name = "btn_load_browser";
-            this.btn_load_browser.Size = new System.Drawing.Size(113, 21);
+            this.btn_load_browser.Size = new System.Drawing.Size(113, 23);
             this.btn_load_browser.TabIndex = 10;
             this.btn_load_browser.Text = "From Browser";
             this.btn_load_browser.UseVisualStyleBackColor = true;
@@ -100,9 +100,9 @@
             // 
             // btn_fuzzy_find
             // 
-            this.btn_fuzzy_find.Location = new System.Drawing.Point(377, 91);
+            this.btn_fuzzy_find.Location = new System.Drawing.Point(377, 99);
             this.btn_fuzzy_find.Name = "btn_fuzzy_find";
-            this.btn_fuzzy_find.Size = new System.Drawing.Size(93, 21);
+            this.btn_fuzzy_find.Size = new System.Drawing.Size(93, 23);
             this.btn_fuzzy_find.TabIndex = 9;
             this.btn_fuzzy_find.Text = "Fuzzy Select";
             this.btn_fuzzy_find.UseVisualStyleBackColor = true;
@@ -110,25 +110,25 @@
             // 
             // txt_condition
             // 
-            this.txt_condition.Location = new System.Drawing.Point(114, 39);
+            this.txt_condition.Location = new System.Drawing.Point(114, 42);
             this.txt_condition.Name = "txt_condition";
-            this.txt_condition.Size = new System.Drawing.Size(830, 21);
+            this.txt_condition.Size = new System.Drawing.Size(830, 20);
             this.txt_condition.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 41);
+            this.label3.Location = new System.Drawing.Point(13, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 12);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Fuzzy Conditon:";
             // 
             // btn_select
             // 
-            this.btn_select.Location = new System.Drawing.Point(476, 91);
+            this.btn_select.Location = new System.Drawing.Point(476, 99);
             this.btn_select.Name = "btn_select";
-            this.btn_select.Size = new System.Drawing.Size(93, 21);
+            this.btn_select.Size = new System.Drawing.Size(93, 23);
             this.btn_select.TabIndex = 5;
             this.btn_select.Text = "Select Element";
             this.btn_select.UseVisualStyleBackColor = true;
@@ -136,9 +136,9 @@
             // 
             // btn_load_web_client
             // 
-            this.btn_load_web_client.Location = new System.Drawing.Point(135, 91);
+            this.btn_load_web_client.Location = new System.Drawing.Point(135, 99);
             this.btn_load_web_client.Name = "btn_load_web_client";
-            this.btn_load_web_client.Size = new System.Drawing.Size(125, 21);
+            this.btn_load_web_client.Size = new System.Drawing.Size(125, 23);
             this.btn_load_web_client.TabIndex = 4;
             this.btn_load_web_client.Text = "From WebClient";
             this.btn_load_web_client.UseVisualStyleBackColor = true;
@@ -146,50 +146,50 @@
             // 
             // txt_path
             // 
-            this.txt_path.Location = new System.Drawing.Point(114, 64);
+            this.txt_path.Location = new System.Drawing.Point(114, 69);
             this.txt_path.Name = "txt_path";
-            this.txt_path.Size = new System.Drawing.Size(830, 21);
+            this.txt_path.Size = new System.Drawing.Size(830, 20);
             this.txt_path.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 64);
+            this.label2.Location = new System.Drawing.Point(25, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 12);
+            this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Element Path:";
             // 
             // txt_url
             // 
-            this.txt_url.Location = new System.Drawing.Point(114, 12);
+            this.txt_url.Location = new System.Drawing.Point(114, 13);
             this.txt_url.Name = "txt_url";
-            this.txt_url.Size = new System.Drawing.Size(723, 21);
+            this.txt_url.Size = new System.Drawing.Size(723, 20);
             this.txt_url.TabIndex = 1;
-            this.txt_url.Text = "http://192.168.1.221/efnet_test/src/_Common/AppUtil/FrameSet/EFDBLogin.aspx";
+            this.txt_url.Text = "http://10.250.10.221/efnet_test/src/_Common/AppUtil/FrameSet/EFDBLogin.aspx";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 15);
+            this.label1.Location = new System.Drawing.Point(55, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Web Url:";
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Brower);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(5, 128);
+            this.tabControl1.Location = new System.Drawing.Point(5, 139);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 389);
+            this.tabControl1.Size = new System.Drawing.Size(984, 421);
             this.tabControl1.TabIndex = 1;
             // 
             // Brower
@@ -197,7 +197,7 @@
             this.Brower.Controls.Add(this.browser);
             this.Brower.Location = new System.Drawing.Point(4, 22);
             this.Brower.Name = "Brower";
-            this.Brower.Size = new System.Drawing.Size(976, 363);
+            this.Brower.Size = new System.Drawing.Size(976, 395);
             this.Brower.TabIndex = 4;
             this.Brower.Text = "Browser";
             this.Brower.UseVisualStyleBackColor = true;
@@ -206,10 +206,10 @@
             // 
             this.browser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.browser.Location = new System.Drawing.Point(0, 0);
-            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.browser.MinimumSize = new System.Drawing.Size(20, 22);
             this.browser.Name = "browser";
             this.browser.ScriptErrorsSuppressed = true;
-            this.browser.Size = new System.Drawing.Size(976, 363);
+            this.browser.Size = new System.Drawing.Size(976, 395);
             this.browser.TabIndex = 2;
             // 
             // tabPage1
@@ -218,7 +218,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(976, 363);
+            this.tabPage1.Size = new System.Drawing.Size(976, 395);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Html Source";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -231,7 +231,7 @@
             this.txt_html_source.Multiline = true;
             this.txt_html_source.Name = "txt_html_source";
             this.txt_html_source.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_html_source.Size = new System.Drawing.Size(970, 357);
+            this.txt_html_source.Size = new System.Drawing.Size(970, 389);
             this.txt_html_source.TabIndex = 0;
             this.txt_html_source.WordWrap = false;
             // 
@@ -240,7 +240,7 @@
             this.tabPage3.Controls.Add(this.txt_result);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(976, 363);
+            this.tabPage3.Size = new System.Drawing.Size(976, 395);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Elements Text";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(976, 363);
+            this.txt_result.Size = new System.Drawing.Size(976, 395);
             this.txt_result.TabIndex = 1;
             this.txt_result.WordWrap = false;
             // 
@@ -261,7 +261,7 @@
             this.tabPage4.Controls.Add(this.dgv_result);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(976, 363);
+            this.tabPage4.Size = new System.Drawing.Size(976, 395);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Element DataTable";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -273,14 +273,14 @@
             this.dgv_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_result.Location = new System.Drawing.Point(0, 0);
             this.dgv_result.Name = "dgv_result";
-            this.dgv_result.Size = new System.Drawing.Size(976, 363);
+            this.dgv_result.Size = new System.Drawing.Size(976, 395);
             this.dgv_result.TabIndex = 0;
             // 
             // frm_html_analyse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 522);
+            this.ClientSize = new System.Drawing.Size(992, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_html_analyse";

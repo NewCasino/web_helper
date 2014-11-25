@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_clear_text = new System.Windows.Forms.Button();
             this.btn_repair = new System.Windows.Forms.Button();
             this.btn_insert_office = new System.Windows.Forms.Button();
             this.btn_analyse_one_by_other = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_update = new System.Windows.Forms.Button();
             this.dgv_result = new System.Windows.Forms.DataGridView();
-            this.btn_clear_text = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -78,6 +78,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_clear_text
+            // 
+            this.btn_clear_text.Location = new System.Drawing.Point(799, 19);
+            this.btn_clear_text.Name = "btn_clear_text";
+            this.btn_clear_text.Size = new System.Drawing.Size(116, 25);
+            this.btn_clear_text.TabIndex = 12;
+            this.btn_clear_text.Text = "Clear Text";
+            this.btn_clear_text.UseVisualStyleBackColor = true;
+            this.btn_clear_text.Click += new System.EventHandler(this.btn_clear_text_Click);
             // 
             // btn_repair
             // 
@@ -261,20 +271,10 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_result.Location = new System.Drawing.Point(0, 36);
+            this.dgv_result.Location = new System.Drawing.Point(8, 36);
             this.dgv_result.Name = "dgv_result";
-            this.dgv_result.Size = new System.Drawing.Size(916, 396);
+            this.dgv_result.Size = new System.Drawing.Size(1085, 388);
             this.dgv_result.TabIndex = 0;
-            // 
-            // btn_clear_text
-            // 
-            this.btn_clear_text.Location = new System.Drawing.Point(799, 19);
-            this.btn_clear_text.Name = "btn_clear_text";
-            this.btn_clear_text.Size = new System.Drawing.Size(116, 25);
-            this.btn_clear_text.TabIndex = 12;
-            this.btn_clear_text.Text = "Clear Text";
-            this.btn_clear_text.UseVisualStyleBackColor = true;
-            this.btn_clear_text.Click += new System.EventHandler(this.btn_clear_text_Click);
             // 
             // frm_match_100_check
             // 
