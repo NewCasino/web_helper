@@ -100,6 +100,8 @@ class Match100Analyse
                 string odd_draw = "";
                 string odd_lose = "";
                 string odd_timespan = "";
+                string odd_id="";
+                string odd_league="";
                 foreach (DataRow row in dt.Rows)
                 {
                     if (row["website"].ToString() == website)
@@ -108,12 +110,16 @@ class Match100Analyse
                         odd_draw = row["odd_draw"].ToString();
                         odd_lose = row["odd_lose"].ToString();
                         odd_timespan = row["timespan"].ToString();
+                        odd_id = row["id"].ToString();
+                        odd_league = row["league"].ToString();
                     }
                 }
                 doc_item.Add("odd_win", odd_win);
                 doc_item.Add("odd_draw", odd_draw);
                 doc_item.Add("odd_lose", odd_lose);
                 doc_item.Add("timespan", odd_timespan);
+                doc_item.Add("id", odd_id);
+                doc_item.Add("league", odd_league);
 
                 website_odds.Add(doc_item.AsBsonDocument);
             }
@@ -1349,7 +1355,9 @@ class Match100Analyse
                     result = result + doc_item["odd_win"].PR(10);
                     result = result + doc_item["odd_draw"].PR(10);
                     result = result + doc_item["odd_lose"].PR(10);
-                    result = result + doc_item["timespan"].ToString() + Environment.NewLine;
+                    result = result + doc_item["timespan"].PR(20);
+                    result = result + doc_item["id"].PR(10);
+                    result = result + doc_item["league"].PR(50) + Environment.NewLine; 
                 }
 
 
