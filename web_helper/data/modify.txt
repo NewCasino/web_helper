@@ -82,3 +82,6 @@ gobetgo: empty odd (Modify Match100Method)
 2014-11-24
 add Tool:two website's same match compute
 --------------------------
+2014-12-03
+xian hui& xian chao
+--------------------------
