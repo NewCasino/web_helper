@@ -1357,7 +1357,7 @@ class Match100Analyse
                     result = result + doc_item["odd_lose"].PR(10);
                     result = result + doc_item["timespan"].PR(20);
                     result = result + doc_item["id"].PR(10);
-                    result = result + doc_item["league"].PR(50) + Environment.NewLine; 
+                    result = result + doc_item["league"].PR(50).E_REMOVE() + Environment.NewLine; 
                 }
 
 
