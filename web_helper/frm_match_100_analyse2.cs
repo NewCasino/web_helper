@@ -12,10 +12,10 @@ using MongoDB.Driver;
 
 namespace web_helper
 {
-    public partial class frm_match_100_analyse : Form
+    public partial class frm_match_100_analyse2 : Form
     {
         DataTable dt_all = new DataTable();
-        public frm_match_100_analyse()
+        public frm_match_100_analyse2()
         {
             InitializeComponent();
         }
@@ -54,7 +54,7 @@ namespace web_helper
 
 
                     sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                    sb.Append(Match100Analyse.get_info_from_doc(doc));
+                    sb.Append(Match100Analyse2.get_info_from_doc(doc));
                     this.txt_result.Text = sb.ToString();
                     Application.DoEvents();
                 }
@@ -455,7 +455,7 @@ namespace web_helper
                   " from europe_100 " +
                   " where id in (select max(id) from europe_100 where start_time>'{0}' and timespan>'{1}' group by website,start_time,host,client)" +
                   " group by start_time,host,client" +
-                  " having count(*)>1" +
+                  //" having count(*)>1" +
                   " order by start_time,host,client ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd" + " 00:00:00"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);
@@ -521,7 +521,7 @@ namespace web_helper
             {
                 BsonDocument doc = list[Convert.ToInt32(row["order"].ToString())];
                 sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-                sb.Append(Match100Analyse.get_info_from_doc(doc));
+                sb.Append(Match100Analyse2.get_info_from_doc(doc));
 
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);

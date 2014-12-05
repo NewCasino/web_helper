@@ -299,12 +299,13 @@
     <Compile Include="Helper\Match100Helper.cs" />
     <Compile Include="Helper\Match100Method.cs" />
     <Compile Include="Helper\MatchComputeMethod.cs" />
-    <Compile Include="Helper\Match100Analyse.cs" />
+    <Compile Include="Helper\Match100Analyse2.cs" />
     <Compile Include="Helper\M.cs" />
     <Compile Include="Helper\TemplateHelper_Match.cs" />
     <Compile Include="Helper\Tool.cs" />
     <Compile Include="Helper\BrowserHelper.cs" />
     <Compile Include="Helper\Match500Analyse.cs" />
+    <Compile Include="Helper\Match100Analyse.cs" />
     <Compile Include="Http\HttpSocketHelper.cs" />
     <Compile Include="Helper\Log.cs" />
     <Compile Include="Helper\TemplateHelper.cs" />
@@ -555,6 +556,10 @@
       <DependentUpon>frm_match_tool_for_two_site.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_match_100_analyse2.resx">
+      <DependentUpon>frm_match_100_analyse2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -606,6 +611,12 @@
     </Compile>
     <Compile Include="frm_match_tool_for_two_site.Designer.cs">
       <DependentUpon>frm_match_tool_for_two_site.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_match_100_analyse2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_match_100_analyse2.Designer.cs">
+      <DependentUpon>frm_match_100_analyse2.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -29,7 +29,7 @@ namespace web_helper
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new  frm_match_bar());
+            Application.Run(new frm_match_bar());
          
             
         }

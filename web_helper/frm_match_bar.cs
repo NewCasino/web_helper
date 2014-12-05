@@ -122,6 +122,12 @@ namespace web_helper
         {
             frm_match_tool_for_two_site frm = new frm_match_tool_for_two_site();
             frm.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            frm_match_100_analyse2 frm = new frm_match_100_analyse2();
+            frm.Show();
         } 
     }
 }
