@@ -49,7 +49,7 @@ namespace web_helper
                     string host = row.Cells["host"].Value.ToString();
                     string client = row.Cells["client"].Value.ToString();
 
-                    BsonDocument doc = Match100Analyse2.get_max_from_single_match(start_time, host, client, 50, list_websites);
+                    BsonDocument doc = Match100Analyse.get_max_from_single_match(start_time, host, client, 50, list_websites);
                     list.Add(doc);
 
 
