@@ -47,8 +47,9 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -238,6 +239,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button11);
             this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Controls.Add(this.button9);
             this.groupBox2.Controls.Add(this.button6);
@@ -258,6 +260,16 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(244, 154);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(112, 23);
+            this.button10.TabIndex = 16;
+            this.button10.Text = "[100]Analyse2";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(126, 100);
@@ -268,15 +280,15 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button10
+            // button11
             // 
-            this.button10.Location = new System.Drawing.Point(244, 154);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(112, 23);
-            this.button10.TabIndex = 16;
-            this.button10.Text = "[100]Analyse2";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button11.Location = new System.Drawing.Point(244, 100);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(112, 23);
+            this.button11.TabIndex = 17;
+            this.button11.Text = "TOOL(Range)";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // frm_match_bar
             // 
@@ -318,5 +330,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

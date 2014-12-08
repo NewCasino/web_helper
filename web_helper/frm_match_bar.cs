@@ -128,6 +128,12 @@ namespace web_helper
         {
             frm_match_100_analyse2 frm = new frm_match_100_analyse2();
             frm.Show();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            frm_match_tool_range frm = new frm_match_tool_range();
+            frm.Show();
         } 
     }
 }

@@ -26,22 +26,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btn_three_range = new System.Windows.Forms.Button();
-            this.cb_three_persent_desc = new System.Windows.Forms.CheckBox();
-            this.cb_three_persent_asc = new System.Windows.Forms.CheckBox();
-            this.cb_three_website_desc = new System.Windows.Forms.CheckBox();
-            this.cb_three_website_asc = new System.Windows.Forms.CheckBox();
-            this.btn_three_match = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.cb_two_start_time_desc = new System.Windows.Forms.CheckBox();
-            this.cb_two_start_time_asc = new System.Windows.Forms.CheckBox();
-            this.btn_two_range = new System.Windows.Forms.Button();
-            this.cb_two_persent_desc = new System.Windows.Forms.CheckBox();
-            this.cb_two_persent_asc = new System.Windows.Forms.CheckBox();
-            this.cb_two_website_desc = new System.Windows.Forms.CheckBox();
-            this.cb_two_website_asc = new System.Windows.Forms.CheckBox();
-            this.btn_two_match = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cb_start_time_desc = new System.Windows.Forms.CheckBox();
             this.cb_start_time_asc = new System.Windows.Forms.CheckBox();
@@ -68,8 +52,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Condition.SuspendLayout();
@@ -86,8 +68,6 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.groupBox6);
-            this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.txt_condition);
             this.groupBox1.Controls.Add(this.btn_load);
@@ -97,182 +77,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.btn_three_range);
-            this.groupBox6.Controls.Add(this.cb_three_persent_desc);
-            this.groupBox6.Controls.Add(this.cb_three_persent_asc);
-            this.groupBox6.Controls.Add(this.cb_three_website_desc);
-            this.groupBox6.Controls.Add(this.cb_three_website_asc);
-            this.groupBox6.Controls.Add(this.btn_three_match);
-            this.groupBox6.Location = new System.Drawing.Point(6, 335);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(252, 117);
-            this.groupBox6.TabIndex = 8;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Three";
-            // 
-            // btn_three_range
-            // 
-            this.btn_three_range.Location = new System.Drawing.Point(118, 78);
-            this.btn_three_range.Name = "btn_three_range";
-            this.btn_three_range.Size = new System.Drawing.Size(75, 23);
-            this.btn_three_range.TabIndex = 14;
-            this.btn_three_range.Text = "Range";
-            this.btn_three_range.UseVisualStyleBackColor = true;
-            this.btn_three_range.Click += new System.EventHandler(this.btn_three_range_Click);
-            // 
-            // cb_three_persent_desc
-            // 
-            this.cb_three_persent_desc.AutoSize = true;
-            this.cb_three_persent_desc.Location = new System.Drawing.Point(118, 22);
-            this.cb_three_persent_desc.Name = "cb_three_persent_desc";
-            this.cb_three_persent_desc.Size = new System.Drawing.Size(94, 17);
-            this.cb_three_persent_desc.TabIndex = 12;
-            this.cb_three_persent_desc.Text = "Persent DESC";
-            this.cb_three_persent_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_three_persent_asc
-            // 
-            this.cb_three_persent_asc.AutoSize = true;
-            this.cb_three_persent_asc.Checked = true;
-            this.cb_three_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_three_persent_asc.Location = new System.Drawing.Point(6, 22);
-            this.cb_three_persent_asc.Name = "cb_three_persent_asc";
-            this.cb_three_persent_asc.Size = new System.Drawing.Size(86, 17);
-            this.cb_three_persent_asc.TabIndex = 11;
-            this.cb_three_persent_asc.Text = "Persent ASC";
-            this.cb_three_persent_asc.UseVisualStyleBackColor = true;
-            // 
-            // cb_three_website_desc
-            // 
-            this.cb_three_website_desc.AutoSize = true;
-            this.cb_three_website_desc.Location = new System.Drawing.Point(118, 52);
-            this.cb_three_website_desc.Name = "cb_three_website_desc";
-            this.cb_three_website_desc.Size = new System.Drawing.Size(97, 17);
-            this.cb_three_website_desc.TabIndex = 10;
-            this.cb_three_website_desc.Text = "Website DESC";
-            this.cb_three_website_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_three_website_asc
-            // 
-            this.cb_three_website_asc.AutoSize = true;
-            this.cb_three_website_asc.Location = new System.Drawing.Point(6, 52);
-            this.cb_three_website_asc.Name = "cb_three_website_asc";
-            this.cb_three_website_asc.Size = new System.Drawing.Size(89, 17);
-            this.cb_three_website_asc.TabIndex = 9;
-            this.cb_three_website_asc.Text = "Website ASC";
-            this.cb_three_website_asc.UseVisualStyleBackColor = true;
-            // 
-            // btn_three_match
-            // 
-            this.btn_three_match.Location = new System.Drawing.Point(25, 78);
-            this.btn_three_match.Name = "btn_three_match";
-            this.btn_three_match.Size = new System.Drawing.Size(75, 23);
-            this.btn_three_match.TabIndex = 5;
-            this.btn_three_match.Text = "Three";
-            this.btn_three_match.UseVisualStyleBackColor = true;
-            this.btn_three_match.Click += new System.EventHandler(this.btn_three_match_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.cb_two_start_time_desc);
-            this.groupBox5.Controls.Add(this.cb_two_start_time_asc);
-            this.groupBox5.Controls.Add(this.btn_two_range);
-            this.groupBox5.Controls.Add(this.cb_two_persent_desc);
-            this.groupBox5.Controls.Add(this.cb_two_persent_asc);
-            this.groupBox5.Controls.Add(this.cb_two_website_desc);
-            this.groupBox5.Controls.Add(this.cb_two_website_asc);
-            this.groupBox5.Controls.Add(this.btn_two_match);
-            this.groupBox5.Location = new System.Drawing.Point(6, 190);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(252, 139);
-            this.groupBox5.TabIndex = 7;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Two";
-            // 
-            // cb_two_start_time_desc
-            // 
-            this.cb_two_start_time_desc.AutoSize = true;
-            this.cb_two_start_time_desc.Location = new System.Drawing.Point(118, 77);
-            this.cb_two_start_time_desc.Name = "cb_two_start_time_desc";
-            this.cb_two_start_time_desc.Size = new System.Drawing.Size(87, 17);
-            this.cb_two_start_time_desc.TabIndex = 15;
-            this.cb_two_start_time_desc.Text = "S-time DESC";
-            this.cb_two_start_time_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_start_time_asc
-            // 
-            this.cb_two_start_time_asc.AutoSize = true;
-            this.cb_two_start_time_asc.Location = new System.Drawing.Point(6, 77);
-            this.cb_two_start_time_asc.Name = "cb_two_start_time_asc";
-            this.cb_two_start_time_asc.Size = new System.Drawing.Size(83, 17);
-            this.cb_two_start_time_asc.TabIndex = 14;
-            this.cb_two_start_time_asc.Text = "S-Time ASC";
-            this.cb_two_start_time_asc.UseVisualStyleBackColor = true;
-            // 
-            // btn_two_range
-            // 
-            this.btn_two_range.Location = new System.Drawing.Point(118, 102);
-            this.btn_two_range.Name = "btn_two_range";
-            this.btn_two_range.Size = new System.Drawing.Size(75, 23);
-            this.btn_two_range.TabIndex = 13;
-            this.btn_two_range.Text = "Range";
-            this.btn_two_range.UseVisualStyleBackColor = true;
-            this.btn_two_range.Click += new System.EventHandler(this.btn_two_range_Click);
-            // 
-            // cb_two_persent_desc
-            // 
-            this.cb_two_persent_desc.AutoSize = true;
-            this.cb_two_persent_desc.Location = new System.Drawing.Point(118, 22);
-            this.cb_two_persent_desc.Name = "cb_two_persent_desc";
-            this.cb_two_persent_desc.Size = new System.Drawing.Size(94, 17);
-            this.cb_two_persent_desc.TabIndex = 12;
-            this.cb_two_persent_desc.Text = "Persent DESC";
-            this.cb_two_persent_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_persent_asc
-            // 
-            this.cb_two_persent_asc.AutoSize = true;
-            this.cb_two_persent_asc.Checked = true;
-            this.cb_two_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_two_persent_asc.Location = new System.Drawing.Point(6, 22);
-            this.cb_two_persent_asc.Name = "cb_two_persent_asc";
-            this.cb_two_persent_asc.Size = new System.Drawing.Size(86, 17);
-            this.cb_two_persent_asc.TabIndex = 11;
-            this.cb_two_persent_asc.Text = "Persent ASC";
-            this.cb_two_persent_asc.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_website_desc
-            // 
-            this.cb_two_website_desc.AutoSize = true;
-            this.cb_two_website_desc.Location = new System.Drawing.Point(118, 49);
-            this.cb_two_website_desc.Name = "cb_two_website_desc";
-            this.cb_two_website_desc.Size = new System.Drawing.Size(97, 17);
-            this.cb_two_website_desc.TabIndex = 10;
-            this.cb_two_website_desc.Text = "Website DESC";
-            this.cb_two_website_desc.UseVisualStyleBackColor = true;
-            // 
-            // cb_two_website_asc
-            // 
-            this.cb_two_website_asc.AutoSize = true;
-            this.cb_two_website_asc.Location = new System.Drawing.Point(6, 49);
-            this.cb_two_website_asc.Name = "cb_two_website_asc";
-            this.cb_two_website_asc.Size = new System.Drawing.Size(89, 17);
-            this.cb_two_website_asc.TabIndex = 9;
-            this.cb_two_website_asc.Text = "Website ASC";
-            this.cb_two_website_asc.UseVisualStyleBackColor = true;
-            // 
-            // btn_two_match
-            // 
-            this.btn_two_match.Location = new System.Drawing.Point(25, 102);
-            this.btn_two_match.Name = "btn_two_match";
-            this.btn_two_match.Size = new System.Drawing.Size(75, 23);
-            this.btn_two_match.TabIndex = 5;
-            this.btn_two_match.Text = "Two";
-            this.btn_two_match.UseVisualStyleBackColor = true;
-            this.btn_two_match.Click += new System.EventHandler(this.btn_two_match_Click);
             // 
             // groupBox4
             // 
@@ -554,21 +358,17 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // frm_match_100_analyse
+            // frm_match_100_analyse2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frm_match_100_analyse";
+            this.Name = "frm_match_100_analyse2";
             this.Load += new System.EventHandler(this.frm_match_compute_by_website_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -599,12 +399,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txt_condition;
         private System.Windows.Forms.Button btn_single_match;
-        private System.Windows.Forms.Button btn_two_match;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox cb_two_persent_desc;
-        private System.Windows.Forms.CheckBox cb_two_persent_asc;
-        private System.Windows.Forms.CheckBox cb_two_website_desc;
-        private System.Windows.Forms.CheckBox cb_two_website_asc;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox cb_persent_desc;
         private System.Windows.Forms.CheckBox cb_persent_asc;
@@ -614,18 +408,8 @@
         private System.Windows.Forms.Button btn_match_all;
         private System.Windows.Forms.Button btn_website_reverse;
         private System.Windows.Forms.Button btn_match_reverse;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.CheckBox cb_three_persent_desc;
-        private System.Windows.Forms.CheckBox cb_three_persent_asc;
-        private System.Windows.Forms.CheckBox cb_three_website_desc;
-        private System.Windows.Forms.CheckBox cb_three_website_asc;
-        private System.Windows.Forms.Button btn_three_match;
         private System.Windows.Forms.Button btn_single_range;
-        private System.Windows.Forms.Button btn_three_range;
-        private System.Windows.Forms.Button btn_two_range;
         private System.Windows.Forms.CheckBox cb_start_time_desc;
         private System.Windows.Forms.CheckBox cb_start_time_asc;
-        private System.Windows.Forms.CheckBox cb_two_start_time_desc;
-        private System.Windows.Forms.CheckBox cb_two_start_time_asc;
     }
 }

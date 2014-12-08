@@ -455,7 +455,7 @@ namespace web_helper
                   " from europe_100 " +
                   " where id in (select max(id) from europe_100 where start_time>'{0}' and timespan>'{1}' group by website,start_time,host,client)" +
                   " group by start_time,host,client" +
-                  " having count(*)>1" +
+                  //" having count(*)>1" +
                   " order by start_time,host,client ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd" + " 00:00:00"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);
@@ -526,6 +526,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_single_by_persent_desc(List<BsonDocument> list)
@@ -562,6 +563,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_single_by_website_asc(List<BsonDocument> list)
@@ -608,6 +610,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_single_by_website_desc(List<BsonDocument> list)
@@ -654,6 +657,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_single_by_start_time_asc(List<BsonDocument> list)
@@ -690,6 +694,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_single_by_start_time_desc(List<BsonDocument> list)
@@ -726,6 +731,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         } 
         public void get_two_by_persent_asc(List<BsonDocument> list)
@@ -759,6 +765,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_two_by_persent_desc(List<BsonDocument> list)
@@ -795,6 +802,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_two_by_website_asc(List<BsonDocument> list)
@@ -840,6 +848,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_two_by_website_desc(List<BsonDocument> list)
@@ -886,6 +895,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_two_by_start_time_asc(List<BsonDocument> list)
@@ -922,6 +932,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_two_by_start_time_desc(List<BsonDocument> list)
@@ -958,6 +969,7 @@ namespace web_helper
             }
             sb.Append("----------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_three_by_persent_asc(List<BsonDocument> list)
@@ -993,6 +1005,7 @@ namespace web_helper
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_three_by_persent_desc(List<BsonDocument> list)
@@ -1029,6 +1042,7 @@ namespace web_helper
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_three_by_website_asc(List<BsonDocument> list)
@@ -1074,6 +1088,7 @@ namespace web_helper
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         }
         public void get_three_by_website_desc(List<BsonDocument> list)
@@ -1120,6 +1135,7 @@ namespace web_helper
             }
             sb.Append("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
             this.txt_result.Text = sb.ToString();
+            Match100Helper.create_log_result(sb.ToString());
             Application.DoEvents();
         } 
     }

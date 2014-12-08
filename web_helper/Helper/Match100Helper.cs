@@ -462,7 +462,7 @@ class Match100Helper
 
         Random random = new Random();
         string html = BrowserHelper.get_html(ref browser);
-        string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("hhmmss") + "_" + random.Next(100).ToString("000") + "_" + method_name + ".html";
+        string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("HHmmss") + "_" + random.Next(100).ToString("000") + "_" + method_name + ".html";
         FileStream stream = (FileStream)File.Open(html_path + file_name, FileMode.Create);
         StreamWriter writer = new StreamWriter(stream);
         writer.WriteLine(html);
@@ -484,6 +484,21 @@ class Match100Helper
         writer2.WriteLine(line);
         writer2.Close();
         stream2.Close();
+    }
+    public static void create_log_result(string result)
+    {
+        string result_path = @"D:\log\results\" + DateTime.Now.ToString("yyyyMMdd");
+        if (!Directory.Exists(result_path)) Directory.CreateDirectory(result_path);
+        result_path = result_path + @"\";
+
+        Random random = new Random(); 
+        string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("HHmmss") + "_" + random.Next(100).ToString("000")+ ".txt";
+        FileStream stream = (FileStream)File.Open(result_path + file_name, FileMode.Create);
+        StreamWriter writer = new StreamWriter(stream);
+        writer.WriteLine(result);
+        writer.Close();
+        stream.Close();
+
     }
 }
 
