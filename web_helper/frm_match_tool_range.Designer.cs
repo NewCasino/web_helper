@@ -34,38 +34,36 @@
             this.txt_lose = new System.Windows.Forms.TextBox();
             this.txt_draw = new System.Windows.Forms.TextBox();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.browser = new System.Windows.Forms.WebBrowser();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_win
             // 
-            this.txt_win.Location = new System.Drawing.Point(16, 18);
+            this.txt_win.Location = new System.Drawing.Point(16, 20);
             this.txt_win.Name = "txt_win";
-            this.txt_win.Size = new System.Drawing.Size(51, 21);
+            this.txt_win.Size = new System.Drawing.Size(51, 20);
             this.txt_win.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.browser);
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btn_compute);
             this.groupBox1.Controls.Add(this.txt_lose);
             this.groupBox1.Controls.Add(this.txt_draw);
             this.groupBox1.Controls.Add(this.txt_win);
             this.groupBox1.Location = new System.Drawing.Point(7, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1082, 50);
+            this.groupBox1.Size = new System.Drawing.Size(1082, 54);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
             // 
             // btn_compute
             // 
-            this.btn_compute.Location = new System.Drawing.Point(225, 16);
+            this.btn_compute.Location = new System.Drawing.Point(225, 17);
             this.btn_compute.Name = "btn_compute";
-            this.btn_compute.Size = new System.Drawing.Size(75, 21);
+            this.btn_compute.Size = new System.Drawing.Size(75, 23);
             this.btn_compute.TabIndex = 3;
             this.btn_compute.Text = "Compute";
             this.btn_compute.UseVisualStyleBackColor = true;
@@ -73,46 +71,38 @@
             // 
             // txt_lose
             // 
-            this.txt_lose.Location = new System.Drawing.Point(152, 18);
+            this.txt_lose.Location = new System.Drawing.Point(152, 20);
             this.txt_lose.Name = "txt_lose";
-            this.txt_lose.Size = new System.Drawing.Size(51, 21);
+            this.txt_lose.Size = new System.Drawing.Size(51, 20);
             this.txt_lose.TabIndex = 2;
             // 
             // txt_draw
             // 
-            this.txt_draw.Location = new System.Drawing.Point(84, 18);
+            this.txt_draw.Location = new System.Drawing.Point(84, 20);
             this.txt_draw.Name = "txt_draw";
-            this.txt_draw.Size = new System.Drawing.Size(51, 21);
+            this.txt_draw.Size = new System.Drawing.Size(51, 20);
             this.txt_draw.TabIndex = 1;
             // 
             // txt_result
             // 
-            this.txt_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_result.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txt_result.Location = new System.Drawing.Point(7, 58);
+            this.txt_result.Location = new System.Drawing.Point(7, 63);
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_result.Size = new System.Drawing.Size(1082, 483);
+            this.txt_result.Size = new System.Drawing.Size(1082, 523);
             this.txt_result.TabIndex = 2;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // browser
-            // 
-            this.browser.Location = new System.Drawing.Point(379, 16);
-            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(250, 20);
-            this.browser.TabIndex = 3;
-            // 
             // frm_match_tool_range
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1101, 552);
+            this.ClientSize = new System.Drawing.Size(1101, 598);
             this.Controls.Add(this.txt_result);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_match_tool_range";
@@ -131,6 +121,5 @@
         private System.Windows.Forms.TextBox txt_lose;
         private System.Windows.Forms.TextBox txt_draw;
         private System.Windows.Forms.TextBox txt_result;
-        private System.Windows.Forms.WebBrowser browser;
     }
 }

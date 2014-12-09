@@ -46,3 +46,10 @@ http://www.oddsportal.com/
 http://wenku.baidu.com/link?url=KHgBgKnu3tGz3wnR5iRLAiiTJg3rsj7iVODUwiwENngRBiL9sZkC8d5IP6yh0qFJvMju37ip_vhtB7gO5KuKIVIfFy6-1AkquwCUTDZ8itS
 -----------------------------------------------------------------------------------------------
 
+
+2014-12-08
+-----------------------------------------------------------------------------------------------
+WebBrowser Version
+http://msdn.microsoft.com/en-us/library/ee330730%28VS.85%29.aspx#browser_emulation
+-----------------------------------------------------------------------------------------------
+

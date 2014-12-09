@@ -19,8 +19,8 @@ namespace web_helper
         StringBuilder sb = new StringBuilder();
         private void btn_compute_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(browser.Version.ToString());
-            return;
+            //MessageBox.Show(browser.Version.ToString());
+            //return;
             
             StringBuilder sb = new StringBuilder();
 

@@ -126,6 +126,8 @@
             // cb_three_persent_desc
             // 
             this.cb_three_persent_desc.AutoSize = true;
+            this.cb_three_persent_desc.Checked = true;
+            this.cb_three_persent_desc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_three_persent_desc.Location = new System.Drawing.Point(118, 22);
             this.cb_three_persent_desc.Name = "cb_three_persent_desc";
             this.cb_three_persent_desc.Size = new System.Drawing.Size(94, 17);
@@ -136,8 +138,6 @@
             // cb_three_persent_asc
             // 
             this.cb_three_persent_asc.AutoSize = true;
-            this.cb_three_persent_asc.Checked = true;
-            this.cb_three_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_three_persent_asc.Location = new System.Drawing.Point(6, 22);
             this.cb_three_persent_asc.Name = "cb_three_persent_asc";
             this.cb_three_persent_asc.Size = new System.Drawing.Size(86, 17);
@@ -225,6 +225,8 @@
             // cb_two_persent_desc
             // 
             this.cb_two_persent_desc.AutoSize = true;
+            this.cb_two_persent_desc.Checked = true;
+            this.cb_two_persent_desc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_two_persent_desc.Location = new System.Drawing.Point(118, 22);
             this.cb_two_persent_desc.Name = "cb_two_persent_desc";
             this.cb_two_persent_desc.Size = new System.Drawing.Size(94, 17);
@@ -235,8 +237,6 @@
             // cb_two_persent_asc
             // 
             this.cb_two_persent_asc.AutoSize = true;
-            this.cb_two_persent_asc.Checked = true;
-            this.cb_two_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_two_persent_asc.Location = new System.Drawing.Point(6, 22);
             this.cb_two_persent_asc.Name = "cb_two_persent_asc";
             this.cb_two_persent_asc.Size = new System.Drawing.Size(86, 17);
@@ -324,6 +324,8 @@
             // cb_persent_desc
             // 
             this.cb_persent_desc.AutoSize = true;
+            this.cb_persent_desc.Checked = true;
+            this.cb_persent_desc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_persent_desc.Location = new System.Drawing.Point(118, 23);
             this.cb_persent_desc.Name = "cb_persent_desc";
             this.cb_persent_desc.Size = new System.Drawing.Size(94, 17);
@@ -334,8 +336,6 @@
             // cb_persent_asc
             // 
             this.cb_persent_asc.AutoSize = true;
-            this.cb_persent_asc.Checked = true;
-            this.cb_persent_asc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_persent_asc.Location = new System.Drawing.Point(6, 23);
             this.cb_persent_asc.Name = "cb_persent_asc";
             this.cb_persent_asc.Size = new System.Drawing.Size(86, 17);
