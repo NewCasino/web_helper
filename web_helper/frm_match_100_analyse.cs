@@ -455,7 +455,7 @@ namespace web_helper
                   " from europe_100 " +
                   " where id in (select max(id) from europe_100 where start_time>'{0}' and timespan>'{1}' group by website,start_time,host,client)" +
                   " group by start_time,host,client" +
-                  //" having count(*)>1" +
+                  " having count(*)>1" +
                   " order by start_time,host,client ";
             sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd" + " 00:00:00"));
             DataTable dt_temp_match = SQLServerHelper.get_table(sql);

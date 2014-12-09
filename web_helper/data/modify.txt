@@ -86,9 +86,12 @@ add Tool:two website's same match compute
 2014-12-03
 xian hui& xian chao
 --------------------------
---------------------------
 2014-12-09
 Modify the WebBrowser version
 Auto load data:
 when 404 to load data agin
+--------------------------
+2014-12-10
+add new function to get data from chrom/firfox html source
+add new function to use webkit.net
 --------------------------
