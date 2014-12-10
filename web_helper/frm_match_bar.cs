@@ -134,6 +134,12 @@ namespace web_helper
         {
             frm_match_tool_range frm = new frm_match_tool_range();
             frm.Show();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            frm_match_100_load_html frm = new frm_match_100_load_html();
+            frm.Show();
         } 
     }
 }

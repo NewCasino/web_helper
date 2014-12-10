@@ -1302,16 +1302,18 @@ class Match100Method
         string zone = "";
         foreach (HtmlNode node in nodes_all)
         {
-            //if (node.Id == "timer")
-            //{
-            //    //02.09.14, 14:47 (GMT+1)
-            //    string timer = node.InnerText.E_TRIM();
-            //    DateTime dt_timer = new DateTime(Convert.ToInt16("20" + timer.Substring(6, 2)), Convert.ToInt16(timer.Substring(3, 2)), Convert.ToInt16(timer.Substring(0, 2)),
-            //                                     Convert.ToInt16(timer.Substring(9, 2)), Convert.ToInt16(timer.Substring(12, 2)), 0);
-            //    TimeSpan span = DateTime.Now - dt_timer;
 
-            //    zone = (8 - Math.Round(span.TotalHours)).ToString();
-            //}
+            zone ="8";
+            if (node.Id == "timer")
+            {
+                //02.09.14, 14:47 (GMT+1)
+                string timer = node.InnerText.E_TRIM();
+                DateTime dt_timer = new DateTime(Convert.ToInt16("20" + timer.Substring(6, 2)), Convert.ToInt16(timer.Substring(3, 2)), Convert.ToInt16(timer.Substring(0, 2)),
+                                                 Convert.ToInt16(timer.Substring(9, 2)), Convert.ToInt16(timer.Substring(12, 2)), 0);
+                TimeSpan span = DateTime.Now - dt_timer;
+
+                zone = (8 - Math.Round(span.TotalHours)).ToString();
+            }
 
             if (node.Id == "container_EVENTS")
             {
@@ -1344,11 +1346,7 @@ class Match100Method
                             if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
                             {
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", "0");
-                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", "0");
-                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-1", "0");
-                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "2", "0");
-                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "-2", "0");
+                                Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0",zone); 
                             }
                            
 

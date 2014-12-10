@@ -133,7 +133,7 @@ namespace web_helper
                         DateTime time1 = Convert.ToDateTime(row1["start_time"].ToString());
                         DateTime time2 = Convert.ToDateTime(row2["start_time"].ToString());
                         TimeSpan span = time1 - time2;
-                        if (span.TotalHours >= -12 && span.TotalHours <= 12)
+                        if (span.TotalHours >= -24 && span.TotalHours <= 24)
                         {
                             sql = "update europe_100  set start_time='{0}' where start_time='{1}' and host='{2}' and client='{3}'";
                             sql = string.Format(sql, row1["start_time"].ToString(), row2["start_time"].ToString(), row2["host"].ToString(), row2["client"].ToString());
