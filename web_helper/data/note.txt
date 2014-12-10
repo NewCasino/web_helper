@@ -53,3 +53,31 @@ WebBrowser Version
 http://msdn.microsoft.com/en-us/library/ee330730%28VS.85%29.aspx#browser_emulation
 -----------------------------------------------------------------------------------------------
 
+
+2014-12-10
+-----------------------------------------------------------------------------------------------
+gobetgo:visa,mastercard,skrill,inpay,sofort,banktransfer,bitcoin,neteller,ukash,paysafecard,qiwi wallet,ultraplay,ezee-pay
+marathonbet:skrill,moneybookers
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
