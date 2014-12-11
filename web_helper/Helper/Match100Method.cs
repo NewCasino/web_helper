@@ -1339,9 +1339,15 @@ class Match100Method
                             }
                             host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
                             client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
-                            win = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[2]").InnerText);
-                            draw = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
-                            lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
+                            win = node_table.SELECT_NODE("/tr[1]/td[2]").InnerText.E_REMOVE();
+                            draw = node_table.SELECT_NODE("/tr[1]/td[3]").InnerText.E_REMOVE();
+                            lose = node_table.SELECT_NODE("/tr[1]/td[4]").InnerText.E_REMOVE();
+                            if (win.Contains("/"))
+                            {
+                                win = Match100Helper.convert_english_odd(win);
+                                draw = Match100Helper.convert_english_odd(draw);
+                                lose = Match100Helper.convert_english_odd(lose);
+                            }
 
                             if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
                             {

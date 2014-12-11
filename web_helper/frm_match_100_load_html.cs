@@ -77,30 +77,40 @@ namespace web_helper
                             league = node_div.SELECT_NODE("div[1]/h2[1]").InnerText;
 
                             HtmlNode test = node_div.SELECT_NODE("div[2]/div[1]/table[1]");
-                            HtmlNodeCollection nodes_table = node_div.SELECT_NODES("div[2]/div[1]/table[1]/tbody[1]/tbody");
+                            HtmlNodeCollection nodes_table = node_div.SELECT_NODES("div[2]/div[1]/table[1]/tbody");
                             foreach (HtmlNode node_table in nodes_table)
                             {
-                                date = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[2]").InnerText.E_TRIM();
-                                if (date.Length == 10)
+                                if (node_table.Id.Contains("event"))
                                 {
-                                    start_time = Tool.get_12m_from_eng(date.Substring(2, 3)) + "-" + date.Substring(0, 2) + "●" + date.Substring(5, 5);
-                                }
-                                if (date.Length == 5)
-                                {
-                                    start_time = date;
-                                }
-                                host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
-                                client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
-                                win = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[2]").InnerText);
-                                draw = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
-                                lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
+                                    date = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[2]").InnerText.E_TRIM();
+                                    date = date.Replace("2015", "");
+                                    if (date.Length == 10)
+                                    {
+                                        start_time = Tool.get_12m_from_eng(date.Substring(2, 3)) + "-" + date.Substring(0, 2) + "●" + date.Substring(5, 5);
+                                    }
+                                    if (date.Length == 5)
+                                    {
+                                        start_time = date;
+                                    }
+                                    host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
+                                    client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
+                                   
+                                    win =  node_table.SELECT_NODE("/tr[1]/td[2]").InnerText.E_REMOVE();
+                                    draw =  node_table.SELECT_NODE("/tr[1]/td[3]").InnerText.E_REMOVE();
+                                    lose = node_table.SELECT_NODE("/tr[1]/td[4]").InnerText.E_REMOVE();
+                                    if (win.Contains("/"))
+                                    {
+                                        win = Match100Helper.convert_english_odd(win);
+                                        draw = Match100Helper.convert_english_odd(draw);
+                                        lose = Match100Helper.convert_english_odd(lose); 
+                                    }
 
-                                if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
-                                {
-                                    sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                                    Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", zone); 
+                                    if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
+                                    {
+                                        sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                        Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", zone);
+                                    }
                                 }
-
 
                             }
 
