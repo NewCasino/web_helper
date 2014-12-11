@@ -93,5 +93,9 @@ when 404 to load data agin
 --------------------------
 2014-12-10
 add new function to get data from chrom/firfox html source
-add new function to use webkit.net
+add new function to use webkit.net 
+--------------------------
+2014-12-12
+create hotmail email(Jim Green,jim0824@hotmail.com....)
+create skrill  data(address,phone no,england....)
 --------------------------
