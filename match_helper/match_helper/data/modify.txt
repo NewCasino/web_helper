@@ -1,0 +1,101 @@
+1,need data  pinsport: home index page  to read all data
+2,need data  marathonbet: check is all data to read all data
+3,need data  victorbet:check is all data  to read all data
+
+-------------------------
+2014-09-15
+1,read log to normal when load data
+2,one window with all analyse(AutoPickData)
+3,analyse pinsport index page
+4,analyse the speed select log data to normal 
+--------------------------
+2014-09-16 night
+
+modify victorbet() to click [more] button  read all data
+modify pinsport()  to read all data from index page
+--------------------------
+2014-09-17
+modify invoke method pinsport_2 can test
+
+2014-09-17 night
+modify victorbet() to click [more] button  read all data
+modify pinsport()  to read all data from index page
+get more data to load for analyse
+
+--------------------------
+2014-09-18
+check points odd,and all points count,and all point type
+check all odd type[wdl,handicap,under/over,points,total...]
+
+--------------------------
+2014-09-22 night
+get betfair_es index data to analyse
+get more_data to analyse
+
+--------------------------
+2014-09-25
+modify match_analyse add website odd time
+modify match_analyse  speed
+go on match 100 mix analyse
+
+--------------------------
+2014-09-26 night
+test the frm_load_data unknown dead
+
+--------------------------
+2014-10-11
+modify frm_match_100_log_analyse:
+modify method when no date info
+modify frm_match_100_check: 
+add two teams(pinnacle & marathonbet) analyse persent:matching persent
+--------------------------
+2014-10-13
+modify frm_match_100_log_analyse:
+modify method when no date info(2014_10_12_004.xlsx)
+--------------------------
+2014-10-20
+frm_match_100_load_data   textbox scroll to bottom
+sql report  everytime two sites odd
+modify frm_browser three mehod test function
+modify analyse form's default  order to persent desc
+
+--------------------------
+2014-10-23
+gobetgo europe_100 empty odd value
+
+--------------------------
+2014-10-31 Night
+some problem need to solve:
+1,marathonbet start_time:
+    pick five difirent time
+    repair start_time by other same team name
+2,Discrimination:
+    use one by other function 
+    use the similar team name function(same start_time)
+3,Access Define
+    marathonbet->use input endtime
+    gobetgo&betfair->use VPN(fqrouter)
+4,Bank use fee
+--------------------------
+2014-11-10
+gobetgo: empty odd (Modify Match100Method)
+--------------------------
+2014-11-24
+add Tool:two website's same match compute
+--------------------------
+2014-12-03
+xian hui& xian chao
+--------------------------
+2014-12-09
+Modify the WebBrowser version
+Auto load data:
+when 404 to load data agin
+--------------------------
+2014-12-10
+add new function to get data from chrom/firfox html source
+add new function to use webkit.net 
+--------------------------
+2014-12-12
+create hotmail email(Jim Green,jim0824@hotmail.com....)
+create skrill  data(address,phone no,england....)
+--------------------------
