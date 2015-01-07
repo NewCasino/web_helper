@@ -1,0 +1,45 @@
+﻿<div  id="chart"></div>
+
+
+<script src="media/js/jquery-1.7.2.js" type="text/javascript"></script> 
+<script src="media/js/highstock/highstock.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+    createChart = function () {
+
+        $('#chart').highcharts('StockChart', {
+            chart: {
+                events: {
+                    load: function () {
+
+                        // set up the updating of the chart each second
+                        var target_chart = this;
+                        setInterval(function () {
+                            $.getJSON('response.aspx?method=get_new_data', function (data) {
+                                for (var i = 0; i < data.length; i++) {
+                                    target_chart.series[data[i][0]].addPoint([data[i][1], data[i][2]], true, true);
+                                }
+                            });
+
+                        }, 1000);
+                    }
+                }
+            }, 
+            title: {
+                text: 'LIVE DATA'
+            },
+            exporting: {
+                enabled: false
+            },
+            series: series_data
+        });
+    };
+    $.getJSON('response.aspx?method=get_series', function (data) {
+        series_data = data;
+        createChart();
+    });
+
+
+
+</script>
