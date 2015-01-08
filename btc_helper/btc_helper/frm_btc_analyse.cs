@@ -199,8 +199,7 @@ namespace btc_helper
         } 
         public string get_coin()
         {
-            string result = "btc";
-            if (cb_btc.Checked) result = "btc";
+            string result = "btc"; 
             if (cb_ltc.Checked) result = "ltc";
             return result;
         } 
