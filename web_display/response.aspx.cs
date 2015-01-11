@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 using MongoDB.Bson;
 public partial class Response : System.Web.UI.Page
 {
-    string[] websites = new string[] { "btce", "btcchina" };
+    string[] websites = new string[] { "btcchina", "huobi" };
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -60,7 +60,7 @@ public partial class Response : System.Web.UI.Page
     public string get_stock()
     {
         string sql = "";
-        string[] websites = new string[] { "btce", "okcoin", "btcchina" };
+        string[] websites = new string[] { "btcchina", "huobi", "okcoin_cn" };
         double rate = CurrencyHelper.get_rate("usd", "cny");
 
         BsonArray datas = new BsonArray();
@@ -70,7 +70,7 @@ public partial class Response : System.Web.UI.Page
             doc.Add("name", website);
 
             BsonArray data = new BsonArray();
-            sql = "select * from ticker_log where  currency like  '%btc%' and  website='{0}'";
+            sql = "select top 1002 * from ticker_log where  currency like  '%btc%' and  website='{0}'";
             sql = string.Format(sql, website);
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
