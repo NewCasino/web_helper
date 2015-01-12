@@ -1,0 +1,83 @@
+﻿<div  id="chart"     style="height:300px;"></div>
+<div id="chart_all"  style="height:300px;" > </div> 
+
+<script src="media/js/jquery-1.7.2.js" type="text/javascript"></script> 
+<script src="media/js/highstock/highstock.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+create_chart_dynamic = function () { 
+        $('#chart').highcharts('StockChart', {
+            chart: {
+                events: {
+                    load: function () { 
+                        // set up the updating of the chart each second
+                        var target_chart = this;
+                        setInterval(function () {
+                            $.getJSON('response.aspx?method=get_new_data', function (data) {
+                                for (var i = 0; i < data.length; i++) {
+                                    target_chart.series[data[i][0]].addPoint([data[i][1], data[i][2]], true, true);
+                                }
+                            });
+
+                        }, 1000);
+                    }
+                }
+            }, 
+            title: {
+                text: 'LIVE DATA'
+            },
+            exporting: {
+                enabled: false
+            },
+            series: series_dynamic
+        });
+};
+create_chart_all = function () { 
+   $('#chart_all').highcharts({
+         chart: {
+             type: 'spline',
+             animation: Highcharts.svg, // don't animate in old IE
+             marginRight: 10  
+         },
+         title: {
+             text: 'ALL DEPTH'
+         },
+         xAxis: {
+             type: 'decimal',
+             tickPixelInterval: 150
+         },
+         yAxis: {
+             title: {
+                 text: 'Value'
+             },
+             plotLines: [{
+                 value: 0,
+                 width: 1,
+                 color: '#808080'
+             }]
+         }, 
+         legend: {
+             enabled: false
+         },
+         exporting: {
+             enabled: false
+         },
+         series: series_all
+     });
+};
+create_depth=function(){
+    $.getJSON('response.aspx?method=get_depth_all',    function (data) { 
+           series_all=data;  
+           create_chart_all(); 
+    });
+};
+create_depth();
+$.getJSON('response.aspx?method=get_series', function (data) {
+        series_dynamic = data;
+        create_chart_dynamic();
+});
+
+setInterval(function () {
+     create_depth();
+}, 5000); 
+</script>

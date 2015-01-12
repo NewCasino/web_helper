@@ -102,6 +102,10 @@
     <Compile Include="frm_btc_load_data.Designer.cs">
       <DependentUpon>frm_btc_load_data.cs</DependentUpon>
     </Compile>
+    <Compile Include="FX\OandaApi.cs" />
+    <Compile Include="FX\OandaData.cs" />
+    <Compile Include="FX\OandaHelper.cs" />
+    <Compile Include="FX\OandaSQL.cs" />
     <Compile Include="Helper\AutoPickHelper.cs" />
     <Compile Include="Helper\BrowserHelper.cs" />
     <Compile Include="Helper\BrowserProxy.cs" />

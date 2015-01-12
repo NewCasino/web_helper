@@ -70,7 +70,9 @@ public partial class Response : System.Web.UI.Page
             doc.Add("name", website);
 
             BsonArray data = new BsonArray();
-            sql = "select top 1002 * from ticker_log where  currency like  '%btc%' and  website='{0}'";
+            sql = " select * " +
+                  " from (select top 1002 * from ticker_log where  currency like  '%btc%' and  website='{0}'  order by id desc) a" +
+                  " order by id ";
             sql = string.Format(sql, website);
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)

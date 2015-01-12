@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MongoDB.Bson;
+using MongoDB.Bson; 
 using System.Threading;
 
 namespace btc_helper
@@ -18,6 +18,7 @@ namespace btc_helper
         public frm_btc_analyse()
         {
             InitializeComponent();
+            BsonDocument doc = new BsonDocument() { "test", "test" };
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
@@ -31,32 +32,33 @@ namespace btc_helper
         private void btn_get_ticker_Click(object sender, EventArgs e)
         {
             this.grid.DataSource = get_ticker_table();
-        } 
+        }
         private void btn_analyse_Click(object sender, EventArgs e)
         {
             this.grid.DataSource = get_analyse_table();
-        } 
+        }
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.lb_time.Text = DateTime.Now.ToString("HH:mm:ss"); 
-        } 
+            this.lb_time.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
         private void btn_start_Click(object sender, EventArgs e)
         {
             this.timer.Start();
-        } 
+        }
         private void btn_stop_Click(object sender, EventArgs e)
         {
             this.timer.Stop();
-        }  
+        }
         private void btn_test_Click(object sender, EventArgs e)
         {
-            //this.txt_result.Text = MainClass.test();
-            this.txt_result.Text = BtcchinaApi.personal_info();
+
+            this.txt_result.Text = OandaData.show_candles_times(OandaApi.candles_time());
+
         }
         public DataTable get_depth_table()
         {
 
-            string coin = get_coin(); 
+            string coin = get_coin();
 
             DataTable dt_result = new DataTable();
 
@@ -82,20 +84,20 @@ namespace btc_helper
             for (int i = 0; i < row_count; i++)
             {
                 DataRow row_new = dt_result.NewRow();
-                dt_result.Rows.Add(row_new); 
+                dt_result.Rows.Add(row_new);
             }
 
             foreach (DataRow row_website in dt_website.Rows)
-            { 
+            {
                 string website = row_website[0].ToString();
                 sql = "select * from depth where website='{0}' and type='sell' and currency like '%{1}%'  order by price";
-                sql = string.Format(sql, website,coin);
+                sql = string.Format(sql, website, coin);
                 DataTable dt_temp1 = SQLServerHelper.get_table(sql);
                 for (int i = 0; i < dt_temp1.Rows.Count; i++)
                 {
                     double price1 = Convert.ToDouble(dt_temp1.Rows[i]["price"].ToString());
 
-                    if (dt_temp1.Rows[i]["currency"].ToString().Contains( "usd"))
+                    if (dt_temp1.Rows[i]["currency"].ToString().Contains("usd"))
                     {
                         price1 = price1 * rate;
                     }
@@ -105,7 +107,7 @@ namespace btc_helper
 
 
                 sql = "select * from depth where website='{0}' and type='buy'  and currency like '%{1}%' order by price desc";
-                sql = string.Format(sql, row_website[0].ToString(),coin);
+                sql = string.Format(sql, row_website[0].ToString(), coin);
                 DataTable dt_temp2 = SQLServerHelper.get_table(sql);
                 for (int i = 0; i < dt_temp2.Rows.Count; i++)
                 {
@@ -123,8 +125,8 @@ namespace btc_helper
         public DataTable get_ticker_table()
         {
 
-            string coin=get_coin();
-           
+            string coin = get_coin();
+
             string sql = "select * from ticker where currency like '%{0}%'";
             sql = string.Format(sql, coin);
             DataTable dt_ticker = SQLServerHelper.get_table(sql);
@@ -132,7 +134,7 @@ namespace btc_helper
             double rate = CurrencyHelper.get_rate("usd", "cny");
             foreach (DataRow row in dt_ticker.Rows)
             {
-                if (row["currency"].ToString().Contains( "usd"))
+                if (row["currency"].ToString().Contains("usd"))
                 {
                     row["last"] = Math.Round(Convert.ToDouble(row["last"].ToString()) * rate, 4).ToString();
                     row["sell"] = Math.Round(Convert.ToDouble(row["sell"].ToString()) * rate, 4).ToString();
@@ -196,12 +198,12 @@ namespace btc_helper
             }
 
             return dt_result;
-        } 
+        }
         public string get_coin()
         {
-            string result = "btc"; 
+            string result = "btc";
             if (cb_ltc.Checked) result = "ltc";
             return result;
-        } 
+        }
     }
 }
