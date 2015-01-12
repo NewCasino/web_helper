@@ -17,8 +17,7 @@ namespace btc_helper
         StringBuilder sb = new StringBuilder();
         public frm_btc_analyse()
         {
-            InitializeComponent();
-            BsonDocument doc = new BsonDocument() { "test", "test" };
+            InitializeComponent(); 
         }
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
