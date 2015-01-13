@@ -24,12 +24,15 @@ public class OandaApi
     } 
     public static string candles()
     {
-        return OandaHelper.query("https://api-fxtrade.oanda.com/v1/candles?instrument=EUR_USD&count=100&candleFormat=midpoint&granularity=S5&dailyAlignment=0&alignmentTimezone=America%2FNew_York");
+        string url = "https://api-fxtrade.oanda.com/v1/candles?instrument=EUR_USD&count=100&candleFormat=midpoint&granularity=S5&dailyAlignment=0&alignmentTimezone=America%2FNew_York";
+        return OandaHelper.query(url);
     }
     
     public static string candles_time()
-    {
-        return OandaHelper.query("https://api-fxtrade.oanda.com/v1/candles?instrument=EUR_USD&start=2014-06-19T15%3A47%3A40Z&end=2014-06-19T15%3A47%3A50Z"); 
+    { 
+        string url = "https://api-fxtrade.oanda.com/v1/candles?instrument=EUR_USD&start=2014-06-19T15%3A47%3A40Z&end=2014-06-19T15%3A47%3A50Z"; 
+        return OandaHelper.query(url); 
+
     }
 
 }

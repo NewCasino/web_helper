@@ -51,7 +51,7 @@ namespace btc_helper
         private void btn_test_Click(object sender, EventArgs e)
         {
 
-            this.txt_result.Text = OandaData.show_candles_times(OandaApi.candles_time());
+          
 
         }
         public DataTable get_depth_table()

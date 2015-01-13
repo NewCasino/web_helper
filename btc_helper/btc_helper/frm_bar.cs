@@ -33,5 +33,11 @@ namespace btc_helper
             frm_btc_load_data frm = new frm_btc_load_data();
             frm.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frm_fx_analyse frm = new frm_fx_analyse();
+            frm.Show();
+        }
     }
 }
