@@ -1,11 +1,15 @@
-var ZIndex = function () { 
+var Index = function () { 
     return {
         //main function to initiate the module
         init: function () {  
             $('#style_color').attr("href", "assets/css/themes/light.css");
             $.cookie('style_color', 'light');  
             //$('body').addClass('page-sidebar-closed').removeClass('page-sidebar-hover-on');      
-            $("#container_data").load("z_chart_dynamic.html"); 
+            $("#container_data").load("empty.html"); 
+            $("a[menu]").click(function(){
+              alert("the page ["+ $(this).attr("menu")+"] is developing......"); 
+            
+            });
         } 
     };
 }();
