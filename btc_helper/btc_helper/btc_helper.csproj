@@ -83,7 +83,6 @@
     <Compile Include="BTC\CnokcApi.cs" />
     <Compile Include="BTC\CnokcData.cs" />
     <Compile Include="BTC\CnokcHelper.cs" />
-    <Compile Include="BTC\UnixTime.cs" />
     <Compile Include="frm_bar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +125,7 @@
     <Compile Include="Helper\SQLServerHelper.cs" />
     <Compile Include="Helper\TemplateHelper.cs" />
     <Compile Include="Helper\Tool.cs" />
+    <Compile Include="Helper\UnixTime.cs" />
     <Compile Include="Helper\UrlSelectHelper.cs" />
     <Compile Include="Helper\WinAPIHelper.cs" />
     <Compile Include="Program.cs" />

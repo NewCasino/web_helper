@@ -10,5 +10,5 @@ using System.Text;
 class M
 {
     public static string D = "●";
-     
+    public static string N = Environment.NewLine;
 }
