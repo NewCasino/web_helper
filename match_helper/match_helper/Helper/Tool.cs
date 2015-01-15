@@ -96,6 +96,10 @@ class Tool
         //convert to  east +8
         return dt.AddHours(8-kind);
     }
+    public static string get_iso_time(DateTime dt)
+    {
+        return dt.ToString(@"yyyy-MM-dd\THH:mm:ss\Z");
+    }
 
 
     private static bool is_english(string str)
