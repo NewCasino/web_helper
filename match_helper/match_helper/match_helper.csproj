@@ -122,10 +122,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\PinApi.cs" />
-    <Compile Include="API\PinData.cs" />
-    <Compile Include="API\PinHelper.cs" />
-    <Compile Include="API\PinSQL.cs" />
+    <Compile Include="API\PIN\PinApi.cs" />
+    <Compile Include="API\PIN\PinData.cs" />
+    <Compile Include="API\PIN\PinHelper.cs" />
+    <Compile Include="API\PIN\PinSQL.cs" />
     <Compile Include="frm_match_100_analyse_with_present.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,6 +472,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="API\BF\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
