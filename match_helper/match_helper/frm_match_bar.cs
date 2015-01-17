@@ -140,6 +140,12 @@ namespace web_helper
         {
             frm_match_100_load_html frm = new frm_match_100_load_html();
             frm.Show();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            frm_match_100_pinnaclesports frm = new frm_match_100_pinnaclesports();
+            frm.Show();
         } 
     }
 }

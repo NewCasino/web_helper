@@ -33,7 +33,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.btn_post = new System.Windows.Forms.Button();
+            this.btn_get_all = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -43,7 +43,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.btn_post);
+            this.groupBox1.Controls.Add(this.btn_get_all);
             this.groupBox1.Controls.Add(this.btn_get);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
@@ -98,15 +98,15 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // btn_post
+            // btn_get_all
             // 
-            this.btn_post.Location = new System.Drawing.Point(134, 22);
-            this.btn_post.Name = "btn_post";
-            this.btn_post.Size = new System.Drawing.Size(75, 25);
-            this.btn_post.TabIndex = 1;
-            this.btn_post.Text = "Post";
-            this.btn_post.UseVisualStyleBackColor = true;
-            this.btn_post.Click += new System.EventHandler(this.btn_post_Click);
+            this.btn_get_all.Location = new System.Drawing.Point(122, 22);
+            this.btn_get_all.Name = "btn_get_all";
+            this.btn_get_all.Size = new System.Drawing.Size(75, 25);
+            this.btn_get_all.TabIndex = 1;
+            this.btn_get_all.Text = "Get ALL";
+            this.btn_get_all.UseVisualStyleBackColor = true;
+            this.btn_get_all.Click += new System.EventHandler(this.btn_get_all_Click);
             // 
             // frm_match_100_pinnaclesports
             // 
@@ -131,6 +131,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txt_result;
-        private System.Windows.Forms.Button btn_post;
+        private System.Windows.Forms.Button btn_get_all;
     }
 }

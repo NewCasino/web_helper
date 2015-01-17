@@ -47,10 +47,11 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -207,6 +208,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.btn_down_excel);
@@ -262,6 +264,16 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(126, 127);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(112, 23);
+            this.button12.TabIndex = 18;
+            this.button12.Text = "[100]Load Html";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // button11
             // 
             this.button11.Location = new System.Drawing.Point(244, 100);
@@ -292,15 +304,15 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button12
+            // button13
             // 
-            this.button12.Location = new System.Drawing.Point(126, 127);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(112, 23);
-            this.button12.TabIndex = 18;
-            this.button12.Text = "[100]Load Html";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button13.Location = new System.Drawing.Point(126, 77);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(112, 23);
+            this.button13.TabIndex = 15;
+            this.button13.Text = "Pin API";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // frm_match_bar
             // 
@@ -344,5 +356,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
