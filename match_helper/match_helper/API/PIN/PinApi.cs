@@ -54,31 +54,32 @@ public class PinApi
         string url = "https://api.pinnaclesports.com/v1/sports";
         return PinHelper.get(url);
     }
+
     public static  string leagues()
     {
-        string url = "https://api.pinnaclesports.com/v1/leagues";
+        string url = "https://api.pinnaclesports.com/v1/leagues?sportid=29";
         return PinHelper.get(url);
     }
     public static string currencies()
     {
-        string url = "/v1/currencies";
+        string url = "https://api.pinnaclesports.com/v1/currencies";
         return PinHelper.get(url);
     }
 
     public static string feeds()
     {
-        string url = "/v1/feed?odddsFormat=DECIMAL";
+        string url = "https://api.pinnaclesports.com/v1/feed?odddsFormat=DECIMAL";
         return PinHelper.get(url);
     }
     public static string feeds(string last_time)
     {
-        string url = "/v1/feed?last={0}&odddsFormat=DECIMAL";
+        string url = "https://api.pinnaclesports.com/v1/feed?last={0}&odddsFormat=DECIMAL";
         url = string.Format(url, last_time);
         return PinHelper.get(url);
     }
     public static string feeds_by_sport_id(string sport_id)
     {
-        string url = "/v1/feed?sportid={0}&odddsFormat=DECIMAL";
+        string url = "https://api.pinnaclesports.com/v1/feed?sportid={0}&odddsFormat=DECIMAL";
         url = string.Format(url, sport_id);
         return PinHelper.get(url);
     }

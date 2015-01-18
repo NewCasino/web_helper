@@ -26,7 +26,7 @@ namespace web_helper
 
         private void btn_get_Click(object sender, EventArgs e)
         {
-            this.txt_result.Text = PinApi.sports();
+            this.txt_result.Text = PinApi.feeds_by_sport_id("29");
         } 
         private void btn_get_all_Click(object sender, EventArgs e)
         {
