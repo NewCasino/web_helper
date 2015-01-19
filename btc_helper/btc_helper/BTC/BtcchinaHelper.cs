@@ -21,8 +21,8 @@ class BtcchinaHelper
     static string secret_key; 
     static BtcchinaHelper()
     {
-        api_key = "313f2379-26c7-4204-86b5-bc66e04ac3e5";
-        secret_key = "9f4aa8d2-2f2b-4173-82a2-15719f365727";  
+        api_key = SQL.get_value("btcchina_api_key");
+        secret_key = SQL.get_value("btcchina_secret_key");  
     }
     public static string query(string url)
     {

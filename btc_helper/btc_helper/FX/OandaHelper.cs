@@ -24,11 +24,10 @@ class OandaHelper
     static string id;
     static OandaHelper()
     {
-        api_key = "313f2379-26c7-4204-86b5-bc66e04ac3e5";
-        secret_key = "9f4aa8d2-2f2b-4173-82a2-15719f365727";
-
-        token = "6a50e090edded7218c8f07155a528cb5-fc26c52a44e563b0903c7f12f15b6d9c";
-        id = "904796";
+        api_key = SQL.get_value("oanda_api_key");
+        secret_key = SQL.get_value("oanda_secret_key");
+        token = SQL.get_value("oanda_token");
+        id = SQL.get_value("oanda_id");
     }
     public static string query(string url)
     { 

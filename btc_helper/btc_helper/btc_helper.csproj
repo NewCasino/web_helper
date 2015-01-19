@@ -122,6 +122,7 @@
     <Compile Include="Helper\Log.cs" />
     <Compile Include="Helper\M.cs" />
     <Compile Include="Helper\MongoHelper.cs" />
+    <Compile Include="Helper\SQL.cs" />
     <Compile Include="Helper\SQLServerHelper.cs" />
     <Compile Include="Helper\TemplateHelper.cs" />
     <Compile Include="Helper\Tool.cs" />

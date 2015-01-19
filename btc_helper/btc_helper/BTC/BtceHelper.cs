@@ -38,8 +38,8 @@ class  BtceHelper
     static UInt32 nonce;
     static BtceHelper()
     {
-        key = "HAB2XCLZ-AVJ9P90L-3FTQCS54-3AYITXUZ-J0I350F5";
-        hash_mark = new HMACSHA512(Encoding.ASCII.GetBytes("907d485c3d685dbc64b3cb04342901740b8d38df079be6fd849cc1b44258cabe"));
+        key = SQL.get_value("btce_key");
+        hash_mark = new HMACSHA512(Encoding.ASCII.GetBytes(SQL.get_value("btce_hash_key")));
         nonce = UnixTime.unix_now;
     }
     public static string query(string url)

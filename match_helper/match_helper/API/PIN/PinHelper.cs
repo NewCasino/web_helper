@@ -23,8 +23,8 @@ class PinHelper
     static string password; 
     static PinHelper()
     {
-        id = "YZ753523";
-        password = "$pz568986"; 
+        id = SQL.get_value("pinnaclesports_user_id");
+        password = SQL.get_value("pinnaclesports_password"); 
     } 
  
     public static string get(string url)

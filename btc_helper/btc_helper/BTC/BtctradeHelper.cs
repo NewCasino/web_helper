@@ -22,9 +22,9 @@ class BtctradeHelper
     static UInt32 nonce;
     static BtctradeHelper()
     {
-        api_key = "ba02d01a-9f0c-4f9e-8a33-54f0e7e8d071";
-        secret_key = "89B012E530054315B427F7A4C3FF09CC";
-        hash_mark = new HMACSHA512(Encoding.ASCII.GetBytes("89B012E530054315B427F7A4C3FF09CC"));
+        api_key = SQL.get_value("btctrade_api_key");
+        secret_key = SQL.get_value("btctrade_secret_key");
+        hash_mark = new HMACSHA512(Encoding.ASCII.GetBytes(SQL.get_value("btctrade_hash_key")));
         nonce = UnixTime.unix_now;
     }
     public static string query(string url)
