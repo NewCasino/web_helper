@@ -69,6 +69,7 @@ public class PinData
                     string home_name = e.SelectSingleNode("/homeTeam/name").InnerText;
                     string away_name = e.SelectSingleNode("/awayTeam/name").InnerText;
 
+                   
                     XmlNodeList periods = e.SelectNodes("/periods/period");
                     foreach (XmlNode period in periods)
                     {
@@ -171,7 +172,7 @@ public class PinData
                     string start_time = e.SelectSingleNode("startDateTime").InnerText;
                     string home_name = e.SelectSingleNode("homeTeam/name").InnerText;
                     string away_name = e.SelectSingleNode("awayTeam/name").InnerText;
-
+                    PinSQL.insert_event(sport_id, league_id, event_id, start_time, home_name, away_name);
                     XmlNodeList periods = e.SelectNodes("periods/period");
                     foreach (XmlNode period in periods)
                     {

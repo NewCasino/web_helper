@@ -68,18 +68,18 @@ public class PinApi
 
     public static string feeds()
     {
-        string url = "https://api.pinnaclesports.com/v1/feed?odddsFormat=DECIMAL";
+        string url = "https://api.pinnaclesports.com/v1/feed?oddsFormat=1";
         return PinHelper.get(url);
     }
     public static string feeds(string last_time)
     {
-        string url = "https://api.pinnaclesports.com/v1/feed?last={0}&odddsFormat=DECIMAL";
+        string url = "https://api.pinnaclesports.com/v1/feed?last={0}&oddsFormat=1";
         url = string.Format(url, last_time);
         return PinHelper.get(url);
     }
     public static string feeds_by_sport_id(string sport_id)
     {
-        string url = "https://api.pinnaclesports.com/v1/feed?sportid={0}&odddsFormat=DECIMAL";
+        string url = "https://api.pinnaclesports.com/v1/feed?sportid={0}&oddsFormat=1";
         url = string.Format(url, sport_id);
         return PinHelper.get(url);
     }
