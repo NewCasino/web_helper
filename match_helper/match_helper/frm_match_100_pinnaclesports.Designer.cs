@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_get_all = new System.Windows.Forms.Button();
             this.btn_get = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.btn_get_all = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -51,6 +51,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_get_all
+            // 
+            this.btn_get_all.Location = new System.Drawing.Point(122, 22);
+            this.btn_get_all.Name = "btn_get_all";
+            this.btn_get_all.Size = new System.Drawing.Size(75, 25);
+            this.btn_get_all.TabIndex = 1;
+            this.btn_get_all.Text = "Get ALL";
+            this.btn_get_all.UseVisualStyleBackColor = true;
+            this.btn_get_all.Click += new System.EventHandler(this.btn_get_all_Click);
             // 
             // btn_get
             // 
@@ -90,6 +100,7 @@
             this.txt_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_result.Font = new System.Drawing.Font("Lucida Console", 8.25F);
             this.txt_result.Location = new System.Drawing.Point(3, 3);
+            this.txt_result.MaxLength = 0;
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -97,16 +108,6 @@
             this.txt_result.TabIndex = 1;
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
-            // 
-            // btn_get_all
-            // 
-            this.btn_get_all.Location = new System.Drawing.Point(122, 22);
-            this.btn_get_all.Name = "btn_get_all";
-            this.btn_get_all.Size = new System.Drawing.Size(75, 25);
-            this.btn_get_all.TabIndex = 1;
-            this.btn_get_all.Text = "Get ALL";
-            this.btn_get_all.UseVisualStyleBackColor = true;
-            this.btn_get_all.Click += new System.EventHandler(this.btn_get_all_Click);
             // 
             // frm_match_100_pinnaclesports
             // 

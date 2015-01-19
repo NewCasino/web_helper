@@ -30,7 +30,8 @@ namespace web_helper
         } 
         private void btn_get_all_Click(object sender, EventArgs e)
         {
-
+            string txt = this.txt_result.Text;
+            PinData.insert_odds(txt);
         }
     }
 }
