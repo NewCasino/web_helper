@@ -115,7 +115,7 @@ public class PinApi
     }
     public static string line(string sport_id, string league_id, string event_id, string period_number, string bet_type)
     {
-        string url = "v1/line?sportId={0}&leagueId={1}&eventId={2}&periodNumber={3}&betType={4}&oddsFormat=DECIMAL";
+        string url = "v1/line?sportId={0}&leagueId={1}&eventId={2}&periodNumber={3}&betType={4}&oddsFormat=1";
         url = string.Format(url, sport_id, league_id, event_id, period_number, bet_type);
         return PinHelper.get(url);
     }

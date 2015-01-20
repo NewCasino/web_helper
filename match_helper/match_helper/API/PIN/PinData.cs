@@ -181,7 +181,7 @@ public class PinData
 
                         if (period.SelectSingleNode("maxBetAmount/moneyLine") != null &
                             period.SelectSingleNode("maxBetAmount/spread") != null &
-                            period.SelectSingleNode("maxBetAmount/totalPoints") != null &
+                            period.SelectSingleNode("maxBetAmount/totalPoints") != null & 
                             period.SelectSingleNode("maxBetAmount/teamTotals") != null
                             )
                         {
