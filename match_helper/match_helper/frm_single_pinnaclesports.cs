@@ -32,9 +32,9 @@ namespace web_helper
         } 
         private void btn_get_all_Click(object sender, EventArgs e)
         {
-            //string txt = PinApi.feeds_by_sport_id("29");
-            //PinData.insert_odds(txt);
-            //this.txt_result.Text = txt;
+            string txt = PinApi.feeds_by_sport_id("29");
+            PinData.insert_odds(txt);
+            this.txt_result.Text = txt;
         }
     }
 }
