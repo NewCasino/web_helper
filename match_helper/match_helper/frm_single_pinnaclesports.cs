@@ -24,17 +24,15 @@ namespace web_helper
             this.txt_result.ScrollToCaret();
         }
 
-        private void btn_get_Click(object sender, EventArgs e)
+        private void btn_get_html_Click(object sender, EventArgs e)
         {
-            PinData.insert_odds(this.txt_result.Text);
-            MessageBox.Show("insert ok!");
-            //this.txt_result.Text = PinApi.feeds_by_sport_id("29");
-        } 
-        private void btn_get_all_Click(object sender, EventArgs e)
-        {
-            //string txt = PinApi.feeds_by_sport_id("29");
-            //PinData.insert_odds(txt);
-            //this.txt_result.Text = txt;
+            this.txt_result.Text = PinApi.feeds_by_sport_id("29");
         }
+
+        private void btn_get_data_Click(object sender, EventArgs e)
+        {
+            this.txt_result.Text = PinData.insert_odds(this.txt_result.Text);
+            MessageBox.Show("Insert Ok!!!");
+        } 
     }
 }

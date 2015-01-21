@@ -1,6 +1,5 @@
-﻿namespace web_helper
-{
-    partial class frm_single_matchbook
+﻿ 
+    partial class frm_single_marathonbet
     {
         /// <summary>
         /// Required designer variable.
@@ -147,4 +146,4 @@
         private System.Windows.Forms.Button btn_get_data;
         private System.Windows.Forms.Button btn_beaurify;
     }
-}
+ 

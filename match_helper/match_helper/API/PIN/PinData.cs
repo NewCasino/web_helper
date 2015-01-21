@@ -197,6 +197,9 @@ public class PinData
                             string draw_line = period.SelectSingleNode("moneyLine/drawPrice").InnerText;
                             string away_line = period.SelectSingleNode("moneyLine/awayPrice").InnerText;
                             PinSQL.insert_odd_line(event_id, period_number, home_line, draw_line, away_line);
+
+                            DateTime dt_start_time = Convert.ToDateTime(start_time);
+                            Match100Helper.insert_data("pinnaclesports", PinSQL.get_league_name(sport_id,league_id), dt_start_time.ToString("yyyy-MM-dd HH:mm:ss"), home_name, away_name, home_line, draw_line, away_line, "0", "0");
                         }
 
                         XmlNodeList spreads = period.SelectNodes("spreads/spread");
