@@ -152,6 +152,12 @@ namespace web_helper
         {
             frm_single_matchbook frm = new frm_single_matchbook();
             frm.Show();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            frm_single_marathonbet frm = new frm_single_marathonbet();
+            frm.Show();
         } 
     }
 }
