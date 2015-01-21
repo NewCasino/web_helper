@@ -75,13 +75,19 @@ public partial class frm_single_marathonbet : Form
             zone = "8";
             if (node.Id == "timer")
             {
-                //02.09.14, 14:47 (GMT+1)
-                string timer = node.InnerText.E_TRIM();
-                dt_server = new DateTime(Convert.ToInt16("20" + timer.Substring(6, 2)), Convert.ToInt16(timer.Substring(3, 2)), Convert.ToInt16(timer.Substring(0, 2)),
-                                                 Convert.ToInt16(timer.Substring(9, 2)), Convert.ToInt16(timer.Substring(12, 2)), 0);
-                TimeSpan span = DateTime.Now - dt_server;
+                try
+                {
+                    //02.09.14, 14:47 (GMT+1)
+                    string timer = node.InnerText.E_TRIM();
+                    dt_server = new DateTime(Convert.ToInt16("20" + timer.Substring(6, 2)), Convert.ToInt16(timer.Substring(3, 2)), Convert.ToInt16(timer.Substring(0, 2)),
+                                                     Convert.ToInt16(timer.Substring(9, 2)), Convert.ToInt16(timer.Substring(12, 2)), 0);
+                    TimeSpan span = DateTime.Now - dt_server;
 
-                zone = (8 - Math.Round(span.TotalHours)).ToString();
+                    zone = (8 - Math.Round(span.TotalHours)).ToString();
+                }
+                catch (Exception error)
+                {
+                }
             }
 
             if (node.Id == "container_EVENTS")
@@ -100,7 +106,7 @@ public partial class frm_single_marathonbet : Form
                             if (node_table.Id.Contains("event"))
                             {
                                 event_id = node_table.Id.Replace("event_", "");
-                                date = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[2]").InnerText.E_TRIM();
+                                date = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tr[1]/td[2]").InnerText.E_TRIM();
                                 date = date.Replace("2015", "");
                                 if (date.Length == 10)
                                 {
@@ -111,10 +117,10 @@ public partial class frm_single_marathonbet : Form
                                     start_time = dt_server.ToString("yyyy-") + dt_server.ToString("MM-dd") + " " + date;
                                 }
                                 DateTime dt_time = Convert.ToDateTime(start_time);
-                                dt_time = dt_time.AddDays(Convert.ToInt16(zone) * -1);
+                                dt_time = dt_time.AddHours(Convert.ToInt16(zone) *( -1));
 
-                                host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
-                                client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
+                                host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
+                                client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
 
                                 win = node_table.SELECT_NODE("/tr[1]/td[2]").InnerText.E_REMOVE();
                                 draw = node_table.SELECT_NODE("/tr[1]/td[3]").InnerText.E_REMOVE();
@@ -129,6 +135,7 @@ public partial class frm_single_marathonbet : Form
                                 if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
                                 {
                                     sb.AppendLine(event_id.PR(10)+league.PR(50) + dt_time.ToString("yyyy-MM-dd HH:mm:ss").PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
+                                    start_time = start_time.Replace("0001", "2015");
                                     Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", zone);
                                     MbSQL.insert_events(event_id, league.E_TRIM(), dt_time.ToString("yyyy-MM-dd HH:mm:ss"), host, client);
                                     MbSQL.insert_odds(event_id, "0", "line", win, draw, lose);
