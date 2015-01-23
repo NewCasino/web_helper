@@ -158,6 +158,18 @@ namespace web_helper
         {
             frm_single_marathonbet frm = new frm_single_marathonbet();
             frm.Show();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            frm_single_betadonis frm = new frm_single_betadonis();
+            frm.Show();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            frm_single_1xbet frm = new frm_single_1xbet();
+            frm.Show();
         } 
     }
 }

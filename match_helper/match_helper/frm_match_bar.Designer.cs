@@ -44,6 +44,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -53,7 +55,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -190,7 +192,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(8, 48);
+            this.button5.Location = new System.Drawing.Point(8, 46);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(112, 23);
             this.button5.TabIndex = 13;
@@ -210,6 +212,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button17);
+            this.groupBox1.Controls.Add(this.button16);
             this.groupBox1.Controls.Add(this.button15);
             this.groupBox1.Controls.Add(this.button14);
             this.groupBox1.Controls.Add(this.button13);
@@ -220,13 +224,33 @@
             this.groupBox1.Controls.Add(this.btn_compute_by_website);
             this.groupBox1.Location = new System.Drawing.Point(5, 197);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(365, 189);
+            this.groupBox1.Size = new System.Drawing.Size(365, 214);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(8, 154);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(112, 23);
+            this.button16.TabIndex = 18;
+            this.button16.Text = "Adonis";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(8, 127);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(112, 23);
+            this.button15.TabIndex = 17;
+            this.button15.Text = "Marathon";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(8, 106);
+            this.button14.Location = new System.Drawing.Point(8, 100);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(112, 23);
             this.button14.TabIndex = 16;
@@ -236,7 +260,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(126, 77);
+            this.button13.Location = new System.Drawing.Point(126, 73);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(112, 23);
             this.button13.TabIndex = 15;
@@ -256,7 +280,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(8, 77);
+            this.button7.Location = new System.Drawing.Point(8, 73);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(112, 23);
             this.button7.TabIndex = 12;
@@ -328,21 +352,21 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button15
+            // button17
             // 
-            this.button15.Location = new System.Drawing.Point(8, 135);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(112, 23);
-            this.button15.TabIndex = 17;
-            this.button15.Text = "Marathon";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button17.Location = new System.Drawing.Point(8, 180);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(112, 23);
+            this.button17.TabIndex = 19;
+            this.button17.Text = "1XCompute";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 398);
+            this.ClientSize = new System.Drawing.Size(379, 420);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -383,5 +407,7 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
     }
 }

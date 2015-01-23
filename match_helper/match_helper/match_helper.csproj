@@ -400,6 +400,14 @@
       <DependentUpon>frm_single_marathonbet.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_single_betadonis.resx">
+      <DependentUpon>frm_single_betadonis.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_single_1xbet.resx">
+      <DependentUpon>frm_single_1xbet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -457,6 +465,18 @@
     </Compile>
     <Compile Include="frm_single_marathonbet.Designer.cs">
       <DependentUpon>frm_single_marathonbet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_single_betadonis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_single_betadonis.Designer.cs">
+      <DependentUpon>frm_single_betadonis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_single_1xbet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_single_1xbet.Designer.cs">
+      <DependentUpon>frm_single_1xbet.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
