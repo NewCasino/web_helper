@@ -69,27 +69,21 @@ public partial class frm_single_marathonbet : Form
         string time = "";
         string zone = "";
         string event_id = "";
+        HtmlNode node_timer = doc.DocumentNode.SELECT_NODE("/html[1]/head[1]/script[2]");
+        BsonDocument doc_timer = MongoHelper.get_doc_from_str(node_timer.InnerText.Replace("//<![CDATA[", "").Replace("//]]>>", "").Replace("initData =", ""));
+
+        string server_time = doc_timer["serverTime"].ToString().E_TRIM();
+        string zone_gmt = doc_timer["tzPrefix"].ToString().E_TRIM();
+        zone_gmt = zone_gmt.Replace("GMT", "");
+        zone = string.IsNullOrEmpty(zone_gmt) ? "0" : zone_gmt;
+        string[] times = server_time.E_SPLIT(",");
+        dt_server = new DateTime(Convert.ToInt16(times[0]), Convert.ToInt16(times[1]), Convert.ToInt16(times[2]), Convert.ToInt16(times[3]), Convert.ToInt16(times[4]), Convert.ToInt16(times[5]));
+        //TimeSpan span = DateTime.Now - dt_server;
+        //zone = (8 - Math.Round(span.TotalHours)).ToString(); 
+
         foreach (HtmlNode node in nodes_all)
         {
-
-            zone = "8";
-            if (node.Id == "timer")
-            {
-                try
-                {
-                    //02.09.14, 14:47 (GMT+1)
-                    string timer = node.InnerText.E_TRIM();
-                    dt_server = new DateTime(Convert.ToInt16("20" + timer.Substring(6, 2)), Convert.ToInt16(timer.Substring(3, 2)), Convert.ToInt16(timer.Substring(0, 2)),
-                                                     Convert.ToInt16(timer.Substring(9, 2)), Convert.ToInt16(timer.Substring(12, 2)), 0);
-                    TimeSpan span = DateTime.Now - dt_server;
-
-                    zone = (8 - Math.Round(span.TotalHours)).ToString();
-                }
-                catch (Exception error)
-                {
-                }
-            }
-
+ 
             if (node.Id == "container_EVENTS")
             {
                 HtmlNodeCollection nodes_div = node.SELECT_NODES("/div");
@@ -134,8 +128,7 @@ public partial class frm_single_marathonbet : Form
 
                                 if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
                                 {
-                                    sb.AppendLine(event_id.PR(10)+league.PR(50) + dt_time.ToString("yyyy-MM-dd HH:mm:ss").PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
-                                    start_time = start_time.Replace("0001", "2015");
+                                    sb.AppendLine(event_id.PR(10)+league.PR(50) + dt_time.ToString("yyyy-MM-dd HH:mm:ss").PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10)); 
                                     Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", zone);
                                     MbSQL.insert_events(event_id, league.E_TRIM(), dt_time.ToString("yyyy-MM-dd HH:mm:ss"), host, client);
                                     MbSQL.insert_odds(event_id, "0", "line", win, draw, lose);

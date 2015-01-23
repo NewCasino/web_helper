@@ -50,9 +50,7 @@ namespace btc_helper
         }
         private void btn_test_Click(object sender, EventArgs e)
         {
-
-          
-
+            this.txt_result.Text = BtceApi.trades(Pair.btc_usd.ToString());
         }
         public DataTable get_depth_table()
         {
