@@ -55,15 +55,15 @@ public class OkcData
         BsonArray bids = doc["bids"].AsBsonArray;
 
         BtcHelper.delete_depth("okcoin", pair);
-        BtcHelper.insert_depth_log("okcoin", pair, "sell", "usd", asks.ToString());
-        BtcHelper.insert_depth_log("okcoin", pair, "buy", "usd", bids.ToString());
+        BtcHelper.insert_depth_log("okcoin", pair, "sell", "btc", asks.ToString());
+        BtcHelper.insert_depth_log("okcoin", pair, "buy", "btc", bids.ToString());
         for (int i = 0; i < asks.Count; i++)
         {
-            BtcHelper.insert_depth("okcoin", pair, "sell", "usd", asks[i][0].ToString(), asks[i][1].ToString());
+            BtcHelper.insert_depth("okcoin", pair, "sell", "btc", asks[i][0].ToString(), asks[i][1].ToString());
         }
         for (int i = 0; i < bids.Count; i++)
         {
-            BtcHelper.insert_depth("okcoin", pair, "buy", "usd", bids[i][0].ToString(), bids[i][1].ToString());
+            BtcHelper.insert_depth("okcoin", pair, "buy", "btc", bids[i][0].ToString(), bids[i][1].ToString());
         } 
     }
     public static void insert_ticker(string result,string pair)

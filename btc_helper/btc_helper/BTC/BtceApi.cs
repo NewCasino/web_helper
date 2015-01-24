@@ -27,7 +27,7 @@ public class BtceApi
     }
     public static string depth(string pair)
     {
-        string url = "https://btc-e.com/api/3/depth/{0}";
+        string url = "https://btc-e.com/api/3/depth/{0}?limit=2000";
         url = string.Format(url, pair);
         return BtceHelper.query(url);
     }

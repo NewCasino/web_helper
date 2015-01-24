@@ -127,8 +127,8 @@ public class BtceData
         StringBuilder sb = new StringBuilder();
         BsonDocument doc = MongoHelper.get_doc_from_str(result);
 
-        BtcHelper.insert_ticker("btce", pair, doc[pair]["last"].ToString(), doc[pair]["sell"].ToString(),
-                                doc[pair]["buy"].ToString(), doc[pair]["high"].ToString(), doc[pair]["low"].ToString(), doc[pair]["vol"].ToString());
+        BtcHelper.insert_ticker("btce", pair, doc[pair]["last"].ToString(), doc[pair]["buy"].ToString(),
+                                doc[pair]["sell"].ToString(), doc[pair]["high"].ToString(), doc[pair]["low"].ToString(), doc[pair]["vol"].ToString());
 
    
     }

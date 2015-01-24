@@ -12,14 +12,14 @@ public class BtcchinaApi
      
         public static string depth(string pair)
         {
-            string url = "https://data.btcchina.com/data/orderbook?limit=200&market=btccny";
+            string url = "https://data.btcchina.com/data/orderbook?market=btccny";
             switch (pair)
             {
                 case "btc_cny":
-                    url = "https://data.btcchina.com/data/orderbook?limit=200&market=btccny";
+                    url = "https://data.btcchina.com/data/orderbook?market=btccny";
                     break;
                 case "ltc_cny":
-                    url = "https://data.btcchina.com/data/orderbook?limit=200&market=ltccny";
+                    url = "https://data.btcchina.com/data/orderbook?market=ltccny";
                     break;
                 default:
                     break;

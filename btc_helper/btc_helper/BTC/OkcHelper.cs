@@ -18,7 +18,7 @@ class OkcHelper
     static string api_key;
     static string secret_key;
     static HMACSHA512 hash_mark;
-    static UInt32 nonce;
+    static UInt64 nonce;
     static OkcHelper()
     {
         api_key = SQL.get_value("okc_api_key");
@@ -83,7 +83,7 @@ class OkcHelper
         return sb.ToString();
     }
   
-    static UInt32 get_nonce()
+    static UInt64 get_nonce()
     {
         return nonce++;
     }

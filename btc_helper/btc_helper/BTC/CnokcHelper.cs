@@ -17,7 +17,7 @@ class CnokcHelper
     static string api_key;
     static string secret_key;
     static HMACSHA512 hash_mark;
-    static UInt32 nonce;
+    static UInt64 nonce;
     static CnokcHelper()
     {
         api_key = SQL.get_value("cnokc_api_key");
@@ -82,7 +82,7 @@ class CnokcHelper
         return sb.ToString();
     }
   
-    static UInt32 get_nonce()
+    static UInt64 get_nonce()
     {
         return nonce++;
     }

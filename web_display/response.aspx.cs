@@ -76,11 +76,9 @@ public partial class Response : System.Web.UI.Page
             sql = string.Format(sql, website);
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
-            {
-                DateTime date = Convert.ToDateTime(row["timespan"].ToString().Substring(0, 19));
-                TimeSpan span = date - new System.DateTime(1970, 1, 1);
+            { 
                 BsonArray data_item = new BsonArray();
-                data_item.Add(Math.Round(span.TotalSeconds).ToString() + "000");
+                data_item.Add(row["timespan"].ToString());
 
                 if (row["currency"].ToString().Contains("usd"))
                 {
@@ -126,11 +124,9 @@ public partial class Response : System.Web.UI.Page
                     is_has = true;
                 }
             }
-            if (is_has == false) continue;
-
-            DateTime date = Convert.ToDateTime(row["timespan"].ToString().Substring(0, 19));
-            TimeSpan span = date - new System.DateTime(1970, 1, 1);
-            data_item.Add(Math.Round(span.TotalSeconds).ToString() + "000");
+            if (is_has == false) continue; 
+          
+            data_item.Add(row["timespan"].ToString());
 
 
             if (row["currency"].ToString().Contains("usd"))
@@ -167,11 +163,9 @@ public partial class Response : System.Web.UI.Page
             sql = string.Format(sql, website);
             DataTable dt = SQLServerHelper.get_table(sql);
             foreach (DataRow row in dt.Rows)
-            {
-                DateTime date = Convert.ToDateTime(row["timespan"].ToString().Substring(0, 19));
-                TimeSpan span = date - new System.DateTime(1970, 1, 1);
+            { 
                 BsonArray data_item = new BsonArray();
-                data_item.Add(Math.Round(span.TotalSeconds).ToString() + "000");
+                data_item.Add(row["timespan"].ToString());
 
                 if (row["currency"].ToString().Contains("usd"))
                 {
@@ -213,6 +207,13 @@ public partial class Response : System.Web.UI.Page
         string result = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
         BsonArray array_data = MongoHelper.get_array_from_str(result);
 
+
+        sql = "select * from ticker where website='btcchina'";
+        DataTable dt_ticker = SQLServerHelper.get_table(sql);
+        double min = Convert.ToDouble(dt_ticker.Rows[0]["buy"].ToString()) - 20;
+        double max = Convert.ToDouble(dt_ticker.Rows[0]["sell"].ToString()) + 20;
+
+
         BsonArray list = new BsonArray();
         BsonDocument doc = new BsonDocument();
         doc.Add("name", "Depth");
@@ -220,10 +221,13 @@ public partial class Response : System.Web.UI.Page
         BsonArray list_item = new BsonArray();
         for (int i = array_data.Count-1; i>=0; i--)
         {
-            BsonDocument doc_item = new BsonDocument();
-            doc_item.Add("x", array_data[i][0]);
-            doc_item.Add("y", array_data[i][1]);
-            list_item.Add(doc_item);
+            if (Convert.ToDouble(array_data[i][0]) > min && Convert.ToDouble(array_data[i][0]) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_data[i][0]);
+                doc_item.Add("y", array_data[i][1]);
+                list_item.Add(doc_item);
+            }
         }
         doc.Add("data", list_item);
         list.Add(doc);
@@ -240,6 +244,11 @@ public partial class Response : System.Web.UI.Page
         string result = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
         BsonArray array_data = MongoHelper.get_array_from_str(result);
 
+        sql = "select * from ticker where website='btcchina'";
+        DataTable dt_ticker = SQLServerHelper.get_table(sql);
+        double min = Convert.ToDouble(dt_ticker.Rows[0]["buy"].ToString()) - 20;
+        double max = Convert.ToDouble(dt_ticker.Rows[0]["sell"].ToString()) + 20;
+
         BsonArray list = new BsonArray(); 
         BsonDocument doc = new BsonDocument();
         doc.Add("name", "Depth");
@@ -247,10 +256,13 @@ public partial class Response : System.Web.UI.Page
         BsonArray list_item=new BsonArray();
         for (int i = array_data.Count-1; i >=0;i-- )
         {
-            BsonDocument doc_item = new BsonDocument();
-            doc_item.Add("x", array_data[i][0]);
-            doc_item.Add("y", array_data[i][1]);
-            list_item.Add(doc_item);
+            if (Convert.ToDouble(array_data[i][0]) > min && Convert.ToDouble(array_data[i][0]) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_data[i][0]);
+                doc_item.Add("y", array_data[i][1]);
+                list_item.Add(doc_item);
+            }
         }
         doc.Add("data", list_item);
         list.Add(doc);
@@ -274,6 +286,11 @@ public partial class Response : System.Web.UI.Page
         sql = string.Format(sql, max_id);
         string result_buy = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
 
+        sql = "select * from ticker where website='btcchina'";
+        DataTable dt_ticker = SQLServerHelper.get_table(sql);
+        double min = Convert.ToDouble(dt_ticker.Rows[0]["buy"].ToString())-20;
+        double max = Convert.ToDouble(dt_ticker.Rows[0]["sell"].ToString()) + 20;
+
         BsonArray array_sell = MongoHelper.get_array_from_str(result_sell);
         BsonArray array_buy = MongoHelper.get_array_from_str(result_buy);
 
@@ -285,10 +302,14 @@ public partial class Response : System.Web.UI.Page
         BsonArray list_buy = new BsonArray(); 
         for (int i = array_buy.Count-1; i >=0; i--)
         {
-            BsonDocument doc_item = new BsonDocument();
-            doc_item.Add("x", array_buy[i][0]);
-            doc_item.Add("y", array_buy[i][1]); 
-            list_buy.Add(doc_item);
+           
+            if (Convert.ToDouble(array_buy[i][0].ToString()) > min && Convert.ToDouble(array_buy[i][0].ToString()) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_buy[i][0]);
+                doc_item.Add("y", array_buy[i][1]);
+                list_buy.Add(doc_item);
+            }
         }
         doc_buy.Add("data", list_buy);
 
@@ -297,10 +318,13 @@ public partial class Response : System.Web.UI.Page
         BsonArray list_sell = new BsonArray(); 
         for (int i =array_sell.Count-1; i>=0; i--)
         {
-            BsonDocument doc_item = new BsonDocument();
-            doc_item.Add("x", array_sell[i][0]);
-            doc_item.Add("y", array_sell[i][1]);
-            list_sell.Add(doc_item);
+            if (Convert.ToDouble(array_sell[i][0].ToString()) > min && Convert.ToDouble(array_sell[i][0].ToString()) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_sell[i][0]);
+                doc_item.Add("y", array_sell[i][1]);
+                list_sell.Add(doc_item);
+            }
         }
         doc_sell.Add("data", list_sell);
         

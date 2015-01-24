@@ -518,6 +518,8 @@
             // cb_cnokc_btc_cny_trade
             // 
             this.cb_cnokc_btc_cny_trade.AutoSize = true;
+            this.cb_cnokc_btc_cny_trade.Checked = true;
+            this.cb_cnokc_btc_cny_trade.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_cnokc_btc_cny_trade.Location = new System.Drawing.Point(250, 43);
             this.cb_cnokc_btc_cny_trade.Name = "cb_cnokc_btc_cny_trade";
             this.cb_cnokc_btc_cny_trade.Size = new System.Drawing.Size(54, 17);
@@ -561,6 +563,8 @@
             // cb_btcchina_btc_cny_trade
             // 
             this.cb_btcchina_btc_cny_trade.AutoSize = true;
+            this.cb_btcchina_btc_cny_trade.Checked = true;
+            this.cb_btcchina_btc_cny_trade.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_btcchina_btc_cny_trade.Location = new System.Drawing.Point(250, 20);
             this.cb_btcchina_btc_cny_trade.Name = "cb_btcchina_btc_cny_trade";
             this.cb_btcchina_btc_cny_trade.Size = new System.Drawing.Size(54, 17);
@@ -617,6 +621,7 @@
             this.txt_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_result.Font = new System.Drawing.Font("Lucida Console", 8.25F);
             this.txt_result.Location = new System.Drawing.Point(3, 3);
+            this.txt_result.MaxLength = 0;
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;

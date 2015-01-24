@@ -26,8 +26,12 @@ namespace btc_helper
         }
         private void btn_get_data_Click(object sender, EventArgs e)
         {
-            get_data();
-            //get_btcchina_trade();
+
+           
+              get_data();
+              // get_btcchina_trade();
+              //get_okcoin_cn_trade();
+           
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -55,11 +59,13 @@ namespace btc_helper
 
             if (cb_btcchina_btc_cny_depth.Checked) { Thread thread_btcchina_btc_cny_depth = new Thread(new ThreadStart(btcchina_btc_cny_depth)); thread_btcchina_btc_cny_depth.Start(); }
             if (cb_btcchina_btc_cny_ticker.Checked) { Thread thread_btcchina_btc_cny_ticker = new Thread(new ThreadStart(btcchina_btc_cny_ticker)); thread_btcchina_btc_cny_ticker.Start(); }
+            if (cb_btcchina_btc_cny_trade.Checked) { Thread thread_btcchina_btc_cny_trade = new Thread(new ThreadStart(btcchina_btc_cny_trade)); thread_btcchina_btc_cny_trade.Start(); }
             if (cb_btcchina_ltc_cny_depth.Checked) { Thread thread_btcchina_ltc_cny_depth = new Thread(new ThreadStart(btcchina_ltc_cny_depth)); thread_btcchina_ltc_cny_depth.Start(); }
             if (cb_btcchina_ltc_cny_ticker.Checked) { Thread thread_btcchina_ltc_cny_ticker = new Thread(new ThreadStart(btcchina_ltc_cny_ticker)); thread_btcchina_ltc_cny_ticker.Start(); }
 
             if (cb_cnokc_btc_cny_depth.Checked) { Thread thread_cnokc_btc_cny_depth = new Thread(new ThreadStart(cnokc_btc_cny_depth)); thread_cnokc_btc_cny_depth.Start(); }
             if (cb_cnokc_btc_cny_ticker.Checked) { Thread thread_cnokc_btc_cny_ticker = new Thread(new ThreadStart(cnokc_btc_cny_ticker)); thread_cnokc_btc_cny_ticker.Start(); }
+            if (cb_cnokc_btc_cny_trade.Checked) { Thread thread_cnokc_btc_cny_trade= new Thread(new ThreadStart(cnokc_btc_cny_trade)); thread_cnokc_btc_cny_trade.Start(); }
             if (cb_cnokc_ltc_cny_ticker.Checked) { Thread thread_cnokc_ltc_cny_ticker = new Thread(new ThreadStart(cnokc_ltc_cny_ticker)); thread_cnokc_ltc_cny_ticker.Start(); }
 
             if (cb_btctrade_btc_cny_depth.Checked) { Thread thread_btctrade_btc_cny_depth = new Thread(new ThreadStart(btctrade_btc_cny_depth)); thread_btctrade_btc_cny_depth.Start(); }
@@ -81,28 +87,15 @@ namespace btc_helper
             if (cb_okcoin_ltc_usd_ticker.Checked) { Thread thread_okcoin_ltc_usd_ticker = new Thread(new ThreadStart(okc_ltc_usd_ticker)); thread_okcoin_ltc_usd_ticker.Start(); }
             
         }
-        public void get_btcchina_trade()
-        {
-            string sql = "select max(tid) from trade_btcchina";
-            string max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
-            this.txt_result.Text = "MAX ID:" + max_id;
-            Application.DoEvents();
-            string result = BtcchinaApi.trade_by_id(Pair.btc_cny.ToString(), max_id);
-            BsonArray list = MongoHelper.get_array_from_str(result);
-            for (int i = 0; i < list.Count; i++)
-            {
-                sql = "insert into trade_btcchina (date,price,amount,tid,type) values ({0},{1},{2},{3},'{4}')";
-                sql = string.Format(sql, list[i]["date"].ToString(), list[i]["price"].ToString(), list[i]["amount"].ToString(), list[i]["tid"].ToString(), list[i]["type"].ToString());
-                SQLServerHelper.exe_sql(sql);
-            } 
-        }
+        
+
+       
         public void btcchina_btc_cny_depth()
         {
             try
             {
                 string result = BtcchinaApi.depth(Pair.btc_cny.ToString());
                 BtcchinaData.insert_depth(result, Pair.btc_cny.ToString());
-
             }
             catch (Exception error)
             {
@@ -121,6 +114,19 @@ namespace btc_helper
                 Log.error("BtcchinaApi.ticker.btc_cny", error);
             }
         }
+        public void btcchina_btc_cny_trade()
+        {
+            string max_id = BtcHelper.get_trade_max_id("btcchina");
+            this.txt_result.Text = "MAX ID:" + max_id;
+            Application.DoEvents();
+            string result = BtcchinaApi.trade_by_id(Pair.btc_cny.ToString(), max_id);
+            BsonArray list = MongoHelper.get_array_from_str(result);
+            for (int i = 0; i < list.Count; i++)
+            {
+                BtcHelper.insert_trade("btcchina", list[i]["tid"].ToString(), list[i]["date"].ToString() + "000", list[i]["price"].ToString(), list[i]["amount"].ToString(), list[i]["type"].ToString(), "btc_cny", "btc");
+            }
+        }
+
         public void btcchina_ltc_cny_depth()
         {
             try
@@ -182,6 +188,18 @@ namespace btc_helper
             catch (Exception error)
             {
                 Log.error("CnokcApi.ticker.ltc_cny", error);
+            }
+        }
+        public void cnokc_btc_cny_trade()
+        {
+            string max_id = BtcHelper.get_trade_max_id("okcoin_cn");
+            this.txt_result.Text = "MAX ID:" + max_id;
+            Application.DoEvents();
+            string result = CnokcApi.trade(max_id);
+            BsonArray list = MongoHelper.get_array_from_str(result);
+            for (int i = 0; i < list.Count; i++)
+            {
+                BtcHelper.insert_trade("okcoin_cn", list[i]["tid"].ToString(), list[i]["date_ms"].ToString(), list[i]["price"].ToString(), list[i]["amount"].ToString(), list[i]["type"].ToString(), "btc_cny", "btc");
             }
         }
 
@@ -358,17 +376,7 @@ namespace btc_helper
             {
                 Log.error("Okcapi.ticker.ltc_usd", error);
             }
-        }
- 
-   
-
-  
- 
-       
- 
-       
-        
-        
+        } 
 
     }
 }
