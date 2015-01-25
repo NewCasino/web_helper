@@ -27,8 +27,9 @@ namespace btc_helper
         private void btn_get_data_Click(object sender, EventArgs e)
         {
 
-           
-              get_data();
+
+            //btcchina_btc_cny_depth();
+             get_data();
               // get_btcchina_trade();
               //get_okcoin_cn_trade();
            
@@ -116,9 +117,7 @@ namespace btc_helper
         }
         public void btcchina_btc_cny_trade()
         {
-            string max_id = BtcHelper.get_trade_max_id("btcchina");
-            this.txt_result.Text = "MAX ID:" + max_id;
-            Application.DoEvents();
+            string max_id = BtcHelper.get_trade_max_id("btcchina"); 
             string result = BtcchinaApi.trade_by_id(Pair.btc_cny.ToString(), max_id);
             BsonArray list = MongoHelper.get_array_from_str(result);
             for (int i = 0; i < list.Count; i++)
@@ -193,8 +192,6 @@ namespace btc_helper
         public void cnokc_btc_cny_trade()
         {
             string max_id = BtcHelper.get_trade_max_id("okcoin_cn");
-            this.txt_result.Text = "MAX ID:" + max_id;
-            Application.DoEvents();
             string result = CnokcApi.trade(max_id);
             BsonArray list = MongoHelper.get_array_from_str(result);
             for (int i = 0; i < list.Count; i++)

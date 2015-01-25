@@ -1,0 +1,628 @@
+<html class=" js flexbox flexboxlegacy canvas canvastext no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg json cookies firefox firefox35 win_8" style="" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head id="Head1"><link rel="stylesheet" type="text/css" href="//static.gammatrix.com/BetAdonis/_import.css?d=25"><script src="//www.google-analytics.com/analytics.js" async=""></script><script type="text/javascript" src="//static.gammatrix.com/_js/combined.js"></script><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="requiresActiveX=true"><link rel="shortcut icon bookmark" href="/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png">
+
+
+
+
+
+
+
+
+<meta http-equiv="content-language" content="en"><script type="text/javascript" src="/_google_analytics.ashx?_=2122&amp;u=2899832"></script><style type="text/css">iframe.GameLoaderIframe { width:80%; }
+
+.CasinoGameOverlay { position:fixed; left:0px; top:0px; display:block; z-index:99999; width:100%; height:100%; background-repeat:no-repeat; cursor:progress; background-position:center; background-size:100%; background-color:black; }
+.CasinoGameOverlay .Wrapper1 { float:left; position:relative; left:50%; }
+.CasinoGameOverlay .Wrapper2 { float:left; position:relative; left:-50%; }
+.CasinoGameOverlay .PopupContainer { display:inline-block; margin:10px; }
+
+html {background: none repeat scroll 0 0 #000;}
+.livechat{position:fixed;right:0;top:195px;z-index:9999;}
+.livechat img{width:174px;height:82px;}
+.accountiframe{margin-top:28px;}
+</style><title>
+	BetAdonis.com - Sports
+</title><link href="https://www.betadonis22.com:/js/jquery/css/jquery.simplemodal.css" media="screen" type="text/css" rel="stylesheet"></head>
+<body dir="ltr" class="lang_en  Authenticated" data-desktop="http://www.betadonis22.com/" data-mobile="http://m.betadonis22.com/" data-cookiedomain="betadonis22.com" data-ismobile="0">
+    
+
+<script type="text/javascript">
+    // <![CDATA[
+    InputFields.onErrorPlacement = function (error, element) {
+        var $pdiv = $(element).parents("div.inputfield");error.attr('elementId', $pdiv.attr('id'));if($('td.hint > *', $pdiv).length < 1 ){$('td.hint', $pdiv).html("<span class='NoticeText'>"+ $('td.hint', $pdiv).text() +" </span>");}
+        error.insertAfter($('td.hint > *:last', $pdiv));
+    }
+    // ]]>
+</script>
+
+<script>
+$(function(){
+document.domain = $("body").attr("data-cookiedomain");
+});
+</script>
+    
+
+
+<div id="topline">
+    <div class="pageblock">
+    <div class="toplinks">
+        <ul>
+        
+        <li><a href="/ContactUs" target="">Customer Support</a></li>
+        
+        <li><a href="/deposit" target="">Payment Methods</a></li>
+        
+        <li><a href="/Help" target="">FAQ</a></li>
+        
+        </ul>
+    </div>
+    
+
+<div id="language-selector" class="country-flags">
+    
+    <div class="item first selected">
+        <a href="/en/Sports/Home" target="_top" title="English">
+            <img alt="English" src="/images/transparent.gif" class="gb">
+            <span class="text">English</span>
+        </a>
+    </div>
+    
+    <div class="item  ">
+        <a href="/ru/Sports/Home" target="_top" title="§â§å§ã§ã§Ü§Ú§Û">
+            <img alt="§â§å§ã§ã§Ü§Ú§Û" src="/images/transparent.gif" class="ru">
+            <span class="text">§â§å§ã§ã§Ü§Ú§Û</span>
+        </a>
+    </div>
+    
+    <div class="item last ">
+        <a href="/tr/Sports/Home" target="_top" title="T¨¹rk?e">
+            <img alt="T¨¹rk?e" src="/images/transparent.gif" class="tr">
+            <span class="text">T¨¹rk?e</span>
+        </a>
+    </div>
+    
+</div>
+
+    </div>
+</div>
+<div id="header">
+    <div class="pageblock">
+    <div class="livechat"></div>
+    <div class="logo">
+    <a href="/"><img src="//static.gammatrix.com/BetAdonis/_files/Logo/logo_blue.png" height="80" width="280"></a>
+</div>
+    
+    <div id="user-box-wrapper">
+    <ul>
+        <li class="welcome">
+            
+<div id="welcome">Welcome <span class="welcome-user">Yiwei Zhang</span></div>
+
+
+        </li>
+        <li class="balances">
+            
+   <div id="refresh-button-wrap">
+   <a class="refresh-button" href="javascript:try{BalanceList.refresh(false);}catch(e){};void(0);" onclick="this.blur();" target="_self">
+<span class="refresh-button_Right">
+    <span class="refresh-button_Left">
+        <span class="refresh-button_Center">
+            <span> </span>
+        </span>
+    </span>
+</span></a>
+   </div>
+
+            
+<ul id="balance-list">               <li>                    <span class="name"><span>Wallet</span></span>         <span class="currency"><span id="currency-Casino">€</span></span>         <span class="balance"><span id="balance-Casino">0.00</span></span>            </li>        </ul>
+
+<script id="balance-item-template" type="text/html">
+<#
+    var columnCount = 1.0;
+    var d=arguments[0];
+
+    for(var i=0; i < Math.ceil( d.length/columnCount) * columnCount; i++)     
+    {
+#>
+    <#  if( (i % columnCount) == 0 ) { #>
+        <li>
+    <#  } else {  #>
+        <li class="separator">|</li>
+    <# } #>
+
+    <# if( i < d.length ) {
+        var item = d[i]; 
+    #>
+        <span class="name"><span><#= item.DisplayName.htmlEncode() #></span></span>
+        <span class="currency"><span id="currency-<#= item.EnglishName.htmlEncode() #>" ><#= item.IsBalanceAvailable ? item.BalanceCurrencySymbol.htmlEncode() : '' #></span></span>
+        <span class="balance"><span id="balance-<#= item.EnglishName.htmlEncode() #>" ><#=item.IsBalanceAvailable ? item.FormattedAmount.htmlEncode() : 'N/A' #></span></span>
+    <# } else { #>
+        <span class="name">&#160;</span>
+        <span class="currency">&#160;</span>
+        <span class="balance">&#160;</span>
+    <# } #>
+
+    <#  if( ((i+1) % columnCount) == 0 ) { #> </li> <#  }  #>
+<#   }  #>
+    
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+    BalanceList = {
+        isLoadingInProgress: false,
+        url: '/_get_balance.ashx?separateBonus=True&useCache=',
+        refresh: function (useCache) {
+            if (BalanceList.isLoadingInProgress)
+                return;
+            if (!useCache)
+                BalanceList.isLoadingInProgress = true;
+
+            $('#balance-list').html('<li></li>');
+            var url = BalanceList.url + ((useCache == false) ? "False" : "True");
+            jQuery.getJSON(url, null, BalanceList.onload);
+        },
+        onload: function (json) {
+            BalanceList.isLoadingInProgress = false;
+            if (!json.success) {
+                if (json.isSessionTimedOut == true) {
+                    alert('Your session has timed out, please login again.');
+                    self.location = self.location;
+                }
+                $('#balance-list').html('<li></li>');
+                return;
+            }
+            $('#balance-list').html($('#balance-item-template').parseTemplate(json.accounts)); ;
+        }
+    };
+    $(document).ready(function () { BalanceList.refresh(true); });
+    try { top.reloadBalance = function () { BalanceList.refresh(false); }; } catch (e) { }
+
+    $(document).bind("BALANCE_UPDATED", function () { BalanceList.refresh(false); });
+//]]>
+</script>
+
+
+            <div class="clear"></div>
+        </li>
+        <li class="buttons">
+        
+
+<div id="myaccount-button-wrap">
+
+    <a class="myaccount-button" href="/Profile" onclick="this.blur();" target="_top">
+<span class="myaccount-button_Right">
+    <span class="myaccount-button_Left">
+        <span class="myaccount-button_Center">
+            <span>My Account</span>
+        </span>
+    </span>
+</span></a>
+
+</div>
+
+
+        
+<div id="deposit-button-wrap">
+    <a class="deposit-button" href="/Deposit" onclick="this.blur();" target="_top">
+<span class="deposit-button_Right">
+    <span class="deposit-button_Left">
+        <span class="deposit-button_Center">
+            <span>Deposit</span>
+        </span>
+    </span>
+</span></a>
+</div>
+   
+        
+<div id="transfer-button-wrap">
+    <a class="transfer-button" href="/Transfer" onclick="this.blur();" target="_top">
+<span class="transfer-button_Right">
+    <span class="transfer-button_Left">
+        <span class="transfer-button_Center">
+            <span>Transfer</span>
+        </span>
+    </span>
+</span></a>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+
+        var height = 500;
+        var width = 750;
+
+        function onDialogOpen(dialog) {
+            try{ HideGameFlashFromGameWindow(); }catch(ex){}
+            dialog.data.css('padding', '0px').show();
+            var marginLeft = (width / -2).toString(10) + "px";
+            dialog.container.css("margin-left", marginLeft);
+            dialog.container.css("width", width.toString(10) + "px");
+            dialog.container.css({ "z-index": "999999", "height": "auto", "top": "25px", "left": "50%" }).show();
+            dialog.overlay.css("z-index", "999998").show();
+
+            $('div.simplemodal-wrap', dialog.container).css('overflow', 'hidden');
+        };
+
+        $('#transfer-button-wrap a.transfer-button').click(function (e) {
+            e.preventDefault();
+
+            var id = '_dlg_' + (new Date).getTime().toString();
+            var $iframe = $('<iframe allowTranceparency="true" scrolling="no" frameborder="0" style="background-color:transparent"></iframe>');
+            $iframe.attr('id', id);
+            $iframe = $iframe.appendTo(top.document.body);
+            $iframe = $(top.document.getElementById(id));
+            $iframe.width(width).height(height);
+
+            var url = '/Transfer/QuickTransfer/?_=' + ((new Date).getTime());
+            $iframe.attr('src', url);
+
+            var dialogCloseHtml = '';
+
+            $.modal($iframe[0], { appendTo: top.document.body
+            , width: width
+            , height: height
+            , minHeight: height
+            , autoResize: false
+            , autoPosition: false
+            , closeHTML: dialogCloseHtml
+            , onOpen: onDialogOpen
+            , containerCss: { padding: '0px'
+                            , border: 'solid 1px #999999'
+                            , background: 'url(/images/icon/loading.gif) no-repeat 20px 20px #000000'
+            }
+            , overlayClose: true
+            , onClose: function (dialog) {
+                dialog.placeholder = false;
+                $.modal.close();
+                try{ ShowGameFlashFromGameWindow(); }catch(ex){}
+            }
+            });
+        });
+    });
+</script>
+
+
+
+
+        <form action="/Login/SignOut" method="post" target="_top">
+
+<div id="logout-button-wrap">
+    <button class="logout-button" onclick="this.blur();" type="submit">
+<span class="logout-button_Right">
+    <span class="logout-button_Left">
+        <span class="logout-button_Center">
+            <span>Logout</span>
+        </span>
+    </span>
+</span></button>
+</div>
+
+</form>             
+        <div class="clear"></div>
+        </li>
+    </ul>
+    </div>
+    
+    <div class="clear"></div>
+    </div>
+</div>
+<div id="topmenu">
+    <div class="pageblock">
+    
+<div class="menus">  
+    <ul>
+        
+        <li class="menu-home first ">
+        <a class=" menu-item" href="/Home/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Home</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-sports   selected">
+        <a class=" menu-item" href="/Sports/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Sports</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-livesports  ">
+        <a class=" menu-item" href="/Sports/LiveSports" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Live Sports</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-virtualsports  ">
+        <a class=" menu-item" href="/Sports/VirtualSports" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Virtual Sports</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-casino  ">
+        <a class=" menu-item" href="/Casino/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Casino</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-livecasino  ">
+        <a class=" menu-item" href="/LiveCasino/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Live Casino</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-poker  ">
+        <a class=" menu-item" href="/Poker/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Poker</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-promotions  ">
+        <a class=" menu-item" href="/Promotions/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Promotions</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-mobile  ">
+        <a class=" menu-item" href="/Mobile/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Mobile</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+        <li class="menu-affiliates last ">
+        <a class=" menu-item" href="/Affiliates/" onclick="this.blur();" target="_self">
+<span class=" menu-item_Right">
+    <span class=" menu-item_Left">
+        <span class=" menu-item_Center">
+            <span>Affiliates</span>
+        </span>
+    </span>
+</span></a>
+        </li>
+        
+    </ul>
+    <div class="menu-selecting-marker">¡÷</div>
+</div>
+<script type="text/javascript">
+    var TopMenu = {};
+    TopMenu.Menu = $("#topmenu");
+    TopMenu.DefaultName = "home";
+    TopMenu.CurrentName = "home";
+    TopMenu.CurrentMenu;
+    TopMenu.Select = function () {
+        if (this.Menu.find(".menu-" + this.CurrentName).length > 0) {
+            this.CurrentMenu = this.Menu.find(".menu-" + this.CurrentName);
+            this.CurrentMenu.addClass("selected");
+        }
+        else {
+            this.CurrentMenu = this.Menu.find(".menu-" + this.DefaultName);
+            this.CurrentMenu.addClass("selected");
+        }
+    };    
+
+    $(document).ready(function () {
+        TopMenu.Select();
+    });
+</script>
+    </div>
+</div>
+<div class="content">
+    
+<div class="pageblock">
+
+
+
+
+
+
+<iframe src="https://sportsfront.betadonis22.com/fe_home?lang=en_GB&amp;currentSession=3a2250f7-1eca-4b3f-8442-49458786290e" id="ifmSportsbook" scrolling="no" style="overflow: hidden; height: 6499px;" allowtransparency="true" frameborder="0" height="6563">
+</iframe>
+
+
+<script type="text/javascript">
+if(TopMenu.CurrentName != "livesports" && TopMenu.CurrentName != "virtualsports"){
+    TopMenu.CurrentName = "sports";
+}
+</script>
+</div>
+
+    <div id="footer">
+        <table border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr class="footer-links">
+    	<td align="center">
+            <div class="footer-links-wrapper">
+            <div class="pageblock"><a href="/Mobile/" class="link-mobile" target="_top">Mobile</a>
+<a href="/ResponsibleGaming" class="link-responsiblegaming" target="_top">Responsible Gaming</a>
+<a href="/TermsConditions" class="link-termsconditions" target="_top">Terms &amp; Conditions</a>
+<a href="/Deposit" class="link-payment" target="_top">Payment</a>
+<a href="/Help" class="link-faq" target="_top">FAQ</a>
+<a href="/ContactUs" class="link-contact" target="_top">Contact</a>
+<a href="https://server.iad.liveperson.net/hc/91290186/?cmd=file&amp;file=visitorWantsToChat&amp;site=91290186&amp;byhref=1" class="link-livechat" target="_blank">Live chat</a></div>
+            </div>
+        </td>
+    </tr>
+	<tr class="footer-payments">
+    	<td align="center"><div class="pageblock footerIcon"><img usemap="#bottomMap" src="//static.gammatrix.com/BetAdonis/_files/Footer/paymenticons.png">
+<map name="bottomMap" id="bottomMap">
+<area coords="168,20,206,38" shape="rect" href="http://www.visa.com/" target="_blank">
+<area coords="270,15,310,42" shape="rect" href="http://www.mastercard.com/" target="_blank">
+<area coords="380,21,450,37" shape="rect" href="http://www.neteller.com/" target="_blank">
+<area coords="78,53,133,78" shape="rect" href="http://www.betsoftgaming.com/" target="_blank">
+<area coords="149,53,232,78" shape="rect" href="http://www.microgaming.co.uk/" target="_blank">
+<area coords="304,55,356,80" shape="rect" href="http://www.netent.com/" target="_blank">
+<area coords="497,51,550,79" shape="rect" href="http://www.trustwave.com/" target="_blank">
+<area coords="572,45,672,79" shape="rect" href="http://www.lga.org.mt/" target="_blank">
+<area coords="689,54,717,74" shape="rect" href="http://www.itechlabs.com.au/pages/rngtesting.html" target="_blank">
+<area coords="737,52,761,75" shape="rect" href="javascript:void(0);">
+<area coords="777,52,800,75" shape="rect" href="javascript:void(0);">
+<area coords="809,52,830,73" shape="rect" href="/Under18">
+<area alt="EveryMatrix" target="_blank" href="http://everymatrix.com" coords="741,13,809,44" shape="rect">
+</map></div></td>
+    </tr>
+   
+    <tr class="footer-copyright">
+    	<td align="center"><div class="pageblock copyright"><p>COPYRIGHTS ? 2013, ALL RIGHTS RESERVED. BetAdonis.com</p>
+<p>BetAdonis.com is operated and managed by EveryMatrix Ltd, a company bearing  registration number C44411, and having its registered address at Suite  4, Num. 	62/63 Morina Court, George Borg Olivier Street, St.Julians, STJ 1081,  Malta. EveryMatrix Ltd. is licensed and regulated by the Lotteries and  Gaming 	Authority of Malta (www.lga.org.mt) in virtue of a Class 1 license  numbered LGA/CL1/497/2010</p>
+<p>The Casino games, are provided by EveryMatrix N.V. a limited  liability company incorporated under the laws of Curacao, bearing  company 	registration number 108354 and having its registered address at Dr.  Hugenholtzweg Z/N, Curacao and is licensed and regulated in virtue of  license number 	No. 8048/JAZ granted by the Government of Curacao.</p>
+<p>The Sportsbook services are provided by EveryMatrix N.V.&nbsp;</p></div></td>
+    </tr>
+</tbody></table>
+
+    </div>
+</div>    
+
+<script type="text/javascript">
+    $(function () {
+        function clearBackgroundImage() {
+            $(document.body).attr('style', function (i, style) {
+                if (style == null)
+                    return '';
+                return style.replace(/background\-image[^;]+;?/g, '');
+            });
+        }
+
+        $(document).on('INLINE_GAME_OPENED', function (evt, data) {
+            $('div.ContentSlider').hide();
+            window.scrollTo(0, 0);
+
+            if (data.bgImg.length > 0) {
+                var src = 'url(' + data.bgImg + ')';
+                $(document.body).css('background-image', src);
+            } else {
+                clearBackgroundImage();
+            }
+        });
+        $(document).bind('INLINE_GAME_CLOSED', function () {
+            $('div.ContentSlider').show();
+            clearBackgroundImage();
+        });
+        $(document).bind('GAME_OPENED', function () {
+            $('div.ContentSlider').show(); clearBackgroundImage();
+        });
+    });
+
+</script>
+
+
+    <style type="text/css" rel="stylesheet">
+.NegativeLimitPanel{display:none;background:rgba(0,0,0,0.8);position:absolute;top:0;left:0;z-index:9999;}
+.NegativeLimitPopup{position:absolute;top:20%;left:40%;width:440px;height:150px;background:#fff;border-radius:8px;}
+.NegativeLimitPopup .NegativeLimit_Content{text-align:left;width:400px;height:100px;margin:0;padding: 20px;}
+.NegativeLimitPopup .NegativeLimit_Message_Text{color:#000;line-height:24px;text-align:left;}
+.NegativeLimitPopup .NegativeLimit_Message_Text a{color:#ff5900;text-decoration:none;}
+.NegativeLimitPopup a.Close{position:absolute;top:5px; right:10px;font-size:16px;z-index:9999;color:#ff5900;text-decoration:none;font-family:sans-serif;}
+</style>
+<div class="NegativeLimitPanel">
+<div class="NegativeLimitPopup">
+    <div class="NegativeLimit_Content">
+        <div class="NegativeLimit_Message_Text">
+        </div>
+    </div>
+<a title="Close this popup now!" href="#" class="Close" onclick="$('.NactiveLimitPanel').hide();"> x </a>
+</div>
+</div>
+    <script type="text/javascript">
+        function PopupNactiveLimitMessage() {
+            $.get('/_get_nactivelimit_info.ashx?separateBonus=True',
+            null,
+            function (data) {
+
+                if (data && data.success == true && data.isLoggedIn == true) {
+
+                    var negative_balance_limit = $.cookie('negative_balance_limit');
+                    if (negative_balance_limit == null && data.negativelimitrecord != null && data.negativelimitrecord.State == 0) {
+                        var amount = data.negativelimitrecord.CreditLimitAmount + ' ' + data.negativelimitrecord.Currency;
+                        var message = 'Hello, \u003Cbr/\u003E\u000AYou just started playing on negative Balance. Your negative balance limit is {0}. For more details please click \u003Ca href=\u0022/Limit\u0022\u003Ehere\u003C/a\u003E.\u003Cbr /\u003E\u000AGood Luck'.replace(/\{(\d+)\}/g, amount);
+                    $('.NegativeLimitPopup .NegativeLimit_Message_Text').html(message);
+
+                    $('.NegativeLimitPanel').width($(document).width());
+                    $('.NegativeLimitPanel').height($(document).height());
+                    $('.NegativeLimitPanel').show();
+                    $.cookie("negative_balance_limit", true, { path: "/" });
+                }
+            }
+        },
+        "json");
+    }
+    $(function () {
+        try { top.PopupNactiveLimitMessage(); } catch (e) { }
+    });
+</script>
+    
+    <script>//<![CDATA[
+;$(function(){$('<div style="display:none;"></div>').appendTo(document.body).load( '/TermsConditions/popup' );});
+;if(window.location.toString().indexOf(".gammatrix-dev.net")>0){document.domain=document.domain;}else{document.domain="betadonis22.com";}function IframeAutoFit(el){this.iframe=$(el);this.getDocument=function(){var f=this.iframe[0];return f&&typeof(f)=="object"&&f.contentDocument||f.contentWindow&&f.contentWindow.document||f.document;};this.autoHeight=function(){try{var height=this.getDocument().body.scrollHeight;try{height=$(this.getDocument().body).height();}catch(e){}if(height>0){this.iframe.css("height",height.toString(10)+"px");}}catch(e){}};setInterval((function(o){return function(){o.autoHeight();};})(this),500);}$(function(){new IframeAutoFit("#ifmSportsbook");});
+;var isIE6=/msie 6/i.test(navigator.userAgent);if(isIE6){alert("You are using Internet Explorer 6, some of the features may not be available, and we recommend that you upgrade your Internet Explorer to a higher version for an improved experience.");}try{var arrCookie=document.cookie.split(";");for(var i=0;i<arrCookie.length;i++){var arr=arrCookie[i].split("=");if("_ser"==arr[0].replace(/(^\s*)|(\s*$)/g,"")){var endIndex=arr[1].indexOf(";");if(endIndex==-1){endIndex=arr[1].length;}var sessionExitReason=unescape(arr[1].substring(arr[1],endIndex));var expDate=new Date();expDate.setDate(expDate.getDate()-1);document.cookie="_ser=0; expires="+expDate.toGMTString()+";path=/; domain=betadonis22.com";var msg="";switch(sessionExitReason){case"Expired":msg="You have been inactive for too long and your session has timed out. For security reasons you have been logged out automatically.\u000APlease click OK to log in again.";break;case"Reentry":msg="You have been disconnected as someone has signed in with your account in another place.\u000A\u000APlease note that if this was not intentional, someone may have stolen your password and we suggest change it immediately.";
+break;case"IPChanged":msg="You have been disconnected as your IP address was changed since your last login.";break;case"LimitExceeded":msg="You have been disconnected as your session time limitation is reached.";break;}if(msg.length>0){alert(msg);}}}}catch(e){}$(function(){$(document).bind("BALANCE_UPDATED",function(){try{top.reloadBalance();}catch(e){}});});
+
+//]]>
+</script>
+    
+    <script type="text/javascript" src="//static.gammatrix.com/_js/devicechecker.js?_d=25"></script>
+    
+    <div id="switch-promot" class="promot-box" style="display: none"><span class="switch-promot-text">You are accessing from a mobile device, would you like to switch to mobile edition?</span><span class="switch-promot-options"><button class="button" id="switch-promot-btnYes" onclick="this.blur();">
+<span class="button_Right">
+    <span class="button_Left">
+        <span class="button_Center">
+            <span>Yes</span>
+        </span>
+    </span>
+</span></button><button class="button" id="switch-promot-btnDonotRemind" onclick="this.blur();">
+<span class="button_Right">
+    <span class="button_Left">
+        <span class="button_Center">
+            <span>Don't remind me again</span>
+        </span>
+    </span>
+</span></button></span><a href="#" id="switch-promot-btnClose"><img src="/js/css/promoting/image/close.png" alt="" border="0"></a></div>
+    <script type="text/javascript">
+        $(function () {
+            DeviceChecker.Promoting.Init();
+        });
+            </script>
+    
+
+
+<div style="display:none;"></div></body></html>

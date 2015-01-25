@@ -54,6 +54,9 @@ class BtcHelper
     public static void insert_trade(string website, string tid, string time, string price, string amount, string type, string currency, string qty_type)
     {
         string sql = "";
+        sql = "delete from trade where website='{0}' and tid={1}";
+        sql = string.Format(sql, website, tid);
+        SQLServerHelper.exe_sql(sql);
         sql = "insert into trade (timespan,website,tid,time,price,amount,type,currency,qty_type) values ({0},'{1}',{2},{3},{4},{5},'{6}','{7}','{8}')";
         sql = string.Format(sql,UnixTime.unix_now_long.ToString(), website, tid, time, price, amount, type, currency, qty_type);
         SQLServerHelper.exe_sql(sql);
