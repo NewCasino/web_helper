@@ -202,5 +202,33 @@ namespace btc_helper
             if (cb_ltc.Checked) result = "ltc";
             return result;
         }
+
+
+
+        public void delete_repeat_trade(string website)
+        {
+            StringBuilder sb=new StringBuilder();
+            string sql = "select * from trade where website='{0}'";
+            sql = string.Format(sql, website);
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                string id = row["id"].ToString();
+                string tid = row["tid"].ToString();
+                sql = "select * from trade where website='{0}' and tid={1} and id>{2}";
+                sql = string.Format(sql, website, tid, id);
+                DataTable dt_temp = SQLServerHelper.get_table(sql);
+                if (dt_temp.Rows.Count > 0)
+                {
+                    sql = "delete from trade where  website='{0}' and tid={1} and id>{2}";
+                    sql = string.Format(sql, website, tid, id);
+
+                    SQLServerHelper.exe_sql(sql); 
+                }
+                sb.Append(id.PR(10) + tid.PR(10) + dt_temp.Rows.Count.PR(10) + M.N);
+                this.txt_result.Text = sb.PRINT();
+                Application.DoEvents();
+            } 
+        }
     }
 }

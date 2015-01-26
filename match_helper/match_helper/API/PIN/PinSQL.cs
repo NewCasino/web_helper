@@ -51,14 +51,14 @@ class PinSQL
         sql = string.Format(sql, sport_id, league_id, event_id, start_time, home, away);
         SQLServerHelper.exe_sql(sql);
     }
-    public static void insert_odd_line(string event_id, string period_num, string home, string draw, string away)
+    public static void insert_odd_three(string event_id, string period_num, string home, string draw, string away)
     {
         UInt32 timespan = UnixTime.unix_now;
-        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and bet_type='line'";
+        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and bet_type='three'";
         sql = string.Format(sql, event_id, period_num);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into s_pin_odds (timespan,event_id,period_type,bet_type,o1,o2,o3) values ({0},{1},'{2}','line','{3}','{4}','{5}')";
+        sql = "insert into s_pin_odds (timespan,event_id,period_type,bet_type,o1,o2,o3) values ({0},{1},'{2}','three','{3}','{4}','{5}')";
         sql = string.Format(sql,timespan.ToString(),event_id, period_num, home, away, draw);
         SQLServerHelper.exe_sql(sql); 
     }

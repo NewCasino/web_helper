@@ -39,6 +39,11 @@ public partial class frm_single_marathonbet : Form
     {
         this.txt_result.Text = insert_event_data(this.txt_result.Text);
     }
+
+    private void btn_get_detail_Click(object sender, EventArgs e)
+    {
+        this.txt_result.Text = inser_event_detail(this.txt_result.Text);
+    }
     public string get_event_html()
     {
         string json = HtmlHelper.get_html("");
@@ -131,7 +136,7 @@ public partial class frm_single_marathonbet : Form
                                     sb.AppendLine(event_id.PR(10)+league.PR(50) + dt_time.ToString("yyyy-MM-dd HH:mm:ss").PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10)); 
                                     Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", zone);
                                     MbSQL.insert_events(event_id, league.E_TRIM(), dt_time.ToString("yyyy-MM-dd HH:mm:ss"), host, client);
-                                    MbSQL.insert_odds(event_id, "0", "line", win, draw, lose);
+                                    MbSQL.insert_odds(event_id, "0", "three", win, draw, lose);
                                 }
                             }
                         }
@@ -143,6 +148,56 @@ public partial class frm_single_marathonbet : Form
         return sb.ToString();
 
     }
+
+    public string inser_event_detail(string html)
+    {
+
+        StringBuilder sb = new StringBuilder();
+
+        html = html.Replace("<thead=\"\"", "");
+        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+        doc.LoadHtml(html);
+
+        HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+        List<HtmlNode> nodes = new List<HtmlNode>();
+ 
+
+        foreach (HtmlNode node in nodes_all)
+        {
+
+            if (node.CLASS() == "market-inline-block-table-wrapper")
+            {
+                HtmlNodeCollection nc_div = node.SELECT_NODES("/div");
+                if (nc_div != null)
+                {
+                    sb.Append(nc_div[0].InnerText.E_TRIM() + M.N);
+                    sb.Append("------------------------------------------------------------------" + M.N);
+                }
+                HtmlNodeCollection nc_table = node.SELECT_NODES("/table");
+                if (nc_table == null) continue;
+                foreach (HtmlNode node_table in nc_table)
+                { 
+                    HtmlNodeCollection nc_tr = node_table.SELECT_NODES("/tbody/tr");
+                    if (nc_tr == null) continue;
+                    foreach (HtmlNode node_tr in nc_tr)
+                    {
+                        foreach(HtmlNode node_td in node_tr.ChildNodes)
+                        {
+                            if (node_td == null) continue;
+                            sb.Append(node_td.InnerText.E_TRIM().PR(50));
+                        }
+                        sb.Append(M.N);
+                    }
+                }
+                sb.Append("------------------------------------------------------------------" + M.N);
+            }
+        }
+        return sb.ToString();
+
+    }
+
+
+ 
 
 
 }
