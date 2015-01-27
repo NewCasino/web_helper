@@ -26,13 +26,7 @@ namespace btc_helper
         }
         private void btn_get_data_Click(object sender, EventArgs e)
         {
-
-
-            //btcchina_btc_cny_depth();
-             
-              // get_btcchina_trade();
-              //get_okcoin_cn_trade();
-           
+            okcoin_cn_btc_cny_trade();
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -41,7 +35,7 @@ namespace btc_helper
             timer.Start();
 
             //every 1 seconds
-            if (DateTime.Now.Second % 2 == 0)
+            if (DateTime.Now.Second % 1 == 0)
             {
                  
             }
@@ -68,7 +62,7 @@ namespace btc_helper
             //every 20 seconds
             if (DateTime.Now.Second % 20 == 0)
             {
-                 
+                get_data_trade();
             }
             //every 25 seconds
             if (DateTime.Now.Second % 25 == 0)
@@ -78,7 +72,7 @@ namespace btc_helper
             //every 30 seconds
             if (DateTime.Now.Second % 30 == 0)
             {
-
+                
             }
         }
         private void btn_start_Click(object sender, EventArgs e)
@@ -154,14 +148,13 @@ namespace btc_helper
             string sql = "select * from trade_btcchina where tid={0}";
             sql = string.Format(sql, max_id);
             DataTable dt_temp = SQLServerHelper.get_table(sql);
-            sb.Append("BTCCHINA" + dt_temp.Rows[0]["tid"].ToString().PR(15) + UnixTime.get_local_time_long(Convert.ToUInt32(dt_temp.Rows[0]["time"].ToString())).ToString("yyyy-MM-dd HH:mm:ss") + M.N);
-
+            sb.Append("BTCCHINA".PR(10) + dt_temp.Rows[0]["tid"].ToString().PR(15) + UnixTime.get_local_time_long(Convert.ToUInt64(dt_temp.Rows[0]["time"].ToString())).ToString("yyyy-MM-dd HH:mm:ss") + M.N);
             max_id = BtcHelper.get_trade_max_id("okcoin_cn");
             sql = "select * from trade_okcoin_cn where tid={0}";
             sql = string.Format(sql, max_id);
             dt_temp = SQLServerHelper.get_table(sql);
-            sb.Append("OKCOIN_CN:" + dt_temp.Rows[0]["tid"].ToString().PR(15) + UnixTime.get_local_time_long(Convert.ToUInt32(dt_temp.Rows[0]["time"].ToString())).ToString("yyyy-MM-dd HH:mm:ss") + M.N);
-            
+            sb.Append("OKCOIN_CN:".PR(10) + dt_temp.Rows[0]["tid"].ToString().PR(15) + UnixTime.get_local_time_long(Convert.ToUInt64(dt_temp.Rows[0]["time"].ToString())).ToString("yyyy-MM-dd HH:mm:ss") + M.N);
+            this.txt_result.Text = sb.PRINT();
             if (cb_btcchina_btc_cny_trade.Checked) { Thread thread_btcchina_btc_cny_trade = new Thread(new ThreadStart(btcchina_btc_cny_trade)); thread_btcchina_btc_cny_trade.Start(); }
             if (cb_okcoin_cn_btc_cny_trade.Checked) { Thread thread_okcoin_cn_btc_cny_trade = new Thread(new ThreadStart(okcoin_cn_btc_cny_trade)); thread_okcoin_cn_btc_cny_trade.Start(); } 
         }
