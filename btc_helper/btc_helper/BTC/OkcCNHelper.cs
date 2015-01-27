@@ -10,20 +10,19 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using MongoDB.Bson;
-
-  
-class OkcHelper
+ 
+class OkcCNHelper
 {
 
     static string api_key;
     static string secret_key;
     static HMACSHA512 hash_mark;
     static UInt64 nonce;
-    static OkcHelper()
+    static OkcCNHelper()
     {
-        api_key = SQL.get_value("okc_api_key");
-        secret_key = SQL.get_value("okc_secret_key");
-        hash_mark = new HMACSHA512(Encoding.ASCII.GetBytes(SQL.get_value("okc_hash_key")));
+        api_key = SQL.get_value("cnokc_api_key");
+        secret_key = SQL.get_value("cnokc_secret_key");
+        hash_mark = new HMACSHA512(Encoding.ASCII.GetBytes(SQL.get_value("cnokc_hash_key")));
         nonce = UnixTime.unix_now;
     }
     public static string query(string url)

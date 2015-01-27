@@ -17,9 +17,7 @@ using System.IO;
 
 
 class Match100Helper
-{
-
-
+{ 
     public static bool is_odd_str(string str)
     {
         if (str.Contains(".") == false) return false;
@@ -425,7 +423,60 @@ class Match100Helper
         doc.Add("lose_persent", Math.Round(d_lose_persent, 3).ToString());
 
         return doc;
+    } 
+    public static BsonDocument get_odd_doc_from_europe(string home, string away)
+    {
+        BsonDocument doc = new BsonDocument();
+
+        double d_home = Convert.ToDouble(home);
+        double d_away = Convert.ToDouble(away);
+
+        double d_return_persent = (1 / (1 / d_home + 1 / d_away)) * 100;
+        double d_home_persent = d_return_persent / d_home;
+        double d_away_persent = d_return_persent / d_away; 
+
+
+        doc.Add("home", d_home.ToString("###.000"));
+        doc.Add("away", d_away.ToString("###.000")); 
+        doc.Add("persent_return", Math.Round(d_return_persent, 3).ToString());
+        doc.Add("persent_home", Math.Round(d_home_persent, 3).ToString());
+        doc.Add("persent_away", Math.Round(d_away_persent, 3).ToString()); 
+
+        return doc;
     }
+    public static BsonDocument get_odd_doc_from_europe(string[] list)
+    {
+
+        BsonDocument doc = new BsonDocument();
+
+        double[] odds = new double[list.Length];
+        for (int i = 0; i < list.Length; i++)
+        {
+            odds[i] = Convert.ToDouble(list[i]);
+        }
+
+        double temp = 0;
+        for (int i = 0; i < odds.Length; i++)
+        {
+            temp = temp + 1 / odds[i];
+        }
+        double d_return_persent = (1 / temp) * 100;
+
+        BsonArray ba_odds = new BsonArray();
+        BsonArray ba_persents = new BsonArray();
+        for (int i = 0; i < list.Length; i++)
+        {
+            ba_odds.Add(odds[i].ToString("###.000")); 
+            ba_persents.Add( Math.Round(d_return_persent/odds[i], 3).ToString());
+        }
+
+        doc.Add("odds", ba_odds);
+        doc.Add("persents", ba_persents);
+        doc.Add("persent_return", Math.Round(d_return_persent, 3).ToString());
+         
+        return doc; 
+    }
+
     public static string convert_english_odd(string str)
     {
         string result = "";

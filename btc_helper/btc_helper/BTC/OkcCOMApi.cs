@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 
  
-    public class OkcApi
+    public class OkcCOMApi
     {
 
         //PUBLIC
@@ -13,19 +13,19 @@ using System.Net;
         {
             string url = "https://www.okcoin.com/api/v1/ticker.do?symbol={0}";
             url = string.Format(url, pair);
-            return OkcHelper.query(url); 
+            return OkcCOMHelper.query(url); 
         }
         public static string depth(string pair)
         {
             string url = "https://www.okcoin.com/api/v1/depth.do?symbol={0}&size=200";
             url = string.Format(url, pair);
-            return OkcHelper.query(url);
+            return OkcCOMHelper.query(url);
         }
         //TRADE
         public static string personal_info()
         { 
             Dictionary<string, string> list = new Dictionary<string, string>(); 
-            return OkcHelper.query("https://www.okcoin.com/api/v1/userinfo.do",list);
+            return OkcCOMHelper.query("https://www.okcoin.com/api/v1/userinfo.do",list);
         }
     }
  

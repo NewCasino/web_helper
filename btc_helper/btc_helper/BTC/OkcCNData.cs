@@ -10,7 +10,7 @@ using System.Text;
 using System.Web;
 using MongoDB.Bson;
 
-public class CnokcData
+public class OkcCNData
 {
     public static string show_ticker(string result)
     {

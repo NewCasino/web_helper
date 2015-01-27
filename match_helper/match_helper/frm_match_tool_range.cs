@@ -60,7 +60,7 @@ namespace web_helper
 
 
 
-            for (int input = 10; input < 10000; input++)
+            for (int input = 10; input <= 10000; input++)
             {
                 BsonDocument doc_item = new BsonDocument();
                 count_win = Math.Round(input / win);

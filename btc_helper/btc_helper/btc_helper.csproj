@@ -68,9 +68,9 @@
     <Compile Include="BTC\BtceData.cs" />
     <Compile Include="BTC\BtcHelper.cs" />
     <Compile Include="BTC\CurrencyHelper.cs" />
-    <Compile Include="BTC\OkcHelper.cs" />
-    <Compile Include="BTC\OkcApi.cs" />
-    <Compile Include="BTC\OkcData.cs" />
+    <Compile Include="BTC\OkcCOMHelper.cs" />
+    <Compile Include="BTC\OkcCOMApi.cs" />
+    <Compile Include="BTC\OkcCOMData.cs" />
     <Compile Include="BTC\BtctradeApi.cs" />
     <Compile Include="BTC\BtctradeData.cs" />
     <Compile Include="BTC\BtctradeHelper.cs" />
@@ -80,9 +80,9 @@
     <Compile Include="BTC\HuobiApi.cs" />
     <Compile Include="BTC\HuobiData.cs" />
     <Compile Include="BTC\HuobiHelper.cs" />
-    <Compile Include="BTC\CnokcApi.cs" />
-    <Compile Include="BTC\CnokcData.cs" />
-    <Compile Include="BTC\CnokcHelper.cs" />
+    <Compile Include="BTC\OkcCNApi.cs" />
+    <Compile Include="BTC\OkcCNData.cs" />
+    <Compile Include="BTC\OkcCNHelper.cs" />
     <Compile Include="frm_bar.cs">
       <SubType>Form</SubType>
     </Compile>

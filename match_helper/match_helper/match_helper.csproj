@@ -8,8 +8,8 @@
     <ProjectGuid>{3EA58C41-F095-48B1-A019-60F658EE6F75}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>web_helper</RootNamespace>
-    <AssemblyName>web_helper</AssemblyName>
+    <RootNamespace>match_helper</RootNamespace>
+    <AssemblyName>match_helper</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -128,7 +128,7 @@
     <Compile Include="API\PIN\PinData.cs" />
     <Compile Include="API\PIN\PinHelper.cs" />
     <Compile Include="API\PIN\PinSQL.cs" />
-    <Compile Include="CombineAnalyse.cs" />
+    <Compile Include="Match\CombineAnalyse.cs" />
     <Compile Include="frm_match_100_analyse_with_present.cs">
       <SubType>Form</SubType>
     </Compile>

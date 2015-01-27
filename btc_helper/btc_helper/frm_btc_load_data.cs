@@ -29,19 +29,60 @@ namespace btc_helper
 
 
             //btcchina_btc_cny_depth();
-             get_data();
+             
               // get_btcchina_trade();
               //get_okcoin_cn_trade();
            
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-            get_data();
+         
             this.lb_time.Text = System.DateTime.Now.ToString("HH:mm:ss");
             timer.Start();
+
+            //every 1 seconds
+            if (DateTime.Now.Second % 2 == 0)
+            {
+                 
+            }
+            //every 2 seconds
+            if (DateTime.Now.Second % 2 == 0)
+            {
+                 
+            }
+            //every 5 seconds
+            if (DateTime.Now.Second % 5 == 0)
+            {
+
+            }
+            //every 10 seconds
+            if (DateTime.Now.Second % 10 == 0)
+            {
+
+            }
+            //every 15 seconds
+            if (DateTime.Now.Second % 15 == 0)
+            {
+
+            }
+            //every 20 seconds
+            if (DateTime.Now.Second % 20 == 0)
+            {
+                 
+            }
+            //every 25 seconds
+            if (DateTime.Now.Second % 25 == 0)
+            {
+
+            }
+            //every 30 seconds
+            if (DateTime.Now.Second % 30 == 0)
+            {
+
+            }
         }
         private void btn_start_Click(object sender, EventArgs e)
-        {
+        { 
             timer.Start();
         } 
         private void btn_stop_Click(object sender, EventArgs e)
@@ -49,48 +90,82 @@ namespace btc_helper
             timer.Stop();
         }
 
-        public void get_data()
+        public void get_data_ticker()
         {
 
-            string sql = "select count(*) from ticker_log union all select count(*) from depth_log";
+            string sql = "select count(*) from ticker_log ";
             DataTable dt = SQLServerHelper.get_table(sql);
-            string template = "TICKER COUNT:{0},DEPTH COUNT:{1}";
-            sb.AppendLine(string.Format(template, dt.Rows[0][0].ToString(), dt.Rows[1][0].ToString()));
+            string template = "TICKER COUNT:{0}";
+            sb.AppendLine(string.Format(template, dt.Rows[0][0].ToString()));
             this.txt_result.Text = sb.PRINT(); 
 
-            if (cb_btcchina_btc_cny_depth.Checked) { Thread thread_btcchina_btc_cny_depth = new Thread(new ThreadStart(btcchina_btc_cny_depth)); thread_btcchina_btc_cny_depth.Start(); }
-            if (cb_btcchina_btc_cny_ticker.Checked) { Thread thread_btcchina_btc_cny_ticker = new Thread(new ThreadStart(btcchina_btc_cny_ticker)); thread_btcchina_btc_cny_ticker.Start(); }
-            if (cb_btcchina_btc_cny_trade.Checked) { Thread thread_btcchina_btc_cny_trade = new Thread(new ThreadStart(btcchina_btc_cny_trade)); thread_btcchina_btc_cny_trade.Start(); }
-            if (cb_btcchina_ltc_cny_depth.Checked) { Thread thread_btcchina_ltc_cny_depth = new Thread(new ThreadStart(btcchina_ltc_cny_depth)); thread_btcchina_ltc_cny_depth.Start(); }
+           
+            if (cb_btcchina_btc_cny_ticker.Checked) { Thread thread_btcchina_btc_cny_ticker = new Thread(new ThreadStart(btcchina_btc_cny_ticker)); thread_btcchina_btc_cny_ticker.Start(); }  
             if (cb_btcchina_ltc_cny_ticker.Checked) { Thread thread_btcchina_ltc_cny_ticker = new Thread(new ThreadStart(btcchina_ltc_cny_ticker)); thread_btcchina_ltc_cny_ticker.Start(); }
 
-            if (cb_cnokc_btc_cny_depth.Checked) { Thread thread_cnokc_btc_cny_depth = new Thread(new ThreadStart(cnokc_btc_cny_depth)); thread_cnokc_btc_cny_depth.Start(); }
-            if (cb_cnokc_btc_cny_ticker.Checked) { Thread thread_cnokc_btc_cny_ticker = new Thread(new ThreadStart(cnokc_btc_cny_ticker)); thread_cnokc_btc_cny_ticker.Start(); }
-            if (cb_cnokc_btc_cny_trade.Checked) { Thread thread_cnokc_btc_cny_trade= new Thread(new ThreadStart(cnokc_btc_cny_trade)); thread_cnokc_btc_cny_trade.Start(); }
-            if (cb_cnokc_ltc_cny_ticker.Checked) { Thread thread_cnokc_ltc_cny_ticker = new Thread(new ThreadStart(cnokc_ltc_cny_ticker)); thread_cnokc_ltc_cny_ticker.Start(); }
+            
+            if (cb_okcoin_cn_btc_cny_ticker.Checked) { Thread thread_okcoin_cn_btc_cny_ticker = new Thread(new ThreadStart(okcoin_cn_btc_cny_ticker)); thread_okcoin_cn_btc_cny_ticker.Start(); } 
+            if (cb_okcoin_cn_ltc_cny_ticker.Checked) { Thread thread_okcoin_cn_ltc_cny_ticker = new Thread(new ThreadStart(okcoin_cn_ltc_cny_ticker)); thread_okcoin_cn_ltc_cny_ticker.Start(); }
 
             if (cb_btctrade_btc_cny_depth.Checked) { Thread thread_btctrade_btc_cny_depth = new Thread(new ThreadStart(btctrade_btc_cny_depth)); thread_btctrade_btc_cny_depth.Start(); }
             if (cb_btctrade_btc_cny_ticker.Checked) { Thread thread_btctrade_btc_cny_ticker = new Thread(new ThreadStart(btctrade_btc_cny_ticker)); thread_btctrade_btc_cny_ticker.Start(); }
 
-            if (cb_huobi_btc_cny_depth.Checked) { Thread thread_huobi_btc_cny_depth = new Thread(new ThreadStart(huobi_btc_cny_depth)); thread_huobi_btc_cny_depth.Start(); }
+            
             if (cb_huobi_btc_cny_ticker.Checked) { Thread thread_huobi_btc_cny_ticker = new Thread(new ThreadStart(huobi_btc_cny_ticker)); thread_huobi_btc_cny_ticker.Start(); }
-            if (cb_huobi_ltc_cny_depth.Checked) { Thread thread_huobi_ltc_cny_depth = new Thread(new ThreadStart(huobi_ltc_cny_depth)); thread_huobi_ltc_cny_depth.Start(); }
             if (cb_huobi_ltc_cny_ticker.Checked) { Thread thread_huobi_ltc_cny_ticker = new Thread(new ThreadStart(huobi_ltc_cny_ticker)); thread_huobi_ltc_cny_ticker.Start(); }
 
-            if (cb_btce_btc_usd_depth.Checked) { Thread thread_btce_btc_usd_depth = new Thread(new ThreadStart(btce_btc_usd_depth)); thread_btce_btc_usd_depth.Start(); }
+           
             if (cb_btce_btc_usd_ticker.Checked) { Thread thread_btce_btc_usd_ticker = new Thread(new ThreadStart(btce_btc_usd_ticker)); thread_btce_btc_usd_ticker.Start(); }
-            if (cb_btce_ltc_usd_depth.Checked) { Thread thread_btce_ltc_usd_depth = new Thread(new ThreadStart(btce_ltc_usd_depth)); thread_btce_ltc_usd_depth.Start(); }
             if (cb_btce_ltc_usd_ticker.Checked) { Thread thread_btce_ltc_usd_ticker = new Thread(new ThreadStart(btce_ltc_usd_ticker)); thread_btce_ltc_usd_ticker.Start(); }
 
-            if (cb_okcoin_btc_usd_depth.Checked) { Thread thread_okcoin_btc_usd_depth = new Thread(new ThreadStart(okc_btc_usd_depth)); thread_okcoin_btc_usd_depth.Start(); }
-            if (cb_okcoin_btc_usd_ticker.Checked) { Thread thread_okcoin_btc_usd_ticker = new Thread(new ThreadStart(okc_btc_usd_ticker)); thread_okcoin_btc_usd_ticker.Start(); }
-            if (cb_okcoin_ltc_usd_depth.Checked) { Thread thread_okcoin_ltc_usd_depth = new Thread(new ThreadStart(okc_ltc_usd_depth)); thread_okcoin_ltc_usd_depth.Start(); }
-            if (cb_okcoin_ltc_usd_ticker.Checked) { Thread thread_okcoin_ltc_usd_ticker = new Thread(new ThreadStart(okc_ltc_usd_ticker)); thread_okcoin_ltc_usd_ticker.Start(); }
+            
+            if (cb_okcoin_com_btc_usd_ticker.Checked) { Thread thread_okcoin_com_btc_usd_ticker = new Thread(new ThreadStart(okcoin_com_btc_usd_ticker)); thread_okcoin_com_btc_usd_ticker.Start(); }
+            if (cb_okcoin_com_ltc_usd_ticker.Checked) { Thread thread_okcoin_com_ltc_usd_ticker = new Thread(new ThreadStart(okcoin_com_ltc_usd_ticker)); thread_okcoin_com_ltc_usd_ticker.Start(); }
             
         }
-        
+        public void get_data_depth()
+        {
 
-       
+            string sql = "select count(*) from depth_log ";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            string template = "DEPTH COUNT:{0}";
+            sb.AppendLine(string.Format(template, dt.Rows[0][0].ToString()));
+            this.txt_result.Text = sb.PRINT(); 
+
+
+            if (cb_btcchina_btc_cny_depth.Checked) { Thread thread_btcchina_btc_cny_depth = new Thread(new ThreadStart(btcchina_btc_cny_depth)); thread_btcchina_btc_cny_depth.Start(); }
+            if (cb_btcchina_ltc_cny_depth.Checked) { Thread thread_btcchina_ltc_cny_depth = new Thread(new ThreadStart(btcchina_ltc_cny_depth)); thread_btcchina_ltc_cny_depth.Start(); }
+
+            if (cb_okcoin_cn_btc_cny_depth.Checked) { Thread thread_okcoin_cn_btc_cny_depth = new Thread(new ThreadStart(okcoin_cn_btc_cny_depth)); thread_okcoin_cn_btc_cny_depth.Start(); }
+
+            if (cb_huobi_btc_cny_depth.Checked) { Thread thread_huobi_btc_cny_depth = new Thread(new ThreadStart(huobi_btc_cny_depth)); thread_huobi_btc_cny_depth.Start(); }
+            if (cb_huobi_ltc_cny_depth.Checked) { Thread thread_huobi_ltc_cny_depth = new Thread(new ThreadStart(huobi_ltc_cny_depth)); thread_huobi_ltc_cny_depth.Start(); }
+
+            if (cb_btce_btc_usd_depth.Checked) { Thread thread_btce_btc_usd_depth = new Thread(new ThreadStart(btce_btc_usd_depth)); thread_btce_btc_usd_depth.Start(); }
+            if (cb_btce_ltc_usd_depth.Checked) { Thread thread_btce_ltc_usd_depth = new Thread(new ThreadStart(btce_ltc_usd_depth)); thread_btce_ltc_usd_depth.Start(); }
+
+            if (cb_okcoin_com_btc_usd_depth.Checked) { Thread thread_okcoin_com_btc_usd_depth = new Thread(new ThreadStart(okcoin_com_btc_usd_depth)); thread_okcoin_com_btc_usd_depth.Start(); }
+            if (cb_okcoin_com_ltc_usd_depth.Checked) { Thread thread_okcoin_com_ltc_usd_depth = new Thread(new ThreadStart(okcoin_com_ltc_usd_depth)); thread_okcoin_com_ltc_usd_depth.Start(); }
+
+        }
+        public void get_data_trade()
+        {
+            string max_id = BtcHelper.get_trade_max_id("btcchina");
+            string sql = "select * from trade_btcchina where tid={0}";
+            sql = string.Format(sql, max_id);
+            DataTable dt_temp = SQLServerHelper.get_table(sql);
+            sb.Append("BTCCHINA" + dt_temp.Rows[0]["tid"].ToString().PR(15) + UnixTime.get_local_time_long(Convert.ToUInt32(dt_temp.Rows[0]["time"].ToString())).ToString("yyyy-MM-dd HH:mm:ss") + M.N);
+
+            max_id = BtcHelper.get_trade_max_id("okcoin_cn");
+            sql = "select * from trade_okcoin_cn where tid={0}";
+            sql = string.Format(sql, max_id);
+            dt_temp = SQLServerHelper.get_table(sql);
+            sb.Append("OKCOIN_CN:" + dt_temp.Rows[0]["tid"].ToString().PR(15) + UnixTime.get_local_time_long(Convert.ToUInt32(dt_temp.Rows[0]["time"].ToString())).ToString("yyyy-MM-dd HH:mm:ss") + M.N);
+            
+            if (cb_btcchina_btc_cny_trade.Checked) { Thread thread_btcchina_btc_cny_trade = new Thread(new ThreadStart(btcchina_btc_cny_trade)); thread_btcchina_btc_cny_trade.Start(); }
+            if (cb_okcoin_cn_btc_cny_trade.Checked) { Thread thread_okcoin_cn_btc_cny_trade = new Thread(new ThreadStart(okcoin_cn_btc_cny_trade)); thread_okcoin_cn_btc_cny_trade.Start(); } 
+        }
+         
         public void btcchina_btc_cny_depth()
         {
             try
@@ -151,24 +226,24 @@ namespace btc_helper
             }
         }
 
-        public void cnokc_btc_cny_depth()
+        public void okcoin_cn_btc_cny_depth()
         {
             try
             {
-                string result = CnokcApi.depth(Pair.btc_cny.ToString());
-                CnokcData.insert_depth(result, Pair.btc_cny.ToString());
+                string result = OkcCNApi.depth(Pair.btc_cny.ToString());
+                OkcCNData.insert_depth(result, Pair.btc_cny.ToString());
             }
             catch (Exception error)
             {
                 Log.error("CnokApi.depth.btc_cny", error);
             }
         }
-        public void cnokc_btc_cny_ticker()
+        public void okcoin_cn_btc_cny_ticker()
         {
             try
             {
-                string result = CnokcApi.ticker(Pair.btc_cny.ToString());
-                CnokcData.insert_ticker(result, Pair.btc_cny.ToString());
+                string result = OkcCNApi.ticker(Pair.btc_cny.ToString());
+                OkcCNData.insert_ticker(result, Pair.btc_cny.ToString());
 
 
             }
@@ -177,22 +252,22 @@ namespace btc_helper
                 Log.error("Cnokcapi.ticker.btc_cny", error);
             }
         }
-        public void cnokc_ltc_cny_ticker()
+        public void okcoin_cn_ltc_cny_ticker()
         {
             try
             {
-                string result = CnokcApi.ticker(Pair.ltc_cny.ToString());
-                CnokcData.insert_ticker(result, Pair.ltc_cny.ToString());
+                string result = OkcCNApi.ticker(Pair.ltc_cny.ToString());
+                OkcCNData.insert_ticker(result, Pair.ltc_cny.ToString());
             }
             catch (Exception error)
             {
                 Log.error("CnokcApi.ticker.ltc_cny", error);
             }
         }
-        public void cnokc_btc_cny_trade()
+        public void okcoin_cn_btc_cny_trade()
         {
             string max_id = BtcHelper.get_trade_max_id("okcoin_cn");
-            string result = CnokcApi.trade(max_id);
+            string result = OkcCNApi.trade(max_id);
             BsonArray list = MongoHelper.get_array_from_str(result);
             for (int i = 0; i < list.Count; i++)
             {
@@ -324,49 +399,49 @@ namespace btc_helper
             }
         }
 
-        public void okc_btc_usd_depth()
+        public void okcoin_com_btc_usd_depth()
         {
             try
             {
-                string result = OkcApi.depth(Pair.btc_usd.ToString());
-                OkcData.insert_depth(result, Pair.btc_usd.ToString());
+                string result = OkcCOMApi.depth(Pair.btc_usd.ToString());
+                OkcCOMData.insert_depth(result, Pair.btc_usd.ToString());
             }
             catch (Exception error)
             {
                 Log.error("OkcApi.depth.btc_usd", error);
             }
         }
-        public void okc_btc_usd_ticker()
+        public void okcoin_com_btc_usd_ticker()
         {
             try
             {
-                string result = OkcApi.ticker(Pair.btc_usd.ToString());
-                OkcData.insert_ticker(result, Pair.btc_usd.ToString());
+                string result = OkcCOMApi.ticker(Pair.btc_usd.ToString());
+                OkcCOMData.insert_ticker(result, Pair.btc_usd.ToString());
             }
             catch (Exception error)
             {
                 Log.error("OkcApi.ticker.btc_usd", error);
             }
         }
-        public void okc_ltc_usd_depth()
+        public void okcoin_com_ltc_usd_depth()
         {
             try
             {
-                string result = OkcApi.depth(Pair.ltc_usd.ToString());
-                OkcData.insert_depth(result, Pair.ltc_usd.ToString());
+                string result = OkcCOMApi.depth(Pair.ltc_usd.ToString());
+                OkcCOMData.insert_depth(result, Pair.ltc_usd.ToString());
             }
             catch (Exception error)
             {
                 Log.error("OkcApi.depth.ltc_usd", error);
             }
         }
-        public void okc_ltc_usd_ticker()
+        public void okcoin_com_ltc_usd_ticker()
         {
             try
             {
 
-                string result = OkcApi.ticker(Pair.ltc_usd.ToString());
-                OkcData.insert_ticker(result, Pair.ltc_usd.ToString());
+                string result = OkcCOMApi.ticker(Pair.ltc_usd.ToString());
+                OkcCOMData.insert_ticker(result, Pair.ltc_usd.ToString());
 
             }
             catch (Exception error)
@@ -374,6 +449,5 @@ namespace btc_helper
                 Log.error("Okcapi.ticker.ltc_usd", error);
             }
         } 
-
     }
 }

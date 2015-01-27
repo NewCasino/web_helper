@@ -53,10 +53,19 @@ class BtcHelper
     }
     public static void insert_trade(string website, string tid, string time, string price, string amount, string type, string currency, string qty_type)
     {
-        string sql = ""; 
-        sql = "insert into trade (timespan,website,tid,time,price,amount,type,currency,qty_type) values ({0},'{1}',{2},{3},{4},{5},'{6}','{7}','{8}')";
-        sql = string.Format(sql,UnixTime.unix_now_long.ToString(), website, tid, time, price, amount, type, currency, qty_type);
-        SQLServerHelper.exe_sql(sql);
+        string sql = "";
+        if (website == "btcchina")
+        {
+            sql = "insert into trade_btcchina (timespan,website,tid,time,price,amount,type,currency,qty_type) values ({0},'{1}',{2},{3},{4},{5},'{6}','{7}','{8}')";
+            sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, tid, time, price, amount, type, currency, qty_type);
+            SQLServerHelper.exe_sql(sql);
+        }
+        if (website == "okcoin_cn")
+        {
+            sql = "insert into trade_okcoin_cn (timespan,website,tid,time,price,amount,type,currency,qty_type) values ({0},'{1}',{2},{3},{4},{5},'{6}','{7}','{8}')";
+            sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, tid, time, price, amount, type, currency, qty_type);
+            SQLServerHelper.exe_sql(sql);
+        }
     }
     public static void insert_trade_log(string website, string currency, string type, string qty_type, string text)
     {
@@ -78,7 +87,15 @@ class BtcHelper
     }
     public static string get_trade_max_id(string website)
     {
-        string sql = "select max(tid) from trade where website='{0}'";
+        string sql = "";
+        if (website == "btcchina")
+        {
+            sql = "select max(tid) from trade_btcchina where website='{0}'";
+        }
+        if (website == "okcoin_cn")
+        {
+            sql = "select max(tid) from trade_okcoin_cn where website='{0}'";
+        }
         sql = string.Format(sql, website);
         DataTable dt = SQLServerHelper.get_table(sql);
         dt = SQLServerHelper.get_table(sql);
