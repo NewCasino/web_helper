@@ -1,0 +1,53 @@
+﻿<div id="chart" >  </div>
+
+<script src="media/js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="media/js/highstock/highstock.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+ 
+createChart = function () {
+
+    $('#chart').highcharts('StockChart', {  
+
+//            rangeSelector : {
+//                inputEnabled: $('#container').width() > 480,
+//                selected : 1
+//            }, 
+            rangeSelector : { 
+               allButtonsEnabled: true,
+//                buttons: [
+//                    { type: 'millisecond', count: 1, text: '1ms' },
+//                    { type: 'second', count: 1, text: '1s' },
+//                    { type: 'minute', count: 1, text: '1min' },
+//                    { type: 'hour', count: 1, text: '1h' }, 
+//                    { type: 'day', count: 1, text: '1d' }, 
+//                    { type: 'month', count: 1, text: '1m' }, 
+//                    { type: 'ytd',  text: 'YTD' }, 
+//                    { type: 'year', count: 1, text: '1y' }, 
+//                    { type: 'all', text: 'All' }
+//                ], 
+                inputEnabled: false,  
+                selected : 4 
+            },
+            title : {
+                text : 'Stock Candle'
+            },
+
+            series : [{
+                type : 'candlestick',
+                name : 'Stock Candle',
+                data : series_data,
+                dataGrouping : {
+                    units : [ 
+                          [ 'week', [1] ],      // unit name 
+                          ['month', [1, 2, 3, 4, 6]]  // allowed multiples
+                    ]
+                }
+            }]
+    }); 
+};
+$.getJSON('response.aspx?method=get_stock_candle',    function (data) { 
+       series_data=data;  
+       createChart(); 
+}); 
+</script>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-static class UnixTime
+public  class UnixTime
 {
     static DateTime start_date;
     static UnixTime()

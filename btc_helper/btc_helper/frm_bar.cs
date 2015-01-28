@@ -39,5 +39,11 @@ namespace btc_helper
             frm_fx_analyse frm = new frm_fx_analyse();
             frm.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            frm_single_btcchina frm = new frm_single_btcchina();
+            frm.Show();
+        }
     }
 }

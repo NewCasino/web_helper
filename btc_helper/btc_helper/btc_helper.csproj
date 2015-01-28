@@ -63,26 +63,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BTC\BtceHelper.cs" />
-    <Compile Include="BTC\BtceApi.cs" />
-    <Compile Include="BTC\BtceData.cs" />
+    <Compile Include="API\BtceHelper.cs" />
+    <Compile Include="API\BtceApi.cs" />
+    <Compile Include="API\BtceData.cs" />
+    <Compile Include="BTC\BtcCompute.cs" />
     <Compile Include="BTC\BtcHelper.cs" />
-    <Compile Include="BTC\CurrencyHelper.cs" />
-    <Compile Include="BTC\OkcCOMHelper.cs" />
-    <Compile Include="BTC\OkcCOMApi.cs" />
-    <Compile Include="BTC\OkcCOMData.cs" />
-    <Compile Include="BTC\BtctradeApi.cs" />
-    <Compile Include="BTC\BtctradeData.cs" />
-    <Compile Include="BTC\BtctradeHelper.cs" />
-    <Compile Include="BTC\BtcchinaApi.cs" />
-    <Compile Include="BTC\BtcchinaData.cs" />
-    <Compile Include="BTC\BtcchinaHelper.cs" />
-    <Compile Include="BTC\HuobiApi.cs" />
-    <Compile Include="BTC\HuobiData.cs" />
-    <Compile Include="BTC\HuobiHelper.cs" />
-    <Compile Include="BTC\OkcCNApi.cs" />
-    <Compile Include="BTC\OkcCNData.cs" />
-    <Compile Include="BTC\OkcCNHelper.cs" />
+    <Compile Include="API\CurrencyHelper.cs" />
+    <Compile Include="API\OkcCOMHelper.cs" />
+    <Compile Include="API\OkcCOMApi.cs" />
+    <Compile Include="API\OkcCOMData.cs" />
+    <Compile Include="API\BtctradeApi.cs" />
+    <Compile Include="API\BtctradeData.cs" />
+    <Compile Include="API\BtctradeHelper.cs" />
+    <Compile Include="API\BtcchinaApi.cs" />
+    <Compile Include="API\BtcchinaData.cs" />
+    <Compile Include="API\BtcchinaHelper.cs" />
+    <Compile Include="API\HuobiApi.cs" />
+    <Compile Include="API\HuobiData.cs" />
+    <Compile Include="API\HuobiHelper.cs" />
+    <Compile Include="API\OkcCNApi.cs" />
+    <Compile Include="API\OkcCNData.cs" />
+    <Compile Include="API\OkcCNHelper.cs" />
     <Compile Include="frm_bar.cs">
       <SubType>Form</SubType>
     </Compile>

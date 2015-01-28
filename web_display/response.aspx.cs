@@ -42,6 +42,9 @@ public partial class Response : System.Web.UI.Page
             case "get_depth_all":
                 result = get_depth_all();
                 break;
+            case "get_stock_candle":
+                result = get_stock_candle();
+                break;
             case "get_stock_test":
                 result = get_stock_test();
                 break;
@@ -333,6 +336,28 @@ public partial class Response : System.Web.UI.Page
         list.Add(doc_sell);
 
         return list.ToString();
+    }
+    public string get_stock_candle()
+    { 
+        DateTime dt_start = UnixTime.get_local_time_long(1329104164000);
+        DateTime dt_end = dt_start.AddDays(0.5);
+
+        BsonArray list_result = new BsonArray();
+        BsonArray list = BtcCompute.get_candle("", dt_start, dt_end, 3600);
+ 
+        for (int i = 0; i < list.Count; i++)
+        {
+            BsonDocument doc = list[i].AsBsonDocument;
+            BsonArray item = new BsonArray();
+            item.Add(Convert.ToUInt64(doc["start_time"].ToString()));
+            item.Add(Convert.ToDouble(doc["open"].ToString()));
+            item.Add(Convert.ToDouble(doc["hight"].ToString()));
+            item.Add(Convert.ToDouble(doc["low"].ToString()));
+            item.Add(Convert.ToDouble(doc["close"].ToString()));
+            list_result.Add(item);
+        } 
+
+        return list_result.ToString();
     }
 
     public string get_stock_test()
