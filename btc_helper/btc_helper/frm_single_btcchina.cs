@@ -48,6 +48,7 @@ namespace btc_helper
         { 
             string sql = "select * from trade_btcchina "; 
             DataTable dt = SQLServerHelper.get_table(sql);
+            int delete_count = 0;
             foreach (DataRow row in dt.Rows)
             {
                 string id = row["id"].ToString();
@@ -58,12 +59,13 @@ namespace btc_helper
                 if (dt_temp.Rows.Count > 0)
                 {
                     sql = "delete from trade_btcchina where  tid={0} and id>{1}";
-                    sql = string.Format(sql,tid, id);
-
+                    sql = string.Format(sql,tid, id); 
                     SQLServerHelper.exe_sql(sql);
-                } 
-                this.txt_result.Text = id.PR(10) + tid.PR(10) + dt_temp.Rows.Count.PR(10);
+                    delete_count = delete_count + 1; 
+                }
+                this.txt_result.Text = delete_count.PR(10)+id.PR(10) + tid.PR(10) + dt_temp.Rows.Count.PR(10);
                 Application.DoEvents();
+              
             }
         }
   

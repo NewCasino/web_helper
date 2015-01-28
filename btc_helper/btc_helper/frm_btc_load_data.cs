@@ -47,12 +47,13 @@ namespace btc_helper
             //every 5 seconds
             if (DateTime.Now.Second % 5 == 0)
             {
-
+                get_data_depth();
+                get_data_ticker();
             }
             //every 10 seconds
             if (DateTime.Now.Second % 10 == 0)
             {
-
+             
             }
             //every 15 seconds
             if (DateTime.Now.Second % 15 == 0)
@@ -60,9 +61,9 @@ namespace btc_helper
 
             }
             //every 20 seconds
-            if (DateTime.Now.Second % 20 == 0)
+            if (DateTime.Now.Second == 16 || DateTime.Now.Second == 36 || DateTime.Now.Second == 56)
             {
-                get_data_trade();
+               
             }
             //every 25 seconds
             if (DateTime.Now.Second % 25 == 0)
@@ -70,9 +71,9 @@ namespace btc_helper
 
             }
             //every 30 seconds
-            if (DateTime.Now.Second % 30 == 0)
+            if (DateTime.Now.Second== 56)
             {
-                
+                get_data_trade();
             }
         }
         private void btn_start_Click(object sender, EventArgs e)

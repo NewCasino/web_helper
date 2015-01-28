@@ -27,7 +27,7 @@ createChart = function () {
 //                    { type: 'all', text: 'All' }
 //                ], 
                 inputEnabled: false,  
-                selected : 4 
+                selected : 1 
             },
             title : {
                 text : 'Stock Candle'
@@ -36,13 +36,13 @@ createChart = function () {
             series : [{
                 type : 'candlestick',
                 name : 'Stock Candle',
-                data : series_data,
-                dataGrouping : {
-                    units : [ 
-                          [ 'week', [1] ],      // unit name 
-                          ['month', [1, 2, 3, 4, 6]]  // allowed multiples
-                    ]
-                }
+                data : series_data//,
+                //dataGrouping : {
+                //    units : [ 
+                //          [ 'week', [1] ],      // unit name 
+                //          ['month', [1, 2, 3, 4, 6]]  // allowed multiples
+                //    ]
+                //}
             }]
     }); 
 };

@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 using MongoDB.Bson;
 public partial class Response : System.Web.UI.Page
 {
-    string[] websites = new string[] { "btcchina", "huobi" };
+    string[] websites = new string[] { "btcchina", "okcoin_cn" };
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -107,7 +107,7 @@ public partial class Response : System.Web.UI.Page
 
         string max_id = get_max_id();
         sql = "select * from ticker_log where id >{0} and timespan>'{1}' and currency like '%btc%'";
-        sql = string.Format(sql, max_id, DateTime.Now.AddSeconds(-10).ToString("yyyy-MM-dd HH:mm:ss"));
+        sql = string.Format(sql, max_id, UnixTime.get_unix_time_from_local_long(DateTime.Now.AddSeconds(-10)));
         DataTable dt = SQLServerHelper.get_table(sql);
         if (dt.Rows.Count > 0)
         {
@@ -338,12 +338,12 @@ public partial class Response : System.Web.UI.Page
         return list.ToString();
     }
     public string get_stock_candle()
-    { 
-        DateTime dt_start = UnixTime.get_local_time_long(1329104164000);
+    {
+        DateTime dt_start = DateTime.Now.AddSeconds(-150000);
         DateTime dt_end = dt_start.AddDays(0.5);
 
         BsonArray list_result = new BsonArray();
-        BsonArray list = BtcCompute.get_candle("", dt_start, dt_end, 3600);
+        BsonArray list = BtcCompute.get_candle("", dt_start, dt_end, 60);
  
         for (int i = 0; i < list.Count; i++)
         {
