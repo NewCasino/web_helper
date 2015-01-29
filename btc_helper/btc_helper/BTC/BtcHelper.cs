@@ -21,34 +21,39 @@ class BtcHelper
         SQLServerHelper.exe_sql(sql);
 
     }
-    public static void insert_depth(string website, string currency, string type, string qty_type, string price, string qty)
+    public static void insert_depth(string website, string currency, string type, string qty_type, string price, string qty,string time)
     {
-        string sql = "";  
-        sql = "insert into depth (timespan,website,currency,type,qty_type,price,qty) values('{0}','{1}','{2}','{3}','{4}',{5},{6})";
-        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, currency, type, qty_type, price, qty);
-        SQLServerHelper.exe_sql(sql);
-    }
-    public static void insert_depth_log(string website, string currency, string type, string qty_type, string text)
-    {
-        string sql = ""; 
+        if (string.IsNullOrEmpty(time)) time = "0";
 
-        sql = "insert into depth_log (timespan,website,currency,type,qty_type,text) values('{0}','{1}','{2}','{3}','{4}','{5}')";
-        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, currency, type, qty_type, text);
+        string sql = "";  
+        sql = "insert into depth (timespan,website,currency,type,qty_type,price,qty,time) values('{0}','{1}','{2}','{3}','{4}',{5},{6},{7})";
+        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, currency, type, qty_type, price, qty,time);
         SQLServerHelper.exe_sql(sql);
     }
-    public static void insert_ticker(string website, string type, string last, string sell, string buy, string hight, string low, string vol)
+    public static void insert_depth_log(string website, string currency, string type, string qty_type, string text,string time)
     {
+        if (string.IsNullOrEmpty(time)) time = "0";
+
+        string sql = "";  
+        sql = "insert into depth_log (timespan,website,currency,type,qty_type,text,time) values('{0}','{1}','{2}','{3}','{4}','{5}',{6})";
+        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, currency, type, qty_type, text,time);
+        SQLServerHelper.exe_sql(sql);
+    }
+    public static void insert_ticker(string website, string type, string last, string sell, string buy, string hight, string low, string vol,string time)
+    {
+        if (string.IsNullOrEmpty(time)) time = "0";
+
         string sql = ""; 
         sql = "delete ticker where website='{0}' and currency='{1}'";
         sql = string.Format(sql, website, type);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into ticker (timespan,website,currency,last,sell,buy,high,low,vol) values('{0}','{1}','{2}',{3},{4},{5},{6},{7},{8})";
-        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, type, last, sell, buy, hight, low, vol);
+        sql = "insert into ticker (timespan,website,currency,last,sell,buy,high,low,vol,time) values('{0}','{1}','{2}',{3},{4},{5},{6},{7},{8},{9})";
+        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, type, last, sell, buy, hight, low, vol,time);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into ticker_log (timespan,website,currency,last,sell,buy,high,low,vol) values('{0}','{1}','{2}',{3},{4},{5},{6},{7},{8})";
-        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, type, last, sell, buy, hight, low, vol);
+        sql = "insert into ticker_log (timespan,website,currency,last,sell,buy,high,low,vol,time) values('{0}','{1}','{2}',{3},{4},{5},{6},{7},{8},{9})";
+        sql = string.Format(sql, UnixTime.unix_now_long.ToString(), website, type, last, sell, buy, hight, low, vol,time);
         SQLServerHelper.exe_sql(sql);
     }
     public static void insert_trade(string website, string tid, string time, string price, string amount, string type, string currency, string qty_type)

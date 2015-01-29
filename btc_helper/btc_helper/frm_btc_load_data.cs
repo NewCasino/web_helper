@@ -26,7 +26,8 @@ namespace btc_helper
         }
         private void btn_get_data_Click(object sender, EventArgs e)
         {
-            okcoin_cn_btc_cny_trade();
+            get_data_depth();
+            get_data_ticker();
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -173,7 +174,7 @@ namespace btc_helper
             }
         }
         public void btcchina_btc_cny_ticker()
-        {
+        { 
             try
             {
                 string result = BtcchinaApi.ticker(Pair.btc_cny.ToString());

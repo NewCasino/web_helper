@@ -108,16 +108,16 @@ public class BtceData
         BsonArray bids = doc[pair]["bids"].AsBsonArray;
 
         BtcHelper.delete_depth("btce", pair);
-        BtcHelper.insert_depth_log("btce", pair, "sell", "btc", asks.ToString());
-        BtcHelper.insert_depth_log("btce", pair, "buy", "btc", bids.ToString());
+        BtcHelper.insert_depth_log("btce", pair, "sell", "btc", asks.ToString(),"");
+        BtcHelper.insert_depth_log("btce", pair, "buy", "btc", bids.ToString(),"");
         for (int i = 0; i < asks.Count; i++)
         {
-            BtcHelper.insert_depth("btce", pair, "sell", "btc", asks[i][0].ToString(), asks[i][1].ToString());
+            BtcHelper.insert_depth("btce", pair, "sell", "btc", asks[i][0].ToString(), asks[i][1].ToString(),"");
             
         }
         for (int i = 0; i < bids.Count; i++)
         {
-            BtcHelper.insert_depth("btce", pair, "buy", "btc", bids[i][0].ToString(), bids[i][1].ToString());
+            BtcHelper.insert_depth("btce", pair, "buy", "btc", bids[i][0].ToString(), bids[i][1].ToString(),"");
         }
       
     }
@@ -128,7 +128,7 @@ public class BtceData
         BsonDocument doc = MongoHelper.get_doc_from_str(result);
 
         BtcHelper.insert_ticker("btce", pair, doc[pair]["last"].ToString(), doc[pair]["buy"].ToString(),
-                                doc[pair]["sell"].ToString(), doc[pair]["high"].ToString(), doc[pair]["low"].ToString(), doc[pair]["vol"].ToString());
+                                doc[pair]["sell"].ToString(), doc[pair]["high"].ToString(), doc[pair]["low"].ToString(), doc[pair]["vol"].ToString(), doc[pair]["updated"].ToString() + "000");
 
    
     }

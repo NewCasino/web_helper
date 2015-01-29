@@ -20,17 +20,17 @@ public class BtcchinaData
 
         BsonArray asks = doc["asks"].AsBsonArray;
         BsonArray bids = doc["bids"].AsBsonArray;
-
+        string time = doc["date"].ToString() + "000";
         BtcHelper.delete_depth("btcchina", pair);
-        BtcHelper.insert_depth_log("btcchina", pair, "sell", "btc", asks.ToString());
-        BtcHelper.insert_depth_log("btcchina", pair, "buy", "btc", bids.ToString());
+        BtcHelper.insert_depth_log("btcchina", pair, "sell", "btc", asks.ToString(),time);
+        BtcHelper.insert_depth_log("btcchina", pair, "buy", "btc", bids.ToString(),time);
         for (int i = 0; i < asks.Count; i++)
         {
-            BtcHelper.insert_depth("btcchina", pair, "sell", "btc", asks[i][0].ToString(), asks[i][1].ToString());
+            BtcHelper.insert_depth("btcchina", pair, "sell", "btc", asks[i][0].ToString(), asks[i][1].ToString(),time);
         }
         for (int i = 0; i < bids.Count; i++)
         {
-            BtcHelper.insert_depth("btcchina", pair, "buy", "btc", bids[i][0].ToString(), bids[i][1].ToString());
+            BtcHelper.insert_depth("btcchina", pair, "buy", "btc", bids[i][0].ToString(), bids[i][1].ToString(),time);
         } 
     }
     public static void insert_ticker(string result,string pair)
@@ -38,7 +38,7 @@ public class BtcchinaData
         
         StringBuilder sb = new StringBuilder();
         BsonDocument doc = MongoHelper.get_doc_from_str(result);
-        BtcHelper.insert_ticker("btcchina", pair, doc["ticker"]["last"].ToString(), doc["ticker"]["sell"].ToString(), doc["ticker"]["buy"].ToString(), doc["ticker"]["high"].ToString(), doc["ticker"]["low"].ToString(), doc["ticker"]["vol"].ToString());
+        BtcHelper.insert_ticker("btcchina", pair, doc["ticker"]["last"].ToString(), doc["ticker"]["sell"].ToString(), doc["ticker"]["buy"].ToString(), doc["ticker"]["high"].ToString(), doc["ticker"]["low"].ToString(), doc["ticker"]["vol"].ToString(),doc["ticker"]["date"].ToString()+"000");
     }
 
     public static void insert_trade(string result, string pair)

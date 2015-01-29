@@ -247,6 +247,15 @@ public class MongoHelper
             table.Rows.Add(row_new);
         }
         return table;
+    } 
+    public static BsonArray reserve_array(BsonArray array)
+    {
+        BsonArray array_result = new BsonArray();
+        for (int i = array.Count - 1; i >= 0; i--)
+        {
+            array_result.Add(array[i]);
+        }
+        return array_result;
     }
 }
  

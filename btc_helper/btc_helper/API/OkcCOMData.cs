@@ -52,18 +52,18 @@ public class OkcCOMData
         BsonDocument doc = MongoHelper.get_doc_from_str(result);
 
         BsonArray asks = doc["asks"].AsBsonArray;
-        BsonArray bids = doc["bids"].AsBsonArray;
+        BsonArray bids = doc["bids"].AsBsonArray; 
 
         BtcHelper.delete_depth("okcoin_com", pair);
-        BtcHelper.insert_depth_log("okcoin_com", pair, "sell", "btc", asks.ToString());
-        BtcHelper.insert_depth_log("okcoin_com", pair, "buy", "btc", bids.ToString());
+        BtcHelper.insert_depth_log("okcoin_com", pair, "sell", "btc", asks.ToString(),"");
+        BtcHelper.insert_depth_log("okcoin_com", pair, "buy", "btc", bids.ToString(),"");
         for (int i = 0; i < asks.Count; i++)
         {
-            BtcHelper.insert_depth("okcoin_com", pair, "sell", "btc", asks[i][0].ToString(), asks[i][1].ToString());
+            BtcHelper.insert_depth("okcoin_com", pair, "sell", "btc", asks[i][0].ToString(), asks[i][1].ToString(),"");
         }
         for (int i = 0; i < bids.Count; i++)
         {
-            BtcHelper.insert_depth("okcoin_com", pair, "buy", "btc", bids[i][0].ToString(), bids[i][1].ToString());
+            BtcHelper.insert_depth("okcoin_com", pair, "buy", "btc", bids[i][0].ToString(), bids[i][1].ToString(),"");
         } 
     }
     public static void insert_ticker(string result,string pair)
@@ -71,7 +71,7 @@ public class OkcCOMData
         StringBuilder sb = new StringBuilder();
         BsonDocument doc = MongoHelper.get_doc_from_str(result);
         BtcHelper.insert_ticker("okcoin_com", pair, doc["ticker"]["last"].ToString(),
-                                 doc["ticker"]["sell"].ToString(), doc["ticker"]["buy"].ToString(), doc["ticker"]["high"].ToString(), doc["ticker"]["low"].ToString(), doc["ticker"]["vol"].ToString());
+                                 doc["ticker"]["sell"].ToString(), doc["ticker"]["buy"].ToString(), doc["ticker"]["high"].ToString(), doc["ticker"]["low"].ToString(), doc["ticker"]["vol"].ToString(),doc["date"].ToString()+"000");
         
     }
 }

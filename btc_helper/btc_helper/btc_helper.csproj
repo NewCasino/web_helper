@@ -68,7 +68,7 @@
     <Compile Include="API\BtceData.cs" />
     <Compile Include="BTC\BtcCompute.cs" />
     <Compile Include="BTC\BtcHelper.cs" />
-    <Compile Include="API\CurrencyHelper.cs" />
+    <Compile Include="BTC\CurrencyHelper.cs" />
     <Compile Include="API\OkcCOMHelper.cs" />
     <Compile Include="API\OkcCOMApi.cs" />
     <Compile Include="API\OkcCOMData.cs" />
