@@ -1,5 +1,4 @@
-﻿namespace btc_helper
-{
+﻿ 
     partial class frm_single_btcchina
     {
         /// <summary>
@@ -29,12 +28,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_start_socket = new System.Windows.Forms.Button();
+            this.btn_analyse_depth = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_test = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.btn_analyse_depth = new System.Windows.Forms.Button();
+            this.btn_start_fix = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -44,6 +45,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_start_fix);
+            this.groupBox1.Controls.Add(this.btn_start_socket);
             this.groupBox1.Controls.Add(this.btn_analyse_depth);
             this.groupBox1.Controls.Add(this.btn_delete);
             this.groupBox1.Controls.Add(this.btn_test);
@@ -52,6 +55,26 @@
             this.groupBox1.Size = new System.Drawing.Size(1020, 56);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btn_start_socket
+            // 
+            this.btn_start_socket.Location = new System.Drawing.Point(254, 22);
+            this.btn_start_socket.Name = "btn_start_socket";
+            this.btn_start_socket.Size = new System.Drawing.Size(75, 23);
+            this.btn_start_socket.TabIndex = 3;
+            this.btn_start_socket.Text = "Start Socket";
+            this.btn_start_socket.UseVisualStyleBackColor = true;
+            this.btn_start_socket.Click += new System.EventHandler(this.btn_start_socket_Click);
+            // 
+            // btn_analyse_depth
+            // 
+            this.btn_analyse_depth.Location = new System.Drawing.Point(172, 21);
+            this.btn_analyse_depth.Name = "btn_analyse_depth";
+            this.btn_analyse_depth.Size = new System.Drawing.Size(75, 23);
+            this.btn_analyse_depth.TabIndex = 2;
+            this.btn_analyse_depth.Text = "An Depth";
+            this.btn_analyse_depth.UseVisualStyleBackColor = true;
+            this.btn_analyse_depth.Click += new System.EventHandler(this.btn_analyse_depth_Click);
             // 
             // btn_delete
             // 
@@ -110,15 +133,15 @@
             this.txt_result.WordWrap = false;
             this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
-            // btn_analyse_depth
+            // btn_start_fix
             // 
-            this.btn_analyse_depth.Location = new System.Drawing.Point(172, 21);
-            this.btn_analyse_depth.Name = "btn_analyse_depth";
-            this.btn_analyse_depth.Size = new System.Drawing.Size(75, 23);
-            this.btn_analyse_depth.TabIndex = 2;
-            this.btn_analyse_depth.Text = "An Depth";
-            this.btn_analyse_depth.UseVisualStyleBackColor = true;
-            this.btn_analyse_depth.Click += new System.EventHandler(this.btn_analyse_depth_Click);
+            this.btn_start_fix.Location = new System.Drawing.Point(336, 22);
+            this.btn_start_fix.Name = "btn_start_fix";
+            this.btn_start_fix.Size = new System.Drawing.Size(75, 23);
+            this.btn_start_fix.TabIndex = 4;
+            this.btn_start_fix.Text = "Start Fix";
+            this.btn_start_fix.UseVisualStyleBackColor = true;
+            this.btn_start_fix.Click += new System.EventHandler(this.btn_start_fix_Click);
             // 
             // frm_single_btcchina
             // 
@@ -145,5 +168,6 @@
         private System.Windows.Forms.TextBox txt_result;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_analyse_depth;
+        private System.Windows.Forms.Button btn_start_socket;
+        private System.Windows.Forms.Button btn_start_fix;
     }
-}

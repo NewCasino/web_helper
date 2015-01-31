@@ -1,0 +1,60 @@
+20150131-06:00:49.844 : Created session
+20150131-06:00:49.875 : Connecting to 54.199.176.76 on port 9880
+20150131-06:00:50.063 : Connection succeeded
+20150131-06:00:50.125 : Session reset: ResetOnLogon
+20150131-06:00:50.157 : Session reset: ResetSeqNumFlag
+20150131-06:00:50.157 : Initiated logon request
+20150131-06:01:00.172 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
+20150131-06:01:00.188 : Session reset: ResetOnDisconnect
+20150131-06:01:49.936 : Connecting to 54.199.176.76 on port 9880
+20150131-06:01:50.014 : Connection succeeded
+20150131-06:01:50.030 : Session reset: ResetOnLogon
+20150131-06:01:50.030 : Session reset: ResetSeqNumFlag
+20150131-06:01:50.030 : Initiated logon request
+20150131-06:02:01.030 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
+20150131-06:02:01.045 : Session reset: ResetOnDisconnect
+20150131-06:08:28.239 : Created session
+20150131-06:08:28.270 : Connecting to 54.199.176.76 on port 9880
+20150131-06:08:28.348 : Connection succeeded
+20150131-06:08:28.411 : Session reset: ResetOnLogon
+20150131-06:08:28.442 : Session reset: ResetSeqNumFlag
+20150131-06:08:28.442 : Initiated logon request
+20150131-06:08:38.457 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
+20150131-06:08:38.473 : Session reset: ResetOnDisconnect
+20150131-07:17:09.789 : Created session
+20150131-07:17:10.149 : Connecting to 54.199.176.76 on port 9880
+20150131-07:17:10.414 : Connection succeeded
+20150131-07:17:10.711 : Session reset: ResetOnLogon
+20150131-07:17:10.946 : Session reset: ResetSeqNumFlag
+20150131-07:17:10.977 : Initiated logon request
+20150131-07:17:21.008 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
+20150131-07:17:21.008 : Session reset: ResetOnDisconnect
+20150131-07:19:13.239 : Created session
+20150131-07:19:13.333 : Connecting to 54.199.176.76 on port 9880
+20150131-07:19:13.411 : Connection succeeded
+20150131-07:19:13.474 : Session reset: ResetOnLogon
+20150131-07:19:13.505 : Session reset: ResetSeqNumFlag
+20150131-07:19:13.505 : Initiated logon request
+20150131-07:19:29.270 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
+20150131-07:19:32.442 : Session reset: ResetOnDisconnect
+20150131-07:20:28.003 : Connecting to 54.199.176.76 on port 9880
+20150131-07:20:34.081 : Connection succeeded
+20150131-07:20:34.097 : Session reset: ResetOnLogon
+20150131-07:20:34.097 : Session reset: ResetSeqNumFlag
+20150131-07:20:34.097 : Initiated logon request
+20150131-07:20:45.096 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
+20150131-07:20:45.112 : Session reset: ResetOnDisconnect
+20150131-07:24:18.388 : Created session
+20150131-07:24:23.372 : Connecting to 54.199.176.76 on port 9880
+20150131-07:24:23.591 : Connection succeeded
+20150131-07:24:23.731 : Session reset: ResetOnLogon
+20150131-07:24:23.763 : Session reset: ResetSeqNumFlag
+20150131-07:24:23.778 : Initiated logon request
+20150131-07:41:42.299 : Created session
+20150131-07:41:42.330 : Connecting to 54.199.176.76 on port 9880
+20150131-07:41:42.424 : Connection succeeded
+20150131-07:41:42.470 : Session reset: ResetOnLogon
+20150131-07:41:42.517 : Session reset: ResetSeqNumFlag
+20150131-07:41:42.517 : Initiated logon request
+20150131-07:42:27.360 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
+20150131-07:42:27.422 : Session reset: ResetOnDisconnect

@@ -18,7 +18,7 @@ namespace btc_helper
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_bar());
+            Application.Run(new frm_single_btcchina());
         }
     }
 }
