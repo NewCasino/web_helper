@@ -1,60 +1,49 @@
-20150131-06:00:49.844 : Created session
-20150131-06:00:49.875 : Connecting to 54.199.176.76 on port 9880
-20150131-06:00:50.063 : Connection succeeded
-20150131-06:00:50.125 : Session reset: ResetOnLogon
-20150131-06:00:50.157 : Session reset: ResetSeqNumFlag
-20150131-06:00:50.157 : Initiated logon request
-20150131-06:01:00.172 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
-20150131-06:01:00.188 : Session reset: ResetOnDisconnect
-20150131-06:01:49.936 : Connecting to 54.199.176.76 on port 9880
-20150131-06:01:50.014 : Connection succeeded
-20150131-06:01:50.030 : Session reset: ResetOnLogon
-20150131-06:01:50.030 : Session reset: ResetSeqNumFlag
-20150131-06:01:50.030 : Initiated logon request
-20150131-06:02:01.030 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
-20150131-06:02:01.045 : Session reset: ResetOnDisconnect
-20150131-06:08:28.239 : Created session
-20150131-06:08:28.270 : Connecting to 54.199.176.76 on port 9880
-20150131-06:08:28.348 : Connection succeeded
-20150131-06:08:28.411 : Session reset: ResetOnLogon
-20150131-06:08:28.442 : Session reset: ResetSeqNumFlag
-20150131-06:08:28.442 : Initiated logon request
-20150131-06:08:38.457 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
-20150131-06:08:38.473 : Session reset: ResetOnDisconnect
-20150131-07:17:09.789 : Created session
-20150131-07:17:10.149 : Connecting to 54.199.176.76 on port 9880
-20150131-07:17:10.414 : Connection succeeded
-20150131-07:17:10.711 : Session reset: ResetOnLogon
-20150131-07:17:10.946 : Session reset: ResetSeqNumFlag
-20150131-07:17:10.977 : Initiated logon request
-20150131-07:17:21.008 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
-20150131-07:17:21.008 : Session reset: ResetOnDisconnect
-20150131-07:19:13.239 : Created session
-20150131-07:19:13.333 : Connecting to 54.199.176.76 on port 9880
-20150131-07:19:13.411 : Connection succeeded
-20150131-07:19:13.474 : Session reset: ResetOnLogon
-20150131-07:19:13.505 : Session reset: ResetSeqNumFlag
-20150131-07:19:13.505 : Initiated logon request
-20150131-07:19:29.270 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
-20150131-07:19:32.442 : Session reset: ResetOnDisconnect
-20150131-07:20:28.003 : Connecting to 54.199.176.76 on port 9880
-20150131-07:20:34.081 : Connection succeeded
-20150131-07:20:34.097 : Session reset: ResetOnLogon
-20150131-07:20:34.097 : Session reset: ResetSeqNumFlag
-20150131-07:20:34.097 : Initiated logon request
-20150131-07:20:45.096 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
-20150131-07:20:45.112 : Session reset: ResetOnDisconnect
-20150131-07:24:18.388 : Created session
-20150131-07:24:23.372 : Connecting to 54.199.176.76 on port 9880
-20150131-07:24:23.591 : Connection succeeded
-20150131-07:24:23.731 : Session reset: ResetOnLogon
-20150131-07:24:23.763 : Session reset: ResetSeqNumFlag
-20150131-07:24:23.778 : Initiated logon request
-20150131-07:41:42.299 : Created session
-20150131-07:41:42.330 : Connecting to 54.199.176.76 on port 9880
-20150131-07:41:42.424 : Connection succeeded
-20150131-07:41:42.470 : Session reset: ResetOnLogon
-20150131-07:41:42.517 : Session reset: ResetSeqNumFlag
-20150131-07:41:42.517 : Initiated logon request
-20150131-07:42:27.360 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: Timed out waiting for logon response
-20150131-07:42:27.422 : Session reset: ResetOnDisconnect
+20150201-09:57:02.839 : Created session
+20150201-09:57:02.871 : Connecting to 54.199.176.76 on port 9880
+20150201-09:57:02.961 : Connection succeeded
+20150201-09:57:03.025 : Session reset: ResetOnLogon
+20150201-09:57:03.079 : Session reset: ResetSeqNumFlag
+20150201-09:57:03.086 : Initiated logon request
+20150201-09:57:03.199 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 QuickFix.SocketInitiatorThread.Read()
+20150201-09:57:03.212 : Session reset: ResetOnDisconnect
+20150201-09:58:03.186 : Connecting to 54.199.176.76 on port 9880
+20150201-09:58:03.266 : Connection succeeded
+20150201-09:58:03.276 : Session reset: ResetOnLogon
+20150201-09:58:03.286 : Session reset: ResetSeqNumFlag
+20150201-09:58:03.287 : Initiated logon request
+20150201-09:58:03.374 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 QuickFix.SocketInitiatorThread.Read()
+20150201-09:58:03.385 : Session reset: ResetOnDisconnect
+20150201-09:59:03.241 : Connecting to 54.199.176.76 on port 9880
+20150201-09:59:03.318 : Connection succeeded
+20150201-09:59:03.334 : Session reset: ResetOnLogon
+20150201-09:59:03.349 : Session reset: ResetSeqNumFlag
+20150201-09:59:03.350 : Initiated logon request
+20150201-09:59:03.436 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 QuickFix.SocketInitiatorThread.Read()
+20150201-09:59:03.450 : Session reset: ResetOnDisconnect
+20150201-10:00:04.382 : Connecting to 54.199.176.76 on port 9880
+20150201-10:00:04.463 : Connection succeeded
+20150201-10:00:04.477 : Session reset: ResetOnLogon
+20150201-10:00:04.490 : Session reset: ResetSeqNumFlag
+20150201-10:00:04.491 : Initiated logon request
+20150201-10:00:04.585 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 QuickFix.SocketInitiatorThread.Read()
+20150201-10:00:04.599 : Session reset: ResetOnDisconnect
+20150201-10:01:03.436 : Connecting to 54.199.176.76 on port 9880
+20150201-10:01:03.519 : Connection succeeded
+20150201-10:01:03.534 : Session reset: ResetOnLogon
+20150201-10:01:03.550 : Session reset: ResetSeqNumFlag
+20150201-10:01:03.552 : Initiated logon request
+20150201-10:01:03.640 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 QuickFix.SocketInitiatorThread.Read()
+20150201-10:01:03.647 : Session reset: ResetOnDisconnect
+20150201-10:02:04.567 : Connecting to 54.199.176.76 on port 9880
+20150201-10:02:04.648 : Connection succeeded
+20150201-10:02:04.662 : Session reset: ResetOnLogon
+20150201-10:02:04.673 : Session reset: ResetSeqNumFlag
+20150201-10:02:04.674 : Initiated logon request
+20150201-10:02:04.771 : Session FIX.4.4:313f2379-26c7-4204-86b5-bc66e04ac3e5->BTCC-FIX-SERVER disconnecting: System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 QuickFix.SocketInitiatorThread.Read()
+20150201-10:02:04.784 : Session reset: ResetOnDisconnect

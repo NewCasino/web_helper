@@ -75,6 +75,7 @@
     <Compile Include="API\BtceHelper.cs" />
     <Compile Include="API\BtceApi.cs" />
     <Compile Include="API\BtceData.cs" />
+    <Compile Include="API\Btcchina_test.cs" />
     <Compile Include="BTC\BtcCompute.cs" />
     <Compile Include="BTC\BtcHelper.cs" />
     <Compile Include="BTC\CurrencyHelper.cs" />
@@ -139,7 +140,9 @@
     <Compile Include="Helper\UnixTime.cs" />
     <Compile Include="Helper\UrlSelectHelper.cs" />
     <Compile Include="Helper\WinAPIHelper.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm_bar.resx">
       <DependentUpon>frm_bar.cs</DependentUpon>

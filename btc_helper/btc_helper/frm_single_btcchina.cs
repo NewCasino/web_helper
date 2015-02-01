@@ -255,7 +255,6 @@ public partial class frm_single_btcchina : Form
         //			ret = Session.SendToTarget(dataRequest, app.m_sessionID);
         //			Console.WriteLine("SendToTarget ret={0}", ret);
     }
-    
     //------------------------------------------------------------------------------------------------------------
 
 
@@ -288,7 +287,7 @@ public partial class frm_single_btcchina : Form
     {
         string sql = "";
         int delete_count = 0;
-        for (int i = 0; i < 20000000; i++)
+        for (int i = 137623; i < 20000000; i++)
         {
             sql = "select * from trade_btcchina where id={0}";
             sql = string.Format(sql, i);
@@ -310,8 +309,9 @@ public partial class frm_single_btcchina : Form
                 }
                 this.txt_result.Text = delete_count.PR(10) + id.PR(10) + tid.PR(10) + dt_temp.Rows.Count.PR(10);
                 System.Windows.Forms.Application.DoEvents();
-            }
+            } 
         }
+
     }
     public void analyse_depth()
     {
@@ -337,13 +337,9 @@ public partial class frm_single_btcchina : Form
             buys = MongoHelper.reserve_array(buys);
             sells = MongoHelper.reserve_array(sells);
 
-<<<<<<< HEAD
-                sql = "select top 100  * from trade_btcchina where time>=time";
-                DataTable dt_trade = SQLServerHelper.get_table(sql);
-=======
+
             sql = "select top 100  * from trade_btcchina where time>=time";
             DataTable dt_trade = SQLServerHelper.get_table(sql);
->>>>>>> c0a1c3243fba037647f6ec4730a5f5a5a4893589
 
             sb.Append(UnixTime.get_local_time_long(Convert.ToUInt64(time)).ToString("yyyy-MM-dd HH:mm:ss").PR(20) + buys.Count.PR(10) + sells.Count.PR(10) + dt_trade.Rows.Count.PR(10) + M.N);
         }
