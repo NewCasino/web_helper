@@ -6,7 +6,7 @@
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3847AE63-AD7F-420D-AE55-A77D203C3356}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>btc_helper</RootNamespace>
     <AssemblyName>btc_helper</AssemblyName>
@@ -17,6 +17,8 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,9 +47,13 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MongoDB.Bson, Version=1.8.2.34, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL" />
     <Reference Include="MongoDB.Driver, Version=1.8.2.34, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL" />
+    <Reference Include="QuickFix, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
@@ -61,8 +67,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebSocket4Net, Version=0.11.0.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\BtcchinaFIX.cs" />
+    <Compile Include="API\BtcchinaSocket.cs" />
     <Compile Include="API\BtceHelper.cs" />
     <Compile Include="API\BtceApi.cs" />
     <Compile Include="API\BtceData.cs" />
@@ -101,12 +110,6 @@
     </Compile>
     <Compile Include="frm_btc_load_data.Designer.cs">
       <DependentUpon>frm_btc_load_data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_fx_analyse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_fx_analyse.Designer.cs">
-      <DependentUpon>frm_fx_analyse.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_single_btcchina.cs">
       <SubType>Form</SubType>
@@ -147,10 +150,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_btc_load_data.resx">
       <DependentUpon>frm_btc_load_data.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_fx_analyse.resx">
-      <DependentUpon>frm_fx_analyse.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_single_btcchina.resx">
