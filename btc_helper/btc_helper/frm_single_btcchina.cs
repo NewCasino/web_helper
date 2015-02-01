@@ -105,7 +105,7 @@ namespace btc_helper
                 sells = MongoHelper.reserve_array(sells);
 
                 sql = "select top 100  * from trade_btcchina where time>=time";
-                DataTable dt_trade = SQLServerHelper(sql);
+                DataTable dt_trade = SQLServerHelper.get_table(sql);
 
                 sb.Append(UnixTime.get_local_time_long(Convert.ToUInt64(time)).ToString("yyyy-MM-dd HH:mm:ss").PR(20) + buys.Count.PR(10) + sells.Count.PR(10)+dt_trade.Rows.Count.PR(10)+M.N);
             }
