@@ -6,8 +6,7 @@ using System.Data;
 using MongoDB.Bson;
  
     class BtcCompute
-    {
-       
+    { 
         public  static BsonDocument get_region(string website, DateTime start_time, int seconds)
         {
             UInt64 u_start_time = UnixTime.get_unix_time_from_local_long(start_time);

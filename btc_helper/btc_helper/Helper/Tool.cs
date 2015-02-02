@@ -137,7 +137,26 @@ class Tool
             result = result.Substring(1, result.Length - 1);
         }
         return result; 
-    } 
+    }
+
+    public static string get_str_from_table(DataTable dt)
+    {
+        StringBuilder sb = new StringBuilder();
+        foreach (DataColumn column in dt.Columns)
+        {
+            sb.Append(column.ColumnName.PR(10));
+        }
+        sb.Append(M.N);
+        foreach (DataRow row in dt.Rows)
+        {
+            foreach (DataColumn column in dt.Columns)
+            {
+                sb.Append(row[column.ColumnName].ToString().PR(10));
+            }
+            sb.Append(M.N);
+        }
+        return sb.ToString(); 
+    }
 
 
 }
