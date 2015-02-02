@@ -47,6 +47,7 @@ public partial class frm_single_btcchina : Form
     private void btn_analyse_depth_Click(object sender, EventArgs e)
     {
         analyse_depth();
+        //this.grid_result.DataSource = AnalyseMethod.analyse_by_minute();
     }
  
 
@@ -109,6 +110,8 @@ public partial class frm_single_btcchina : Form
             DataTable dt_trade = SQLServerHelper.get_table(sql);
 
             sb.Append(UnixTime.get_local_time_long(Convert.ToUInt64(time)).ToString("yyyy-MM-dd HH:mm:ss").PR(20) + buys.Count.PR(10) + sells.Count.PR(10) + dt_trade.Rows.Count.PR(10) + M.N);
+            this.txt_result.Text = sb.ToString();
+            System.Windows.Forms.Application.DoEvents();
         }
 
         this.txt_result.Text = sb.ToString();

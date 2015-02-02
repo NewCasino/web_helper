@@ -8,7 +8,7 @@ using MongoDB.Bson;
 
 class AnalyseMethod
 { 
-    public static string analyse_by_day()
+    public static DataTable analyse_by_day()
     {
         DataTable dt = new DataTable();
 
@@ -25,15 +25,14 @@ class AnalyseMethod
                DateTime temp=DateTime.Now.AddDays(-i);
                DateTime start = new DateTime(temp.Year, temp.Month, temp.Day, j, 0, 0);  
                BsonDocument doc = BtcCompute.get_region("btcchina", start, 60 * 60); 
-               row_new[j.ToString()] = (Convert.ToDouble(doc["close"].ToString()) - Convert.ToDouble(doc["open"].ToString())).ToString();
+               row_new[j.ToString()] = Math.Round((Convert.ToDouble(doc["close"].ToString()) - Convert.ToDouble(doc["open"].ToString())),2).ToString();
              
             }
             dt.Rows.Add(row_new); 
         }
-        string test = Tool.get_str_from_table(dt);
-        return Tool.get_str_from_table(dt); 
+        return dt;
     }       
-    public static string analyse_by_minute()
+    public static DataTable analyse_by_minute()
     {
         DataTable dt = new DataTable();
 
@@ -51,12 +50,11 @@ class AnalyseMethod
                 DateTime start = new DateTime(temp.Year, temp.Month, temp.Day, 0, 0, 0);
                 start = start.AddMinutes(i);
                 BsonDocument doc = BtcCompute.get_region("btcchina", start, 60 * 60);
-                row_new[j.ToString()] = (Convert.ToDouble(doc["close"].ToString()) - Convert.ToDouble(doc["open"].ToString())).ToString();
+                row_new[j.ToString()] =Math.Round( (Convert.ToDouble(doc["close"].ToString()) - Convert.ToDouble(doc["open"].ToString())),2).ToString();
             }
             dt.Rows.Add(row_new);
         }
-        string test = Tool.get_str_from_table(dt);
-        return Tool.get_str_from_table(dt); 
+        return dt;
     }
 }
 
