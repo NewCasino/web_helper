@@ -379,10 +379,11 @@ public partial class Response : System.Web.UI.Page
         sql = string.Format(sql, max_id);
         string result_buy = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
 
-        sql = "select * from ticker where website='btcchina'";
+        sql = "select top 1 * from trade_btcchina where time>={0}";
+        sql = string.Format(sql, time);
         DataTable dt_ticker = SQLServerHelper.get_table(sql);
-        double min = Convert.ToDouble(dt_ticker.Rows[0]["buy"].ToString()) - 20;
-        double max = Convert.ToDouble(dt_ticker.Rows[0]["sell"].ToString()) + 20;
+        double min = Convert.ToDouble(dt_ticker.Rows[0]["price"].ToString()) - 20;
+        double max = Convert.ToDouble(dt_ticker.Rows[0]["price"].ToString()) + 20;
 
         BsonArray array_sell = MongoHelper.get_array_from_str(result_sell);
         BsonArray array_buy = MongoHelper.get_array_from_str(result_buy);
