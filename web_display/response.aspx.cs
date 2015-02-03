@@ -20,6 +20,7 @@ public partial class Response : System.Web.UI.Page
     {
 
         string method = Request.QueryString["method"].ToString();
+        string time = "";
         string result = "";
 
         switch (method)
@@ -45,15 +46,14 @@ public partial class Response : System.Web.UI.Page
             case "get_stock_candle":
                 result = get_stock_candle();
                 break;
-            case "get_stock_test":
-                result = get_stock_test();
+            case "get_analyse_depth_depth":
+                time = Request.QueryString["time"].ToString();
+                result = get_analyse_depth_depth(time);
                 break;
-            case "get_new_data_test":
-                result = get_new_data_test();
-                break;
-            case "get_series_test":
-                result = get_series_test();
-                break;
+            case "get_analyse_depth_stock":
+                time = Request.QueryString["time"].ToString();
+                result = get_analyse_depth_stock(time);
+                break; 
             default:
                 break;
         }
@@ -360,106 +360,109 @@ public partial class Response : System.Web.UI.Page
         return list_result.ToString();
     }
 
-    public string get_stock_test()
+    public string get_analyse_depth_depth(string time)
     {
-        TimeSpan span = DateTime.Now - new System.DateTime(1970, 1, 1);
+        string sql = "select max(id) from depth_log where website='btcchina' and type='sell' and time>={0} ";
+        sql = string.Format(sql, time);
+        string max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
 
-        Random randm = new Random();
-        BsonDocument doc = new BsonDocument();
-        BsonArray datas = new BsonArray();
+        sql = "select * from depth_log where id={0}";
+        sql = string.Format(sql, max_id);
+        string result_sell = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
 
-        BsonArray data1 = new BsonArray();
-        for (int i = 1; i < 200; i++)
+
+        sql = "select max(id) from depth_log where website='btcchina' and type='buy'  and time >={0}";
+        sql = string.Format(sql, time);
+        max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
+
+        sql = "select * from depth_log where id={0}";
+        sql = string.Format(sql, max_id);
+        string result_buy = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
+
+        sql = "select * from ticker where website='btcchina'";
+        DataTable dt_ticker = SQLServerHelper.get_table(sql);
+        double min = Convert.ToDouble(dt_ticker.Rows[0]["buy"].ToString()) - 20;
+        double max = Convert.ToDouble(dt_ticker.Rows[0]["sell"].ToString()) + 20;
+
+        BsonArray array_sell = MongoHelper.get_array_from_str(result_sell);
+        BsonArray array_buy = MongoHelper.get_array_from_str(result_buy);
+
+
+        BsonArray list = new BsonArray();
+
+        BsonDocument doc_buy = new BsonDocument();
+        doc_buy.Add("name", "SELL");
+        BsonArray list_buy = new BsonArray();
+        for (int i = array_buy.Count - 1; i >= 0; i--)
         {
-            BsonArray data_item = new BsonArray();
-            data_item.Add((Math.Round(span.TotalSeconds) + i).ToString() + "000");
-            data_item.Add(1000+randm.Next(100));
-            data1.Add(data_item);
-        }
 
-        BsonArray data2 = new BsonArray();
-        for (int i = 1; i < 200; i++)
+            if (Convert.ToDouble(array_buy[i][0].ToString()) > min && Convert.ToDouble(array_buy[i][0].ToString()) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_buy[i][0]);
+                doc_item.Add("y", array_buy[i][1]);
+                list_buy.Add(doc_item);
+            }
+        }
+        doc_buy.Add("data", list_buy);
+
+        BsonDocument doc_sell = new BsonDocument();
+        doc_sell.Add("name", "SELL");
+        BsonArray list_sell = new BsonArray();
+        for (int i = array_sell.Count - 1; i >= 0; i--)
         {
-            BsonArray data_item = new BsonArray();
-            data_item.Add((Math.Round(span.TotalSeconds) + i).ToString() + "000");
-            data_item.Add(900+randm.Next(10));
-            data2.Add(data_item);
+            if (Convert.ToDouble(array_sell[i][0].ToString()) > min && Convert.ToDouble(array_sell[i][0].ToString()) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_sell[i][0]);
+                doc_item.Add("y", array_sell[i][1]);
+                list_sell.Add(doc_item);
+            }
         }
+        doc_sell.Add("data", list_sell);
 
-        BsonDocument doc_data1 = new BsonDocument();
-        doc_data1.Add("name", "Trade");
-        doc_data1.Add("data", data1);
 
-        BsonDocument doc_data2 = new BsonDocument();
-        doc_data2.Add("name", "China");
-        doc_data2.Add("data", data2);
+        list.Add(doc_buy);
+        list.Add(doc_sell);
 
-        datas.Add(doc_data1);
-        datas.Add(doc_data2);
-        return datas.ToJson();
+        return list.ToString();
     }
-    public string get_series_test()
+    public string get_analyse_depth_stock(string time)
     {
-        TimeSpan span = DateTime.Now.AddHours(12) - new System.DateTime(1970, 1, 1);
+        string sql = "";
+        string[] websites = new string[] { "btcchina"};
+        double rate = CurrencyHelper.get_rate("usd", "cny");
 
-        Random randm = new Random();
-        BsonDocument doc = new BsonDocument();
         BsonArray datas = new BsonArray();
-
-        BsonArray data1 = new BsonArray();
-        for (int i = 1; i < 1002; i++)
+        foreach (string website in websites)
         {
-            BsonArray data_item = new BsonArray();
-            data_item.Add((Math.Round(span.TotalSeconds) + i).ToString() + "000");
-            data_item.Add(1000 + randm.Next(100));
-            data1.Add(data_item);
+            BsonDocument doc = new BsonDocument();
+            doc.Add("name", website); 
+            BsonArray data = new BsonArray();
+            if (website == "btcchina")
+            {
+                sql = "select top 1002 * from trade_btcchina  where time >{0} order by id";
+                sql = string.Format(sql, time);
+                DataTable dt = SQLServerHelper.get_table(sql);
+                foreach (DataRow row in dt.Rows)
+                {
+                    BsonArray data_item = new BsonArray();
+                    data_item.Add(row["time"].ToString());
+
+                    if (row["currency"].ToString().Contains("usd"))
+                    {
+                        data_item.Add(Math.Round(Convert.ToDouble(row["price"].ToString()) * rate, 2));
+                    }
+                    else
+                    {
+                        data_item.Add(Convert.ToDouble(row["price"].ToString()));
+                    }
+                    data.Add(data_item);
+                }
+            }
+            doc.Add("data", data);  
+            datas.Add(doc); 
         }
-
-        BsonArray data2 = new BsonArray();
-        for (int i = 1; i < 1002; i++)
-        {
-            BsonArray data_item = new BsonArray();
-            data_item.Add((Math.Round(span.TotalSeconds) + i).ToString() + "000");
-            data_item.Add(900 + randm.Next(10));
-            data2.Add(data_item);
-        }
-
-        BsonDocument doc_data1 = new BsonDocument();
-        doc_data1.Add("name", "Trade");
-        doc_data1.Add("data", data1);
-
-        BsonDocument doc_data2 = new BsonDocument();
-        doc_data2.Add("name", "China");
-        doc_data2.Add("data", data2);
-
-        datas.Add(doc_data1);
-        datas.Add(doc_data2);
         return datas.ToJson();
-    }
-    public string get_new_data_test()
-    {
-        Random randm = new Random();
-
-        BsonArray data = new BsonArray();
-
-        TimeSpan span = DateTime.Now - new System.DateTime(1970, 1, 1);
-
-
-        BsonArray data_item = new BsonArray();
-        data_item.Add(0);
-        data_item.Add((Math.Round(span.TotalSeconds)).ToString() + "000");
-        data_item.Add(1000+randm.Next(400));
-
-
-        BsonArray data_item1 = new BsonArray();
-        data_item1.Add(1);
-        data_item1.Add((Math.Round(span.TotalSeconds)).ToString() + "000");
-        data_item1.Add(900+randm.Next(100));
-
-        data.Add(data_item);
-        data.Add(data_item1);
-        return data.ToString();
-
-
     }
 }
