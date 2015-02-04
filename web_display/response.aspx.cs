@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using MongoDB.Bson;
 public partial class Response : System.Web.UI.Page
 {
@@ -368,8 +368,7 @@ public partial class Response : System.Web.UI.Page
 
         sql = "select * from depth_log where id={0}";
         sql = string.Format(sql, max_id);
-        string result_sell = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
-
+        string result_sell = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString(); 
 
         sql = "select max(id) from depth_log where website='btcchina' and type='buy'  and time >={0}";
         sql = string.Format(sql, time);
@@ -377,17 +376,14 @@ public partial class Response : System.Web.UI.Page
 
         sql = "select * from depth_log where id={0}";
         sql = string.Format(sql, max_id);
-        string result_buy = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
-
-        sql = "select top 1 * from trade_btcchina where time>={0}";
-        sql = string.Format(sql, time);
-        DataTable dt_ticker = SQLServerHelper.get_table(sql);
-        double min = Convert.ToDouble(dt_ticker.Rows[0]["price"].ToString()) - 20;
-        double max = Convert.ToDouble(dt_ticker.Rows[0]["price"].ToString()) + 20;
+        string result_buy = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString(); 
 
         BsonArray array_sell = MongoHelper.get_array_from_str(result_sell);
-        BsonArray array_buy = MongoHelper.get_array_from_str(result_buy);
+        BsonArray array_buy = MongoHelper.get_array_from_str(result_buy); 
 
+        double middle = Convert.ToDouble(array_buy[0][0].ToString());
+        double min = middle - 20;
+        double max = middle + 20; 
 
         BsonArray list = new BsonArray();
 
@@ -395,8 +391,7 @@ public partial class Response : System.Web.UI.Page
         doc_buy.Add("name", "SELL");
         BsonArray list_buy = new BsonArray();
         for (int i = array_buy.Count - 1; i >= 0; i--)
-        {
-
+        { 
             if (Convert.ToDouble(array_buy[i][0].ToString()) > min && Convert.ToDouble(array_buy[i][0].ToString()) < max)
             {
                 BsonDocument doc_item = new BsonDocument();
@@ -420,9 +415,7 @@ public partial class Response : System.Web.UI.Page
                 list_sell.Add(doc_item);
             }
         }
-        doc_sell.Add("data", list_sell);
-
-
+        doc_sell.Add("data", list_sell); 
         list.Add(doc_buy);
         list.Add(doc_sell);
 

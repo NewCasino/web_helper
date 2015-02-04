@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MongoDB.Bson; 
 using System.Threading;
-
+using System.IO;
 namespace btc_helper
 {
     public partial class frm_btc_analyse : Form
@@ -50,7 +50,20 @@ namespace btc_helper
         }
         private void btn_test_Click(object sender, EventArgs e)
         {
-            this.txt_result.Text = BtceApi.trades(Pair.btc_usd.ToString());
+            //this.txt_result.Text = BtceApi.trades(Pair.btc_usd.ToString());
+            //string max_id = BtcHelper.get_trade_max_id("btcchina");
+           // string result = BtcchinaApi.trade_by_id(Pair.btc_cny.ToString(), max_id);
+
+            string result = "";
+            StreamReader reader = new StreamReader("c:/test.txt", Encoding.Default);
+            result = reader.ReadToEnd();
+            reader.Close();
+            BsonArray list = MongoHelper.get_array_from_str(result);
+            for (int i = 0; i < list.Count; i++)
+            {
+                BtcHelper.insert_trade("btcchina", list[i]["tid"].ToString(), list[i]["date"].ToString() + "000", list[i]["price"].ToString(), list[i]["amount"].ToString(), list[i]["type"].ToString(), "btc_cny", "btc");
+            }
+
         }
         public DataTable get_depth_table()
         {

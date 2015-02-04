@@ -70,11 +70,11 @@ create_chart_trend = function () {
         series: series_stock
     });
 };
-$.getJSON('response.aspx?method=get_analyse_depth_depth&time=1422875917000', function (data) {
+$.getJSON('response.aspx?method=get_analyse_depth_depth&time=1422500761000', function (data) {
        series_depth=data;  
        create_chart_depth(); 
 }); 
-$.getJSON('response.aspx?method=get_analyse_depth_stock&time=1422875917000', function (data) {
+$.getJSON('response.aspx?method=get_analyse_depth_stock&time=1422500761000', function (data) {
        series_stock=data;  
        create_chart_trend(); 
 }); 
