@@ -53,6 +53,10 @@ public partial class Response : System.Web.UI.Page
             case "get_analyse_depth_stock":
                 time = Request.QueryString["time"].ToString();
                 result = get_analyse_depth_stock(time);
+                break;
+            case "get_depth_with_time":
+                time = Request.QueryString["time"].ToString();
+                result = get_depth_with_time(time);
                 break; 
             default:
                 break;
@@ -373,7 +377,7 @@ public partial class Response : System.Web.UI.Page
         sql = "select max(id) from depth_log where website='btcchina' and type='buy'  and time >={0}";
         sql = string.Format(sql, time);
         max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
-
+   
         sql = "select * from depth_log where id={0}";
         sql = string.Format(sql, max_id);
         string result_buy = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString(); 
@@ -458,5 +462,84 @@ public partial class Response : System.Web.UI.Page
             datas.Add(doc); 
         }
         return datas.ToJson();
+    }
+
+
+    public string get_depth_with_time(string time)
+    {
+        BsonDocument doc_result = new BsonDocument();
+
+
+        string sql = "select max(id) from depth_log where website='btcchina' and type='sell' and time>={0} ";
+        sql = string.Format(sql, time);
+        string max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
+
+        if (string.IsNullOrEmpty(max_id))
+        {
+            doc_result.Add("data", "");
+            doc_result.Add("time", "no");
+            return doc_result.ToString();
+        }
+
+        sql = "select * from depth_log where id={0}";
+        sql = string.Format(sql, max_id);
+        DataTable dt_sell = SQLServerHelper.get_table(sql);
+        string result_sell = dt_sell.Rows[0]["text"].ToString();
+        string depth_time = dt_sell.Rows[0]["time"].ToString();
+
+        sql = "select max(id) from depth_log where website='btcchina' and type='buy'  and time >={0}";
+        sql = string.Format(sql, time);
+        max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
+
+      
+        sql = "select * from depth_log where id={0}";
+        sql = string.Format(sql, max_id);
+        string result_buy = SQLServerHelper.get_table(sql).Rows[0]["text"].ToString();
+
+        BsonArray array_sell = MongoHelper.get_array_from_str(result_sell);
+        BsonArray array_buy = MongoHelper.get_array_from_str(result_buy);
+
+        double middle = Convert.ToDouble(array_buy[0][0].ToString());
+        double min = middle - 20;
+        double max = middle + 20;
+
+        BsonArray list = new BsonArray();
+
+        BsonDocument doc_buy = new BsonDocument();
+        doc_buy.Add("name", "SELL");
+        BsonArray list_buy = new BsonArray();
+        for (int i = array_buy.Count - 1; i >= 0; i--)
+        {
+            if (Convert.ToDouble(array_buy[i][0].ToString()) > min && Convert.ToDouble(array_buy[i][0].ToString()) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_buy[i][0]);
+                doc_item.Add("y", array_buy[i][1]);
+                list_buy.Add(doc_item);
+            }
+        }
+        doc_buy.Add("data", list_buy);
+
+        BsonDocument doc_sell = new BsonDocument();
+        doc_sell.Add("name", "SELL");
+        BsonArray list_sell = new BsonArray();
+        for (int i = array_sell.Count - 1; i >= 0; i--)
+        {
+            if (Convert.ToDouble(array_sell[i][0].ToString()) > min && Convert.ToDouble(array_sell[i][0].ToString()) < max)
+            {
+                BsonDocument doc_item = new BsonDocument();
+                doc_item.Add("x", array_sell[i][0]);
+                doc_item.Add("y", array_sell[i][1]);
+                list_sell.Add(doc_item);
+            }
+        }
+        doc_sell.Add("data", list_sell);
+        list.Add(doc_buy);
+        list.Add(doc_sell);
+
+       
+        doc_result.Add("data", list);
+        doc_result.Add("time", depth_time);
+        return doc_result.ToString();
     }
 }
