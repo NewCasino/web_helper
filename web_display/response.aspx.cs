@@ -344,8 +344,9 @@ public partial class Response : System.Web.UI.Page
     public string get_stock_candle()
     {
         DateTime dt_start = DateTime.Now.AddSeconds(-150000);
+        dt_start = UnixTime.get_local_time_long(1422500764000);
         DateTime dt_end = dt_start.AddDays(0.5);
-
+        dt_end = dt_start.AddMinutes(50);
         BsonArray list_result = new BsonArray();
         BsonArray list = BtcCompute.get_candle("", dt_start, dt_end, 60);
  
@@ -467,6 +468,9 @@ public partial class Response : System.Web.UI.Page
 
     public string get_depth_with_time(string time)
     {
+        double range = 5;
+        double sell_qty = 0;
+        double buy_qty = 0;
         BsonDocument doc_result = new BsonDocument();
 
 
@@ -500,8 +504,8 @@ public partial class Response : System.Web.UI.Page
         BsonArray array_buy = MongoHelper.get_array_from_str(result_buy);
 
         double middle = Convert.ToDouble(array_buy[0][0].ToString());
-        double min = middle - 20;
-        double max = middle + 20;
+        double min = middle - range;
+        double max = middle + range;
 
         BsonArray list = new BsonArray();
 
@@ -515,6 +519,7 @@ public partial class Response : System.Web.UI.Page
                 BsonDocument doc_item = new BsonDocument();
                 doc_item.Add("x", array_buy[i][0]);
                 doc_item.Add("y", array_buy[i][1]);
+                buy_qty = buy_qty + Convert.ToDouble(array_buy[i][1].ToString());
                 list_buy.Add(doc_item);
             }
         }
@@ -530,6 +535,7 @@ public partial class Response : System.Web.UI.Page
                 BsonDocument doc_item = new BsonDocument();
                 doc_item.Add("x", array_sell[i][0]);
                 doc_item.Add("y", array_sell[i][1]);
+                sell_qty = sell_qty + Convert.ToDouble(array_sell[i][1].ToString());
                 list_sell.Add(doc_item);
             }
         }
@@ -537,9 +543,14 @@ public partial class Response : System.Web.UI.Page
         list.Add(doc_buy);
         list.Add(doc_sell);
 
+        TimeSpan span = UnixTime.get_local_time_long(Convert.ToUInt64(depth_time)) - UnixTime.get_local_time_long(Convert.ToUInt64(time));
+
        
         doc_result.Add("data", list);
         doc_result.Add("time", depth_time);
+        doc_result.Add("seconds", span.TotalSeconds); 
+        doc_result.Add("buy_qty", Math.Round(buy_qty,6));
+        doc_result.Add("sell_qty",Math.Round(sell_qty,6));
         return doc_result.ToString();
     }
 }
