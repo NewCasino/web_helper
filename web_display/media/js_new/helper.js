@@ -1,6 +1,7 @@
 ﻿
 get_str_from_unix=function (unix_time){
-    var date = new Date(parseInt(unix_time)); 
+    var date = new Date(parseInt(unix_time));
+    date.setHours(date.getHours()+8);
     var result="";
     var month=date.getMonth()+1;
     var day=date.getDay();

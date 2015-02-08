@@ -440,7 +440,7 @@ public partial class Response : System.Web.UI.Page
             BsonArray data = new BsonArray();
             if (website == "btcchina")
             {
-                sql = "select top 1002 * from trade_btcchina  where time >{0} order by id";
+                sql = "select top 10020 * from trade_btcchina  where time >={0} order by id";
                 sql = string.Format(sql, time);
                 DataTable dt = SQLServerHelper.get_table(sql);
                 foreach (DataRow row in dt.Rows)
@@ -468,13 +468,13 @@ public partial class Response : System.Web.UI.Page
 
     public string get_depth_with_time(string time)
     {
-        double range = 5;
+        double range = 10;
         double sell_qty = 0;
         double buy_qty = 0;
         BsonDocument doc_result = new BsonDocument();
 
 
-        string sql = "select max(id) from depth_log where website='btcchina' and type='sell' and time>={0} ";
+        string sql = "select min(id) from depth_log where website='btcchina' and type='sell' and time>={0} ";
         sql = string.Format(sql, time);
         string max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
 
@@ -491,7 +491,7 @@ public partial class Response : System.Web.UI.Page
         string result_sell = dt_sell.Rows[0]["text"].ToString();
         string depth_time = dt_sell.Rows[0]["time"].ToString();
 
-        sql = "select max(id) from depth_log where website='btcchina' and type='buy'  and time >={0}";
+        sql = "select min(id) from depth_log where website='btcchina' and type='buy'  and time >={0}";
         sql = string.Format(sql, time);
         max_id = SQLServerHelper.get_table(sql).Rows[0][0].ToString();
 

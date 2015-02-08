@@ -1,4 +1,4 @@
-﻿ <div id="chart_stock"  style="height:400px;" > </div>   
+﻿ <div id="chart_stock"  style="height:300px;" > </div>   
  <div id="chart_depth"  style="height:300px;" > </div> 
  <div>  <pre id="txt_info"></pre>  </div>
 
@@ -10,7 +10,7 @@
 var series_depth;
 var series_stock; 
 
-$.getJSON('response.aspx?method=get_analyse_depth_stock&time=1422500764000', function (data) {
+$.getJSON('response.aspx?method=get_analyse_depth_stock&time=1422795639000', function (data) {
        series_stock=data;  
        create_stock(); 
 });  
@@ -43,7 +43,7 @@ create_stock = function () {
                         click: function () {   
                             var stock_time_unix=this.category;
                             var stock_time=get_str_from_unix(stock_time_unix);
-                            stock_time_unix="1422500761000";
+                            //stock_time_unix="1422500761000";
                             $.getJSON('response.aspx?method=get_depth_with_time&time='+stock_time_unix, function (data) {
                                    var info="";
                                    if(data.time=="no"){
@@ -51,7 +51,7 @@ create_stock = function () {
                                    } else{ 
                                        series_depth=data.data;  
                                        create_chart_depth(); 
-                                       info="STOCK TIME:"+stock_time+",  DEPTH TIME:"+get_str_from_unix(data.time)+",  SECONDS:"+data.seconds+",  SELL QTY:"+data.sell_qty+",  BUY QTY:"+data.buy_qty; 
+                                       info="STOCK TIME:"+stock_time+",  DEPTH TIME:"+get_str_from_unix(data.time)+",  SECONDS:"+data.seconds+",  BUY QTY:"+data.buy_qty+",  SELL QTY:"+data.sell_qty; 
                                    } 
                                    $("#txt_info").text(info); 
                             }); 
