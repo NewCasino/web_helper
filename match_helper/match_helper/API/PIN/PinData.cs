@@ -199,39 +199,39 @@ public class PinData
                             PinSQL.insert_odd_three(event_id, period_number, home_line, draw_line, away_line);
 
                             DateTime dt_start_time = Convert.ToDateTime(start_time);
-                            Match100Helper.insert_data("pinnaclesports", PinSQL.get_league_name(sport_id,league_id), dt_start_time.ToString("yyyy-MM-dd HH:mm:ss"), home_name, away_name, home_line, draw_line, away_line, "0", "0");
+                            Match100Helper.insert_data("pinnaclesports", PinSQL.get_league_name(sport_id, league_id), dt_start_time.ToString("MM/dd●HH:mm"), home_name, away_name, home_line, draw_line, away_line, "0", "0");
                         }
 
-                        XmlNodeList spreads = period.SelectNodes("spreads/spread");
-                        foreach (XmlNode spread in spreads)
-                        {
-                            string home_spread = spread.SelectSingleNode("homeSpread").InnerText;
-                            string home_spread_odd = spread.SelectSingleNode("homePrice").InnerText;
-                            string away_spread = spread.SelectSingleNode("awaySpread").InnerText;
-                            string away_spread_odd = spread.SelectSingleNode("awayPrice").InnerText;
-                            PinSQL.insert_odd_spread(event_id, period_number, home_spread, away_spread, home_spread_odd, away_spread_odd);
-                        }
-                        XmlNodeList totals = period.SelectNodes("totals/total");
-                        foreach (XmlNode total in totals)
-                        {
-                            string total_point = total.SelectSingleNode("points").InnerText;
-                            string total_over = total.SelectSingleNode("overPrice").InnerText;
-                            string total_under = total.SelectSingleNode("underPrice").InnerText;
-                            PinSQL.insert_odd_total(event_id, period_number, total_point, total_over, total_under);
-                        }
+                        //XmlNodeList spreads = period.SelectNodes("spreads/spread");
+                        //foreach (XmlNode spread in spreads)
+                        //{
+                        //    string home_spread = spread.SelectSingleNode("homeSpread").InnerText;
+                        //    string home_spread_odd = spread.SelectSingleNode("homePrice").InnerText;
+                        //    string away_spread = spread.SelectSingleNode("awaySpread").InnerText;
+                        //    string away_spread_odd = spread.SelectSingleNode("awayPrice").InnerText;
+                        //    PinSQL.insert_odd_spread(event_id, period_number, home_spread, away_spread, home_spread_odd, away_spread_odd);
+                        //}
+                        //XmlNodeList totals = period.SelectNodes("totals/total");
+                        //foreach (XmlNode total in totals)
+                        //{
+                        //    string total_point = total.SelectSingleNode("points").InnerText;
+                        //    string total_over = total.SelectSingleNode("overPrice").InnerText;
+                        //    string total_under = total.SelectSingleNode("underPrice").InnerText;
+                        //    PinSQL.insert_odd_total(event_id, period_number, total_point, total_over, total_under);
+                        //}
 
-                        if (period.SelectSingleNode("teamTotals") != null)
-                        {
-                            XmlNode team_total = period.SelectSingleNode("teamTotals");
-                            string team_total_home = team_total.SelectSingleNode("homeTeamTotal/total").InnerText;
-                            string team_total_home_under_price = team_total.SelectSingleNode("homeTeamTotal/overPrice").InnerText;
-                            string team_total_home_over_price = team_total.SelectSingleNode("homeTeamTotal/underPrice").InnerText;
-                            string team_total_away = team_total.SelectSingleNode("awayTeamTotal/total").InnerText;
-                            string team_total_away_under_price = team_total.SelectSingleNode("awayTeamTotal/overPrice").InnerText;
-                            string team_total_away_over_price = team_total.SelectSingleNode("awayTeamTotal/underPrice").InnerText;
-                            PinSQL.insert_odd_team_total_home(event_id, period_number, team_total_home, team_total_home_over_price, team_total_home_under_price);
-                            PinSQL.insert_odd_team_total_home(event_id, period_number, team_total_away, team_total_away_over_price, team_total_away_under_price);
-                        }
+                        //if (period.SelectSingleNode("teamTotals") != null)
+                        //{
+                        //    XmlNode team_total = period.SelectSingleNode("teamTotals");
+                        //    string team_total_home = team_total.SelectSingleNode("homeTeamTotal/total").InnerText;
+                        //    string team_total_home_under_price = team_total.SelectSingleNode("homeTeamTotal/overPrice").InnerText;
+                        //    string team_total_home_over_price = team_total.SelectSingleNode("homeTeamTotal/underPrice").InnerText;
+                        //    string team_total_away = team_total.SelectSingleNode("awayTeamTotal/total").InnerText;
+                        //    string team_total_away_under_price = team_total.SelectSingleNode("awayTeamTotal/overPrice").InnerText;
+                        //    string team_total_away_over_price = team_total.SelectSingleNode("awayTeamTotal/underPrice").InnerText;
+                        //    PinSQL.insert_odd_team_total_home(event_id, period_number, team_total_home, team_total_home_over_price, team_total_home_under_price);
+                        //    PinSQL.insert_odd_team_total_home(event_id, period_number, team_total_away, team_total_away_over_price, team_total_away_under_price);
+                        //}
                     }
                 }
             }

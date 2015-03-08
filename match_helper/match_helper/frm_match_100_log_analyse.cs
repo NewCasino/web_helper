@@ -27,7 +27,7 @@ namespace web_helper
         
         private void btn_pick_data_Click(object sender, EventArgs e)
         {
-            pick_from_single(); 
+            pick_data(); 
             MessageBox.Show("Pick Complete!!");
         }
         private void time_Tick(object sender, EventArgs e)
@@ -74,8 +74,8 @@ namespace web_helper
                 string convert_time = "";
                 string f_state = "1";
 
-                try
-                {
+                //try
+                //{
                     convert_host = Match100Helper.convert_team_name(host);
                     convert_client = Match100Helper.convert_team_name(client);
 
@@ -100,17 +100,17 @@ namespace web_helper
                     sb.AppendLine(website.PR(10) + convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
                     this.txt_result.Text = sb.PRINT();
                     Application.DoEvents();
-                }
-                catch (Exception error)
-                {
-                    sql = " update europe_100_log set  f_state='w' where id='{0}'";
-                    sql = string.Format(sql, id);
-                    SQLServerHelper.exe_sql(sql);
-                    sb.AppendLine(id + " Wrong!");
-                    this.txt_result.Text = sb.PRINT();
-                    Application.DoEvents();
+                //}
+                //catch (Exception error)
+                //{
+                //    sql = " update europe_100_log set  f_state='w' where id='{0}'";
+                //    sql = string.Format(sql, id);
+                //    SQLServerHelper.exe_sql(sql);
+                //    sb.AppendLine(id + " Wrong!");
+                //    this.txt_result.Text = sb.PRINT();
+                //    Application.DoEvents();
 
-                }
+                //}
 
             } 
             insert_office(); 

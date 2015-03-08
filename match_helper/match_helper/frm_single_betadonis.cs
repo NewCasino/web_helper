@@ -74,7 +74,7 @@ namespace web_helper
                         string odd_draw = match["marketWrapper"]["oddsJsonArray"][1]["ov"].ToString();
                         string odd_away = match["marketWrapper"]["oddsJsonArray"][2]["ov"].ToString();
                         sb.Append(start_time.PR(20) + home.PR(20) + away.PR(20) + odd_home.PR(10) + odd_draw.PR(10) + odd_away.PR(10) + M.N);
-                        Match100Helper.insert_data("betadonis", "", start_time, home, away, odd_home, odd_draw, odd_away, "0", "0");
+                        Match100Helper.insert_data("betadonis", "", start_time, home, away, odd_home, odd_draw, odd_away, "2", "0");
                     }
                 }
             } 
@@ -100,14 +100,17 @@ namespace web_helper
                     {
                         string date = node.SELECT_NODE("/div[1]/span[1]/strong[1]").ChildNodes[0].InnerText.E_TRIM();
                         string time = node.SELECT_NODE("/div[1]/span[1]/em[1]").ChildNodes[0].InnerText.E_TRIM(); 
+
                         string start_time = ""; 
                         if (date.E_TRIM().ToLower() != "live")
                         {
+                            string[] dates = date.E_SPLIT("/");
+                            date = dates[1] + "/" + dates[0]; 
                             start_time = date + M.D + time;
                         }
                         else
                         {
-                            start_time = DateTime.Now.ToString("mm/dd") + M.D + time;
+                            start_time = DateTime.Now.ToString("MM/dd") + M.D + time;
                         }
 
                         string host = node.SELECT_NODE("/div[2]/h3[1]/a[1]/span[1]").ChildNodes[0].InnerText;
@@ -118,7 +121,7 @@ namespace web_helper
                         string odd_away = node.SELECT_NODE("div[4]/ol[1]/li[3]/a[1]/span[1]").InnerText;
                         BsonDocument doc_odd = Match100Helper.get_odd_doc_from_europe(odd_host, odd_draw, odd_away);
                         sb.Append(start_time.PR(20) + host.PR(30) + client.PR(30) + odd_host.PR(10) + odd_draw.PR(10) + odd_away.PR(10) + doc_odd["persent_return"].ToString() + M.N);
-                        Match100Helper.insert_data("betadonis", "", start_time, host, client, odd_host, odd_draw, odd_away, "0", "0");
+                        Match100Helper.insert_data("betadonis", "", start_time, host, client, odd_host, odd_draw, odd_away, "2", "0");
                     }
                 }
             }
