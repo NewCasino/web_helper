@@ -147,8 +147,7 @@ public partial class frm_single_marathonbet : Form
         }
         return sb.ToString();
 
-    }
-
+    } 
     public string inser_event_detail(string html)
     {
 
