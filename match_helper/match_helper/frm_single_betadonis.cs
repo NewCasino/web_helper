@@ -98,31 +98,35 @@ namespace web_helper
                 { 
                     if (!node.InnerHtml.Contains( "LiveMatchCompetitors"))
                     {
-                        string date = node.SELECT_NODE("/div[1]/span[1]/strong[1]").ChildNodes[0].InnerText.E_TRIM();
-                        string time = node.SELECT_NODE("/div[1]/span[1]/em[1]").ChildNodes[0].InnerText.E_TRIM(); 
-
-                        string start_time = ""; 
-                        if (date.E_TRIM().ToLower() != "live")
+                        try
                         {
-                            string[] dates = date.E_SPLIT("/");
-                            date = dates[1] + "/" + dates[0]; 
-                            start_time = date + M.D + time;
-                        }
-                        else
-                        {
-                            start_time = DateTime.Now.ToString("MM/dd") + M.D + time;
-                        }
+                            string date = node.SELECT_NODE("/div[1]/span[1]/strong[1]").ChildNodes[0].InnerText.E_TRIM();
+                            string time = node.SELECT_NODE("/div[1]/span[1]/em[1]").ChildNodes[0].InnerText.E_TRIM();
 
-                        string host = node.SELECT_NODE("/div[2]/h3[1]/a[1]/span[1]").ChildNodes[0].InnerText;
-                        string client = node.SELECT_NODE("/div[2]/h3[1]/a[1]/span[3]").ChildNodes[0].InnerText; 
+                            string start_time = "";
+                            if (date.E_TRIM().ToLower() != "live")
+                            {
+                                string[] dates = date.E_SPLIT("/");
+                                date = dates[1] + "/" + dates[0];
+                                start_time = date + M.D + time;
+                            }
+                            else
+                            {
+                                start_time = DateTime.Now.ToString("MM/dd") + M.D + time;
+                            }
 
-                        string odd_host = node.SELECT_NODE("div[4]/ol[1]/li[1]/a[1]/span[1]").InnerText;
-                        string odd_draw = node.SELECT_NODE("div[4]/ol[1]/li[2]/a[1]/span[1]").InnerText;
-                        string odd_away = node.SELECT_NODE("div[4]/ol[1]/li[3]/a[1]/span[1]").InnerText;
-                        BsonDocument doc_odd = Match100Helper.get_odd_doc_from_europe(odd_host, odd_draw, odd_away);
-                        sb.Append(start_time.PR(20) + host.PR(30) + client.PR(30) + odd_host.PR(10) + odd_draw.PR(10) + odd_away.PR(10) + doc_odd["persent_return"].ToString() + M.N);
-                        Match100Helper.insert_data("betadonis", "", start_time, host, client, odd_host, odd_draw, odd_away, "2", "0");
-                    }
+                            string host = node.SELECT_NODE("/div[2]/h3[1]/a[1]/span[1]").ChildNodes[0].InnerText;
+                            string client = node.SELECT_NODE("/div[2]/h3[1]/a[1]/span[3]").ChildNodes[0].InnerText;
+
+                            string odd_host = node.SELECT_NODE("div[4]/ol[1]/li[1]/a[1]/span[1]").InnerText;
+                            string odd_draw = node.SELECT_NODE("div[4]/ol[1]/li[2]/a[1]/span[1]").InnerText;
+                            string odd_away = node.SELECT_NODE("div[4]/ol[1]/li[3]/a[1]/span[1]").InnerText;
+                            BsonDocument doc_odd = Match100Helper.get_odd_doc_from_europe(odd_host, odd_draw, odd_away);
+                            sb.Append(start_time.PR(20) + host.PR(30) + client.PR(30) + odd_host.PR(10) + odd_draw.PR(10) + odd_away.PR(10) + doc_odd["persent_return"].ToString() + M.N);
+                            Match100Helper.insert_data("betadonis", "", start_time, host, client, odd_host, odd_draw, odd_away, "2", "0");
+                        }
+                        catch (Exception error) { }
+                        }
                 }
             }
             return sb.ToString();
