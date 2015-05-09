@@ -128,6 +128,7 @@
     <Compile Include="API\PIN\PinData.cs" />
     <Compile Include="API\PIN\PinHelper.cs" />
     <Compile Include="API\PIN\PinSQL.cs" />
+    <Compile Include="Match\Analyse2Result.cs" />
     <Compile Include="Match\CombineAnalyse.cs" />
     <Compile Include="frm_match_100_analyse_with_present.cs">
       <SubType>Form</SubType>
