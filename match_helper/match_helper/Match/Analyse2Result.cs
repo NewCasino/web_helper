@@ -7,9 +7,8 @@ using System.Data;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace match_helper.Match
-{
-    class Analyse2Result
+ 
+    class  Analyse2Result
     {
         static bool is_open_mongo = false;
 
@@ -590,4 +589,4 @@ namespace match_helper.Match
             return result;
         }
     }
-}
+ 
