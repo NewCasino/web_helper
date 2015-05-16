@@ -1,0 +1,38 @@
+AnalyseBase.get_min_by_wave()
+-------------------------------------------------------------------------------
+doc_id:      20150515142014130 yyyymmddhhmmss+ms(3) 
+type:        vary
+bid_count:   50
+min_value:   1.6886
+max_value:   2.0268
+order_nos:   [1,0,2]
+bids:        [24,15,12]
+odds:        [2.08,3.35,4.15]
+-------------------------------------------------------------------------------
+Analyse2Result.get_best()
+-------------------------------------------------------------------------------
+doc_id:      20150515142014130 yyyymmddhhmmss+ms(3) 
+type:        2result
+start_time:  2015-05-24 20:00:00
+host:        Chease FC
+client:      Barcelona FC
+bid_count:   50
+min_value:   1.6886
+max_value:   2.0268
+websites:    [pinnacle,marathon]
+orign_odd:   [2.89,1.22]
+website_odds:[
+             	{ 
+                 	website:pinncle
+                 	odd_win:1.22
+                 	odd_lose:2.72
+                 	timespan:1421824983
+               		id:214589
+                 	league:Europe Cup
+              	}
+                ......
+              ]
+order_nos:   [1,0]
+bids:        [36,13]
+odds:        [1,22,2.89]
+-------------------------------------------------------------------------------

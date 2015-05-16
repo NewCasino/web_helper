@@ -7,39 +7,49 @@ using System.Data;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
- 
-    class  Analyse2Result
+
+class Analyse2Result
+{
+    static bool is_open_mongo = false;
+
+
+    public static BsonDocument get_best(int odd_id, int max_count, ArrayList list_websites)
     {
-        static bool is_open_mongo = false;
-
-
-        public static BsonDocument get_best(int odd_id, int max_count, ArrayList list_websites)
+        string sql = " select b.start_time,b.team1,b.team2,d.name type_name,d.name website_name,a.r1,a.r2,a.o1,a.o2,a.timespan a.id odd_id" +
+                     " from a_odd a" +
+                     " left join  a_event b on  a.event_id=b.id" +
+                     " left join  a_type  c on  a.type_id=c.id" +
+                     " left join  a_website d on a.website_id=d.id" +
+                     " where a.id={0}";
+        sql = string.Format(sql, odd_id.ToString());
+        DataTable dt = SQLServerHelper.get_table(sql);
+        string start_time = "";
+        string host = "";
+        string client = "";
+        if (dt.Rows.Count > 0)
         {
-            string sql = "select * from a_odd where odd_id='{0}'";
-            sql = string.Format(sql,odd_id.ToString());
-            DataTable dt = SQLServerHelper.get_table(sql);
- 
+            start_time = dt.Rows[0]["start_time"].ToString();
+            host = dt.Rows[0]["team1"].ToString();
+            client = dt.Rows[0]["team2"].ToString();
 
             double[] max = new double[2] { -999999, -999999 };
             string[] websites = new string[2] { "", "" };
 
             for (int i = 0; i < dt.Rows.Count; i++)
-            { 
+            {
                 bool is_in_websites = false;
                 foreach (string website in list_websites)
                 {
-                    if (website == dt.Rows[i]["website"].ToString()) is_in_websites = true;
+                    if (website == dt.Rows[i]["website_name"].ToString()) is_in_websites = true;
                 }
                 if (is_in_websites == false) continue;
-                double[] input = new double[2]{Convert.ToDouble(dt.Rows[i]["odd_win"].ToString()), Convert.ToDouble(dt.Rows[i]["odd_draw"].ToString())};
-                if (input[0] > max[0]) { max[0] = input[0]; websites[0] = dt.Rows[i]["website"].ToString(); }
-                if (input[1] > max[1]) { max[1] = input[1]; websites[1] = dt.Rows[i]["website"].ToString(); }
+                double[] input = new double[2] { Convert.ToDouble(dt.Rows[i]["o1"].ToString()), Convert.ToDouble(dt.Rows[i]["o2"].ToString()) };
+                if (input[0] > max[0]) { max[0] = input[0]; websites[0] = dt.Rows[i]["website_name"].ToString(); }
+                if (input[1] > max[1]) { max[1] = input[1]; websites[1] = dt.Rows[i]["website_name"].ToString(); }
             }
 
 
             BsonDocument doc_max = AnalyseBase.get_min_by_wave(max, max_count);
-
-
 
             BsonDocument doc = new BsonDocument();
             doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
@@ -90,23 +100,20 @@ using MongoDB.Driver;
                     string odd_league = "";
                     foreach (DataRow row in dt.Rows)
                     {
-                        if (row["website"].ToString() == website)
+                        if (row["website_name"].ToString() == website)
                         {
-                            odd_win = row["odd_win"].ToString();
-                            //odd_draw = row["odd_draw"].ToString();
-                            odd_lose = row["odd_lose"].ToString();
+                            odd_win = row["o1"].ToString();
+                            odd_lose = row["o2"].ToString();
                             odd_timespan = row["timespan"].ToString();
-                            odd_id = row["id"].ToString();
-                            odd_league = row["league"].ToString();
+                            odd_id = row["odd_id"].ToString();
+                            //odd_league = row["league"].ToString();
                         }
                     }
                     doc_item.Add("odd_win", odd_win);
-                    //doc_item.Add("odd_draw", odd_draw);
                     doc_item.Add("odd_lose", odd_lose);
                     doc_item.Add("timespan", odd_timespan);
                     doc_item.Add("id", odd_id);
-                    doc_item.Add("league", odd_league);
-
+                    // doc_item.Add("league", odd_league); 
                     website_odds.Add(doc_item.AsBsonDocument);
                 }
 
@@ -118,6 +125,7 @@ using MongoDB.Driver;
             doc.Add("odds", doc_max["odds"].AsBsonArray);
 
             return doc;
-        } 
+        }
     }
- 
+
+}
