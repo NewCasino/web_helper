@@ -8,104 +8,6 @@ using MongoDB.Bson;
 class AnalyseBase
 {
     static bool is_open_mongo = false;
-    public static BsonDocument get_min(double[] input, int max_count)
-    {
-        int length = input.Length;
-
-
-        int[] bids = new int[length];
-        int[] order_nos = new int[length];
-        double[] odds = new double[length];
-        double[] odds_temp = new double[length];
-
-
-
-        for (int i = 0; i < length; i++)
-        {
-            bids[i] = 1;
-            order_nos[i] = 0;
-            odds[i] = input[i];
-            odds_temp[i] = input[i];
-        }
-
-
-        //排序
-        for (int step1 = 0; step1 < length; step1++)
-        {
-            int step_index = 0;
-            double step_max = -999999999;
-            for (int step2 = 0; step2 < length; step2++)
-            {
-                if (odds_temp[step2] > step_max)
-                {
-                    step_max = odds_temp[step2];
-                    step_index = step2;
-                }
-            }
-            odds_temp[step_index] = 0;
-            odds[step1] = step_max;
-            order_nos[step1] = step_index;
-        }
-
-
-        bids[0] = max_count;
-        for (int i = 1; i < length; i++)
-        {
-            bids[i] = (int)Math.Floor(odds[0] * bids[0] / odds[i]);
-        }
-
-
-        //total
-        int bid_total = 0;
-        for (int i = 0; i < length; i++)
-        {
-            bid_total = bid_total + bids[i];
-        }
-
-        //compute min and max
-        double min = 999999999;
-        double max = -999999999;
-        for (int i = 0; i < length; i++)
-        {
-            if (bids[i] * odds[i] - bid_total < min) min = bids[i] * odds[i] - bid_total;
-            if (bids[i] * odds[i] - bid_total > max) max = bids[i] * odds[i] - bid_total;
-        }
-
-
-        BsonDocument doc = new BsonDocument();
-        doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
-        doc.Add("type", "vary");
-        doc.Add("bid_count", bid_total.ToString());
-        doc.Add("min_value", min.ToString("f4"));
-        doc.Add("max_value", max.ToString("f4"));
-
-        BsonArray array_odds = new BsonArray();
-        foreach (double odd in odds)
-        {
-            array_odds.Add(odd.ToString("f2"));
-        }
-
-        BsonArray array_bids = new BsonArray();
-        foreach (int bid in bids)
-        {
-            array_bids.Add(bid.ToString());
-        }
-
-        BsonArray array_order_nos = new BsonArray();
-        foreach (int order in order_nos)
-        {
-            array_order_nos.Add(order.ToString());
-        }
-
-        doc.Add("order_nos", array_order_nos);
-        doc.Add("bids", array_bids);
-        doc.Add("odds", array_odds);
-
-        if (is_open_mongo) MongoHelper.insert_bson("match", doc);
-
-        return doc;
-
-    }
     public static BsonDocument get_min_by_wave(double[] input, int max_count)
     {
         int length = input.Length;
@@ -174,24 +76,38 @@ class AnalyseBase
         doc.Add("min_value", global_min.ToString("f4"));
         doc.Add("max_value", global_max.ToString("f4"));
 
+        //BsonArray array_odds = new BsonArray();
+        //foreach (double odd in odds)
+        //{
+        //    array_odds.Add(odd.ToString("f2"));
+        //}
+
+        //BsonArray array_bids = new BsonArray();
+        //foreach (int bid in global_bids)
+        //{
+        //    array_bids.Add(bid.ToString());
+        //}
+
+        //BsonArray array_order_nos = new BsonArray();
+        //foreach (int order in order_nos)
+        //{
+        //    array_order_nos.Add(order.ToString());
+        //}
+
+        //排序完整后送出
         BsonArray array_odds = new BsonArray();
-        foreach (double odd in odds)
-        {
-            array_odds.Add(odd.ToString("f2"));
-        }
-
         BsonArray array_bids = new BsonArray();
-        foreach (int bid in global_bids)
+        for (int i = 0; i < order_nos.Length; i++)
         {
-            array_bids.Add(bid.ToString());
+            for (int j = 0; j < order_nos.Length; j++)
+            {
+                if (i == Convert.ToInt32(order_nos[j].ToString()))
+                {
+                    array_odds.Add(odds[j].ToString());
+                    array_bids.Add(global_bids[j].ToString());
+                }
+            }
         }
-
-        BsonArray array_order_nos = new BsonArray();
-        foreach (int order in order_nos)
-        {
-            array_order_nos.Add(order.ToString());
-        }
-
         doc.Add("order_nos", array_order_nos);
         doc.Add("bids", array_bids);
         doc.Add("odds", array_odds);
