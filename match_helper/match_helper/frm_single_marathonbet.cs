@@ -276,7 +276,7 @@ public partial class frm_single_marathonbet : Form
                         foreach(HtmlNode node_td in node_tr.ChildNodes)
                         {
                             if (node_td == null) continue;
-                            sb.Append(node_td.InnerText.E_TRIM().PR(50));
+                            sb.Append(node_td.InnerText.E_TRIM().PR(30));
                         }
                         sb.Append(M.N);
                     }

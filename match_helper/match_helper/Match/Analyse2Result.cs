@@ -12,7 +12,7 @@ class Analyse2Result
 {
     static bool is_open_mongo = false; 
 
-    public static BsonDocument get_best(int odd_id, int max_count, ArrayList list_websites)
+    public static BsonDocument get_best(int param_odd_id, int max_count, ArrayList list_websites)
     {
 
 
@@ -22,7 +22,7 @@ class Analyse2Result
                       " left join  a_type  c on  a.type_id=c.id" +
                       " left join  a_website d on a.website_id=d.id" +
                       " where a.id={0}";
-        sql = string.Format(sql, odd_id.ToString());
+        sql = string.Format(sql, param_odd_id.ToString());
         DataTable dt = SQLServerHelper.get_table(sql);
         string start_time = "";
         string host = "";

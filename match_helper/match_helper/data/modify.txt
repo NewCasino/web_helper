@@ -99,6 +99,7 @@ add new function to use webkit.net
 create hotmail email(Jim Green,jim0824@hotmail.com....)
 create skrill  data(address,phone no,england....)
 --------------------------
-2015-05-15
-select the overall match (pin/marathonbet/betadonis)
+2015-05-19
+1£¬select the overall match (pin/marathonbet/betadonis)
+2£¬get marathonbet/pin/betadionis html file 
 --------------------------
