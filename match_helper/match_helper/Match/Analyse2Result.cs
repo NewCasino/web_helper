@@ -16,7 +16,7 @@ class Analyse2Result
     {
 
 
-        string sql = " select b.start_time,b.team1,b.team2,d.name type_name,d.name website_name,a.r1,a.r2,a.o1,a.o2,a.timespan a.id odd_id" +
+        string sql = " select b.start_time,b.team1,b.team2,c.name type_name,d.name website_name,a.r1,a.r2,a.o1,a.o2,a.timespan, a.id odd_id" +
                       " from a_odd a" +
                       " left join  a_event b on  a.event_id=b.id" +
                       " left join  a_type  c on  a.type_id=c.id" +
@@ -27,15 +27,17 @@ class Analyse2Result
         string start_time = "";
         string host = "";
         string client = "";
+        string type_name = "";
         if (dt.Rows.Count > 0)
         {
             start_time = dt.Rows[0]["start_time"].ToString();
             host = dt.Rows[0]["team1"].ToString();
             client = dt.Rows[0]["team2"].ToString();
+            type_name = dt.Rows[0]["type_name"].ToString();
         }
 
-        double[] max = new double[3] { -999999, -999999, -99999 };
-        string[] websites = new string[3] { "", "", "" };
+        double[] max = new double[2] { -999999, -999999};
+        string[] websites = new string[2] { "", "" };
 
         for (int i = 0; i < dt.Rows.Count; i++)
         { 
@@ -43,14 +45,13 @@ class Analyse2Result
             bool is_in_websites = false;
             foreach (string website in list_websites)
             {
-                if (website == dt.Rows[i]["website"].ToString()) is_in_websites = true;
+                if (website == dt.Rows[i]["website_name"].ToString()) is_in_websites = true;
             }
             if (is_in_websites == false) continue;
-            double[] input = new double[3]{Convert.ToDouble(dt.Rows[i]["o1"].ToString()),
-                                            Convert.ToDouble(dt.Rows[i]["o2"].ToString()),
-                                            Convert.ToDouble(dt.Rows[i]["o3"].ToString())};
-            if (input[0] > max[0]) { max[0] = input[0]; websites[0] = dt.Rows[i]["website"].ToString(); }
-            if (input[1] > max[1]) { max[1] = input[1]; websites[1] = dt.Rows[i]["website"].ToString(); } 
+            double[] input = new double[2]{Convert.ToDouble(dt.Rows[i]["o1"].ToString()),
+                                            Convert.ToDouble(dt.Rows[i]["o2"].ToString()) };
+            if (input[0] > max[0]) { max[0] = input[0]; websites[0] = dt.Rows[i]["website_name"].ToString(); }
+            if (input[1] > max[1]) { max[1] = input[1]; websites[1] = dt.Rows[i]["website_name"].ToString(); } 
         }
 
 
@@ -62,7 +63,8 @@ class Analyse2Result
         BsonDocument doc = new BsonDocument();
         doc.Add("doc_id", DateTime.Now.ToString("yyyyMMddHHmmss") + DateTime.Now.Millisecond.ToString());
         doc.Add("type", "2result");
-        doc.Add("start_time", start_time);
+        doc.Add("odd_type", type_name);
+        doc.Add("start_time", start_time); 
         doc.Add("host", host);
         doc.Add("client", client); 
         doc.Add("bid_count", "50");
@@ -83,6 +85,10 @@ class Analyse2Result
         }
         doc.Add("max_odds", array_orign_odds);
 
+        BsonArray array_results = new BsonArray();
+        array_results.Add(dt.Rows[0]["r1"].ToString());
+        array_results.Add(dt.Rows[0]["r2"].ToString());
+        doc.Add("odd_results", array_results);
 
 
         BsonArray website_details = new BsonArray();
@@ -109,12 +115,12 @@ class Analyse2Result
                 string odd_league = "";
                 foreach (DataRow row in dt.Rows)
                 {
-                    if (row["website"].ToString() == website)
+                    if (row["website_name"].ToString() == website)
                     {
                         odd_win = row["o1"].ToString(); 
                         odd_lose = row["o2"].ToString();
                         odd_timespan = row["timespan"].ToString();
-                        odd_id = row["id"].ToString();
+                        odd_id = row["odd_id"].ToString();
                        // odd_league = row["league"].ToString();
                     }
                 }
@@ -134,13 +140,13 @@ class Analyse2Result
 
         return doc;
     }
-    public static BsonDocument get_result_list(string str_win,string str_lose)
+    public static BsonDocument get_result_list(string odd1,string odd2)
     {
         BsonDocument doc_result = new BsonDocument();
 
 
-        double win = Convert.ToDouble(str_win); 
-        double lose = Convert.ToDouble(str_lose);
+        double win = Convert.ToDouble(odd1); 
+        double lose = Convert.ToDouble(odd2);
         double count_win = 0; 
         double count_lose = 0;
         double count_total = 0;
@@ -224,6 +230,7 @@ class Analyse2Result
         {
             case "2result":
                 sb.Append("type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine);
+                sb.Append("odd_type:" + doc["odd_type"].ToString()+Environment.NewLine);
                 sb.Append(doc["start_time"].ToString() + "    " + doc["host"].PR(20) + doc["client"].PR(20) + Environment.NewLine);
                 sb.Append("bid count:" + doc["bid_count"].ToString() + Environment.NewLine);
                 sb.Append("return value: " + doc["result"]["count_return"].ToString() + Environment.NewLine);
@@ -238,15 +245,15 @@ class Analyse2Result
                     sb.Append(doc_item["website"].PR(20));
                     sb.Append(doc_item["odd_win"].PR(10)); 
                     sb.Append(doc_item["odd_lose"].PR(10));
-                    sb.Append(doc_item["timespan"].PR(20));
+                    sb.Append(UnixTime.get_local_time(Convert.ToUInt64(doc_item["timespan"].ToString())).ToString("yyyy-MM-ss HH:mm:ss").PR(20));
                     sb.Append(doc_item["id"].PR(10));
                     sb.Append(doc_item["league"].PR(50).E_REMOVE() + Environment.NewLine);
                 }
 
 
                 sb.Append("odd detail info:" + Environment.NewLine);
-                sb.Append("WIN".PR(10) + doc["websites"].AsBsonArray[0].PR(20) + doc["max_odds"].AsBsonArray[0].PR(10) + Environment.NewLine);
-                sb.Append("LOSE".PR(10) + doc["websites"].AsBsonArray[1].PR(20) + doc["max_odds"].AsBsonArray[1].PR(10) + Environment.NewLine);
+                sb.Append(doc["odd_results"].AsBsonArray[0].PR(10) + doc["websites"].AsBsonArray[0].PR(20) + doc["max_odds"].AsBsonArray[0].PR(10) + Environment.NewLine);
+                sb.Append(doc["odd_results"].AsBsonArray[1].PR(10) + doc["websites"].AsBsonArray[1].PR(20) + doc["max_odds"].AsBsonArray[1].PR(10) + Environment.NewLine);
 
 
 

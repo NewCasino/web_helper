@@ -1,4 +1,4 @@
-﻿namespace web_helper
+﻿namespace match_helper
 {
     partial class frm_match_bar
     {
@@ -44,6 +44,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -51,11 +52,11 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button18 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -222,11 +223,21 @@
             this.groupBox1.Controls.Add(this.btn_down_excel);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.btn_compute_by_website);
-            this.groupBox1.Location = new System.Drawing.Point(5, 197);
+            this.groupBox1.Location = new System.Drawing.Point(5, 224);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(365, 214);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(8, 180);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(112, 23);
+            this.button17.TabIndex = 19;
+            this.button17.Text = "1XCompute";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button16
             // 
@@ -290,6 +301,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button18);
             this.groupBox2.Controls.Add(this.button12);
             this.groupBox2.Controls.Add(this.button11);
             this.groupBox2.Controls.Add(this.button10);
@@ -308,9 +320,19 @@
             this.groupBox2.Controls.Add(this.btn_500_read_info);
             this.groupBox2.Location = new System.Drawing.Point(5, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(365, 189);
+            this.groupBox2.Size = new System.Drawing.Size(365, 216);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(8, 183);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(112, 23);
+            this.button18.TabIndex = 19;
+            this.button18.Text = "2Result";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button12
             // 
@@ -352,21 +374,11 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(8, 180);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(112, 23);
-            this.button17.TabIndex = 19;
-            this.button17.Text = "1XCompute";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
             // frm_match_bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 420);
+            this.ClientSize = new System.Drawing.Size(379, 451);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -409,5 +421,6 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button18;
     }
 }

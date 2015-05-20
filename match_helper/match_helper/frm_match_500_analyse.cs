@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace web_helper
+namespace match_helper
 {
     public partial class frm_match_500_analyse : Form
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace web_helper
+namespace match_helper
 {
     public partial class frm_match_100_log_analyse : Form
     {

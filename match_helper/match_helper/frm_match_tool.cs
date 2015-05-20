@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MongoDB.Bson;
 
-namespace web_helper
+namespace match_helper
 {
     public partial class frm_match_tool : Form
     {

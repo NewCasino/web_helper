@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 
-namespace web_helper
+namespace match_helper
 {
     public partial class frm_tool_log_monitor : Form
     {

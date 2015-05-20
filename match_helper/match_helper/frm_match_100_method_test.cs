@@ -12,7 +12,7 @@ using System.IO;
 using MongoDB.Bson;
 using System.Collections;
 
-namespace web_helper
+namespace match_helper
 {
     public partial class frm_match_100_method_test : Form
     {
@@ -28,7 +28,8 @@ namespace web_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            test_marathonbet();
+            //test_marathonbet();
+          
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)

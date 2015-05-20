@@ -7,7 +7,7 @@ using System.Collections;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace web_helper
+namespace match_helper
 {
     class MatchMix
     {

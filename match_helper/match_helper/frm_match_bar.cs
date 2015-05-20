@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace web_helper
+namespace match_helper
 {
     public partial class frm_match_bar : Form
     {
@@ -169,6 +169,12 @@ namespace web_helper
         private void button17_Click(object sender, EventArgs e)
         {
             frm_single_1xbet frm = new frm_single_1xbet();
+            frm.Show();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            frm_match_100_2result frm = new frm_match_100_2result();
             frm.Show();
         } 
     }
