@@ -40,6 +40,10 @@ namespace match_helper
         {
             this.txt_result.Text = get_data2(this.txt_result.Text);
         }
+        private void btn_get_detail_Click(object sender, EventArgs e)
+        {
+            this.txt_result.Text = get_ou_data(this.txt_result.Text);
+        }
         public string get_html()
         {
             string json = HtmlHelper.get_html("");
@@ -130,6 +134,68 @@ namespace match_helper
                 }
             }
             return sb.ToString();
-        } 
+        }
+
+
+
+        public string get_ou_data(string html)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            html = html.Replace("<thead=\"\"", "");
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
+            List<HtmlNode> nodes = new List<HtmlNode>();
+
+
+            foreach (HtmlNode node in nodes_all)
+            {
+                if (node.CLASS() == "MatchContainer")
+                {
+                    if (!node.InnerHtml.Contains("LiveMatchCompetitors"))
+                    {
+                   
+                            string date = node.SELECT_NODE("/div[1]/span[1]/strong[1]").ChildNodes[0].InnerText.E_TRIM();
+                            string time = node.SELECT_NODE("/div[1]/span[1]/em[1]").ChildNodes[0].InnerText.E_TRIM();
+
+                            string start_time = "";
+                            if (date.E_TRIM().ToLower() != "live")
+                            {
+                                string[] dates = date.E_SPLIT("/");
+                                date = dates[1] + "/" + dates[0];
+                                start_time = date + M.D + time;
+                            }
+                            else
+                            {
+                                start_time = DateTime.Now.ToString("MM/dd") + M.D + time;
+                            }
+                           
+                            string host = node.SELECT_NODE("/div[2]/h3[1]/a[1]/span[1]").ChildNodes[0].InnerText;
+                            string client = node.SELECT_NODE("/div[2]/h3[1]/a[1]/span[3]").ChildNodes[0].InnerText;
+                            sb.Append(start_time.PR(20) + host.PR(30) + client.PR(30) +  M.N); 
+
+                            HtmlNodeCollection nodes_li = node.SELECT_NODES("/div[4]/ol[1]/li");
+                            foreach (HtmlNode node_li in nodes_li)
+                            {
+                                string mark = "";
+                                if (node_li.CLASS().Contains("pos_0")) mark = "OVER";
+                                if (node_li.CLASS().Contains("pos_1")) mark = "UNDER";
+                                if (node_li.SELECT_NODES("/a")!=null)
+                                {
+                                    string odd = node_li.SELECT_NODE("/a[1]/span[1]").InnerText;
+                                    string result = node_li.SELECT_NODE("/a[1]/span[2]").InnerText;
+                                    sb.AppendLine(mark.PR(6)+result.PR(10) + odd.PR(10));
+
+                                }
+
+                            } 
+                    }
+                }
+            }
+            return sb.ToString();
+
+        }
     }
 }

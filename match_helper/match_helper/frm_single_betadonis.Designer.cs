@@ -35,6 +35,7 @@
              this.tabControl1 = new System.Windows.Forms.TabControl();
              this.tabPage1 = new System.Windows.Forms.TabPage();
              this.txt_result = new System.Windows.Forms.TextBox();
+             this.btn_get_detail = new System.Windows.Forms.Button();
              this.groupBox1.SuspendLayout();
              this.tabControl1.SuspendLayout();
              this.tabPage1.SuspendLayout();
@@ -44,6 +45,7 @@
              // 
              this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                          | System.Windows.Forms.AnchorStyles.Right)));
+             this.groupBox1.Controls.Add(this.btn_get_detail);
              this.groupBox1.Controls.Add(this.btn_beaurify);
              this.groupBox1.Controls.Add(this.btn_get_data);
              this.groupBox1.Controls.Add(this.btn_get_html);
@@ -56,7 +58,7 @@
              // 
              // btn_beaurify
              // 
-             this.btn_beaurify.Location = new System.Drawing.Point(215, 22);
+             this.btn_beaurify.Location = new System.Drawing.Point(303, 22);
              this.btn_beaurify.Name = "btn_beaurify";
              this.btn_beaurify.Size = new System.Drawing.Size(75, 25);
              this.btn_beaurify.TabIndex = 2;
@@ -121,14 +123,24 @@
              this.txt_result.WordWrap = false;
              this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
              // 
-             // frm_single_matchbook
+             // btn_get_detail
+             // 
+             this.btn_get_detail.Location = new System.Drawing.Point(213, 22);
+             this.btn_get_detail.Name = "btn_get_detail";
+             this.btn_get_detail.Size = new System.Drawing.Size(75, 25);
+             this.btn_get_detail.TabIndex = 3;
+             this.btn_get_detail.Text = "Get Detail";
+             this.btn_get_detail.UseVisualStyleBackColor = true;
+             this.btn_get_detail.Click += new System.EventHandler(this.btn_get_detail_Click);
+             // 
+             // frm_single_betadonis
              // 
              this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
              this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
              this.ClientSize = new System.Drawing.Size(836, 476);
              this.Controls.Add(this.tabControl1);
              this.Controls.Add(this.groupBox1);
-             this.Name = "frm_single_matchbook";
+             this.Name = "frm_single_betadonis";
              this.groupBox1.ResumeLayout(false);
              this.tabControl1.ResumeLayout(false);
              this.tabPage1.ResumeLayout(false);
@@ -146,5 +158,6 @@
          private System.Windows.Forms.TextBox txt_result;
          private System.Windows.Forms.Button btn_get_data;
          private System.Windows.Forms.Button btn_beaurify;
+         private System.Windows.Forms.Button btn_get_detail;
      }
  }

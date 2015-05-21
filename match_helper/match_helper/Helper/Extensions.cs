@@ -54,10 +54,13 @@ static class Extensions
         {
             foreach (string item in list)
             { 
-                    result = result + " " + item; 
-            }
-            result = result.Substring(1, result.Length - 2);
+                   if(!string.IsNullOrEmpty(item.Trim()))
+                   {
+                     result = result + " " + item; 
+                   }
+            } 
         }
+        else
         {
             result = str;
         }
