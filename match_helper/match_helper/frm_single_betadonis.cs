@@ -177,6 +177,7 @@ namespace match_helper
                             sb.Append(start_time.PR(20) + host.PR(30) + client.PR(30) +  M.N); 
 
                             HtmlNodeCollection nodes_li = node.SELECT_NODES("/div[4]/ol[1]/li");
+                            sb.AppendLine("-------------------------------------------------");
                             foreach (HtmlNode node_li in nodes_li)
                             {
                                 string mark = "";
@@ -190,7 +191,8 @@ namespace match_helper
 
                                 }
 
-                            } 
+                            }
+                            sb.AppendLine("-------------------------------------------------");
                     }
                 }
             }

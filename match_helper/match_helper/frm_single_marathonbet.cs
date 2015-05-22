@@ -388,20 +388,29 @@ public partial class frm_single_marathonbet : Form
                                                 {
                                                     string odd_type = node_div1.SELECT_NODE("/div[1]").InnerText.E_REMOVE();
                                                     sb.AppendLine(odd_type);
-                                                    sb.AppendLine("---------------------------------------------");
+                                                    sb.AppendLine("--------------------");
                                                     HtmlNodeCollection nodes_tr1 = node_div1.SELECT_NODES("/table[1]/tbody[1]/tr");
-                                                    foreach (HtmlNode node_tr1 in nodes_tr1)
-                                                    { 
-                                                        sb.AppendLine(node_tr1.InnerText.E_REMOVE());
-                                                    }
-                                                    sb.AppendLine("---------------------------------------------");
+                                                  
+                                                     foreach (HtmlNode node_tr1 in nodes_tr1)
+                                                     {
+                                                         sb.AppendLine(node_tr1.InnerText.E_REMOVE());
+                                                        //    HtmlNodeCollection nodes_td1 = node_tr1.SELECT_NODES("/td");
+                                                        //    if (nodes_td1 != null)
+                                                        //    {
+                                                        //        foreach (HtmlNode node_td1 in nodes_td1)
+                                                        //        {
+                                                        //            sb.Append(node_td1.InnerText.E_REMOVE().PR(20));
+                                                        //        }
+                                                        //        sb.Append(M.N);
+                                                        //    }
+                                                     }
+                                                    sb.AppendLine("--------------------");
 
                                                 }
                                             }
                                             
                                         }
                                         sb.AppendLine("------------------------------------------------------------------------------------");
-                                        sb.AppendLine(nodes_block.Count.ToString());
 
                                     }
                                 }
