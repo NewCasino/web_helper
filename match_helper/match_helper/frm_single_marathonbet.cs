@@ -111,7 +111,7 @@ public partial class frm_single_marathonbet : Form
                                 }
                                 if (date.Length == 5)
                                 {
-                                    start_time = dt_time.ToString("MM-dd")+ "●"+date;
+                                    start_time = dt_time.ToString("MM-dd") + "●" + date;
                                 }
                                 host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
                                 client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
@@ -181,14 +181,14 @@ public partial class frm_single_marathonbet : Form
 
         foreach (HtmlNode node in nodes_all)
         {
- 
+
             if (node.Id == "container_EVENTS")
             {
                 HtmlNodeCollection nodes_div = node.SELECT_NODES("/div");
                 foreach (HtmlNode node_div in nodes_div)
                 {
                     if (node_div.Id.Contains("container"))
-                    { 
+                    {
                         league = node_div.SELECT_NODE("div[1]/h2[1]").InnerText;
 
                         HtmlNode test = node_div.SELECT_NODE("div[2]/div[1]/table[1]");
@@ -202,14 +202,14 @@ public partial class frm_single_marathonbet : Form
                                 date = date.Replace("2015", "");
                                 if (date.Length == 10)
                                 {
-                                    start_time = dt_server.ToString("yyyy-")+Tool.get_12m_from_eng(date.Substring(2, 3)) + "-" + date.Substring(0, 2) + " " + date.Substring(5, 5);
+                                    start_time = dt_server.ToString("yyyy-") + Tool.get_12m_from_eng(date.Substring(2, 3)) + "-" + date.Substring(0, 2) + " " + date.Substring(5, 5);
                                 }
                                 if (date.Length == 5)
                                 {
                                     start_time = dt_server.ToString("yyyy-") + dt_server.ToString("MM-dd") + " " + date;
                                 }
                                 DateTime dt_time = Convert.ToDateTime(start_time);
-                                dt_time = dt_time.AddHours(Convert.ToInt16(zone) *( -1));
+                                dt_time = dt_time.AddHours(Convert.ToInt16(zone) * (-1));
 
                                 host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
                                 client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
@@ -226,7 +226,7 @@ public partial class frm_single_marathonbet : Form
 
                                 if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
                                 {
-                                    sb.AppendLine(event_id.PR(10)+league.PR(50) + dt_time.ToString("yyyy-MM-dd HH:mm:ss").PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10)); 
+                                    sb.AppendLine(event_id.PR(10) + league.PR(50) + dt_time.ToString("yyyy-MM-dd HH:mm:ss").PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                                     Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "0", zone);
                                     MbSQL.insert_events(event_id, league.E_TRIM(), dt_time.ToString("yyyy-MM-dd HH:mm:ss"), host, client);
                                     MbSQL.insert_odds(event_id, "0", "three", win, draw, lose);
@@ -240,7 +240,7 @@ public partial class frm_single_marathonbet : Form
         }
         return sb.ToString();
 
-    } 
+    }
     public string inser_event_detail(string html)
     {
 
@@ -252,7 +252,7 @@ public partial class frm_single_marathonbet : Form
 
         HtmlNodeCollection nodes_all = doc.DocumentNode.SelectNodes(@"//*");
         List<HtmlNode> nodes = new List<HtmlNode>();
- 
+
 
         foreach (HtmlNode node in nodes_all)
         {
@@ -268,12 +268,12 @@ public partial class frm_single_marathonbet : Form
                 HtmlNodeCollection nc_table = node.SELECT_NODES("/table");
                 if (nc_table == null) continue;
                 foreach (HtmlNode node_table in nc_table)
-                { 
+                {
                     HtmlNodeCollection nc_tr = node_table.SELECT_NODES("/tbody/tr");
                     if (nc_tr == null) continue;
                     foreach (HtmlNode node_tr in nc_tr)
                     {
-                        foreach(HtmlNode node_td in node_tr.ChildNodes)
+                        foreach (HtmlNode node_td in node_tr.ChildNodes)
                         {
                             if (node_td == null) continue;
                             sb.Append(node_td.InnerText.E_TRIM().PR(30));
@@ -372,7 +372,7 @@ public partial class frm_single_marathonbet : Form
                                     //Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, "1", zone);
                                 }
                                 //get the detail information
-                                HtmlNodeCollection  nodes_tr = node_table.SELECT_NODES("tr");
+                                HtmlNodeCollection nodes_tr = node_table.SELECT_NODES("tr");
                                 foreach (HtmlNode node_tr in nodes_tr)
                                 {
                                     if (node_tr.CLASS().Contains("market-details"))
@@ -390,25 +390,33 @@ public partial class frm_single_marathonbet : Form
                                                     sb.AppendLine(odd_type);
                                                     sb.AppendLine("--------------------");
                                                     HtmlNodeCollection nodes_tr1 = node_div1.SELECT_NODES("/table[1]/tbody[1]/tr");
-                                                  
-                                                     foreach (HtmlNode node_tr1 in nodes_tr1)
-                                                     {
-                                                         sb.AppendLine(node_tr1.InnerText.E_REMOVE());
-                                                        //    HtmlNodeCollection nodes_td1 = node_tr1.SELECT_NODES("/td");
-                                                        //    if (nodes_td1 != null)
-                                                        //    {
-                                                        //        foreach (HtmlNode node_td1 in nodes_td1)
-                                                        //        {
-                                                        //            sb.Append(node_td1.InnerText.E_REMOVE().PR(20));
-                                                        //        }
-                                                        //        sb.Append(M.N);
-                                                        //    }
-                                                     }
+
+                                                    foreach (HtmlNode node_tr1 in nodes_tr1)
+                                                    {
+                                                        //sb.AppendLine(node_tr1.InnerText.E_REMOVE());
+                                                        HtmlNodeCollection nodes_td1 = node_tr1.SELECT_NODES("/td");
+                                                        if (nodes_td1 != null)
+                                                        {
+                                                            for (int i = 0; i < nodes_td1.Count; i++)
+                                                            {
+                                                                if (i == 0)
+                                                                {
+                                                                    sb.Append(nodes_td1[i].InnerText.E_REMOVE().PR(100));
+                                                                }
+                                                                else
+                                                                {
+                                                                    sb.Append(nodes_td1[i].InnerText.E_REMOVE().PR(20));
+                                                                }
+
+                                                            }
+                                                            sb.Append(M.N);
+                                                        }
+                                                    }
                                                     sb.AppendLine("--------------------");
 
                                                 }
                                             }
-                                            
+
                                         }
                                         sb.AppendLine("------------------------------------------------------------------------------------");
 
@@ -423,9 +431,9 @@ public partial class frm_single_marathonbet : Form
             }
         }
         //------------------------------------------------------
-        return sb.ToString(); 
+        return sb.ToString();
     }
- 
+
 
 
 }
