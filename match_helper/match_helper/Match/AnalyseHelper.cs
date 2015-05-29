@@ -81,7 +81,7 @@ using System.Text;
             if ((max * 1.000) / (l_min * 1.000) > 0.5) return true;
             return false;
         }
-        public static bool  is_alike_word(string word1, string word2)
+        public static  bool  is_alike_word(string word1, string word2)
         {
             int l1 = word1.Length;
             int l2 = word2.Length;
