@@ -76,9 +76,7 @@ using System.Text;
             if (count_contain > max) max = count_all;
             if (count_alike > max) max = count_alike;
 
-            
-            if (l_min = 2 && count_all >= 1) return true; 
-
+             
             if (max >= 2) return true;
             if ((max * 1.000) / (l_min * 1.000) > 0.5) return true;
             return false;
@@ -94,7 +92,7 @@ using System.Text;
             string target="";
             for (int i = 0; i < l1; i++)
             {
-                for (int j = 0; j < l1 - i; j++)
+                for (int j = i; j < l1 + 1 - i; j++)
                 {
                     string temp = word1.Substring(i, j);
                     if (word2.Contains(temp))
@@ -111,7 +109,7 @@ using System.Text;
 
             for (int i = 0; i < l2; i++)
             {
-                for (int j = 0; j < l2 - i; j++)
+                for (int j = i; j < l2 + 1 - i; j++)
                 {
                     string temp = word2.Substring(i, j);
                     if (word1.Contains(temp))
@@ -126,7 +124,7 @@ using System.Text;
                 }
             }
             if (max >= 6) return true;
-            if ((max * 1.000) / (l_min * 1.000) > 0.7) return true;
+            if ((max * 1.000) / (l_min * 1.000) > 0.75) return true;
             return false;
 
         }
