@@ -7,7 +7,7 @@ using System.Text;
  
     class AnalyseHelper
     {
-        public static  bool  is_same_name(string input1,string input2)
+        public static  bool  is_alike_name(string input1,string input2)
         {
 
             ArrayList list = new ArrayList();
