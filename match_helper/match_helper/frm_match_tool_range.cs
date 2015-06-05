@@ -58,8 +58,7 @@ namespace match_helper
                 try
                 {
                     win = Convert.ToDouble(str_win);
-                    draw = Convert.ToDouble(str_draw); 
-
+                    draw = Convert.ToDouble(str_draw);  
 
                 }
                 catch (Exception error)
@@ -75,8 +74,8 @@ namespace match_helper
 
         private void txt_result_TextChanged(object sender, EventArgs e)
         { 
-            this.txt_result.SelectionStart = this.txt_result.TextLength;
-            this.txt_result.ScrollToCaret(); 
+            //this.txt_result.SelectionStart = this.txt_result.TextLength;
+            //this.txt_result.ScrollToCaret(); 
         }
 
       

@@ -24,9 +24,9 @@ class AnalyseBase
 
 
 
-        sb.Append("R-COUNT".PR(10) + "R-PERSENT".PR(10) + "R-IDEAL".PR(10) + "R-ACTURL".PR(10) +
+        sb.Append("R-COUNT".PR(10) + "R-PERSENT".PR(10) + "IN-IDEAL".PR(10) + "IN-ACTURL".PR(10) +
                     "WIN".PR(10) + "DRAW".PR(10) + "LOSE".PR(10) +
-                    "WIN-P".PR(10) + "DRAW-P".PR(10) + "LOSE-P".PR(10) + Environment.NewLine);
+                    "R-WIN-P".PR(10) + "R-DRAW-P".PR(10) + "R-LOSE-P".PR(10) + Environment.NewLine);
         sb.Append(M.L(120));
         for (int input = 10; input <= 10000; input++)
         {
@@ -83,7 +83,7 @@ class AnalyseBase
 
         sb.Append("R-COUNT".PR(10) + "R-PERSENT".PR(10) + "IN-IDEAL".PR(10) + "IN-ACTURL".PR(10) +
                     "WIN".PR(10) + "LOSE".PR(10) +
-                    "WIN-P".PR(10) + "LOSE-P".PR(10) + Environment.NewLine);
+                    "R-WIN-P".PR(10) + "R-LOSE-P".PR(10) + Environment.NewLine);
         sb.Append(M.L(90));
 
 
