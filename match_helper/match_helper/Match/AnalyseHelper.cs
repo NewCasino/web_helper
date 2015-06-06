@@ -128,6 +128,13 @@ using System.Text;
             return false;
 
         }
-
+        public static string get_bet_type_id(string input)
+        { 
+            return "";
+        }
+        public static string is_same_event(string start_time1,string team1,string team2,string start_time2,string team3,string team4)
+        {
+            if (is_alike_name(team1,team2) && is_alike_name(team3,team4)) return true;
+        }
     }
  
