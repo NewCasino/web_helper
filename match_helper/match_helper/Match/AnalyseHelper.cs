@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 
  
     class AnalyseHelper
@@ -128,13 +129,24 @@ using System.Text;
             return false;
 
         }
-        public static string get_bet_type_id(string input)
-        { 
-            return "";
-        }
-        public static string is_same_event(string start_time1,string team1,string team2,string start_time2,string team3,string team4)
+        public static string get_bet_type_id(string type_name)
         {
-            if (is_alike_name(team1,team2) && is_alike_name(team3,team4)) return true;
+            string sql = " select * from a_type ";
+            DataTable dt = SQLServerHelper.get_table(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                if( is_alike_name(row["name"].ToString(),type_name))  return row["id"].ToString();  
+            }
+            return "0";
+        }
+        public static bool is_same_event(string start_time1,string team1,string team2,string start_time2,string team3,string team4)
+        {
+            DateTime dt1 = Tool.get_time(start_time1);
+            DateTime dt2 = Tool.get_time(start_time2); 
+            TimeSpan span = dt2 - dt1;
+
+            if (span.TotalHours > -48 && span.TotalHours < 48 && is_alike_name(team1, team2) && is_alike_name(team3, team4)) return true;
+            return false;
         }
     }
  

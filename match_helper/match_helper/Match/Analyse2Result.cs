@@ -351,7 +351,7 @@ class Analyse2Result
         {
             case "2result":
                 sb.Append("type:" + doc["type"].ToString() + "  doc id:" + doc["doc_id"].ToString() + Environment.NewLine);
-                sb.Append("odd_type:" + doc["odd_type"].ToString()+Environment.NewLine);
+                sb.Append("odd type:" + doc["odd_type"].ToString()+Environment.NewLine);
                 sb.Append(doc["start_time"].ToString() + "    " + doc["host"].PR(20) + doc["client"].PR(20) + Environment.NewLine);
                 sb.Append("bid count:" + doc["bid_count"].ToString() + Environment.NewLine);
                 sb.Append("return value: " + doc["result"]["count_return"].ToString() + Environment.NewLine);

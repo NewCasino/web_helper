@@ -27,13 +27,13 @@ using System.Text;
         public static void insert_odds(string event_id,string period_type,string bet_type,string home,string draw,string away)
         {
             string sql = "";
-            sql = "delete from s_mb_odds where event_id='{0}' and period_type='{1}' and bet_type='{2}'";
-            sql = string.Format(sql,event_id, period_type, bet_type);
+            sql = "delete from s_mb_odds where event_id='{0}' and period_type='{1}' and type_id='0'";
+            sql = string.Format(sql,event_id, period_type);
            
             SQLServerHelper.exe_sql(sql);
 
-            sql = "insert into s_mb_odds (event_id,period_type,bet_type,o1,o2,o3) values('{0}','{1}','{2}','{3}','{4}','{5}')";
-            sql=string.Format(sql,event_id, period_type, bet_type, home, draw, away);
+            sql = "insert into s_mb_odds (event_id,period_type,type_id,type_name,o1,o2,o3) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')";
+            sql=string.Format(sql,event_id, period_type, '0',bet_type, home, draw, away);
             
             SQLServerHelper.exe_sql(sql);
         }
