@@ -44,6 +44,12 @@ Goals Odd or Even, Second Half
 marathonbet
 ----------------------------------------------------------------------------------------
 
+Handicap
+Handicap-First Half 
+Handicap-Second Half
 
+Total Goals
 
+Correct Score
+Winning Margin YES/NO
 ----------------------------------------------------------------------------------------

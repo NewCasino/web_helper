@@ -42,10 +42,11 @@ namespace match_helper
             {
                 sql = "select * from a_event a,a_all b where a.id=b.a_event_id  and b.event_id={0} and b.a_website_id=1";
                 sql = string.Format(sql, row["event_id"].ToString());
-                if (SQLServerHelper.get_table(sql).Rows.Count == 0)
+                DataTable dt_temp=SQLServerHelper.get_table(sql);
+                if (dt_temp.Rows.Count == 0)
                 {
                     sql = "insert into a_event (timespan,start_time,team1,team2,a_all_id) values ( {0} ,'{1}','{2}','{3}','{4}')";
-                    sql = string.Format(sql,UnixTime.unix_now.ToString(),row["start_time"].ToString(), row["team1"].ToString(), row["team2"].ToString(), row["id"].ToString());
+                    sql = string.Format(sql, UnixTime.unix_now.ToString(), row["start_time"].ToString(), row["team1"].ToString(), row["team2"].ToString(), row["id"].ToString());
                     SQLServerHelper.exe_sql(sql);
 
                     sql = "select * from a_event where a_all_id={0}";
@@ -54,6 +55,12 @@ namespace match_helper
 
                     sql = "update a_all set a_event_id={0} where id={1}";
                     sql = string.Format(sql, max_id, row["id"].ToString());
+                    SQLServerHelper.exe_sql(sql);
+                }
+                else
+                {
+                    sql = " update a_all set a_event_id={0} where id={1}";
+                    sql = string.Format(sql, dt_temp.Rows[0]["a_event_id"].ToString(), row["id"].ToString());
                     SQLServerHelper.exe_sql(sql);
                 }
             }
@@ -102,32 +109,38 @@ namespace match_helper
 
                 //get type id
                 string type_id = "";
-                type_id = string.IsNullOrEmpty(row["a_type_id"].ToString()) ? AnalyseHelper.get_bet_type_id(row["bet_type"].ToString()) : row["a_type_id"].ToString();
+                type_id = string.IsNullOrEmpty(row["a_type_id"].ToString()) ? AnalyseHelper.get_bet_type_id(row["type_name"].ToString()) : row["a_type_id"].ToString();
                  
 
                 //insert a_odd
-                sql = " select * from a_odd where event_id= {0} and type_id={1} and r1='{2}' and r2='{3}' and r3='{4}' and r4='{5}' and r5='{6}' and r6='{7}'";
-                sql = string.Format(sql, row["a_event_id"].ToString(), type_id,row["r1"].ToString(),row["r2"].ToString(),row["r3"].ToString(),row["r4"].ToString(),row["r5"].ToString(),row["r6"].ToString());
+                sql = " select * from a_odd where event_id= {0} and type_id={1}  "+
+                      " and m1='{2}' and m2='{3}' and m3='{4}'  and m4='{5}' and m5='{6}' and m6='{7}'" +
+                      " and r1='{8}' and r2='{9}' and r3='{10}' and r4='{11}' and r5='{12}' and r6='{13}'";
+                sql = string.Format(sql, row["a_event_id"].ToString(), type_id,
+                                    row["m1"].ToString(),row["m2"].ToString(),row["m3"].ToString(),row["m4"].ToString(),row["m5"].ToString(),row["m6"].ToString(),
+                                    row["r1"].ToString(),row["r2"].ToString(),row["r3"].ToString(),row["r4"].ToString(),row["r5"].ToString(),row["r6"].ToString());
                 DataTable dt_temp = SQLServerHelper.get_table(sql);
 
                 if (dt_temp.Rows.Count > 0)
                 {
                     sql = "delete   from a_odd where id={0}";
-                    sql = string.Format(sql, dt_all.Rows[0]["id"].ToString());
+                    sql = string.Format(sql, dt_temp.Rows[0]["id"].ToString());
                     SQLServerHelper.exe_sql(sql);
                 }
-                sql = " insert into a_odd (timespan,website_id,event_id,type_id,a_all_id,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6)" +
-                    " values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')";
+                sql = " insert into a_odd (timespan,website_id,event_id,type_id,a_all_id,m1,m2,m3,m4,m5,m6,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6)" +
+                    " values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}')";
                 sql = string.Format(sql, UnixTime.unix_now.ToString(), row["a_website_id"].ToString(), row["a_event_id"].ToString(), row["a_type_id"].ToString(),row["id"].ToString(),
+                     row["m1"].ToString(), row["m2"].ToString(), row["m3"].ToString(), row["m4"].ToString(), row["m5"].ToString(), row["m6"].ToString(),
                      row["r1"].ToString(), row["r2"].ToString(), row["r3"].ToString(), row["r4"].ToString(), row["r5"].ToString(), row["r6"].ToString(),
                      row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString(), row["o4"].ToString(), row["o5"].ToString(), row["o6"].ToString());
                 SQLServerHelper.exe_sql(sql); 
 
 
                 //insert a_odd_log 
-                sql = " insert into a_odd_log (timespan,website_id,event_id,type_id,a_all_id,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6)" +
-                      " values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')";
+                sql = " insert into a_odd_log (timespan,website_id,event_id,type_id,a_all_id,m1,m2,m3,m4,m5,m6,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6)" +
+                      " values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}')";
                 sql = string.Format(sql, UnixTime.unix_now.ToString(), row["a_website_id"].ToString(), row["a_event_id"].ToString(), row["a_type_id"].ToString(),row["id"].ToString(),
+                     row["m1"].ToString(), row["m2"].ToString(), row["m3"].ToString(), row["m4"].ToString(), row["m5"].ToString(), row["m6"].ToString(),
                      row["r1"].ToString(), row["r2"].ToString(), row["r3"].ToString(), row["r4"].ToString(), row["r5"].ToString(), row["r6"].ToString(),
                      row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString(), row["o4"].ToString(), row["o5"].ToString(), row["o6"].ToString());
                 SQLServerHelper.exe_sql(sql);
@@ -147,7 +160,7 @@ namespace match_helper
         public void select_pin()
         {
             string sql = " select  a.sport_id,a.league_id,a.event_id,a.start_time,a.home,a.away," +
-                         " b.period_type,b.type_id,b.type_name,b.r1,b.r2,b.r3,b.r4,b.r5,b.r6,b.o1,b.o2,b.o3,b.o4,b.o5,b.o6" +
+                         " b.period_type,b.type_id,b.type_name,b.m1,b.m2,b.m3,b.m4,b.m5,b.m6,b.r1,b.r2,b.r3,b.r4,b.r5,b.r6,b.o1,b.o2,b.o3,b.o4,b.o5,b.o6" +
                          " from s_pin_events a,s_pin_odds b" +
                          " where a.event_id=b.event_id";
             DataTable dt = SQLServerHelper.get_table(sql);
@@ -156,11 +169,12 @@ namespace match_helper
                 DateTime time = Tool.get_time(row["start_time"].ToString());
                 if (time.Minute % 10 == 4 || time.Minute % 10 == 9) time = time.AddMinutes(1);
 
-                sql = " insert into a_all (timespan,event_id,start_time,team1,team2,type_name,odd_id,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6,a_website_id,a_type_id)" +
-                      " values({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}',{19},{20})";
+                sql = " insert into a_all (timespan,event_id,start_time,team1,team2,type_name,odd_id,m1,m2,m3,m4,m5,m6,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6,a_website_id,a_type_id)" +
+                      " values({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}',{19},{20},'{21}','{22}','{23}','{24}',{25},{26})";
                 sql=string.Format(sql, UnixTime.unix_now.ToString(), row["event_id"].ToString(), time.ToString("yyyy-MM-dd HH:mm:ss"), row["home"].ToString(), row["away"].ToString(),row["type_name"].ToString(), "",
+                              row["m1"].ToString(), row["m2"].ToString(), row["m3"].ToString(), row["m4"].ToString(), row["m5"].ToString(), row["m6"].ToString(),
                               row["r1"].ToString(), row["r2"].ToString(), row["r3"].ToString(), row["r4"].ToString(), row["r5"].ToString(), row["r6"].ToString(),
-                              row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString(), row["o4"].ToString(), row["o5"].ToString(), row["o6"].ToString(), "1","null");
+                              row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString(), row["o4"].ToString(), row["o5"].ToString(), row["o6"].ToString(), "1",row["type_id"].ToString());
                 SQLServerHelper.exe_sql(sql);
             }
         }

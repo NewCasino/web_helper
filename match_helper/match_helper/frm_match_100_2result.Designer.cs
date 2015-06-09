@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_test = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_result = new System.Windows.Forms.TextBox();
-            this.btn_test = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -49,6 +49,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operation";
+            // 
+            // btn_test
+            // 
+            this.btn_test.Location = new System.Drawing.Point(19, 17);
+            this.btn_test.Name = "btn_test";
+            this.btn_test.Size = new System.Drawing.Size(75, 23);
+            this.btn_test.TabIndex = 0;
+            this.btn_test.Text = "Test";
+            this.btn_test.UseVisualStyleBackColor = true;
+            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
             // 
             // tabControl1
             // 
@@ -80,22 +90,13 @@
             this.txt_result.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_result.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txt_result.Location = new System.Drawing.Point(3, 3);
+            this.txt_result.MaxLength = 0;
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txt_result.Size = new System.Drawing.Size(789, 359);
             this.txt_result.TabIndex = 2;
             this.txt_result.WordWrap = false;
-            // 
-            // btn_test
-            // 
-            this.btn_test.Location = new System.Drawing.Point(19, 17);
-            this.btn_test.Name = "btn_test";
-            this.btn_test.Size = new System.Drawing.Size(75, 23);
-            this.btn_test.TabIndex = 0;
-            this.btn_test.Text = "Test";
-            this.btn_test.UseVisualStyleBackColor = true;
-            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
             // 
             // frm_match_100_2result
             // 
