@@ -136,8 +136,10 @@
     </Compile>
     <Compile Include="Match\Analyse2Result.cs" />
     <Compile Include="Match\AnalyseBase.cs" />
+    <Compile Include="Match\AnalyseEngine.cs" />
     <Compile Include="Match\AnalyseHelper.cs" />
     <Compile Include="Match\AnalyseInfo.cs" />
+    <Compile Include="Match\AnalyseTest.cs" />
     <Compile Include="Match\CombineAnalyse.cs" />
     <Compile Include="frm_match_100_analyse_with_present.cs">
       <SubType>Form</SubType>

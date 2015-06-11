@@ -9,9 +9,11 @@ public class SQLServerHelper
 {
  
      public static string str_con = @"Data Source=yanglong\SQLSERVER2012;Initial Catalog=HtmlSelect;Integrated Security=True";
-     //public static string str_con = @"Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
+ 
     public static DataTable get_table(string sql)
     {
+        if (Environment.UserName == "CY120467") SQLServerHelper.str_con = "Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
+
         SqlConnection con = new SqlConnection(str_con);
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
@@ -25,6 +27,8 @@ public class SQLServerHelper
     }
     public static void exe_sql(string sql)
     {
+        if (Environment.UserName == "CY120467") SQLServerHelper.str_con = "Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
+
         SqlConnection con = new SqlConnection(str_con);
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
