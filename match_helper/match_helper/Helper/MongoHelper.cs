@@ -247,6 +247,6 @@ public class MongoHelper
             table.Rows.Add(row_new);
         }
         return table;
-    }
+    } 
 }
  

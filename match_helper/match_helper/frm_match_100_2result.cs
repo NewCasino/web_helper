@@ -19,7 +19,8 @@ namespace match_helper
         }
 
         private void btn_test_Click(object sender, EventArgs e)
-        {  
+        {
+            this.txt_result.Text = PinData.insert_odds(this.txt_result.Text);
         } 
     }
 }

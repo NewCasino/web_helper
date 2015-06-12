@@ -58,11 +58,11 @@ class PinSQL
        
 
         UInt64 timespan = UnixTime.unix_now;
-        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='0'";
+        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='1'";
         sql = string.Format(sql, event_id, period_num);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into s_pin_odds (timespan,event_id,period_type,type_id,type_name,m1,r1,r2,r3,o1,o2,o3) values ({0},{1},'{2}','0','Three Results','{3}','HOME','DRAW','AWAY','{4}','{5}','{6}')";
+        sql = "insert into s_pin_odds (timespan,event_id,period_type,type_id,type_name,m1,r1,r2,r3,o1,o2,o3) values ({0},{1},'{2}','1','Three Results','{3}','HOME','DRAW','AWAY','{4}','{5}','{6}')";
         sql = string.Format(sql,timespan.ToString(),event_id, period_num,m1, home, away, draw);
         SQLServerHelper.exe_sql(sql); 
     }
@@ -73,11 +73,11 @@ class PinSQL
         if (period_num == "1") m1 = "1-HALF";
        
         UInt64 timespan = UnixTime.unix_now;
-        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='1' and r1='{2}' and r2='{3}'";
+        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='2' and r1='{2}' and r2='{3}'";
         sql = string.Format(sql, event_id, period_num, home, away);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m1,r1,r2,o1,o2) values ({0},{1},'{2}','1','Handicap','{3}','{4}','{5}','{6}','{7}')";
+        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m1,r1,r2,o1,o2) values ({0},{1},'{2}','2','Handicap','{3}','{4}','{5}','{6}','{7}')";
         sql = string.Format(sql,timespan.ToString(),event_id, period_num, m1,home, away, odd_home, odd_away);
         SQLServerHelper.exe_sql(sql);
     }
@@ -89,11 +89,11 @@ class PinSQL
        
 
         UInt64 timespan = UnixTime.unix_now;
-        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='2' and r1='{2}'";
+        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='3' and r1='{2}'";
         sql = string.Format(sql, event_id, period_num, total);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m1,r1,r2,o1,o2) values ({0},{1},'{2}','2','Total Goals','{3}','{4}','{5}','{6}','{7}')";
+        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m1,r1,r2,o1,o2) values ({0},{1},'{2}','3','Total Goals','{3}','{4}','{5}','{6}','{7}')";
         sql = string.Format(sql,timespan.ToString(),event_id, period_num, m1,total,total, odd_over, odd_under);
         SQLServerHelper.exe_sql(sql);
     }
@@ -103,11 +103,11 @@ class PinSQL
         if (period_num == "1") m1 = "1-HALF";
        
         UInt64 timespan = UnixTime.unix_now;
-        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='3' and r1 ='{2}'";
+        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='4' and r1 ='{2}'";
         sql = string.Format(sql, event_id, period_num, total);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m1,m2,r1,r2,o1,o2) values ({0},{1},'{2}','3','Team Total Goals','{3}','HOME','{4}','{5}','{6}','{7}')";
+        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m1,m2,r1,r2,o1,o2) values ({0},{1},'{2}','4','Team Total Goals','{3}','HOME','{4}','{5}','{6}','{7}')";
         sql = string.Format(sql,timespan.ToString(),event_id, period_num, m1,total, total,odd_over, odd_under);
         SQLServerHelper.exe_sql(sql);
     }
@@ -117,11 +117,11 @@ class PinSQL
         if (period_num == "1") m1 = "1-HALF";
        
         UInt64 timespan = UnixTime.unix_now;
-        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='3' and r2 ='{2}'";
+        string sql = "delete from s_pin_odds where event_id={0} and period_type='{1}' and type_id='4' and r2 ='{2}'";
         sql = string.Format(sql, event_id, period_num, total);
         SQLServerHelper.exe_sql(sql);
 
-        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m2,r1,r2,o1,o2) values ({0},{1},'{2}','3','Team Total Goals','{3}','AWAY','{4}','{5}','{6}','{7}')";
+        sql = "insert into s_pin_odds ( timespan,event_id,period_type,type_id,type_name,m2,r1,r2,o1,o2) values ({0},{1},'{2}','4','Team Total Goals','{3}','AWAY','{4}','{5}','{6}','{7}')";
         sql = string.Format(sql,timespan.ToString(),event_id, period_num,m1,total, total, odd_over, odd_under);
         SQLServerHelper.exe_sql(sql);
     }
