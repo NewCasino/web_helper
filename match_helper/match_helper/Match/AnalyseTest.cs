@@ -8,7 +8,7 @@ using MongoDB.Bson;
 
 class AnalyseTest
 {
-    public static List<BsonDocument> get_list_by_persent_asc(List<BsonDocument> list)
+    public static List<BsonDocument> get_list_by_persent_desc(List<BsonDocument> list)
     {
         StringBuilder sb = new StringBuilder(); 
         DataTable dt = new DataTable();
@@ -27,7 +27,7 @@ class AnalyseTest
             dt.Rows.Add(row_new);
         }
 
-        dt.DefaultView.Sort = "persent asc";
+        dt.DefaultView.Sort = "persent desc";
         dt = dt.DefaultView.ToTable();
 
         List<BsonDocument> list_return = new List<BsonDocument>();
@@ -70,7 +70,8 @@ class AnalyseTest
     }
     public static void test_all_2result_odd()
     {
-        string sql = "  select * from a_odd where type_id in (1,2,3) and id<=18505";
+        StringBuilder sb = new StringBuilder();
+        string sql = "  select * from a_odd where type_id in (2,3,4)";
         DataTable dt_temp = SQLServerHelper.get_table(sql);
 
         List<BsonDocument> list = new List<BsonDocument>();
@@ -100,12 +101,16 @@ class AnalyseTest
                 }
             }
         }
-        List<BsonDocument> list_result = get_list_by_persent_asc(list);
+        List<BsonDocument> list_result = get_list_by_persent_desc(list);
         Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
+        sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
         foreach (BsonDocument doc_show in list_result)
-        { 
+        {
             Console.WriteLine(Analyse2Result.get_info(doc_show));
+            sb.AppendLine(Analyse2Result.get_info(doc_show));
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
-        }
+            sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
+        } 
     }
+
 }

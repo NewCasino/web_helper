@@ -145,7 +145,7 @@ using System.Data;
             DateTime dt2 = Tool.get_time(start_time2); 
             TimeSpan span = dt2 - dt1;
 
-            if (span.TotalHours > -48 && span.TotalHours < 48 && is_alike_name(team1, team2) && is_alike_name(team3, team4)) return true;
+            if (span.TotalHours > -48 && span.TotalHours < 48 && is_alike_name(team1, team3) && is_alike_name(team2, team4)) return true;
             return false;
         }
     }

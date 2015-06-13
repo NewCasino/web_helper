@@ -230,7 +230,7 @@ public class PinData
                             string team_total_away_under_price = team_total.SelectSingleNode("awayTeamTotal/overPrice").InnerText;
                             string team_total_away_over_price = team_total.SelectSingleNode("awayTeamTotal/underPrice").InnerText;
                             PinSQL.insert_odd_team_total_home(event_id, period_number, team_total_home, team_total_home_over_price, team_total_home_under_price);
-                            PinSQL.insert_odd_team_total_home(event_id, period_number, team_total_away, team_total_away_over_price, team_total_away_under_price);
+                            PinSQL.insert_odd_team_total_away(event_id, period_number, team_total_away, team_total_away_over_price, team_total_away_under_price);
                         }
                     }
                 }
