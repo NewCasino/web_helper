@@ -83,7 +83,7 @@ class AnalyseBase
 
         sb.Append("R-COUNT".PR(10) + "R-PERSENT".PR(10) + "IN-IDEAL".PR(10) + "IN-ACTURL".PR(10) +
                     "WIN".PR(10) + "LOSE".PR(10) +
-                    "R-WIN-P".PR(10) + "R-LOSE-P".PR(10) + Environment.NewLine);
+                    "R-WIN-P".PR(10) + "R-LOSE-P".PR(10) + M.N);
         sb.Append(M.L(90));
 
 
@@ -113,7 +113,7 @@ class AnalyseBase
 
             sb.Append(return_count_return.PR(10) + (return_persent_min + "%").PR(10) + return_count_ideal.PR(10) + return_count_actual.PR(10) +
                       return_count_win.PR(10) + return_count_lose.PR(10) +
-                      (return_persent_win + "%").PR(10) + (return_persent_lose + "%").PR(10) + Environment.NewLine);
+                      (return_persent_win + "%").PR(10) + (return_persent_lose + "%").PR(10) + M.N);
 
         }
 

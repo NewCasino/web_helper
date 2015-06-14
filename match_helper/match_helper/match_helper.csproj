@@ -128,12 +128,19 @@
     <Compile Include="API\PIN\PinData.cs" />
     <Compile Include="API\PIN\PinHelper.cs" />
     <Compile Include="API\PIN\PinSQL.cs" />
+    <Compile Include="frm_debug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_debug.Designer.cs">
+      <DependentUpon>frm_debug.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_match_100_2result.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_match_100_2result.Designer.cs">
       <DependentUpon>frm_match_100_2result.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Iw.cs" />
     <Compile Include="Match\Analyse2Result.cs" />
     <Compile Include="Match\AnalyseBase.cs" />
     <Compile Include="Match\AnalyseEngine.cs" />
@@ -298,6 +305,9 @@
     <Compile Include="Helper\MongoHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_debug.resx">
+      <DependentUpon>frm_debug.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_match_100_2result.resx">
       <DependentUpon>frm_match_100_2result.cs</DependentUpon>
       <SubType>Designer</SubType>

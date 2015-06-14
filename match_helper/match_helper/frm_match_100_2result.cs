@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MongoDB.Bson;
+using MongoDB.Bson; 
 
 namespace match_helper
 {
@@ -20,7 +20,9 @@ namespace match_helper
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            this.txt_result.Text = PinData.insert_odds(this.txt_result.Text);
+            //this.txt_result.Text = PinData.insert_odds(this.txt_result.Text);
+            Console.Write("Hello Output");
+           
         } 
     }
 }

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using MongoDB.Bson;
+using System.Threading;
 
 
 class AnalyseTest
 {
     public static List<BsonDocument> get_list_by_persent_desc(List<BsonDocument> list)
     {
-        StringBuilder sb = new StringBuilder(); 
+        StringBuilder sb = new StringBuilder();
         DataTable dt = new DataTable();
         DataColumn order = new DataColumn("order");
         order.DataType = Type.GetType("System.Int32");
@@ -62,18 +63,19 @@ class AnalyseTest
 
     }
     public static void test_2result_odd()
-    {
+    { 
         BsonDocument doc = Analyse2Result.get_best(1, 50);
-        Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
-        Console.WriteLine(Analyse2Result.get_info(doc));
-        Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
+        Iw.write_line("-------------------------------------------------------------------------------------------------------------");
+        Iw.write(Analyse2Result.get_info(doc));
+        Iw.write_line("-------------------------------------------------------------------------------------------------------------");
+  
     }
     public static void test_all_2result_odd()
     {
         StringBuilder sb = new StringBuilder();
         string sql = "  select * from a_odd where type_id in (2,3,4)";
         DataTable dt_temp = SQLServerHelper.get_table(sql);
-
+       
         List<BsonDocument> list = new List<BsonDocument>();
         foreach (DataRow row in dt_temp.Rows)
         {
@@ -81,7 +83,7 @@ class AnalyseTest
             BsonDocument doc = Analyse2Result.get_best(Convert.ToInt32(row["id"].ToString()), 50);
             list.Add(doc);
             for (int i = 0; i < dt_temp.Rows.Count; i++)
-            { 
+            {
                 if (dt_temp.Rows[i]["event_id"].ToString() == row["event_id"].ToString() &&
                     dt_temp.Rows[i]["type_id"].ToString() == row["type_id"].ToString() &&
                     dt_temp.Rows[i]["m1"].ToString() == row["m1"].ToString() &&
@@ -102,15 +104,12 @@ class AnalyseTest
             }
         }
         List<BsonDocument> list_result = get_list_by_persent_desc(list);
-        Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
-        sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
+        Iw.write_line("-------------------------------------------------------------------------------------------------------------");
         foreach (BsonDocument doc_show in list_result)
         {
-            Console.WriteLine(Analyse2Result.get_info(doc_show));
-            sb.AppendLine(Analyse2Result.get_info(doc_show));
-            Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
-            sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
-        } 
-    }
+            Iw.write(Analyse2Result.get_info(doc_show));
+            Iw.write_line("-------------------------------------------------------------------------------------------------------------");
+        }
 
+    } 
 }
