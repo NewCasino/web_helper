@@ -140,7 +140,7 @@
     <Compile Include="frm_match_100_2result.Designer.cs">
       <DependentUpon>frm_match_100_2result.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\Iw.cs" />
+    <Compile Include="Helper\IWindow.cs" />
     <Compile Include="Match\Analyse2Result.cs" />
     <Compile Include="Match\AnalyseBase.cs" />
     <Compile Include="Match\AnalyseEngine.cs" />

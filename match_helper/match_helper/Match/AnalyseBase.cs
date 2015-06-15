@@ -118,6 +118,6 @@ class AnalyseBase
         }
 
         return sb.ToString();
-    }
+    } 
 }
 

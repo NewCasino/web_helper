@@ -65,9 +65,9 @@ class AnalyseTest
     public static void test_2result_odd()
     { 
         BsonDocument doc = Analyse2Result.get_best(1, 50);
-        Iw.write_line("-------------------------------------------------------------------------------------------------------------");
-        Iw.write(Analyse2Result.get_info(doc));
-        Iw.write_line("-------------------------------------------------------------------------------------------------------------");
+        IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
+        IWindow.write(Analyse2Result.get_info(doc));
+        IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
   
     }
     public static void test_all_2result_odd()
@@ -104,12 +104,20 @@ class AnalyseTest
             }
         }
         List<BsonDocument> list_result = get_list_by_persent_desc(list);
-        Iw.write_line("-------------------------------------------------------------------------------------------------------------");
+        IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
         foreach (BsonDocument doc_show in list_result)
         {
-            Iw.write(Analyse2Result.get_info(doc_show));
-            Iw.write_line("-------------------------------------------------------------------------------------------------------------");
+            IWindow.write(Analyse2Result.get_info(doc_show));
+            IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
         }
 
-    } 
+    }
+    public static void test()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append("start");
+        sb.Append(M.N+Environment.NewLine);
+        sb.Append("end");
+        IWindow.write_line(sb.ToString()); 
+    }
 }

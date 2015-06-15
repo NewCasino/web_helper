@@ -11,7 +11,7 @@ using System.IO;
 /// <summary>
 /// My Debug
 /// </summary>
-class Iw
+class IWindow
 {
     public static void info (string msg)
     {

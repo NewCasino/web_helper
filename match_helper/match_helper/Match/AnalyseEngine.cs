@@ -134,10 +134,10 @@ class AnalyseEngine
     }
     public static void select_pin()
     {
-        string sql = " select  a.sport_id,a.league_id,a.event_id,a.start_time,a.home,a.away," +
+        string sql = " select b.id b_id, a.sport_id,a.league_id,a.event_id,a.start_time,a.home,a.away," +
                      " b.period_type,b.type_id,b.type_name,b.m1,b.m2,b.m3,b.m4,b.m5,b.m6,b.r1,b.r2,b.r3,b.r4,b.r5,b.r6,b.o1,b.o2,b.o3,b.o4,b.o5,b.o6" +
                      " from s_pin_events a,s_pin_odds b" +
-                     " where a.event_id=b.event_id";
+                     " where a.event_id=b.event_id and note1='0'";
         DataTable dt = SQLServerHelper.get_table(sql);
         foreach (DataRow row in dt.Rows)
         {
@@ -151,14 +151,19 @@ class AnalyseEngine
                           row["r1"].ToString(), row["r2"].ToString(), row["r3"].ToString(), row["r4"].ToString(), row["r5"].ToString(), row["r6"].ToString(),
                           row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString(), row["o4"].ToString(), row["o5"].ToString(), row["o6"].ToString(), "1", row["type_id"].ToString());
             SQLServerHelper.exe_sql(sql);
+
+            sql = " update  s_pin_odds set note1='1' where id={0}";
+            sql = string.Format(sql, row["b_id"].ToString());
+            SQLServerHelper.exe_sql(sql);
         }
+      
     }
     public static void select_mb()
     {
-        string sql = " select a.event_id,a.start_time,a.home,a.away,b.type_id,b.type_name,b.m1,b.m2,b.m3,b.m4,b.m5,b.m6," +
+        string sql = " select b.id b_id,a.event_id,a.start_time,a.home,a.away,b.type_id,b.type_name,b.m1,b.m2,b.m3,b.m4,b.m5,b.m6," +
                      " b.r1,b.r2,b.r3,b.r4,b.r5,b.r6,b.o1,b.o2,b.o3,b.o4,b.o5,b.o6" +
                      " from s_mb_events a,s_mb_odds b" +
-                     " where a.event_id=b.event_id";
+                     " where a.event_id=b.event_id and note1='0'";
         DataTable dt = SQLServerHelper.get_table(sql);
         foreach (DataRow row in dt.Rows)
         {
@@ -170,7 +175,10 @@ class AnalyseEngine
                           row["r1"].ToString(), row["r2"].ToString(), row["r3"].ToString(), row["r4"].ToString(), row["r5"].ToString(), row["r6"].ToString(),
                           row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString(), row["o4"].ToString(), row["o5"].ToString(), row["o6"].ToString(), "2", row["type_id"].ToString());
             SQLServerHelper.exe_sql(sql);
+
+            sql = " update s_mb_odds set note1='1' where id={0} ";
+            sql = string.Format(sql, row["b_id"].ToString());
+            SQLServerHelper.exe_sql(sql);
         }
-    } 
-  
+    }  
 }
