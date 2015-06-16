@@ -35,8 +35,8 @@ public class PinData
         doc.LoadXml(result);
 
 
-        string sport_id = doc.SelectSingleNode("/sportId").InnerText;
-        XmlNodeList leagues = doc.SelectNodes("/leagues/league");
+        string sport_id = doc.SelectSingleNode("rsp/sportId").InnerText;
+        XmlNodeList leagues = doc.SelectNodes("rsp/leagues/league");
         foreach (XmlNode league in leagues)
         {
             string league_id = league.Attributes["id"].Value.ToString();

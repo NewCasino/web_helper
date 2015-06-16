@@ -26,7 +26,8 @@ namespace match_helper
 
         private void btn_get_html_Click(object sender, EventArgs e)
         {
-            this.txt_result.Text = PinApi.feeds_by_sport_id("29");
+            this.txt_result.Text = PinApi.leagues();
+            //this.txt_result.Text = PinApi.feeds_by_sport_id("29");
         }
 
         private void btn_get_data_Click(object sender, EventArgs e)

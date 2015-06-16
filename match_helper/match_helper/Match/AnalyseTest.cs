@@ -106,11 +106,15 @@ class AnalyseTest
         }
         List<BsonDocument> list_result = get_list_by_persent_desc(list);
         IWindow.write_break();
+        int count = 0;
         foreach (BsonDocument doc_show in list_result)
         {
+            count = count + 1;
+            if (count == 11) break;
             IWindow.write(Analyse2Result.get_info(doc_show));
             IWindow.write_break();
         }
+     
         return "Compute OK!!!";
     }
     public static string test()

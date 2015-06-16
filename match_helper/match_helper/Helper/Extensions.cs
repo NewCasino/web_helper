@@ -72,7 +72,10 @@ static class Extensions
         string[] list = str.ToString().Split(new string[] { mark }, StringSplitOptions.RemoveEmptyEntries);
         return list;
     }
-  
+    public static void IW(this string str)
+    {
+        IWindow.write(str); 
+    }
  
     //HtmlNode Extensions
     public static HtmlNode SELECT_NODE(this HtmlNode node_input, string xpath)
@@ -140,4 +143,6 @@ static class Extensions
         sb.Append(result);
         return sb.ToString(); 
     }
+
+
 }

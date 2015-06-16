@@ -49,8 +49,7 @@ public class PinApi
      * Czech	cs-CZ
     //--------------------------------------------------------*/
     public static string sports()
-    {
-        BsonDocument doc = new BsonDocument() { {"test",new BsonArray{1,2,3,4,}} };
+    { 
         string url = "https://api.pinnaclesports.com/v1/sports";
         return PinHelper.get(url);
     }

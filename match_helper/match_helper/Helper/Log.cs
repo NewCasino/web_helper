@@ -90,5 +90,6 @@ public class Log
         stream.Close();
     }
 
-
+    //get_log_string("path");
+    //get_log_string(0);
 }

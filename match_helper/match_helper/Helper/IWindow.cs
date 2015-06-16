@@ -32,13 +32,13 @@ class IWindow
     public static void write_break()
     {
         System.Diagnostics.Trace.WriteLine(LINE);
-    }
-   
+    } 
     public static void write_content(string msg)
     {
         write_break();
         System.Diagnostics.Trace.WriteLine(msg);
         write_break();
     }
+    //public static void write_table(DataTable dt)
 }
 
