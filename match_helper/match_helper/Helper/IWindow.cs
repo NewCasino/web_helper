@@ -13,6 +13,7 @@ using System.IO;
 /// </summary>
 class IWindow
 {
+    public static string LINE = "-------------------------------------------------------------------------------------------------------------";
     public static void info (string msg)
     {
         Application.EnableVisualStyles();
@@ -27,6 +28,17 @@ class IWindow
     public static void write_line(string msg)
     {
         System.Diagnostics.Trace.WriteLine(msg);
+    }
+    public static void write_break()
+    {
+        System.Diagnostics.Trace.WriteLine(LINE);
+    }
+   
+    public static void write_content(string msg)
+    {
+        write_break();
+        System.Diagnostics.Trace.WriteLine(msg);
+        write_break();
     }
 }
 

@@ -42,7 +42,7 @@ class AnalyseTest
 
         return list_return;
     }
-    public static void test_2result_persent()
+    public static string  test_2result_persent()
     {
         string sql = "  select * from a_odd where type_id in (0,1,2,3)";
         DataTable dt_temp = SQLServerHelper.get_table(sql);
@@ -58,19 +58,20 @@ class AnalyseTest
                 doc = Match100Helper.get_odd_doc_from_europe(row["o1"].ToString(), row["o2"].ToString());
             }
 
-            Console.WriteLine(row["event_id"].PR(10) + row["type_id"].PR(10) + doc["persent_return"].PR(10));
+           IWindow.write_line(row["event_id"].PR(10) + row["type_id"].PR(10) + doc["persent_return"].PR(10));
         }
-
+        return "Compute OK!!!";
     }
-    public static void test_2result_odd()
+    public static string test_2result_odd()
     { 
         BsonDocument doc = Analyse2Result.get_best(1, 50);
-        IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
+
+        IWindow.write_break();
         IWindow.write(Analyse2Result.get_info(doc));
-        IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
-  
+        IWindow.write_break();
+        return "Compute OK!!!";
     }
-    public static void test_all_2result_odd()
+    public static string test_all_2result_odd()
     {
         StringBuilder sb = new StringBuilder();
         string sql = "  select * from a_odd where type_id in (2,3,4)";
@@ -79,7 +80,7 @@ class AnalyseTest
         List<BsonDocument> list = new List<BsonDocument>();
         foreach (DataRow row in dt_temp.Rows)
         {
-            if (row["m5"].ToString() == "Y") return;
+            if (row["m5"].ToString() == "Y") continue;
             BsonDocument doc = Analyse2Result.get_best(Convert.ToInt32(row["id"].ToString()), 50);
             list.Add(doc);
             for (int i = 0; i < dt_temp.Rows.Count; i++)
@@ -104,20 +105,20 @@ class AnalyseTest
             }
         }
         List<BsonDocument> list_result = get_list_by_persent_desc(list);
-        IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
+        IWindow.write_break();
         foreach (BsonDocument doc_show in list_result)
         {
             IWindow.write(Analyse2Result.get_info(doc_show));
-            IWindow.write_line("-------------------------------------------------------------------------------------------------------------");
+            IWindow.write_break();
         }
-
+        return "Compute OK!!!";
     }
-    public static void test()
+    public static string test()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append("start");
-        sb.Append(M.N+Environment.NewLine);
-        sb.Append("end");
-        IWindow.write_line(sb.ToString()); 
+        sb.AppendLine("Start Compute......");
+        sb.Append("Finish Compute......");
+        IWindow.write_content(sb.ToString());
+        return "Compute OK!!!";
     }
 }
