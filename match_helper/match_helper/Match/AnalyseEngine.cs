@@ -144,6 +144,9 @@ class AnalyseEngine
             DateTime time = Tool.get_time(row["start_time"].ToString());
             if (time.Minute % 10 == 4 || time.Minute % 10 == 9) time = time.AddMinutes(1);
 
+
+            string home = row["home"].ToString().Replace("(n)", "");
+            string away = row["away"].ToString().Replace("(n)", "");
             sql = " insert into a_all (timespan,event_id,start_time,team1,team2,type_name,odd_id,m1,m2,m3,m4,m5,m6,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6,a_website_id,a_type_id)" +
                   " values({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}',{19},{20},'{21}','{22}','{23}','{24}',{25},{26})";
             sql = string.Format(sql, UnixTime.unix_now.ToString(), row["event_id"].ToString(), time.ToString("yyyy-MM-dd HH:mm:ss"), row["home"].ToString(), row["away"].ToString(), row["type_name"].ToString(), "",

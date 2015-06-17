@@ -60,7 +60,7 @@ class AnalyseTest
 
            IWindow.write_line(row["event_id"].PR(10) + row["type_id"].PR(10) + doc["persent_return"].PR(10));
         }
-        return "Compute OK!!!";
+        return "COMPUTE OK!!!";
     }
     public static string test_2result_odd()
     { 
@@ -69,7 +69,7 @@ class AnalyseTest
         IWindow.write_break();
         IWindow.write(Analyse2Result.get_info(doc));
         IWindow.write_break();
-        return "Compute OK!!!";
+        return "COMPUTE OK!!!";
     }
     public static string test_all_2result_odd()
     {
@@ -115,14 +115,12 @@ class AnalyseTest
             IWindow.write_break();
         }
      
-        return "Compute OK!!!";
+        return "COMPUTE OK!!!";
     }
     public static string test()
     {
-        StringBuilder sb = new StringBuilder();
-        sb.AppendLine("Start Compute......");
-        sb.Append("Finish Compute......");
-        IWindow.write_content(sb.ToString());
-        return "Compute OK!!!";
+        DataTable dt = SQLServerHelper.get_table("select * from a_event");
+        IWindow.write_table(dt);
+        return "";
     }
 }

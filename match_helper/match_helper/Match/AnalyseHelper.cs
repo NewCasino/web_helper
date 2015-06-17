@@ -8,6 +8,13 @@ using System.Data;
  
     class AnalyseHelper
     {
+        public static string remove_brackets(string txt)
+        {
+            int first = txt.IndexOf("(");
+            int second = txt.IndexOf(")");
+            if (first >= 0 && second >= 0 && second>first) { return txt.Remove(3, second - first + 1); }
+            return txt;
+        }
         public static  bool  is_alike_name(string input1,string input2)
         {
 

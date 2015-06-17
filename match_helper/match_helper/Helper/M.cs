@@ -18,7 +18,7 @@ class M
         {
             result = result + "-"; 
         }
-        return result + Environment.NewLine;
+        return result;
     }
 
 }

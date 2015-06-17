@@ -39,6 +39,26 @@ class IWindow
         System.Diagnostics.Trace.WriteLine(msg);
         write_break();
     }
-    //public static void write_table(DataTable dt)
+    public static void write_table(DataTable dt)
+    { 
+        IWindow.write(M.N);
+        string str_column = "";
+        foreach (DataColumn col in dt.Columns)
+        {
+            str_column = str_column + col.ColumnName.PR(10);
+        }
+        IWindow.write_line(str_column);
+
+        IWindow.write_line(M.L(str_column.Length));
+        foreach (DataRow row in dt.Rows)
+        {
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                IWindow.write(row[i].PR(10));
+            }
+            IWindow.write(M.N);
+        }
+        IWindow.write_line(M.L(str_column.Length));
+    }
 }
 

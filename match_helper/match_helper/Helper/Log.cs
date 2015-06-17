@@ -44,7 +44,7 @@ public class Log
         SQLServerHelper.exe_sql(sql);
     }
 
- 
+
     public static void create_log_file(string pathname, string name, string result)
     {
         string result_path = @"D:\log\" + pathname + @"\" + DateTime.Now.ToString("yyyyMMdd");
@@ -53,12 +53,7 @@ public class Log
 
         Random random = new Random();
         string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("HHmmss") + "_" + random.Next(100).ToString("000") + "_" + name + ".txt";
-        FileStream stream = (FileStream)File.Open(result_path + file_name, FileMode.Create);
-        StreamWriter writer = new StreamWriter(stream);
-        writer.WriteLine(result);
-        writer.Close();
-        stream.Close();
-
+        FileHelper.create_file(result_path + file_name, result);
     }
     public static void create_log_file(string pathname, string result)
     {
@@ -68,11 +63,7 @@ public class Log
 
         Random random = new Random();
         string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("HHmmss") + "_" + random.Next(100).ToString("000") + ".txt";
-        FileStream stream = (FileStream)File.Open(result_path + file_name, FileMode.Create);
-        StreamWriter writer = new StreamWriter(stream);
-        writer.WriteLine(result);
-        writer.Close();
-        stream.Close();
+        FileHelper.create_file(result_path + file_name, result);
 
     }
     public static void create_log_file(string result)
@@ -83,13 +74,45 @@ public class Log
 
         Random random = new Random();
         string file_name = DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("HHmmss") + "_" + random.Next(100).ToString("000") + ".txt";
-        FileStream stream = (FileStream)File.Open(result_path + file_name, FileMode.Create);
-        StreamWriter writer = new StreamWriter(stream);
-        writer.WriteLine(result);
-        writer.Close();
-        stream.Close();
+        FileHelper.create_file(result_path + file_name, result);
     }
 
-    //get_log_string("path");
-    //get_log_string(0);
+    public static string get_log_file()
+    {
+        DirectoryInfo[] dir_infos = FileHelper.get_dirs_sort_by_name_desc("D:/log/temp");
+        if (dir_infos.Length > 0)
+        {
+            string path = dir_infos[0].FullName;
+            FileInfo[] file_infos = FileHelper.get_files_sort_by_name_desc(path);
+            if (file_infos.Length > 0)
+            {
+                return FileHelper.get_file(file_infos[0].FullName);
+            }
+        }
+        return "NO FILE!!!";
+    }
+    public static string get_log_file(int count)
+    {
+        DirectoryInfo[] dir_infos = FileHelper.get_dirs_sort_by_name_desc("D:/log/temp");
+        if (dir_infos.Length > 0)
+        {
+            string path = dir_infos[0].FullName;
+            FileInfo[] file_infos = FileHelper.get_files_sort_by_name_desc(path);
+            if (file_infos.Length > count)
+            {
+                return FileHelper.get_file(file_infos[count].FullName);
+            }
+        }
+        return "NO FILE!!!";
+    }
+    public static string get_input_file(string name)
+    {
+        string path = @"D:\log\input\" + name;
+        return FileHelper.get_file(path);
+    }
+    public static void   create_input_file(string name, string result)
+    {
+        string path = @"D:\log\input\" + name;
+        FileHelper.create_file(path, result);
+    }
 }
