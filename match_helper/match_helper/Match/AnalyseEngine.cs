@@ -15,6 +15,8 @@ class AnalyseEngine
         DataTable dt_pin = SQLServerHelper.get_table(sql);
         foreach (DataRow row in dt_pin.Rows)
         {
+            #region old method
+            /*
             sql = "select * from a_event a,a_all b where a.id=b.a_event_id  and b.event_id={0} and b.a_website_id=1";
             sql = string.Format(sql, row["event_id"].ToString());
             DataTable dt_temp = SQLServerHelper.get_table(sql);
@@ -38,6 +40,37 @@ class AnalyseEngine
                 sql = string.Format(sql, dt_temp.Rows[0]["a_event_id"].ToString(), row["id"].ToString());
                 SQLServerHelper.exe_sql(sql);
             }
+            */
+            #endregion
+            sql = "select * from a_event";
+            DataTable dt_time = SQLServerHelper.get_table(sql);
+            bool is_find = false;
+            foreach (DataRow row_time in dt_time.Rows)
+            {
+                if (AnalyseHelper.is_same_event(row["start_time"].ToString(), row["team1"].ToString(), row["team2"].ToString(), row["start_time"].ToString(), row_time["team1"].ToString(), row_time["team2"].ToString()) == true)
+                {
+                    is_find = true;
+                    sql = "update a_all  set a_event_id={0} where id={1} ";
+                    sql = string.Format(sql, row_time["id"].ToString(), row["id"].ToString());
+                    SQLServerHelper.exe_sql(sql);
+                }
+            }
+
+            if (is_find == false)
+            {
+                sql = "insert into a_event (timespan,start_time,team1,team2,a_all_id) values ({0},'{1}','{2}','{3}','{4}')";
+                sql = string.Format(sql, UnixTime.unix_now.ToString(), row["start_time"].ToString(), row["team1"].ToString(), row["team2"].ToString(), row["id"].ToString());
+                SQLServerHelper.exe_sql(sql);
+
+                sql = "select * from a_event where a_all_id={0}";
+                sql = string.Format(sql, row["id"].ToString());
+                string max_id = SQLServerHelper.get_table(sql).Rows[0]["id"].ToString();
+
+                sql = "update a_all set a_event_id={0} where id={1}";
+                sql = string.Format(sql, max_id, row["id"].ToString());
+                SQLServerHelper.exe_sql(sql);
+            }
+
         }
 
         //select other websites
@@ -145,8 +178,8 @@ class AnalyseEngine
             if (time.Minute % 10 == 4 || time.Minute % 10 == 9) time = time.AddMinutes(1);
 
 
-            string home = row["home"].ToString().Replace("(n)", "");
-            string away = row["away"].ToString().Replace("(n)", "");
+            string home = row["home"].ToString().Replace("(n)", "").Replace("'", "");
+            string away = row["away"].ToString().Replace("(n)", "").Replace("'", "");
             sql = " insert into a_all (timespan,event_id,start_time,team1,team2,type_name,odd_id,m1,m2,m3,m4,m5,m6,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6,a_website_id,a_type_id)" +
                   " values({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}',{19},{20},'{21}','{22}','{23}','{24}',{25},{26})";
             sql = string.Format(sql, UnixTime.unix_now.ToString(), row["event_id"].ToString(), time.ToString("yyyy-MM-dd HH:mm:ss"), row["home"].ToString(), row["away"].ToString(), row["type_name"].ToString(), "",

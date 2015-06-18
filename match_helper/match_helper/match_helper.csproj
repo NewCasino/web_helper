@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\MBOOK\MbookSQL.cs" />
+    <Compile Include="API\MB\MbData.cs" />
     <Compile Include="API\MB\MbSQL.cs" />
     <Compile Include="API\PIN\PinApi.cs" />
     <Compile Include="API\PIN\PinData.cs" />

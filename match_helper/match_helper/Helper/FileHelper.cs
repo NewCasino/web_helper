@@ -21,25 +21,6 @@ class FileHelper
         FileHelper.sort_file_by_name_desc(ref file_infos);
         return file_infos;
     }
-    public  static void sort_file_by_name_desc(ref FileInfo[] infos)
-    {
-        Array.Sort(infos, delegate(FileInfo x, FileInfo y) { return y.Name.CompareTo(x.Name); });
-    }
-    public static void sort_file_by_modify_create_time(ref FileInfo[] arrFi)
-    {
-        Array.Sort(arrFi, delegate(FileInfo x, FileInfo y) { return x.CreationTime.CompareTo(y.CreationTime); });
-    }
-
-    public static void sort_dir_by_name_desc(ref DirectoryInfo[] dirs)
-    {
-        Array.Sort(dirs, delegate(DirectoryInfo x, DirectoryInfo y) { return y.Name.CompareTo(x.Name); });
-    }
-    public static  void sort_dir_by_create_time(ref DirectoryInfo[] dirs)
-    {
-        Array.Sort(dirs, delegate(DirectoryInfo x, DirectoryInfo y) { return x.CreationTime.CompareTo(y.CreationTime); });
-    }
-
-
     public static string get_file(string path)
     {
         string result = "";
@@ -49,8 +30,8 @@ class FileHelper
         reader.Close();
         return result;
     }
-    public static void create_file(string path,string result)
-    { 
+    public static void create_file(string path, string result)
+    {
         FileStream stream = (FileStream)File.Open(path, FileMode.Create);
         StreamWriter writer = new StreamWriter(stream);
         writer.WriteLine(result);
@@ -58,5 +39,26 @@ class FileHelper
         stream.Close();
 
     }
+
+
+    private  static void sort_file_by_name_desc(ref FileInfo[] infos)
+    {
+        Array.Sort(infos, delegate(FileInfo x, FileInfo y) { return y.Name.CompareTo(x.Name); });
+    }
+    private static void sort_file_by_modify_create_time(ref FileInfo[] arrFi)
+    {
+        Array.Sort(arrFi, delegate(FileInfo x, FileInfo y) { return x.CreationTime.CompareTo(y.CreationTime); });
+    } 
+    private static void sort_dir_by_name_desc(ref DirectoryInfo[] dirs)
+    {
+        Array.Sort(dirs, delegate(DirectoryInfo x, DirectoryInfo y) { return y.Name.CompareTo(x.Name); });
+    }
+    private static void sort_dir_by_create_time(ref DirectoryInfo[] dirs)
+    {
+        Array.Sort(dirs, delegate(DirectoryInfo x, DirectoryInfo y) { return x.CreationTime.CompareTo(y.CreationTime); });
+    }
+
+
+
 }
 
