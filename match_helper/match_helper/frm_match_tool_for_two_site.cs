@@ -24,15 +24,15 @@ namespace match_helper
             string lose1 = txt_lose_1.Text;
             if (cb_usa_1.Checked)
             {
-                win1 = Match100Helper.convert_ameriaca_odd(win1);
-                draw1 = Match100Helper.convert_ameriaca_odd(draw1);
-                lose1 = Match100Helper.convert_ameriaca_odd(lose1);
+                win1 = AnalyseTool.convert_ameriaca_odd(win1);
+                draw1 = AnalyseTool.convert_ameriaca_odd(draw1);
+                lose1 = AnalyseTool.convert_ameriaca_odd(lose1);
             }
             if (cb_eng_1.Checked)
             {
-                win1 = Match100Helper.convert_english_odd(win1);
-                draw1 = Match100Helper.convert_english_odd(draw1);
-                lose1 = Match100Helper.convert_english_odd(lose1);
+                win1 = AnalyseTool.convert_english_odd(win1);
+                draw1 = AnalyseTool.convert_english_odd(draw1);
+                lose1 = AnalyseTool.convert_english_odd(lose1);
             }
 
             string win2 = txt_win_2.Text;
@@ -40,15 +40,15 @@ namespace match_helper
             string lose2 = txt_lose_2.Text;
             if (cb_usa_2.Checked)
             {
-                win2 = Match100Helper.convert_ameriaca_odd(win2);
-                draw2 = Match100Helper.convert_ameriaca_odd(draw2);
-                lose2 = Match100Helper.convert_ameriaca_odd(lose2);
+                win2 = AnalyseTool.convert_ameriaca_odd(win2);
+                draw2 = AnalyseTool.convert_ameriaca_odd(draw2);
+                lose2 = AnalyseTool.convert_ameriaca_odd(lose2);
             }
             if (cb_eng_2.Checked)
             {
-                win2 = Match100Helper.convert_english_odd(win2);
-                draw2 = Match100Helper.convert_english_odd(draw2);
-                lose2 = Match100Helper.convert_english_odd(lose2);
+                win2 = AnalyseTool.convert_english_odd(win2);
+                draw2 = AnalyseTool.convert_english_odd(draw2);
+                lose2 = AnalyseTool.convert_english_odd(lose2);
             }
 
             string win = win1;
@@ -61,9 +61,9 @@ namespace match_helper
 
             if (string.IsNullOrEmpty(win) || string.IsNullOrEmpty(draw) || string.IsNullOrEmpty(lose)) return;
 
-            BsonDocument doc_odd1 = Match100Helper.get_odd_doc_from_europe(win1, draw1, lose1);
-            BsonDocument doc_odd2 = Match100Helper.get_odd_doc_from_europe(win2, draw2, lose2);
-            BsonDocument doc_odd = Match100Helper.get_odd_doc_from_europe(win, draw, lose);
+            BsonDocument doc_odd1 = AnalyseTool.get_odd_doc_from_europe(win1, draw1, lose1);
+            BsonDocument doc_odd2 = AnalyseTool.get_odd_doc_from_europe(win2, draw2, lose2);
+            BsonDocument doc_odd = AnalyseTool.get_odd_doc_from_europe(win, draw, lose);
 
             if (!string.IsNullOrEmpty(sb.ToString())) { sb.AppendLine("================================================="); }
 

@@ -122,6 +122,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analyse\AnalyseTool.cs" />
     <Compile Include="API\MBOOK\MbookSQL.cs" />
     <Compile Include="API\MB\MbData.cs" />
     <Compile Include="API\MB\MbSQL.cs" />
@@ -143,12 +144,12 @@
     </Compile>
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\IWindow.cs" />
-    <Compile Include="Match\Analyse2Result.cs" />
-    <Compile Include="Match\AnalyseBase.cs" />
-    <Compile Include="Match\AnalyseEngine.cs" />
-    <Compile Include="Match\AnalyseHelper.cs" />
-    <Compile Include="Match\AnalyseInfo.cs" />
-    <Compile Include="Match\AnalyseTest.cs" />
+    <Compile Include="Analyse\Analyse2Result.cs" />
+    <Compile Include="Analyse\AnalyseBase.cs" />
+    <Compile Include="Analyse\AnalyseEngine.cs" />
+    <Compile Include="Analyse\AnalyseHelper.cs" />
+    <Compile Include="Analyse\AnalyseInfo.cs" />
+    <Compile Include="Analyse\AnalyseTest.cs" />
     <Compile Include="Match\CombineAnalyse.cs" />
     <Compile Include="frm_match_100_analyse_with_present.cs">
       <SubType>Form</SubType>

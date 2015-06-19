@@ -176,7 +176,6 @@ class AnalyseEngine
         {
             DateTime time = Tool.get_time(row["start_time"].ToString());
             if (time.Minute % 10 == 4 || time.Minute % 10 == 9) time = time.AddMinutes(1);
-            time = time.AddHours(8);
 
 
             string home = row["home"].ToString().Replace("(n)", "").Replace("'", "");

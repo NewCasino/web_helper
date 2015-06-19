@@ -51,11 +51,11 @@ class AnalyseTest
             BsonDocument doc = new BsonDocument();
             if (row["type_id"].ToString() == "0")
             {
-                doc = Match100Helper.get_odd_doc_from_europe(row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString());
+                doc = AnalyseTool.get_odd_doc_from_europe(row["o1"].ToString(), row["o2"].ToString(), row["o3"].ToString());
             }
             else
             {
-                doc = Match100Helper.get_odd_doc_from_europe(row["o1"].ToString(), row["o2"].ToString());
+                doc = AnalyseTool.get_odd_doc_from_europe(row["o1"].ToString(), row["o2"].ToString());
             }
 
            IWindow.write_line(row["event_id"].PR(10) + row["type_id"].PR(10) + doc["persent_return"].PR(10));

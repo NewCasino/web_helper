@@ -121,9 +121,9 @@ public partial class frm_single_marathonbet : Form
                                 lose = node_table.SELECT_NODE("/tr[1]/td[4]").InnerText.E_REMOVE();
                                 if (win.Contains("/"))
                                 {
-                                    win = Match100Helper.convert_english_odd(win);
-                                    draw = Match100Helper.convert_english_odd(draw);
-                                    lose = Match100Helper.convert_english_odd(lose);
+                                    win = AnalyseTool.convert_english_odd(win);
+                                    draw = AnalyseTool.convert_english_odd(draw);
+                                    lose = AnalyseTool.convert_english_odd(lose);
                                 }
 
                                 if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
@@ -219,9 +219,9 @@ public partial class frm_single_marathonbet : Form
                                 lose = node_table.SELECT_NODE("/tr[1]/td[4]").InnerText.E_REMOVE();
                                 if (win.Contains("/"))
                                 {
-                                    win = Match100Helper.convert_english_odd(win);
-                                    draw = Match100Helper.convert_english_odd(draw);
-                                    lose = Match100Helper.convert_english_odd(lose);
+                                    win = AnalyseTool.convert_english_odd(win);
+                                    draw = AnalyseTool.convert_english_odd(draw);
+                                    lose = AnalyseTool.convert_english_odd(lose);
                                 }
 
                                 if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
@@ -361,9 +361,9 @@ public partial class frm_single_marathonbet : Form
                                 lose = node_table.SELECT_NODE("/tr[1]/td[4]").InnerText.E_REMOVE();
                                 if (win.Contains("/"))
                                 {
-                                    win = Match100Helper.convert_english_odd(win);
-                                    draw = Match100Helper.convert_english_odd(draw);
-                                    lose = Match100Helper.convert_english_odd(lose);
+                                    win = AnalyseTool.convert_english_odd(win);
+                                    draw = AnalyseTool.convert_english_odd(draw);
+                                    lose = AnalyseTool.convert_english_odd(lose);
                                 }
 
                                 if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))
@@ -508,9 +508,9 @@ public partial class frm_single_marathonbet : Form
                                 lose = node_table.SELECT_NODE("/tr[1]/td[4]").InnerText.E_REMOVE();
                                 if (win.Contains("/"))
                                 {
-                                    win = Match100Helper.convert_english_odd(win);
-                                    draw = Match100Helper.convert_english_odd(draw);
-                                    lose = Match100Helper.convert_english_odd(lose);
+                                    win = AnalyseTool.convert_english_odd(win);
+                                    draw = AnalyseTool.convert_english_odd(draw);
+                                    lose = AnalyseTool.convert_english_odd(lose);
                                 }
 
                                 if (!string.IsNullOrEmpty(win.E_TRIM()) && !string.IsNullOrEmpty(draw.E_TRIM()) && !string.IsNullOrEmpty(lose.E_TRIM()))

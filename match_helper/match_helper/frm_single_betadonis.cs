@@ -125,7 +125,7 @@ namespace match_helper
                             string odd_host = node.SELECT_NODE("div[4]/ol[1]/li[1]/a[1]/span[1]").InnerText;
                             string odd_draw = node.SELECT_NODE("div[4]/ol[1]/li[2]/a[1]/span[1]").InnerText;
                             string odd_away = node.SELECT_NODE("div[4]/ol[1]/li[3]/a[1]/span[1]").InnerText;
-                            BsonDocument doc_odd = Match100Helper.get_odd_doc_from_europe(odd_host, odd_draw, odd_away);
+                            BsonDocument doc_odd = AnalyseTool.get_odd_doc_from_europe(odd_host, odd_draw, odd_away);
                             sb.Append(start_time.PR(20) + host.PR(30) + client.PR(30) + odd_host.PR(10) + odd_draw.PR(10) + odd_away.PR(10) + doc_odd["persent_return"].ToString() + M.N);
                             Match100Helper.insert_data("betadonis", "", start_time, host, client, odd_host, odd_draw, odd_away, "2", "0");
                         }

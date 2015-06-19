@@ -19,7 +19,7 @@ using System.Drawing;
             }
             if (is_clear)
             {
-                txt.Text = sb.PRINT();
+                txt.Text = sb.PR200();
             }
             else
             { 

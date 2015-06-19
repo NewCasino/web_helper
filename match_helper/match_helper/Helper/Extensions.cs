@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Collections;
 using HtmlAgilityPack;
+using MongoDB.Bson;
 
 static class Extensions
 {
@@ -35,7 +36,29 @@ static class Extensions
         return "PR WRONG".PR(len);
     }
 
-    //String Extentsions  
+    //StringBulider Extentsions
+    public static string PR200(this StringBuilder sb)
+    {
+        string result = "";
+        string[] list = sb.ToString().E_SPLIT(Environment.NewLine);
+        if (list.Length > 200)
+        {
+            for (int i = list.Length - 200; i < list.Length; i++)
+            {
+                result = result + list[i] + Environment.NewLine;
+            }
+        }
+        else
+        {
+            result = sb.ToString();
+        }
+
+        sb.Remove(0, sb.Length);
+        sb.Append(result);
+        return sb.ToString();
+    }
+
+    //String Extentsions  >c
     public static string E_TRIM(this string str)
     {
 
@@ -47,18 +70,18 @@ static class Extensions
     {
         string result = "";
 
-        str = str.Replace("/r/n", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace("&nbsp;","").Replace("<br>", "").Replace("<BR>", ""); 
+        str = str.Replace("/r/n", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace("&nbsp;", "").Replace("<br>", "").Replace("<BR>", "");
 
         string[] list = str.E_SPLIT(" ");
         if (list.Length > 0)
         {
             foreach (string item in list)
-            { 
-                   if(!string.IsNullOrEmpty(item.Trim()))
-                   {
-                     result = result + " " + item; 
-                   }
-            } 
+            {
+                if (!string.IsNullOrEmpty(item.Trim()))
+                {
+                    result = result + " " + item;
+                }
+            }
         }
         else
         {
@@ -66,17 +89,13 @@ static class Extensions
         }
 
         return result.TrimStart().TrimEnd();
-    } 
+    }
     public static string[] E_SPLIT(this string str, string mark)
     {
         string[] list = str.ToString().Split(new string[] { mark }, StringSplitOptions.RemoveEmptyEntries);
         return list;
-    }
-    public static void IW(this string str)
-    {
-        IWindow.write(str); 
-    }
- 
+    } 
+
     //HtmlNode Extensions
     public static HtmlNode SELECT_NODE(this HtmlNode node_input, string xpath)
     {
@@ -122,27 +141,19 @@ static class Extensions
         }
     }
 
-    //StringBulider Extentsions
-    public static string PRINT(this StringBuilder sb)
+    //IWindow Command  
+    public static void PRINT(this object o)
     {
-        string result = "";
-        string[] list = sb.ToString().E_SPLIT(Environment.NewLine);
-        if (list.Length > 200)
-        {
-            for (int i = list.Length -200; i < list.Length; i++)
-            {
-                result = result + list[i] + Environment.NewLine;
-            }
-        }
-        else
-        {
-            result = sb.ToString();
-        }
-
-        sb.Remove(0, sb.Length);
-        sb.Append(result);
-        return sb.ToString(); 
+        //if (o.GetType().FullName == "MongoDB.Bson.BsonDocument")
+        //{
+        //    BsonDocument doc = (BsonDocument)o;
+        //    IWindow.write(JsonBeautify.beautify(doc.ToString()) + Environment.NewLine);
+        //    return "complete compute.......";
+        //}
+        IWindow.write_line(o.ToString()); 
     }
-
-
+    public static void PJSON(this object o)
+    { 
+        IWindow.write_line(JsonBeautify.beautify(o.ToString()) + Environment.NewLine);
+    }
 }

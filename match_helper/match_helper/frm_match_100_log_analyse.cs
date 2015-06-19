@@ -98,7 +98,7 @@ namespace match_helper
                     SQLServerHelper.exe_sql(sql);
 
                     sb.AppendLine(website.PR(10) + convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
-                    this.txt_result.Text = sb.PRINT();
+                    this.txt_result.Text = sb.PR200();
                     Application.DoEvents();
                 //}
                 //catch (Exception error)
@@ -170,7 +170,7 @@ namespace match_helper
                     SQLServerHelper.exe_sql(sql);
 
                     sb.AppendLine(website.PR(10) + convert_time.PR(30) + convert_host.PR(50) + convert_client.PR(50));
-                    this.txt_result.Text = sb.PRINT();
+                    this.txt_result.Text = sb.PR200();
                     Application.DoEvents();
                 //}
                 //catch (Exception error)

@@ -15,6 +15,7 @@ using System.Data;
             if (first >= 0 && second >= 0 && second>first) { return txt.Remove(3, second - first + 1); }
             return txt;
         }
+
         public static  bool  is_alike_name(string input1,string input2)
         {
 
@@ -136,6 +137,15 @@ using System.Data;
             return false;
 
         }
+        public static bool is_same_event(string start_time1, string team1, string team2, string start_time2, string team3, string team4)
+        {
+            DateTime dt1 = Tool.get_time(start_time1);
+            DateTime dt2 = Tool.get_time(start_time2);
+            TimeSpan span = dt2 - dt1;
+
+            if (span.TotalHours > -48 && span.TotalHours < 48 && is_alike_name(team1, team3) && is_alike_name(team2, team4)) return true;
+            return false;
+        }
         public static string get_bet_type_id(string type_name)
         {
             string sql = " select * from a_type ";
@@ -145,15 +155,6 @@ using System.Data;
                 if( is_alike_name(row["name"].ToString(),type_name))  return row["id"].ToString();  
             }
             return "0";
-        }
-        public static bool is_same_event(string start_time1,string team1,string team2,string start_time2,string team3,string team4)
-        {
-            DateTime dt1 = Tool.get_time(start_time1);
-            DateTime dt2 = Tool.get_time(start_time2); 
-            TimeSpan span = dt2 - dt1;
-
-            if (span.TotalHours > -48 && span.TotalHours < 48 && is_alike_name(team1, team3) && is_alike_name(team2, team4)) return true;
-            return false;
-        }
+        } 
     }
  

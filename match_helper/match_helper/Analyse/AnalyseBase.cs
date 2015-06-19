@@ -27,7 +27,7 @@ class AnalyseBase
         sb.Append("R-COUNT".PR(10) + "R-PERSENT".PR(10) + "IN-IDEAL".PR(10) + "IN-ACTURL".PR(10) +
                     "WIN".PR(10) + "DRAW".PR(10) + "LOSE".PR(10) +
                     "R-WIN-P".PR(10) + "R-DRAW-P".PR(10) + "R-LOSE-P".PR(10) + Environment.NewLine);
-        sb.Append(M.L(120));
+        sb.Append(M.L(120)+Environment.NewLine);
         for (int input = 10; input <= 10000; input++)
         {
             BsonDocument doc_item = new BsonDocument();
@@ -84,7 +84,7 @@ class AnalyseBase
         sb.Append("R-COUNT".PR(10) + "R-PERSENT".PR(10) + "IN-IDEAL".PR(10) + "IN-ACTURL".PR(10) +
                     "WIN".PR(10) + "LOSE".PR(10) +
                     "R-WIN-P".PR(10) + "R-LOSE-P".PR(10) + M.N);
-        sb.Append(M.L(90));
+        sb.Append(M.L(90)+Environment.NewLine);
 
 
         for (int input = 10; input <= 10000; input++)
@@ -119,5 +119,7 @@ class AnalyseBase
 
         return sb.ToString();
     } 
+
+
 }
 

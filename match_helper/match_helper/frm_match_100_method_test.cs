@@ -481,9 +481,9 @@ namespace match_helper
                     win = doc.DocumentNode.SelectSingleNode(xpath + "/ul[1]/li[1]/a[1]/span[2]").InnerText;
                     draw = doc.DocumentNode.SelectSingleNode(xpath + "/ul[1]/li[2]/a[1]/span[2]").InnerText;
                     lose = doc.DocumentNode.SelectSingleNode(xpath + "/ul[1]/li[3]/a[1]/span[2]").InnerText;
-                    win = Match100Helper.convert_english_odd(win);
-                    draw = Match100Helper.convert_english_odd(draw);
-                    lose = Match100Helper.convert_english_odd(lose);
+                    win = AnalyseTool.convert_english_odd(win);
+                    draw = AnalyseTool.convert_english_odd(draw);
+                    lose = AnalyseTool.convert_english_odd(lose);
                     Match100Helper.insert_data("betvictor", league, start_time, host, client, win, draw, lose, "2", "0");
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                 }
@@ -790,9 +790,9 @@ namespace match_helper
                                 host = teams[0]; client = teams[1];
                             }
                             league = node_tr.SELECT_NODE("/td[2]/span[1]").InnerText;
-                            win = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[3]/span[1]/a[1]/span[1]").InnerText);
-                            draw = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[4]/span[1]/a[1]/span[1]").InnerText);
-                            lose = Match100Helper.convert_english_odd(node_tr.SELECT_NODE("/td[5]/span[1]/a[1]/span[1]").InnerText);
+                            win = AnalyseTool.convert_english_odd(node_tr.SELECT_NODE("/td[3]/span[1]/a[1]/span[1]").InnerText);
+                            draw = AnalyseTool.convert_english_odd(node_tr.SELECT_NODE("/td[4]/span[1]/a[1]/span[1]").InnerText);
+                            lose = AnalyseTool.convert_english_odd(node_tr.SELECT_NODE("/td[5]/span[1]/a[1]/span[1]").InnerText);
                             Match100Helper.insert_data("victorbet", league, start_time, host, client, win, draw, lose, "8", "0");
                             sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                         }
@@ -872,9 +872,9 @@ namespace match_helper
                                 }
                                 host = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]").InnerText;
                                 client = node_table.SELECT_NODE("/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[2]").InnerText;
-                                win = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[2]").InnerText);
-                                draw = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
-                                lose = Match100Helper.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
+                                win = AnalyseTool.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[2]").InnerText);
+                                draw = AnalyseTool.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[3]").InnerText);
+                                lose = AnalyseTool.convert_english_odd(node_table.SELECT_NODE("/tr[1]/td[4]").InnerText);
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                                 Match100Helper.insert_data("marathonbet", league, start_time, host, client, win, draw, lose, zone, "0");
                             }
@@ -1387,14 +1387,14 @@ namespace match_helper
                                     host_count = host_count + 1;
                                     host = node_tr.SELECT_NODE("td[2]").InnerText;
                                     win = node_tr.SELECT_NODE("td[4]").InnerText;
-                                    win = Match100Helper.convert_ameriaca_odd(win);
+                                    win = AnalyseTool.convert_ameriaca_odd(win);
                                 }
                                 else
                                 {
                                     client_count = client_count + 1;
                                     client = node_tr.SELECT_NODE("td[2]").InnerText;
                                     lose = node_tr.SELECT_NODE("td[4]").InnerText;
-                                    lose = Match100Helper.convert_ameriaca_odd(lose);
+                                    lose = AnalyseTool.convert_ameriaca_odd(lose);
 
                                 }
 
@@ -1402,7 +1402,7 @@ namespace match_helper
                             if (node_tr.SELECT_NODES("/td").Count == 5 && node_tr.OuterHtml.Contains("Draw"))
                             {
                                 draw = node_tr.SELECT_NODE("td[4]").InnerText;
-                                draw = Match100Helper.convert_ameriaca_odd(draw);
+                                draw = AnalyseTool.convert_ameriaca_odd(draw);
                                 sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                                 Match100Helper.insert_data("youwage", league, start_time, host, client, win, draw, lose, "8", "0");
 
@@ -1473,9 +1473,9 @@ namespace match_helper
 
 
                     start_time = date + M.D + time;
-                    win = Match100Helper.convert_english_odd(win);
-                    draw = Match100Helper.convert_english_odd(draw);
-                    lose = Match100Helper.convert_english_odd(lose);
+                    win = AnalyseTool.convert_english_odd(win);
+                    draw = AnalyseTool.convert_english_odd(draw);
+                    lose = AnalyseTool.convert_english_odd(lose);
 
                     if (!start_time.ToLower().Contains("live"))
                     {
@@ -1703,9 +1703,9 @@ namespace match_helper
                         draw = node.SELECT_NODE("td[4]/span[1]/a[1]/span[1]").InnerText;
                         lose = node.SELECT_NODE("td[5]/span[1]/a[1]/span[1]").InnerText;
 
-                        win = Match100Helper.convert_english_odd(win);
-                        draw = Match100Helper.convert_english_odd(draw);
-                        lose = Match100Helper.convert_english_odd(lose);
+                        win = AnalyseTool.convert_english_odd(win);
+                        draw = AnalyseTool.convert_english_odd(draw);
+                        lose = AnalyseTool.convert_english_odd(lose);
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                         Match100Helper.insert_data("mcbookie", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
@@ -2000,9 +2000,9 @@ namespace match_helper
                         draw = node.SELECT_NODE("td[3]/table[1]/tbody[1]/tr[1]/td[3]/label[1]/input[1]").Attributes["value"].Value.Replace("EVS", "1/1");
                         lose = node.SELECT_NODE("td[3]/table[1]/tbody[1]/tr[1]/td[4]/label[1]/input[1]").Attributes["value"].Value.Replace("EVS", "1/1");
 
-                        win = Match100Helper.convert_english_odd(win);
-                        draw = Match100Helper.convert_english_odd(draw);
-                        lose = Match100Helper.convert_english_odd(lose);
+                        win = AnalyseTool.convert_english_odd(win);
+                        draw = AnalyseTool.convert_english_odd(draw);
+                        lose = AnalyseTool.convert_english_odd(lose);
                         sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                         Match100Helper.insert_data("apollobet", league, start_time, host, client, win, draw, lose, "8", "0");
                     }
@@ -2067,9 +2067,9 @@ namespace match_helper
                     draw = node.SELECT_NODE("td[4]").InnerText.E_TRIM().Replace("EVS", "1/1");
                     lose = node.SELECT_NODE("td[5]").InnerText.E_TRIM().Replace("EVS", "1/1");
 
-                    win = Match100Helper.convert_english_odd(win);
-                    draw = Match100Helper.convert_english_odd(draw);
-                    lose = Match100Helper.convert_english_odd(lose);
+                    win = AnalyseTool.convert_english_odd(win);
+                    draw = AnalyseTool.convert_english_odd(draw);
+                    lose = AnalyseTool.convert_english_odd(lose);
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                     Match100Helper.insert_data("boylesports", league, start_time, host, client, win, draw, lose, "8", "0");
                 }
@@ -2479,9 +2479,9 @@ namespace match_helper
                     win = node.SELECT_NODE("/td[3]/a[1]").InnerText.E_REMOVE().Replace("evens", "1/1");
                     draw = node.SELECT_NODE("/td[4]/a[1]").InnerText.E_REMOVE().Replace("evens", "1/1");
                     lose = node.SELECT_NODE("/td[5]/a[1]").InnerText.E_REMOVE().Replace("evens", "1/1");
-                    win = Match100Helper.convert_english_odd(win);
-                    draw = Match100Helper.convert_english_odd(draw);
-                    lose = Match100Helper.convert_english_odd(lose);
+                    win = AnalyseTool.convert_english_odd(win);
+                    draw = AnalyseTool.convert_english_odd(draw);
+                    lose = AnalyseTool.convert_english_odd(lose);
                     sb.AppendLine(league.PR(50) + start_time.PR(20) + host.PR(30) + client.PR(30) + win.PR(10) + draw.PR(10) + lose.PR(10));
                     Match100Helper.insert_data("wilsonbet", league, start_time, host, client, win, draw, lose, "8", "0");
                 }

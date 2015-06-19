@@ -265,7 +265,7 @@ namespace match_helper
 
                 if (!string.IsNullOrEmpty(odd_win) && !string.IsNullOrEmpty(odd_draw) && !string.IsNullOrEmpty(odd_lose))
                 {
-                    BsonDocument doc_odd = Match100Helper.get_odd_doc_from_europe(odd_win, odd_draw, odd_lose);
+                    BsonDocument doc_odd = AnalyseTool.get_odd_doc_from_europe(odd_win, odd_draw, odd_lose);
                     string persent_win = doc_odd["persent_win"].ToString();
                     string persent_draw = doc_odd["persent_draw"].ToString();
                     string persent_lose = doc_odd["persent_lose"].ToString();
@@ -275,7 +275,7 @@ namespace match_helper
                     sql = string.Format(sql, persent_win, persent_draw, persent_lose, persent_return, id);
                     SQLServerHelper.exe_sql(sql);
                     sb.AppendLine(start_time.PR(20) + host.PR(30) + client.PR(30) + odd_win.PR(10) + odd_lose.PR(10) + odd_lose.PR(10) + persent_win.PR(10) + persent_draw.PR(10) + persent_lose.PR(10) + persent_return.PR(10));
-                    this.txt_result.Text = sb.PRINT();
+                    this.txt_result.Text = sb.PR200();
                     Application.DoEvents();
 
                 }
@@ -346,7 +346,7 @@ namespace match_helper
                             Match100Helper.insert_name(row_temp["f_host"].ToString(), host);
 
                             sb.AppendLine(start_time.PR(30) + f_client.PR(50) + row_temp["f_host"].ToString());
-                            this.txt_result.Text = sb.PRINT();
+                            this.txt_result.Text = sb.PR200();
                             Application.DoEvents();
                         }
                     }
@@ -367,7 +367,7 @@ namespace match_helper
                             Match100Helper.insert_name(row_temp["f_client"].ToString(), client);
 
                             sb.AppendLine(start_time.PR(30) + f_host.PR(50) + row_temp["f_client"].ToString());
-                            this.txt_result.Text = sb.PRINT();
+                            this.txt_result.Text = sb.PR200();
                             Application.DoEvents();
                         }
                     }
@@ -806,13 +806,13 @@ namespace match_helper
                     dt_result.Rows.Add(row_new_temp);
 
                     sb.AppendLine("".PR(5) + row_temp["start_time"].PR(20) + row_temp["host"].PR(30) + row_temp["client"].PR(30) + row_temp["f_start_time"].PR(20) + row_temp["f_host"].PR(30) + row_temp["f_client"].PR(30) + row_temp["odd_win"].PR(10) + row_temp["odd_draw"].PR(10) + row_temp["odd_lose"].PR(10));
-                    this.txt_result.Text = sb.PRINT();
+                    this.txt_result.Text = sb.PR200();
                     Application.DoEvents();
                 }
                 sb.AppendLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             }
-            this.txt_result.Text = sb.PRINT();
+            this.txt_result.Text = sb.PR200();
             Application.DoEvents();
             this.dgv_result.DataSource = dt_result;
         }

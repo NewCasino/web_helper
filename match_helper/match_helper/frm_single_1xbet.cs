@@ -73,7 +73,7 @@ namespace match_helper
                     string odd_host = node.SELECT_NODE("/div[2]/table[1]/tbody[1]/tr[2]/td[1]").InnerText;
                     string odd_draw = node.SELECT_NODE("/div[2]/table[1]/tbody[1]/tr[2]/td[2]").InnerText;
                     string odd_away = node.SELECT_NODE("/div[2]/table[1]/tbody[1]/tr[2]/td[3]").InnerText;
-                    BsonDocument doc_odd=Match100Helper.get_odd_doc_from_europe(odd_host, odd_draw, odd_away);
+                    BsonDocument doc_odd = AnalyseTool.get_odd_doc_from_europe(odd_host, odd_draw, odd_away);
                     sb.Append(host.PR(10)+client.PR(10)+ start_time.PR(30)+odd_host.PR(10)+odd_draw.PR(10)+odd_away.PR(10)+doc_odd["persent_return"].ToString()+M.N);
                     Match100Helper.insert_data("1-x-bet", "", start_time, host, client, odd_host, odd_draw, odd_away, "0", "0");
                 }
