@@ -119,7 +119,7 @@ class AnalyseTest
     }
     public static string test()
     {
-        DataTable dt = SQLServerHelper.get_table("select * from a_event");
+        DataTable dt = SQLServerHelper.get_table("select * from a_type");
         IWindow.write_table(dt);
         return "";
     }
