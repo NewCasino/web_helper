@@ -42,7 +42,7 @@ class AnalyseTest
 
         return list_return;
     }
-    public static string  test_2result_persent()
+    public static string test_2result_persent()
     {
         string sql = "  select * from a_odd where type_id in (0,1,2,3)";
         DataTable dt_temp = SQLServerHelper.get_table(sql);
@@ -58,12 +58,12 @@ class AnalyseTest
                 doc = AnalyseTool.get_odd_doc_from_europe(row["o1"].ToString(), row["o2"].ToString());
             }
 
-           IWindow.write_line(row["event_id"].PR(10) + row["type_id"].PR(10) + doc["persent_return"].PR(10));
+            IWindow.write_line(row["event_id"].PR(10) + row["type_id"].PR(10) + doc["persent_return"].PR(10));
         }
         return "COMPUTE OK!!!";
     }
     public static string test_2result_odd()
-    { 
+    {
         BsonDocument doc = Analyse2Result.get_best(1, 50);
 
         IWindow.write_break();
@@ -76,7 +76,7 @@ class AnalyseTest
         StringBuilder sb = new StringBuilder();
         string sql = "  select * from a_odd where type_id in (2,3,4)";
         DataTable dt_temp = SQLServerHelper.get_table(sql);
-       
+
         List<BsonDocument> list = new List<BsonDocument>();
         foreach (DataRow row in dt_temp.Rows)
         {
@@ -105,6 +105,16 @@ class AnalyseTest
             }
         }
         List<BsonDocument> list_result = get_list_by_persent_desc(list);
+
+        sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
+        foreach (BsonDocument doc_show in list_result)
+        { 
+            sb.Append(Analyse2Result.get_info(doc_show));
+            sb.Append("");
+            sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
+        }
+        Log.create_log_file(sb.ToString());
+
         IWindow.write_break();
         int count = 0;
         foreach (BsonDocument doc_show in list_result)
@@ -114,9 +124,11 @@ class AnalyseTest
             IWindow.write(Analyse2Result.get_info(doc_show));
             IWindow.write_break();
         }
-     
+
+
         return "COMPUTE OK!!!";
     }
+
     public static string test()
     {
         DataTable dt = SQLServerHelper.get_table("select * from a_type");
