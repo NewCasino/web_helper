@@ -30,8 +30,8 @@ using System.Text;
                                        string o1,string o2,string o3,string o4,string o5,string o6)
         {
             string sql = "";
-            sql = " insert into s_mb_odds (timespan,event_id,type_id,type_name,m1,m2,m3,m4,m5,m6,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6) " +
-                  " values ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}')";
+            sql = " insert into s_mb_odds (timespan,event_id,type_id,type_name,m1,m2,m3,m4,m5,m6,r1,r2,r3,r4,r5,r6,o1,o2,o3,o4,o5,o6,note1) " +
+                  " values ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','0')";
 
             sql = string.Format(sql,UnixTime.unix_now.ToString(), event_id, type_id, type_name,
                               m1, m2, m3, m4, m5, m6, r1, r2, r3, r4, r5, r6, o1, o2, o3, o4, o5, o6); 
