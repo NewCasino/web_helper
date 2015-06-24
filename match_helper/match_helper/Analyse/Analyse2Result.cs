@@ -27,14 +27,14 @@ class Analyse2Result
               " left join  a_website d on a.website_id=d.id" +
               " where a.event_id={0} and a.type_id={1} " +
               " and a.m1='{2}' and a.m2='{3}' and a.m3='{4}' and a.m4='{5}' and a.m5='{6}' and a.m6='{7}' " +
-              " and a.o1='{8}' and a.o2='{9}' and a.o3='{10}' and a.o4='{11}' and a.o5='{12}' and a.o6='{13}' ";
+              " and a.r1='{8}' and a.r2='{9}' and a.r3='{10}' and a.r4='{11}' and a.r5='{12}' and a.r6='{13}' ";
         sql = string.Format(sql, dt_temp.Rows[0]["event_id"].ToString(), dt_temp.Rows[0]["type_id"].ToString(),
                                  dt_temp.Rows[0]["m1"].ToString(), dt_temp.Rows[0]["m2"].ToString(),
                                  dt_temp.Rows[0]["m3"].ToString(), dt_temp.Rows[0]["m4"].ToString(),
                                  dt_temp.Rows[0]["m5"].ToString(), dt_temp.Rows[0]["m6"].ToString(),
-                                 dt_temp.Rows[0]["o1"].ToString(), dt_temp.Rows[0]["o2"].ToString(),
-                                 dt_temp.Rows[0]["o3"].ToString(), dt_temp.Rows[0]["o4"].ToString(),
-                                 dt_temp.Rows[0]["o5"].ToString(), dt_temp.Rows[0]["o6"].ToString()
+                                 dt_temp.Rows[0]["r1"].ToString(), dt_temp.Rows[0]["r2"].ToString(),
+                                 dt_temp.Rows[0]["r3"].ToString(), dt_temp.Rows[0]["r4"].ToString(),
+                                 dt_temp.Rows[0]["r5"].ToString(), dt_temp.Rows[0]["r6"].ToString()
                                  );
         DataTable dt = SQLServerHelper.get_table(sql);
         string start_time = "";
@@ -427,5 +427,5 @@ class Analyse2Result
                 break;
         }
         return sb.ToString();
-    }
+    } 
 }

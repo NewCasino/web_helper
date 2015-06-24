@@ -142,4 +142,34 @@ class AnalyseTest
 
         return "";
     }
+
+
+    public static string get_pin_auto()
+    {
+        //select pin
+        string result = "";
+        result = PinApi.feeds_by_sport_id("28");
+        IWindow.write(result);
+
+        PinData.insert_odds(result);
+
+        AnalyseEngine.select_pin();
+        AnalyseEngine.select_event();
+        AnalyseEngine.select_odd();
+        return "COMPUTE OK!";
+    } 
+    public static string get_mb_auto()
+    {
+        //select pin
+        string result = "";
+        result = Log.get_temp_file("mb.html");
+        IWindow.write(result);
+
+        MbData.get_detail(result);
+
+        AnalyseEngine.select_mb();
+        AnalyseEngine.select_event();
+        AnalyseEngine.select_odd();
+        return "COMPUTE OK!";
+    }
 }

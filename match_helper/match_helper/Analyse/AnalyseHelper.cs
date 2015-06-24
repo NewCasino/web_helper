@@ -15,6 +15,12 @@ using System.Data;
             if (first >= 0 && second >= 0 && second>first) { return txt.Remove(3, second - first + 1); }
             return txt;
         }
+        public static string clear_team_name(string txt)
+        {
+            txt = remove_brackets(txt);
+            txt = txt.Replace("'", "");
+            txt = txt.Replace("FC", "");
+        }
 
         public static  bool  is_alike_name(string input1,string input2)
         {
@@ -139,6 +145,11 @@ using System.Data;
         }
         public static bool is_same_event(string start_time1, string team1, string team2, string start_time2, string team3, string team4)
         {
+            team1 = clear_team_name(team1);
+            team2 = clear_team_name(team2);
+            team3 = clear_team_name(team3);
+            team4 = clear_team_name(team4);
+
             DateTime dt1 = Tool.get_time(start_time1);
             DateTime dt2 = Tool.get_time(start_time2);
             TimeSpan span = dt2 - dt1;

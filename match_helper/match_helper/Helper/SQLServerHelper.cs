@@ -12,7 +12,7 @@ public class SQLServerHelper
  
     public static DataTable get_table(string sql)
     {
-        if (Environment.UserName == "CY120467") SQLServerHelper.str_con = "Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
+        if (Environment.UserName == "2120467") SQLServerHelper.str_con = "Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
 
         SqlConnection con = new SqlConnection(str_con);
         SqlCommand cmd = new SqlCommand();
@@ -27,7 +27,7 @@ public class SQLServerHelper
     }
     public static void exe_sql(string sql)
     {
-        if (Environment.UserName == "CY120467") SQLServerHelper.str_con = "Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
+        if (Environment.UserName == "2120467") SQLServerHelper.str_con = "Data Source=.;Initial Catalog=HtmlSelect;Integrated Security=True";
 
         SqlConnection con = new SqlConnection(str_con);
         SqlCommand cmd = new SqlCommand();
