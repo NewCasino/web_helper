@@ -60,5 +60,15 @@ class IWindow
         }
         IWindow.write_line(M.L(str_column.Length));
     }
+    public static string  help()
+    {
+        IWindow.write_break();
+        IWindow.write_line("write()         --在即时窗体中显示一个华丽的字符串");
+        IWindow.write_line("write_line()    --在即时窗体中显示一行华丽的字符串");
+        IWindow.write_line("write_break()   --在即时窗体中显示一个华丽的分割线");
+        IWindow.write_line("write_content() --在即时窗体中显示一块华丽的文本内容");
+        IWindow.write_break();
+        return "Help Information";
+    }
 }
 

@@ -9,8 +9,8 @@ using System.Text.RegularExpressions;
 
 class HtmlHelper
 {
-    public static string down_html_file = @"D:\down_html_file\";
-    public static string down_img_file = @"D:\down_img_file\";
+    public static string down_html_file = @"D:\log\down_html_file\";
+    public static string down_img_file = @"D:\log\down_img_file\";
     public static WebClient client = new WebClient();
     //保存HTML为本地文件
     public static string save_html_to_file(string url)
