@@ -140,7 +140,7 @@ class AnalyseTest
     public static string check_data()
     {
 
-        return "";
+        return "CHECK COMPUTE!";
     }
 
 
