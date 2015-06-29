@@ -147,10 +147,11 @@ class AnalyseTest
     public static string get_pin_auto()
     {
         //select pin
-        string result = "";
-        result = PinApi.feeds_by_sport_id("28");
-        IWindow.write(result);
+        //string result = "";
+        //result = PinApi.feeds_by_sport_id("28");
+        //IWindow.write(result);
 
+        string result = Log.get_temp_file("ps_detail.txt");
         PinData.insert_odds(result);
 
         AnalyseEngine.select_pin();
@@ -161,15 +162,18 @@ class AnalyseTest
     public static string get_mb_auto()
     {
         //select pin
+        string show = "";
         string result = "";
         result = Log.get_temp_file("mb.html");
-        IWindow.write(result);
+        //IWindow.write(result);
 
-        MbData.get_detail(result);
+        show= MbData.get_detail(result);
+        Log.create_log_file(show);
+        IWindow.write_line(show);
 
-        AnalyseEngine.select_mb();
-        AnalyseEngine.select_event();
-        AnalyseEngine.select_odd();
+        //AnalyseEngine.select_mb();
+        //AnalyseEngine.select_event();
+        //AnalyseEngine.select_odd();
         return "COMPUTE OK!";
     }
 }

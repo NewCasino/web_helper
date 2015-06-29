@@ -161,8 +161,9 @@ class MbData
                                                             }
                                                             sb.Append(M.N);
                                                         }
-                                                      
 
+                                                        string temp1 = "";
+                                                        string temp2 = "";
                                                         if (odd_type == "To Win Match With Handicap" && list.Count >= 4)
                                                         {
 
@@ -170,6 +171,22 @@ class MbData
                                                                               "FULL", "", "", "", "", "",
                                                                               list[0].ToString(), list[2].ToString(), "", "", "", "",
                                                                               list[1].ToString(), list[3].ToString(), "", "", "", "");
+
+                                                        }
+
+                                                        if (odd_type == "To Win Match With Asian Handicap" && list.Count >= 4)
+                                                        {
+                                                            if (list[0].ToString().IndexOf(",") > 0 && list[2].ToString().IndexOf(",") > 0)
+                                                            {
+                                                                list[0] = ((Convert.ToDouble(list[0].ToString().E_SPLIT(",")[0].ToString()) + Convert.ToDouble(list[0].ToString().E_SPLIT(",")[1].ToString())) / 2).ToString();
+                                                                list[2] = ((Convert.ToDouble(list[2].ToString().E_SPLIT(",")[0].ToString()) + Convert.ToDouble(list[2].ToString().E_SPLIT(",")[1].ToString())) / 2).ToString();
+                                                                MbSQL.insert_odds(event_id, "2", "To Win Match With Asian Handicap",
+                                                                            "FULL", "", "", "", "", "",
+                                                                            list[0].ToString(), list[2].ToString(), "", "", "", "",
+                                                                            list[1].ToString(), list[3].ToString(), "", "", "", "");
+                                                            }
+                                                            
+                                                          
 
                                                         }
                                                         if (odd_type == "To Win 1st Half With Handicap" && list.Count >= 4)
@@ -186,6 +203,7 @@ class MbData
                                                                                list[0].ToString(), list[2].ToString(), "", "", "", "",
                                                                                list[1].ToString(), list[3].ToString(), "", "", "", "");
                                                         }
+
                                                         if (odd_type == "Total Goals" && list.Count >= 4)
                                                         {
                                                             MbSQL.insert_odds(event_id, "3", "Total Goals",
@@ -193,6 +211,19 @@ class MbData
                                                                                list[0].ToString(), list[2].ToString(), "", "", "", "",
                                                                                list[1].ToString(), list[3].ToString(), "", "", "", "");
                                                         }
+                                                        if (odd_type == "Asian Total Goals" && list.Count >= 4)
+                                                        {
+                                                            if (list[0].ToString().IndexOf(",") > 0 && list[2].ToString().IndexOf(",") > 0)
+                                                            {
+                                                                list[0] = ((Convert.ToDouble(list[0].ToString().E_SPLIT(",")[0].ToString()) + Convert.ToDouble(list[0].ToString().E_SPLIT(",")[1].ToString())) / 2).ToString();
+                                                                list[2] = ((Convert.ToDouble(list[2].ToString().E_SPLIT(",")[0].ToString()) + Convert.ToDouble(list[2].ToString().E_SPLIT(",")[1].ToString())) / 2).ToString();
+                                                                MbSQL.insert_odds(event_id, "3", "Asian Total Goals",
+                                                                                "FULL", "", "", "", "", "",
+                                                                                list[0].ToString(), list[2].ToString(), "", "", "", "",
+                                                                                list[1].ToString(), list[3].ToString(), "", "", "", "");
+                                                            }
+                                                        }
+                                                        
                                                         if (odd_type == "Total Goals - 1st Half" && list.Count >= 4)
                                                         {
                                                             MbSQL.insert_odds(event_id, "3", "Total Goals - 1st Half",
