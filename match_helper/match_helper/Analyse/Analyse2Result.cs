@@ -394,7 +394,7 @@ class Analyse2Result
                     sb.Append(doc_item["website"].PR(20));
                     sb.Append(doc_item["odd_win"].PR(10));
                     sb.Append(doc_item["odd_lose"].PR(10));
-                    sb.Append(UnixTime.get_local_time(Convert.ToUInt64(doc_item["timespan"].ToString())).ToString("yyyy-MM-ss HH:mm:ss").PR(20));
+                    sb.Append(UnixTime.get_local_time(Convert.ToUInt64(doc_item["timespan"].ToString())).ToString("yyyy-MM-dd HH:mm:ss").PR(20));
                     sb.Append(doc_item["id"].PR(10));
                     sb.Append(doc_item["league"].PR(50).E_REMOVE() + Environment.NewLine);
                 }
