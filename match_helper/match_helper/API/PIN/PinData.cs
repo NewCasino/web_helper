@@ -193,10 +193,14 @@ public class PinData
 
                         if (period.SelectSingleNode("moneyLine/homePrice") != null)
                         {
-                            string home_line = period.SelectSingleNode("moneyLine/homePrice").InnerText;
-                            string draw_line = period.SelectSingleNode("moneyLine/drawPrice").InnerText;
-                            string away_line = period.SelectSingleNode("moneyLine/awayPrice").InnerText;
-                            PinSQL.insert_odd_three(event_id, period_number, home_line, draw_line, away_line);
+                            try
+                            {
+                                string home_line = period.SelectSingleNode("moneyLine/homePrice").InnerText;
+                                string draw_line = period.SelectSingleNode("moneyLine/drawPrice").InnerText;
+                                string away_line = period.SelectSingleNode("moneyLine/awayPrice").InnerText;
+                                PinSQL.insert_odd_three(event_id, period_number, home_line, draw_line, away_line);
+                            }
+                            catch (Exception error) { }
 
                             //DateTime dt_start_time = Convert.ToDateTime(start_time);
                             //Match100Helper.insert_data("pinnaclesports", PinSQL.get_league_name(sport_id, league_id), dt_start_time.ToString("MM/dd●HH:mm"), home_name, away_name, home_line, draw_line, away_line, "0", "0");
