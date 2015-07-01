@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analyse\AnalyseTool.cs" />
+    <Compile Include="Analyse\Analyse3Result.cs" />
     <Compile Include="API\MBOOK\MbookSQL.cs" />
     <Compile Include="API\MB\MbData.cs" />
     <Compile Include="API\MB\MbSQL.cs" />

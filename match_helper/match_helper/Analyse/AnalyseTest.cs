@@ -128,7 +128,85 @@ class AnalyseTest
 
         return "COMPUTE OK!!!";
     }
+    public static string test_all_result()
+    {
+        StringBuilder sb = new StringBuilder();
+        string sql = "  select * from a_odd where type_id in (1,2,3,4)";
+        DataTable dt_temp = SQLServerHelper.get_table(sql);
 
+        List<BsonDocument> list = new List<BsonDocument>();
+        foreach (DataRow row in dt_temp.Rows)
+        {
+            if (row["m5"].ToString() == "Y") continue;
+            BsonDocument doc=new BsonDocument();
+
+            if (row["type_id"].ToString() == "2" || row["type_id"].ToString() == "3" || row["type_id"].ToString() == "4")
+            {
+                doc = Analyse2Result.get_best(Convert.ToInt32(row["id"].ToString()), 50);
+            }
+            if (row["type_id"].ToString() == "1")
+            {
+                doc = Analyse3Result.get_best(Convert.ToInt32(row["id"].ToString()), 50);
+            } 
+            list.Add(doc);
+            for (int i = 0; i < dt_temp.Rows.Count; i++)
+            {
+                if (dt_temp.Rows[i]["event_id"].ToString() == row["event_id"].ToString() &&
+                    dt_temp.Rows[i]["type_id"].ToString() == row["type_id"].ToString() &&
+                    dt_temp.Rows[i]["m1"].ToString() == row["m1"].ToString() &&
+                    dt_temp.Rows[i]["m2"].ToString() == row["m2"].ToString() &&
+                    dt_temp.Rows[i]["m3"].ToString() == row["m3"].ToString() &&
+                    dt_temp.Rows[i]["m4"].ToString() == row["m4"].ToString() &&
+                    dt_temp.Rows[i]["m5"].ToString() == row["m5"].ToString() &&
+                    dt_temp.Rows[i]["m6"].ToString() == row["m6"].ToString() &&
+                    dt_temp.Rows[i]["o1"].ToString() == row["o1"].ToString() &&
+                    dt_temp.Rows[i]["o2"].ToString() == row["o2"].ToString() &&
+                    dt_temp.Rows[i]["o3"].ToString() == row["o3"].ToString() &&
+                    dt_temp.Rows[i]["o4"].ToString() == row["o4"].ToString() &&
+                    dt_temp.Rows[i]["o5"].ToString() == row["o5"].ToString() &&
+                    dt_temp.Rows[i]["o6"].ToString() == row["o6"].ToString())
+                {
+                    dt_temp.Rows[0]["m5"] = "Y";
+                }
+            }
+        }
+        List<BsonDocument> list_result = get_list_by_persent_desc(list);
+
+        sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
+        foreach (BsonDocument doc_show in list_result)
+        {
+            if (doc_show["type"].ToString() == "2result") sb.Append(Analyse2Result.get_info(doc_show));
+            if (doc_show["type"].ToString() == "3result") sb.Append(Analyse3Result.get_info(doc_show));
+            
+            sb.Append("");
+            sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
+        }
+        Log.create_log_file(sb.ToString());
+
+        IWindow.write_break();
+        int count = 0;
+        foreach (BsonDocument doc_show in list_result)
+        {
+            count = count + 1;
+            if (count == 11) break;
+            if( doc_show["type"].ToString()=="2result")   IWindow.write(Analyse2Result.get_info(doc_show));
+            if (doc_show["type"].ToString() == "3result")   IWindow.write(Analyse3Result.get_info(doc_show)); 
+            IWindow.write_break();
+        }
+
+
+        return "COMPUTE OK!!!";
+    }
+
+    public static string test_3result_odd()
+    {
+        BsonDocument doc = Analyse3Result.get_best(4, 50);
+
+        IWindow.write_break();
+        IWindow.write(Analyse3Result.get_info(doc));
+        IWindow.write_break();
+        return "COMPUTE OK!!!";
+    }
     public static string test()
     {
         DataTable dt = SQLServerHelper.get_table("select * from a_type");
