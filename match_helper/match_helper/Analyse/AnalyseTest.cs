@@ -127,7 +127,17 @@ class AnalyseTest
 
 
         return "COMPUTE OK!!!";
+    }  
+    public static string test_3result_odd()
+    {
+        BsonDocument doc = Analyse3Result.get_best(4, 50);
+
+        IWindow.write_break();
+        IWindow.write(Analyse3Result.get_info(doc));
+        IWindow.write_break();
+        return "COMPUTE OK!!!";
     }
+
     public static string test_all_result()
     {
         StringBuilder sb = new StringBuilder();
@@ -138,7 +148,7 @@ class AnalyseTest
         foreach (DataRow row in dt_temp.Rows)
         {
             if (row["m5"].ToString() == "Y") continue;
-            BsonDocument doc=new BsonDocument();
+            BsonDocument doc = new BsonDocument();
 
             if (row["type_id"].ToString() == "2" || row["type_id"].ToString() == "3" || row["type_id"].ToString() == "4")
             {
@@ -147,7 +157,7 @@ class AnalyseTest
             if (row["type_id"].ToString() == "1")
             {
                 doc = Analyse3Result.get_best(Convert.ToInt32(row["id"].ToString()), 50);
-            } 
+            }
             list.Add(doc);
             for (int i = 0; i < dt_temp.Rows.Count; i++)
             {
@@ -177,7 +187,7 @@ class AnalyseTest
         {
             if (doc_show["type"].ToString() == "2result") sb.Append(Analyse2Result.get_info(doc_show));
             if (doc_show["type"].ToString() == "3result") sb.Append(Analyse3Result.get_info(doc_show));
-            
+
             sb.Append("");
             sb.AppendLine("-------------------------------------------------------------------------------------------------------------");
         }
@@ -189,8 +199,8 @@ class AnalyseTest
         {
             count = count + 1;
             if (count == 11) break;
-            if( doc_show["type"].ToString()=="2result")   IWindow.write(Analyse2Result.get_info(doc_show));
-            if (doc_show["type"].ToString() == "3result")   IWindow.write(Analyse3Result.get_info(doc_show)); 
+            if (doc_show["type"].ToString() == "2result") IWindow.write(Analyse2Result.get_info(doc_show));
+            if (doc_show["type"].ToString() == "3result") IWindow.write(Analyse3Result.get_info(doc_show));
             IWindow.write_break();
         }
 
@@ -198,15 +208,6 @@ class AnalyseTest
         return "COMPUTE OK!!!";
     }
 
-    public static string test_3result_odd()
-    {
-        BsonDocument doc = Analyse3Result.get_best(4, 50);
-
-        IWindow.write_break();
-        IWindow.write(Analyse3Result.get_info(doc));
-        IWindow.write_break();
-        return "COMPUTE OK!!!";
-    }
     public static string test()
     {
         DataTable dt = SQLServerHelper.get_table("select * from a_type");
