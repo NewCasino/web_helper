@@ -213,9 +213,7 @@ class AnalyseTest
         DataTable dt = SQLServerHelper.get_table("select * from a_type");
         IWindow.write_table(dt);
         return "";
-    }
-    //Pin & Mb home and away reverse
-    //compute not find the right data
+    } 
     public static string check_data()
     {
 
@@ -255,7 +253,5 @@ class AnalyseTest
         AnalyseEngine.select_event();
         AnalyseEngine.select_odd();
         return "COMPUTE OK!";
-    }
-
-    //add compute three results
+    } 
 }
