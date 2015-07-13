@@ -135,6 +135,7 @@ class AnalyseTest
         IWindow.write_break();
         IWindow.write(Analyse3Result.get_info(doc));
         IWindow.write_break();
+        Log.create_log_file(Analyse3Result.get_info(doc));
         return "COMPUTE OK!!!";
     }
 

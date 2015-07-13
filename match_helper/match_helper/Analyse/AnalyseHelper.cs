@@ -95,7 +95,7 @@ class AnalyseHelper
 
 
         if (max >= 2) return true;
-        if ((max * 1.000) / (l_min * 1.000) > 0.49) return true;
+        if ((max * 1.000) / (l_min * 1.000) > 0.5) return true;
         return false;
     }
     public static bool is_alike_word(string word1, string word2)
@@ -153,9 +153,11 @@ class AnalyseHelper
 
     public static string clear_team_name(string txt)
     {
+        txt = txt.ToLower();
         txt = remove_brackets(txt);
         txt = txt.Replace("'", "");
-        txt = txt.Replace("FC", "");
+        txt = txt.Replace("fc", "");
+        txt = txt.Replace("women", ""); 
         return txt;
     }
     public static string remove_brackets(string txt)
